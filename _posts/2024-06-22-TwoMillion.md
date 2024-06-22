@@ -13,7 +13,7 @@ tags:
   - Information Leakage
   - Privilege Escalation via Kernel Exploitation (CVE-2023-0386) - OverlayFS Vulnerability
 image:
-  path: /assets/img/TwoMillion/TwoMillion.jpg
+  path: /assets/img/TwoMillion/TwoMillion.png
 ---
 
 ## Descripción
