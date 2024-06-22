@@ -84,11 +84,7 @@ Nmap done: 1 IP address (1 host up) scanned in 10.44 seconds
 
 Nos dirigimos a la página web y se visualiza lo siguiente:
 
-![[/assets/img/TwoMillion/image1.png]]
-![Desktop View](/assets/img/sample/mockup.png){: w="700" h="400" }
-![Desktop View](/assets/img/sample/mockup.png)
-![](/assets/img/sample/mockup.png)
-
+![Desktop View](/assets/img/TwoMillion/image1.png){: w="700" h="400" }
 
 Lo cual quiere decir que se está aplicacando `virtual hosting`, para poder acceder a la web debemos añadir `2million.htb` a nuestro `/etc/hosts`
 
