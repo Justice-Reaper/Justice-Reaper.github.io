@@ -16,8 +16,6 @@ image:
   path: /assets/img/TwoMillion/TwoMillion.jpg
 ---
 
-![TwoMillion](assets/img/TwoMillion/TwoMillion.jpg){: style="width: 400px; height: 300px;"}
-
 ## Descripción
 
 `TwoMillion` es una máquina `Easy linux` donde estaremos vulnerando la máquina a través de su `api`, listaremos sus endpoints`endpoints` y los explotaremos convirtiéndonos en usuario `administrador` y obteniendo acceso a la máquina víctima mediante un `command injection`. Una vez dentro escalaremos privilegios gracias a unas `credenciales` de base de datos y posteriormente explotaremos el `CVE-2023-0386` obteniendo así el usuario root
