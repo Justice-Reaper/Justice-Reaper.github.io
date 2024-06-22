@@ -14,12 +14,6 @@ image:
   path: /assets/img/GoodGames/GoodGamesPortada.jpeg
 ---
 
-## Descripción
-
-GoodGames es una máquina `Easy linux` donde estaremos vulnerando la máquina a través de inyecciones SQL y listaremos base de datos de manera manual, estaremos rompiendo hashes y aprovechándonos de la reutilización de contraseñas. También destaca los peligros de utilizar `render_template_string` en una aplicación web Python donde se refleja la entrada del usuario, permitiendo ataques de inyección de plantillas del lado del servidor (SSTI). La escalada de privilegios implica la enumeración y muestra cómo tener privilegios de administrador en un contenedor y un usuario de bajo privilegio en la máquina anfitriona puede ser peligroso, permitiendo ataques de inyección de plantilla del lado del servidor (SSTI).
-
----
-
 ## Reconocimiento
 
 Se comprueba que la máquina está activa y se determina su sistema operativo a través del script implementado en bash `whichSystem.sh`
