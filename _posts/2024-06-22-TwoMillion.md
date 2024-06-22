@@ -6,17 +6,14 @@ categories:
   - HTB
   - Linux
 tags:
-  - Information
-  - Leakage
-  - Kernel
-  - Exploitation
-  - CVE-2023-0386
-  - OverlayFS
-  - Vulnerability
-  - Abusing
-  - API
+  - Abusing declared Javascript functions from the browser console
+  - Abusing the API to generate a valid invite code
+  - Abusing the API to elevate our privilege to administrator
+  - Command injection via poorly designed API functionality
+  - Information Leakage
+  - Privilege Escalation via Kernel Exploitation (CVE-2023-0386) - OverlayFS Vulnerability
 image:
-  path: /assets/img/GoodGames/GoodGamesPortada.jpeg
+  path: /assets/img/TwoMillion/TwoMillion.jpg
 ---
 
 ## Descripción
@@ -87,7 +84,7 @@ Nmap done: 1 IP address (1 host up) scanned in 10.44 seconds
 
 Nos dirigimos a la página web y se visualiza lo siguiente:
 
-![[Pasted image 20240622120714.png]]
+![[/assets/img/TwoMillion/Pasted image 20240622120714.png]]
 
 Lo cual quiere decir que se está aplicacando `virtual hosting`, para poder acceder a la web debemos añadir `2million.htb` a nuestro `/etc/hosts`
 
@@ -104,19 +101,19 @@ ff02::2 ip6-allrouters
 
 Ahora al acceder a  la web vemos lo siguiente
 
-![[Pasted image 20240622121118.png]]
+![[/assets/img/TwoMillion/Pasted image 20240622121118.png]]
 
 Vamos a intentar registrarnos desde la parte de join
 
-![[Pasted image 20240622121209.png]]
+![[/assets/img/TwoMillion/Pasted image 20240622121209.png]]
 
 Parece que nos está invitando a encontrar una vulnerabilidad en el sitio web para poder registrarnos
 
-![[Pasted image 20240622121302.png]]
+![[/assets/img/TwoMillion/Pasted image 20240622121302.png]]
 
 En el código de la página web poder ver una función de javascript, en ella podemos ver la ruta de la api `/api/v1/invite/verify`
 
-![[Pasted image 20240622121556.png]]
+![[/assets/img/TwoMillion/Pasted image 20240622121556.png]]
 
 Buscando en el código fuente nos encontramos este archivo .js en la ruta `http://2million.htb/js/inviteapi.min.js`. El archivo no estará en un formato fácilmente legible pero podemos usar chatgpt para que lo represente correctamente.
 
@@ -163,11 +160,11 @@ Al hacerle un petición a este endpoint de la api obtenemos un mensaje
 
 Existe otra forma para listar las funciones en el navegador, para ello debemos abrirnos la consola del navegador y poner el comando `this`, posteriormente llamamos al nombre de la función `makeInviteCode()`
 
-![[Pasted image 20240622122858.png]]
+![[/assets/img/TwoMillion/Pasted image 20240622122858.png]]
 
 Podemos descifrar el mensaje cifrado con `rot13` desde cualquier página web. El mensaje nos dice que debemos hacer una petición `POST` a la ruta `http://2million.htb/api/v1/invite/generate`
 
-![[Pasted image 20240622123102.png]]
+![[/assets/img/TwoMillion/Pasted image 20240622123102.png]]
 
 Al hacer la petición `POST` obtenemos una cadena en `base64`
 
@@ -185,29 +182,29 @@ UK38N-8CETB-JZVB1-GBRWH
 
 Introducimos el código de invitación
 
-![[Pasted image 20240622123728.png]]
+![[/assets/img/TwoMillion/Pasted image 20240622123728.png]]
 
 Registramos nuestro usuario
 
-![[Pasted image 20240622123748.png]]
+![[/assets/img/TwoMillion/Pasted image 20240622123748.png]]
 
 Nos logueamos en la página web
 
-![[Pasted image 20240622123900.png]]
+![[/assets/img/TwoMillion/Pasted image 20240622123900.png]]
 
 Al acceder a la web en la parte de `Labs` podemos descargarnos una vpn
 
-![[Pasted image 20240622125958.png]]
+![[/assets/img/TwoMillion/Pasted image 20240622125958.png]]
 
 Si miramos el trafico al pulsar sobre estos botones obtenemos dos nuevas rutas, `http://2million.htb/api/v1/user/vpn/regenerate` y `http://2million.htb/api/v1/user/vpn/generate`
 
-![[Pasted image 20240622130206.png]]
+![[/assets/img/TwoMillion/Pasted image 20240622130206.png]]
 
-![[Pasted image 20240622130134.png]]
+![[/assets/img/TwoMillion/Pasted image 20240622130134.png]]
 
 En la página web no he encontrado nada más que sea de interés, no hay subdominios o nuevas rutas. Por lo tanto vamos a centrarnos en `enumerar` la `api`. Lo primero que necesitamos en obtener nuestro `token de sesión` para poder hacer la petición como si estuviésemos logueados
 
-![[Pasted image 20240622131226.png]]
+![[/assets/img/TwoMillion/Pasted image 20240622131226.png]]
 
 Posteriormente debemos realizar esta `petición` a la `api` para `enumerar` todos sus `endpoints`
 
