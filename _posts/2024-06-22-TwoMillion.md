@@ -5,6 +5,9 @@ author: Justice-Reaper
 categories:
   - HTB
   - Linux
+  - Api
+  - CVE-2023-0386
+  - Information Leakage
 tags:
   - Abusing declared Javascript functions from the browser console
   - Abusing the API to generate a valid invite code
