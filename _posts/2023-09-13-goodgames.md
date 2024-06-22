@@ -12,7 +12,6 @@ tags:
   ]
 image:
   path: /assets/img/GoodGames/GoodGamesPortada.jpeg
----
 
 ## Reconocimiento
 
