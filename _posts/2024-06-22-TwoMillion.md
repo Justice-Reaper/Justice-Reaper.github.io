@@ -23,7 +23,7 @@ image:
 - Abusing the API to elevate our privilege to administrator
 - Command injection via poorly designed API functionality
 - Information Leakage
-- Privilege Escalation via Kernel Exploitation (CVE-2023-0386) · OverlayFS Vulnerability
+- Privilege Escalation via Kernel Exploitation (CVE-2023-0386) - OverlayFS Vulnerability
 
 ## Certificaciones
 
