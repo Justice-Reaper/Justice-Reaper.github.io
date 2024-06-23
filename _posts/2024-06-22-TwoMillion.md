@@ -16,16 +16,19 @@ image:
   path: /assets/img/TwoMillion/TwoMillion.png
 ---
 
-## Vulnerabilidades
+## Skills
 
-- Building a Python3 Stealth port scanner with Scapy
 - Abusing declared Javascript functions from the browser console
 - Abusing the API to generate a valid invite code
 - Abusing the API to elevate our privilege to administrator
 - Command injection via poorly designed API functionality
 - Information Leakage
 - Privilege Escalation via Kernel Exploitation (CVE-2023-0386) · OverlayFS Vulnerability
-- eWPT · OSWE
+
+## Certificaciones
+
+- eWPT
+- OSWE
 
 ## Descripción
 
