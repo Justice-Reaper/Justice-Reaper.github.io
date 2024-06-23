@@ -16,6 +16,17 @@ image:
   path: /assets/img/TwoMillion/TwoMillion.png
 ---
 
+## Vulnerabilidades
+
+- Building a Python3 Stealth port scanner with Scapy
+- Abusing declared Javascript functions from the browser console
+- Abusing the API to generate a valid invite code
+- Abusing the API to elevate our privilege to administrator
+- Command injection via poorly designed API functionality
+- Information Leakage
+- Privilege Escalation via Kernel Exploitation (CVE-2023-0386) · OverlayFS Vulnerability
+- eWPT · OSWE
+
 ## Descripción
 
 `TwoMillion` es una máquina `Easy linux` donde estaremos vulnerando la máquina a través de su `api`, listaremos sus endpoints`endpoints` y los explotaremos convirtiéndonos en usuario `administrador` y obteniendo acceso a la máquina víctima mediante un `command injection`. Una vez dentro escalaremos privilegios gracias a unas `credenciales` de base de datos y posteriormente explotaremos el `CVE-2023-0386` obteniendo así el usuario root
