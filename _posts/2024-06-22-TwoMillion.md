@@ -521,7 +521,7 @@ Ahora hemos obtenidos una `cadena` en `hexadecimal`, para `descifrarlo` vamos a 
 
 Hemos obtenido como resultado una `cadena` en `base64` `encriptada` con `xor` cuya `clave` de `encriptación` es `HackTheBox`, para desencriptar el mensaje vamos a usar `https://gchq.github.io/CyberChef/`
 
-![[Pasted image 20240623222714.png]]
+![](/assets/img/TwoMillion/image_15.png)
 
 El mensaje final es el siguiente
 
