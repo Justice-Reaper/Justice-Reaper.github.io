@@ -481,17 +481,6 @@ root@2million:/tmp/exploit/CVE-2023-0386# whoami
 root
 ```
 
-## Flags
-
-Capturamos ambas flags
-
-```
-root@2million:/tmp/exploit/CVE-2023-0386# cat /root/root.txt 
-9b2dd3ae734a3e02e7e052f907a70028
-root@2million:/tmp/exploit/CVE-2023-0386# cat /home/admin/user.txt 
-42150898e12e64ed80eef1937b5ea7e8
-```
-
 ## Secret Message
 
 En el directorio `root` nos encontramos con un archivo `.json`
