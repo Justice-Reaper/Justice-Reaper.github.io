@@ -1,6 +1,6 @@
 ---
 title: Horizontall
-date: 2024-06-27 20:11:00 +0800
+date: 2024-06-30 12:26:00 +0800
 author: Justice-Reaper
 categories:
   - HTB
@@ -9,8 +9,8 @@ tags:
 - CVE-2021-3129
 - Information Leakage
 - Remote Port Forwarding
-- Strapi Exploitation
-- Laravel Exploitation
+- Strapi
+- Laravel
 image:
   path: /assets/img/Horizontall/Horizontall.png
 ---
