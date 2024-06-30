@@ -6,18 +6,13 @@ categories:
   - HTB
   - Linux
 tags:
-  - Api
-  - Abusing
-  - Kernel
-  - Exploitation
-  - CVE-2023-0386
-  - Information
-  - Leakage
-  - Javascript
-  - Command
-  - Inyection
+- CVE-2021-3129
+- Information Leakage
+- Remote Port Forwarding
+- Strapi Exploitation
+- Laravel Exploitation
 image:
-  path: /assets/img/TwoMillion/TwoMillion.png
+  path: /assets/img/Horizontall/Horizontall.png
 ---
 
 ## Skills
@@ -26,10 +21,12 @@ image:
 - Port Forwarding
 - Strapi CMS Exploitation
 - Laravel Exploitation
+  
 ## Certificaciones
 
 - eWPT
 - eJPT
+  
 ## Descripción
 
 `Horizontall` es una máquina `Easy linux` donde estaremos vulnerando la máquina a través de su `api` de `strapi`, listaremos sus subdominios y explotaremos una versión antigua desactualizada de `strapi` accediendo a la máquina víctima. Una vez dentro realizaremos un remote port forwarding y explotaremos el `CVE-2021-3129` obteniendo así el usuario root
@@ -100,7 +97,7 @@ Nmap done: 1 IP address (1 host up) scanned in 10.79 seconds
 
 Nos dirigimos a la página web y se visualiza lo siguiente:
 
-![[Pasted image 20240629151902.png]]
+![](/assets/img/TwoMillion/image_1.png)
 
 Abrimos el `/etc/hosts` y añadimos el dominio `horizontall.htb`, debemos hacer esto debido a que estamos ante un `virtual hosting` 
 
@@ -117,7 +114,7 @@ ff02::2 ip6-allrouters
 
 Ahora al acceder a la página web nos encontramos lo siguiente
 
-![[Pasted image 20240629153144.png]]
+![](/assets/img/TwoMillion/image_2.png)
 
 Debido a que en la página web no hay nada que nos llame la atención vamos a fuzzear en busca de subdominios
 
@@ -153,7 +150,7 @@ ff02::2 ip6-allrouters
 
 En principio www.horizontall.htb nos muestra el mismo contenido que horizontall.htb, sin embargo cuando accedemos a api-prod.horizontal.htb nos muestra esto
 
-![[Pasted image 20240629154404.png]]
+![](/assets/img/TwoMillion/image_3.png)
 
 Fuzzeamos api-prod.horizontal.htb en busca de nuevas rutas y nos encontramos `users`,`reviews`y `admin`
 
@@ -197,19 +194,19 @@ ID           Response   Lines    Word       Chars       Payload
 
 En api-prod.horizontall.htb/users nos encontramos esto
 
-![[Pasted image 20240629155355.png]]
+![](/assets/img/TwoMillion/image_4.png)
 
 En api-prod.horizontall.htb/reviews nos encontramos esto
 
-![[Pasted image 20240629155307.png]]
+![](/assets/img/TwoMillion/image_5.png)
 
 En api-prod.horizontall.htb/admin nos encontramos esto
 
-![[Pasted image 20240629155333.png]]
+![](/assets/img/TwoMillion/image_6.png)
 
 Si usamos wappanalayzer para ver con que está creada la web podemos ver que está usando un cms llamado strapi
 
-![[Pasted image 20240629155701.png]]
+![](/assets/img/TwoMillion/image_7.png)
 
 Fuzzeamos en busca de nuevas rutas, para saber la version del cms strapi, podemos utilizar la api de strapi que se aloja en /init
 
@@ -236,7 +233,8 @@ ID           Response   Lines    Word       Chars       Payload
 
 Al acceder a api-prod.horizontall.htb/admin/init podemos ver la versión de strapi 
 
-![[Pasted image 20240629160214.png]]
+![](/assets/img/TwoMillion/image_8.png)
+
 ## Intrusión
 
 Ahora que tenemos la versión podemos usar searchploit para ver si existe algún exploit para esta versión de strapi, efectivamente existen varios exploit para esta version
