@@ -29,7 +29,7 @@ image:
   
 ## Descripción
 
-`Horizontall` es una máquina `easy linux` donde estaremos vulnerando la máquina a través de su `api` de `strapi`, listaremos sus `subdominios` y explotaremos una versión antigua desactualizada de `strapi` accediendo a la máquina víctima. Una vez dentro realizaremos un` remote port forwarding` y explotaremos el `CVE-2021-3129` obteniendo así el usuario `root`
+`Horizontall` es una máquina `easy linux` donde estaremos vulnerando la máquina a través de su `api` de `strapi`, listaremos sus `subdominios` y explotaremos una versión antigua desactualizada de `strapi` accediendo a la máquina víctima. Una vez dentro realizaremos un `remote port forwarding` y explotaremos el `CVE-2021-3129` obteniendo así el usuario `root`
 
 ---
 ## Reconocimiento
@@ -513,7 +513,7 @@ Una vez ejecutados estos comandos podemos visualizar la página accediendo a `ht
 
 Buscando un exploit para esta versión de laravel nos encontramos con `https://github.com/nth347/CVE-2021-3129_exploit.git`
 
-Debido a que hemos hecho` remote port forwarding` podemos `ejecutar` el `exploit` en nuestra máquina local. Efectivamente el exploit funciona y obtenemos `ejecución de comandos` como usuario `root`
+Debido a que hemos hecho `remote port forwarding` podemos `ejecutar` el `exploit` en nuestra máquina local. Efectivamente el exploit funciona y obtenemos `ejecución de comandos` como usuario `root`
 
 ```
 # ./exploit.py http://localhost:8000 Monolog/RCE1 id
