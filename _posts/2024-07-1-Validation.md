@@ -6,14 +6,9 @@ categories:
   - HTB
   - Linux
 tags:
-  - CVE-2021-3129
-  - Information
-  - Leakage
-  - Remote
-  - Port
-  - Forwarding
-  - Strapi
-  - Laravel
+  - Information Leakag
+  - SQLI (Error Based)
+  - SQL (Into Outfile)
 image:
   path: /assets/img/Validation/Validation.png
 ---
@@ -23,10 +18,12 @@ image:
 - SQLI (Error Based)
 - SQLI -> RCE (INTO OUTFILE)
 - Information Leakage
+  
 ## Certificaciones
 
 - eJPT
 - eWPT
+  
 ## Descripción
 
 `Validarion` es una máquina `easy linux` donde estaremos vulnerando la máquina a través de una `sql inyection into outfile` encontrada en su página web, obtendremos `acceso` a la `máquina víctima` mediante la creación de un `archivo .php` que nos permitirá `ejecución de comandos`, escalaremos privilegios debido a información privilegiada encontrada en un archivo de configuración
