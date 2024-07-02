@@ -172,7 +172,7 @@ Comprobamos si hay algo interesante en las tablas `username` y `userhash`, pero 
 
 ![](/assets/img/Validation/image_11.png)
 
-Usando `wfuzz` hemos encontrado la ruta` /config.php`, si conseguimos ganar acceso a la máquina víctima quizá en este archivo exista información interesante
+Usando `wfuzz` hemos encontrado la ruta `/config.php`, si conseguimos ganar acceso a la máquina víctima quizá en este archivo exista información interesante
 
 ```
 # wfuzz -c -t100 --hc 404 -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt http://10.129.95.235/FUZZ.php
