@@ -216,7 +216,7 @@ Al acceder a la ruta `/config.php` no vemos nada porque el `código` php está s
 
 ![](/assets/img/Validation/image_12.png)
 
-Efectivamente ha funcionado, al acceder a `http://10.129.250.24/shell.php?cmd=whoami `comprobamos que tenemos ejecución de comandos
+Efectivamente ha funcionado, al acceder a `http://10.129.250.24/shell.php?cmd=whoami` comprobamos que tenemos ejecución de comandos
 
 ![](/assets/img/Validation/image_13.png)
 
