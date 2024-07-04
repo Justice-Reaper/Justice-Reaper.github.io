@@ -26,7 +26,7 @@ image:
   
 ## Descripción
 
-`Validarion` es una máquina `easy linux` donde estaremos vulnerando la máquina a través de una `server side template inyection` encontrada en su página web, obtendremos `acceso` a la `máquina víctima` explotando el `ssti`. Escalaremos privilegios aprovechando un `bug` de `AppArmor`
+`NunChucks` es una máquina `easy linux` donde estaremos vulnerando la máquina a través de una `server side template inyection` encontrada en su página web, obtendremos `acceso` a la `máquina víctima` explotando el `ssti`. Escalaremos privilegios aprovechando un `bug` de `AppArmor`
 
 ---
 ## Reconocimiento
