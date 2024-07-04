@@ -511,7 +511,7 @@ Desde nuestro equipo `ejecutamos` estas `instrucciones`
 
 Una vez ejecutados estos comandos podemos visualizar la página accediendo a `http://localhost:8000/`
 
-Buscando un exploit para esta versión de laravel nos encontramos con `https://github.com/nth347/CVE-2021-3129_exploit.git`
+Buscando un exploit para esta versión de laravel nos encontramos con [https://github.com/nth347/CVE-2021-3129_exploit.git](https://github.com/nth347/CVE-2021-3129_exploit.git)
 
 Debido a que hemos hecho `remote port forwarding` podemos `ejecutar` el `exploit` en nuestra máquina local. Efectivamente el exploit funciona y obtenemos `ejecución de comandos` como usuario `root`
 
