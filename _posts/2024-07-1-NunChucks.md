@@ -123,7 +123,7 @@ Al acceder a la web vemos lo siguiente
 
 ![](/assets/img/NunChucks/image_2.png)
 
-Podemos registrarnos en [https://nunchucks.htb/signup](https://nunchucks.htb/signup)
+Podemos registrarnos en `https://nunchucks.htb/signup`
 
 ![](/assets/img/NunChucks/image_3.png)
 
@@ -139,7 +139,7 @@ Esto también se puede hacer desde el navegador, desde la pestaña network
 
 ![](/assets/img/NunChucks/image_6.png)
 
-Podemos iniciar sesión en [https://nunchucks.htb/login](https://nunchucks.htb/login)
+Podemos iniciar sesión en `https://nunchucks.htb/login`
 
 ![](/assets/img/NunChucks/image_7.png)
 
