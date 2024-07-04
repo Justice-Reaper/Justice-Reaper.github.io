@@ -477,7 +477,7 @@ El que más me llama la atención es el que se aloja en el `puerto 8000`
 strapi@horizontall:/tmp/scripts$ curl http://127.0.0.1
 ```
 
-Al hacerle un `curl`, vemos que está corriendo `Laravel v8 (PHP v7.4.18)`, al hacer una búsqueda son `searchsploit` nos encontramos un `exploit` para esta version de Laravel. Mediante `remote port forwarding` vamos a traernos el `puerto 8000` de la `máquina víctima` a `nuestro equipo`. Lo primero que debemos hacer es descargarnos este release `https://github.com/jpillora/chisel/releases/download/v1.9.1/chisel_1.9.1_darwin_amd64.gz`
+Al hacerle un `curl`, vemos que está corriendo `Laravel v8 (PHP v7.4.18)`, al hacer una búsqueda son `searchsploit` nos encontramos un `exploit` para esta version de Laravel. Mediante `remote port forwarding` vamos a traernos el `puerto 8000` de la `máquina víctima` a `nuestro equipo`. Lo primero que debemos hacer es descargarnos este release [https://github.com/jpillora/chisel/releases/download/v1.9.1/chisel_1.9.1_darwin_amd64.gz](https://github.com/jpillora/chisel/releases/download/v1.9.1/chisel_1.9.1_darwin_amd64.gz)
 
 La descomprimimos
 
