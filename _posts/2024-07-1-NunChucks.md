@@ -123,7 +123,7 @@ Al acceder a la web vemos lo siguiente
 
 ![](/assets/img/NunChucks/image_2.png)
 
-Podemos registrarnos en `https://nunchucks.htb/signup`
+Podemos registrarnos en https://nunchucks.htb/signup
 
 ![](/assets/img/NunChucks/image_3.png)
 
@@ -139,7 +139,7 @@ Esto también se puede hacer desde el navegador, desde la pestaña network
 
 ![](/assets/img/NunChucks/image_6.png)
 
-Podemos iniciar sesión en `https://nunchucks.htb/login`
+Podemos iniciar sesión en https://nunchucks.htb/login
 
 ![](/assets/img/NunChucks/image_7.png)
 
@@ -202,7 +202,7 @@ Efectivamente nos encontramos antes un ssti
 
 ## Intrusión
 
-Al estar corriendo `node.js`, he buscado en `hacktricks` y he dado con el template al que nos podríamos estar enfrentando, este template se llama `nunjucks` (`https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection#nunjucks`). Vamos a `capturar` la `petición` mediante `burpsuite` para poder explotar mejor esta vulnerabilidad
+Al estar corriendo `node.js`, he buscado en `hacktricks` y he dado con el template al que nos podríamos estar enfrentando, este template se llama `nunjucks` (https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection#nunjucks). Vamos a `capturar` la `petición` mediante `burpsuite` para poder explotar mejor esta vulnerabilidad
 
 ![](/assets/img/NunChucks/image_14.png)
 
@@ -349,7 +349,7 @@ david@nunchucks:/etc/apparmor.d$ cat usr.bin.perl
 }
 ```
 
-En `Hacktricks` encontramos un artículo sobre como `bypassear` la seguridad de `AppArmor` mediante el `shebang` (`https://book.hacktricks.xyz/linux-hardening/privilege-escalation/docker-security/apparmor#apparmor-shebang-bypass`)
+En `Hacktricks` encontramos un artículo sobre como `bypassear` la seguridad de `AppArmor` mediante el `shebang` (https://book.hacktricks.xyz/linux-hardening/privilege-escalation/docker-security/apparmor#apparmor-shebang-bypass)
 
 ```
 david@nunchucks:/tmp$ echo '#!/usr/bin/perl
