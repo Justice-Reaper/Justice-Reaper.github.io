@@ -123,7 +123,7 @@ Al acceder a la web vemos lo siguiente
 
 ![](/assets/img/NunChucks/image_2.png)
 
-Podemos registrarnos en https://nunchucks.htb/signup
+Podemos registrarnos en `[https://nunchucks.htb/signup](https://nunchucks.htb/signup)` [https://nunchucks.htb/signup](https://nunchucks.htb/signup)
 
 ![](/assets/img/NunChucks/image_3.png)
 
