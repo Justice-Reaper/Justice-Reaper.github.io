@@ -6,26 +6,26 @@ categories:
   - HTB
   - Linux
 tags:
-  - CVE-2021-3129
-  - Information
-  - Leakage
-  - Remote
-  - Port
-  - Forwarding
-  - Strapi
-  - Laravel
+  - CVE-2017-5638
+  - Abusing Sudoers
+  - Python
+  - Library Hijacking
+  - Apache Struts Exploitation
 image:
-  path: /assets/img/Horizontall/Horizontall.png
+  path: /assets/img/Stratosphere/Stratosphere.png
 ---
 
 ## Skills
 
 - Apache Struts Exploitation (CVE-2017-5638)
 - Python Library Hijacking (Privilege Escalation)
+- Python Abusing Sudoers (Privilege Escalation)
+  
 ## Certificaciones
 
 - eJPT
 - eWPT
+  
 ## Descripción
 
 `Stratosphere` es una máquina `medium linux` donde estaremos vulnerando la máquina a través de un `rce` (remote code execution), el cual obtenemos al `explotar` el `CVE-2017-5638` de `Struts`. Mediante el rce `accedemos` a la `base de datos` y `obtenemos` las `credenciales` de acceso al `ssh` de la máquina víctima, una vez dentro nos convertimos en usuario root `abusando` del `sudoers`
@@ -287,7 +287,7 @@ Nmap done: 1 IP address (1 host up) scanned in 28.62 seconds
 
 El servicio web en el `puerto 80` y en el `puerto 8080` son `exactamente` las `mismas` páginas `web`
 
-![[Pasted image 20240706201444.png]]
+![](/assets/img/Stratosphere/image_1.png)
 
 `Fuzzeamos` en busca de rutas
 
@@ -311,15 +311,15 @@ ID           Response   Lines    Word       Chars       Payload
 
 Cuando accedemos a `http://10.129.252.189/Monitoring` vemos esta página
 
-![[Pasted image 20240706201802.png]]
+![](/assets/img/Stratosphere/image_2.png)
 
 Si accedemos a `http://10.129.252.189/manager` nos aparece lo siguiente
 
-![[Pasted image 20240706202050.png]]
+![](/assets/img/Stratosphere/image_3.png)
 
 Al cancelar vemos lo siguiente, por lo tanto ya sabemos que hay un `tomcat` corriendo
 
-![[Pasted image 20240706202132.png]]
+![](/assets/img/Stratosphere/image_4.png)
 
 Identificamos la `versión` del `tomcat`, en este caso es la versión `8.5.54`
 
@@ -330,7 +330,7 @@ Identificamos la `versión` del `tomcat`, en este caso es la versión `8.5.54`
 
 He `fuzzeado` rutas y no he encontrado nada, por lo tanto he hecho la la siguiente `búsqueda` en google `.action exploit`, debido a que esa `extensión` es bastante `curiosa`. Esta es la `primera` `búsqueda` que nos `sale`
 
-![[Pasted image 20240706220636.png]]
+![](/assets/img/Stratosphere/image_5.png)
 
 Al `no` poder `comprobar` la `version` del `struts` hay que ir probando `exploit` hasta dar con el indicado, en esta caso hemos tenido suerte y hemos dado con el a la primera. Lo que debemos hacer es `clonarnos` el `repositorio` de `github`
 
