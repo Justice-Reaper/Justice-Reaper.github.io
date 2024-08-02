@@ -6,23 +6,13 @@ categories:
   - HTB
   - Linux
 tags:
-  - SQLI
-  - (Read
-  - Files)
-  - SQLI
-  - (SQL
-  - Injection)
-  - Abusing
-  - Sudoers
-  - HTTP
-  - Header
-  - Command
-  - Injection
-  - "-"
-  - X-FORWARDED-FOR
-  - "[RCE]"
+  - Information Leakage
+  - Abusing Cron Job [Privilege Escalation]
+  - Escaping Restricted Bash (rbash)
+  - Abusing James Remote Administration Tool
+
 image:
-  path: /assets/img/Union/Union.png
+  path: /assets/img/SolidState/SolidState.png
 ---
 
 ## Skills
@@ -31,11 +21,12 @@ image:
 - Changing a user's email password
 - Information Leakage
 - Escaping Restricted Bash (rbash)
-- Creating a bash script in order to detect cron jobs (procmon.sh)
 - Abusing Cron Job [Privilege Escalation]
+  
 ## Certificaciones
 
 - eJPT
+  
 ## Descripción
 
 `SolidState` es una máquina `easy linux`, nos `logueamos` con las `credenciales` por `defecto` en el `servicio RSIP` y les `cambiamos` la `contraseña` varios `usuarios`, posteriormente `leemos` los `correos` de estos `usuarios` accediendo al `servicio POP3` obteniendo así las `credenciales` de `SSH` de un usuario y `ganando acceso` así a la máquina víctima. Al ingresar a la máquina víctima `escapamos` de una `restricted bash` y abusando de una `tarea cron` nos convertimos en usuario `root` 
