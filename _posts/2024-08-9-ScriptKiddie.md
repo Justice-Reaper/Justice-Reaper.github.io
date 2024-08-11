@@ -6,29 +6,13 @@ categories:
   - HTB
   - Linux
 tags:
-  - Local
-  - File
-  - Inclusion
-  - (LFI)
-  - LFI
-  - to
-  - RCE
-  - "-"
-  - Log
-  - Poisoning
-  - Cracking
-  - ZIP
-  - file
-  - Abusing
-  - VNC
-  - "-"
-  - vncviewer
-  - "[Privilege"
-  - Escalation]
-  - SSH
-  - Bruteforce
+  - Msfvenom Exploitation
+  - Abusing Logs + Cron Job
+  - Abusing Sudoers Privilege [Msfconsole Privilege Escalation]
+  - CVE-2020-7384
+  - Command Injection
 image:
-  path: /assets/img/Poison/Poison.png
+  path: /assets/img/ScriptKiddie/ScriptKiddie.png
 ---
 
 ## Skills
@@ -118,7 +102,7 @@ Nmap done: 1 IP address (1 host up) scanned in 11.96 seconds
 
 Si accedemos a `http://10.129.95.150:5000/` vemos lo siguiente
 
-![[image_1.png]]
+![](/assets/img/ScriptKiddie/image_1.png)
 
 He buscados por `exploits` de `msfvenom` y he encontrado una `inyección de comandos`
 
@@ -154,7 +138,7 @@ Nos ponemos en `escucha` en `netcat`
 
 `Subimos` el `payload` y pulsamos en `generate`
 
-![[image_2.png]]
+![](/assets/img/ScriptKiddie/image_2.png)
 
 `Recibimos` la `shell`, una vez en la máquina víctima vamos a realizar un `tratamiento` a la `TTY`
 
@@ -267,7 +251,7 @@ Estamos `recibiendo` estas `peticiones` porque nos está haciendo un `escaneo` c
 ```
 def scan(ip):
     if regex_ip.match(ip):
-        if not ip == request.remote_addr and ip.startswith('10.10.1') and not ip.startswith('10.10.10.'):
+        if not ip == request.ScriptKiddie_addr and ip.startswith('10.10.1') and not ip.startswith('10.10.10.'):
             stime = random.randint(200,400)/100
             time.sleep(stime)
             result = f"""Starting Nmap 7.80 ( https://nmap.org ) at {datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M")} UTC\nNote: Host seems down. If it is really up, bu
