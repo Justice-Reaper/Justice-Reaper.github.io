@@ -6,29 +6,14 @@ categories:
   - HTB
   - Windows
 tags:
-  - Local
-  - File
-  - Inclusion
-  - (LFI)
-  - LFI
-  - to
-  - RCE
-  - "-"
-  - Log
-  - Poisoning
-  - Cracking
-  - ZIP
-  - file
-  - Abusing
-  - VNC
-  - "-"
-  - vncviewer
-  - "[Privilege"
-  - Escalation]
-  - SSH
-  - Bruteforce
+  - SMB Enumeration
+  - Cracking ZIp Password Protected File
+  - Cracking and reading .PFX File
+  - Gaining SSL access with Evil-WinRM
+  - Reading the user's Powershell history
+  - Abusing LAPS to get passwords
 image:
-  path: /assets/img/Poison/Poison.png
+  path: /assets/img/Timelapse/Timelapse.png
 ---
 
 ## Skills
