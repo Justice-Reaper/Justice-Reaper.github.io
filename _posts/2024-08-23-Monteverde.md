@@ -6,29 +6,13 @@ categories:
   - HTB
   - Windows
 tags:
-  - Local
-  - File
-  - Inclusion
-  - (LFI)
-  - LFI
-  - to
-  - RCE
-  - "-"
-  - Log
-  - Poisoning
-  - Cracking
-  - ZIP
-  - file
-  - Abusing
-  - VNC
-  - "-"
-  - vncviewer
-  - "[Privilege"
-  - Escalation]
-  - SSH
-  - Bruteforce
+  - RPC Enumeration
+  - Ldap Enumeration
+  - Credential Brute Force
+  - Shell Over WinRM
+  - Abusing Azure Admins Group
 image:
-  path: /assets/img/Poison/Poison.png
+  path: /assets/img/Monteverde/Monteverde.png
 ---
 
 ## Skills
