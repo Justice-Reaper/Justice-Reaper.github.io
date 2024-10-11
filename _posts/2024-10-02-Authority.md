@@ -1,5 +1,5 @@
 ---
-title: authority
+title: Authority
 date: 2024-10-02 12:26:00 +0800
 author: Justice-Reaper
 categories:
