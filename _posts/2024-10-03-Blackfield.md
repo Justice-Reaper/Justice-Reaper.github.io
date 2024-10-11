@@ -6,16 +6,19 @@ categories:
   - HTB
   - Windows
 tags:
-  - CVE-2021-3129
-  - Information
-  - Leakage
-  - Remote
-  - Port
-  - Forwarding
-  - Strapi
-  - Laravel
+  - SMB Enumeration
+  - Kerberos User Enumeration (Kerbrute)
+  - ASRepRoast Attack (GetNPUsers)
+  - Bloodhound Enumeration
+  - Abusing ForceChangePassword Privilege (net rpc)
+  - Lsass Dump Analysis (Pypykatz)
+  - Abusing WinRM
+  - SeBackupPrivilege Exploitation
+  - DiskShadow
+  - Robocopy Usage
+  - NTDS Credentials Extraction (secretsdump)
 image:
-  path: /assets/img/Horizontall/Horizontall.png
+  path: /assets/img/Blackfield/Blackfield.png
 ---
 
 ## Skills
@@ -562,31 +565,31 @@ Ejecutamos `neo4j` para proceder a una `enumeración` más `profunda` del `direc
 
 Nos dirigimos a `http://localhost:7474` y `rellenamos` los `datos` con las credenciales `neo4j:neo4j`
 
-![](/assets/img/Forest/image_1.png)
+![](/assets/img/Blackfield/image_1.png)
 
 `Introducimos` una `contraseña`
 
-![](/assets/img/Forest/image_2.png)
+![](/assets/img/Blackfield/image_2.png)
 
 Nos `abrimos` el `bloodhound` y nos `logueamos`
 
-![](/assets/img/Forest/image_3.png)
+![](/assets/img/Blackfield/image_3.png)
 
 Nos vamos al `bloodhound` y pulsamos en `Upload data`
 
-![](/assets/img/Forest/image_4.png)
+![](/assets/img/Blackfield/image_4.png)
 
 Una vez subidos los `datos` pulsamos en `First Degree Object Control`
 
-![[Blackfield/image_5.png]]
+![](/assets/img/Blackfield/image_5.png)
 
 Podemos `obtener` la `contraseña` del usuario `audit2020` mediante un `ForceChangePassword`
 
-![[Blackfield/image_6.png]]
+![](/assets/img/Blackfield/image_6.png)
 
 Le `cambiamos` la `contraseña`
 
-![[Blackfield/image_7.png]]
+![](/assets/img/Blackfield/image_7.png)
 
 ```
 # net rpc password "audit2020" "newP@ssword2022" -U "BLACKFIELD.local"/"support"%"#00^BlackKnight" -S "DC01.BLACKFIELD.local"
