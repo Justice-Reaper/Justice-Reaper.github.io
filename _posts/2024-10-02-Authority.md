@@ -4,18 +4,21 @@ date: 2024-10-02 12:26:00 +0800
 author: Justice-Reaper
 categories:
   - HTB
-  - Linux
+  - Windows
 tags:
-  - CVE-2021-3129
-  - Information
-  - Leakage
-  - Remote
-  - Port
-  - Forwarding
-  - Strapi
-  - Laravel
+  - SMB Enumeration
+  - Ansible Vault Hash Cracking (ansible2john)
+  - Abusing PWM (Password Self Service)
+  - Abusing WinRM
+  - DC Enumeration (adPEAS)
+  - Creating Domain Computer (addcomputer.py)
+  - ESC1 exploitation case with certipy [Privilege Escalation]
+  - Authenticate over LDAP(S) - Split PFX into certificate and key for LDAP(S) authentication with certipy (certipy)
+  - PassTheCert with Schannel against LDAP(S) - Use PassTheCert to gain Administrator shell via Schannel authentication over LDAP(S)
+  - Create User and Add to Domain Admins with PassTheCert
+  - PassTheHash (Psexec)
 image:
-  path: /assets/img/Horizontall/Horizontall.png
+  path: /assets/img/Authority/Authority.png
 ---
 
 ## Skills
@@ -31,6 +34,7 @@ image:
 - PassTheCert with Schannel against LDAP(S) - Use PassTheCert to gain Administrator shell via Schannel authentication over LDAP(S)
 - Create User and Add to Domain Admins with PassTheCert
 - PassTheHash (Psexec)
+  
 ## Certificaciones
 
 - OSCP
@@ -443,26 +447,26 @@ DevT3st@123
 
 Si accedemos a `https://10.129.144.88:8443/` vemos esto
 
-![[Authority/image_1.png]]
+![](/assets/img/Authority/image_1.png)
 
-![[Authority/image_2.png]]
+![](/assets/img/Authority/image_2.png)
 
 Pinchamos en `Configuration Editor` y nos logueamos
 
-![[Authority/image_3.png]]
+![](/assets/img/Authority/image_3.png)
 ## Web Exploitation
 
 Una vez dentro pulsamos en `LDAP` y en `Connection` 
 
-![[Authority/image_4.png]]
+![](/assets/img/Authority/image_4.png)
 
 Pinchamos en `Add Value`
 
-![[Authority/image_5.png]]
+![](/assets/img/Authority/image_5.png)
 
 `Modificamos` el `valor`, ponemos nuestra `ip`, el `puerto` por `defecto` de `ldap` y usamos `ldap` en vez de `ldaps` para que el `tràfico` no esté `cifrado`
 
-![[Authority/image_6.png]]
+![](/assets/img/Authority/image_6.png)
 
 Pulsamos en `Save` y nos ponemos en `escucha` con el `responder`
 
