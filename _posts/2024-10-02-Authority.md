@@ -34,7 +34,7 @@ image:
 - PassTheCert with Schannel against LDAP(S) - Use PassTheCert to gain Administrator shell via Schannel authentication over LDAP(S)
 - Create User and Add to Domain Admins with PassTheCert
 - PassTheHash (Psexec)
-  
+
 ## Certificaciones
 
 - OSCP
