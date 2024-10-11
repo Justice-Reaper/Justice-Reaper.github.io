@@ -6,7 +6,7 @@ categories:
   - HTB
   - Linux
 tags:
-   - Subdomain Enumeration
+  - Subdomain Enumeration
   - Dolibarr 17.0.0 Exploitation - CVE-2023-30253
   - Information Leakage (User Pivoting)
   - Enlightenment SUID Binary Exploitation [Privilege Escalation] 
