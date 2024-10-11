@@ -6,16 +6,12 @@ categories:
   - HTB
   - Linux
 tags:
-  - CVE-2021-3129
-  - Information
-  - Leakage
-  - Remote
-  - Port
-  - Forwarding
-  - Strapi
-  - Laravel
+   - Subdomain Enumeration
+  - Dolibarr 17.0.0 Exploitation - CVE-2023-30253
+  - Information Leakage (User Pivoting)
+  - Enlightenment SUID Binary Exploitation [Privilege Escalation] 
 image:
-  path: /assets/img/Horizontall/Horizontall.png
+  path: /assets/img/BoardLight/BoardLight.png
 ---
 
 ## Skills
@@ -24,6 +20,7 @@ image:
 - Dolibarr 17.0.0 Exploitation - CVE-2023-30253
 - Information Leakage (User Pivoting)
 - Enlightenment SUID Binary Exploitation [Privilege Escalation]
+  
 ## Certificaciones
 
 - eWPT
@@ -102,11 +99,11 @@ Nmap done: 1 IP address (1 host up) scanned in 9.76 seconds
 
 Si accedemos al servicio web vemos esto
 
-![[image_1.png]]
+![](/assets/img/BoardLight/image_1.png)
 
 `En la parte de abajo` de la `web` vemos un `dominio`
 
-![[image_2.png]]
+![](/assets/img/BoardLight/image_2.png)
 
 Añadimos el dominio al `/etc/hosts`
 
@@ -154,15 +151,15 @@ ff02::2 ip6-allrouters
 
 Nos encontramos ante un panel de autenticación de `Dolibarr 17.0.0`
 
-![[image_3.png]]
+![](/assets/img/BoardLight/image_3.png)
 
 Si buscamos en google `Dolibarr default credentials` vemos que son `admin:admin`
 
-![[image_4.png]]
+![](/assets/img/BoardLight/image_4.png)
 
 Nos `logueamos` en el panel `administrativo`
 
-![[image_5.png]]
+![](/assets/img/BoardLight/image_5.png)
 ## Web Exploitation
 
 Nos `descargamos` este `exploit` [https://github.com/nikn0laty/Exploit-for-Dolibarr-17.0.0-CVE-2023-30253.git](https://github.com/nikn0laty/Exploit-for-Dolibarr-17.0.0-CVE-2023-30253.git) y nos ponemos en `escucha` con `netcat`
@@ -224,7 +221,7 @@ Efectuamos el `tratamiento` a la `TTY`
 
 Buscamos en google `Dolibarr conf file path`
 
-![[image_6.png]]
+![](/assets/img/BoardLight/image_6.png)
 
 Nos dirigimos a esa `ruta` y obtenemos unas `credenciales`
 
@@ -332,7 +329,7 @@ E: Begin Shutdown Procedure!
 
 Buscamos `exploits` para esta `versión` del `binario` y encontramos uno para versiones menores de la `0.25.3`
 
-![[image_7.png]]
+![](/assets/img/BoardLight/image_7.png)
 
 Nos descargamos este `exploit` [https://github.com/MaherAzzouzi/CVE-2022-37706-LPE-exploit.git](https://github.com/MaherAzzouzi/CVE-2022-37706-LPE-exploit.git) en nuestro equipo y montamos un `servidor http` con `python` en la ruta en la que se encuentra el `exploit`
 
