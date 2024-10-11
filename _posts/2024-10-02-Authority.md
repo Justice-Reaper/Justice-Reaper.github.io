@@ -18,7 +18,7 @@ tags:
   - Create User and Add to Domain Admins with PassTheCert
   - PassTheHash (Psexec)
 image:
-  path: /assets/img/Authorityauthority.png
+  path: /assets/img/Authority/Authority.png
 ---
 
 ## Skills
