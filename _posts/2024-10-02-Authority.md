@@ -12,10 +12,10 @@ tags:
   - Abusing WinRM
   - DC Enumeration (adPEAS)
   - Creating Domain Computer (addcomputer.py)
-  - ESC1 exploitation case with certipy [Privilege Escalation]
+  - ESC1 exploitation usilng certipy [Privilege Escalation]
   - Authenticate over LDAP(S) - Split PFX into certificate and key for LDAP(S) authentication with certipy (certipy)
   - PassTheCert with Schannel against LDAP(S) - Use PassTheCert to gain Administrator shell via Schannel authentication over LDAP(S)
-  - Create User and Add to Domain Admins with PassTheCert
+  - Create User and Add to Domain Admins using PassTheCert
   - PassTheHash (Psexec)
 image:
   path: /assets/img/Authority/Authority.png
