@@ -1,6 +1,6 @@
 ---
 title: Stratosphere
-date: 2024-07-6 23:50:00 +0800
+date: 2024-07-06 23:50:00 +0800
 author: Justice-Reaper
 categories:
   - HTB
