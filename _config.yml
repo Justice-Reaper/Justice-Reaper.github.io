@@ -16,7 +16,7 @@ timezone:
 
 title: Justice-Reaper # the main title
 
-tagline: "• Penetration Tester<br>• Future ECPPT<br>• CTF Player" # it will display as the sub-title
+tagline: "• Penetration Tester<br>• Future OSCP<br>• CTF Player" # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   "Blog sobre ciberseguridad, Hacking ético y CTF's"
