@@ -1,6 +1,6 @@
 ---
 title: ScriptKiddie
-date: 2024-08-9 23:50:00 +0800
+date: 2024-08-09 23:50:00 +0800
 author: Justice-Reaper
 categories:
   - HTB
