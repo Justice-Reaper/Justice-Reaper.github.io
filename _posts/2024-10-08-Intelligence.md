@@ -6,16 +6,18 @@ categories:
   - HTB
   - Windows
 tags:
-  - CVE-2021-3129
-  - Information
-  - Leakage
-  - Remote
-  - Port
-  - Forwarding
-  - Strapi
-  - Laravel
+  - Abusing ReadGMSAPassword Rights (gMSADumper)
+  - Pywerview Usage
+  - Abusing Unconstrained Delegation
+  - Abusing AllowedToDelegate Rights (getST.py) (User Impersonation)
+  - Using .ccache file with wmiexec.py (KRB5CCNAME)
+  - Information Leakage
+  - Kerberos Enumeration (Kerbrute)
+  - Creating a DNS Record (dnstool.py) [Abusing ADIDNS]
+  - Intercepting Net-NTLMv2 Hashes with Responder
+  - BloodHound Enumeration
 image:
-  path: /assets/img/Horizontall/Horizontall.png
+  path: /assets/img/Intelligence/Intelligence.png
 ---
 
 ## Skills
@@ -266,11 +268,11 @@ ff02::2 ip6-allrouters
 
 Al acceder a `http://10.129.95.154/` vemos esta página web
 
-![[Intelligence/image_1.png]]
+![](/assets/img/Intelligence/image_1.png)
 
 Si nos dirigimos a la parte inferior nos podemos descargar `dos documentos PDF`
 
-![[Intelligence/image_2.png]]
+![](/assets/img/Intelligence/image_2.png)
 
 Si examinamos esos documentos `PDF` obtenemos los nombres de los usuarios `Jose.Williams` y `William.Lee`
 
@@ -714,35 +716,35 @@ Ejecutamos `neo4j` para proceder a una `enumeración` más `profunda` del `direc
 
 Nos dirigimos a `http://localhost:7474` y `rellenamos` los `datos` con las credenciales `neo4j:neo4j`
 
-![](/assets/img/Support/image_10.png)
+![](/assets/img/Intelligence/image_3.png)
 
 `Introducimos` una `contraseña`
 
-![](/assets/img/Support/image_11.png)
+![](/assets/img/Intelligence/image_4.png)
 
 Nos `abrimos` el `bloodhound` y nos `logueamos`
 
-![](/assets/img/Support/image_12.png)
+![](/assets/img/Intelligence/image_5.png)
 
 Pinchamos en `Upload Data` y subimos el archivo .zip
 
-![[Intelligence/image_6.png]]
+![](/assets/img/Intelligence/image_6.png)
 
 Si todo ha funcionado `correctamente` debería de verse así
 
-![[Intelligence/image_7.png]]
+![](/assets/img/Intelligence/image_7.png)
 
 Pinchamos en `Find Shortest Paths to Domain Admins`
 
-![[Intelligence/image_8.png]]
+![](/assets/img/Intelligence/image_8.png)
 
 Vemos que existe una forma de convertirnos en el usuario `svc_int$`
 
-![[Intelligence/image_9.png]]
+![](/assets/img/Intelligence/image_9.png)
 
 Podemos leer la contraseña del `Group Managed Service Account`
 
-![[Intelligence/image_10.png]]
+![](/assets/img/Intelligence/image_10.png)
 
 Lo primero que debemos hacer es clonarnos el `repositorio` [https://github.com/micahvandeusen/gMSADumper](https://github.com/micahvandeusen/gMSADumper) y ejecutar el siguiente `comando` para `dumpear` la `contraseña`
 
@@ -758,11 +760,11 @@ svc_int$:aes128-cts-hmac-sha1-96:c28e946a25e1dcb0d6552399baf0cbbe
 
 Ahora que tenemos el `hash NT` del usuario `svc_int$`, podemos ganar acceso al `domain controller` como el usuario `Administrator` abusando del `AllowedToDelegate`
 
-![[Intelligence/image_11.png]]
+![](/assets/img/Intelligence/image_11.png)
 
 Vamos a ejecutar un `Constrained Delegation Attack` para ganar acceso como el usuario `root`
 
-![[Intelligence/image_12.png]]
+![](/assets/img/Intelligence/image_12.png)
 
 El ataque lo tenemos que realizar sobre un `SPN`. Debido a que no sabemos cuáles existen en la `máquina víctima`, los obtenemos usando `pywerview`. En este caso, para el usuario `svc_int`, el `SPN` es `WWW/dc.intelligence.htb`
 
