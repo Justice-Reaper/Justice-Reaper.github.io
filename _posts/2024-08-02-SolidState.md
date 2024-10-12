@@ -1,6 +1,6 @@
 ---
 title: SolidState
-date: 2024-08-2 23:20:00 +0800
+date: 2024-08-02 23:20:00 +0800
 author: Justice-Reaper
 categories:
   - HTB
