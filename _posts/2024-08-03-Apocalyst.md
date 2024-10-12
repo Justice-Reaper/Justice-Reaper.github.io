@@ -1,6 +1,6 @@
 ---
 title: Apocalyst
-date: 2024-08-3 23:20:00 +0800
+date: 2024-08-03 23:20:00 +0800
 author: Justice-Reaper
 categories:
   - HTB
