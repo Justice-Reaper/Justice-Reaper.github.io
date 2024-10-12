@@ -595,7 +595,7 @@ Send-MailMessage -From 'Ted Graves <Ted.Graves@intelligence.htb>' -To 'Ted Grave
 } catch {}
 }
 ```
-## Ldap Exploitation
+## Abusing DNS
 
 Si inyectamos un `DNS record` que apunte hacia nuestra `IP`, podemos capturar las `credenciales` que se envían. Para ello, lo primero es clonarnos este `repositorio` [https://github.com/dirkjanm/krbrelayx](https://github.com/dirkjanm/krbrelayx) y posteriormente inyectar un `DNS record` que apunte a nuestro `equipo`
 
