@@ -1,6 +1,6 @@
 ---
 title: NunChucks
-date: 2024-07-4 13:37:00 +0800
+date: 2024-07-01 13:37:00 +0800
 author: Justice-Reaper
 categories:
   - HTB
