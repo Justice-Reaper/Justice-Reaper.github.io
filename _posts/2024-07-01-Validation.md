@@ -1,6 +1,6 @@
 ---
 title: Validation
-date: 2024-07-2 21:47:00 +0800
+date: 2024-07-01 21:47:00 +0800
 author: Justice-Reaper
 categories:
   - HTB
