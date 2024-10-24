@@ -4,7 +4,7 @@ date: 2024-10-24 20:11:00 +0800
 author: Justice-Reaper
 categories:
   - Desktop Environment
-  - Linux
+  - Debian 12
 tags:
   - Debian 12
   - Kde  
