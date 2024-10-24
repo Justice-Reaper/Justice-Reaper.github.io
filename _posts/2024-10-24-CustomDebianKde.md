@@ -19,13 +19,13 @@ En este artículo muestro mi configuración de Debian 12 con KDE para mi portát
 ---
 ## Aclaraciones Pre-Instalación
 
-• El `Secure Boot` es recomendable desactivarlo con el fin de evitar problemas
+El `Secure Boot` es recomendable desactivarlo con el fin de evitar problemas
 
-• Si su gráfica es una Nvidia antigua debe mirar la documentación de Debian y ver como se realiza el proceso en su caso, pueden haber diferencias a la hora de instalación de drivers 
+Si su gráfica es una Nvidia antigua debe mirar la documentación de Debian y ver como se realiza el proceso en su caso, pueden haber diferencias a la hora de instalación de drivers 
 
-• Si su equipo tiene solamente un gráfica, el proceso de instalación de drivers tiene una pequeña variación, para posibles dudas consulte la documentación
+Si su equipo tiene solamente un gráfica, el proceso de instalación de drivers tiene una pequeña variación, para posibles dudas consulte la documentación
 
-• Documentación de Debian [https://wiki.debian.org/NvidiaGraphicsDrivers](https://wiki.debian.org/NvidiaGraphicsDrivers)
+Documentación de Debian [https://wiki.debian.org/NvidiaGraphicsDrivers](https://wiki.debian.org/NvidiaGraphicsDrivers)
 ## Instalación Básica
 
 Instalamos las dependencias básicas
