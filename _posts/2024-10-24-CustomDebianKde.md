@@ -380,6 +380,21 @@ mv sudo.plugin.zsh zsh-sudo/
 cp -r zsh-sudo /usr/share
 ```
 
+Instalamos `zsh-syntax-highlighting`
+
+```
+sudo apt install -y zsh-syntax-highlighting
+```
+
+Para instalar `zsh-autosuggestions` nos clonaremos el repositorio [git clone https://github.com/zsh-users/zsh-autosuggestions](git clone https://github.com/zsh-users/zsh-autosuggestions)
+
+```
+su root
+mkdir /usr/share/zsh-autosuggestions 
+git clone https://github.com/zsh-users/zsh-autosuggestions
+cp zsh-autosuggestions/zsh-autosuggestions.zsh /usr/share/zsh-autosuggestions
+```
+
 Instalamos la powerlevel10k [https://github.com/romkatv/powerlevel10k.git](https://github.com/romkatv/powerlevel10k.git) para nuestro usuario, debes sustituir `sergio` por tu nombre de usuario. Si ya tenemos una powerlevel10k instalada deberemos usar sudo o convertirnos en root
 
 ```
