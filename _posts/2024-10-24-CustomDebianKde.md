@@ -386,12 +386,12 @@ Instalamos `zsh-syntax-highlighting`
 sudo apt install -y zsh-syntax-highlighting
 ```
 
-Para instalar `zsh-autosuggestions` nos clonaremos el repositorio [git clone https://github.com/zsh-users/zsh-autosuggestions](git clone https://github.com/zsh-users/zsh-autosuggestions)
+Para instalar `zsh-autosuggestions` nos clonaremos el repositorio [https://github.com/zsh-users/zsh-autosuggestions.git](https://github.com/zsh-users/zsh-autosuggestions.git)
 
 ```
 su root
 mkdir /usr/share/zsh-autosuggestions 
-git clone https://github.com/zsh-users/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions.git
 cp zsh-autosuggestions/zsh-autosuggestions.zsh /usr/share/zsh-autosuggestions
 ```
 
