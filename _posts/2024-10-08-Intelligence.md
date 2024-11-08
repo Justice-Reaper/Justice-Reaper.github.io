@@ -12,7 +12,6 @@ tags:
   - Abusing AllowedToDelegate Rights (getST.py) (User Impersonation)
   - Using .ccache file with wmiexec.py (KRB5CCNAME)
   - Information Leakage
-  - Kerberos Enumeration (Kerbrute)
   - Creating a DNS Record (dnstool.py) [Abusing ADIDNS]
   - Intercepting Net-NTLMv2 Hashes with Responder
   - BloodHound Enumeration
@@ -28,7 +27,6 @@ image:
 - Abusing AllowedToDelegate Rights (getST.py) (User Impersonation)
 - Using .ccache file with wmiexec.py (KRB5CCNAME)
 - Information Leakage
-- Kerberos Enumeration (Kerbrute)
 - Creating a DNS Record (dnstool.py) [Abusing ADIDNS]
 - Intercepting Net-NTLMv2 Hashes with Responder
 - BloodHound Enumeration
