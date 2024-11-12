@@ -3,7 +3,7 @@ title: GoodGames
 date: 2024-08-06 23:50:00 +0800
 author: Justice-Reaper
 categories:
-  - HTB
+  - Hackthebox
   - Linux
 tags:
   - SSTI (Server Side Template Injection)
