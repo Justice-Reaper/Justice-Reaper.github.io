@@ -3,7 +3,7 @@ title: Intelligence
 date: 2024-10-08 12:26:00 +0800
 author: Justice-Reaper
 categories:
-  - HTB
+  - Hackthebox
   - Windows
 tags:
   - Abusing ReadGMSAPassword Rights (gMSADumper)
