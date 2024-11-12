@@ -3,7 +3,7 @@ title: BoardLight
 date: 2024-10-04 12:26:00 +0800
 author: Justice-Reaper
 categories:
-  - HTB
+  - Hackthebox
   - Linux
 tags:
   - Subdomain Enumeration
