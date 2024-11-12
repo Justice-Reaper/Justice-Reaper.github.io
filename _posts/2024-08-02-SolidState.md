@@ -3,7 +3,7 @@ title: SolidState
 date: 2024-08-02 23:20:00 +0800
 author: Justice-Reaper
 categories:
-  - HTB
+  - Hackthebox
   - Linux
 tags:
   - Information Leakage
