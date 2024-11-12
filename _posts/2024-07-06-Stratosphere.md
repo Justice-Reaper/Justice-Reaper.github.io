@@ -3,7 +3,7 @@ title: Stratosphere
 date: 2024-07-06 23:50:00 +0800
 author: Justice-Reaper
 categories:
-  - HTB
+  - Hackthebox
   - Linux
 tags:
   - CVE-2017-5638
