@@ -3,7 +3,7 @@ title: Monteverde
 date: 2024-08-23 16:30:00 +0800
 author: Justice-Reaper
 categories:
-  - HTB
+  - Hackthebox
   - Windows
 tags:
   - RPC Enumeration
