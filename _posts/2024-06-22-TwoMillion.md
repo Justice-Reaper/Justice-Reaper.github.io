@@ -3,7 +3,7 @@ title: TwoMillion
 date: 2024-06-22 20:11:00 +0800
 author: Justice-Reaper
 categories:
-  - HTB
+  - Hackthebox
   - Linux
 tags:
   - Api Abusing
