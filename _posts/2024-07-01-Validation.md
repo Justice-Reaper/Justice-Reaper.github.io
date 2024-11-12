@@ -3,7 +3,7 @@ title: Validation
 date: 2024-07-01 21:47:00 +0800
 author: Justice-Reaper
 categories:
-  - HTB
+  - Hackthebox
   - Linux
 tags:
   - Information Leakag
