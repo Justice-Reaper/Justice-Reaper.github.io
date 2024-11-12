@@ -3,7 +3,7 @@ title: Horizontall
 date: 2024-06-30 12:26:00 +0800
 author: Justice-Reaper
 categories:
-  - HTB
+  - Hackthebox
   - Linux
 tags:
 - CVE-2021-3129
