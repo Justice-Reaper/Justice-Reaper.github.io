@@ -3,7 +3,7 @@ title: Apocalyst
 date: 2024-08-03 23:20:00 +0800
 author: Justice-Reaper
 categories:
-  - HTB
+  - Hackthebox
   - Linux
 tags:
   - Information Leakage
