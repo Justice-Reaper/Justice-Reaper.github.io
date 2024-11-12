@@ -3,7 +3,7 @@ title: Blackfield
 date: 2024-10-03 12:26:00 +0800
 author: Justice-Reaper
 categories:
-  - HTB
+  - Hackthebox
   - Windows
 tags:
   - SMB Enumeration
