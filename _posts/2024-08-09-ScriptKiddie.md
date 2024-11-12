@@ -3,7 +3,7 @@ title: ScriptKiddie
 date: 2024-08-09 23:50:00 +0800
 author: Justice-Reaper
 categories:
-  - HTB
+  - Hackthebox
   - Linux
 tags:
   - Msfvenom Exploitation
