@@ -6,20 +6,10 @@ categories:
   - Portswigger
   - Path Traversal
 tags:
-  - Path
-  - Traversal
-  - File
-  - path
-  - traversal,
-  - traversal
-  - sequences
-  - blocked
-  - with
-  - absolute
-  - path
-  - bypass
+  - Path Traversal
+  - File path traversal, validation of file extension with null byte bypass
 image:
-  path: /assets/img/Path-Traversal-Lab-2/Portswigger.png
+  path: /assets/img/Path-Traversal-Lab-6/Portswigger.png
 ---
 
 ## Skills
@@ -42,11 +32,11 @@ Este `laboratorio` contiene una `vulnerabilidad` de `path traversal` en la `visu
 
 Al `acceder` a la `web` nos sale esto
 
-![](/assets/img/Path-Traversal-Lab-2/image_1.png)
+![](/assets/img/Path-Traversal-Lab-6/image_1.png)
 
 Si hacemos `Ctrl + U` vemos como se están `cargando` las `imágenes`
 
-![[Pasted image 20241124123159.png]]
+![](/assets/img/Path-Traversal-Lab-6/image_2.png)
 
 Probamos un `directory path traversal` usando un `null byte`, esto sirve para `versiones` de `php` que son `inferiores` a la `5.4`, lo que hacemos es `ignorar` lo que hay `detrás` de `%00`
 
@@ -101,5 +91,4 @@ Si lo queremos hacerlo desde la `web` debemos poner `view-source://`
 view-source:https://0aab0027034fa53480d27189009d0038.web-security-academy.net/image?filename=../../../../../../../../../../../etc/passwd%00.jpg
 ```
 
-![](/assets/img/Path-Traversal-Lab-2/image_3.png)
-
+![](/assets/img/Path-Traversal-Lab-6/image_3.png)
