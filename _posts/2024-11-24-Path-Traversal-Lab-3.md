@@ -27,8 +27,6 @@ image:
 
 Este `laboratorio` contiene una `vulnerabilidad` de `path traversal` en la `visualización` de `imágenes` de `productos`. La aplicación elimina la secuencia `../` antes de usarla. Para `resolver` el `laboratorio`, hay que `obtener` el contenido del archivo `/etc/passwd`
 
-
-
 ---
 ## Web Enumeration
 
