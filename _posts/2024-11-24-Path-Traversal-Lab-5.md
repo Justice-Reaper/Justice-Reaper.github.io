@@ -6,20 +6,10 @@ categories:
   - Portswigger
   - Path Traversal
 tags:
-  - Path
-  - Traversal
-  - File
-  - path
-  - traversal,
-  - traversal
-  - sequences
-  - blocked
-  - with
-  - absolute
-  - path
-  - bypass
+  - Path Traversal
+  - File path traversal, validation of start of path
 image:
-  path: /assets/img/Path-Traversal-Lab-2/Portswigger.png
+  path: /assets/img/Path-Traversal-Lab-5/Portswigger.png
 ---
 
 ## Skills
@@ -37,17 +27,16 @@ image:
 
 Este `laboratorio` contiene una `vulnerabilidad` de `path traversal` en la `visualización` de `imágenes` de `productos`. La aplicación transmite la `ruta completa` del `archivo` a través de un `parámetro` en la `solicitud` y valida que la ruta proporcionada `comience` con la `carpeta` esperada. Para `resolver` el `laboratorio`, hay que `obtener` el contenido del archivo `/etc/passwd`
 
-
 ---
 ## Web Enumeration
 
 Al `acceder` a la `web` nos sale esto
 
-![](/assets/img/Path-Traversal-Lab-2/image_1.png)
+![](/assets/img/Path-Traversal-Lab-5/image_1.png)
 
 Si hacemos `Ctrl + U` vemos como se están `cargando` las `imágenes`
 
-![[image_2.png]]
+![](/assets/img/Path-Traversal-Lab-5/image_2.png)
 
 Probamos un `directory path traversal`
 
@@ -102,5 +91,5 @@ Si lo queremos hacerlo desde la `web` debemos poner `view-source://`
 view-source:https://0aab0027034fa53480d27189009d0038.web-security-academy.net/image?filename=/var/www/images/../../../../../../../etc/passwd
 ```
 
-![](/assets/img/Path-Traversal-Lab-2/image_3.png)
+![](/assets/img/Path-Traversal-Lab-5/image_3.png)
 
