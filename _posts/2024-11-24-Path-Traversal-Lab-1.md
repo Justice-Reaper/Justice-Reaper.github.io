@@ -6,20 +6,10 @@ categories:
   - Portswigger
   - Path Traversal
 tags:
-  - Path
-  - Traversal
-  - File
-  - path
-  - traversal,
-  - traversal
-  - sequences
-  - blocked
-  - with
-  - absolute
-  - path
-  - bypass
+  - Path Traversal
+  - File path traversal, simple case
 image:
-  path: /assets/img/Path-Traversal-Lab-2/Portswigger.png
+  path: /assets/img/Path-Traversal-Lab-1/Portswigger.png
 ---
 
 ## Skills
@@ -42,11 +32,11 @@ Este `laboratorio` contiene una `vulnerabilidad` de `path traversal` en la `visu
 
 Al `acceder` a la `web` nos sale esto
 
-![](/assets/img/Path-Traversal-Lab-2/image_1.png)
+![](/assets/img/Path-Traversal-Lab-1/image_1.png)
 
 Si hacemos `Ctrl + U` vemos como se están `cargando` las `imágenes`
 
-![](/assets/img/Path-Traversal-Lab-2/image_2.png)
+![](/assets/img/Path-Traversal-Lab-1/image_2.png)
 
 Probamos un `directory path traversal`
 
@@ -101,4 +91,4 @@ Si lo queremos hacerlo desde la `web` debemos poner `view-source://`
 view-source:https://0ab4006004d3a9a2800f449c00c00083.web-security-academy.net/image?filename=../../../../../../../../../etc/passwd
 ```
 
-![](/assets/img/Path-Traversal-Lab-2/image_3.png)
+![](/assets/img/Path-Traversal-Lab-1/image_3.png)
