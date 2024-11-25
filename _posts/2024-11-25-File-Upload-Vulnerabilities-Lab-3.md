@@ -1,6 +1,6 @@
 ---
 title: File Upload Vulnerabilities Lab 3
-date: 2024-11-24 12:26:00 +0800
+date: 2024-11-25 12:26:00 +0800
 author: Justice-Reaper
 categories:
   - Portswigger
