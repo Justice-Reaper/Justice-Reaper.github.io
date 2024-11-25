@@ -95,4 +95,4 @@ Obtenemos el contenido del archivo secret `https://0a8000880480dca9801485ed00820
 
 `Submiteamos` la `solución`
 
-![](/assets/img/File-Upload-Vulnerabilities-Lab-5/image_1.png)
+![](/assets/img/File-Upload-Vulnerabilities-Lab-5/image_12.png)
