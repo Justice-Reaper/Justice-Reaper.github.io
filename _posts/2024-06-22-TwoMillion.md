@@ -11,7 +11,7 @@ tags:
   - CVE-2023-0386
   - Information Leakage
   - Javascript
-  - Command Inyection    
+  - Command Injection    
 image:
   path: /assets/img/TwoMillion/TwoMillion.png
 ---
