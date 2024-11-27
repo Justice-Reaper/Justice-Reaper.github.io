@@ -6,16 +6,10 @@ categories:
   - Portswigger
   - XXE Injection
 tags:
-  - XXE
-  - Injection
-  - Exploiting
-  - XXE
-  - to
-  - perform
-  - SSRF
-  - attacks
+  - XXE Injection
+  - Blind XXE with out-of-band interaction
 image:
-  path: /assets/img/XXE-Injection-Lab-2/Portswigger.png
+  path: /assets/img/XXE-Injection-Lab-3/Portswigger.png
 ---
 
 ## Skills
@@ -38,15 +32,15 @@ Este laboratorio tiene una función llamada `Check stock` que analiza la `entrad
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/XXE-Injection-Lab-3/image_1.png)
 
 Si pulsamos en `View details` veremos la `descripción` del `artículo`
 
-![[image_2.png]]
+![](/assets/img/XXE-Injection-Lab-3/image_2.png)
 
 Si pulsamos en `Check stock` y `capturamos` la `petición` con `Burpsuite` vemos que se está tramitando un `XML`
 
-![[image_3.png]]
+![](/assets/img/XXE-Injection-Lab-3/image_3.png)
 
 Vamos a insertar un `DTD (Document Type Definition)` y a `comprobar` si es `vulnerable` a `XXE`
 
@@ -80,5 +74,4 @@ Nos vamos a `Burpsuite Collaborator` y pulsamos en `Copy to clipboard`, este dom
 
 Nos vamos a `Burpsuite Collaborator` y observamos que hemos `obtenido respuesta`
 
-![[image_4.png]]
-
+![](/assets/img/XXE-Injection-Lab-3/image_4.png)
