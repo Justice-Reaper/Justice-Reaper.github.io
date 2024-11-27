@@ -26,7 +26,7 @@ image:
   
 ## Descripción
 
-`Validarion` es una máquina `easy linux` donde estaremos vulnerando la máquina a través de una `sql inyection into outfile` encontrada en su página web, obtendremos `acceso` a la `máquina víctima` mediante la creación de un `archivo .php` que nos permitirá `ejecución de comandos`, escalaremos privilegios debido a información privilegiada encontrada en un archivo de configuración
+`Validarion` es una máquina `easy linux` donde estaremos vulnerando la máquina a través de una `sql injection into outfile` encontrada en su página web, obtendremos `acceso` a la `máquina víctima` mediante la creación de un `archivo .php` que nos permitirá `ejecución de comandos`, escalaremos privilegios debido a información privilegiada encontrada en un archivo de configuración
 
 ---
 ## Reconocimiento
@@ -108,7 +108,7 @@ Cuando `añadimos` un `username` vemos esto en la ruta `/contact.php`
 
 ![](/assets/img/Validation/image_2.png)
 
-He testeado una `inyección sql` en la parte del username pero no ha dado resultado, sin embargo, al probarla en la parte del `country` si que nos ha `devuelto` un `error`, por lo tanto estamos antes una `sql inyection error based`
+He testeado una `inyección sql` en la parte del username pero no ha dado resultado, sin embargo, al probarla en la parte del `country` si que nos ha `devuelto` un `error`, por lo tanto estamos antes una `sql injection error based`
 
 ![](/assets/img/Validation/image_3.png)
 
