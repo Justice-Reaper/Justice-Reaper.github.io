@@ -4,24 +4,17 @@ date: 2024-11-27 12:26:00 +0800
 author: Justice-Reaper
 categories:
   - Portswigger
-  - File Upload Vulnerabilities
+  - XXE Injection
 tags:
-  - File
-  - Upload
-  - Vulnerabilities
-  - Web
-  - shell
-  - upload
-  - via
-  - path
-  - traversal
+  - XXE Injection
+  - Exploiting XXE to perform SSRF attacks
 image:
-  path: /assets/img/File-Upload-Vulnerabilities-Lab-3/Portswigger.png
+  path: /assets/img/XXE-Injection-Lab-2/Portswigger.png
 ---
 
 ## Skills
 
-- Exploiting XXE using external entities to retrieve files
+- Exploiting XXE to perform SSRF attacks
 
 ## Certificaciones
 
@@ -39,15 +32,15 @@ Este laboratorio tiene una función llamada `Check stock` que analiza la `entrad
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/XXE-Injection-Lab-2/image_1.png)
 
 Si pulsamos en `View details` veremos la `descripción` del `artículo`
 
-![[image_2.png]]
+![](/assets/img/XXE-Injection-Lab-2/image_2.png)
 
 Si pulsamos en `Check stock` y `capturamos` la `petición` con `Burpsuite` vemos que se está tramitando un `XML`
 
-![[image_3.png]]
+![](/assets/img/XXE-Injection-Lab-2/image_3.png)
 
 Vamos a insertar un `DTD (Document Type Definition)` y a `comprobar` si es `vulnerable` a `XXE`
 
@@ -66,7 +59,7 @@ Vamos a insertar un `DTD (Document Type Definition)` y a `comprobar` si es `vuln
 
 Obtenemos `Doe` lo que quiere decir que ha funcionado y probablemente sea `vulnerable` a un `XXE`
 
-![[image_4.png]]
+![](/assets/img/XXE-Injection-Lab-2/image_4.png)
 
 Con este `payload` hacemos un petición al `endpoint`, por lo cual estaríamos explotando un `SSRF (Server Side Request Forgery)` a través de un `XXE`
 
@@ -85,7 +78,7 @@ Con este `payload` hacemos un petición al `endpoint`, por lo cual estaríamos e
 
 La `respuesta` del `servidor` nos `devuelve` el `nombre`, en este caso es `latest`, debemos ir haciendo peticiones hasta `obtener` la `ruta` del `endpoint` completa
 
-![[image_5.png]]
+![](/assets/img/XXE-Injection-Lab-2/image_5.png)
 
 Con este nuevo `payload` obtenemos la `secret acces key` del usuario `admin`
 
@@ -102,4 +95,4 @@ Con este nuevo `payload` obtenemos la `secret acces key` del usuario `admin`
 	</stockCheck>
 ```
 
-![[image_6.png]]
+![](/assets/img/XXE-Injection-Lab-2/image_6.png)
