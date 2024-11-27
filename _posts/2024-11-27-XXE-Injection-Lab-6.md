@@ -6,16 +6,10 @@ categories:
   - Portswigger
   - XXE Injection
 tags:
-  - XXE
-  - Injection
-  - Exploiting
-  - XXE
-  - to
-  - perform
-  - SSRF
-  - attacks
+  - XXE Injection
+  - Exploiting blind XXE to retrieve data via error messages
 image:
-  path: /assets/img/XXE-Injection-Lab-2/Portswigger.png
+  path: /assets/img/XXE-Injection-Lab-6/Portswigger.png
 ---
 
 ## Skills
@@ -38,15 +32,15 @@ Este `laboratorio` tiene una `función` de `Check stock` que analiza entradas en
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/XXE-Injection-Lab-6/image_1.png)
 
 Si pulsamos en `View details` veremos la `descripción` del `artículo`
 
-![[image_2.png]]
+![](/assets/img/XXE-Injection-Lab-6/image_2.png)
 
 Si pulsamos en `Check stock` y `capturamos` la `petición` con `Burpsuite` vemos que se está tramitando un `XML`
 
-![[image_3.png]]
+![](/assets/img/XXE-Injection-Lab-6/image_3.png)
 
 `Enviamos` una `petición` con un `DTD (Document Type Definition)` y a `comprobar` si es `vulnerable` a `XXE` pero la `web` con `responde` con un `mensaje` de `Entities are not allowed for security reasons`
 
@@ -80,11 +74,11 @@ Nos vamos a `Burpsuite Collaborator` y pulsamos en `Copy to clipboard`, este `do
 
 Nos vamos a `Burpsuite Collaborator` y observamos que hemos `obtenido respuesta`, lo cual quiere decir que ya tenemos un `XXE out-of-band interaction`
 
-![[image_4.png]]
+![](/assets/img/XXE-Injection-Lab-6/image_4.png)
 
 Al `enviar` la `petición` obtenemos una `respuesta` que `refleja` un `error`
 
-![[image_5.png]]
+![](/assets/img/XXE-Injection-Lab-6/image_5.png)
 
 Lo que podemos hacer ahora que hemos confirmado que podemos `cargar` un `recurso` del `servidor externo` es pulsar en `Go to exploit server`, introducir este `payload` en la parte de `Body` y pulsar sobre `Store` para almacenarlo. Esto `&#x25` es `%` pero en `hexadecimal`, se debe poner así y no en el formato normal para que funcione correctamente
 
@@ -112,7 +106,7 @@ Lo siguiente que debemos hacer es irnos a donde pone `Craft response`, copiar la
 
 Ahora nos vamos a `Burpsuite Collaborator`, pulsamos en `Resquest to Collaborator` y vemos el `/etc/hostname`
 
-![[image_6.png]]
+![](/assets/img/XXE-Injection-Lab-6/image_6.png)
 
 Sin embargo, no nos pide el `/etc/hostname`, lo que nos pide es el `/etc/passwd` y mediante el método anterior no podemos obtenerlo debido a que tiene más de una línea. Podríamos usar este `payload` pero `no funciona` el `wrapper` de `php` que `encodea` en `base64`
 
@@ -149,4 +143,4 @@ Debido a que cada vez que enviamos una petición `obtenemos` un `mensaje` de `er
 
 El `servidor` nos `muestra` en el `error` el `/etc/passwd`
 
-![[image_7.png]]
+![](/assets/img/XXE-Injection-Lab-6/image_7.png)
