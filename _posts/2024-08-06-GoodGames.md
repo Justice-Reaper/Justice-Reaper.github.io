@@ -32,7 +32,7 @@ image:
 
 ## Descripción
 
-`GoodGames` es una máquina `easy linux`, `obtenemos` unas `credenciales` del usuario `admin` a través de una `SQL Inyection Error Based`. Una vez logueamos ejecutamos un `SSTI (Server Side Template Inyection)` mediante el cual obtenemos un `RCE (Remote Command Execution)` mediante el cual `ganamos acceso` a un `contenedor`. `Escapamos` del `contenedor` y nos `convertimos` en usuario `root`, debido a que un `directorio` de la `máquina víctima` estaba `montado` en el `contenedor`, lo cual nos permitiría `convertirnos` en `root` agregando privilegios `SUID` a la `sh`
+`GoodGames` es una máquina `easy linux`, `obtenemos` unas `credenciales` del usuario `admin` a través de una `SQL Injection Error Based`. Una vez logueamos ejecutamos un `SSTI (Server Side Template Injection)` mediante el cual obtenemos un `RCE (Remote Command Execution)` mediante el cual `ganamos acceso` a un `contenedor`. `Escapamos` del `contenedor` y nos `convertimos` en usuario `root`, debido a que un `directorio` de la `máquina víctima` estaba `montado` en el `contenedor`, lo cual nos permitiría `convertirnos` en `root` agregando privilegios `SUID` a la `sh`
 
 ---
 ## Reconocimiento
@@ -100,7 +100,7 @@ Si pulsamos arriba a la derecha nos sale este `panel` de `login`
 ![](/assets/img/GoodGames/image_2.png)
 ## Web Exploitation
 
-He `capturado` la `petición` con `Burpsuite` y he efectuado un `SQLI (Sql Inyection)`
+He `capturado` la `petición` con `Burpsuite` y he efectuado un `SQLI (Sql Injection)`
 
 ![](/assets/img/GoodGames/image_3.png)
 
@@ -108,7 +108,7 @@ Una vez `logueados` nos lleva hasta aquí
 
 ![](/assets/img/GoodGames/image_4.png)
 
-Mediante `Wappalyzer` vemos que está corriendo `Flask` por lo tanto podríamos intentar `modificar` los `datos` del `perfil` y efectuar un `SSTI (Server Side Template Inyection)`
+Mediante `Wappalyzer` vemos que está corriendo `Flask` por lo tanto podríamos intentar `modificar` los `datos` del `perfil` y efectuar un `SSTI (Server Side Template Injection)`
 
 ![](/assets/img/GoodGames/image_5.png)
 
@@ -185,7 +185,7 @@ Ya estamos dentro del `panel administrativo`
 
 ![](/assets/img/GoodGames/image_15.png)
 
-Pinchamos en `My Profile` y usamos el payload {% raw %} `{{ 7*7 }}` {% endraw %} para testear el `SSTI (Server Side Template Inyection)`
+Pinchamos en `My Profile` y usamos el payload {% raw %} `{{ 7*7 }}` {% endraw %} para testear el `SSTI (Server Side Template Injection)`
 
 ![](/assets/img/GoodGames/image_16.png)
 
