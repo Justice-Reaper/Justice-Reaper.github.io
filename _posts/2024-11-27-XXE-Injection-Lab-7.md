@@ -6,21 +6,15 @@ categories:
   - Portswigger
   - XXE Injection
 tags:
-  - XXE
-  - Injection
-  - Exploiting
-  - XXE
-  - to
-  - perform
-  - SSRF
-  - attacks
+  - XXE Injection
+  - Exploiting XInclude to retrieve files
 image:
-  path: /assets/img/XXE-Injection-Lab-2/Portswigger.png
+  path: /assets/img/XXE-Injection-Lab-7/Portswigger.png
 ---
 
 ## Skills
 
-- Exploiting blind XXE to retrieve data via error messages
+- Exploiting XInclude to retrieve files
 
 ## Certificaciones
 
@@ -38,15 +32,15 @@ Este `laboratorio` tiene una `función` de `Check stock` que `inserta` la `entra
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/XXE-Injection-Lab-7/image_1.png)
 
 Si pulsamos en `View details` veremos la `descripción` del `artículo`
 
-![[image_2.png]]
+![](/assets/img/XXE-Injection-Lab-7/image_2.png)
 
 Si pulsamos en `Check stock` y `capturamos` la `petición` con `Burpsuite` vemos que se están tramitando dos campos
 
-![[image_3.png]]
+![](/assets/img/XXE-Injection-Lab-7/image_3.png)
 
 Como no tenemos el control sobre el `documento XML` completo, no podemos `cargar` un `DTD`, sin embargo, podemos usar la función `XInclude` para `cargar contenido`
 
@@ -63,4 +57,4 @@ productId=<foo xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="tex
 
 `Obtenemos` la `respuesta` del `servidor`, la cual nos `muestra` el `/etc/passwd`
 
-![[image_4.png]]
+![](/assets/img/XXE-Injection-Lab-7/image_4.png)
