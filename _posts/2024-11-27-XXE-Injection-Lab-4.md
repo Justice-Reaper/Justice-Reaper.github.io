@@ -57,7 +57,7 @@ Vamos a insertar un `DTD (Document Type Definition)` y a `comprobar` si es `vuln
 	</stockCheck>
 ```
 
-La `respuesta` que obtenemos a `mandar` el `payload` es la siguiente
+La da un `error` al `enviar` la `petición`, esto se debe a que `no` podemos `llamar` a una `entidad` desde los campos existentes, en este caso la `entidad` declarada es `xxe`
 
 ![](/assets/img/XXE-Injection-Lab-4/image_4.png)
 
