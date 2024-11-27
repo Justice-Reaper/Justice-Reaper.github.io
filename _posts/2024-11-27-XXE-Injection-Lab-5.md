@@ -6,16 +6,10 @@ categories:
   - Portswigger
   - XXE Injection
 tags:
-  - XXE
-  - Injection
-  - Exploiting
-  - XXE
-  - to
-  - perform
-  - SSRF
-  - attacks
+  - XXE Injection
+  - Exploiting blind XXE to exfiltrate data using a malicious external DTD
 image:
-  path: /assets/img/XXE-Injection-Lab-2/Portswigger.png
+  path: /assets/img/XXE-Injection-Lab-5/Portswigger.png
 ---
 
 ## Skills
@@ -38,15 +32,15 @@ Este laboratorio tiene una función de `Check stock` que analiza `entradas XML`,
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/XXE-Injection-Lab-5/image_1.png)
 
 Si pulsamos en `View details` veremos la `descripción` del `artículo`
 
-![[image_2.png]]
+![](/assets/img/XXE-Injection-Lab-5/image_2.png)
 
 Si pulsamos en `Check stock` y `capturamos` la `petición` con `Burpsuite` vemos que se está tramitando un `XML`
 
-![[image_3.png]]
+![](/assets/img/XXE-Injection-Lab-5/image_3.png)
 
 `Enviamos` una `petición` con un `DTD (Document Type Definition)` y a `comprobar` si es `vulnerable` a `XXE` pero no vemos nada interesante en la `respuesta`
 
@@ -80,7 +74,7 @@ Nos vamos a `Burpsuite Collaborator` y pulsamos en `Copy to clipboard`, este `do
 
 Nos vamos a `Burpsuite Collaborator` y observamos que hemos `obtenido respuesta`, lo cual quiere decir que ya tenemos un `XXE out-of-band interaction`
 
-![[image_4.png]]
+![](/assets/img/XXE-Injection-Lab-5/image_4.png)
 
 Lo que podemos hacer ahora que hemos confirmado que podemos `cargar` un `recurso` del `servidor externo` es pulsar en `Go to exploit server`, introducir este `payload` en la parte de `Body` y pulsar sobre `Store` para almacenarlo. Esto `&#x25` es `%` pero en `hexadecimal`, se debe poner así y no en el formato normal para que funcione correctamente
 
@@ -108,8 +102,8 @@ Lo siguiente que debemos hacer es irnos a donde pone `Craft response`, copiar la
 
 Ahora nos vamos a `Burpsuite Collaborator`, pulsamos en `Resquest to Collaborator` y vemos el `/etc/hostname `
 
-![[image_5.png]]
+![](/assets/img/XXE-Injection-Lab-5/image_5.png)
 
 `Submiteamos` la `solución` y `completamos` el `laboratorio`
 
-![[image_6.png]]
+![](/assets/img/XXE-Injection-Lab-5/image_6.png)
