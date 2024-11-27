@@ -1,22 +1,15 @@
 ---
 title: XXE Injection Lab 1
-date: 2024-11-25 12:26:00 +0800
+date: 2024-11-27 12:26:00 +0800
 author: Justice-Reaper
 categories:
   - Portswigger
-  - File Upload Vulnerabilities
+  - XXE Injection
 tags:
-  - File
-  - Upload
-  - Vulnerabilities
-  - Web
-  - shell
-  - upload
-  - via
-  - path
-  - traversal
+  - XXE Injection
+  - Exploiting XXE using external entities to retrieve files
 image:
-  path: /assets/img/File-Upload-Vulnerabilities-Lab-3/Portswigger.png
+  path: /assets/img/XXE-Injection-Lab-1/Portswigger.png
 ---
 
 ## Skills
@@ -39,15 +32,15 @@ Este `laboratorio` tiene una `función` llamada `Check stock` que analiza entrad
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/XXE-Injection-Lab-1/image_1.png)
 
 Si pulsamos en `View details` veremos la `descripción` del `artículo`
 
-![[image_2.png]]
+![](/assets/img/XXE-Injection-Lab-1/image_2.png)
 
 Si pulsamos en `Check stock` y `capturamos` la `petición` con `Burpsuite` vemos que se está tramitando un `XML`
 
-![[image_3.png]]
+![](/assets/img/XXE-Injection-Lab-1/image_3.png)
 
 Vamos a insertar un `DTD (Document Type Definition)` y a usar el wrapper file para `cargar` el archivo `/etc/passwd`
 
@@ -66,4 +59,4 @@ Vamos a insertar un `DTD (Document Type Definition)` y a usar el wrapper file pa
 
 Si `enviamos` la `petición` con este `payload` obtendremos el `/etc/passwd`
 
-![[image_4.png]]
+![](/assets/img/XXE-Injection-Lab-1/image_4.png)
