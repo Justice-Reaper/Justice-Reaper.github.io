@@ -58,7 +58,7 @@ Al subir el archivo nos sale un error
 
 ![](/assets/img/File-Upload-Vulnerabilities-Lab-5/image_5.png)
 
-Subimos el archivo nuevamente y capturamos la petición con Burpsuite, el payload va a ser `shell.php%00.png`, las versiones de php inferiores a la 5.4 son vulnerables a null byte inyection `%00`, lo que hace que ignore lo que hay detrás de él y no se interprete
+Subimos el archivo nuevamente y capturamos la petición con Burpsuite, el payload va a ser `shell.php%00.png`, las versiones de php inferiores a la 5.4 son vulnerables a null byte injection `%00`, lo que hace que ignore lo que hay detrás de él y no se interprete
 
 ```
 Content-Disposition: form-data; name="avatar"; filename="shell.php%00.png"
