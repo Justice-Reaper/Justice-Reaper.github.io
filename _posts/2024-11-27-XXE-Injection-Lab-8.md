@@ -6,16 +6,10 @@ categories:
   - Portswigger
   - XXE Injection
 tags:
-  - XXE
-  - Injection
-  - Exploiting
-  - XXE
-  - to
-  - perform
-  - SSRF
-  - attacks
+  - XXE Injection
+  - Exploiting XXE via image file upload
 image:
-  path: /assets/img/XXE-Injection-Lab-2/Portswigger.png
+  path: /assets/img/XXE-Injection-Lab-8/Portswigger.png
 ---
 
 ## Skills
@@ -38,11 +32,11 @@ Este `laboratorio` permite a los usuarios `adjuntar avatares` a los `comentarios
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/XXE-Injection-Lab-8/image_1.png)
 
 Si pulsamos en `View post` veremos una `sección` de `comentarios` y de `subida` de `archivos`
 
-![[image_2.png]]
+![](/assets/img/XXE-Injection-Lab-8/image_2.png)
 
 `Creamos` un `archivo` llamado `image.svg` con este `payload` en su `interior`
 
@@ -56,12 +50,12 @@ Si pulsamos en `View post` veremos una `sección` de `comentarios` y de `subida`
 
 `Posteamos` un `comentario` con la `imagen svg` de perfil, mediante `Burpsuite` podemos `capturar` esta `petición`
 
-![[image_3.png]]
+![](/assets/img/XXE-Injection-Lab-8/image_3.png)
 
 Si la `petición` nos `devuelve` un `200 OK` significa que está todo correcto, si no deberemos probar `eliminando espacios` del `payload` que se `envía` en la `imagen`. Si todo ha ido bien hacemos `click derecho` sobre la `imagen` de nuestro `perfil` y pulsamos en `abrir imagen en nueva pestaña`, esto nos llevará a `https://0a6d008103cba51480015839008a008c.web-security-academy.net/post/comment/avatars?filename=1.png`. Esto es una `imagen` que muestra el `hostname` en su interior 
 
-![[image_4.png]]
+![](/assets/img/XXE-Injection-Lab-8/image_4.png)
 
 Pulsamos en `Submit Solution` y `enviamos` la `solución`
 
-![[image_5.png]]
+![](/assets/img/XXE-Injection-Lab-8/image_5.png)
