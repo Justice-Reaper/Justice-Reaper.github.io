@@ -32,19 +32,19 @@ Este `laboratorio` contiene una `Blind OS Command Injection` en la `función` de
 
 Al `acceder` a la `web` nos sale esto
 
-![](/assets/img/OS-Command-Injection-Lab-5/image_1.png)
+![](/assets/img/OS-Command-Injection-Lab-4/image_1.png)
 
 Pulsamos en `Submit feedback` y vemos un `formulario`
 
-![](/assets/img/OS-Command-Injection-Lab-5/image_2.png)
+![](/assets/img/OS-Command-Injection-Lab-4/image_2.png)
 
 Hacemos `click` sobre `Submit feedback` y `capturamos` la `petición` con `Burpsuite`
 
-![](/assets/img/OS-Command-Injection-Lab-5/image_3.png)
+![](/assets/img/OS-Command-Injection-Lab-4/image_3.png)
 
 La `respuesta` obtenida son unas `llaves vacías {}`
 
-![](/assets/img/OS-Command-Injection-Lab-5/image_4.png)
+![](/assets/img/OS-Command-Injection-Lab-4/image_4.png)
 
 Nos dirigimos a `Burpsuite Collaborator` hacemos `click` en `Copy to clipboard`, debido a que no recibimos `ninguna respuesta` que indique que estamos `inyectando comandos`, esta es la única forma que podemos utilizar para ello, debemos usar este `payload` en los diferentes `campos` para ver si son `inyectables`
 
@@ -54,4 +54,4 @@ csrf=zRp2nJC1bIBQPQcICpkP7l9cHlAfYlE8&name=test&email=||nslookup+t712dnvp65v6mtb
 
 Si nos vamos a `Burpsuite Collaborator` nuevamente veremos que hemos obtenido `dos peticiones DNS`
 
-![](/assets/img/OS-Command-Injection-Lab-5/image_5.png)
+![](/assets/img/OS-Command-Injection-Lab-4/image_5.png)
