@@ -6,16 +6,10 @@ categories:
   - Portswigger
   - OS Command Injection
 tags:
-  - OS
-  - Command
-  - Injection
-  - OS
-  - command
-  - injection,
-  - simple
-  - case
+  - OS Command Injection
+  - Blind OS command injection with output redirection
 image:
-  path: /assets/img/OS-Command-Injection-Lab-1/Portswigger.png
+  path: /assets/img/OS-Command-Injection-Lab-3/Portswigger.png
 ---
 
 ## Skills
@@ -38,19 +32,19 @@ Este `laboratorio` contiene una `Blind OS Command Injection` en la `función` de
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/OS-Command-Injection-Lab-3/image_1.png)
 
 Pulsamos en `Submit feedback` y vemos la `descripción`
 
-![[image_2.png]]
+![](/assets/img/OS-Command-Injection-Lab-3/image_2.png)
 
 Hacemos `click` sobre `Submit feedback` y `capturamos` la `petición` con `Burpsuite`
 
-![[image_3.png]]
+![](/assets/img/OS-Command-Injection-Lab-3/image_3.png)
 
 La `respuesta` obtenida son unas `llaves vacías {}`
 
-![[image_4.png]]
+![](/assets/img/OS-Command-Injection-Lab-3/image_4.png)
 
 Si usamos este payload `|` en el campo email, en vez de `{}` en el `output` vemos un `mensaje` de `Could not save`
 
@@ -72,8 +66,8 @@ csrf=ZhcxbGtPNDRaQXlONDnnGJafoRTWN6uI&name=test&email=||whoami+>+/var/www/images
 
 Si pulsamos `Ctrl + U` nos damos cuenta de que las `imágenes` están siendo `cargadas` a través de un `parámetro filename`
 
-![[image_5.png]]
+![](/assets/img/OS-Command-Injection-Lab-3/image_5.png)
 
 Si accedemos a `https://0aa800dd041cfe318091ada900180005.web-security-academy.net/image?filename=output.txt` veremos el `output` de nuestro `comando`
 
-![[image_6.png]]
+![](/assets/img/OS-Command-Injection-Lab-3/image_6.png)
