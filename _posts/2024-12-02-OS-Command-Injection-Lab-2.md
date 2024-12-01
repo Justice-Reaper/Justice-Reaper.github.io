@@ -4,16 +4,12 @@ date: 2024-12-01 12:26:00 +0800
 author: Justice-Reaper
 categories:
   - Portswigger
-  - SSRF
+  - OS Command Injection
 tags:
-  - SSRF
-  - Blind
-  - SSRF
-  - with
-  - out-of-band
-  - detection
+  - OS Command Injection
+  - Blind OS command injection with time delays
 image:
-  path: /assets/img/SSRF-Lab-3/Portswigger.png
+  path: /assets/img/OS-Command-Injection-Lab-2/Portswigger.png
 ---
 
 ## Skills
@@ -36,19 +32,19 @@ Este `laboratorio` contiene una `Blind OS Command Injection` en la `función` de
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/OS-Command-Injection-Lab-2/image_1.png)
 
 Pulsamos en `Submit feedback` y vemos un formulario
 
-![[image_2.png]]
+![](/assets/img/OS-Command-Injection-Lab-2/image_2.png)
 
 Hacemos `click` sobre `Submit feedback` y `capturamos` la `petición` con `Burpsuite`
 
-![[image_3.png]]
+![](/assets/img/OS-Command-Injection-Lab-2/image_3.png)
 
 La `respuesta` obtenida al `enviar` la `petición` es la siguiente
 
-![[image_4.png]]
+![](/assets/img/OS-Command-Injection-Lab-2/image_4.png)
 
 En Hacktricks [https://book.hacktricks.xyz/pentesting-web/command-injection#command-injection-execution](https://book.hacktricks.xyz/pentesting-web/command-injection#command-injection-execution) tenemos varios `payload` para probar `inyecciones` de `comandos`, he probado varios payload no he logrado que se vea el output. Por lo tanto, al estar ante un `Blind OS Command Injection` he usado `sleep` para saber donde está la `inyección`. He ido probando con `|` y ponerlo en el campo `email` me ha dado un `error`, por lo que he supuesto que podría ser posible `inyectar` algo ahí
 
