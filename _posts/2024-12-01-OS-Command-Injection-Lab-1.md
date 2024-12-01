@@ -25,7 +25,7 @@ image:
   
 ## Descripción
 
-Este `laboratorio` contiene una `vulnerabilidad` de `inyección` de `comandos` del `sistema operativo` en el `verificador` de `stock` de `productos`. La aplicación `ejecuta` un `comando` en la `terminal` que incluye `datos` proporcionados por el `usuario`, como los `ID` de `producto`, `tienda` y `devuelve` la `salida` en formato `raw` del `comando` en su respuesta. Para resolver el laboratorio, `ejecuta` el comando `whoami` para determinar el `nombre` del `usuario` actual
+Este `laboratorio` contiene una `vulnerabilidad` de `inyección` de `comandos` del `sistema operativo` en el `verificador` de `stock` de `productos`. La aplicación `ejecuta` un `comando` en la `terminal` que incluye `datos` proporcionados por el `usuario`, como los `ID` de `producto`, `tienda` y `devuelve` la `salida` en formato `raw` del `comando` en su respuesta. Para resolver el laboratorio, debemos `ejecutar` el comando `whoami` para determinar el `nombre` del `usuario` actual
 
 ---
 ## Web Enumeration
