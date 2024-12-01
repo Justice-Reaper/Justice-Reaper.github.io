@@ -34,7 +34,7 @@ Al `acceder` a la `web` nos sale esto
 
 ![](/assets/img/OS-Command-Injection-Lab-3/image_1.png)
 
-Pulsamos en `Submit feedback` y vemos la `descripción`
+Pulsamos en `Submit feedback` y vemos un `formulario`
 
 ![](/assets/img/OS-Command-Injection-Lab-3/image_2.png)
 
