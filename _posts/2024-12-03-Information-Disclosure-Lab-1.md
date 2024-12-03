@@ -14,7 +14,7 @@ image:
 
 ## Skills
 
-- Information disclosure in error messages
+- Information disclosure on debug page
 
 ## Certificaciones
 
@@ -25,23 +25,19 @@ image:
   
 ## Descripción
 
-Los `mensajes` de `error` detallados de este laboratorio `revelan` que está utilizando una `versión vulnerable` de un `framework` de `terceros`. Para `resolver` el laboratorio, `obtén` y `envía` el `número` de `versión` de este `framework`
+Este `laboratorio` contiene una `página de depuración` que `revela` información `sensible` sobre la `aplicación`. Para `resolver` el laboratorio, `obtén` y `envía` la `variable` de `entorno` `SECRET_KEY`
 
 ---
 ## Web Enumeration
 
 Al `acceder` a la `web` nos sale esto
 
-![](/assets/img/Information-Disclosure-Lab-1/image_1.png)
+![[image_1.png]]
 
-Pulsamos en `View details` y vemos un producto
+Nos dirigimos a `Burpsuite`, pulsamos en `Target > Site map`, señalamos el `dominio` a `analizar` y hacemos `click izquierdo > Engagement tools > Find comments` para `analizar` los `comentarios` del sitio web
 
-![](/assets/img/Information-Disclosure-Lab-1/image_2.png)
+![[image_2.png]]
 
-La url nos lleva a `https://0a5a00060335b9418411e62000ee00b2.web-security-academy.net/product?productId=1`, pero si accedemos a un producto inexistente como `https://0a5a00060335b9418411e62000ee00b2.web-security-academy.net/product?productId=test` provocaremos un error desvelando la versión y el framework en uso `Apache Struts 2 2.3.31`
+Si ahora accedemos a `https://0a2800c704ee6a18815dc1a500c3003e.web-security-academy.net/cgi-bin/phpinfo.php` nos mostrará un `phpinfo` en el cual se encuentra la variable de entorno `SECRET_KEY`
 
-![](/assets/img/Information-Disclosure-Lab-1/image_3.png)
-
-`Submiteamos` el `framework` y su `versión`
-
-![](/assets/img/Information-Disclosure-Lab-1/image_4.png)
+![[image_3.png]]
