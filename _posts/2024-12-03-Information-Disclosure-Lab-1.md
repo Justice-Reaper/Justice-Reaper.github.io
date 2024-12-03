@@ -1,21 +1,15 @@
 ---
 title: Information Disclosure Lab 1
-date: 2024-12-01 12:26:00 +0800
+date: 2024-12-03 12:26:00 +0800
 author: Justice-Reaper
 categories:
   - Portswigger
-  - OS Command Injection
+  - Information Disclosure
 tags:
-  - OS
-  - Command
-  - Injection
-  - OS
-  - command
-  - injection,
-  - simple
-  - case
+  - Information Disclosure
+  - Information disclosure in error messages
 image:
-  path: /assets/img/OS-Command-Injection-Lab-1/Portswigger.png
+  path: /assets/img/Information-Disclosure-Lab-1/Portswigger.png
 ---
 
 ## Skills
@@ -38,16 +32,16 @@ Los `mensajes` de `error` detallados de este laboratorio `revelan` que está uti
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/Information-Disclosure-Lab-1/image_1.png)
 
 Pulsamos en `View details` y vemos un producto
 
-![[image_2.png]]
+![](/assets/img/Information-Disclosure-Lab-1/image_2.png)
 
 La url nos lleva a `https://0a5a00060335b9418411e62000ee00b2.web-security-academy.net/product?productId=1`, pero si accedemos a un producto inexistente como `https://0a5a00060335b9418411e62000ee00b2.web-security-academy.net/product?productId=test` provocaremos un error desvelando la versión y el framework en uso `Apache Struts 2 2.3.31`
 
-![[image_3.png]]
+![](/assets/img/Information-Disclosure-Lab-1/image_3.png)
 
 `Submiteamos` el `framework` y su `versión`
 
-![[image_4.png]]
+![](/assets/img/Information-Disclosure-Lab-1/image_4.png)
