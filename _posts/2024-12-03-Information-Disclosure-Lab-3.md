@@ -34,7 +34,7 @@ Al `acceder` a la `web` nos sale esto
 
 ![](/assets/img/Information-Disclosure-Lab-3/image_1.png)
 
-Nos dirigimos a `Burpsuite`, pulsamos en `Target > Site map`, señalamos el `dominio` a `analizar` y hacemos `click izquierdo > Engagement tools > Discover content` para `analizar` los `rutas` del sitio web. Podemos seleccionar un diccionario personalizado en la parte de `Config` o pulsar directamente `Session is not running` para iniciar la fuerza bruta, al hacerlo encontramos el directorio backup
+Nos dirigimos a `Burpsuite`, pulsamos en `Target > Site map`, señalamos el `dominio` a `analizar` y hacemos `click izquierdo > Engagement tools > Discover content` para `analizar` los `rutas` del sitio web. Podemos seleccionar un diccionario personalizado en la parte de `Config` o pulsar directamente `Session is not running` para `fuzzear` directorios, al hacerlo encontramos el directorio `/backup`
 
 ![](/assets/img/Information-Disclosure-Lab-3/image_2.png)
 
