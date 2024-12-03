@@ -41,3 +41,7 @@ Nos dirigimos a `Burpsuite`, pulsamos en `Target > Site map`, señalamos el `dom
 Si ahora accedemos a `https://0a2800c704ee6a18815dc1a500c3003e.web-security-academy.net/cgi-bin/phpinfo.php` nos mostrará un `phpinfo` en el cual se encuentra la variable de entorno `SECRET_KEY`
 
 ![](/assets/img/Information-Disclosure-Lab-2/image_3.png)
+
+`Submiteamos` la `SECRET_KEY`
+
+![](/assets/img/Information-Disclosure-Lab-2/image_4.png)
