@@ -6,15 +6,10 @@ categories:
   - Portswigger
   - Information Disclosure
 tags:
-  - Information
-  - Disclosure
-  - Information
-  - disclosure
-  - in
-  - error
-  - messages
+  - Information Disclosure
+  - Source code disclosure via backup files
 image:
-  path: /assets/img/Information-Disclosure-Lab-1/Portswigger.png
+  path: /assets/img/Information-Disclosure-Lab-3/Portswigger.png
 ---
 
 ## Skills
@@ -37,28 +32,28 @@ Este `laboratorio` `filtra` su `código fuente` a través de `archivos de respal
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/Information-Disclosure-Lab-3/image_1.png)
 
 Nos dirigimos a `Burpsuite`, pulsamos en `Target > Site map`, señalamos el `dominio` a `analizar` y hacemos `click izquierdo > Engagement tools > Discover content` para `analizar` los `rutas` del sitio web. Podemos seleccionar un diccionario personalizado en la parte de `Config` o pulsar directamente `Session is not running` para iniciar la fuerza bruta, al hacerlo encontramos el directorio backup
 
-![[image_2.png]]
+![](/assets/img/Information-Disclosure-Lab-3/image_2.png)
 
 Si pinchamos en `Site map` vemos como hay un `robots.txt`
 
-![[image_3.png]]
+![](/assets/img/Information-Disclosure-Lab-3/image_3.png)
 
 Si accedemos a `https://0a600038039e8015d71375f10087002f.web-security-academy.net/robots.txt` veremos una ruta `/backup`
 
-![[image_4.png]]
+![](/assets/img/Information-Disclosure-Lab-3/image_4.png)
 
 Si accedemos a `https://0a600038039e8015d71375f10087002f.web-security-academy.net/backup` veremos un `archivo`
 
-![[image_5.png]]
+![](/assets/img/Information-Disclosure-Lab-3/image_5.png)
 
 Si accedemos a `https://0a600038039e8015d71375f10087002f.web-security-academy.net/backup/ProductTemplate.java.bak` vemos que se está `creando` una `conexión` a la `base` de `datos`
 
-![[image_6.png]]
+![](/assets/img/Information-Disclosure-Lab-3/image_6.png)
 
 `Submiteamos` la `contraseña` de `acceso` a la `base` de `datos`
 
-![[image_7.png]]
+![](/assets/img/Information-Disclosure-Lab-3/image_7.png)
