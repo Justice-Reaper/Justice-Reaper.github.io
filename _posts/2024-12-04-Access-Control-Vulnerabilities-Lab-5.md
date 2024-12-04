@@ -6,14 +6,10 @@ categories:
   - Portswigger
   - Access Control Vulnerabilities
 tags:
-  - Access
-  - Control
-  - Vulnerabilities
-  - Unprotected
-  - admin
-  - functionality
+  - Access Control Vulnerabilities
+  - User ID controlled by request parameter
 image:
-  path: /assets/img/Access-Control-Vulnerabilities-Lab-1/Portswigger.png
+  path: /assets/img/Access-Control-Vulnerabilities-Lab-5/Portswigger.png
 ---
 
 ## Skills
@@ -36,20 +32,20 @@ Este `laboratorio` tiene una `horizontal privilege escalation vulnerability` en 
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-5/image_1.png)
 
 Pulsamos en `My account` y nos logueamos con las credenciales `wiener:peter`
 
-![[image_2.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-5/image_2.png)
 
 En la parte de `My account` vemos que al `loguearnos` la url ha cambiado a `https://0a5200ae03fea138837c1eaf007f00f6.web-security-academy.net/my-account?id=wiener` y que ahora se nos muestra nuestro `nombre` de `usuario` y nuestra `API Key`
 
-![[image_3.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-5/image_3.png)
 
 Si accedemos a `https://0a5200ae03fea138837c1eaf007f00f6.web-security-academy.net/my-account?id=carlos` podemos ver su `API Key` porque no está bien sanitizado
 
-![[image_4.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-5/image_4.png)
 
 `Submiteamos` la  `API Key` y `completamos` el `laboratorio`
 
-![[image_5.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-5/image_5.png)
