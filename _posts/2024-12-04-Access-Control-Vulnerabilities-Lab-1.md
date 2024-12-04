@@ -1,20 +1,15 @@
 ---
 title: Access Control Vulnerabilities Lab 1
-date: 2024-12-03 12:26:00 +0800
+date: 2024-12-04 12:26:00 +0800
 author: Justice-Reaper
 categories:
   - Portswigger
-  - Information Disclosure
+  - Access Control Vulnerabilities
 tags:
-  - Information
-  - Disclosure
-  - Information
-  - disclosure
-  - in
-  - error
-  - messages
+  - Access Control Vulnerabilities
+  - Unprotected admin functionality
 image:
-  path: /assets/img/Information-Disclosure-Lab-1/Portswigger.png
+  path: /assets/img/Access-Control-Vulnerabilities-Lab-1/Portswigger.png
 ---
 
 ## Skills
@@ -37,7 +32,7 @@ Este `laboratorio` tiene un `panel de administración` sin `protección`. Para `
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-1/image_1.png)
 
 `Fuzzeamos` la `web`, además de hacerlo desde `Burpsuite` podemos usar herramientas como `fuff` desde `consola`
 
@@ -77,8 +72,8 @@ robots.txt              [Status: 200, Size: 45, Words: 3, Lines: 3, Duration: 53
 
 Si accedemos a `https://0a13001403de35cd811e201100ae0089.web-security-academy.net/robots.txt` veremos una ruta llamada `/administrator-panel`
 
-![[image_2.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-1/image_2.png)
 
 Si accedemos a `https://0a13001403de35cd811e201100ae0089.web-security-academy.net/administrator-panel` veremos un `panel` `administrativo` desde el cual podemos `borrar` al usuarios `carlos` completando así el `laboratorio`
 
-![[image_3.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-1/image_3.png)
