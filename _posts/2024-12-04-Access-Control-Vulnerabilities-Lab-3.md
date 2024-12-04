@@ -6,14 +6,10 @@ categories:
   - Portswigger
   - Access Control Vulnerabilities
 tags:
-  - Access
-  - Control
-  - Vulnerabilities
-  - Unprotected
-  - admin
-  - functionality
+  - Access Control Vulnerabilities
+  - User role controlled by request parameter
 image:
-  path: /assets/img/Access-Control-Vulnerabilities-Lab-1/Portswigger.png
+  path: /assets/img/Access-Control-Vulnerabilities-Lab-3/Portswigger.png
 ---
 
 ## Skills
@@ -36,11 +32,11 @@ Este `laboratorio` tiene un `panel de administración` en `/admin`, que identifi
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-3/image_1.png)
 
 Pulsamos en `My account` y nos logueamos con las credenciales `wiener:peter`
 
-![[image_2.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-3/image_2.png)
 
 `Fuzzeamos` rutas y encontramos una llamada `/admin`
 
@@ -81,20 +77,20 @@ my-account              [Status: 302, Size: 0, Words: 1, Lines: 1, Duration: 55m
 
 Si accedemos a `/admin` nos `muestra` este `mensaje`
 
-![[image_3.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-3/image_3.png)
 
 Si `interceptamos` la `petición` mediante `Burpsuite` vemos que hay un parámetro `Admin=False`
 
-![[image_4.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-3/image_4.png)
 
 Cambiamos el parámetro a `Admin=true`, hacemos `click izquierdo` y seleccionamos la opción `Show response in browser`. Al acceder se nos muestra el `panel administrativo`
 
-![[image_5.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-3/image_5.png)
 
 Si pulsamos sobre `Delete` nos llevará a `https://0a050019046d30238088b7a600ee00f4.web-security-academy.net/admin/delete?username=carlos` pero no se `eliminará` el `usuario`. Para que el `usuario` se `elimine` debemos hacer la petición desde `Burpsuite` con el parámetro `Admin=True`
 
-![[image_6.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-3/image_6.png)
 
 Otra opción sería `cambiar` el `parámetro` directamente en el `navegador`
 
-![[image_7.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-3/image_7.png)
