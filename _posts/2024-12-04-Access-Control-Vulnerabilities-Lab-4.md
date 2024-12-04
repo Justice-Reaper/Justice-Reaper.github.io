@@ -6,14 +6,10 @@ categories:
   - Portswigger
   - Access Control Vulnerabilities
 tags:
-  - Access
-  - Control
-  - Vulnerabilities
-  - Unprotected
-  - admin
-  - functionality
+  - Access Control Vulnerabilities
+  - User role can be modified in user profile
 image:
-  path: /assets/img/Access-Control-Vulnerabilities-Lab-1/Portswigger.png
+  path: /assets/img/Access-Control-Vulnerabilities-Lab-4/Portswigger.png
 ---
 
 ## Skills
@@ -36,11 +32,11 @@ Este `laboratorio` tiene un `panel de administración` en `/admin`. Solo es acce
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-4/image_1.png)
 
 Pulsamos en `My account` y nos logueamos con las credenciales `wiener:peter`
 
-![[image_2.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-4/image_2.png)
 
 `Fuzzeamos` rutas y encontramos una llamada `/admin`
 
@@ -81,19 +77,19 @@ my-account              [Status: 302, Size: 0, Words: 1, Lines: 1, Duration: 59m
 
 Si accedemos a `/admin` nos `muestra` este `mensaje`
 
-![[image_3.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-4/image_3.png)
 
 En la parte de `My account` vemos que podemos `actualizar` nuestro `email`
 
-![[image_4.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-4/image_4.png)
 
 Si `interceptamos` la `petición` mediante `Burpsuite` vemos esto
 
-![[image_5.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-4/image_5.png)
 
 Si `enviamos` la `petición`, esta es la `repuesta` que `recibimos`
 
-![[image_6.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-4/image_6.png)
 
 Podemos `enviar` este `payload` en el cual cambiamos nuestro `roleid` a `2` con el fin de `escalar privilegios`
 
@@ -106,4 +102,4 @@ Podemos `enviar` este `payload` en el cual cambiamos nuestro `roleid` a `2` con 
 
 Una vez `ascendido` nuestro `privilegio` ya podemos `acceder` a `/admin`, `borrar` al usuario `carlos` y `ascender` nuestro `privilegio`
 
-![[image_7.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-4/image_7.png)
