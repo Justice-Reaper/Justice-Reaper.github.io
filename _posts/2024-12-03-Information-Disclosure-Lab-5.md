@@ -6,15 +6,10 @@ categories:
   - Portswigger
   - Information Disclosure
 tags:
-  - Information
-  - Disclosure
-  - Information
-  - disclosure
-  - in
-  - error
-  - messages
+  - Information Disclosure
+  - Information disclosure in version control history
 image:
-  path: /assets/img/Information-Disclosure-Lab-1/Portswigger.png
+  path: /assets/img/Information-Disclosure-Lab-5/Portswigger.png
 ---
 
 ## Skills
@@ -37,7 +32,7 @@ Este `laboratorio` `revela` información `sensible` a través de su `historial d
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/Information-Disclosure-Lab-5/image_1.png)
 
 `Fuzzeamos` la `web`, además de hacerlo desde `Burpsuite` podemos usar herramientas como `fuff` desde `consola`
 
@@ -126,8 +121,8 @@ index 26742e2..21d23f1 100644
 
 Nos `logueamos` con las credenciales `administrator:z9xi7od0a1z0ar5c36jz`
 
-![[image_2.png]]
+![](/assets/img/Information-Disclosure-Lab-5/image_2.png)
 
 Pulsamos sobre `Admin panel` y le `borramos` la `cuenta` al usuario `carlos`
 
-![[image_3.png]]
+![](/assets/img/Information-Disclosure-Lab-5/image_3.png)
