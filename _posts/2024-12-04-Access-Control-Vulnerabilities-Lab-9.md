@@ -6,14 +6,10 @@ categories:
   - Portswigger
   - Access Control Vulnerabilities
 tags:
-  - Access
-  - Control
-  - Vulnerabilities
-  - Unprotected
-  - admin
-  - functionality
+  - Access Control Vulnerabilities
+  - Insecure direct object references
 image:
-  path: /assets/img/Access-Control-Vulnerabilities-Lab-1/Portswigger.png
+  path: /assets/img/Access-Control-Vulnerabilities-Lab-9/Portswigger.png
 ---
 
 ## Skills
@@ -36,32 +32,32 @@ Este `laboratorio` almacena los `registros de chat` de los usuarios directamente
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-9/image_1.png)
 
 Pulsamos en `Live chat` y vemos lo siguiente
 
-![[image_2.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-9/image_2.png)
 
 Al `enviar` un `mensaje` con `Sencd` y posteriormente `pulsando` en `View transcript` se nos `descarga` un `archivo` llamado `2.txt`
 
-![[image_3.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-9/image_3.png)
 
 Pulsamos `View transcript` e `interceptamos` la `petición` usando `Burpsuite`
 
-![[image_4.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-9/image_4.png)
 
 Esta es la `respuesta` del `servidor`
 
-![[image_5.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-9/image_5.png)
 
 Si pulsamos en `Follow redirection` nos lleva hasta aquí
 
-![[image_6.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-9/image_6.png)
 
 Si `accedemos` a este recurso `/download-transcript/1.txt` veremos un nuevo `mensaje` en el que se muestra la contraseña `p44hid0bauh4cg5ik0vn`
 
-![[image_7.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-9/image_7.png)
 
 Nos `logueamos` como el usuario `carlos` y `completamos` el `laboratorio`
 
-![[image_8.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-9/image_8.png)
