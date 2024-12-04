@@ -6,14 +6,10 @@ categories:
   - Portswigger
   - Access Control Vulnerabilities
 tags:
-  - Access
-  - Control
-  - Vulnerabilities
-  - Unprotected
-  - admin
-  - functionality
+  - Access Control Vulnerabilities
+  - Unprotected admin functionality with unpredictable URL
 image:
-  path: /assets/img/Access-Control-Vulnerabilities-Lab-1/Portswigger.png
+  path: /assets/img/Access-Control-Vulnerabilities-Lab-2/Portswigger.png
 ---
 
 ## Skills
@@ -36,12 +32,12 @@ Este `laboratorio` tiene un `panel de administración` sin `protección`, ubicad
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-2/image_1.png)
 
 Nos dirigimos a `Burpsuite`, pulsamos en `Target > Site map`, señalamos el `dominio` a `analizar` y hacemos `click izquierdo > Engagement tools > Find scripts` para `analizar` los `scripts` del sitio web. Este script nos muestra un `Admin panel` que se aloja en `/admin-xng8bf`
 
-![[image_2.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-2/image_2.png)
 
 Si accedemos a `https://0ab100d704393ca180cc8f46008d006e.web-security-academy.net/admin-xng8bf` vemos un `panel administrativo` desde el cual podemos `borrar` al usuario `carlos` y `completar` el `laboratorio`
 
-![[image_3.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-2/image_3.png)
