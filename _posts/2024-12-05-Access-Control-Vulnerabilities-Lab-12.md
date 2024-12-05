@@ -6,14 +6,10 @@ categories:
   - Portswigger
   - Access Control Vulnerabilities
 tags:
-  - Access
-  - Control
-  - Vulnerabilities
-  - Unprotected
-  - admin
-  - functionality
+  - Access Control Vulnerabilities
+  - Multi-step process with no access control on one step
 image:
-  path: /assets/img/Access-Control-Vulnerabilities-Lab-1/Portswigger.png
+  path: /assets/img/Access-Control-Vulnerabilities-Lab-12/Portswigger.png
 ---
 
 ## Skills
@@ -36,32 +32,32 @@ Este `laboratorio` tiene un `panel de administración` con un proceso defectuoso
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-12/image_1.png)
 
 Pulsamos sobre `My account` y nos `logueamos` con credenciales `administrator:admin`
 
-![[image_2.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-12/image_2.png)
 
 Pulsamos en `Admin panel` y vemos que podemos `subirle` los `privilegios` a otros `usuarios`
 
-![[image_3.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-12/image_3.png)
 
 Si pulsamos sobre `Upgrade user` nos sale este `mensaje` de `confirmación`
 
-![[image_4.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-12/image_4.png)
 
 Pulsamos sobre `Yes` y `capturamos` la `petición` con `Burpsuite`
 
-![[image_5.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-12/image_5.png)
 
 Nos `logueamos` como el `wiener`
 
-![[image_6.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-12/image_6.png)
 
 Pulsamos `Ctrl + Shift + i` y copiamos el valor de `session`
 
-![[image_7.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-12/image_7.png)
 
 Copiamos el `valor` de `session` aquí y `upgradeamos` los `privilegios` a nuestro `usuario`
 
-![[image_8.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-12/image_8.png)
