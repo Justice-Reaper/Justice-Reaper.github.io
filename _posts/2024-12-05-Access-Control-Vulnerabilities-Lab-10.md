@@ -6,14 +6,10 @@ categories:
   - Portswigger
   - Access Control Vulnerabilities
 tags:
-  - Access
-  - Control
-  - Vulnerabilities
-  - Unprotected
-  - admin
-  - functionality
+  - Access Control Vulnerabilities
+  - URL-based access control can be circumvented
 image:
-  path: /assets/img/Access-Control-Vulnerabilities-Lab-1/Portswigger.png
+  path: /assets/img/Access-Control-Vulnerabilities-Lab-10/Portswigger.png
 ---
 
 ## Skills
@@ -36,7 +32,7 @@ Este `sitio web` tiene un `panel de administración` no autenticado en `/admin`,
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-10/image_1.png)
 
 Si pulsamos en `Admin panel` no nos deja acceder y nos muestra un código de estado `403 Access Denied`. Existe una herramienta llamada `bypas-403` [https://github.com/v0rl0x/bypass-403-updated.git](https://github.com/v0rl0x/bypass-403-updated.git), la cual mediante diferentes `headers` intenta `bypassear` este código de estado. Podemos encontrar `payloads` y otras herramientas en `Hacktricks` [https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/403-and-401-bypasses](https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/403-and-401-bypasses). Es importante probar con `/admin` y con `admin` debido a que hay varias cabeceras que necesitan una ruta
 
@@ -87,12 +83,12 @@ Way back machine:
 
 Si `capturamos` la `petición` y aplicamos la cabecera `X-Original-Url: /admin`
 
-![[image_2.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-10/image_2.png)
 
 Hacemos click derecho, pulsamos sobre `Show response in browser` y accedemos a un panel administrativo
 
-![[image_3.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-10/image_3.png)
 
 Si intentamos `eliminar` a un `usuario` no nos dejará y nos `redirigirá` a `https://0a2a003604de8f1180f0ade5008900ae.web-security-academy.net/admin/delete?username=carlos`. Debemos realizar la `petición` de esta forma para poder `eliminar` al usuario `carlos`
 
-![[image_4.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-10/image_4.png)
