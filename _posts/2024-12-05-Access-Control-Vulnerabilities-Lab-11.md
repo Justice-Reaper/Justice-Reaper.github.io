@@ -6,14 +6,10 @@ categories:
   - Portswigger
   - Access Control Vulnerabilities
 tags:
-  - Access
-  - Control
-  - Vulnerabilities
-  - Unprotected
-  - admin
-  - functionality
+  - Access Control Vulnerabilities
+  - Method-based access control can be circumvented
 image:
-  path: /assets/img/Access-Control-Vulnerabilities-Lab-1/Portswigger.png
+  path: /assets/img/Access-Control-Vulnerabilities-Lab-11/Portswigger.png
 ---
 
 ## Skills
@@ -36,30 +32,30 @@ Este `laboratorio` implementa controles de acceso basados parcialmente en el `m�
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-11/image_1.png)
 
 Pulsamos sobre `My account` y nos `logueamos` con credenciales `administrator:admin`
 
-![[image_2.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-11/image_2.png)
 
 Pulsamos en `Admin panel` y vemos que podemos `subirle` los `privilegios` a otros `usuarios`
 
-![[image_3.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-11/image_3.png)
 
 Pulsamos sobre `Upgrade user` y `capturamos` la `petición` con `Burpsuite`
 
-![[image_4.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-11/image_4.png)
 
 Hacemos lo mismo pero pulsando sobre `Downgrade user`
 
-![[image_5.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-11/image_5.png)
 
 Hacemos `click derecho` y pulsamos en `Change request method`, al enviar la `petición` por `GET` funciona
 
-![[image_6.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-11/image_6.png)
 
 Nos `logueamos` como el `wiener`
 
-![[image_7.png]]
+![](/assets/img/Access-Control-Vulnerabilities-Lab-11/image_7.png)
 
 Hacemos una petición a `https://0a7a00b1044ecd6d84cd6a8600940049.web-security-academy.net/admin-roles?username=wiener&action=upgrade` y `convertimos` nuestro usuario en `administrador` 
