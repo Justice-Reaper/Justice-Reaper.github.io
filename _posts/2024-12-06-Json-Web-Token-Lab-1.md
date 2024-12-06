@@ -58,7 +58,7 @@ Hacemos `Ctrl + Shift + i` y pegamos el nuevo `valor` en el parámetro `session`
 
 ![](/assets/img/Json-Web-Token-Lab-1/image_7.png)
 
-Una vez hecho esto nos aparece el `panel` de `administrador`, lo que quiere decir que nos hemos `convertidos` en ese `usuario`
+`Recargamos` con `F5` y nos aparece el `panel` de `administrador`, lo que quiere decir que nos hemos `convertidos` en ese `usuario`
 
 ![](/assets/img/Json-Web-Token-Lab-1/image_8.png)
 
