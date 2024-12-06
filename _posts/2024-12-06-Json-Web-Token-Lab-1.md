@@ -1,0 +1,69 @@
+---
+title: Json Web Token Lab 1
+date: 2024-12-06 12:26:00 +0800
+author: Justice-Reaper
+categories:
+  - Portswigger
+  - Access Control Vulnerabilities
+tags:
+  - Access
+  - Control
+  - Vulnerabilities
+  - Unprotected
+  - admin
+  - functionality
+image:
+  path: /assets/img/Access-Control-Vulnerabilities-Lab-1/Portswigger.png
+---
+
+## Skills
+
+- JWT authentication bypass via unverified signature
+
+## Certificaciones
+
+- eWPT
+- eWPTXv2
+- OSWE
+- BSCP
+  
+## Descripción
+
+Este `laboratorio` utiliza un mecanismo basado en `JWT` para manejar las `sesiones`. Debido a fallos en su `implementación`, el `servidor` no verifica la `firma` de los `JWT` que recibe. Para `resolver` el laboratorio, debemos modificar nuestro `token de sesión` para `obtener acceso` al `panel` de `administración` en `/admin` y eliminar al usuario `carlos`. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las siguientes credenciales `wiener:peter`
+
+---
+## Web Enumeration
+
+Al `acceder` a la `web` nos sale esto
+
+![[image_1.png]]
+
+Pulsamos sobre `My account` y nos `logueamos` con credenciales `wiener:peter`
+
+![[image_2.png]]
+
+`Recargamos` la `página` y `capturamos` la `petición` mediante `Burpsuite`
+
+![[image_3.png]]
+
+Debemos tener instalado la extensión `JWT Editor`, esta `extensión` nos avisará si `detecta` un `token`
+
+![[image_4.png]]
+
+Los `JWT` pueden ser de dos tipos: `JWS` (JSON Web Signature) y `JWE` (JSON Web Encryption). Los `JWS` se utilizan para garantizar la `integridad` y la `autenticidad` de los `datos` mediante una `firma digital`, pero no cifran la `información`, por lo que los `datos` pueden ser `leídos`, aunque no `modificados` sin invalidar la `firma`. En cambio, los `JWE` están diseñados para proteger la `confidencialidad` de los `datos` mediante `cifrado`, asegurando que solo las partes `autorizadas` puedan acceder a la `información`, pero no garantizan la `autenticidad` sin `mecanismos adicionales`
+
+![[image_5.png]]
+
+`Modificamos` el `nombre` de `usuario` en el `payload`
+
+![[image_6.png]]
+
+Hacemos `Ctrl + Shift + i` y pegamos el nuevo `valor` en el parámetro `session`
+
+![[image_7.png]]
+
+Una vez hecho esto nos aparece el `panel` de `administrador`, lo que quiere decir que nos hemos `convertidos` en ese `usuario`
+
+![[image_8.png]]
+
+Esto ha sido posible debido a que las `bibliotecas JWT` suelen ofrecer un `método` para `verificar tokens` y otro que simplemente los `decodifica`. Por ejemplo, la biblioteca de `Node.js` llamada `jsonwebtoken` tiene los métodos `verify()` y `decode()`. En ocasiones, los `desarrolladores` confunden estos dos `métodos` y solo pasan los `tokens entrantes` al `método` `decode()`. Esto significa que la `aplicación` no verifica la `firma` en absoluto. Para `completar` el `laboratorio` debemos `borrar` el usuario `carlos`
