@@ -64,7 +64,7 @@ Nos dirigimos al `repeater` pulsamos en `Attack` y pulsamos sobre `Embedded JWK`
 
 ![](/assets/img/Json-Web-Token-Lab-4/image_7.png)
 
-`Cambiamos` el `nombre` de `usuario` a `administrador` y `firmamos` el JWT con la `clave privada`
+`Cambiamos` el `nombre` de `usuario` a `administrador` y `firmamos` el `JWT` con la `clave privada`. En este caso la extensión `JWT Editor` de `Burpsuite` nos `actualiza` el parámetro `kid`, pero si realizamos este `ataque` de forma `manual` deberemos `actualizarlo` nosotros para que funcione
 
 ![](/assets/img/Json-Web-Token-Lab-4/image_8.png)
 
