@@ -73,5 +73,5 @@ Pulsamos `Ctrl + Shift + i` y `pegamos` el nuevo `JWT`
 ![](/assets/img/Json-Web-Token-Lab-4/image_9.png)
 
 `Refrescamos` la `web` con `F5`, `accedemos` al `panel` de `administrador` y `borramos` al usuario `carlos`
-``
+
 ![](/assets/img/Json-Web-Token-Lab-4/image_10.png)
