@@ -7,14 +7,9 @@ categories:
   - JWT
 tags:
   - JWT
-  - JWT
-  - authentication
-  - bypass
-  - via
-  - unverified
-  - signature
+  - JWT authentication bypass via jwk header injection
 image:
-  path: /assets/img/Json-Web-Token-Lab-1/Portswigger.png
+  path: /assets/img/Json-Web-Token-Lab-4/Portswigger.png
 ---
 
 ## Skills
@@ -37,46 +32,46 @@ Este `laboratorio` utiliza un mecanismo basado en `JWT` para manejar las `sesion
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/Json-Web-Token-Lab-4/image_1.png)
 
 Pulsamos sobre `My account` y nos `logueamos` con credenciales `wiener:peter`
 
-![[image_2.png]]
+![](/assets/img/Json-Web-Token-Lab-4/image_2.png)
 
 `Recargamos` la `página` y `capturamos` la `petición` mediante `Burpsuite`
 
-![[image_3.png]]
+![](/assets/img/Json-Web-Token-Lab-4/image_3.png)
 
 Debemos tener instalado la extensión `JWT Editor`, esta `extensión` nos avisará si `detecta` un `token`
 
-![[image_4.png]]
+![](/assets/img/Json-Web-Token-Lab-4/image_4.png)
 
 Los `JWT` pueden ser de dos tipos: `JWS` (JSON Web Signature) y `JWE` (JSON Web Encryption). Los `JWS` se utilizan para garantizar la `integridad` y la `autenticidad` de los `datos` mediante una `firma digital`, pero no cifran la `información`, por lo que los `datos` pueden ser `leídos`, aunque no `modificados` sin invalidar la `firma`. En cambio, los `JWE` están diseñados para proteger la `confidencialidad` de los `datos` mediante `cifrado`, asegurando que solo las partes `autorizadas` puedan acceder a la `información`, pero no garantizan la `autenticidad` sin `mecanismos adicionales`
 
-![[image_5.png]]
+![](/assets/img/Json-Web-Token-Lab-4/image_5.png)
 
-De acuerdo con la especificación de `JWS`, solo el parámetro `alg` del `encabezado` es `obligatorio`. Sin embargo, en la práctica, los `encabezados` de `JWT` (también conocidos como encabezados `JOSE`) a menudo contienen otros `parámetros`. 
+De acuerdo con la especificación de `JWS`, solo el parámetro `alg` del `encabezado` es `obligatorio`. Sin embargo, en la práctica, los `encabezados` de `JWT` (también conocidos como encabezados `JOSE`) a menudo contienen otros `parámetros`
 
-El `jwk` (JSON Web Key) proporciona un objeto `JSON` incrustado que representa la `clave`, el `jku` (JSON Web Key Set URL) proporciona una `URL` desde la cual los `servidores` pueden obtener un conjunto de `claves` que contiene la `clave` correcta y el `kid` (Key ID) que proporciona un `ID` que los `servidores` pueden usar para identificar la `clave` correcta en casos donde hay varias `claves` para elegir. Dependiendo del formato de la `clave`, esto puede tener un parámetro `kid` correspondiente.
+El `jwk` (JSON Web Key) proporciona un objeto `JSON` incrustado que representa la `clave`, el `jku` (JSON Web Key Set URL) proporciona una `URL` desde la cual los `servidores` pueden obtener un conjunto de `claves` que contiene la `clave` correcta y el `kid` (Key ID) que proporciona un `ID` que los `servidores` pueden usar para identificar la `clave` correcta en casos donde hay varias `claves` para elegir. Dependiendo del formato de la `clave`, esto puede tener un parámetro `kid` correspondiente
 
-La especificación de `JSON Web Signature` (JWS) describe un `parámetro opcional` en el `encabezado` llamado `jwk`, que los `servidores` pueden usar para `incrustar` su `clave pública` directamente dentro del `token` en formato `JWK`. Idealmente, los `servidores` deberían utilizar solo una `lista limitada` de `claves públicas` autorizadas para verificar las `firmas` de los `JWT`. 
+La especificación de `JSON Web Signature` (JWS) describe un `parámetro opcional` en el `encabezado` llamado `jwk`, que los `servidores` pueden usar para `incrustar` su `clave pública` directamente dentro del `token` en formato `JWK`. Idealmente, los `servidores` deberían utilizar solo una `lista limitada` de `claves públicas` autorizadas para verificar las `firmas` de los `JWT`
 
 Sin embargo, los `servidores mal configurados` a veces aceptan cualquier `clave` incrustada en el parámetro `jwk`. Podemos `explotar` este comportamiento firmando un `JWT modificado` utilizando nuestra propia `clave privada RSA` y luego incrustando la `clave pública` correspondiente en el encabezado `jwk`. Para hacer esto no dirigimos al `Burpsuite`, hacemos click sobre `JWT Editor` y pulsamos sobre `New RSA Key` para `generar` nuestra propia `clave privada`
 
-![[image_6.png]]
+![](/assets/img/Json-Web-Token-Lab-4/image_6.png)
 
 Nos dirigimos al `repeater` pulsamos en `Attack` y pulsamos sobre `Embedded JWK`, de esta forma `Burpsuite` extrae la `clave pública` de la `clave privada` y la `inyecta` en el `parámetro jwk`
 
-![[image_7.png]]
+![](/assets/img/Json-Web-Token-Lab-4/image_7.png)
 
 `Cambiamos` el `nombre` de `usuario` a `administrador` y `firmamos` el JWT con la `clave privada`
 
-![[image_8.png]]
+![](/assets/img/Json-Web-Token-Lab-4/image_8.png)
 
 Pulsamos `Ctrl + Shift + i` y `pegamos` el nuevo `JWT`
 
-![[image_9.png]]
+![](/assets/img/Json-Web-Token-Lab-4/image_9.png)
 
 `Refrescamos` la `web` con `F5`, `accedemos` al `panel` de `administrador` y `borramos` al usuario `carlos`
 ``
-![[image_10.png]]
+![](/assets/img/Json-Web-Token-Lab-4/image_10.png)
