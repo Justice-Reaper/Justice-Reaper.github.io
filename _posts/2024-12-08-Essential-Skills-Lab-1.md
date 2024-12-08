@@ -57,3 +57,19 @@ productId=<oaq xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="tex
 ```
 
 ![](/assets/img/Essential-Skills-Lab-1/image_6.png)
+
+Otra opción de `escaneo` sería un `targeted scan`, este tipo de `escaneo` se aplica solo a `peticiones` en `concreto`, es una buena opción para `evaluar` una `función` o un `comportamiento` interesante. Por ejemplo en la `web` si `pinchamos` sobre `View details` vemos que hay una `descripción` del `artículo` y una `función` de `Check stock`
+
+![](/assets/img/Essential-Skills-Lab-1/image_7.png)
+
+Pulsamos en `Check stock` y nos dirigimos a` Burpsuite > Proxy > HTTP history` y `ordenamos` por `host` para que nos muestre la `última petición`
+
+![](/assets/img/Essential-Skills-Lab-1/image_8.png)
+
+Hacemos `click derecho` sobre esta `petición` y hacemos un `escaneo activo`
+
+![](/assets/img/Essential-Skills-Lab-1/image_9.png)
+
+Para ver las `vulnerabilidades` encontradas debemos dirigirnos a `Target > Site map`
+
+![](/assets/img/Essential-Skills-Lab-1/image_10.png)
