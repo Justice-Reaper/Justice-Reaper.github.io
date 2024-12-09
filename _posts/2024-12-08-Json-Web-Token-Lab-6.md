@@ -9,7 +9,7 @@ tags:
   - JWT
   - JWT authentication bypass via kid header path traversal
 image:
-  path: /assets/img/Essential-Skills-Lab-6/Portswigger.png
+  path: /assets/img/Json-Web-Token-Lab-6/Portswigger.png
 ---
 
 ## Skills
