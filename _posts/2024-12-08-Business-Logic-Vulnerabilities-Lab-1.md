@@ -34,32 +34,32 @@ Al `acceder` a la `web` nos sale esto
 
 ![](/assets/img/Business-Logic-Vulnerabilities-Lab-1/image_1.png)
 
-Pulsamos en My accounty y nos logueamos con las credenciales `wiener:peter` 
+`Pulsamos` en `My account` y nos `logueamos` con las credenciales `wiener:peter` 
 
 ![](/assets/img/Business-Logic-Vulnerabilities-Lab-1/image_2.png)
 
-Pinchamos en View details sobre el artículo `Lightweight "l33t" Leather Jacket`, añadimos el artículo al carrito y capturamos la petición con Burpsuite
+Pinchamos en `View details` sobre el artículo `Lightweight "l33t" Leather Jacket`, añadimos el `artículo` al `carrito` y `capturamos` la `petición` con `Burpsuite`
 
 ![](/assets/img/Business-Logic-Vulnerabilities-Lab-1/image_3.png)
 
-Vemos que el precio se tramita el precio de artículo en la petición
+Vemos que el `precio` se `tramita` el `precio` de `artículo` en la `petición`
 
 ![](/assets/img/Business-Logic-Vulnerabilities-Lab-1/image_4.png)
 
-Si pulsamos sobre la cesta vemos el precio del artículo
+Si `pulsamos` sobre la `cesta` vemos el `precio` del `artículo`
 
 ![](/assets/img/Business-Logic-Vulnerabilities-Lab-1/image_5.png)
 
-Enviamos este payload para rebajar el precio de los artículos
+`Enviamos` este `payload` para `rebajar` el `precio` de los `artículos`
 
 ```
 productId=1&redir=PRODUCT&quantity=1&price=1
 ```
 
-Bajamos el precio a 1 céntimos
+`Bajamos` el precio a `1 céntimo`
 
 ![](/assets/img/Business-Logic-Vulnerabilities-Lab-1/image_6.png)
 
-Pulsamos en Place order y compramos el producto
+`Pulsamos` en `Place order` y `compramos` el `producto`
 
 ![](/assets/img/Business-Logic-Vulnerabilities-Lab-1/image_7.png)
