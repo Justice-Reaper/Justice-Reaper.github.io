@@ -4,18 +4,12 @@ date: 2024-12-08 12:26:00 +0800
 author: Justice-Reaper
 categories:
   - Portswigger
-  - Essential Skills
+  - JWT
 tags:
-  - Essential
-  - Skills
-  - Discovering
-  - vulnerabilities
-  - quickly
-  - with
-  - targeted
-  - scanning
+    - JWT
+  - JWT authentication bypass via kid header path traversal
 image:
-  path: /assets/img/Essential-Skills-Lab-1/Portswigger.png
+  path: /assets/img/Essential-Skills-Lab-6/Portswigger.png
 ---
 
 ## Skills
@@ -38,43 +32,43 @@ Este `laboratorio` utiliza un mecanismo basado en `JWT` para manejar las `sesion
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/Json-Web-Token-Lab-6/image_1.png)
 
 Pulsamos en `My account` y nos `logueamos` con las credenciales `wiener:peter`
 
-![[image_2.png]]
+![](/assets/img/Json-Web-Token-Lab-6/image_2.png)
 
 `Recargamos` con `F5` y `capturamos` la `petición` con `Burpsuite`
 
-![[image_3.png]]
+![](/assets/img/Json-Web-Token-Lab-6/image_3.png)
 
 Este es el `JWT`, el cual lo vemos así gracias a la extensión `JWT Editor` de `Burpsuite`
 
-![[image_4.png]]
+![](/assets/img/Json-Web-Token-Lab-6/image_4.png)
 
 Cambiamos el `nombre` de `usuario` a `administrator`
 
-![[image_5.png]]
+![](/assets/img/Json-Web-Token-Lab-6/image_5.png)
 
 Efectuamos un `path traversal` y cargamos el `/dev/null`
 
-![[image_6.png]]
+![](/assets/img/Json-Web-Token-Lab-6/image_6.png)
 
 `Firmamos` el `JWT` con una `clave vacía`
 
-![[image_7.png]]
+![](/assets/img/Json-Web-Token-Lab-6/image_7.png)
 
 Hacemos una petición a `/admin` para comprobar que nuestro `ataque` ha `funcionado` y que tenemos `acceso` al `panel administrativo`
 
-![[image_8.png]]
+![](/assets/img/Json-Web-Token-Lab-6/image_8.png)
 
 En el `navegador` pulsamos `Ctrl + Shift+ i` y `pegamos` la `cookie`
 
-![[image_9.png]]
+![](/assets/img/Json-Web-Token-Lab-6/image_9.png)
 
 `Refrescamos` la `web` con `F5` y `borramos` al usuario `carlos`
 
-![[image_10.png]]
+![](/assets/img/Json-Web-Token-Lab-6/image_10.png)
 
 Hemos podido `realizar` este `ataque` debido a que los `servidores` pueden utilizar varias `claves criptográficas` para `firmar` distintos `tipos` de `datos`, no solo `JWT`. Por este motivo, el encabezado de un `JWT` puede contener un parámetro `kid` (ID de clave), que `ayuda` al `servidor` a identificar qué `clave` debe utilizar al verificar la `firma`
 
