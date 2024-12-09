@@ -4,18 +4,12 @@ date: 2024-12-08 12:26:00 +0800
 author: Justice-Reaper
 categories:
   - Portswigger
-  - Essential Skills
+  - JWT
 tags:
-  - Essential
-  - Skills
-  - Discovering
-  - vulnerabilities
-  - quickly
-  - with
-  - targeted
-  - scanning
+  - JWT
+  - JWT authentication bypass via jku header injection
 image:
-  path: /assets/img/Essential-Skills-Lab-1/Portswigger.png
+  path: /assets/img/Json-Web-Token-Lab-5/Portswigger.png
 ---
 
 ## Skills
@@ -38,23 +32,23 @@ Este `laboratorio` utiliza un mecanismo basado en `JWT` para manejar las `sesion
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/Json-Web-Token-Lab-5/image_1.png)
 
 Pulsamos en `My account` y nos `logueamos` con las credenciales `wiener:peter`
 
-![[image_2.png]]
+![](/assets/img/Json-Web-Token-Lab-5/image_2.png)
 
 `Recargamos` con `F5` y `capturamos` la `petición` con `Burpsuite`
 
-![[image_3.png]]
+![](/assets/img/Json-Web-Token-Lab-5/image_3.png)
 
 Este es el `JWT`, lo vemos así gracias a la extensión `JWT Editor`
 
-![[image_4.png]]
+![](/assets/img/Json-Web-Token-Lab-5/image_4.png)
 
 Vemos que el `algoritmo` usado en un `RS256`, nos dirigimos a la ventana `JWT Editor` y nos `creamos` una `clave privada RSA` pulsando en `New RSA Key`
 
-![[image_5.png]]
+![](/assets/img/Json-Web-Token-Lab-5/image_5.png)
 
 Nos dirigimos al `Exploit server` y pegamos este `JSON`, que es la `clave privada` en el `body`
 
@@ -86,27 +80,27 @@ Content-Type: application/json
 
 `Cambiamos` el `nombre` de `usuario` a `administrator`
 
-![[image_6.png]]
+![](/assets/img/Json-Web-Token-Lab-5/image_6.png)
 
 `Actualizamos` el `kid`, el cual debe ser el mismo que el de la `clave privada` que hemos generado y `añadimos` el parámetro `jku` que apunta al `servidor` desde donde `cargaremos` la `clave RSA`
 
-![[image_7.png]]
+![](/assets/img/Json-Web-Token-Lab-5/image_7.png)
 
 `Firmamos` el `JSON` con la `clave privada`
 
-![[image_8.png]]
+![](/assets/img/Json-Web-Token-Lab-5/image_8.png)
 
 Hacemos una `petición` a `/admin` para comprobar que nos hemos `convertido` en `administrador`
 
-![[image_9.png]]
+![](/assets/img/Json-Web-Token-Lab-5/image_9.png)
 
 En el navegador pulsamos `Ctrl + Shift+ i` y pegamos la cookie
 
-![[image_10.png]]
+![](/assets/img/Json-Web-Token-Lab-5/image_10.png)
 
 `Refrescamos` la `web` con `F5` y ya podemos `eliminar` al usuario `carlos`
 
-![[image_11.png]]
+![](/assets/img/Json-Web-Token-Lab-5/image_11.png)
 
 Hemos podido `vulnerar` este `laboratorio` debido a que, en lugar de `incorporar claves públicas` directamente mediante el `parámetro` de encabezado `jwk`, algunos `servidores` permiten utilizar el parámetro de encabezado `jku` (`URL del conjunto JWK`) para hacer referencia a un `conjunto JWK` que contiene la `clave`. Durante el proceso de `verificación de la firma`, el `servidor` obtiene la clave relevante desde esta `URL`. Este es un ejemplo de un `conjunto de claves JWK` al cual podemos `acceder` mediante el parámetro `jku`
 
