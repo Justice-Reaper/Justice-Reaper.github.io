@@ -1,21 +1,15 @@
 ---
-title: "Business Logic Vulnerabilities\r Lab 3"
+title: Business Logic Vulnerabilities Lab 3
 date: 2024-12-08 12:26:00 +0800
 author: Justice-Reaper
 categories:
   - Portswigger
-  - Essential Skills
+  - Business Logic Vulnerabilities
 tags:
-  - Essential
-  - Skills
-  - Discovering
-  - vulnerabilities
-  - quickly
-  - with
-  - targeted
-  - scanning
+  - Business Logic Vulnerabilities
+  - Inconsistent security controls
 image:
-  path: /assets/img/Essential-Skills-Lab-1/Portswigger.png
+  path: /assets/img/Business-Logic-Vulnerabilities-Lab-3/Portswigger.png
 ---
 
 ## Skills
@@ -38,23 +32,23 @@ Este `laboratorio` tiene una `lógica defectuosa` que permite a `usuarios arbitr
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-3/image_1.png)
 
 Pulsamos sobre `Email client` y nos `copiamos` la `dirección` de `email`
 
-![[image_2.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-3/image_2.png)
 
 `Pulsamos` en `Register` y nos `registramos`
 
-![[image_3.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-3/image_3.png)
 
 En `Email client` nos llega un `correo` de `confirmación`, `pinchamos` en el `enlace` y `confirmamos` el `registro`
 
-![[image_4.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-3/image_4.png)
 
 Nos dirigimos a `My account` y nos `logueamos`
 
-![[image_5.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-3/image_5.png)
 
 `Fuzzeamos` en busca de `directorios` y encontramos un `/admin`
 
@@ -86,16 +80,16 @@ ADMIN                   [Status: 401, Size: 2821, Words: 1106, Lines: 56, Durati
 
 Si accedemos a `https://0a4700d9031c32b181a634a900be004e.web-security-academy.net/admin` nos dice que tenemos que tener un `correo` que pertenezca a la `compañía`
 
-![[image_6.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-3/image_6.png)
 
 Si pulsamos en `My account` vemos que podemos `actualizar` nuestro `email`
 
-![[image_7.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-3/image_7.png)
 
 `Cambiamos` nuestro `email` a uno de la `compañía`
 
-![[image_8.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-3/image_8.png)
 
 Una vez hecho esto ya podemos acceder a `https://0a4700d9031c32b181a634a900be004e.web-security-academy.net/admin` y `borrar` al usuario `carlos`
 
-![[image_9.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-3/image_9.png)
