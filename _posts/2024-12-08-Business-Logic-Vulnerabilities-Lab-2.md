@@ -1,21 +1,15 @@
 ---
-title: "Business Logic Vulnerabilities\r Lab 2"
+title: Business Logic Vulnerabilities Lab 2
 date: 2024-12-08 12:26:00 +0800
 author: Justice-Reaper
 categories:
   - Portswigger
-  - Essential Skills
+  - Business Logic Vulnerabilities
 tags:
-  - Essential
-  - Skills
-  - Discovering
-  - vulnerabilities
-  - quickly
-  - with
-  - targeted
-  - scanning
+  - Business Logic Vulnerabilities
+  - High-level logic vulnerability
 image:
-  path: /assets/img/Essential-Skills-Lab-1/Portswigger.png
+  path: /assets/img/Business-Logic-Vulnerabilities-Lab-2/Portswigger.png
 ---
 
 ## Skills
@@ -38,19 +32,19 @@ Este `laboratorio` no valida adecuadamente las `entradas del usuario`. Esto perm
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-2/image_1.png)
 
 `Pulsamos` en `My account` y nos `logueamos` con las credenciales `wiener:peter` 
 
-![[image_2.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-2/image_2.png)
 
 Pinchamos en `View details` sobre el artículo `Sprout More Brain Power`, añadimos el `artículo` al `carrito` y `capturamos` la `petición` con `Burpsuite`
 
-![[image_3.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-2/image_3.png)
 
 Vemos que el `precio` se `tramita` la `cantidad` de `artículos` en la `petición`. Ponemos la `cantidad` de `artículos` en `negativo`
 
-![[image_4.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-2/image_4.png)
 
 `Enviamos` este `payload` en el cual la `cantidad` comprada es `negativa`
 
@@ -60,16 +54,16 @@ productId=2&redir=PRODUCT&quantity=-1
 
 Si `pulsamos` sobre la `cesta` vemos que el `precio` del `artículo` es `negativo`
 
-![[image_5.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-2/image_5.png)
 
 `Pulsamos` en `Place order` pero `no` podemos `comprar` el `producto` porque el `precio` no puede ser `negativo`
 
-![[image_6.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-2/image_6.png)
 
 `Añadimos` otro `producto` que el `precio` sea `mayor` que `cero`, en este caso vamos a `añadir` el artículo `Lightweight "l33t" Leather Jacket`
 
-![[image_7.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-2/image_7.png)
 
 `Pulsamos` en `Place order` y `compramos` el `producto` con un gran `descuento`
 
-![[image_8.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-2/image_8.png)
