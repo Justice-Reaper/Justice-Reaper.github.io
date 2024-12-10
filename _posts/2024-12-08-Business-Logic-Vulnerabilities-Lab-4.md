@@ -6,14 +6,10 @@ categories:
   - Portswigger
   - Business Logic Vulnerabilities
 tags:
-  - Business
-  - Logic
-  - Vulnerabilities
-  - Inconsistent
-  - security
-  - controls
+  - Business Logic Vulnerabilities
+  - Flawed enforcement of business rules
 image:
-  path: /assets/img/Business-Logic-Vulnerabilities-Lab-3/Portswigger.png
+  path: /assets/img/Business-Logic-Vulnerabilities-Lab-4/Portswigger.png
 ---
 
 ## Skills
@@ -36,28 +32,28 @@ Este `laboratorio` presenta un `fallo de lógica` en su flujo de trabajo de `com
 
 Al `acceder` a la `web` nos sale esto, vemos que hay un `cupón` llamado `NEWCUST5`
 
-![[image_1.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-4/image_1.png)
 
 Pulsamos sobre `My account` y nos `logueamos` utilizando las credenciales `wiener:peter`
 
-![[image_2.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-4/image_2.png)
 
 Pulsamos sobre `View details` sobre el artículo `Lightweight l33t leather jacket` y pulsamos en `Add to cart`
 
-![[image_3.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-4/image_3.png)
 
 En la `parte inferior` de la `web` nos podemos `suscribir` a la `newsletter`
 
-![[image_4.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-4/image_4.png)
 
 Una vez `suscritos` nos sale un `cupón`
 
-![[image_5.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-4/image_5.png)
 
 Si nos dirigimos para la `cesta` y `añadimos` el cupón `NEWCUST5` y luego el `SIGNUP30` y vamos alternándolos podemos aplicarlos de forma `infinita`
 
-![[image_6.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-4/image_6.png)
 
 Pulsamos sobre `Place order` y conseguimos `comprar` un `artículo` de forma `gratuita`
 
-![[image_7.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-4/image_6.png)
