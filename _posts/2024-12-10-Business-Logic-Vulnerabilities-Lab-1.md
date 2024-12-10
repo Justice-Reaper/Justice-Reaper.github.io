@@ -1,6 +1,6 @@
 ---
 title: Business Logic Vulnerabilities Lab 1
-date: 2024-12-08 12:26:00 +0800
+date: 2024-12-10 12:26:00 +0800
 author: Justice-Reaper
 categories:
   - Portswigger
