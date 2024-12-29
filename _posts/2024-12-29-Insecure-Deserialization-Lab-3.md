@@ -1,19 +1,15 @@
 ---
-title: "Insecure Deserialization\r Lab 3"
+title: Insecure Deserialization Lab 3
 date: 2024-12-29 12:26:00 +0800
 author: Justice-Reaper
 categories:
   - Portswigger
-  - Business Logic Vulnerabilities
+  - Insecure Deserialization
 tags:
-  - Business
-  - Logic
-  - Vulnerabilities
-  - Inconsistent
-  - security
-  - controls
+  - Insecure-Deserialization
+  - Using application functionality to exploit insecure deserialization
 image:
-  path: /assets/img/Business-Logic-Vulnerabilities-Lab-3/Portswigger.png
+  path: /assets/img/Insecure-Deserialization-Lab-3/Portswigger.png
 ---
 
 ## Skills
@@ -36,19 +32,19 @@ Este `laboratorio` utiliza un mecanismo basado en `serialización` para manejar 
 
 Al `acceder` a la `web` nos sale esto, vemos que hay un `cupón` llamado `NEWCUST5`
 
-![[image_1.png]]
+![](/assets/img/Insecure-Deserialization-Lab-3/image_1.png)
 
 Pulsamos sobre `My account` y nos `logueamos` utilizando las credenciales `wiener:peter`
 
-![[image_2.png]]
+![](/assets/img/Insecure-Deserialization-Lab-3/image_2.png)
 
 Al iniciar sesión vemos esto
 
-![[image_3.png]]
+![](/assets/img/Insecure-Deserialization-Lab-3/image_3.png)
 
 Si pulsamos sobre `Delete account` y capturamos la petición con Burpsuite
 
-![[image_4.png]]
+![](/assets/img/Insecure-Deserialization-Lab-3/image_4.png)
 
 Podemos modificamos la `ruta` al `avatar`
 
@@ -62,6 +58,6 @@ Nos copiamos el valor de session modificado, nos dirigimos al navegador y pulsam
 Tzo0OiJVc2VyIjozOntzOjg6InVzZXJuYW1lIjtzOjU6ImdyZWdnIjtzOjEyOiJhY2Nlc3NfdG9rZW4iO3M6MzI6ImpxeHFjYTFsNDYxY2o2ZHcxeDI0YndmM2NxaWx1NnU5IjtzOjExOiJhdmF0YXJfbGluayI7czoyMzoiL2hvbWUvY2FybG9zL21vcmFsZS50eHQiO30=
 ```
 
-![[image_5.png]]
+![](/assets/img/Insecure-Deserialization-Lab-3/image_5.png)
 
 `Refrescamos` la página pulsando `F5` y pulsamos en `Delete account` nuevamente para borrar el archivo alojado en `/home/carlos/morale.txt`
