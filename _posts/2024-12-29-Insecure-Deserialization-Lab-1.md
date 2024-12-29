@@ -61,7 +61,7 @@ O:4:"User":2:{s:8:"username";s:6:"wiener";s:5:"admin";b:0;}
    - 4: La `longitud` del `nombre` del `objeto` (en este caso "User")
    - "User": El `nombre` del `objeto`
 
-2. :2
+2. 2
    - Indica que el `objeto` tiene `2 atributos`
 
 3. {s:8:"username";s:6:"wiener";s:5:"admin";b:0;}
