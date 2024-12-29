@@ -1,19 +1,15 @@
 ---
-title: "Insecure Deserialization\r Lab 2"
+title: Insecure Deserialization Lab 2
 date: 2024-12-29 12:26:00 +0800
 author: Justice-Reaper
 categories:
   - Portswigger
-  - Business Logic Vulnerabilities
+  - Insecure Deserialization
 tags:
-  - Business
-  - Logic
-  - Vulnerabilities
-  - Inconsistent
-  - security
-  - controls
+  - Insecure Deserialization
+  - Modifying serialized objects
 image:
-  path: /assets/img/Business-Logic-Vulnerabilities-Lab-3/Portswigger.png
+  path: /assets/img/Insecure-Deserialization-Lab-2/Portswigger.png
 ---
 
 ## Skills
@@ -36,15 +32,15 @@ Este `laboratorio` utiliza un mecanismo de `sesión basado en serialización` y 
 
 Al `acceder` a la `web` nos sale esto, vemos que hay un `cupón` llamado `NEWCUST5`
 
-![[image_1.png]]
+![](/assets/img/Insecure-Deserialization-Lab-2/image_1.png)
 
 Pulsamos sobre `My account` y nos `logueamos` utilizando las credenciales `wiener:peter`
 
-![[image_2.png]]
+![](/assets/img/Insecure-Deserialization-Lab-2/image_2.png)
 
 Si `recargamos` la página `web` y `capturamos` la `petición` con `Burpsuite` veremos esta `petición`, vemos que el parámetro `session` contiene una `cadena` en `base64`
 
-![[image_3.png]]
+![](/assets/img/Insecure-Deserialization-Lab-2/image_3.png)
 
 `Cambiamos` el `nombre` de `usuario` de wiener a administrator para ver si el `access_token` no se `valida adecuadamente` y podemos `acceder` a `/admin`. Para obtener la `longitud` de una `palabra` podemos usar el comando `echo -n 'administrator' | wc -c`, es importante usar el parámetro `-n` para que nos `elimine` el `salto` de `línea`
 
@@ -54,11 +50,11 @@ O:4:"User":2:{s:8:"username";s:13:"administrator";s:12:"access_token";s:32:"gvjt
 
 Al `mandar` la `petición` a `/admin` con los nuevos datos nos responde con un `Internal Server Error`
 
-![[image_4.png]]
+![](/assets/img/Insecure-Deserialization-Lab-2/image_4.png)
 
 La `lógica` basada en `PHP` es particularmente `vulnerable` a este tipo de manipulación debido al `comportamiento` de su `operador` de `comparación flexible (==)` al `comparar diferentes tipos de datos`. Por ejemplo, si realiza una `comparación flexible` entre un `entero` y una `cadena`, PHP intentará `convertir` la `cadena` de `texto` a un `entero`, lo que significa que `5 == "5"` daría como resultado `true`
 
-Esto también `funciona` para cualquier `cadena alfanumérica` que `comience` con un `número`. En este caso, `PHP convertirá` efectivamente `toda` la `cadena` en un `valor entero` basado en el `número inicial`. El `resto` de la `cadena` se `ignora` por `completo`. Por lo tanto, `5 == "5 of something"` en la práctica se trata como `5 == 5`.
+Esto también `funciona` para cualquier `cadena alfanumérica` que `comience` con un `número`. En este caso, `PHP convertirá` efectivamente `toda` la `cadena` en un `valor entero` basado en el `número inicial`. El `resto` de la `cadena` se `ignora` por `completo`. Por lo tanto, `5 == "5 of something"` en la práctica se trata como `5 == 5`
 
 En `PHP 7.x y anteriores` la comparación `0 == "Example string"` se evalúa como `true`, porque `PHP` trata la `cadena completa` como el entero `0`
 
@@ -91,8 +87,8 @@ Podemos hacer la prueba ejecutando este `script` de `php`, veremos que nos devue
 
 Una vez creado el `token` nos dirigimos al navegador y pulsamos `Ctrl + Shift + i` y pegamos el nuevo `valor` de `session`
 
-![[image_5.png]]
+![](/assets/img/Insecure-Deserialization-Lab-2/image_5.png)
 
 `Refrescamos` con `F5` y ya podemos `acceder` a `/admin` y `borrar` al usuario `carlos`
 
-![[image_6.png]]
+![](/assets/img/Insecure-Deserialization-Lab-2/image_6.png)
