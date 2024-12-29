@@ -50,48 +50,41 @@ Si intentamos acceder a `https://0a00005a030ce63981dbf2dc00f30060.web-security-a
 
 ![](/assets/img/Insecure-Deserialization-Lab-1/image_5.png)
 
-Este es el `objeto serializado`, el cual tiene varias `partes`
+Este es el `objeto serializado`, el cual tiene dos atributos, `username` y `admin`. Cada uno de estos `atributos` tiene un `valor`, el `valor` de `username` es `wiener` y el `valor` de `admin` es `0`
 
 ```
 O:4:"User":2:{s:8:"username";s:6:"wiener";s:5:"admin";b:0;}
 ```
 
-Desglose:
-
 1. O:4:"User"
-   - O: Indica que es un objeto
-   - 4: La longitud del nombre del objeto (en este caso "User")
-   - "User": El nombre del objeto
+   - O: `Indica` que es un `objeto`
+   - 4: La `longitud` del `nombre` del `objeto` (en este caso "User")
+   - "User": El `nombre` del `objeto`
 
-2. 2
-   - Indica que el objeto tiene 2 atributos
+2. :2
+   - Indica que el `objeto` tiene `2 atributos`
 
 3. {s:8:"username";s:6:"wiener";s:5:"admin";b:0;}
    - Los atributos dentro del objeto están representados entre llaves {}
 
    Primer atributo
    - s:8:"username"
-     - s: Indica que el valor es un string
-     - 8: La longitud del string es 8 caracteres
-     - "username": El nombre del atributo
+     - s: `Indica` que el `valor` es un `string`
+     - 8: La `longitud` del `string` es `8 caracteres`
+     - "username": El `nombre` del `atributo`
    - s:6:"wiener"
-     - s: Indica que el valor es un string
-     - 6: La longitud del string es 6 caracteres
-     - "wiener": El valor asignado al atributo username
+     - s: `Indica` que el `valor` es un `string`
+     - 6: La `longitud` del `string` es `6 caracteres`
+     - "wiener": El `valor asignado` al `atributo username`
 
    Segundo atributo
    - s:5:"admin"
-     - s: Indica que el valor es un string
-     - 5: La longitud del string es 5 caracteres
-     - "admin": El nombre del atributo
+     - s: `Indica` que el `valor` es un `string`
+     - 5: La `longitud` del `string` es `5 caracteres`
+     - "admin": El `nombre` del `atributo`
    - b:0
-     - b: Indica que el valor es un booleano
-     - 0: El valor del atributo admin es false, indicando que el usuario no es un administrador
-
-Resumen:
-- Este objeto User tiene dos atributos:
-  - username: un string con el valor "wiener".
-  - admin: un booleano con el valor false (b:0).
+     - b: `Indica` que el `valor` es un `booleano`
+     - 0: El `valor` del `atributo admin` es `false`, indicando que el usuario no es un administrador
 
 Desde `Burpsuite` cambiamos el valor de `admin` de `0` a `1`
 
