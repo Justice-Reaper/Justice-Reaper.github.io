@@ -1,19 +1,15 @@
 ---
-title: "Insecure Deserialization\r Lab 4"
+title: Insecure Deserialization Lab 4
 date: 2024-12-31 12:26:00 +0800
 author: Justice-Reaper
 categories:
   - Portswigger
-  - Business Logic Vulnerabilities
+  - Insecure Deserialization
 tags:
-  - Business
-  - Logic
-  - Vulnerabilities
-  - Inconsistent
-  - security
-  - controls
+  - Insecure Deserialization
+  - Arbitrary object injection in PHP
 image:
-  path: /assets/img/Business-Logic-Vulnerabilities-Lab-3/Portswigger.png
+  path: /assets/img/Insecure-Deserialization-Lab-4/Portswigger.png
 ---
 
 ## Skills
@@ -36,15 +32,15 @@ Este `laboratorio` utiliza un mecanismo de `sesiones` basado en `serialización`
 
 Al `acceder` a la `web` nos sale esto, vemos que hay un `cupón` llamado `NEWCUST5`
 
-![[image_1.png]]
+![](/assets/img/Insecure-Deserialization-Lab-4/image_1.png)
 
 Pulsamos sobre `My account` y nos `logueamos` utilizando las credenciales `wiener:peter`
 
-![[image_2.png]]
+![](/assets/img/Insecure-Deserialization-Lab-4/image_2.png)
 
 Si hacemos `Ctrl + u` e `inspeccionamos` el `código fuente` de la web, vemos como en la `parte inferior` hay un `comentario` que hace alusión a la ruta `/libs/CustomTemplate.php`
 
-![[image_3.png]]
+![](/assets/img/Insecure-Deserialization-Lab-4/image_3.png)
 
 `Fuzzeamos` en busca de `archivos` de `backup` y `encontramos` un `archivo` llamado `CustomTemplate.php~`
 
@@ -79,11 +75,11 @@ ________________________________________________
 
 Si accedemos a `https://0a81003d04de82aa80dafdef00120067.web-security-academy.net/libs/CustomTemplate.php~` podemos ver el `código` del `archivo php`. Si nos fijamos bien en el código vemos los métodos `__destruct()` y `__construct()`, los cuales son `métodos mágicos`, en `PHP` es fácil reconocerlos porque llevan `__` siempre en su nombre. Los métodos mágicos en PHP son funciones especiales predefinidas que se `ejecutan automáticamente` en `respuesta` a ciertos `eventos` o `interacciones` con un `objeto`. En este caso el método que nos interesa es el método mágico `__destruct`, que `borra` el `archivo` que esté en la variable `lock_file_path`
 
-![[image_4.png]]
+![](/assets/img/Insecure-Deserialization-Lab-4/image_4.png)
 
 `Refrescamos` la `web` con `F5` y `capturamos` la `petición` con `Burpsuite`, al hacerlo vemos que el `parámetro session` contiene un `objeto`
 
-![[image_5.png]]
+![](/assets/img/Insecure-Deserialization-Lab-4/image_5.png)
 
 `Obtenemos` la `longitud` de `/home/carlos/morale.txt`
 
@@ -111,4 +107,4 @@ O:14:"CustomTemplate":1:{s:14:"lock_file_path";s:23:"/home/carlos/morale.txt";}
 
 Nos dirigimos al `navegador` y pulsamos `Ctrl + Shift + i`, pegamos el nuevo valor para `session` y `refrescamos` la `web` pulsando `F5`. Si todo ha funcionado correctamente deberíamos haber `borrado` el `archivo` y `completado` el `laboratorio`
 
-![[image_6.png]]
+![](/assets/img/Insecure-Deserialization-Lab-4/image_6.png)
