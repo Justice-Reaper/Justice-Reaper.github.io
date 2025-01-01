@@ -1,19 +1,15 @@
 ---
-title: "Insecure Deserialization\r Lab 5"
+title: Insecure Deserialization Lab 5
 date: 2024-12-31 12:26:00 +0800
 author: Justice-Reaper
 categories:
   - Portswigger
-  - Business Logic Vulnerabilities
+  - Insecure Deserialization
 tags:
-  - Business
-  - Logic
-  - Vulnerabilities
-  - Inconsistent
-  - security
-  - controls
+  - Insecure Deserialization
+  - Exploiting Java deserialization with Apache Commons
 image:
-  path: /assets/img/Business-Logic-Vulnerabilities-Lab-3/Portswigger.png
+  path: /assets/img/Insecure-Deserialization-Lab-5/Portswigger.png
 ---
 
 ## Skills
@@ -36,19 +32,19 @@ Este `laboratorio` utiliza un mecanismo de `sesiones` basado en `serialización`
 
 Al `acceder` a la `web` nos sale esto, vemos que hay un `cupón` llamado `NEWCUST5`
 
-![[image_1.png]]
+![](/assets/img/Insecure-Deserialization-Lab-5/image_1.png)
 
 Pulsamos sobre `My account` y nos `logueamos` utilizando las credenciales `wiener:peter`
 
-![[image_2.png]]
+![](/assets/img/Insecure-Deserialization-Lab-5/image_2.png)
 
 `Refrescamos` la `web` con `F5` y `capturamos` la `petición` con `Burpsuite`, al hacerlo vemos que el `parámetro session` contiene un `objeto` en `java`, esto lo podemos saber porque al `inicio` pone `rO`
 
-![[image_3.png]]
+![](/assets/img/Insecure-Deserialization-Lab-5/image_3.png)
 
 Para ver mejor el contenido debemos usar el `decoder`, así que `copiamos` la `url decodificada` en el `decoder` y `decodificamos` el `base64`
 
-![[image_4.png]]
+![](/assets/img/Insecure-Deserialization-Lab-5/image_4.png)
 
 Nos `descargamos` la herramienta `ysoserial` [https://github.com/frohoff/ysoserial.git](https://github.com/frohoff/ysoserial.git) y vamos `probando payloads` hasta dar con uno que funcione, en mi caso voy a empezar por los que contengan la plabra `common` debido a que el `decodear` el parámetro `session` he obtenido lo `siguiente`
 
@@ -82,4 +78,4 @@ rO0ABXNyABdqYXZhLnV0aWwuUHJpb3JpdHlRdWV1ZZTaMLT7P4KxAwACSQAEc2l6ZUwACmNvbXBhcmF0
 
 Nos dirigimos a `Burpsuite` señalamos el parámetro `session`, `pegamos` el `payload` en `encodeado` en `base64` en el `inspector` y pulsamos en `Apply changes`. Si todo ha funcionado correctamente deberíamos haber `borrado` el `archivo` y `completado` el `laboratorio`
 
-![[image_5.png]]
+![](/assets/img/Insecure-Deserialization-Lab-5/image_5.png)
