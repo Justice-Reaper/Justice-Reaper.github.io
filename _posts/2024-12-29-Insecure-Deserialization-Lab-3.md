@@ -30,7 +30,7 @@ Este `laboratorio` utiliza un mecanismo basado en `serialización` para manejar 
 ---
 ## Web Enumeration
 
-Al `acceder` a la `web` nos sale esto, vemos que hay un `cupón` llamado `NEWCUST5`
+Al `acceder` a la `web` nos sale esto
 
 ![](/assets/img/Insecure-Deserialization-Lab-3/image_1.png)
 
