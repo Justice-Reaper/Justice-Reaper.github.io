@@ -192,7 +192,10 @@ defaults:
     values:
       layout: page
       permalink: /:title/
-
+  - scope:
+      path: "img"
+    values:
+      image: true
 sass:
   style: compressed
 
