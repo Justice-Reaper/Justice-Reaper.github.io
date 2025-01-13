@@ -1,29 +1,39 @@
 ---
+title:	"Creating Your Custom LLD in Zabbix"
+autor: Luiz Meier
+date:	2024-09-15 10:00:00
+categories: [Zabbix, Automation]
+tags: [LLD, Monitoring, PowerShell, Custom Scripts]
+description: "A complete guide to creating a custom Low-Level Discovery in Zabbix."
+lang: en
+image: 
 layout:	post
-title:	"Criando seu próprio LLD customizado no Zabbix"
-date:	2024-09-15
+canonical_url: https://medium.lmeier.net/creating-your-own-custom-lld-in-zabbix-eb9bfb51fcfa
+image: assets/img/zabbix-custom-lld/capa.png
 ---
 
   *Um guia para o seu primeiro LLD*
 
 *Also available in *[*English*](https://medium.lmeier.net/creating-your-own-custom-lld-in-zabbix-eb9bfb51fcfa)*.*
 
+<!--
 ![](assets/img/zabbix-custom-lld/capa.png)
 *Image taken from [xcitium.com](https://www.xcitium.com/network-monitoring/)*
+-->
 
-De tempos em tempos me vejo na necessidade de desenvolver alguma rotina para monitoramento que envolva o uso de uma regra de descoberta customizada no Zabbix. Isso eventualmente acontece por necessidades específicas que a ferramenta pode ainda não ser capaz de executar.
+From time to time, I need to develop a monitoring routine that involves using a custom discovery rule in Zabbix. This usually happens because of a specific need that the tool itself is not yet capable of handling naturally.
 
-Após uma necessidade específica de um colega da comunidade Zabbix Brasil, resolvi fazer este post para dar uma ideia geral de como funciona o recurso de LLD (descoberta de baixo nível) do Zabbix e de como você pode fazer a sua própria regra customizada, baseada nas suas necessidades.
+After a specific request from a colleague in the Zabbix Brasil community, I decided to create this post to provide a general idea of how the LLD (Low-Level Discovery) feature works and how you can create your own custom rule based on your needs.
 
-Para este exemplo, usarei Powershell, visando os colegas que administram ambientes Microsoft. Porém, pode usar qualquer linguagem que o seu sistema operacional suporte, haja visto que o script que criaremos será executado pelo próprio host a ser monitorado, e não no servidor Zabbix em si.
+For this example, I will be using PowerShell, focusing on those who manage Microsoft environments. However, you can use any language that your system supports, as the script we will create will be executed by the monitored host itself, and not by the Zabbix Server.
 
 #### O LLD
 
-O recurso de LLD, para quem não sabe, permite que o Zabbix “crie, de forma dinâmica, itens, triggers e gráficos para todos os objetos descobertos no dispositivo monitorado”. Você pode encontrar esta definição e mais informações na [documentação oficial](https://www.zabbix.com/documentation/3.0/pt/manual/discovery/low_level_discovery) da ferramenta.
+The LLD feature, for those who don’t know, allows Zabbix to dynamically create items, triggers, and graphs for all the discovered objects on the monitored device. You can find this definition and more information on the official documentation page.
 
-O processo de descoberta automática funciona da seguinte forma: uma rotina é executada e lista os objetos a serem descobertos em uma saída no formato [JSON](https://www.json.org/json-pt.html). Baseado nessa saída, os itens, triggers e gráficos serão criados a partir dos protótipos que você criará. Estes protótipos utilizarão as saídas do formato JSON como parâmetros para a criação desses elementos de monitoramento.
+The automatic discovery process works as follows: a routine is executed that lists the objects to be discovered in a JSON output. Based on this output, the items, triggers, and graphs are created from the prototypes that you will define. These prototypes use the JSON outputs as parameters to create the monitoring elements.
 
-A documentação do LLD está bem clara e objetiva. Inclusive, com versão em português.
+The LLD documentation is clear and straightforward, and it is available in languages other than English.
 
 #### O Script
 
