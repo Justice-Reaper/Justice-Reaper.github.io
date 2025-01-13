@@ -68,15 +68,15 @@ Conseguimos listar informações do arquivo em questão, mas juntamente com outr
 
 Ótimo! Conseguimos então que o script somente imprima o dado que desejamos. Agora temos que encontrar uma forma de que o script trabalhe dinamicamente, de forma que para cada arquivo na pasta, o comando powershell seja diferente.
 
-Para isso nós podemos utilizar o mesmo conceito do Lnux Bash, que usa as variáveis `$1`, `$2` e assim por diante para os parâmetros que serão passados para um script. A única diferença é que no powershell esse array inicia-se em `0` com o nome **$args[x]**, onde `x` é a posição do parâmetro a ser informado.
+Para isso nós podemos utilizar o mesmo conceito do Lnux Bash, que usa as variáveis `$1`, `$2` e assim por diante para os parâmetros que serão passados para um script. A única diferença é que no powershell esse array inicia-se em `0` com o nome `$args[x]`, onde `x` é a posição do parâmetro a ser informado.
 
-No comando abaixo, por exemplo, `abc` é **$args[0]** e `123` é **$args[1]**.
+No comando abaixo, por exemplo, `abc` é `$args[0]` e `123` é `$args[1]`.
 
 ```powershell
 Write-host abc 123
 ```
 
-Levando isso em conta, vamos substituir o nome do caminho no script pelo nome da variável **$args[0]**. Sendo assim, quando executarmos o script passando o nome do arquivo como parâmetro, ele nos trará o dado do arquivo informado. Veja que o início do caminho está fixado, mas poderia ser completamente dinâmico.
+Levando isso em conta, vamos substituir o nome do caminho no script pelo nome da variável `$args[0]`. Sendo assim, quando executarmos o script passando o nome do arquivo como parâmetro, ele nos trará o dado do arquivo informado. Veja que o início do caminho está fixado, mas poderia ser completamente dinâmico.
 
 ```powershell
 (Get-ChildItem C:\Temp\$args[0]).Lenght
@@ -94,7 +94,7 @@ C:\temp\monit-arquivos.ps1 lalala.zip
 
 Agora que já sabemos como fazer a coleta dos dados que vamos monitorar, vamos estruturar o script de modo a fazer com que ele tanto faça o monitoramento dos itens descobertos quanto a descoberta (LLD) propriamente dito. Eu, particularmente, gosto da lógica em que caso o script não receba nenhum parâmetro válido, faça o LLD como último recurso.
 
-Sendo assim, vamos estruturar essa rotina de modo a efetuar o monitoramento de um arquivo específico quando eu passar um parâmetro *tamanho*. Dessa forma, se o primeiro parâmetro (**$args[0]**) que o script receber for a string *tamanho*, ele imprimirá o tamanho do arquivo declarado como segundo parâmetro **($args[1]**).
+Sendo assim, vamos estruturar essa rotina de modo a efetuar o monitoramento de um arquivo específico quando eu passar um parâmetro *tamanho*. Dessa forma, se o primeiro parâmetro (`$args[0]`) que o script receber for a string *tamanho*, ele imprimirá o tamanho do arquivo declarado como segundo parâmetro (`$args[1]`).
 
 A primeira parte do script fica como abaixo:
 
@@ -115,7 +115,7 @@ C:\Temp\monit-arquivos.ps1 tamanho lalala.zip
 ![Informa ação](assets/img/zabbix-custom-lld/informa-acao.png)
 *Informando ação e arquivo como parâmetros*
 
-Ótimo! Agora vamos para a segunda parte, que é onde faremos o LLD propriamente dito. O bloco abaixo varre todos os arquivos do diretório informado e imprime em formato JSON o nome de cada arquivo, identificado pela macro **{#NOMEARQUIVO}**. Essa macro (que podem ser várias) é uma variável que será utilizada pelo Zabbix para dar nome aos itens, triggers e etc.
+Ótimo! Agora vamos para a segunda parte, que é onde faremos o LLD propriamente dito. O bloco abaixo varre todos os arquivos do diretório informado e imprime em formato JSON o nome de cada arquivo, identificado pela macro `{#NOMEARQUIVO}`. Essa macro (que podem ser várias) é uma variável que será utilizada pelo Zabbix para dar nome aos itens, triggers e etc.
 
 ```powershell
 # Se não, efetua LLD   

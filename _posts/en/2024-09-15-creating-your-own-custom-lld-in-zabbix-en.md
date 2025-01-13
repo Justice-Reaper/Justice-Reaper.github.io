@@ -50,7 +50,7 @@ Get-ChildItem C:\Temp
 
 Wow! With just this cmdlet, we were already able to list the files in the folder along with their sizes. 
 
-Now, let’s test how to print only the size of a specific file. Suppose we need to know the size of a file called `lalala.zip`*`:
+Now, let’s test how to print only the size of a specific file. Suppose we need to know the size of a file called `lalala.zip`:
 
 ```powershell
 Get-ChildItem C:\Temp\lalala.zip
@@ -69,9 +69,9 @@ We were able to list the information for the file we want, but we also retrieved
 
 Great! We’ve successfully configured the script to print only the data we need. Now, we need to make the script run dynamically, so that for each file in the folder, the PowerShell prompt behaves differently.
 
-To achieve this, we can use a concept similar to Bash in Linux, which uses variables like $1, $2, and $n as parameters passed to a script. The only difference is that in PowerShell, this array starts at 0, using $args[x], where *x* is the position of the parameter to be passed.  
+To achieve this, we can use a concept similar to Bash in Linux, which uses variables like $1, $2, and $n as parameters passed to a script. The only difference is that in PowerShell, this array starts at 0, using `$args[x]`, where `x` is the position of the parameter to be passed.  
 
-In the command below, for example, `abc` is $args[0] and `123` is $args[1].
+In the command below, for example, `abc` is `$args[0]` and `123` is `$args[1]`.
 
 ```powershell
 Write-host abc 123
@@ -94,7 +94,7 @@ C:\temp\monit-arquivos.ps1 lalala.zip
 #### **Structuring the script**
 
 Now that we know how to collect the data we will monitor, let’s structure the script to enable it to discover (LLD) all the items and to serve as the monitoring script to retrieve the data itself. I personally like the logic that if the script does not receive any valid parameters, it runs the LLD.  
-So, we will structure this routine to monitor a specific file if I pass the parameter “tamanho” (size in Portuguese). As I am Brazilian and will have this post in multiple languages, I reused the same term. This way, if the first parameter ($args[0]) that the script receives is the string "tamanho", it will print the file size of the file declared as the second parameter ($args[1]).
+So, we will structure this routine to monitor a specific file if I pass the parameter “tamanho” (size in Portuguese). As I am Brazilian and will have this post in multiple languages, I reused the same term. This way, if the first parameter (`$args[0]`) that the script receives is the string "tamanho", it will print the file size of the file declared as the second parameter (`$args[1]`).
 
 The first part of the script is as follows:
 
