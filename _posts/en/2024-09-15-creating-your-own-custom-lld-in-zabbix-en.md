@@ -1,20 +1,17 @@
 ---
-title:	"Creating Your Custom LLD in Zabbix"
-autor: Luiz Meier
-date:	2024-09-15 10:00:00
+title: "Creating Your Custom LLD in Zabbix"
+author: Luiz Meier  # Corrigido de 'autor' para 'author'
+date: 2024-09-15 10:00:00
 categories: [Zabbix, Automation]
-tags: [LLD, Monitoring, PowerShell, Custom Scripts]
+tags: [LLD, Monitoring, Powershell, Custom Scripts]
 description: "A complete guide to creating a custom Low-Level Discovery in Zabbix."
 lang: en
-image: 
-layout:	post
+image: assets/img/zabbix-custom-lld/capa.png  # Removido campo duplicado
+layout: post
 canonical_url: https://medium.lmeier.net/creating-your-own-custom-lld-in-zabbix-eb9bfb51fcfa
-image: assets/img/zabbix-custom-lld/capa.png
 ---
 
-  *Um guia para o seu primeiro LLD*
-
-*Also available in *[*English*](https://medium.lmeier.net/creating-your-own-custom-lld-in-zabbix-eb9bfb51fcfa)*.*
+*Leia em [Português](https://blog.lmeier.net/posts/criando-seu-proprio-lld-personalizado-no-zabbix-pt-BR/)*
 
 <!--
 ![](assets/img/zabbix-custom-lld/capa.png)
@@ -27,7 +24,7 @@ After a specific request from a colleague in the Zabbix Brasil community, I deci
 
 For this example, I will be using PowerShell, focusing on those who manage Microsoft environments. However, you can use any language that your system supports, as the script we will create will be executed by the monitored host itself, and not by the Zabbix Server.
 
-#### O LLD
+#### **The LLD**
 
 The LLD feature, for those who don’t know, allows Zabbix to dynamically create items, triggers, and graphs for all the discovered objects on the monitored device. You can find this definition and more information on the official documentation page.
 
@@ -35,114 +32,114 @@ The automatic discovery process works as follows: a routine is executed that lis
 
 The LLD documentation is clear and straightforward, and it is available in languages other than English.
 
-#### O Script
+#### **The Script**
 
-Vamos supor aqui que nós precisemos saber o tamanho de cada arquivo existente em uma determinada pasta. Poderiam ser arquivos de um sistema, cujos tamanhos precisam ser monitorados individualmente.
+Let’s suppose we need to determine the size of each file in a pre-determined folder. These could be system files, whose sizes need to be individually monitored.  
+*Hint:* PowerShell ISE or Visual Studio Code are great IDEs for developing your scripts.
 
-**Dica**: o [Powershell ISE](https://technet.microsoft.com/pt-br/library/dd759217%28v=ws.11%29.aspx) ou o [Visual Studio Code](https://code.visualstudio.com/) são ótimas IDEs para você desenvolver seus scripts.
+**Hint**: o [Powershell ISE](https://technet.microsoft.com/pt-br/library/dd759217%28v=ws.11%29.aspx) ou o [Visual Studio Code](https://code.visualstudio.com/) são ótimas IDEs para você desenvolver seus scripts.
 
-Primeiro, vamos criar uma forma de listar estes arquivos e o seu tamanho. Para isto, vamos mandar listar os arquivos da pasta simplesmente e ver o que temos em retorno:
+First, let’s create a way to list these files and their sizes. To do that, let’s simply ask the system to print the folder’s files and check what we get from that:
 
 ```powershell
 Get-ChildItem C:\Temp
 ```
 
-![Lista de arquivos](assets/img/zabbix-custom-lld/files-list.png)
-*Lista de arquivos*
+![Files list](assets/img/zabbix-custom-lld/files-list.png)
+*Files list*
 
-Opa! Só com esse simples cmdlet já conseguimos listar os arquivos do diretório e os seus respectivos tamanhos.
+Wow! With just this cmdlet, we were already able to list the files in the folder along with their sizes. 
 
-Agora vamos testar como fazemos para imprimir somente o tamanho de arquivo específico. Digamos que nós queiramos saber o tamanho do arquivo `lalala.zip`:
+Now, let’s test how to print only the size of a specific file. Suppose we need to know the size of a file called `lalala.zip`*`:
 
 ```powershell
 Get-ChildItem C:\Temp\lalala.zip
 ```
 
-![Propriedades de arquivo específico](assets/img/zabbix-custom-lld/arquivo-especifico.png)
-*Imprimindo propriedades de um arquivo específico*
+![Properties of a specific file](assets/img/zabbix-custom-lld/arquivo-especifico.png)
+*Printing properties of a specific file*
 
-Conseguimos listar informações do arquivo em questão, mas juntamente com outros dados que não são importantes para o que queremos. Com uma saída dessa forma, não conseguiremos monitorar somente o tamanho. Sendo assim, vamos imprimir somente o tamanho do arquivo em si. Para isto, vamos colocar o comando entre parênteses e fixar que somente queremos os dados referentes à coluna `Lenght`, que é o tamanho do arquivo.
+We were able to list the information for the file we want, but we also retrieved other details that we don’t need and that are not important for monitoring. With an output like this, we won’t be able to monitor just the file size. To fix this, we put the previous command in parentheses and specify that we only want the data from the `Length` column, which represents the file size.
 
 ```powershell
 (Get-ChildItem C:\Temp\lalala.zip).Lenght
 ```
-![Exibe tamanho](assets/img/zabbix-custom-lld/exibe-tamanho.png)
-*Exibe somente o valor do tamanho*
+![Show size](assets/img/zabbix-custom-lld/exibe-tamanho.png)
+*Shows the file size only*
 
-Ótimo! Conseguimos então que o script somente imprima o dado que desejamos. Agora temos que encontrar uma forma de que o script trabalhe dinamicamente, de forma que para cada arquivo na pasta, o comando powershell seja diferente.
+Great! We’ve successfully configured the script to print only the data we need. Now, we need to make the script run dynamically, so that for each file in the folder, the PowerShell prompt behaves differently.
 
-Para isso nós podemos utilizar o mesmo conceito do Lnux Bash, que usa as variáveis `$1`, `$2` e assim por diante para os parâmetros que serão passados para um script. A única diferença é que no powershell esse array inicia-se em `0` com o nome **$args[x]**, onde `x` é a posição do parâmetro a ser informado.
+To achieve this, we can use a concept similar to Bash in Linux, which uses variables like $1, $2, and $n as parameters passed to a script. The only difference is that in PowerShell, this array starts at 0, using $args[x], where *x* is the position of the parameter to be passed.  
 
-No comando abaixo, por exemplo, `abc` é **$args[0]** e `123` é **$args[1]**.
+In the command below, for example, `abc` is $args[0] and `123` is $args[1].
 
 ```powershell
 Write-host abc 123
 ```
 
-Levando isso em conta, vamos substituir o nome do caminho no script pelo nome da variável **$args[0]**. Sendo assim, quando executarmos o script passando o nome do arquivo como parâmetro, ele nos trará o dado do arquivo informado. Veja que o início do caminho está fixado, mas poderia ser completamente dinâmico.
+With that in mind, we replace the file path in the script with the variable $args[0]. This way, when we execute the script, passing the file name as a parameter, it will return the data for the specified file. Note that the beginning of the path is fixed, but it could be made fully dynamic.
 
 ```powershell
 (Get-ChildItem C:\Temp\$args[0]).Lenght
 ```
 
-Isto posto, salve esse script e execute-o via powershell, passando o nome do arquivo como parâmetro para saber o tamanho do arquivo em questão.
+That said, save the script and run it via PowerShell, passing the file name as a parameter to get the size of the file.
 
 ```powershell
 C:\temp\monit-arquivos.ps1 lalala.zip
 ```
-![Mostra tamanho via script](assets/img/zabbix-custom-lld/exibe-tamanho-via-parametro.png)
-*Mostrando tamanho usando arquivo como parâmetro do script*
+![Show size via script](assets/img/zabbix-custom-lld/exibe-tamanho-via-parametro.png)
+*Showing size using file as a script parameter*
 
-#### Estruturando o script
+#### **Structuring the script**
 
-Agora que já sabemos como fazer a coleta dos dados que vamos monitorar, vamos estruturar o script de modo a fazer com que ele tanto faça o monitoramento dos itens descobertos quanto a descoberta (LLD) propriamente dito. Eu, particularmente, gosto da lógica em que caso o script não receba nenhum parâmetro válido, faça o LLD como último recurso.
+Now that we know how to collect the data we will monitor, let’s structure the script to enable it to discover (LLD) all the items and to serve as the monitoring script to retrieve the data itself. I personally like the logic that if the script does not receive any valid parameters, it runs the LLD.  
+So, we will structure this routine to monitor a specific file if I pass the parameter “tamanho” (size in Portuguese). As I am Brazilian and will have this post in multiple languages, I reused the same term. This way, if the first parameter ($args[0]) that the script receives is the string "tamanho", it will print the file size of the file declared as the second parameter ($args[1]).
 
-Sendo assim, vamos estruturar essa rotina de modo a efetuar o monitoramento de um arquivo específico quando eu passar um parâmetro *tamanho*. Dessa forma, se o primeiro parâmetro (**$args[0]**) que o script receber for a string *tamanho*, ele imprimirá o tamanho do arquivo declarado como segundo parâmetro **($args[1]**).
-
-A primeira parte do script fica como abaixo:
+The first part of the script is as follows:
 
 ```powershell
-# Script para monitorar tamanho de arquivos em uma pasta   
+# Script to monitor the size of a file inside a folder   
   
-# Se o primeiro parâmetro for a string "tamanho"   
+# If the first parameter is the string "tamanho" 
 If ($args\[0\] -eq "tamanho") {   
   (Get-ChildItem "C:\Temp\"$args[1]).Length   
 } 
  ```
  
-Agora salve o script e execute-o para checar se está funcionando conforme o esperado. Passaremos o primeiro parâmetro como `tamanho` e o segundo com o nome do arquivo.
+Now save the script and run it to check if it works as expected. We will pass the first parameter as `tamanho` and the second as the file name:
 
 ```powershell
 C:\Temp\monit-arquivos.ps1 tamanho lalala.zip
 ```
-![Informa ação](assets/img/zabbix-custom-lld/informa-acao.png)
-*Informando ação e arquivo como parâmetros*
+![Declare action](assets/img/zabbix-custom-lld/informa-acao.png)
+*Informing action and file as parameters*
 
-Ótimo! Agora vamos para a segunda parte, que é onde faremos o LLD propriamente dito. O bloco abaixo varre todos os arquivos do diretório informado e imprime em formato JSON o nome de cada arquivo, identificado pela macro **{#NOMEARQUIVO}**. Essa macro (que podem ser várias) é uma variável que será utilizada pelo Zabbix para dar nome aos itens, triggers e etc.
+Cool! Now we move on to the second part, where we will implement the LLD itself. The code block below iterates through all the files in the specified directory and prints them in JSON format, identified by the macro `{#NOMEARQUIVO}` (filename). This macro (which can represent many values) is a variable that will be used by Zabbix to name items, triggers, etc."
 
 ```powershell
-# Se não, efetua LLD   
+# If not, perform LLD
 Else {   
-  # Preenche o array arquivos com a lista de arquivos na pasta   
+  # Fills the array arquivos with the list of files in the folde   
   $arquivos = (Get-ChildItem "C:\temp\").Name   
     
-  # Define o contador em 0   
+  # Sets the counter to 0  
   $i = 0   
     
-  # Inicia JSON   
+  # Starts JSON   
   Write-Host "{"   
   Write-Host " `"data`":["   
     
-  # Para cada nome de arquivo   
+  # For each file name   
   Foreach ($arquivo in $arquivos) {   
-    # Contador para não imprimir vírgula após o último elemento   
+    # Counter to avoid printing a comma after the last element  
     $i++   
       
-    # Se o nome de arquivo da vez não for vazio   
+    # If the current file name is not empty   
     If($arquivo -ne "") {   
       Write-Host -NoNewline " {""{#NOMEARQUIVO}"":""$arquivo""}"   
       
-    # Se não for o último elemento, imprima "," ao final   
+    # If it is not the last element, print "," at the end  
       If ($i -lt $arquivos.Count) {   
         Write-Host ","   
       }   
@@ -153,50 +150,48 @@ Else {
   Write-Host "}"   
 }
  ```
-Execute o script para ver a saída em formato JSON, que você pode validar em qualquer validador desses na internet. Aqui usei o [JSONLint](https://jsonlint.com/).
+Run the script to check the JSON output, which you can validate using any JSON validator available on the internet. Here, I used [JSONLint](https://jsonlint.com).
 
-![Saída JSON](assets/img/zabbix-custom-lld/saida-json.png)
-*Saída JSON*
+![JSON output](assets/img/zabbix-custom-lld/saida-json.png)
+*JSON output*
 
-![Validador JSON](assets/img/zabbix-custom-lld/validador-json.png)
-*Validador JSON*
+![JSPN validator](assets/img/zabbix-custom-lld/validador-json.png)
+*JSON output*
 
-Feito isto, junte as duas partes do script e estamos prontos.
+With that done, we can combine the two parts of the script, and we are ready.
 
 ```powershell
-# Script para monitorar tamanho de arquivos em uma pasta   
-   
-# Se o primeiro parâmetro for a string "tamanho"   
+# Script to monitor the size of files in a folder   
+  
+# If the first parameter is the string "tamanho"   
 If ($args[0] -eq "tamanho") {   
-    (Get-ChildItem "C:\Temp\"$args[1]).Length   
+  (Get-ChildItem "C:\Temp\$args[1]").Length   
 }   
-   
-# Se não, efetua LLD   
-Else   
-{   
-  # Preenche o array arquivos com a lista de arquivos na pasta   
-  $arquivos = (Get-ChildItem "C:\temp\").Name   
   
-  # Define o contador em 0   
+# If not, perform LLD   
+Else {
+  # Fills the array 'arquivos' with the list of files in the folder   
+  $arquivos = (Get-ChildItem C:\temp\).Name   
+    
+  # Sets the counter to 0   
   $i = 0   
-  
-  # Inicia JSON   
+    
+  # Starts JSON   
   Write-Host "{"   
   Write-Host " `"data`":["   
-  
-  # Para cada nome de arquivo   
-  Foreach ($arquivo in $arquivos)   
-  {   
-    # Contador para não imprimir vírgula após o último elemento   
+    
+  # For each file name   
+  Foreach ($arquivo in $arquivos) {
+    # Counter to avoid printing a comma after the last element   
     $i++   
-
-    # Se o nome de arquivo da vez não for vazio   
+      
+    # If the current file name is not empty   
     If($arquivo -ne "") {   
       Write-Host -NoNewline " {""{#NOMEARQUIVO}"":""$arquivo""}"   
-
-      # Se não for o último elemento, imprima "," ao final   
+        
+        # If it is not the last element, print "," at the end   
       If ($i -lt $arquivos.Count) {   
-          Write-Host ","   
+        Write-Host ","   
       }   
     }   
   }   
@@ -206,49 +201,45 @@ Else
 }
  ```
  
-#### O Host
+#### **The Host**
 
-Feita esta parte, vamos adicionar o script ao arquivo de configuração do host a ser monitorado, criando uma chave `monit-arquivos` via [UserParameter](https://www.zabbix.com/documentation/3.0/pt/manual/config/items/userparameters). O parâmetro de usuário nada mais é do que criar uma chave de monitoramento customizada, que quando executada chamará o comando/script declarado no arquivo de configuração.
-
-Encontre o arquivo de configuração do seu host e adicione a seguinte linha (no meu teste estou com script salvo em `C:\Temp`):
+With the script completed, we will add it to the configuration file of the host to be monitored, creating a key called monit-arquivos via UserParameter. The parameter used is simply a custom monitoring key that, when executed, will call the command/script declared in the .conf file.  
+Find the configuration file of your host and add the following line (in my test, I have the script saved in C:\Temp):
 
 ```bash
 UserParameter=monit-arquivos[*],powershell.exe -NoProfile -ExecutionPolicy Bypass -file "C:\Zabbix\monit-arquivos.ps1" "$1" "$2"
 ```
-Essa tag diz que estamos criando uma chave com o nome monit-arquivos, que aceitará parâmetros (`$1` e `$2`) e que quando chamada executará o comando que está após a vírgula. Caso tenha dúvidas, pesquise sobre os outros parâmetros de powershell que estão sendo utilizados nessa linha.  
-Note que os parâmetros estão declarados como `$1` e `$2`, que é o padrão do arquivo de configuração do Zabbix. Isso nada tem a ver com a liguagem utilizada no seu script.
+This tag says we are creating a key named monit-arquivos, which will accept parameters (`$1` and `$2`) and when called will execute the command that is after the comma. In case you are not sure, have a search about other powershell parameters used in this line.
+Note that the parameters are declared as `$1` and `$2`, and that is the default setting of Zabbix's configuration file. That has nothing to do with the language used in my script.
 
-Para testar, execute o comando abaixo em um prompt de comando.
+To test that, eun the below command in a command prompt.
 
 ```bat
 powershell.exe -NoProfile -ExecutionPolicy Bypass -file "C:\Zabbix\monit-arquivos.ps1"
 ```
 
-Feito isso, salve o arquivo e reinicie o agente do Zabbix no host. Você agora pode testar uma coleta usando este item diretamente do servidor Zabbix, executando o comando abaixo. Note a sintaxe utilizada na chave de monitoramento que criamos.
+After that, save the file and restart the Zabbix agent in the host. You now can test the collect using this item direct in the Zabbix server, executing the command below. Note the syntax used in the monitoring key we used.
 
 ```bash
 zabbix_get -k monit-arquivos[tamanho,lalala.zip]
 ```
 
-#### O Zabbix
-Agora vamos criar o nosso processo de descoberta. Crie um template novo (ou edite um host) e vá até a aba Regras de Descoberta. Clique na opção `Criar regra de descoberta`.
+#### **The Zabbix**
+Now we will create our discovery process. Create a new template (or edit an existing host) and go to the tab named `Discovery Rules`. Click on the option `Create discovery rule`.
 
-![Criar regra de descoberta](assets/img/zabbix-custom-lld/cria-regra-descoberta.png)
-*Criar regra de descoberta*
+![Create discovery rule](assets/img/zabbix-custom-lld/cria-regra-descoberta.png)
+*Create discovery rule*
 
+In the next screen, give a name to your discovery rule and enter the key name as the same one we specified in the .conf UserParameter. We are configuring how much time Zabbix will take to run a new discovery process, which is simply executing the script we created without any parameters passed
 
-Na tela seguinte, dê um nome para a sua regra de descoberta e informe o nome da chave igual colocamos no parâmetro de usuário, no arquivo de configuração do Zabbix. Estamos configurando aqui de quanto em quanto tempo o Zabbix fará o processo de descoberta, que nada mais é que executar o script que criamos sem informar nenhum parâmetro.
+![Discovery rule](assets/img/zabbix-custom-lld/cria-regra-descoberta.png)
+*Discovery rule*
 
-![Regra de descoberta](assets/img/zabbix-custom-lld/cria-regra-descoberta.png)
-*Regra de descoberta*
+With that ready, go to the option for `Item Prototypes` and add the monitoring item itself. Here, we add the key we created and pass along the parameters that we tested previously
 
-Feito isto, vá até a opção de protótipos de itens e adicione o item de monitoramento em si. Aqui adicionaremos a chave que criamos e passaremos os parâmetros que testamos anteriormente.
+![Item prototype](assets/img/zabbix-custom-lld/prototipo-item.png)
+*Item prototype*
 
-![Protótipo de item](assets/img/zabbix-custom-lld/prototipo-item.png)
-*Protótipo de item*
+Now wait for the time you configured for the collection and check the `Recent Data` menu to see if the data is being collected correctly. Errors can be checked both in the agent log file and on the server.  
 
-Agora aguarde o tempo que você estipulou para a coleta e cheque em `Dados recentes` se as coletas estão sendo feitas corretamente. Erros podem ser checados tanto no arquivo de log do agente quanto do servidor.
-
-Espero que este artigo seja útil. Grande abraço!
-
-  
+I hope you find this useful. Have a nice day!

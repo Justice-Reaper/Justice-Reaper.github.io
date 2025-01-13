@@ -1,20 +1,17 @@
 ---
-title:	"Criando seu próprio LLD customizado no Zabbix"
-autor: Luiz Meier
-date:	2024-09-15 10:00:00
+title: "Criando seu próprio LLD customizado no Zabbix"
+author: Luiz Meier  # Corrigido de 'autor' para 'author'
+date: 2024-09-15 10:00:00
 categories: [Zabbix, Automação]
 tags: [LLD, Monitoramento, Powershell, Scripts Personalizados]
 description: "Um guia completo para criar um Low-Level Discovery customizado no Zabbix."
 lang: pt-BR
-image: 
-layout:	post
+image: assets/img/zabbix-custom-lld/capa.png  # Removido campo duplicado
+layout: post
 canonical_url: https://medium.lmeier.net/criando-seu-pr%C3%B3prio-lld-customizado-no-zabbix-683c6eba6373
-image: assets/img/zabbix-custom-lld/capa.png
 ---
 
-  *Um guia para o seu primeiro LLD*
-
-*Also available in *[*English*](https://medium.lmeier.net/creating-your-own-custom-lld-in-zabbix-eb9bfb51fcfa)*.*
+*Read in [English](https://blog.lmeier.net/posts/creating-your-own-custom-lld-in-zabbix-en/)*
 
 <!--
 ![](assets/img/zabbix-custom-lld/capa.png)
@@ -27,7 +24,7 @@ Após uma necessidade específica de um colega da comunidade Zabbix Brasil, reso
 
 Para este exemplo, usarei Powershell, visando os colegas que administram ambientes Microsoft. Porém, pode usar qualquer linguagem que o seu sistema operacional suporte, haja visto que o script que criaremos será executado pelo próprio host a ser monitorado, e não no servidor Zabbix em si.
 
-#### O LLD
+#### **O LLD**
 
 O recurso de LLD, para quem não sabe, permite que o Zabbix “crie, de forma dinâmica, itens, triggers e gráficos para todos os objetos descobertos no dispositivo monitorado”. Você pode encontrar esta definição e mais informações na [documentação oficial](https://www.zabbix.com/documentation/3.0/pt/manual/discovery/low_level_discovery) da ferramenta.
 
@@ -35,7 +32,7 @@ O processo de descoberta automática funciona da seguinte forma: uma rotina é e
 
 A documentação do LLD está bem clara e objetiva. Inclusive, com versão em português.
 
-#### O Script
+#### **O Script**
 
 Vamos supor aqui que nós precisemos saber o tamanho de cada arquivo existente em uma determinada pasta. Poderiam ser arquivos de um sistema, cujos tamanhos precisam ser monitorados individualmente.
 
@@ -93,7 +90,7 @@ C:\temp\monit-arquivos.ps1 lalala.zip
 ![Mostra tamanho via script](assets/img/zabbix-custom-lld/exibe-tamanho-via-parametro.png)
 *Mostrando tamanho usando arquivo como parâmetro do script*
 
-#### Estruturando o script
+#### **Estruturando o script**
 
 Agora que já sabemos como fazer a coleta dos dados que vamos monitorar, vamos estruturar o script de modo a fazer com que ele tanto faça o monitoramento dos itens descobertos quanto a descoberta (LLD) propriamente dito. Eu, particularmente, gosto da lógica em que caso o script não receba nenhum parâmetro válido, faça o LLD como último recurso.
 
@@ -206,7 +203,7 @@ Else
 }
  ```
  
-#### O Host
+#### **O Host**
 
 Feita esta parte, vamos adicionar o script ao arquivo de configuração do host a ser monitorado, criando uma chave `monit-arquivos` via [UserParameter](https://www.zabbix.com/documentation/3.0/pt/manual/config/items/userparameters). O parâmetro de usuário nada mais é do que criar uma chave de monitoramento customizada, que quando executada chamará o comando/script declarado no arquivo de configuração.
 
@@ -230,7 +227,7 @@ Feito isso, salve o arquivo e reinicie o agente do Zabbix no host. Você agora p
 zabbix_get -k monit-arquivos[tamanho,lalala.zip]
 ```
 
-#### O Zabbix
+#### **O Zabbix**
 Agora vamos criar o nosso processo de descoberta. Crie um template novo (ou edite um host) e vá até a aba Regras de Descoberta. Clique na opção `Criar regra de descoberta`.
 
 ![Criar regra de descoberta](assets/img/zabbix-custom-lld/cria-regra-descoberta.png)
@@ -250,5 +247,3 @@ Feito isto, vá até a opção de protótipos de itens e adicione o item de moni
 Agora aguarde o tempo que você estipulou para a coleta e cheque em `Dados recentes` se as coletas estão sendo feitas corretamente. Erros podem ser checados tanto no arquivo de log do agente quanto do servidor.
 
 Espero que este artigo seja útil. Grande abraço!
-
-  
