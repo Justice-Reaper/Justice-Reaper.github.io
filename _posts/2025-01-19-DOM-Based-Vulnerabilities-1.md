@@ -7,25 +7,15 @@ categories:
   - XSS
 tags:
   - XSS
-  - DOM
-  - XSS
-  - in
-  - document.write
-  - sink
-  - using
-  - source
-  - location.search
-  - inside
-  - a
-  - select
-  - element
+  - DOM XSS using web messages
 image:
-  path: /assets/img/XSS-Lab-10/Portswigger.png
+  path: /assets/img/DOM-Based-Vulnerabilities-1/Portswigger.png
 ---
 
 ## Skills
 
 - DOM XSS using web messages
+  
 ## Certificaciones
 
 - eWPT
@@ -42,11 +32,11 @@ Este `laboratorio` tiene una `vulnerabilidad` en los `mensajes web`. Para `resol
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/DOM-Based-Vulnerabilities-1/image_1.png)
 
 Me llama la atención la `carga` del `objeto`, si `inspeccionamos` el `código fuente` vemos que la `ventana` tiene un `listener` y si `enviamos` un `mensaje` este se `mostrará` en la `web`
 
-![[image_2.png]]
+![](/assets/img/DOM-Based-Vulnerabilities-1/image_2.png)
 
 Para `enviar` un `mensaje` podemos usar `window.postMessage` [https://developer.mozilla.org/es/docs/Web/API/Window/postMessage](https://developer.mozilla.org/es/docs/Web/API/Window/postMessage) , que se utiliza para `facilitar la comunicación segura entre diferentes ventanas, pestañas o iframes` en un `navegador web`. Esto es especialmente `útil` en `situaciones` donde se necesitan `pasar datos entre orígenes diferentes o entre diferentes partes de una aplicación web que están ejecutándose en contextos aislados`. Mediante un `iframe` podemos `mandar` un `mensaje` que tenga como `receptor cualquier destino` usando `*`
 
@@ -56,7 +46,7 @@ Para `enviar` un `mensaje` podemos usar `window.postMessage` [https://developer.
 
 Si `insertarmos` el `payload` en el `exploit server` y pulsamos sobre `View exploit` se nos `carga` un `iframe` con el `mensaje` que hemos enviado
 
-![[image_3.png]]
+![](/assets/img/DOM-Based-Vulnerabilities-1/image_3.png)
 
 Se usa `innerHTML`, lo cual permite `obtener` o `establecer` el `contenido HTML` de un `elemento`, esta propiedad `interpreta` y `procesa cualquier contenido HTML` que se le asigne, lo que incluye `etiquetas`, `atributos` y `código JavaScript`
 
@@ -66,4 +56,4 @@ Se usa `innerHTML`, lo cual permite `obtener` o `establecer` el `contenido HTML`
 
 Una vez `insertado` este `payload` en el `exploit server` este es el resultado. Una vez comprobado que funciona correctamente pulsamos sobre `Deliver exploit to victim` para `enviar` el `payload` a la `víctima` y `resolver` el `laboratorio`
 
-![[image_4.png]]
+![](/assets/img/DOM-Based-Vulnerabilities-1/image_5.png)
