@@ -4,9 +4,9 @@ date: 2025-01-19 12:25:00 +0800
 author: Justice-Reaper
 categories:
   - Portswigger
-  - XSS
+  - DOM Based Vulnerabilities
 tags:
-  - XSS
+  - DOM Based Vulnerabilities
   - DOM XSS using web messages
 image:
   path: /assets/img/DOM-Based-Vulnerabilities-1/Portswigger.png
@@ -56,4 +56,4 @@ Se usa `innerHTML`, lo cual permite `obtener` o `establecer` el `contenido HTML`
 
 Una vez `insertado` este `payload` en el `exploit server` este es el resultado. Una vez comprobado que funciona correctamente pulsamos sobre `Deliver exploit to victim` para `enviar` el `payload` a la `víctima` y `resolver` el `laboratorio`
 
-![](/assets/img/DOM-Based-Vulnerabilities-1/image_5.png)
+![](/assets/img/DOM-Based-Vulnerabilities-1/image_4.png)
