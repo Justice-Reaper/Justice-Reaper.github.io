@@ -95,7 +95,7 @@ After all the commands were succefully executed, we can ask for a new boot using
 ![Boot process](assets/img/bricked-camera/boot.png)
 *Boot process*
 
-!Booting[](assets/img/bricked-camera/starting.png)
+![Booting](assets/img/bricked-camera/starting.png)
 Booting
 
 Success! Once the camera booted, it retained its original settings. If this doesn’t happen in your case, you can find its IP address using Wireshark or the vendor’s app (in my case, **Intelbras IP Utility**).
