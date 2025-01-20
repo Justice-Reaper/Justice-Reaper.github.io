@@ -11,7 +11,7 @@ canonical_url: https://medium.com/@lfmmeier/fortinet-vs-palo-alto-automating-loa
 image: assets/img/lb-fortinet-paloalto/cover.png
 ---
 
-[*Também disponível em Português*](http://blog.lmeier.net/posts/fortinet-vs-palo-alto-automatizando-balanceamento-de-carga/)
+[*Também disponível em Português*](https://blog.lmeier.net/posts/fortinet-vs-palo-alto-automatizando-balanceamento-de-carga/)
 
 There is no doubt that Fortinet and Palo Alto are some of the major players in the next-generation firewall (NGFW) market. While each vendor excels in different areas, it’s natural for engineers to compare features to find the best fit for their needs, especially when introducing a new firewall into their environment.
 

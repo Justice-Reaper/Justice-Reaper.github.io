@@ -11,7 +11,7 @@ canonical_url: https://medium.lmeier.net/how-i-recovered-a-bricked-cctv-camera-f
 image: assets/img/bricked-camera/cover.png
 ---
 
-*Leia em [português](http://blog.lmeier.net/posts/como-recuperei-uma-camera-cftv-brickada/)*
+*Leia em [português](https://blog.lmeier.net/posts/como-recuperei-uma-camera-cftv-brickada/)*
 
 A few weeks ago, I had a problem with two CCTV cameras (from a Brazilian vendor) that suddenly bricked. Although there are thousands of posts and videos on YouTube explaining how to reset, configure, reset passwords, etc., I couldn’t find any that provided information on how to try to recover the equipment if it doesn’t start.
 

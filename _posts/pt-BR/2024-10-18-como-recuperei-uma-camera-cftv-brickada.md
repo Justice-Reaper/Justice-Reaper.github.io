@@ -11,7 +11,7 @@ canonical_url: https://medium.lmeier.net/como-recuperei-uma-c%C3%A2mera-cftv-bri
 image: assets/img/bricked-camera/cover.png
 ---
 
-*Read in [english](http://blog.lmeier.net/posts/how-i-recovered-a-bricked-cctv-camera/)*
+*Read in [english](https://blog.lmeier.net/posts/how-i-recovered-a-bricked-cctv-camera/)*
 
 Há algumas semanas tive uma dificuldade com duas câmeras de CFTV que brickaram inesperadamente. Apesar de existirem milhares de posts e vídeos no YouTube de pessoas ensinando a configurar, resetar, alterar senha e etc., não encontrei nenhuma informação a respeito de como tentar recuperar o equipamento no caso dele não iniciar. Abaixo explico como detectei que as câmeras não estavam condenadas e comecei os trabalhos para recuperá-las.
 
