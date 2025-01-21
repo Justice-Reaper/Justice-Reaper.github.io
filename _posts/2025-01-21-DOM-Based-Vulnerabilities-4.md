@@ -7,15 +7,9 @@ categories:
   - DOM Based Vulnerabilities
 tags:
   - DOM
-  - Based
-  - Vulnerabilities
-  - DOM
-  - XSS
-  - using
-  - web
-  - messages
+  - BOM-based open redirection
 image:
-  path: /assets/img/DOM-Based-Vulnerabilities-1/Portswigger.png
+  path: /assets/img/DOM-Based-Vulnerabilities-4/Portswigger.png
 ---
 
 ## Skills
@@ -38,20 +32,20 @@ Este `laboratorio` contiene una vulnerabilidad `DOM-based open-redirection`. Par
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/DOM-Based-Vulnerabilities-4/image_1.png)
 
 Si pulsamos sobre `View post` y vemos el `código fuente` nos damos cuenta de que nos hará un `redirect` si añadimos el `parámetro /url` a la url
 
-![[image_2.png]]
+![](/assets/img/DOM-Based-Vulnerabilities-4/image_2.png)
 
 Podemos `comprobar` el `funcionamiento` accediendo a `https://0a02001a03d513db80cea80800390037.web-security-academy.net/post?postId=5&url=https://testing.com`, abrir el `inspector` de `Chrome` e introducir esto en la `consola` de `desarrollador`. La `última línea` lo que hace es `comprobar si returnUrl devuelve un valor` y si es así `coge el primer argumento del array de returnUrl` y nos hace un `redirect` 
 
-![[image_3.png]]
+![](/assets/img/DOM-Based-Vulnerabilities-4/image_3.png)
 
 Para comprobar que funciona correctamente nos dirigirnos al `exploit server`, `copiar` la `url` y posteriormente `acceder` a `https://0a02001a03d513db80cea80800390037.web-security-academy.net/post?postId=5&url=https://exploit-0ae4004703dd13d2804aa74001fc0077.exploit-server.net/exploit`
 
-![[image_4.png]]
+![](/assets/img/DOM-Based-Vulnerabilities-4/image_4.png)
 
 Una vez hemos `accedido` a la `url` si `pulsamos` sobre `Back to blog` nos redirigirá a `https://exploit-0ae4004703dd13d2804aa74001fc0077.exploit-server.net/exploit`. Esta vulnerabilidad puede usarse para `redirigir` a la `víctima` a un `sitio web fraudulento` para llevar a cabo un `phising` o también podemos usarla para `desencadenar otra vulnerabilidad` como un `XSS`. Algunas páginas `web` te `muestran` un `alert` cuando vas a ser `redirigido` a una `web externa` al `domino`, lo cual puede `mitigar` en parte esta `vulnerabilidad`
 
-![[image_5.png]]
+![](/assets/img/DOM-Based-Vulnerabilities-4/image_5.png)
