@@ -28,7 +28,7 @@ image:
 Este `laboratorio` utiliza un mecanismo de `sesiones` basado en la `serialización` y el `framework Ruby on Rails`. Existen `exploits documentados` que permiten la `ejecución remota de código` mediante una `cadena de gadgets` en este `framework`. Para `resolver` el laboratorio, debemos encontrar un `exploit documentado` y adaptarlo para crear un `objeto serializado malicioso` que contenga una `carga útil de ejecución remota de código`. Luego, pasamos este `objeto` al `sitio web` para eliminar el archivo `morale.txt` del `directorio personal` de Carlos. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`
 
 ---
-## Web Enumeration
+## Resolución
 
 Al `acceder` a la `web` nos sale esto
 

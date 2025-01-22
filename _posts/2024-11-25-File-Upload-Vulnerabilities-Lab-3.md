@@ -28,7 +28,7 @@ image:
 Este `laboratorio` contiene una `función` de carga de imágenes `vulnerable`, el servidor está configurado para `prevenir` la `ejecución` de `archivos` proporcionados por el usuario, pero esta restricción puede ser eludida explotando un `path traversal`. Para resolver el laboratorio, debemos subir una web shell básica en `PHP`, utilizarla para `extraer` el `contenido` del archivo `/home/carlos/secret` y enviar este secreto utilizando el botón proporcionado en la barra del laboratorio. Podemos `iniciar sesión` con nuestra propia cuenta utilizando las siguientes credenciales: `wiener:peter`
 
 ---
-## Web Enumeration
+## Resolución
 
 Al `acceder` a la `web` nos sale esto
 

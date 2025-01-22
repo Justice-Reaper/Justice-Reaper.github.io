@@ -28,7 +28,7 @@ image:
 Este `laboratorio` tiene una `función` de `Check stock` que analiza entradas en `formato XML`, pero `no muestra` el `resultado`. Para resolver el laboratorio, hay que utilizar un `DTD externo` para `provocar` un `mensaje` de `error` que `muestre` el `contenido` del archivo `/etc/passwd`. El laboratorio incluye un enlace a un `servidor` de `exploits` en un dominio diferente donde podemos alojar un `DTD malicioso`
 
 ---
-## Web Enumeration
+## Resolución
 
 Al `acceder` a la `web` nos sale esto
 

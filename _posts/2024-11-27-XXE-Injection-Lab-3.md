@@ -28,7 +28,7 @@ image:
 Este laboratorio tiene una función llamada `Check stock` que analiza la `entrada` en `formato XML` y `devuelve` cualquier `valor inesperado` en la respuesta. Puedes `detectar` la vulnerabilidad `blind XXE` provocando `out-of-band interactions` con un `dominio externo`. Para resolver el laboratorio, debemos utilizar una `entidad externa` para hacer que el analizador XML realice una `búsqueda DNS` y una `solicitud HTTP` hacia `Burp Collaborator`
 
 ---
-## Web Enumeration
+## Resolución
 
 Al `acceder` a la `web` nos sale esto
 

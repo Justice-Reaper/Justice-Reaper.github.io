@@ -28,7 +28,7 @@ image:
 Los `mensajes` de `error` detallados de este laboratorio `revelan` que está utilizando una `versión vulnerable` de un `framework` de `terceros`. Para `resolver` el laboratorio, `obtén` y `envía` el `número` de `versión` de este `framework`
 
 ---
-## Web Enumeration
+## Resolución
 
 Al `acceder` a la `web` nos sale esto
 

@@ -28,7 +28,7 @@ image:
 Este `laboratorio` implementa controles de acceso basados parcialmente en el `método HTTP` de las solicitudes. Podemos familiarizarnos con el `panel de administración` iniciando sesión con las credenciales `administrator:admin`. Para `resolver` el laboratorio, debemos `iniciar sesión` con las credenciales `wiener:peter` y `explotar` los controles de acceso defectuosos para `convertirnos` a `administrador`
 
 ---
-## Web Enumeration
+## Resolución
 
 Al `acceder` a la `web` nos sale esto
 

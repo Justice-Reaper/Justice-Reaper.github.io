@@ -28,7 +28,7 @@ image:
 Este `laboratorio` contiene una `access control vulnerability` en la que se filtra información sensible en el cuerpo de una `respuesta de redirección`. Para `resolver` el laboratorio, debemos `obtener` la `clave API` del `usuario carlos` y `enviarla` como solución. Podemos `iniciar sesión` en nuestra cuenta con las credenciales `wiener:peter`
 
 ---
-## Web Enumeration
+## Resolución
 
 Al `acceder` a la `web` nos sale esto
 

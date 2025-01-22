@@ -28,7 +28,7 @@ image:
 Este `laboratorio` tiene una `horizontal privilege escalation vulnerability` en la `página de la cuenta de usuario`. Para `resolver` el laboratorio, debemos `obtener` la `clave API` del `usuario carlos` y `enviarla` como solución. Podemos `iniciar sesión` en tu propia cuenta con las credenciales `wiener:peter`
 
 ---
-## Web Enumeration
+## Resolución
 
 Al `acceder` a la `web` nos sale esto
 

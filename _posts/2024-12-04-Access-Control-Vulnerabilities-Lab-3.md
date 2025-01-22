@@ -28,7 +28,7 @@ image:
 Este `laboratorio` tiene un `panel de administración` en `/admin`, que identifica a los `administradores` utilizando una `cookie falsificable`. Para `resolver` el laboratorio, hay que `acceder` al `panel de administración` y `eliminar` al `usuario carlos`. Podemos `iniciar sesión` en nuestra cuenta con las credenciales `wiener:peter`
 
 ---
-## Web Enumeration
+## Resolución
 
 Al `acceder` a la `web` nos sale esto
 

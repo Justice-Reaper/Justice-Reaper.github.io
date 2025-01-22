@@ -28,7 +28,7 @@ image:
 Este `laboratorio` contiene una `Blind OS Command Injection` en la `función` de `comentarios`. La aplicación `ejecuta` un `comando` en la `terminal` que incluye `datos` proporcionados por el `usuario`. El `comando` se ejecuta de forma `asíncrona` y no tiene efecto en la `respuesta` de la aplicación. No es posible `redireccionar` la `salida` a una `ubicación` accesible. Sin embargo, podemos desencadenar `out-of-band interactions` con un `dominio externo`. Para resolver el `laboratorio`, debemos explotar la `vulnerabilidad` para realizar una `consulta DNS` a `Burp Collaborator`
 
 ---
-## Web Enumeration
+## Resolución
 
 Al `acceder` a la `web` nos sale esto
 

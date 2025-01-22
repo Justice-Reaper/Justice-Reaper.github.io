@@ -28,7 +28,7 @@ image:
 Este `laboratorio` `filtra` su `código fuente` a través de `archivos de respaldo` en un `directorio oculto`. Para `resolver` el laboratorio, `identifica` y `envía` la `contraseña` de la `base de datos`, que está `codificada` de forma `estática` en el `código fuente` filtrado
 
 ---
-## Web Enumeration
+## Resolución
 
 Al `acceder` a la `web` nos sale esto
 

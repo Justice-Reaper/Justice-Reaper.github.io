@@ -28,7 +28,7 @@ image:
 Este laboratorio tiene una función de `Check stock` que analiza `entradas XML`, pero `no muestra el resultado`. Para resolver el laboratorio, hay que extraer el contenido del archivo `/etc/hostname`
 
 ---
-## Web Enumeration
+## Resolución
 
 Al `acceder` a la `web` nos sale esto
 

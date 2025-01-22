@@ -28,7 +28,7 @@ image:
 Este `laboratorio` contiene una `función` de carga de imágenes `vulnerable` que intenta `evitar` que los usuarios `suban` tipos de `archivos inesperados`, pero se basa en verificar una entrada controlada por el usuario para hacerlo. Para `resolver` el `laboratorio`, debemos `subir` una `web shell` básica en `PHP`, usarla para `extraer` el `contenido` del archivo `/home/carlos/secret` y luego usar este `secreto` utilizando el botón proporcionado en la barra del laboratorio. Podemos `iniciar sesión` en nuestra `cuenta` usando las siguientes credenciales: `wiener:peter`
 
 ---
-## Web Enumeration
+## Resolución
 
 Al `acceder` a la `web` nos sale esto
 

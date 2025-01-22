@@ -28,7 +28,7 @@ image:
 Este `laboratorio` tiene un `panel de administración` sin `protección`. Para `resolverlo`, debemos `eliminar` al `usuario` carlos
 
 ---
-## Web Enumeration
+## Resolución
 
 Al `acceder` a la `web` nos sale esto
 

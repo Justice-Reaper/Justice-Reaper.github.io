@@ -28,7 +28,7 @@ image:
 La `interfaz de administración` de este `laboratorio` tiene una `vulnerabilidad` de `authentication bypass`, pero es `impráctico` explotarla sin conocer un `header HTTP personalizado` utilizado por el `front-end`. Para `resolver` el laboratorio, debemos `obtener` el `nombre` del `header`, usarlo para `omitir` la `autenticación`, acceder a la `interfaz de administración` y `eliminar` al `usuario` `carlos`. Podemos `iniciar sesión` en nuestra propia `cuenta` con las credenciales `wiener:peter`
 
 ---
-## Web Enumeration
+## Resolución
 
 Al `acceder` a la `web` nos sale esto
 

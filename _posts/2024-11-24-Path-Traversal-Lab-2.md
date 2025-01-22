@@ -28,7 +28,7 @@ image:
 Este `laboratorio` contiene una `vulnerabilidad` de `path traversal` en la `visualización` de `imágenes` de `productos`. La aplicación bloquea el `../`, pero trata el `nombre` de `archivo` proporcionado como `relativo` a un `directorio` de trabajo `predeterminado`. Para `resolver` el `laboratorio`, hay que `obtener` el contenido del archivo `/etc/passwd`
 
 ---
-## Web Enumeration
+## Resolución
 
 Al `acceder` a la `web` nos sale esto
 

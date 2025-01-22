@@ -28,7 +28,7 @@ image:
 Este `laboratorio` tiene una `horizontal privilege escalation vulnerability` en la `página de la cuenta de usuario`, pero identifica a los `usuarios` mediante `GUIDs`. Para `resolver` el laboratorio, debemos `encontrar` el `GUID` del `usuario carlos` y luego `enviar` su `clave API` como solución. Podemos `iniciar sesión` en nuestra propia cuenta con las credenciales `wiener:peter`
 
 ---
-## Web Enumeration
+## Resolución
 
 Al `acceder` a la `web` nos sale esto
 

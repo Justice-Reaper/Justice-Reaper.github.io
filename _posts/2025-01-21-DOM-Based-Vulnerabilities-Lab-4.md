@@ -28,7 +28,7 @@ image:
 Este `laboratorio` contiene una vulnerabilidad `DOM-based open-redirection`. Para `resolver` el laboratorio, debemos `explotar` esta `vulnerabilidad` y `redireccionar` a la víctima al `servidor de exploits`
 
 ---
-## Web Enumeration
+## Resolución
 
 Al `acceder` a la `web` nos sale esto
 

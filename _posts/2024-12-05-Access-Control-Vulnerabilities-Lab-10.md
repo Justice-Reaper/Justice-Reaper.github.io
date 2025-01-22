@@ -28,7 +28,7 @@ image:
 Este `sitio web` tiene un `panel de administración` no autenticado en `/admin`, pero se ha configurado un sistema de `front-end` para bloquear el acceso externo a esa ruta. Sin embargo, la `aplicación de back-end` está construida sobre un `framework` que soporta el encabezado `X-Original-URL`. Para `resolver` el laboratorio, debemos `acceder` al `panel de administración` y `eliminar` al `usuario carlos`
 
 ---
-## Web Enumeration
+## Resolución
 
 Al `acceder` a la `web` nos sale esto
 

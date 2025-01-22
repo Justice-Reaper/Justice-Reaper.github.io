@@ -28,7 +28,7 @@ image:
 Este `laboratorio` tiene un `panel de administración` con un proceso defectuoso de varios pasos para cambiar el `rol de un usuario`. Podemos familiarizarnos con el `panel de administración` iniciando sesión con las credenciales `administrator:admin`. Para `resolver` el laboratorio, debemos `iniciar sesión` con las credenciales `wiener:peter` y `explotar` los controles de acceso defectuosos para `convertirnos` a `administrador`
 
 ---
-## Web Enumeration
+## Resolución
 
 Al `acceder` a la `web` nos sale esto
 

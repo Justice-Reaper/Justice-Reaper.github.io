@@ -28,7 +28,7 @@ image:
 Este `laboratorio` contiene una `vulnerabilidad` que es difícil de encontrar `manualmente`. Se encuentra en una `estructura de datos no estándar`. Para `resolver` el laboratorio, debemos usar la función `Scan selected insertion point` de `Burp Scanner` para identificar la `vulnerabilidad`, luego `explotarla` manualmente y eliminar al `usuario carlos`. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`
 
 ---
-## Web Enumeration
+## Resolución
 
 Al `acceder` a la `web` nos sale esto
 

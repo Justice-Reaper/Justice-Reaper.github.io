@@ -28,7 +28,7 @@ image:
 Este `laboratorio` contiene una `Blind OS Command Injection` en la `función` de `feedback`. La aplicación `ejecuta` un `comando` en la `terminal` que incluye `datos` proporcionados por el `usuario`. La `salida` del `comando` no se `devuelve` en la respuesta. Para resolver el `laboratorio`, debemos explotar la `vulnerabilidad` para causar un `retraso` de `10 segundos`
 
 ---
-## Web Enumeration
+## Resolución
 
 Al `acceder` a la `web` nos sale esto
 

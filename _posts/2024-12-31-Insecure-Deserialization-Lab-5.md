@@ -28,7 +28,7 @@ image:
 Este `laboratorio` utiliza un mecanismo de `sesiones` basado en `serialización` y carga la biblioteca `Apache Commons Collections`. Aunque no tenemos acceso al `código fuente`, aún podemos `explotar` este laboratorio utilizando `cadenas de gadgets preconstruidas`. Para `resolver` el laboratorio, debemos usar una `herramienta de terceros` para generar un `objeto serializado malicioso` que contenga una `carga útil de ejecución remota de código`. Luego, debemos pasar este objeto al `sitio web` para `eliminar` el archivo `morale.txt` del directorio personal de `Carlos`. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`
 
 ---
-## Web Enumeration
+## Resolución
 
 Al `acceder` a la `web` nos sale esto
 

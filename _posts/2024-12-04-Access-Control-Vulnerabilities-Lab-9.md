@@ -28,7 +28,7 @@ image:
 Este `laboratorio` almacena los `registros de chat` de los usuarios directamente en el sistema de `archivos` del `servidor`, y los `recupera` mediante `URLs estáticas`. Para `resolver` el laboratorio, debemos `encontrar` la `contraseña` del `usuario carlos` e `iniciar sesión` en su cuenta
 
 ---
-## Web Enumeration
+## Resolución
 
 Al `acceder` a la `web` nos sale esto
 
