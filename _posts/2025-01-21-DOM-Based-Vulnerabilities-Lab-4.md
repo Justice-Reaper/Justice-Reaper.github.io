@@ -1,5 +1,5 @@
 ---
-title: DOM Based Vulnerabilities 4
+title: DOM Based Vulnerabilities Lab 4
 date: 2025-01-19 12:25:00 +0800
 author: Justice-Reaper
 categories:
