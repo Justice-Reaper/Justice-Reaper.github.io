@@ -1,6 +1,6 @@
 ---
 title: Authentication Lab 4
-date: 2025-01-22 12:25:00 +0800
+date: 2025-01-23 12:25:00 +0800
 author: Justice-Reaper
 categories:
   - Portswigger
