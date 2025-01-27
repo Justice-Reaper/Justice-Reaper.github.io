@@ -7,13 +7,9 @@ categories:
   - Authentication
 tags:
   - Authentication
-  - Username
-  - enumeration
-  - via
-  - different
-  - responses
+  - Broken brute-force protection, IP block
 image:
-  path: /assets/img/Authentication-Lab-1/Portswigger.png
+  path: /assets/img/Authentication-Lab-6/Portswigger.png
 ---
 
 ## Skills
@@ -36,11 +32,11 @@ Este `laboratorio` es vulnerable debido a un `fallo lógico` en su `protección 
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/Authentication-Lab-6/image_1.png)
 
 En el `login` de `My account` si introducimos `tres veces credenciales incorrectas` nos `bloquea` la `IP` por `1 minuto`
 
-![[image_2.png]]
+![](/assets/img/Authentication-Lab-6/image_2.png)
 
 Sin embargo podemos `resetear el número de intentos iniciando sesión` con unas `credenciales válidas` como `wiener:peter` y luego usar las credenciales que queramos `bruteforcear`. Lo primero que tenemos que hacer es `obtener` el `número` de `líneas` que tiene el diccionario `Candidate passwords` [https://portswigger.net/web-security/authentication/auth-lab-passwords](https://portswigger.net/web-security/authentication/auth-lab-passwords), se puede hacer `metiendo` su `contenido` en un `archivo` y usando el comando `wc -l` para saber las `líneas` que tiene
 
@@ -78,26 +74,26 @@ with open("passwords.txt", "r") as input_file, open("passwords_modified.txt", "w
 
 Ahora debemos hacer una `petición` al `login`, `capturarla` con `Burpsuite`, `mandarla` al `Intruder`, `seleccionar` el `campo username y password` y `seleccionar` la opción de `ataque Pitchfork`
 
-![[image_3.png]]
+![](/assets/img/Authentication-Lab-6/image_3.png)
 
 Como `primer payload` vamos a seleccionar el diccionario `usernames.txt`
 
-![[image_4.png]]
+![](/assets/img/Authentication-Lab-6/image_4.png)
 
 `Cargamos` como `segundo payload` el diccionario `passwords_modified.txt`
 
-![[image_5.png]]
+![](/assets/img/Authentication-Lab-6/image_5.png)
 
 El `tercer paso` es hacer que solo se manden `peticiones de una en una` para que vayan en el `orden correcto`
 
-![[image_6.png]]
+![](/assets/img/Authentication-Lab-6/image_6.png)
 
 Si `filtramos` vemos como si `iniciamos sesión` con las `credenciales` correctas `wiener:peter` nos devuelve un `código` de `estado 302`, por lo tanto si al usar las credenciales `carlos:555555` nos `devuelve` un `302` también significa que las `credenciales` son `válidas`
 
-![[image_7.png]]
+![](/assets/img/Authentication-Lab-6/image_7.png)
 
 `Iniciamos sesión` con las credenciales `carlos:555555`
 
-![[image_8.png]]
+![](/assets/img/Authentication-Lab-6/image_8.png)
 
-![[image_9.png]]
+![](/assets/img/Authentication-Lab-6/image_9.png)
