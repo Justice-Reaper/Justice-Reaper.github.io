@@ -7,13 +7,9 @@ categories:
   - Authentication
 tags:
   - Authentication
-  - Username
-  - enumeration
-  - via
-  - different
-  - responses
+  - Username enumeration via account lock
 image:
-  path: /assets/img/Authentication-Lab-1/Portswigger.png
+  path: /assets/img/Authentication-Lab-7/Portswigger.png
 ---
 
 ## Skills
@@ -36,11 +32,11 @@ Este `laboratorio` es vulnerable a la `enumeración de nombres de usuario`. Util
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/Authentication-Lab-7/image_1.png)
 
 En el `login` de `My account` si `introducimos varias veces un usuario válido con contraseña incorrecta nos bloqueará la cuenta`, de esta forma podemos `validar` si el `usuario existe`
 
-![[image_2.png]]
+![](/assets/img/Authentication-Lab-7/image_2.png)
 
 Con este `script` crearemos un nuevo diccionario a partir del diccionario `Candidate usernames` [https://portswigger.net/web-security/authentication/auth-lab-usernames](https://portswigger.net/web-security/authentication/auth-lab-usernames) el cual tenga `nombres de usuarios repetidos 5 veces`
 
@@ -62,40 +58,40 @@ with open(output_path, "w") as output_file:
 
 El siguiente paso es `capturar` la `petición` de `inicio` de `sesión` con `Burpsuite`, mandarla al `Intruder` y `marcar` el campo `username` para `bruteforcearlo`
 
-![[image_3.png]]
+![](/assets/img/Authentication-Lab-7/image_3.png)
 
 `Cargamos` como `payload` el `diccionario` nuevo que hemos creado
 
-![[image_4.png]]
+![](/assets/img/Authentication-Lab-7/image_4.png)
 
 En el apartado `Resource pool` creamos una nueva pool para `enviar las peticiones de una en una`, de esto modo nos aseguramos de que las `peticiones` vayan en `orden`
 
-![[image_5.png]]
+![](/assets/img/Authentication-Lab-7/image_5.png)
 
 Hacemos el ataque, `filtramos` por `Length` y nos damos cuenta que el usuario `info` existe debido a que el `servidor` nos ha `devuelto` una `repuesta` con una `longitud diferente`
 
-![[image_6.png]]
+![](/assets/img/Authentication-Lab-7/image_6.png)
 
 Ahora debemos hacer lo mismo para `bruteforcear` la `contraseña`
 
-![[image_7.png]]
+![](/assets/img/Authentication-Lab-7/image_7.png)
 
 En la parte de `Payloads` pegamos las contraseñas del diccionario `Candidate passwords` [https://portswigger.net/web-security/authentication/auth-lab-passwords](https://portswigger.net/web-security/authentication/auth-lab-passwords)
 
-![[image_8.png]]
+![](/assets/img/Authentication-Lab-7/image_8.png)
 
 En `Resource pool` configuramos las `peticiones` para `enviarlas de una en una`
 
-![[image_9.png]]
+![](/assets/img/Authentication-Lab-7/image_9.png)
 
 En `Settings` vamos a añadir una `expresión regular` para que nos `reporte` los `errores`
 
-![[image_10.png]]
+![](/assets/img/Authentication-Lab-7/image_10.png)
 
 Hacemos el `ataque` y vemos que hay un `petición` con un `Length` diferente, lo cual quiere decir que `no ha devuelto ningún error`
 
-![[image_11.png]]
+![](/assets/img/Authentication-Lab-7/image_11.png)
 
 El `ataque` de `fuerza bruta` funciona porque al `loguearnos` nosotros con un `usuario existente` y una `contraseña inválida` nos `devuelve` este mensaje `Invalid username or password.` o este otro `You have made too many incorrect login attempts. Please try again in 1 minute(s).`, sin embargo, aunque nosotros hayamos `agotado` el `número` de `intentos` para `iniciar sesión` si `introducimos` la `contraseña adecuada`, la `web no nos devolverá ningún mensaje` pero `no nos dejará iniciar sesión hasta que pase el minuto`. De esta forma podemos saber si nuestra `contraseña` es la `correcta`. Una vez ha pasado el minuto ya nos podemos `loguear` con las credenciales `info:robert`
 
-![[image_12.png]]
+![](/assets/img/Authentication-Lab-7/image_12.png)
