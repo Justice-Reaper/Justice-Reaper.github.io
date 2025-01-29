@@ -1,6 +1,6 @@
 ---
 title: Authentication Lab 10
-date: 2025-01-29 12:25:00 +0800
+date: 2025-01-29 12:26:00 +0800
 author: Justice-Reaper
 categories:
   - Portswigger
