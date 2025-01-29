@@ -25,7 +25,7 @@ image:
 
 ## Descripción
 
-Para `resolver` el `laboratorio`, debemos `realizar` un `ataque` de `fuerza bruta` sobre la `cookie` de Carlos para `acceder` a `Mi account`. Podemos usar nuestras credenciales `wiener:peter` para iniciar sesión, el `nombre de usuario` de la `víctima` es `carlos` y el podemos enumerar usuarios con el diccionario `Candidate passwords` [https://portswigger.net/web-security/authentication/auth-lab-passwords](https://portswigger.net/web-security/authentication/auth-lab-passwords)
+Para `resolver` el `laboratorio`, debemos `realizar` un `ataque` de `fuerza bruta` sobre la `cookie` de Carlos para `acceder` a `Mi account`. Podemos usar nuestras credenciales `wiener:peter` para iniciar sesión, el `nombre de usuario` de la `víctima` es `carlos` y podemos usar el diccionario `Candidate passwords` [https://portswigger.net/web-security/authentication/auth-lab-passwords](https://portswigger.net/web-security/authentication/auth-lab-passwords) para `bruteforcear` la `contraseña`
 
 ---
 ## Resolución
