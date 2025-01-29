@@ -7,13 +7,9 @@ categories:
   - Authentication
 tags:
   - Authentication
-  - Username
-  - enumeration
-  - via
-  - different
-  - responses
+  - Brute-forcing a stay-logged-in cookie
 image:
-  path: /assets/img/Authentication-Lab-1/Portswigger.png
+  path: /assets/img/Authentication-Lab-9/Portswigger.png
 ---
 
 ## Skills
@@ -36,27 +32,27 @@ Para `resolver` el `laboratorio`, debemos `realizar` un `ataque` de `fuerza brut
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/Authentication-Lab-9/image_1.png)
 
 Pulsamos sobre `My account`, nos `logueamos` usando las credenciales `wiener:peter` y marcamos la casilla de `Stay logged in`
 
-![[image_2.png]]
+![](/assets/img/Authentication-Lab-9/image_2.png)
 
 En el caso de que introdujésemos `dos veces` la `contraseña incorrecta` nos `bloquearía` y deberíamos `esperar 1 minuto` para volver a intentar `introducir` las `credenciales`
 
-![[image_3.png]]
+![](/assets/img/Authentication-Lab-9/image_3.png)
 
 `Rellenamos` el campo `Email`, `pulsamos` en `Update email` y `capturamos` la `petición` con `Burpsuite`
 
-![[image_4.png]]
+![](/assets/img/Authentication-Lab-9/image_4.png)
 
 Si nos fijamos bien el campo `stay-logged-in` de la `cookie` está `compuesto` por el `nombre` de `usuario` y la `contraseña`
 
-![[image_5.png]]
+![](/assets/img/Authentication-Lab-9/image_5.png)
 
 `Identificamos` el `tipo` de `hash` con el que se `cifra` la `contraseña`, para ello podemos usar `webs` como [https://hashes.com/en/tools/hash_identifier](https://hashes.com/en/tools/hash_identifier)
 
-![[image_6.png]]
+![](/assets/img/Authentication-Lab-9/image_6.png)
 
 Otra opción sería usar `herramientas` como `hash-identifier`
 
@@ -136,11 +132,11 @@ Para `confirmar` que es `MD5` usamos este comando y vemos que `ambos hashes coin
 
 Vemos que podemos `eliminar` el `parámetro session` y el servidor nos `asigna` una `cookie` de acuerdo al parámetro `stay-logged-in`
 
-![[image_7.png]]
+![](/assets/img/Authentication-Lab-9/image_7.png)
 
 Si intentamos acceder a `/my-account?id=carlos` con el y el `stay-logged-in` tiene las `credenciales incorrectas` nos hará un `redirect` a `/login`. Sin embargo, si lo hacemos con las `credenciales correctas` nos `devolverá` un `200 OK` y no habrá ningún redirect, podemos usar esto para `bruteforcear` la `contraseña` del usuario `carlos` y `acceder` a su `cuenta`
 
-![[image_8.png]]
+![](/assets/img/Authentication-Lab-9/image_8.png)
 
 Para `crear` este `valor` de la `cookie` vamos a usar el diccionario `Candidate passwords` [https://portswigger.net/web-security/authentication/auth-lab-passwords](https://portswigger.net/web-security/authentication/auth-lab-passwords) y este `script` en `bash`
 
@@ -158,19 +154,19 @@ done < "passwords.txt"
 
 `Mandamos` la `petición` al `Intruder` y ahí `marcamos` el `campo` de la `cookie` a `bruteforcear`
 
-![[image_9.png]]
+![](/assets/img/Authentication-Lab-9/image_9.png)
 
 `Cargamos` el `diccionario` creado
 
-![[image_10.png]]
+![](/assets/img/Authentication-Lab-9/image_10.png)
 
 Otra forma de `bruteforcear` sería usando las `contraseñas` de `Candidate passwords` [https://portswigger.net/web-security/authentication/auth-lab-passwords](https://portswigger.net/web-security/authentication/auth-lab-passwords) y luego `procesar` el `payload` con `Burpsuite`
 
-![[image_11.png]]
+![](/assets/img/Authentication-Lab-9/image_11.png)
 
 Si la `contraseña` es la `correcta` nos `devuelve` el `código de estado 200`, así que `filtramos` por `código` de `estado` y `obtenemos` el `hash`
 
-![[image_12.png]]
+![](/assets/img/Authentication-Lab-9/image_12.png)
 
 `Obtenemos` la `contraseña` del usuario `carlos`
 
@@ -203,6 +199,6 @@ Session completed.
 
 `Iniciamos sesión` en la `cuenta` de `carlos`
 
-![[image_13.png]]
+![](/assets/img/Authentication-Lab-9/image_13.png)
 
-![[image_14.png]]
+![](/assets/img/Authentication-Lab-9/image_14.png)
