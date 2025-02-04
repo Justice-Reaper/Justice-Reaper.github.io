@@ -133,3 +133,10 @@ Accedemos a `https://0a5000dd0380c140814c206500a0007a.web-security-academy.net/f
 ![](/assets/img/Authentication-Lab-11/image_26.png)
 
 ![](/assets/img/Authentication-Lab-11/image_27.png)
+
+En este laboratorio, hay un `middleware` que se encarga de verificar la cabecera `X-Forwarded-Host`. Esto se hace para tener un `dominio dinámico`, para que sea `seguro`, debería haber una `lista de dominios whitelisteados` y que solo actúe sobre estos, no sobre `cualquier dominio aleatorio`. Un `middleware` es un `software` o `componente` que actúa como `intermediario` entre diferentes `aplicaciones`, `sistemas` o `capas` de un `programa`. Su función principal es `gestionar la comunicación`, el `procesamiento de datos` o la `ejecución de tareas específicas` antes o después de que una `solicitud` llegue a su `destino`. En el contexto del `desarrollo web`, un `middleware` suele ser una `función` que se ejecuta en cada `solicitud HTTP` antes de llegar a la `lógica principal` de una `aplicación`. Se usa para:
+
+- `Autenticación y autorización` (verificar usuarios, tokens, roles)
+- `Registro y monitoreo` (almacenar logs de actividad)
+- `Compresión y manipulación de respuestas` (como comprimir datos antes de enviarlos)
+- `Protección contra ataques` (CSRF, CORS, validaciones)
