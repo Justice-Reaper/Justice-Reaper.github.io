@@ -18,10 +18,10 @@ timezone: America/Sao_Paulo
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Luiz's Blog # the main title
+title: MeierNet # the main title
 
 # it will display as the subtitle
-tagline: Insights, tutorials, and tips on technology
+tagline: Exploring Tech, One Packet at a Time
 
 description: >- # used by seo meta and the atom feed
   A simple blog sharing insights, tutorials, and tips on various technology topics. Stay updated with the latest trends and enhance your tech skills.
@@ -64,7 +64,7 @@ webmaster_verifications:
 # Web Analytics Settings
 analytics:
   google:
-    id: G-CQRJCZ1RJL # fill in your Google Analytics ID
+    id: "G-CQRJCZ1RJL" # fill in your Google Analytics ID
   goatcounter:
     id: luizmeier # fill in your GoatCounter ID
   umami:
@@ -103,7 +103,8 @@ theme_mode: #[dark | light]
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar: https://avatars.githubusercontent.com/u/29122027?v=4
+#avatar: https://avatars.githubusercontent.com/u/29122027?v=4
+avatar: assets/img/favicons/android-chrome-512x512.png
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
