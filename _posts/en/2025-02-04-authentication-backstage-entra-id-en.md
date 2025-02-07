@@ -1,17 +1,17 @@
 ---
 layout: post
 title: "Authentication on Backstage with MS Entra ID"
-description: "Configure Entra ID as an IDP on Backstage, centralizing user authentication."
+description: "Integrate Microsoft Entra ID with Backstage for secure authentication. A step-by-step guide on App Registration, backend setup and identity management."
 date: 2025-02-04 10:00:00 +0000
 author: Luiz Meier
 categories: [Backstage, DevOps, Cloud]
 tags: [Microsoft Entra ID, Authentication, Identity Provider, Backstage]
 lang: en
-image: 
+image: assets/img/backstage-entraid/capa.png
 #canonical_url: "placeholder"
 ---
 
-[Leia em Português](#)
+[Leia em Português](https://blog.lmeier.net/posts/autenticacao-backstage-entra-id-pt-BR)
 
 I've been hearing for a while about how Backstage is a revolutionary tool and how it can give developers more freedom when requesting cloud resources.
 
