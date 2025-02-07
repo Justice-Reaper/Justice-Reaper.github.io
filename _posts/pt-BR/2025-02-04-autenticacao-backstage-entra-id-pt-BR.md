@@ -13,8 +13,6 @@ image: assets/img/backstage-entraid/capa.png
  
 [Read in English](https://blog.lmeier.net/posts/authentication-backstage-entra-id-en)
 
-*Obs.: se você não é um membro Medium, pode acessar este conteúdo [aqui](#).*  
-
 Há algum tempo venho ouvindo sobre como o Backstage é uma ferramenta revolucionária e como pode ajudar a dar mais liberdade aos desenvolvedores na solicitação de recursos em nuvem.  
 
 Se você é um DevOps ou operador de nuvem, com certeza já passou pela situação de receber um ticket para provisionar algum recurso, mas nem sempre consegue entregá-lo na velocidade esperada pela squad.  
