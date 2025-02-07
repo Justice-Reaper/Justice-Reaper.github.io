@@ -7,7 +7,7 @@ author: Luiz Meier
 categories: [Zabbix, Monitoring, Python, API, NGFW, Palo Alto]
 tags: [Zabbix, Monitoring, Python, API, NGFW, Palo Alto]
 lang: en
-canonical_url: https://medium.lmeier.net/monitoring-palo-alto-firewalls-using-api-187df8b30aa6
+#canonical_url: https://medium.lmeier.net/monitoring-palo-alto-firewalls-using-api-187df8b30aa6
 image: assets/img/monitoring-using-api/cover.png
 ---
 

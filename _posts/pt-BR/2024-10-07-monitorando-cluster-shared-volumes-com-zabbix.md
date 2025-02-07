@@ -7,7 +7,7 @@ tags: [LLD, Monitoramento, Powershell, Scripts Personalizados, Cluster Shared Vo
 description: "Como monitorar os discos do seu cluster no Zabbix"
 lang: pt-BR
 layout: post
-canonical_url: https://medium.com/@lfmmeier/monitorando-cluster-shared-volumes-146df9620342
+#canonical_url: https://medium.com/@lfmmeier/monitorando-cluster-shared-volumes-146df9620342
 image: assets/img/monitor-csv/cover.png
 ---
 

@@ -7,7 +7,7 @@ author: Luiz Meier
 categories: [Zabbix, Monitoring, Python, API, NGFW, Palo Alto]
 tags: [Zabbix, Monitoring, Python, API, NGFW, Palo Alto]
 lang: en
-canonical_url: https://medium.com/@lfmmeier/fortinet-vs-palo-alto-automating-load-balancing-fbcc8db1a09c
+#canonical_url: https://medium.com/@lfmmeier/fortinet-vs-palo-alto-automating-load-balancing-fbcc8db1a09c
 image: assets/img/lb-fortinet-paloalto/cover.png
 ---
 
