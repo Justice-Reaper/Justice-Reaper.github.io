@@ -52,18 +52,18 @@ Eu disponibilizei um template [aqui](https://github.com/LuizMeier/Zabbix/blob/ma
 *Regras de descoberta*
 
 * b) Agora criaremos os itens. Abaixo segue os detalhes de cada item que criei. O LLD criará novos itens iguais a esse para cada volume que encontrar.
-![](assets/img/monitor-csv/item-prototype-1.png)
-Protótipo de itens
+![Protótipo de itens](assets/img/monitor-csv/item-prototype-1.png)
+*Protótipo de itens*
 
-![](assets/img/monitor-csv/item-prototype-2.png)
-Protótipo de itens
+![Protótipo de itens](assets/img/monitor-csv/item-prototype-2.png)
+*Protótipo de itens*
 
 * c) Agora criaremos os protótipos de trigger e em seguida gráficos:
-![](assets/img/monitor-csv/trigger-prototype-1.png)
-Protótipo de trigger
+![Protótipo de trigger](assets/img/monitor-csv/trigger-prototype-1.png)
+*Protótipo de trigger*
 
-![](assets/img/monitor-csv/trigger-prototype-2.png)
-Protótipo de gráficos
+![Protótipo de gráficos](assets/img/monitor-csv/trigger-prototype-2.png)
+*Protótipo de gráficos*
 
 Dessa forma, todos estes elementos serão criados para cada novo disco adicionado de forma dinâmica, sem a necessidade de ter que criá-los manualmente.
 
