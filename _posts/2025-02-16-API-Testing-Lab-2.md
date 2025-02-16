@@ -4,16 +4,12 @@ date: 2025-02-16 12:26:00 +0800
 author: Justice-Reaper
 categories:
   - Portswigger
-  - Business Logic Vulnerabilities
+  - API Testing
 tags:
-  - Business
-  - Logic
-  - Vulnerabilities
-  - Inconsistent
-  - security
-  - controls
+  - API Testing
+  - Exploiting server-side parameter pollution in a query string
 image:
-  path: /assets/img/Business-Logic-Vulnerabilities-Lab-3/Portswigger.png
+  path: /assets/img/API-Testing-Lab-2/Portswigger.png
 ---
 
 ## Skills
@@ -36,19 +32,19 @@ Para `resolver` el laboratorio, debemos `iniciar sesión` como el usuario `admin
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/API-Testing-Lab-2/image_1.png)
 
 Pulsamos sobre `My account` y posteriormente sobre `Forgot password?`
 
-![[image_2.png]]
+![](/assets/img/API-Testing-Lab-2/image_2.png)
 
 `Introducimos` el nombre `administrator`
 
-![[image_3.png]]
+![](/assets/img/API-Testing-Lab-2/image_3.png)
 
 Si nos vamos a la `extensión Logger ++` vemos esto
 
-![[image_4.png]]
+![](/assets/img/API-Testing-Lab-2/image_4.png)
 
 Hay casos en los que podemos `contaminar` los `parámetros` que se `envían` al `servidor`, en este caso estamos usando `#` urlencodeado para ver si podemos `truncar` el `resto` de `parámetros` de la `query`
 
@@ -56,7 +52,7 @@ Hay casos en los que podemos `contaminar` los `parámetros` que se `envían` al 
 csrf=iKKdRZ0MDh7Ms7H0thbHhJ4Sif5lI4De&username=administrator%23
 ```
 
-![[image_5.png]]
+![](/assets/img/API-Testing-Lab-2/image_5.png)
 
 Con el payload `&field=test` urlencodeado estamos intentando `inyectar` ese `parámetro` en la `query`. En el caso de que haya `dos parámetros` con el `mismo nombre`, uno el propio de la `query` y otro el que nosotros hemos inyectado, la `API` los `interpretará` de diferente forma `dependiendo` del la `tecnología` que se utilice. Por ejemplo, `PHP` solo `analiza` el `último parámetro`, `ASP.NET combina ambos parámetros` y `Node.js/Express` solo `analiza` el `primer parámetro`
 
@@ -64,7 +60,7 @@ Con el payload `&field=test` urlencodeado estamos intentando `inyectar` ese `par
 csrf=iKKdRZ0MDh7Ms7H0thbHhJ4Sif5lI4De&username=administrator%26field=test
 ```
 
-![[image_6.png]]
+![](/assets/img/API-Testing-Lab-2/image_6.png)
 
 `Truncamos el resto de la query añdiendo # urlencodeado al final` y seguimos obteniendo la `misma respuesta`, lo cual nos sugiere que el `servidor` puede `reconocer` como `válido` el `parámetro` que hemos `inyectado`
 
@@ -74,27 +70,27 @@ csrf=iKKdRZ0MDh7Ms7H0thbHhJ4Sif5lI4De&username=administrator%26field=test%23
 
 Lo siguiente que debemos hacer es enviar la `petición` al `Intruder`
 
-![[image_7.png]]
+![](/assets/img/API-Testing-Lab-2/image_7.png)
 
 Nos dirigimos a `Payloads` y seleccionamos como payload `Server-side variable names`
 
-![[image_8.png]]
+![](/assets/img/API-Testing-Lab-2/image_8.png)
 
 `Obtenemos` dos `campos válidos`, `username` y `email`
 
-![[image_9.png]]
+![](/assets/img/API-Testing-Lab-2/image_9.png)
 
 Si asignamos el campo `field=username` obtenemos el `nombre` del `usuario`
 
-![[image_10.png]]
+![](/assets/img/API-Testing-Lab-2/image_10.png)
 
 Si asignamos el campo `field=email` obtenemos el `mismo mensaje` que veces anteriores
 
-![[image_11.png]]
+![](/assets/img/API-Testing-Lab-2/image_11.png)
 
 Si `inspeccionamos` el `código fuente` vemos que existe este `archivo js`
 
-![[image_12.png]]
+![](/assets/img/API-Testing-Lab-2/image_12.png)
 
 Si accedemos a `https://0a7d001103cc125d87a50cae009d00b5.web-security-academy.net/static/js/forgotPassword.js` veremos todo su contenido
 
@@ -182,17 +178,17 @@ Lo que más llama la atención es el parámetro `reset_token`, si nosotros ponem
 csrf=iKKdRZ0MDh7Ms7H0thbHhJ4Sif5lI4De&username=administrator%26field=reset_token
 ```
 
-![[image_13.png]]
+![](/assets/img/API-Testing-Lab-2/image_13.png)
 
 Si accedemos a `https://0a7d001103cc125d87a50cae009d00b5.web-security-academy.net/forgot-password?reset_token=od0enk6i7aqpjksrhv7pm1x19pactjbb` podremos `cambiarle` la `contraseña` al usuario `administrador`
 
-![[image_14.png]]
+![](/assets/img/API-Testing-Lab-2/image_14.png)
 
 Nos `logueamos` como el usuario `administrador`
 
-![[image_15.png]]
+![](/assets/img/API-Testing-Lab-2/image_15.png)
 
-![[image_16.png]]
+![](/assets/img/API-Testing-Lab-2/image_16.png)
 
 Pulsamos sobre `Admin panel` y `eliminamos` al usuario `carlos`
 
