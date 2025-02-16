@@ -4,16 +4,12 @@ date: 2025-02-16 12:26:00 +0800
 author: Justice-Reaper
 categories:
   - Portswigger
-  - Business Logic Vulnerabilities
+  - API Testing
 tags:
-  - Business
-  - Logic
-  - Vulnerabilities
-  - Inconsistent
-  - security
-  - controls
+  - API Testing
+  - Exploiting an API endpoint using documentation
 image:
-  path: /assets/img/Business-Logic-Vulnerabilities-Lab-3/Portswigger.png
+  path: /assets/img/API-Testing-Lab-1/Portswigger.png
 ---
 
 ## Skills
@@ -36,31 +32,31 @@ Para `resolver` el laboratorio, debemos encontrar la `documentación de la API` 
 
 Al `acceder` a la `web` nos sale esto
 
-![[image_1.png]]
+![](/assets/img/API-Testing-Lab-1/image_1.png)
 
 Pulsamos sobre `My account` y nos `logueamos` utilizando las credenciales `wiener:peter`
 
-![[image_2.png]]
+![](/assets/img/API-Testing-Lab-1/image_2.png)
 
 Cuando iniciamos sesión nos redirigie a esta pantalla
 
-![[image_3.png]]
+![](/assets/img/API-Testing-Lab-1/image_3.png)
 
 Si `observamos` el `código fuente` vemos `información` sobre la `API`
 
-![[image_4.png]]
+![](/assets/img/API-Testing-Lab-1/image_4.png)
 
 Si accedemos al archivo `changeEmail.js` vemos la forma en la que funciona la función `changeEmail`
 
-![[image_5.png]]
+![](/assets/img/API-Testing-Lab-1/image_5.png)
 
 Si `capturamos` la `petición` con `Burpsutie` vemos que se está haciendo una petición usando el método `PATH` a la ruta `/api/user/wiener` y se está mandando un `JSON` con el nuevo `email` a asignar
 
-![[image_6.png]]
+![](/assets/img/API-Testing-Lab-1/image_6.png)
 
 Si accedemos a `https://0a4500200413f2d8814de8c6000b0009.web-security-academy.net/api/` vemos lo siguiente
 
-![[image_7.png]]
+![](/assets/img/API-Testing-Lab-1/image_7.png)
 
 `Borramos` al usuario `carlos` y `completamos` el `laboratorio`
 
