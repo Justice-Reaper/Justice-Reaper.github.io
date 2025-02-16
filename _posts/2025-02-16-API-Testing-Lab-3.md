@@ -1,6 +1,6 @@
 ---
-title: API Testing Lab 2
-date: 2025-02-16 12:26:00 +0800
+title: API Testing Lab 3
+date: 2025-02-16 12:27:00 +0800
 author: Justice-Reaper
 categories:
   - Portswigger
@@ -9,7 +9,7 @@ tags:
   - API Testing
   - Finding and exploiting an unused API endpoint
 image:
-  path: /assets/img/API-Testing-Lab-2/Portswigger.png
+  path: /assets/img/API-Testing-Lab-3/Portswigger.png
 ---
 
 ## Skills
@@ -32,15 +32,15 @@ Para `resolver` el laboratorio, debemos explotar un `endpoint oculto de la API` 
 
 Al `acceder` a la `web` nos sale esto
 
-![](/assets/img/API-Testing-Lab-2/image_1.png)
+![](/assets/img/API-Testing-Lab-3/image_1.png)
 
 Pulsamos sobre `My account` y nos `logueamos` utilizando las credenciales `wiener:peter`
 
-![](/assets/img/API-Testing-Lab-2/image_2.png)
+![](/assets/img/API-Testing-Lab-3/image_2.png)
 
 Si nos `abrimos` el `código fuente` de la `web` nos encontramos estos
 
-![](/assets/img/API-Testing-Lab-2/image_3.png)
+![](/assets/img/API-Testing-Lab-3/image_3.png)
 
 Si accedemos a `https://0a05009004d6f6e6801453ce00a2008e.web-security-academy.net/resources/js/api/productPrice.js` vemos este contenido
 
@@ -125,19 +125,19 @@ window.onload = () => {
 
 Pulsamos sobre `View details > Add to cart` para añadir un producto a nuestro carrito
 
-![](/assets/img/API-Testing-Lab-2/image_4.png)
+![](/assets/img/API-Testing-Lab-3/image_4.png)
 
 Si nos abrimos `Burpsuite` y nos dirigimos a la extensión `Logger ++` vemos que al `añadir` un `producto` al `carrito` se hace una petición a `/api/products/1/price`
 
-![](/assets/img/API-Testing-Lab-2/image_5.png)
+![](/assets/img/API-Testing-Lab-3/image_5.png)
 
 `Mandamos` la `petición` al `Intruder` y marcamos `GET`
 
-![](/assets/img/API-Testing-Lab-2/image_6.png)
+![](/assets/img/API-Testing-Lab-3/image_6.png)
 
 `Añadimos` el `payload` llamado `HTTP verbs`
 
-![](/assets/img/API-Testing-Lab-2/image_7.png)
+![](/assets/img/API-Testing-Lab-3/image_7.png)
 
 ```
 GET
@@ -198,7 +198,7 @@ X-MS-ENUMATTS
 
 `Inspeccionamos` las `respuestas` recibidas y vemos un `código de estado 400` con esta `respuesta`
 
-![](/assets/img/API-Testing-Lab-2/image_8.png)
+![](/assets/img/API-Testing-Lab-3/image_8.png)
 
 `Enviamos` esta `petición` y nos responde que nos falta un `parámetro` en el `body`
 
@@ -216,10 +216,10 @@ X-MS-ENUMATTS
 
 Si nos `dirigimos` a la `web` podemos confirmarlo
 
-![](/assets/img/API-Testing-Lab-2/image_9.png)
+![](/assets/img/API-Testing-Lab-3/image_9.png)
 
 `Pulsamos` sobre `Place Order` y `compramos` el `artículo`
 
-![](/assets/img/API-Testing-Lab-2/image_10.png)
+![](/assets/img/API-Testing-Lab-3/image_10.png)
 
-![](/assets/img/API-Testing-Lab-2/image_11.png)
+![](/assets/img/API-Testing-Lab-3/image_11.png)
