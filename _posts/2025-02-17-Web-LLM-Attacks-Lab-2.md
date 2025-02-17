@@ -58,7 +58,7 @@ Intentamos `inyectar` un `comando`
 
 ![](/assets/img/Web-LLM-Attacks-Lab-2/image_7.png)
 
-Logramos `inyectar` el `comando` de forma `exitosa`
+Logramos `inyectar` el `comando` de forma `exitosa`. Hemos `recibido` el `correo` a pesar de tener un `nombre diferente` debido a que tenemos un `servidor de correo` configurado como `catch-all`, es decir, cualquier correo que pongamos antes del `@` (por ejemplo, `attacker@exploit-server.net`, `pedro@exploit-server.net`, `raul@exploit-server.net`, etc.) será `aceptado` y `dirigido` al `mismo buzón` o `servidor de correo`
 
 ![](/assets/img/Web-LLM-Attacks-Lab-2/image_8.png)
 
