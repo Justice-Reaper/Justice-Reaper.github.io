@@ -6,23 +6,15 @@ categories:
   - Portswigger
   - API Testing
 tags:
-  - API
-  - Testing
-  - Exploiting
-  - server-side
-  - parameter
-  - pollution
-  - in
-  - a
-  - query
-  - string
+  - Web LLM Attacks
+  - Exploiting vulnerabilities in LLM APIs
 image:
-  path: /assets/img/API-Testing-Lab-2/Portswigger.png
+  path: /assets/img/Web-LLM-Attacks-Lab-2/Portswigger.png
 ---
 
 ## Skills
 
--  Exploiting vulnerabilities in LLM APIs
+- Exploiting vulnerabilities in LLM APIs
 
 ## Certificaciones
 
@@ -40,36 +32,36 @@ Este `laboratorio` contiene la vulnerabilidad `OS Command Injection` que puede s
 
 Al `acceder` a la `web` nos sale esto
 
-![[Pasted image 20250217125859.png]]
+![](/assets/img/Web-LLM-Attacks-Lab-2/image_1.png)
 
 Pulsamos sobre `Live chat` y vemos que hay un `chat` de `IA`. Este tipo de chats suelen ser `LLM's`, un tipo de `modelo de IA` entrenado con grandes volúmenes de texto para procesar y generar lenguaje natural. Estos modelos, como `ChatGPT`, son una subcategoría dentro del `NLP (Natural Language Processing)` y se especializan en tareas como `traducción`, `resumen`, `análisis de texto` y `generación de respuestas`
 
-![[image_2.png]]
+![](/assets/img/Web-LLM-Attacks-Lab-2/image_2.png)
 
 Lo primero que tenemos que hacer para poder `vulnerar` este `servicio` es saber a que `API's` y `plugins` tiene `acceso`
 
-![[image_3.png]]
+![](/assets/img/Web-LLM-Attacks-Lab-2/image_3.png)
 
 `Obtenemos` el `input` y el `output` de cada función
 
-![[image_4.png]]
+![](/assets/img/Web-LLM-Attacks-Lab-2/image_4.png)
 
 Nos `suscribimos` a la `newsletter`
 
-![[image_5.png]]
+![](/assets/img/Web-LLM-Attacks-Lab-2/image_5.png)
 
 Si nos dirigimos al `email client` vemos que se nos `envía` un `mensaje`
 
-![[image_6.png]]
+![](/assets/img/Web-LLM-Attacks-Lab-2/image_6.png)
 
 Intentamos `inyectar` un `comando`
 
-![[image_7.png]]
+![](/assets/img/Web-LLM-Attacks-Lab-2/image_7.png)
 
 Logramos `inyectar` el `comando` de forma `exitosa`
 
-![[image_8.png]]
+![](/assets/img/Web-LLM-Attacks-Lab-2/image_8.png)
 
 `Borramos` el documento `morale.txt` que se aloja en la ruta `/home/carlos/morale.txt`
 
-![[image_9.png]]
+![](/assets/img/Web-LLM-Attacks-Lab-2/image_9.png)
