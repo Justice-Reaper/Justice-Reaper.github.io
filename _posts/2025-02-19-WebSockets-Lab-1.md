@@ -1,0 +1,71 @@
+---
+title: WebSockets Lab 1
+date: 2025-02-19 12:26:00 +0800
+author: Justice-Reaper
+categories:
+  - Portswigger
+  - API Testing
+tags:
+  - API
+  - Testing
+  - Exploiting
+  - server-side
+  - parameter
+  - pollution
+  - in
+  - a
+  - query
+  - string
+image:
+  path: /assets/img/API-Testing-Lab-2/Portswigger.png
+---
+
+## Skills
+
+-  Manipulating WebSocket messages to exploit vulnerabilities
+
+## Certificaciones
+
+- eWPT
+- eWPTXv2
+- OSWE
+- BSCP
+  
+## Descripción
+
+Esta `tienda en línea` tiene una función de `chat en vivo` implementada con `WebSockets`. Los `mensajes de chat` que enviamos son vistos por un `agente de soporte` en `tiempo real`. Para `resolver` el laboratorio, debemos usar un `mensaje WebSocket` para activar una `ventana emergente` con `alert()` en el `navegador` del `agente de soporte`
+
+---
+## Web Enumeration
+
+Al `acceder` a la `web` nos sale esto
+
+![[image_1.png]]
+
+Pulsamos sobre `Live chat` y vemos que hay un `chat` de `IA`. Este tipo de chats suelen ser `LLM's`, un tipo de `modelo de IA` entrenado con grandes volúmenes de texto para procesar y generar lenguaje natural. Estos modelos, como `ChatGPT`, son una subcategoría dentro del `NLP (Natural Language Processing)` y se especializan en tareas como `traducción`, `resumen`, `análisis de texto` y `generación de respuestas`
+
+![[image_2.png]]
+
+Enviamos un mensaje y capturamos la petición con Burpsuite, vemos que se trata de un websocket y que esta html encodeando los mensajes
+
+![[image_3.png]]
+
+Sin embargo, esto lo hace del lado del cliente y podemos verlo accediendo al archivo alojado en `/resources/js/chat.js`
+
+![[image_4.png]]
+
+Modificamos el payload y lo enviamos
+
+![[image_5.png]]
+
+Si nos vamos a la web vemos que hemos logrado inyectar código HTML
+
+![[image_6.png]]
+
+Enviamos este payload para desencadenar un alert(), con esto podemos comprobar si la web es vulnerable a XSS
+
+![[image_7.png]]
+
+Efectivamente la web es vulnerable
+
+![[image_8.png]]
