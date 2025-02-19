@@ -46,26 +46,26 @@ Pulsamos sobre `Live chat` y vemos que hay un `chat` de `IA`. Este tipo de chats
 
 ![[image_2.png]]
 
-Enviamos un mensaje y capturamos la petición con Burpsuite, vemos que se trata de un websocket y que esta html encodeando los mensajes
+`Enviamos` un `mensaje` y `capturamos` la `petición` con `Burpsuite`, vemos que se trata de un `websocket` y que esta `HTML encodeando` los `mensajes`
 
 ![[image_3.png]]
 
-Sin embargo, esto lo hace del lado del cliente y podemos verlo accediendo al archivo alojado en `/resources/js/chat.js`
+Sin embargo, esto lo hace del `lado del cliente` y podemos verlo `accediendo` al `archivo` alojado en la ruta `/resources/js/chat.js`
 
 ![[image_4.png]]
 
-Modificamos el payload y lo enviamos
+`Modificamos` el `payload` y lo `enviamos`
 
 ![[image_5.png]]
 
-Si nos vamos a la web vemos que hemos logrado inyectar código HTML
+Si nos vamos a la `web` vemos que hemos logrado `inyectar código HTML`
 
 ![[image_6.png]]
 
-Enviamos este payload para desencadenar un alert(), con esto podemos comprobar si la web es vulnerable a XSS
+`Enviamos` este `payload` para `desencadenar` un `alert()`, con esto podemos comprobar si la `web` es `vulnerable` a `XSS`
 
 ![[image_7.png]]
 
-Efectivamente la web es vulnerable
+Efectivamente la `web` es `vulnerable`
 
 ![[image_8.png]]
