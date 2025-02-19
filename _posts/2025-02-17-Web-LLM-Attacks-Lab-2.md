@@ -4,7 +4,7 @@ date: 2025-02-17 12:26:00 +0800
 author: Justice-Reaper
 categories:
   - Portswigger
-  - API Testing
+  - Web LLM Attacks
 tags:
   - Web LLM Attacks
   - Exploiting vulnerabilities in LLM APIs
