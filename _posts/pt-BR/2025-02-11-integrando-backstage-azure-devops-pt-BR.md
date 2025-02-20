@@ -113,8 +113,44 @@ Clicando em **View Component** você será capaz de ver as informações do comp
 
 Parabéns, a integração com o Azure DevOps está funcionando!
 
-## Instale o plugin 
+## Instale o plugin do Azure DevOps
+Para que o nosso template do Backstage funcione adequadamente, precisaremos das ações `azure:repo:clone`, `azure:repo:push` e  `azure:repo:pr`. Estas ações serão tomadas pelo template para fazer o download do código, depois push e então criar um pull request. Para checar se elas já estão instaladas, você pode ir em **Create** e, então, no canto superior direito, sleecionar **Installed Actions**.
 
+![Encontrando as ações instaladas](assets/img/backstage-azure-devops/installe3d-actions-menu.png)
+*Encontrando as ações instaladas*
+
+![Listando ações](assets/img/backstage-azure-devops/listing-installed-actions.png)
+*Listando ações*
+
+Para habilitá-las, execute o comando abaixo, da raiz do seu projeto. Aqui está a [página do plugin](https://www.npmjs.com/package/@parfuemerie-douglas/scaffolder-backend-module-azure-repositories).
+
+```bash
+yarn --cwd packages/backend add @parfuemerie-douglas/scaffolder-backend-module-azure-repositories
+```
+
+Depois, adicione o código abaixo ao arquivo `packages/backend/src/index.ts`:
+
+```typescript
+// Azure DevOps
+backend.add(import('@parfuemerie-douglas/scaffolder-backend-module-azure-repositories'))
+```
+
+## Crie o template para uso pelo Backstage
+
+Agora que temos o Backstage pronto para falar com o Azure DevOps e, além disso, os plugins necessários instalados, vamos criar o template, que nada mais é que o formulário que receberá os dados do requisitante para provisionamento do recurso. Vou deixar um modelo de template bem simples, em que o usuário será solicitado a dizer o próprio nome e o nome do grupo de recursos que deseja que seja criado.
+
+Crie o arquivo do template no Azure devOps e então vá até o Backstage e siga o mesmo processo de importação que fizemos antes, no teste de integração. Na hora em que for importar o template, pode ser que se depare com o erro abaixo:
+![Erro para importar o template](assets/img/backstage-azure-devops/template-import-error.png)
+*Erro para importar o template*
+
+Caso isso aconteça, o motivo é o Backstage, que não está permitindo que recursos do tipo **Template** sejam importados. Para corrigir, edite o arquivo `app-config.yaml`, adicionando `Template` na lista `allow`:
+
+![Habilitando template](assets/img/backstage-azure-devops/enabling-template.png)
+*Habilitando template*
+
+Uma vez importado o template, ele deve aparecer no menu **Create...**
+![Novo template disponível](assets/img/backstage-azure-devops/template-available.png)
+*Novo template disponível*
 
 ## Crie o código Terraform
 
@@ -143,5 +179,3 @@ Abaixo segue a abordagem que entendo ser a mais simples, mas fique a vontade par
 
 ![Arquivos Terraform](tf-files.png)
 *Arquivos Terraform*
-
-## Crie o template para uso pelo Backstage
