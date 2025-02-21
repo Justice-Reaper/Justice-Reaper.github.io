@@ -6,16 +6,10 @@ categories:
   - Portswigger
   - Business Logic Vulnerabilities
 tags:
-  - Business
-  - Logic
-  - Vulnerabilities
-  - Flawed
-  - enforcement
-  - of
-  - business
-  - rules
+  - Business Logic Vulnerabilities
+  - Weak isolation on dual-use endpoint 
 image:
-  path: /assets/img/Business-Logic-Vulnerabilities-Lab-4/Portswigger.png
+  path: /assets/img/Business-Logic-Vulnerabilities-Lab-7/Portswigger.png
 ---
 
 ## Skills
@@ -38,40 +32,40 @@ Este `laboratorio` asume de forma `errónea` el `nivel de privilegio` del `usuar
 
 Al `acceder` a la `web` vemos esto
 
-![[image_1.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-7/image_1.png)
 
 Hacemos click sobre `My account` y nos `logueamos` con las credenciales `wiener:peter`
 
-![[image_2.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-7/image_2.png)
 
 Al `loguearnos` vemos esto
 
-![[image_3.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-7/image_3.png)
 
 Si `capturamos` la `petición` vemos que los `datos` se `envían` de esta forma
 
-![[image_4.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-7/image_4.png)
 
 Si `enviamos` esta `petición`, `obtenemos` este `mensaje`
 
-![[image_5.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-7/image_5.png)
 
 Si `borramos` el campo `current-password` y `enviamos` la `petición` así, también se `cambia` la `contraseña`
 
-![[image_6.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-7/image_6.png)
 
 `Sustituimos` el usuario `wiener` por el usuario `administrator` y le `cambiamos` la `contraseña`
 
-![[image_7.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-7/image_7.png)
 
 `Iniciamos sesión` con las credenciales `administrator:test`
 
-![[image_8.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-7/image_8.png)
 
 Una vez logueados `accedemos` al `panel administrativo`
 
-![[image_9.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-7/image_9.png)
 
 Pulsamos sobre `Admin panel` y `borramos` el usuario `carlos`
 
-![[image_10.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-7/image_10.png)
