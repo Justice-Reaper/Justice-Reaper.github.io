@@ -66,6 +66,6 @@ Una vez logueados `accedemos` al `panel administrativo`
 
 ![](/assets/img/Business-Logic-Vulnerabilities-Lab-7/image_9.png)
 
-Pulsamos sobre `Admin panel` y `borramos` el usuario `carlos`
+Pulsamos sobre `Admin panel` y `borramos` el usuario `carlos`. Hemos logrado `explotar` esta `vulnerabilidad` debido a que el `endpoint /my-account/change-password` lleva a cabo `varias funcionalidades` y estas no están `correctamente implementadas`
 
 ![](/assets/img/Business-Logic-Vulnerabilities-Lab-7/image_10.png)
