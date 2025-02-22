@@ -1,21 +1,15 @@
 ---
 title: Business Logic Vulnerabilities Lab 9
-date: 2025-02-20 12:26:00 +0800
+date: 2025-02-22 12:26:00 +0800
 author: Justice-Reaper
 categories:
   - Portswigger
   - Business Logic Vulnerabilities
 tags:
-  - Business
-  - Logic
-  - Vulnerabilities
-  - Flawed
-  - enforcement
-  - of
-  - business
-  - rules
+  - Business Logic Vulnerabilities
+  - Authentication bypass via flawed state machine
 image:
-  path: /assets/img/Business-Logic-Vulnerabilities-Lab-4/Portswigger.png
+  path: /assets/img/Business-Logic-Vulnerabilities-Lab-9/Portswigger.png
 ---
 
 ## Skills
@@ -38,7 +32,7 @@ Este `laboratorio` asume de forma `errónea` la `secuencia` de `eventos` en el `
 
 Al `acceder` a la `web` vemos esto
 
-![[image_1.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-9/image_1.png)
 
 `Fuzzeamos` en `busca` de `rutas`
 
@@ -71,24 +65,24 @@ Admin                   [Status: 401, Size: 2621, Words: 1049, Lines: 54, Durati
 
 Hacemos click sobre `My account` y nos `logueamos` con las credenciales `wiener:peter`
 
-![[image_2.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-9/image_2.png)
 
 Al `loguearnos` vemos esto
 
-![[image_3.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-9/image_3.png)
 
 He probado a capturar la petición a `/role-selector` y `asignarle` un `rol direferente`, como `admin` o `administrator` pero no ha dado resultado. Como al `loguearnos` nos `redirige` a `/role-selector`, puede que sea necesario `seleccionar` un `rol`. Vamos a `capturar` la `petición` de `login`
 
-![[image_4.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-9/image_4.png)
 
 Pulsamos en `forward` hasta llegar a `/role-selector`, vamos a `dropear` esta `petición` y posterior `pulsamos` en `forward`
 
-![[image_5.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-9/image_5.png)
 
 Al volver al `navegador` veremos esto
 
-![[image_6.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-9/image_6.png)
 
 `Accedemos` a `/admin` y `borramos` al usuario `carlos`, hemos podido `acceder` porque el `rol` que se nos asigna por `defecto` es el de `administrador`
 
-![[image_7.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-9/image_7.png)
