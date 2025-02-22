@@ -6,16 +6,10 @@ categories:
   - Portswigger
   - Business Logic Vulnerabilities
 tags:
-  - Business
-  - Logic
-  - Vulnerabilities
-  - Flawed
-  - enforcement
-  - of
-  - business
-  - rules
+  - Business Logic Vulnerabilities
+  - Infinite money logic flaw
 image:
-  path: /assets/img/Business-Logic-Vulnerabilities-Lab-4/Portswigger.png
+  path: /assets/img/Business-Logic-Vulnerabilities-Lab-10/Portswigger.png
 ---
 
 ## Skills
@@ -38,102 +32,102 @@ Este `laboratorio` tiene un `fallo lógico` en su `flujo` de `compra`. Para `res
 
 Al `acceder` a la `web` vemos esto
 
-![[image_1.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-10/image_1.png)
 
 Hacemos click sobre `My account` y nos `logueamos` con las credenciales `wiener:peter`
 
-![[image_2.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-10/image_2.png)
 
 Al `loguearnos` vemos esto
 
-![[image_3.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-10/image_3.png)
 
 En la `parte inferior` de la `web` nos podemos `suscribir`
 
-![[image_4.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-10/image_4.png)
 
 Al hacerlo nos aparece un `alert` con el cupón `SIGNUP30`
 
-![[image_5.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-10/image_5.png)
 
 `Aplicamos` el `código` de `descuento`
 
-![[image_6.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-10/image_6.png)
 
 Si pulsamos en `Place order` recibiremos un `código` de `tarjeta regalo`
 
-![[image_7.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-10/image_7.png)
 
 Si pulsamos sobre `My account` y añadimos un código de descuento vemos que el código de descuento es superior al coste del producto, por lo tanto podríamos aumentar la cantidad de dinero que tenemos en nuestra cuenta de forma ilimitada
 
-![[image_8.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-10/image_8.png)
 
 Podemos `automatizar` este proceso mediante las `macros` de `Burpsuite`, para configurarlas debemos acceder a `Settings > Sessions > Macros`
 
-![[image_9.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-10/image_9.png)
 
 `Añadimos` las `peticiones` a la `macro`, para ello mantenemos pulsada la tecla `CTRL` y hacemos `click izquierdo` sobre las `peticiones` que queramos
 
-![[image_10.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-10/image_10.png)
 
 Vamos a `añadir` una `expresión regular` en el `cuarto elemento`, para ello lo `seleccionamos` y pulsamos `Configure item`
 
-![[image_11.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-10/image_11.png)
 
 `Pulsamos` en `Add`
 
-![[image_12.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-10/image_12.png)
 
 Como `Parameter name` le ponemos `gift-card` y `marcamos` el `primer código de descuento` que `aparece`. `Marcamos` el `primer código` porque es la `posición` que se `actualiza` cuando `añadimos` un `nuevo código`
 
-![[image_13.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-10/image_13.png)
 
 `Señalamos` la `quinta petición` y pulsamos sobre `Configure item`
 
-![[image_14.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-10/image_14.png)
 
 `Modificamos` el valor `gift-card` de `Use preset value` a `Derive from prior response`
 
-![[image_15.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-10/image_15.png)
 
 Podemos `testear` la `macro` pulsando en `Test macro`
 
-![[image_16.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-10/image_16.png)
 
 Para ver si funciona realmente `accedemos` a `/my-account` y vemos como el `dinero` que tenemos disponible ha `aumentado`
 
-![[image_17.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-10/image_17.png)
 
 Para que la `macro funcione` debemos dirigirnos a `Session handling rules` y `añadir` una `nueva regla`
 
-![[image_18.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-10/image_18.png)
 
 En la pestaña de `Details` debemos `pulsar` sobre `Add > Run a macro`
 
-![[image_19.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-10/image_19.png)
 
 `Seleccionamos` la `macro` que queremos y `pulsamos` en `OK`
 
-![[image_20.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-10/image_20.png)
 
 En la `pestaña` de `Scope`, `seleccionamos` la casilla `Proxy (use with caution)` y la casilla `Incluse all URLs`
 
-![[image_21.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-10/image_21.png)
 
 Después de configurar esto, cada vez que `mandemos` un `petición` se `activará` la `macro`. Debemos `capturar` una `petición` a la `web` mediante `Burpsuite` y `mandarla` al `Intruder`
 
-![[image_22.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-10/image_22.png)
 
 En la `pestaña` de `payloads` seleccionamos como tipo de payload `Null payloads`
 
-![[image_23.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-10/image_23.png)
 
 En la pestaña `Resource pool` debemos `seleccionar` un `único hilo`, esto lo debemos hacer porque el `orden` de las `peticiones` es `importante`
 
-![[image_24.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-10/image_24.png)
 
 `Empezamos` el `ataque` y vamos `recargando` la `web` con `F5` hasta que veamos que tenemos `dinero` suficiente para `comprar` el artículo `Lightweight "l33t" Leather Jacket`. También es importante recalcar que de la forma que hemos configurado nosotros la macro, con tan solo `recargar` la `web` desde el `navegador` funcionaría, esto se debe a que estamos `tunelizando` las `peticiones` a través de `Burpsuite`
 
-![[image_25.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-10/image_25.png)
 
-![[image_26.png]]
+![](/assets/img/Business-Logic-Vulnerabilities-Lab-10/image_26.png)
