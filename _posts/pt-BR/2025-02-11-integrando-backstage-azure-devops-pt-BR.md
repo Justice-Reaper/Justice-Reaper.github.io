@@ -139,7 +139,88 @@ backend.add(import('@parfuemerie-douglas/scaffolder-backend-module-azure-reposit
 
 Agora que temos o Backstage pronto para falar com o Azure DevOps e, além disso, os plugins necessários instalados, vamos criar o template, que nada mais é que o formulário que receberá os dados do requisitante para provisionamento do recurso. Vou deixar um modelo de template bem simples, em que o usuário será solicitado a dizer o próprio nome e o nome do grupo de recursos que deseja que seja criado.
 
-Crie o arquivo do template no Azure devOps e então vá até o Backstage e siga o mesmo processo de importação que fizemos antes, no teste de integração. Na hora em que for importar o template, pode ser que se depare com o erro abaixo:
+Uma das coisas com a qual mais tive dificuldade foi conseguir encontrar as informações necessárias para conseguir chegar ao resultado esperado usando o template. Aqui segue um modelo de template bem simples. 
+
+```yaml
+
+# Template for creating a new Azure resource group.
+
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: azure-repo-demo
+  title: Azure Repository Test
+  description: Clone and push to an Azure repository example.
+spec:
+  owner: parfuemerie-douglas
+  type: service
+
+  parameters:
+    - title: Fill in some steps
+      required:
+        - name
+      properties:
+        name:
+          title: RG Name
+          type: string
+          description: Choose a unique resource-group name.
+
+  steps:
+    - id: cloneAzureRepo
+      name: Clone Azure Repo
+      action: azure:repo:clone
+      input:
+        remoteUrl: "https://<MY_AZURE_ORGANIZATION>@dev.azure.com/<MY_AZURE_ORGANIZATION>/<MY_AZURE_PROJECT>/_git/<MY_AZURE_REPOSITORY>"
+        branch: "main"
+        targetPath: ./sub-directory
+
+    - id: fetch
+      name: Template Skeleton
+      action: fetch:template
+      input:
+        url: ./skeleton
+        targetPath: ./sub-directory
+        values:
+          name: ${{ parameters.name }}
+
+    - id: pushAzureRepo
+      name: Push to Remote Azure Repo
+      action: azure:repo:push
+      input:
+        branch: <MY_AZURE_REPOSITORY_BRANCH>
+        sourcePath: ./sub-directory
+        gitCommitMessage: Add ${{ parameters.name }} project files
+
+    - id: pullRequestAzureRepo
+      name: Create a Pull Request to Azure Repo
+      action: azure:repo:pr
+      input:
+        sourceBranch: <MY_AZURE_REPOSITORY_BRANCH>
+        targetBranch: "main"
+        repoId: <MY_AZURE_REPOSITORY>
+        title: ${{ parameters.name }}
+        project: <MY_AZURE_PROJECT>
+        description: "This is a pull request from Backstage"
+        supportsIterations: false
+
+    - id: register
+      name: Register
+      action: catalog:register
+      input:
+        repoContentsUrl: "dev.azure.com?owner=<MY_AZURE_PROJECT>&repo=<MY_AZURE_REPOSITORY>&organization=<MY_AZURE_ORGANIZATION>&version=<MY_AZURE_REPOSITORY_BRANCH>"
+        catalogInfoPath: "/catalog-info.yaml"
+
+  output:
+    links:
+      - title: Repository
+        url: "dev.azure.com?owner=<MY_AZURE_PROJECT>&repo=<MY_AZURE_REPOSITORY>&organization=<MY_AZURE_ORGANIZATION>"
+      - title: Open in catalog
+        icon: catalog
+        entityRef: ${{ steps.register.output.entityRef }}
+```
+
+Crie o arquivo do template no Azure DevOps (substituindo os campos devidos) e então vá até o Backstage e siga o mesmo processo de importação que fizemos antes no teste de integração. Na hora em que for importar o template, pode ser que se depare com o erro abaixo:
+
 ![Erro para importar o template](assets/img/backstage-azure-devops/template-import-error.png)
 *Erro para importar o template*
 
@@ -177,5 +258,26 @@ Uma vez criado o código terraform, vamos fazer o upload dele para o nosso repos
 
 Abaixo segue a abordagem que entendo ser a mais simples, mas fique a vontade para adaptar à sua necessidade:
 
-![Arquivos Terraform](tf-files.png)
+![Arquivos Terraform](assets/img/backstage-azure-devops/tf-files.png)
 *Arquivos Terraform*
+
+
+## Crie a pipeline para execução do código
+
+Por último, vamos criar uma pipeline que será disparada cada vez que houver uma alteração no código. Isso só acontecerá quando alguém aprovar o pull request que o Backstage criará.
+
+Vá até o Azure DevOps, em Pipelines. Então clique em **Create Pipeline**:
+![Criando pipeline](assets/img/backstage-azure-devops/create-pipeline.png)
+*Criando pipeline*
+
+Selecione o local onde está seu código:
+![Selecionando local do repositório](assets/img/backstage-azure-devops/select-repo-place.png)
+*Selecionando local do repositório*
+
+Selecione o repositório em questão:
+![Selecione o repositório](assets/img/backstage-azure-devops/select-repo.png)
+*Selecione o repositório em questão*
+
+Selecione a opção de yaml já existente.
+![Selecionando opção](assets/img/backstage-azure-devops/select-existing-yaml.png)
+*Selecionando opção*
