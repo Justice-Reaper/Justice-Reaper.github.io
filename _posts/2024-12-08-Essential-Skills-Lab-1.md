@@ -62,7 +62,7 @@ Otra opción de `escaneo` sería un `targeted scan`, este tipo de `escaneo` se a
 
 ![](/assets/img/Essential-Skills-Lab-1/image_7.png)
 
-Pulsamos en `Check stock` y nos dirigimos a` Burpsuite > Proxy > HTTP history` y `ordenamos` por `host` para que nos muestre la `última petición`
+Pulsamos en `Check stock` y nos dirigimos a `Burpsuite > Proxy > HTTP history` y `ordenamos` por `host` para que nos muestre la `última petición`
 
 ![](/assets/img/Essential-Skills-Lab-1/image_8.png)
 
