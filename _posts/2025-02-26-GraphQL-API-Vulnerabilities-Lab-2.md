@@ -6,15 +6,10 @@ categories:
   - Portswigger
   - GraphQL API Vulnerabilities
 tags:
-  - GraphQL
-  - API
-  - Vulnerabilities
-  - Accessing
-  - private
-  - GraphQL
-  - posts
+  - GraphQL API Vulnerabilities
+  - Accidental exposure of private GraphQL fields
 image:
-  path: /assets/img/GraphQL-API-Vulnerabilities-Lab-1/Portswigger.png
+  path: /assets/img/GraphQL-API-Vulnerabilities-Lab-2/Portswigger.png
 ---
 
 ## Skills
@@ -37,7 +32,7 @@ Este `laboratorio` utiliza un `endpoint GraphQL` para gestionar las `funciones` 
 
 Al `acceder` a la `web` vemos esto
 
-![[image_1.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-1/image_1.png)
 
 Los `servicios GraphQL` suelen utilizar `endpoints` similares a estos. En `Hacktricks` [https://book.hacktricks.wiki/en/network-services-pentesting/pentesting-web/graphql.html#graphql](https://book.hacktricks.wiki/en/network-services-pentesting/pentesting-web/graphql.html#graphql) se nos explica paso por paso la forma en la que debemos `enumerar` este `servicio`
 
@@ -86,7 +81,7 @@ Para comprobar que se trata de `GraphQL` podemos usar `universal queries`, si el
 
 En la mayoría de casos los `endpoints` en `GraphQL` solo aceptan `peticiones POST` con `content-type` de `application/json` porque esto ayuda a `proteger` contra `vulnerabilidades` de `CSRF`. Sin embargo, hay ocasiones en las que también acepta otros métodos, para comprobar esto deberíamos `bruteforcear` los `endpoints` para `obtener` que `métodos` son `válidos`. Puede darse el caso en el que acepte un `content-type` de `x-www-form-urlencoded`. La forma más sencilla de `encontrar endpoints` es `observar` las `peticiones`. Si `recargamos` la `página` y `capturamos` la `petición` vemos que se está empleando `GraphQL`
 
-![[image_2.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-1/image_2.png)
 
 Una vez tenemos la ruta principal `/graphql/v1` podemos usar la herramienta `graphw00f` [https://github.com/dolevf/graphw00f.git](https://github.com/dolevf/graphw00f.git) para `enumerar` el `servidor` o `motor` que `gestiona` y `procesa` las `consultas` de `GraphQL`. Con esta herramienta también podemos hacer `fuerza bruta` para `identificar` la `ruta principal` de `GraphQL`
 
@@ -701,57 +696,57 @@ onFragment   #Often needs to be deleted to run query
 onField      #Often needs to be deleted to run query
 ```
 
-![[image_3.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-1/image_3.png)
 
-![[image_4.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-1/image_4.png)
 
 Podemos `copiar` las `respuestas` de las `queries` en `graphql-visualizer` [http://nathanrandal.com/graphql-visualizer/](http://nathanrandal.com/graphql-visualizer/) o en `graphql-voyager` [https://graphql-kit.com/graphql-voyager/](https://graphql-kit.com/graphql-voyager/) para `ver` los `resultados obtenidos` de forma `gráfica`. En el caso de `graphql-voyager` debemos usar el `payload` que hay en la `web`. Los campos `isPrivate` y `postPassword` son `interesantes`
 
-![[image_5.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-1/image_5.png)
 
 También podemos llevar a cabo todo este proceso de forma `automatizada` con la `extensión` de `Burpsuite InQL`
 
-![[image_6.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-1/image_6.png)
 
 El primer paso es `capturar` una `petición`, pulsar `click derecho` y `Generate queries with InQL Scanner`
 
-![[image_7.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-1/image_7.png)
 
 Esto nos `enviará` a esta otra `pestaña` donde debemos pulsar `Analyze`
 
-![[image_8.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-1/image_8.png)
 
 Una vez hecho esto `obtendremos` el `esquema` en `JSON` y las `queries`. Podemos `copiar` el `contenido` del `JSON` en [https://graphql-kit.com/graphql-voyager/](https://graphql-kit.com/graphql-voyager/) para poder `visualizar` mejor los `datos` o podemos directamente hacer las `queries` nosotros mismos. Desde `consola` podemos usar `InQL` [https://blog.doyensec.com/2020/03/26/graphql-scanner.html](https://blog.doyensec.com/2020/03/26/graphql-scanner.html) o `GQLSpection` [https://github.com/doyensec/GQLSpection.git](https://github.com/doyensec/GQLSpection.git), la herramienta `GQLSpection` es la `sucesora` de `InQL`
 
-![[image_9.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-1/image_9.png)
 
 `Pulsamos` sobre `getUser.graphql`
 
-![[image_10.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-1/image_10.png)
 
 Nos `copiamos` la `query`, la `pegamos`, `enviamos` la `petición` y `obtenemos` las `credenciales` del usuario `administrador`. `Debemos sustituir Int! por un número` porque `la query espera un input`
 
-![[image_11.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-1/image_11.png)
 
 Nos `logueamos` con las credenciales `administrator:1csojfpwui4meu5r95yc`
 
-![[image_12.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-1/image_12.png)
 
 Hacemos click en `Admin panel` y `eliminamos` al `usuario carlos`
 
-![[image_13.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-1/image_13.png)
 
 Otra forma `alternativa` sería usando el `escáner` de `Burpsuite`. En el `schema` hemos visto una función llamada `getUser` que es interesante, sin embargo, `hemos probado todas las funciones que nos ofrece la web` y al `checkear` las funciones empleadas mirando las `peticiones` desde el `logger` de `Burpsuite` no hemos encontrado ninguna llamada `getUser`. En este caso, podemos usar el `escáner` de Burpsuite, en mi caso uso `Deep Scan`. Para ello debemos acceder a `Target > Site map > click derecho sobre la url > Open scan launcher > Deep`.
 
-![[image_14.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-1/image_14.png)
 
-Gracias al escaneo `obtenemos` la `query` que emplea `getUser`
+Gracias al escaneo, `obtenemos` la `query` que emplea `getUser`
 
-![[image_15.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-1/image_15.png)
 
 `Enviamos` esta `petición` al `Repeater`, `sustituimos` el `valor` de la `variable` por `1` y `obtenemos` la `contraseña` del usuario `administrador`
 
-![[image_16.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-1/image_16.png)
 
 
 
