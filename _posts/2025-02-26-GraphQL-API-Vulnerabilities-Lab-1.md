@@ -14,7 +14,7 @@ image:
 
 ## Skills
 
-- Accessing private GraphQL postsx
+- Accessing private GraphQL posts
 
 ## Certificaciones
 
