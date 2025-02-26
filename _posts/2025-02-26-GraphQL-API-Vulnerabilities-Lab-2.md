@@ -736,7 +736,7 @@ Hacemos click en `Admin panel` y `eliminamos` al `usuario carlos`
 
 ![](/assets/img/GraphQL-API-Vulnerabilities-Lab-2/image_13.png)
 
-Otra forma `alternativa` sería usando el `escáner` de `Burpsuite`. En el `schema` hemos visto una función llamada `getUser` que es interesante, sin embargo, `hemos probado todas las funciones que nos ofrece la web` y al `checkear` las funciones empleadas mirando las `peticiones` desde el `logger` de `Burpsuite` no hemos encontrado ninguna llamada `getUser`. En este caso, podemos usar el `escáner` de Burpsuite, en mi caso uso `Deep Scan`. Para ello debemos acceder a `Target > Site map > click derecho sobre la url > Open scan launcher > Deep`.
+Otra forma `alternativa` sería usando el `escáner` de `Burpsuite`. En el `schema` hemos visto una función llamada `getUser` que es interesante, sin embargo, `hemos probado todas las funciones que nos ofrece la web` y al `checkear` las funciones empleadas mirando las `peticiones` desde el `logger` de `Burpsuite` no hemos encontrado ninguna llamada `getUser`. En este caso, podemos usar el `escáner` de Burpsuite, en mi caso uso `Deep Scan`. Para ello debemos acceder a `Target > Site map > click derecho sobre la url > Open scan launcher > Deep`
 
 ![](/assets/img/GraphQL-API-Vulnerabilities-Lab-2/image_14.png)
 
