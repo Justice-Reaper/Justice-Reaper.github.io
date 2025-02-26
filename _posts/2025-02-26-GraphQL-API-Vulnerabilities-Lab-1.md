@@ -1,21 +1,15 @@
 ---
-title: "GraphQL API Vulnerabilities\r Lab 1"
+title: GraphQL API Vulnerabilities Lab 1
 date: 2025-02-26 12:26:00 +0800
 author: Justice-Reaper
 categories:
   - Portswigger
-  - Business Logic Vulnerabilities
+  - GraphQL API Vulnerabilities
 tags:
-  - Business
-  - Logic
-  - Vulnerabilities
-  - Flawed
-  - enforcement
-  - of
-  - business
-  - rules
+  - GraphQL API Vulnerabilities
+  - Accessing private GraphQL posts
 image:
-  path: /assets/img/Business-Logic-Vulnerabilities-Lab-4/Portswigger.png
+  path: /assets/img/GraphQL-API-Vulnerabilities-Lab-1/Portswigger.png
 ---
 
 ## Skills
@@ -38,7 +32,7 @@ La página del `blog` para este `laboratorio` contiene una `entrada oculta` que 
 
 Al `acceder` a la `web` vemos esto
 
-![[image_1.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-1/image_1.png)
 
 Los `servicios GraphQL` suelen utilizar `endpoints` similares a estos. En `Hacktricks` [https://book.hacktricks.wiki/en/network-services-pentesting/pentesting-web/graphql.html#graphql](https://book.hacktricks.wiki/en/network-services-pentesting/pentesting-web/graphql.html#graphql) se nos explica paso por paso la forma en la que debemos `enumerar` este `servicio`
 
@@ -87,11 +81,11 @@ Para comprobar que se trata de `GraphQL` podemos usar `universal queries`, si el
 
 En la mayoría de casos los `endpoints` en `GraphQL` solo aceptan `peticiones POST` con `content-type` de `application/json` porque esto ayuda a `proteger` contra `vulnerabilidades` de `CSRF`. Sin embargo, hay ocasiones en las que también acepta otros métodos, para comprobar esto deberíamos `bruteforcear` los `endpoints` para `obtener` que `métodos` son `válidos`. Puede darse el caso en el que acepte un `content-type` de `x-www-form-urlencoded`. La forma más sencilla de `encontrar endpoints` es `observar` las `peticiones`. Si `recargamos` la `página` y `capturamos` la `petición` vemos que se está empleando `GraphQL`
 
-![[image_2.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-1/image_2.png)
 
 Si hacemos click sobre `View Post` y `capturamos` la `petición` también vemos que también se emplea `GraphQL`
 
-![[image_3.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-1/image_3.png)
 
 Una vez tenemos la ruta principal `/graphql/v1` podemos usar la herramienta `graphw00f` [https://github.com/dolevf/graphw00f.git](https://github.com/dolevf/graphw00f.git) para `enumerar` el `servidor` o `motor` que `gestiona` y `procesa` las `consultas` de `GraphQL`. Con esta herramienta también podemos hacer `fuerza bruta` para `identificar` la `ruta principal` de `GraphQL`
 
@@ -618,39 +612,38 @@ onFragment   #Often needs to be deleted to run query
 onField      #Often needs to be deleted to run query
 ```
 
-![[image_4.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-1/image_4.png)
 
-![[image_5.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-1/image_5.png)
 
 Podemos `copiar` las `respuestas` de las `queries` en [http://nathanrandal.com/graphql-visualizer/](http://nathanrandal.com/graphql-visualizer/) o en [https://graphql-kit.com/graphql-voyager/](https://graphql-kit.com/graphql-voyager/) para `ver` los `resultados obtenidos` de forma `gráfica`. Los campos `isPrivate` y `postPassword` son interesantes
 
-![[image_6.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-1/image_6.png)
 
 `Recargamos` la `página principal`, `capturamos` la `petición`, nos dirigimos a la pestaña de `GraphQL` y añadimos los campos `isPrivate` y `postPassword`. Al `enviar` la `petición` nos damos cuenta que solo que falta el `post` con `id=3`, por lo tanto esto puede indicar que está `oculto`
 
-![[image_7.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-1/image_7.png)
 
 Para `listar` el `artículo oculto` pinchamos sobre `View Post`, `capturamos` la `petición`, nos dirigimos a la pestaña de `GraphQL` y añadimos los campos `isPrivate` y `postPassword`. `Obtenemos` la `contraseña` que estaba `oculta` en el `post`
 
-![[image_8.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-1/image_8.png)
 
 Pulsamos en `Submit solution` e `introducimos` la `contraseña`
 
-![[image_9.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-1/image_9.png)
 
 También podemos llevar a cabo todo este proceso de forma `automatizada` con la `extensión` de `Burpsuite InQL`
 
-![[image_10.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-1/image_10.png)
 
 El primer paso es `capturar` una `petición`, pulsar `click derecho` y `Generate queries with InQL Scanner`
 
-![[image_11.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-1/image_11.png)
 
 Esto nos `enviará` a esta otra `pestaña` donde debemos pulsar `Analyze`
 
-![[image_12.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-1/image_12.png)
 
 Una vez hecho esto `obtendremos` el `esquema` en `JSON` y las `queries`. Podemos `copiar` el `contenido` del `JSON` en [https://graphql-kit.com/graphql-voyager/](https://graphql-kit.com/graphql-voyager/) para poder `visualizar` mejor los `datos` o podemos directamente hacer las `queries` nosotros mismos. Desde `consola` podemos usar `InQL` [https://blog.doyensec.com/2020/03/26/graphql-scanner.html](https://blog.doyensec.com/2020/03/26/graphql-scanner.html) o `GQLSpection` [https://github.com/doyensec/GQLSpection.git](https://github.com/doyensec/GQLSpection.git), la herramienta `GQLSpection` es la `sucesora` de `InQL`
 
-![[image_13.png]]
-
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-1/image_13.png)
