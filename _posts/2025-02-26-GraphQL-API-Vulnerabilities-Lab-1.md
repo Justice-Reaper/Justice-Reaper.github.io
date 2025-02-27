@@ -121,7 +121,22 @@ Una vez tenemos la ruta principal `/graphql/v1` podemos usar la herramienta `gra
 [*] Completed.
 ```
 
-Para `enumerar información` acerca del `esquema` vamos a usar la `introspección`. La `introspección` es una `función integrada` de `GraphQL` que permite `consultar` un `servidor` para `obtener información` sobre su `esquema`. La `introspección` nos ayuda a comprender cómo podemos `interactuar` con una `API GraphQL`. También puede `revelar datos potencialmente confidenciales`, como `campos` de `descripción`. Mediante esta `query` podemos `extraer` todos los `tipos`, sus `campos`, sus `argumentos` y el `tipo` de los `argumentos`
+Para `enumerar información` acerca del `esquema` vamos a usar la `introspección`. La `introspección` es una `función integrada` de `GraphQL` que permite `consultar` un `servidor` para `obtener información` sobre su `esquema`. La `introspección` nos ayuda a comprender cómo podemos `interactuar` con una `API GraphQL`. También puede `revelar datos potencialmente confidenciales`, como `campos` de `descripción`. Para saber si la `introspección` está `habilitada` podemos usamos esta `query`
+
+```
+# curl -s -X POST https://0aec00ce043258518801ff08004300de.web-security-academy.net/graphql/v1 -H "Content-Type: application/json" -d '{"query":"{__schema{queryType{name}}}"}' | jq  
+{
+  "data": {
+    "__schema": {
+      "queryType": {
+        "name": "query"
+      }
+    }
+  }
+}
+```
+
+Mediante esta `query` podemos `extraer` todos los `tipos`, sus `campos`, sus `argumentos` y el `tipo` de los `argumentos`
 
 ```
 # curl -s -X POST https://0aee00a2035e51b583d7482b001d00d2.web-security-academy.net/graphql/v1 -H "Content-Type: application/json" -d '{"query":"{__schema{types{name,fields{name,args{name,description,type{name,kind,ofType{name,kind}}}}}}}"}' | jq 
