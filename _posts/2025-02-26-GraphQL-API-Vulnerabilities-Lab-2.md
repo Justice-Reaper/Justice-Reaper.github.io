@@ -715,7 +715,7 @@ onField      #Often needs to be deleted to run query
 
 ![](/assets/img/GraphQL-API-Vulnerabilities-Lab-2/image_4.png)
 
-Podemos `copiar` las `respuestas` de las `queries` en `graphql-visualizer` [http://nathanrandal.com/graphql-visualizer/](http://nathanrandal.com/graphql-visualizer/) o en `graphql-voyager` [https://graphql-kit.com/graphql-voyager/](https://graphql-kit.com/graphql-voyager/) para `ver` los `resultados obtenidos` de forma `gráfica`. En el caso de `graphql-voyager` debemos usar el `payload` que hay en la `web`. Los campos `isPrivate` y `postPassword` son `interesantes`
+Podemos `copiar` las `respuestas` de las `queries` en `graphql-visualizer` [http://nathanrandal.com/graphql-visualizer/](http://nathanrandal.com/graphql-visualizer/) o en `graphql-voyager` [https://graphql-kit.com/graphql-voyager/](https://graphql-kit.com/graphql-voyager/) para `ver` los `resultados obtenidos` de forma `gráfica`. En el caso de `graphql-voyager` debemos usar el `payload` que hay en la `web`. Los campos `username` y `password` son `interesantes`
 
 ![](/assets/img/GraphQL-API-Vulnerabilities-Lab-2/image_5.png)
 
