@@ -117,7 +117,7 @@ Una vez tenemos la ruta principal `/graphql/v1` podemos usar la herramienta `gra
 [*] Completed.
 ```
 
-Para `enumerar información` acerca del `esquema` vamos a usar la `introspección`. La `introspección` es una `función integrada` de `GraphQL` que permite `consultar` un `servidor` para `obtener información` sobre su `esquema`. La `introspección` nos ayuda a comprender cómo podemos `interactuar` con una `API GraphQL`. También puede `revelar datos potencialmente confidenciales`, como `campos` de `descripción`. Para saber si la `introspección` está `habilitada` podemos usamos esta `query`, en este caso al parecer está `deshabilitada`
+Para `enumerar información` acerca del `esquema` vamos a usar la `introspección`. La `introspección` es una `función integrada` de `GraphQL` que permite `consultar` un `servidor` para `obtener información` sobre su `esquema`. La `introspección` nos ayuda a comprender cómo podemos `interactuar` con una `API GraphQL`. También puede `revelar datos potencialmente confidenciales`, como `campos` de `descripción`. Para saber si la `introspección` está `habilitada` podemos usamos esta `query`
 
 ```
 # curl -s -X POST https://0aec00ce043258518801ff08004300de.web-security-academy.net/graphql/v1 -H "Content-Type: application/json" -d '{"query":"{__schema{queryType{name}}}"}' | jq 
