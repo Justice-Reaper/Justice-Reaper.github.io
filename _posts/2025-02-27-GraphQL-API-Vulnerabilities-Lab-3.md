@@ -96,7 +96,7 @@ Para `enumerar información` acerca del `esquema` vamos a usar la `introspecció
 
 ![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_8.png)
 
-Si las `consultas` de `introspección` están siendo `bloqueadas` por la `API` que estamos probando, podemos intentar `insertar un carácter especial después de la palabra clave __schema`. `Cuando los desarrolladores desactivan la introspección, podemos usar una expresión regular para excluir la palabra clave __schema en las consultas`. Se recomienda probar con caracteres como `espacios`, `saltos de línea` y `comas`, ya que `GraphQL` los `ignora`, pero las `expresiones regulares no`. En este caso `añadiendo un salto de línea después de __schema logramos bypassear la expresión regular`
+Si las `consultas` de `introspección` están siendo `bloqueadas` por la `API` que estamos probando, podemos intentar `insertar un carácter especial después de la palabra clave __schema`. `Cuando los desarrolladores desactivan la introspección, podemos usar una expresión regular para excluir la palabra clave __schema en las consultas`. Se recomienda probar con caracteres como `espacios`, `saltos de línea` y `comas`, ya que `GraphQL` los `ignora`, pero las `expresiones regulares no`. En este caso `añadiendo un salto de línea después de __schema logramos bypassear la expresión regular` pero si esto no hubiera funcionado, podríamos intentar `enviar` el `payload` mediante un `método de solicitud alternativo`, ya que la `introspección` solo se puede `desactivar` para el `método POST`. Podríamos probar una solicitud `GET` o una solicitud `POST` con un tipo de contenido de `x-www-form-urlencoded`
 
 ![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_9.png)
 
