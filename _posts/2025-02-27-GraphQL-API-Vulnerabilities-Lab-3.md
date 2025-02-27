@@ -6,15 +6,10 @@ categories:
   - Portswigger
   - GraphQL API Vulnerabilities
 tags:
-  - GraphQL
-  - API
-  - Vulnerabilities
-  - Accessing
-  - private
-  - GraphQL
-  - posts
+  - GraphQL API Vulnerabilities
+  - Finding a hidden GraphQL endpoint
 image:
-  path: /assets/img/GraphQL-API-Vulnerabilities-Lab-1/Portswigger.png
+  path: /assets/img/GraphQL-API-Vulnerabilities-Lab-3/Portswigger.png
 ---
 
 ## Skills
@@ -37,7 +32,7 @@ Este `laboratorio` utiliza un `endpoint GraphQL oculto` para las `funciones` de 
 
 Al `acceder` a la `web` vemos esto
 
-![[image_1.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_1.png)
 
 Los `servicios GraphQL` suelen utilizar `endpoints` similares a estos. En `Hacktricks` [https://book.hacktricks.wiki/en/network-services-pentesting/pentesting-web/graphql.html#graphql](https://book.hacktricks.wiki/en/network-services-pentesting/pentesting-web/graphql.html#graphql) se nos explica paso por paso la forma en la que debemos `enumerar` este `servicio`
 
@@ -68,19 +63,19 @@ Si hacemos una `petición` a un `endpoint inexistente` obtenemos esta `respuesta
 
 Desde `Burpsuite` vamos a `realizar` un `ataque` de `fuerza bruta` para ver si encontramos alguna `ruta`. Para ello, `capturamos` una `petición` cualquiera, la mandamos al `Intruder` y `señalamos` donde irá el `payload`
 
-![[image_2.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_2.png)
 
 Como `payloads` vamos a utilizar las `rutas mencionadas anteriormente`
 
-![[image_3.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_3.png)
 
 En la parte inferior `desmarcamos` la `casilla` de `Payload encoding`
 
-![[image_4.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_4.png)
 
 Vemos que `/api` nos `devuelve` una `respuesta diferente`, también vemos que devuelve `Allow: GET` y `Content-Type: application/json`
 
-![[image_5.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_5.png)
 
 Sin embargo, si hacemos una `consulta` a un `endpoint` que si que `exista` recibiremos un mensaje como `"query not present"` o similar
 
@@ -91,19 +86,19 @@ Sin embargo, si hacemos una `consulta` a un `endpoint` que si que `exista` recib
 
 Para comprobar que se trata de `GraphQL` podemos usar `universal queries`, si el `content-type` es `x-www-form-urlencoded` podemos usar este payload `query{__typename}` y si el `content-type` es `application/json`, debemos `adaptar` el `payload` a este otro `{"query":"{__typename}"}`. Cuando `enviemos` estos `payloads` se nos devolverá `{"data": {"__typename": "query"}}` en alguna parte de la `respuesta`. La consulta funciona porque cada `endpoint` de `GraphQL` tiene un `campo reservado` llamado `__typename` que `devuelve` el `tipo` del `objeto consultado` como una `cadena`
 
-![[image_6.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_6.png)
 
 En la mayoría de casos los `endpoints` en `GraphQL` solo aceptan `peticiones POST` con `content-type` de `application/json` porque esto ayuda a `proteger` contra `vulnerabilidades` de `CSRF`. Sin embargo, en este caso también se pueden `enviar` un `datos` en el `body` de una `petición` por `GET` con `GraphQL`, pero `no se recomienda` porque las `peticiones` por `GET` suelen ser `idempotentes` y utilizan `parámetros` de `consulta`. Sin embargo, algunos `servidores` pueden `permitirlo` por `comodidad`, aunque esto `va en contra de los estándares HTTP`
 
-![[image_7.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_7.png)
 
 Para `enumerar información` acerca del `esquema` vamos a usar la `introspección`. La `introspección` es una `función integrada` de `GraphQL` que permite `consultar` un `servidor` para `obtener información` sobre su `esquema`. La `introspección` nos ayuda a comprender cómo podemos `interactuar` con una `API GraphQL`. También puede `revelar datos potencialmente confidenciales`, como `campos` de `descripción`. Para saber si la `introspección` está `habilitada` podemos usamos esta `query`, en este caso al parecer está `deshabilitada`
 
-![[image_8.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_8.png)
 
 Si las `consultas` de `introspección` están siendo `bloqueadas` por la `API` que estamos probando, podemos intentar `insertar un carácter especial después de la palabra clave __schema`. `Cuando los desarrolladores desactivan la introspección, podemos usar una expresión regular para excluir la palabra clave __schema en las consultas`. Se recomienda probar con caracteres como `espacios`, `saltos de línea` y `comas`, ya que `GraphQL` los `ignora`, pero las `expresiones regulares no`. En este caso `añadiendo un salto de línea después de __schema logramos bypassear la expresión regular`
 
-![[image_9.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_9.png)
 
 Mediante esta `query` podemos `extraer` todos los `tipos`, sus `campos`, sus `argumentos` y el `tipo` de los `argumentos`
 
@@ -589,83 +584,83 @@ onFragment   #Often needs to be deleted to run query
 onField      #Often needs to be deleted to run query
 ```
 
-![[image_10.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_10.png)
 
 Podemos `copiar` las `respuestas` de las `queries` en `graphql-visualizer` [http://nathanrandal.com/graphql-visualizer/](http://nathanrandal.com/graphql-visualizer/) o en `graphql-voyager` [https://graphql-kit.com/graphql-voyager/](https://graphql-kit.com/graphql-voyager/) para `ver` los `resultados obtenidos` de forma `gráfica`. En el caso de `graphql-voyager` debemos usar el `payload` que hay en la `web`. Los campos `isPrivate` y `postPassword` son `interesantes`
 
-![[image_11.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_11.png)
 
 Para el siguiente paso debemos tener instalada la `extensión InQL`
 
-![[image_12.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_12.png)
 
 En este caso no podemos pulsar `click derecho` y `Generate queries with InQL Scanner` porque nos daría un `error`. Esto es debido a las `medidas` de `seguridad`
 
-![[image_13.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_13.png)
 
-![[image_14.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_14.png)
 
 Lo que debemos de hacer es `crearnos` un `archivo .json` con el `output` de la `introspección completa` y `cargarlo` desde la `extensión InQL`. Una vez tengamos el archivo cargado pulsamos en `Analyze`
 
-![[image_15.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_15.png)
 
 Observamos que hay una `query` que nos permite `enumerar usuarios`
 
-![[image_16.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_16.png)
 
 En cuanto a `mutations` se refiere hay una que nos permite `eliminar usuarios`
 
-![[image_17.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_17.png)
 
 `Obtenemos` que el `usuario` con `id=3` es `carlos`
 
-![[image_18.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_18.png)
 
 Si `copiamos` la `mutation` y `enviamos` la `petición` nos dice que necesitamos `enviar` un `objeto`
 
-![[image_19.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_19.png)
 
 `Los objetos en GraphQL van entre llaves {}`, hemos añadido las llaves pero `falta que añadamos los campos de ese objeto`. Por eso nos dice que es `necesario` que `añadamos` el `campo id`
 
-![[image_20.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_20.png)
 
 `Añadimos el campo id con el valor de 3`, el cual hace `referencia` al usuarios `carlos`, `enviamos` la `petición` y `borramos` al usuario `carlos`
 
-![[image_21.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_21.png)
 
 Podríamos obtener el mismo resultado usando las `herramientas` que nos proporciona el propio `Burpsuite` para `GraphQL`. Si la `API` acepta el método `GET` debemos mandar el `payload` por `GET` y si acepta el método `POST` hay que mandar el `payload` por `POST`, de lo contrario la herramienta que nos proporciona `Burpsuite` para `interactuar` con `GraphQL` no se podrá usar. El primer para es mandar un `query` por `GET` y `comprobar` que `funciona`
 
-![[image_22.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_22.png)
 
 Lo siguiente que debemos hacer es hacer `click izquierdo` en la ventana `Request` y pulsar `Set introspection query`. Estos son `payloads` que nos proporciona el propio `Burpsuite` para `analizar GraphQL`
 
-![[image_23.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_23.png)
 
 Se nos `generará` este `payload`
 
-![[image_24.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_24.png)
 
 Si `enviamos` el `payload` nos `arrojará` un `error`, porque `hay medidas de seguridad nos impiden llevar a cabo la introspección`. En este caso es una `expresión regular`, para `bypassearla` debemos `añadir un salto de línea después de __schema` al igual que hemos hecho anteriormente
 
-![[image_25.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_25.png)
 
 Hacemos `click izquierdo` nuevamente y pulsamos sobre `Save GraphQL queries to site map`
 
-![[image_26.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_26.png)
 
 Nos dirigimos a `Target > Site map` y vemos que tenemos `dos peticiones interesantes`, una para `identificar usuarios` y la otra para `eliminarlos`
 
-![[image_27.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_27.png)
 
-![[image_28.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_28.png)
 
 `Identificamos` al usuario `carlos`
 
-![[image_29.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_29.png)
 
 `Borramos` al usuario `carlos`
 
-![[image_30.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_30.png)
 
 
 
