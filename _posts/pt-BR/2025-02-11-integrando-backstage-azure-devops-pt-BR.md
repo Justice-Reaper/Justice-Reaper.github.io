@@ -8,7 +8,7 @@ categories: [Backstage, DevOps, Cloud]
 tags: [Microsoft Entra ID, Autenticação, Identity Provider, Backstage]
 lang: pt-BR
 #canonical_url: "placeholder"
-image: assets/img/backstage-entraid/capa.png
+image: #assets/img/backstage-entraid/capa.png
 ---
  
 [Read in English](https://blog.lmeier.net/posts/authentication-backstage-entra-id-en)
@@ -25,26 +25,34 @@ Eu vou manter no meu GitHub um repositório do Backstage com o resultado destes 
 
 💡 **Nota**: Ter o Entra ID como IDP não é um pré-requisito para o funcionamento com o Azure DevOps. Porém, é comum que as duas soluções sejam usadas em ambiente Microsoft.
 
-Para este post, criei um projeto novo no Azure DevOps chamado Backstage, que é onde armazenaremos nosso template do Backstage, nosso código Terraform e onde criaremos a nossa pipeline.
+Para este post, criei um projeto novo no Azure DevOps chamado Backstage, que é onde armazenaremos nosso template do Backstage, nosso código Terraform e o arquivo yaml para criarmos a nossa pipeline.
 
 ⚠️ **Atenção**: Assumirei que você já sabe como criar um projeto, repositório e usar o mínimo de git necessário.
 
-[Neste link](https://backstage.io/docs/integrations/azure/locations) você pode checar a documentação do Backstage para fazer esta integração. O Backstage suporta uso de identidade gerenciada, service principal e PAT. PAra o propósito do post, vou usar PAT por ser mais simples.
+[Neste link](https://backstage.io/docs/integrations/azure/locations) você pode checar a documentação do Backstage para fazer esta integração. O Backstage suporta uso de identidade gerenciada, service principal e PAT. Para o propósito do post, vou usar PAT por ser mais simples.
 
 
 ## Crie um PAT para uso
 
 Para criar o seu token, vá no campo superior direito do Azure DevOps e clique em **User settings** e depois em **Personal access tokens**:
-![alt text](assets/img/backstage-azure-devops/pat.png)
+
+![PAT](assets/img/backstage-azure-devops/pat.png)
+*PAT*
 
 Clique em **New Token**:
-![alt text](assets/img/backstage-azure-devops/new-token.png)
+
+![Novo token](assets/img/backstage-azure-devops/new-token.png)
+*Novo token*
 
 Dê um nome para o PAT e configure as permissões necessárias. Depois confirme a criação:
-![alt text](assets/img/backstage-azure-devops/pat-permissions.png)
+
+![Permissões do PAT](assets/img/backstage-azure-devops/pat-permissions.png)
+*Permissões do PAT*
 
 Copie o token e salve-o em algum lugar, pois você não poderá reavê-lo:
-![alt text](assets/img/backstage-azure-devops/pat-raw.png)
+
+![Criação co msucesso](assets/img/backstage-azure-devops/pat-raw.png)
+*Criação co msucesso*
 
 ## Configure o Backstage para usar o PAT
 
@@ -102,7 +110,7 @@ Cole a url do arquivo que acabamos de criar e vá selecione **Analyze**. Se a in
 *Validação do arquivo*
 
 ![Importando componente](assets/img/backstage-azure-devops/import.png)
-Importando componente
+*Importando componente*
 
 Clicando em **View Component** você será capaz de ver as informações do componente que acabou de importar, com o nome `test-lab`:
 ![Verificando componente criado](assets/img/backstage-azure-devops/view-component.png)
@@ -252,29 +260,31 @@ resource "azurerm_resource_group" "example" {
 
 ⚠️ Eu não estou usando aqui uma conta de armazenamento para que você guarde o estado do seu Terraform! Para ambientes de produção, sugiro armazenar o estado em algum lugar seguro.
 
-Atenção para a variável `${{ rg_name }}`, pois ela será preeenchida pelo valor que vier do Backstage. Aqui estamos fazendo um exemplo bem simples, usando somente uma variável, mas extrapole essa ideia para qualquer código que você queira executar.
+Atenção para a variável `rg_name`, pois ela será preeenchida pelo valor que vier do Backstage. Aqui estamos fazendo um exemplo bem simples, usando somente uma variável, mas extrapole essa ideia para qualquer código que você queira executar.
 
 Uma vez criado o código terraform, vamos fazer o upload dele para o nosso repositório do Azure DevOps.
 
-💡 **Importante**: como a ideia é que o Backstage faça a tratativa deste arquivo e depois faça o upload e subsequente criação de um Pull Request de código, este (contendo a variável `${{ rg_name }}`) será substituído pelo valor que virá do Backstage, tornando o código **não-reutilizável**. Para evitar isso, vamos separar o código com a variável, que chamaremos de `base`, do código que terá a variável preenchida. Assim, sempre teremos um lugar com o código pronto para ser utilizado.
+💡 **Importante**: como a ideia é que o Backstage faça a tratativa deste arquivo e depois faça o upload e subsequente criação de um Pull Request de código, este (contendo a variável `rg_name`) será substituído pelo valor que virá do Backstage, tornando o código **não-reutilizável**. Para evitar isso, vamos separar o código com a variável, que chamaremos de `base`, do código que terá a variável preenchida, que chamaremos de `changed`, para facilitar. Assim, sempre teremos um lugar com o código pronto para ser utilizado.
 
 Abaixo segue a abordagem que entendo ser a mais simples, mas fique a vontade para adaptar à sua necessidade:
 
 ![Arquivos Terraform](assets/img/backstage-azure-devops/tf-files.png)
 *Arquivos Terraform*
 
-
 ## Crie a pipeline para execução do código
 
 Por último, vamos criar uma pipeline que será disparada cada vez que houver uma alteração no código. Isso só acontecerá quando alguém aprovar o pull request que o Backstage criará.
 
 
-### Crie uma conexão de serviço para que o Azure DevOps possa conectar-se à sua conta da Azure para deploy do componente a ser criado.
-1. no menu à esquerda, clique em **Service connections** e então clique em **Create service connection**. Então, no painel à direita, selecioneo tipo **Azure resource Manager**:
+### Crie uma conexão de serviço
+
+Uma conexão de serviço é obrigatória para que o Azure DevOps possa criar recursos na Azure.
+
+1. No menu à esquerda, clique em **Service connections** e então clique em **Create service connection**. Então, no painel à direita, selecioneo tipo **Azure resource Manager**:
 ![Criando conexão de serviço](assets/img/backstage-azure-devops/creating-svc-connection.png)
 *Criando conexão de serviço*
 
-2. você precisará se autenticar na Azure para autorizar a conexão. Siga o processo e preencha o panel à esquerda:
+2. Você precisará se autenticar na Azure para autorizar a conexão. Siga o processo e preencha o panel à esquerda:
 ![Configurando conexão](assets/img/backstage-azure-devops/configuring-svc-connection.png)
 *Configurando conexão*
 
@@ -283,7 +293,8 @@ Por último, vamos criar uma pipeline que será disparada cada vez que houver um
 *Conexão criada*
 
 
-### Crie a pipeline
+### Crie a pipeline no Azure DevOps
+
 1. Vá até o Azure DevOps, em Pipelines. Então clique em **Create Pipeline**:
 ![Criando pipeline](assets/img/backstage-azure-devops/create-pipeline.png)
 *Criando pipeline*
@@ -301,20 +312,13 @@ Por último, vamos criar uma pipeline que será disparada cada vez que houver um
 *Selecionando opção*
 
 5. Cole o yaml abaixo, subtituindo os valores necessários (mesmo que você não armazene o estado do terraform em algum lugar, você terá que informar estes dados para usar a ação `TerraformTaskV4@4`):
-```yaml
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
 
+```yaml
 trigger:
 - main
 
 pool:
   vmImage: ubuntu-latest
-
-variables:
-  workingDirectory: terraform/post-scaffolder
 
 steps:
 - task: TerraformTaskV4@4
@@ -322,26 +326,52 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'init'
-    backendServiceArm: 'Azure'
-    backendAzureRmResourceGroupName: 'backstage'
-    backendAzureRmStorageAccountName: 'tfbackstage'
-    backendAzureRmContainerName: 'terraform'
-    backendAzureRmKey: 'backstage'
-    workingDirectory: $(workingDirectory)
-    
+    backendServiceArm: '<SERVICE_CONNECTION_NAME>'
+    backendAzureRmResourceGroupName: '<AZ_RG_NAME>'
+    backendAzureRmStorageAccountName: '<AZ_SA_NAME>'
+    backendAzureRmContainerName: '<AZ_SA_CONTAINER_NAME>'
+    backendAzureRmKey: '<AZ_KEY_NAME>'
+    workingDirectory: $(System.DefaultWorkingDirectory)/terraform/changed
 
 - task: TerraformTaskV4@4
   displayName: Terraform Validate
   inputs:
     provider: 'azurerm'
     command: 'validate'
-    workingDirectory: $(workingDirectory)
+    workingDirectory: $(System.DefaultWorkingDirectory)/terraform/changed
 
 - task: TerraformTaskV4@4
   displayName: Terraform Plan
   inputs:
     provider: 'azurerm'
     command: 'plan'
-    environmentServiceNameAzureRM: 'Azure'
-    workingDirectory: $(workingDirectory)
+    environmentServiceNameAzureRM: '<SERVICE_CONNECTION_NAME>'
+    workingDirectory: $(System.DefaultWorkingDirectory)/terraform/changed
+
+- task: TerraformTaskV4@4
+  displayName: Terraform Apply
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/changed'
+    environmentServiceNameAzureRM: '<SERVICE_CONNECTION_NAME>'
 ```
+
+## Teste final
+
+Bom, com tudo no lugar, agora podemos finalmente testar todo o nosso ambiente. Vá até o Backstage, clique em **Create...**, informe o nome do grupo de recursos que deseja criar e confirme. Isso deve fazer com que o Backstage baixe o código, adicione os dados que você informou e crie um pull-request lá no Azure DevOps, que você terá de aprovar. Uma vez aprovado, a pipeline deve ser executada automaticamente. Vamos ver isso acontecer?
+
+1. Vá até o template e coloque o nome que deseja para o grupo de recursos:
+
+![Nome do RG](assets/img/backstage-azure-devops/rg-from-backstage.png)
+*Nome do RG*
+
+2. Revise o que digitou:
+![Validando informações](assets/img/backstage-azure-devops/validating-name.png)
+*Validando informações*
+
+Aqui é interessante falar que fica muito a gosto do freguês o modelo de setup. Pode ser que a sua empresa prefira não ter aprovação. Ou pode ser que até queira ter mais de uma aprovação. Para todos estes cenários você deverá ajustar o ambiente à necessidade. O intuito aqui era mostrar o conceito e a forma de colocá-lo em prática.
+
+## Conclusão
+
+Neste post você apredneu como integrar o Backstage ao Azure DevOps e como montar um processo fim a fim, desde a solicitação do recurso até a criação dele no seu provedor de nuvem. Agora é contigo extrapolar o que viu aqui e aproveitar. Caso tenha dúvidas, deixe nos comentários.
