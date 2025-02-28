@@ -283,20 +283,65 @@ Por último, vamos criar uma pipeline que será disparada cada vez que houver um
 *Conexão criada*
 
 
-
 ### Crie a pipeline
-Vá até o Azure DevOps, em Pipelines. Então clique em **Create Pipeline**:
+1. Vá até o Azure DevOps, em Pipelines. Então clique em **Create Pipeline**:
 ![Criando pipeline](assets/img/backstage-azure-devops/create-pipeline.png)
 *Criando pipeline*
 
-Selecione o local onde está seu código:
+2. Selecione o local onde está seu código:
 ![Selecionando local do repositório](assets/img/backstage-azure-devops/select-repo-place.png)
 *Selecionando local do repositório*
 
-Selecione o repositório em questão:
+3. Selecione o repositório em questão:
 ![Selecione o repositório](assets/img/backstage-azure-devops/select-repo.png)
 *Selecione o repositório em questão*
 
-Selecione a opção de yaml já existente.
+4. Selecione a opção de yaml já existente.
 ![Selecionando opção](assets/img/backstage-azure-devops/select-existing-yaml.png)
 *Selecionando opção*
+
+5. Cole o yaml abaixo, subtituindo os valores necessários (mesmo que você não armazene o estado do terraform em algum lugar, você terá que informar estes dados para usar a ação `TerraformTaskV4@4`):
+```yaml
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  workingDirectory: terraform/post-scaffolder
+
+steps:
+- task: TerraformTaskV4@4
+  displayName: Terraform Init
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    backendServiceArm: 'Azure'
+    backendAzureRmResourceGroupName: 'backstage'
+    backendAzureRmStorageAccountName: 'tfbackstage'
+    backendAzureRmContainerName: 'terraform'
+    backendAzureRmKey: 'backstage'
+    workingDirectory: $(workingDirectory)
+    
+
+- task: TerraformTaskV4@4
+  displayName: Terraform Validate
+  inputs:
+    provider: 'azurerm'
+    command: 'validate'
+    workingDirectory: $(workingDirectory)
+
+- task: TerraformTaskV4@4
+  displayName: Terraform Plan
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    environmentServiceNameAzureRM: 'Azure'
+    workingDirectory: $(workingDirectory)
+```
