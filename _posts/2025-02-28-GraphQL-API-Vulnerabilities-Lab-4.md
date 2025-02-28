@@ -6,17 +6,10 @@ categories:
   - Portswigger
   - GraphQL API Vulnerabilities
 tags:
-  - GraphQL
-  - API
-  - Vulnerabilities
-  - Accidental
-  - exposure
-  - of
-  - private
-  - GraphQL
-  - fields
+  - GraphQL API Vulnerabilities
+  - Bypassing GraphQL brute force protections
 image:
-  path: /assets/img/GraphQL-API-Vulnerabilities-Lab-2/Portswigger.png
+  path: /assets/img/GraphQL-API-Vulnerabilities-Lab-4/Portswigger.png
 ---
 
 ## Skills
@@ -40,35 +33,35 @@ Utilizaremos un `diccionario` de `contraseñas` [https://portswigger.net/web-sec
 
 Al `acceder` a la `web` vemos esto
 
-![[image_1.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-4/image_1.png)
 
 Si hacemos click sobre `My account`, nos podemos `loguear` con las credenciales `wiener:peter`
 
-![[image_2.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-4/image_2.png)
 
 En `Burpsuite` con la extensión `Logger ++` vemos que se ha `tramitado` esta `petición` a `GraphQL`
 
-![[image_3.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-4/image_3.png)
 
 Si `pulsamos` sobre la `pestaña GraphQL` vemos que tenemos una `mutation` y la `variables` que se le `proporcionan` en la `parte inferior`
 
-![[image_4.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-4/image_4.png)
 
 `Modificamos` la `petición` para `mandar` todos los `datos` directamente `sin usar variables`
 
-![[image_5.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-4/image_5.png)
 
 También podríamos enviar la `petición` así, la `diferencia` entre esta `petición` y la `anterior` es que en esta hemos `borrado` el `operationName`
 
-![[image_6.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-4/image_6.png)
 
 `Si enviamos la petición varias veces seguidas nos bloquea` y tenemos que esperar `1 minutos` para poder seguir mandando peticiones. `Por esto, no podemos hacer un ataque de fuerza bruta desde el Intruder`
 
-![[image_7.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-4/image_7.png)
 
 Por lo general, `los objetos GraphQL no pueden contener varias propiedades con el mismo nombre`. `Los alias nos permiten eludir esta restricción nombrando explícitamente las propiedades que desea que la API devuelva`. Si bien los `alias` están `destinados` a `limitar` la `cantidad` de `peticiones` a la `API` que necesitamos realizar, también se pueden usar para `bruteforcear` un `endpoint` de `GraphQL`. `Los endpoints usualmente implementan medidas de seguridad contra los ataques de fuerza bruta`, hay ocasiones en las que se `bloquea` al `usuario` en función de la `cantidad de solicitudes HTTP` que haga al servidor en lugar de la `cantidad de operaciones realizadas contra el endpoint`. Podemos usar de los `alias` para esta situación porque `podemos enviar una sola petición HTTP que realice varias consultas` y de esta forma `evitar` que nos `bloqueen`
 
-![[image_8.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-4/image_8.png)
 
 Para `automatizar` esto vamos a crear un `script` en `bash` que nos lea el `itere` sobre un `diccionario` de `contraseñas` [https://portswigger.net/web-security/authentication/auth-lab-passwords](https://portswigger.net/web-security/authentication/auth-lab-passwords) y un `diccionario` de `usuarios` [https://portswigger.net/web-security/authentication/auth-lab-usernames](https://portswigger.net/web-security/authentication/auth-lab-usernames) y nos `cree` la `estructura` que `deseamos`. Lo primero que tenemos que hacer es `copiarnos` el `contenido` del `diccionario` de `usuarios` en un `archivo` llamado `usernames.txt`
 
@@ -337,10 +330,10 @@ Para `copiar` todo el `contenido` que se `almacena` en el `archivo`, como son `m
 
 Una vez `generado` el `payload`, lo `pegamos` en la `pestaña` de `GraphQL`, `en la respuesta filtramos por true y en la petición filtramos por el número de petición`. Las `credenciales` que hemos obtenido son `carlos:654321`
 
-![[image_9.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-4/image_9.png)
 
 Nos `logueamos` como el usuario `carlos`
 
-![[image_10.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-4/image_10.png)
 
-![[image_11.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-4/image_11.png)
