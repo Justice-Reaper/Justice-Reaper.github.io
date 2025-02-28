@@ -245,10 +245,12 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "example" {
-  name     = "${{ rg_name }}"
+  name     = "asd"
   location = "West Europe"
 }
 ```
+
+⚠️ Eu não estou usando aqui uma conta de armazenamento para que você guarde o estado do seu Terraform! Para ambientes de produção, sugiro armazenar o estado em algum lugar seguro.
 
 Atenção para a variável `${{ rg_name }}`, pois ela será preeenchida pelo valor que vier do Backstage. Aqui estamos fazendo um exemplo bem simples, usando somente uma variável, mas extrapole essa ideia para qualquer código que você queira executar.
 
@@ -266,6 +268,23 @@ Abaixo segue a abordagem que entendo ser a mais simples, mas fique a vontade par
 
 Por último, vamos criar uma pipeline que será disparada cada vez que houver uma alteração no código. Isso só acontecerá quando alguém aprovar o pull request que o Backstage criará.
 
+
+### Crie uma conexão de serviço para que o Azure DevOps possa conectar-se à sua conta da Azure para deploy do componente a ser criado.
+1. no menu à esquerda, clique em **Service connections** e então clique em **Create service connection**. Então, no painel à direita, selecioneo tipo **Azure resource Manager**:
+![Criando conexão de serviço](assets/img/backstage-azure-devops/creating-svc-connection.png)
+*Criando conexão de serviço*
+
+2. você precisará se autenticar na Azure para autorizar a conexão. Siga o processo e preencha o panel à esquerda:
+![Configurando conexão](assets/img/backstage-azure-devops/configuring-svc-connection.png)
+*Configurando conexão*
+
+3. Se tudo correu adequadamente, você verá a conexão criada.
+![Conexão criada](assets/img/backstage-azure-devops/created-connection.png)
+*Conexão criada*
+
+
+
+### Crie a pipeline
 Vá até o Azure DevOps, em Pipelines. Então clique em **Create Pipeline**:
 ![Criando pipeline](assets/img/backstage-azure-devops/create-pipeline.png)
 *Criando pipeline*
