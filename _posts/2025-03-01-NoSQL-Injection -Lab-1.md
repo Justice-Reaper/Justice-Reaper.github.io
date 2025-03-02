@@ -40,9 +40,9 @@ Si hacemos click sobre una `categoría`, la web nos redirige a  `https://0a54001
 
 Hay `dos tipos` de inyección `NoSQL`
 
-- `Syntax Injection` > Ocurre cuando se puede romper la `sintaxis` de la `consulta NoSQL`, lo que le permite `inyectar` su propia `carga útil`. La `metodología` es similar a la utilizada en la `inyección SQL`. Sin embargo, la `naturaleza` del ataque varía significativamente, ya que las `bases de datos NoSQL` utilizan una variedad de `lenguajes de consulta`, `tipos de sintaxis de consulta` y diferentes `estructuras de datos`
+- `Syntax Injection` - Ocurre cuando se puede romper la `sintaxis` de la `consulta NoSQL`, lo que le permite `inyectar` su propia `carga útil`. La `metodología` es similar a la utilizada en la `inyección SQL`. Sin embargo, la `naturaleza` del ataque varía significativamente, ya que las `bases de datos NoSQL` utilizan una variedad de `lenguajes de consulta`, `tipos de sintaxis de consulta` y diferentes `estructuras de datos`
 
-- `Operator Injection` > Ocurre cuando puedes usar `operadores de consulta NoSQL` para `manipular` consultas
+- `Operator Injection` - Ocurre cuando puedes usar `operadores de consulta NoSQL` para `manipular` consultas
 
 En este laboratorio vamos a explotar una `Syntax Injection`. Es posible detectar vulnerabilidades de `inyección NoSQL` al intentar romper la `sintaxis` de la `consulta`. Para ello, debemos probar cada `input` enviando `cadenas de datos fuzz` y `caracteres especiales` que desencadenen un `error de base de datos` o algún otro comportamiento detectable si la `aplicación` no los `sanitiza` o `filtra` adecuadamente. Debemos usar `caracteres especiales` y `cadenas de fuzz` enfocadas al `lenguaje de programación` que use la `API de la base de datos`, de lo contrario, debemos utilizar una amplia variedad de `cadenas de fuzz` para cubrir varios `lenguajes de API`. En este caso, esta es una `cadena bastante completa`
 
@@ -60,13 +60,13 @@ En el caso de que tengamos que introducir el `payload` en una `URL`, este debe e
 
 Podemos codificar estas cadenas usando el `Decoder` de `Burp Suite` o usando la extensión `Hackvertor`. Con `Hackvertor` tenemos varias formas de `URL encoding`.
 
-- `urlencode` > Esta función realiza una `codificación estándar de URL`. En este caso, se codifican todos los `caracteres especiales` en la `URL` y se reemplazan por su representación en formato `hexadecimal` precedida por un `%`. Sin embargo, un detalle importante es que los `espacios` se codifican como `+`
+- `urlencode` - Esta función realiza una `codificación estándar de URL`. En este caso, se codifican todos los `caracteres especiales` en la `URL` y se reemplazan por su representación en formato `hexadecimal` precedida por un `%`. Sin embargo, un detalle importante es que los `espacios` se codifican como `+`
 
-- `urlencode_all` > Esta función es más `exhaustiva` en su enfoque. Codifica todos los `caracteres`, incluyendo los `no imprimibles` y `especiales`, que normalmente no se codificarían en una `URL estándar`
+- `urlencode_all` - Esta función es más `exhaustiva` en su enfoque. Codifica todos los `caracteres`, incluyendo los `no imprimibles` y `especiales`, que normalmente no se codificarían en una `URL estándar`
 
-- `urlencode_not_plus` > Esta función es similar a la función `urlencode`, pero con una diferencia clave, no codifica los `espacios` como `+`, sino que los mantiene como `%20`, que es la `representación estándar` de un espacio en las `URL`
+- `urlencode_not_plus` - Esta función es similar a la función `urlencode`, pero con una diferencia clave, no codifica los `espacios` como `+`, sino que los mantiene como `%20`, que es la `representación estándar` de un espacio en las `URL`
 
-- `burp_urlencode` > Esta función realiza una `codificación estándar de URL` como la función `urlencode`, pero optimizada para `Burp Suite` para evitar problemas con `proxies` y `herramientas de seguridad`
+- `burp_urlencode` - Esta función realiza una `codificación estándar de URL` como la función `urlencode`, pero optimizada para `Burp Suite` para evitar problemas con `proxies` y `herramientas de seguridad`
 
 Las `vulnerabilidades de inyección NoSQL` pueden ocurrir en una variedad de `contextos` y es necesario adaptar las `cadenas de fuzzing` en consecuencia. De lo contrario, es posible que se produzcan `errores de validación` que hagan que la `aplicación` nunca ejecute la `consulta`. El `payload` anterior está preparado para ser inyectado en una `URL`, por lo que la cadena está `URL encodeada`. En algunas aplicaciones, es posible que debamos inyectar el `payload` a través de un `JSON`. En ese caso, deberíamos adaptar el `payload`, lo cual daría esta cadena como resultado
 
