@@ -38,7 +38,7 @@ Si hacemos click sobre una `categoría`, la web nos redirige a  `https://0a54001
 
 ![](/assets/img/NoSQL-Injection-Lab-1/image_2.png)
 
-Hay `dos tipos` de inyección `NoSQL`:
+Hay `dos tipos` de inyección `NoSQL`
 
 - `Syntax Injection` > Ocurre cuando se puede romper la `sintaxis` de la `consulta NoSQL`, lo que le permite `inyectar` su propia `carga útil`. La `metodología` es similar a la utilizada en la `inyección SQL`. Sin embargo, la `naturaleza` del ataque varía significativamente, ya que las `bases de datos NoSQL` utilizan una variedad de `lenguajes de consulta`, `tipos de sintaxis de consulta` y diferentes `estructuras de datos`
 
@@ -62,9 +62,9 @@ Podemos codificar estas cadenas usando el `Decoder` de `Burp Suite` o usando la 
 
 - `urlencode` > Esta función realiza una `codificación estándar de URL`. En este caso, se codifican todos los `caracteres especiales` en la `URL` y se reemplazan por su representación en formato `hexadecimal` precedida por un `%`. Sin embargo, un detalle importante es que los `espacios` se codifican como `+`
 
-- `urlencode_all` > Esta función es más `exhaustiva` en su enfoque. Codifica todos los `caracteres`, incluyendo los `no imprimibles` y `especiales`, que normalmente no se codificarían en una `URL estándar`.
+- `urlencode_all` > Esta función es más `exhaustiva` en su enfoque. Codifica todos los `caracteres`, incluyendo los `no imprimibles` y `especiales`, que normalmente no se codificarían en una `URL estándar`
 
-- `urlencode_not_plus` > Esta función es similar a la función `urlencode`, pero con una diferencia clave: no codifica los `espacios` como `+`, sino que los mantiene como `%20`, que es la `representación estándar` de un espacio en las `URL`
+- `urlencode_not_plus` > Esta función es similar a la función `urlencode`, pero con una diferencia clave, no codifica los `espacios` como `+`, sino que los mantiene como `%20`, que es la `representación estándar` de un espacio en las `URL`
 
 - `burp_urlencode` > Esta función realiza una `codificación estándar de URL` como la función `urlencode`, pero optimizada para `Burp Suite` para evitar problemas con `proxies` y `herramientas de seguridad`
 
