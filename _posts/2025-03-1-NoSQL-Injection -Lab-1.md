@@ -1,22 +1,15 @@
 ---
-title: NoSQL-Injection Lab 1
+title: NoSQL Injection Lab 1
 date: 2025-03-01 12:26:00 +0800
 author: Justice-Reaper
 categories:
   - Portswigger
-  - GraphQL API Vulnerabilities
+  - NoSQL Injection
 tags:
-  - GraphQL
-  - API
-  - Vulnerabilities
-  - Accidental
-  - exposure
-  - of
-  - private
-  - GraphQL
-  - fields
+  - NoSQL Injection
+  - Detecting NoSQL injection
 image:
-  path: /assets/img/GraphQL-API-Vulnerabilities-Lab-2/Portswigger.png
+  path: /assets/img/NoSQL-Injection-Lab-1/Portswigger.png
 ---
 
 ## Skills
@@ -39,11 +32,11 @@ Este `laboratorio` utiliza un `filtro de categoría de producto` que está impul
 
 Al `acceder` a la `web` vemos esto
 
-![[image_1.png]]
+![](/assets/img/NoSQL-Injection-Lab-1/image_1.png)
 
 Si hacemos click sobre una `categoría`, la web nos redirige a  `https://0a54001f047c9ab1803bb2bf00d800cb.web-security-academy.net/filter?category=Gifts`
 
-![[image_2.png]]
+![](/assets/img/NoSQL-Injection-Lab-1/image_2.png)
 
 Hay `dos tipos` de inyección `NoSQL`:
 
@@ -83,24 +76,24 @@ Las `vulnerabilidades de inyección NoSQL` pueden ocurrir en una variedad de `co
 
 Para determinar qué `caracteres` interpreta la `aplicación` como `sintaxis`, podemos probar a inyectar `caracteres individuales`. En este caso, al `añadir` una `comilla simple '` provocamos un `error`, el cual vemos al acceder a `https://0ac100b804c954f18566cbf6003f001e.web-security-academy.net/filter?category=Gifts'`. No `urlencodear` nada porque lo hace el `navegador` por nosotros. Nos damos cuenta de que estamos ante un `MongoDB`, esta base de datos no relacional usa como `lenguaje JavaScript`
 
-![[image_3.png]]
+![](/assets/img/NoSQL-Injection-Lab-1/image_3.png)
 
 Si `escapamos` la `comilla simple \'`, la `consulta` ya no `provoca` el `error` al acceder a `https://0ac100b804c954f18566cbf6003f001e.web-security-academy.net/filter?category=Gifts\'`
 
-![[image_4.png]]
+![](/assets/img/NoSQL-Injection-Lab-1/image_4.png)
 
 Después de detectar una `vulnerabilidad`, el siguiente paso es determinar si se pueden influir en las `condiciones booleanas` mediante la `sintaxis NoSQL`. Para probar esto, debemos enviar dos solicitudes, una con una `condición falsa` como `' && 0 && 'x` y otra con una `condición verdadera` como `' && 1 && 'x`. Primero vamos a probar con la `condición falsa`, para ello vamos a tener que `urlencodear` el `payload` con cualquier codificación que no sea la de `urlencode_not_plus`. Vemos que no nos salen los `tres productos` que nos salían anteriormente al acceder a `https://0ac100b804c954f18566cbf6003f001e.web-security-academy.net/filter?category=Gifts%27+%26%26+0+%26%26+%27x`
 
-![[image_5.png]]
+![](/assets/img/NoSQL-Injection-Lab-1/image_5.png)
 
 Probamos con la `condición verdadera`, al acceder a `https://0ac100b804c954f18566cbf6003f001e.web-security-academy.net/filter?category=Gifts%27+%26%26+1+%26%26+%27x` vemos que sí salen los tres productos. Esto sugiere que la `condición falsa` afecta la `lógica de la consulta`, pero la `condición verdadera` no y, por lo tanto, confirmamos la existencia de una `Syntax Injection`
 
-![[image_6.png]]
+![](/assets/img/NoSQL-Injection-Lab-1/image_6.png)
 
 Ahora que hemos identificado que podemos influir en las `condiciones booleanas`, podemos intentar anular las `condiciones existentes` para aprovechar la `vulnerabilidad`. Por ejemplo, inyectando una `condición de JavaScript` que siempre se evalúe como verdadera, como `'||'1'=='1`. Esto nos llevaría a `https://0ac100b804c954f18566cbf6003f001e.web-security-academy.net/filter?category=Gifts%27||%271%27%3d%3d%271` y nos mostraría todos los `productos` existentes independientemente de la `categoría`. Debemos tener cuidado al `inyectar` una `condición` que `siempre` se `evalúa` como `verdadera` en una consulta `NoSQL`. Si bien esto puede ser `inofensivo` en el `contexto inicial` en el que está inyectando, es común que las `aplicaciones` utilicen `datos de una sola solicitud` en varias `consultas diferentes`. Si una aplicación lo usa al `actualizar` o `eliminar datos`, por ejemplo, esto puede provocar una `pérdida de datos accidental`
 
-![[image_7.png]]
+![](/assets/img/NoSQL-Injection-Lab-1/image_7.png)
 
 También podemos `agregar` un `Null Byte %00` después del valor de la categoría. `MongoDB` puede `ignorar todos los caracteres después de un Null Byte`, lo que significa que se ignoran todas las `condiciones adicionales` en la `consulta de MongoDB`. No es necesario `URL encodear` el `payload` en este caso `https://0ac100b804c954f18566cbf6003f001e.web-security-academy.net/filter?category=Gifts%27%00`
 
-![[image_8.png]]
+![](/assets/img/NoSQL-Injection-Lab-1/image_8.png)
