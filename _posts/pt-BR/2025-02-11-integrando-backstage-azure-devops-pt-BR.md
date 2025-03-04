@@ -122,7 +122,7 @@ Clicando em **View Component** você será capaz de ver as informações do comp
 Parabéns, a integração com o Azure DevOps está funcionando!
 
 ## Instale o plugin do Azure DevOps
-Para que o nosso template do Backstage funcione adequadamente, precisaremos das ações `azure:repo:clone`, `azure:repo:push` e  `azure:repo:pr`. Estas ações serão tomadas pelo template para fazer o download do código, depois push e então criar um pull request. Para checar se elas já estão instaladas, você pode ir em **Create** e, então, no canto superior direito, sleecionar **Installed Actions**.
+Para que o nosso template do Backstage funcione adequadamente, precisaremos das ações `azure:repo:clone`, `azure:repo:push` e  `azure:repo:pr`. Estas ações serão tomadas pelo template para fazer o download do código, depois push e então criar um pull request. Para checar se elas já estão instaladas, você pode ir em **Create** e, então, no canto superior direito, selecionar **Installed Actions**.
 
 ![Encontrando as ações instaladas](assets/img/backstage-azure-devops/installe3d-actions-menu.png)
 *Encontrando as ações instaladas*
@@ -150,8 +150,7 @@ Agora que temos o Backstage pronto para falar com o Azure DevOps e, além disso,
 Uma das coisas com a qual mais tive dificuldade foi conseguir encontrar as informações necessárias para conseguir chegar ao resultado esperado usando o template. Aqui segue um modelo de template bem simples. 
 
 ```yaml
-
-# Template for creating a new Azure resource group.
+# Template for creating a new Azure DevOps repository and pushing a new Backstage component to it.
 
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
@@ -186,10 +185,11 @@ spec:
       name: Template Skeleton
       action: fetch:template
       input:
-        url: ./skeleton
-        targetPath: ./sub-directory
+        url: https://dev.azure.com/<MY_AZURE_ORGANIZATION>/<MY_AZURE_PROJECT>/_git/<MY_AZURE_REPOSITORY>?path=/terraform/base
+        targetPath: ./sub-directory/terraform/changed
+        replace: true
         values:
-          name: ${{ parameters.name }}
+          {% raw %}name: ${{ parameters.name }}{% endraw %}
 
     - id: pushAzureRepo
       name: Push to Remote Azure Repo
@@ -208,15 +208,9 @@ spec:
         repoId: <MY_AZURE_REPOSITORY>
         title: ${{ parameters.name }}
         project: <MY_AZURE_PROJECT>
+        organization: <MY_AZURE_ORGANIZATION>
         description: "This is a pull request from Backstage"
         supportsIterations: false
-
-    - id: register
-      name: Register
-      action: catalog:register
-      input:
-        repoContentsUrl: "dev.azure.com?owner=<MY_AZURE_PROJECT>&repo=<MY_AZURE_REPOSITORY>&organization=<MY_AZURE_ORGANIZATION>&version=<MY_AZURE_REPOSITORY_BRANCH>"
-        catalogInfoPath: "/catalog-info.yaml"
 
   output:
     links:
@@ -224,10 +218,17 @@ spec:
         url: "dev.azure.com?owner=<MY_AZURE_PROJECT>&repo=<MY_AZURE_REPOSITORY>&organization=<MY_AZURE_ORGANIZATION>"
       - title: Open in catalog
         icon: catalog
-        entityRef: ${{ steps.register.output.entityRef }}
+        entityRef: {% raw %}${{ steps.register.output.entityRef }}{% endraw %}
 ```
 
-Crie o arquivo do template no Azure DevOps (substituindo os campos devidos) e então vá até o Backstage e siga o mesmo processo de importação que fizemos antes no teste de integração. Na hora em que for importar o template, pode ser que se depare com o erro abaixo:
+> ⚠️**Nota Importante sobre os templates**⚠️:
+>
+>  Quando utilizamos caminho relativo na tratativa de arquivos no Backstage, ele **sempre** levará como local de partida o local de onde **o template foi importado**.
+>
+> Em outras palavras, ele sempre concatenará o caminho que você informar com o caminho de onde o template foi importado. Dessa forma, ou você mantém os arquivos a serem tratados no mesmo local do arquivo de onde importou o template ou utiliza uma url de um lugar externo, que foi a abordagem que usei aqui na ação `fetch:template`. Mais sobre isso pode ser visto [aqui](https://backstage.io/docs/features/software-templates/) e [aqui](https://backstage.io/docs/tooling/cli/templates/).
+
+
+Voltando ao nosso processo, crie o arquivo do template no Azure DevOps (substituindo os campos devidos) e então vá até o Backstage e siga o mesmo processo de importação que fizemos antes no teste de integração. Na hora em que for importar o template, pode ser que se depare com o erro abaixo:
 
 ![Erro para importar o template](assets/img/backstage-azure-devops/template-import-error.png)
 *Erro para importar o template*
@@ -253,22 +254,22 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "example" {
-  name     = "asd"
-  location = "West Europe"
+  name     = "${{ values.name }} "
+  location = "<AZ_LOCATION>"
 }
 ```
 
 ⚠️ Eu não estou usando aqui uma conta de armazenamento para que você guarde o estado do seu Terraform! Para ambientes de produção, sugiro armazenar o estado em algum lugar seguro.
 
-Atenção para a variável `rg_name`, pois ela será preeenchida pelo valor que vier do Backstage. Aqui estamos fazendo um exemplo bem simples, usando somente uma variável, mas extrapole essa ideia para qualquer código que você queira executar.
+Atenção para a variável `name`, pois ela será preeenchida pelo valor que vier do Backstage. Aqui estamos fazendo um exemplo bem simples, usando somente uma variável, mas extrapole essa ideia para qualquer código que você queira executar.
 
 Uma vez criado o código terraform, vamos fazer o upload dele para o nosso repositório do Azure DevOps.
 
-💡 **Importante**: como a ideia é que o Backstage faça a tratativa deste arquivo e depois faça o upload e subsequente criação de um Pull Request de código, este (contendo a variável `rg_name`) será substituído pelo valor que virá do Backstage, tornando o código **não-reutilizável**. Para evitar isso, vamos separar o código com a variável, que chamaremos de `base`, do código que terá a variável preenchida, que chamaremos de `changed`, para facilitar. Assim, sempre teremos um lugar com o código pronto para ser utilizado.
+💡 **Importante**: como a ideia é que o Backstage faça a tratativa deste arquivo e depois faça o upload e subsequente criação de um Pull Request de código, este (contendo a variável `name`) será substituído pelo valor que virá do Backstage, tornando o código **não-reutilizável**. Para evitar isso, vamos separar o código com a variável, que chamaremos de `base`, do código que terá a variável preenchida, que chamaremos de `changed`, para facilitar. Assim, sempre teremos um lugar com o código pronto para ser utilizado.
 
 Abaixo segue a abordagem que entendo ser a mais simples, mas fique a vontade para adaptar à sua necessidade:
 
-![Arquivos Terraform](assets/img/backstage-azure-devops/tf-files.png)
+![Arquivos Terraform]![alt text](assets/img/backstage-azure-devops/tf-files.png)
 *Arquivos Terraform*
 
 ## Crie a pipeline para execução do código
@@ -367,10 +368,41 @@ Bom, com tudo no lugar, agora podemos finalmente testar todo o nosso ambiente. V
 *Nome do RG*
 
 2. Revise o que digitou:
+
 ![Validando informações](assets/img/backstage-azure-devops/validating-name.png)
 *Validando informações*
 
+3. Se tudo ok, confirme e aguarde a execução:
+
+![Execução completa](assets/img/backstage-azure-devops/complete-execution.png)
+*Execução completa*
+
+4. Após a execução, vá ao Azure DevOps e veja o Pull Request criado. Você pode, inclusive, validar os arquivos que foram alterados e incluídos no PR.
+
+![Pull Requests](assets/img/backstage-azure-devops/pull-requests.png)
+*Pull Requests*
+
+![Arquivos alterados](assets/img/backstage-azure-devops/changed-files.png)
+*Arquivos alterados*
+
+5. Se tudo estiver ok, aprove o PR e complete-o.
+
+![Aprovação do PR](assets/img/backstage-azure-devops/pr-approval.png)
+*Aprovação do PR*
+
+![Completando o merge](assets/img/backstage-azure-devops/merge-complete.png)
+*Completando o merge*
+
 Aqui é interessante falar que fica muito a gosto do freguês o modelo de setup. Pode ser que a sua empresa prefira não ter aprovação. Ou pode ser que até queira ter mais de uma aprovação. Para todos estes cenários você deverá ajustar o ambiente à necessidade. O intuito aqui era mostrar o conceito e a forma de colocá-lo em prática.
+
+6. Depois de aprovada a alteração, vá até a pipeline e acompanhe o resultado. Ela deve executar sem problemas e criar o seu recurso no Azure.
+
+![Pipeline](assets/img/backstage-azure-devops/merge-complete/pipeline.png)
+
+![Execução da pipeline](assets/img/backstage-azure-devops/merge-complete/pipeline-execution.png)
+*Execução da pipeline*
+
+Se tudo correu conforme o esperado, você deve ver seu recurso criado na console da Azure.
 
 ## Conclusão
 
