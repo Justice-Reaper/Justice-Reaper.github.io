@@ -176,6 +176,7 @@ defaults:
       type: posts
     values:
       layout: post
+      liquid: false # Disable liquid in posts
       comments: true # Enable comments in posts.
       toc: true # Display TOC column in posts.
       # DO NOT modify the following parameter unless you are confident enough
