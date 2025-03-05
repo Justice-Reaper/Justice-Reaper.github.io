@@ -335,6 +335,7 @@ smb: \> exit
 
 Estos tres `hashes` nos los vamos a `guardar` cada uno en un `archivo distinto`, el archivo se encuentra en la carpeta `Defaults`
 
+{% raw %}
 ```
 # cat main.yml                   
 ---
@@ -373,6 +374,7 @@ ldap_admin_password: !vault |
           3238343230333633350a646664396565633037333431626163306531336336326665316430613566
           3764 
 ```
+{% endraw %}
 
 Se vería de esta manera
 
