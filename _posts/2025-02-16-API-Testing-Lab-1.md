@@ -28,7 +28,7 @@ image:
 Para `resolver` el laboratorio, debemos encontrar la `documentación de la API` expuesta y `eliminar` a `carlos`. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`
 
 ---
-## Web Enumeration
+## Resolución
 
 Al `acceder` a la `web` nos sale esto
 

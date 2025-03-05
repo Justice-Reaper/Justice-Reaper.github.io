@@ -28,7 +28,7 @@ image:
 Para `resolver` este `laboratorio`, debemos `explotar` la funcionalidad de `WebSockets` para realizar un ataque de `Cross-Site WebSocket Hijacking`. Esto nos permitirá `interceptar` el `historial del chat` de la víctima y usar la información obtenida para `comprometer su cuenta`
 
 ---
-## Web Enumeration
+## Resolución
 
 Al `acceder` a la `web` nos sale esto
 

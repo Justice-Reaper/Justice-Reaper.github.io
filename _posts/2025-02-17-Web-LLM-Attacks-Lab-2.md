@@ -28,7 +28,7 @@ image:
 Este `laboratorio` contiene la vulnerabilidad `OS Command Injection` que puede ser `explotada` a través de unas `API's`. Podemos llamar a estas `API's` mediante el `LLM`. Para `resolver` el laboratorio, debemos `eliminar` el archivo `morale.txt` del `directorio home` de `Carlos`
 
 ---
-## Web Enumeration
+## Resolución
 
 Al `acceder` a la `web` nos sale esto
 

@@ -28,7 +28,7 @@ image:
 Para `resolver` el laboratorio, usemos el `LLM` para `eliminar` al usuario `carlos`
 
 ---
-## Web Enumeration
+## Resolución
 
 Al `acceder` a la `web` nos sale esto
 

@@ -28,7 +28,7 @@ image:
 Para `resolver` el laboratorio, debemos `encontrar` y `explotar` una `vulnerabilidad` de `mass assignment` para comprar una `Lightweight l33t Leather Jacket`. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`
 
 ---
-## Web Enumeration
+## Resolución
 
 Al `acceder` a la `web` nos sale esto
 
