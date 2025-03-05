@@ -11,7 +11,7 @@ layout: post
 image: assets/img/monitor-csv/cover.png
 ---
 
-*Also available in [english](https://medium.lmeier.net/monitoring-cluster-shared-volumes-e1fce26ea55d)*
+*Also available in [english](https://blog.lmeier.net/posts/monitoring-cluster-shared-volumes-with-zabbix/)*
 
 Neste post veremos como monitorar os discos de um cluster de failover Microsoft utilizando o LLD do Zabbix, simplificando o monitoramento de volumes compartilhados. Se você não sabe o que é um cluster de failover, sugiro dar uma estudada [aqui](https://technet.microsoft.com/pt-br/library/cc770737%28v=ws.11%29.aspx).
 
@@ -48,10 +48,12 @@ C:\caminho\do\seu\script\MonitorCSV.ps1 "Cluster Disk 11" total
 Eu disponibilizei um template [aqui](https://github.com/LuizMeier/Zabbix/blob/master/ClusterSharedVolume/Template_CSV.xml)para monitoramento, mas abaixo segue como criar a regra de descoberta:
 
 * a) Primeiro vamos criar a regra de descoberta em si, que consumirá os dados gerados na saída JSON. Isto processará periodicamente todos os volumes disponíveis. Caso um novo seja encontrado, os itens serão criado também para este novo item.
+
 ![Regras de descoberta](assets/img/monitor-csv/discovery-rules.png)
 *Regras de descoberta*
 
 * b) Agora criaremos os itens. Abaixo segue os detalhes de cada item que criei. O LLD criará novos itens iguais a esse para cada volume que encontrar.
+
 ![Protótipo de itens](assets/img/monitor-csv/item-prototype-1.png)
 *Protótipo de itens*
 
@@ -59,6 +61,7 @@ Eu disponibilizei um template [aqui](https://github.com/LuizMeier/Zabbix/blob/ma
 *Protótipo de itens*
 
 * c) Agora criaremos os protótipos de trigger e em seguida gráficos:
+
 ![Protótipo de trigger](assets/img/monitor-csv/trigger-prototype-1.png)
 *Protótipo de trigger*
 
