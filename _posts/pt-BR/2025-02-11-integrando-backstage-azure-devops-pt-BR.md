@@ -5,23 +5,37 @@ description: "Integre o Azure DevOps ao Backstage para autenticação segura. Um
 date: 2025-02-04 10:00:00 +0000
 author: Luiz Meier
 categories: [Backstage, DevOps, Cloud]
-tags: [Microsoft Entra ID, Autenticação, Identity Provider, Backstage]
+tags: [Azure DevOps, Backstage, DevOps, Pipeline]
 lang: pt-BR
 #canonical_url: "placeholder"
-image: #assets/img/backstage-entraid/capa.png
+image: assets/img/backstage-azure-devops/cover.png
 ---
  
 [Read in English](https://blog.lmeier.net/posts/authentication-backstage-entra-id-en)
 
-Este é o segundo post que faço a respeito do Backstage. Você pode conferir o primeiro, onde falo de integração com o Entra ID [aqui](https://blog.lmeier.net/posts/autenticacao-backstage-entra-id-pt-BR/). Agora, vamos falar sobre como integrar o seu Backstage com o Azure DevOps a fim de podermos criar uma pipeline que entregue um recurso na Azure para o seu usuário.
+## Introdução
 
-Para facilitar, vamos enumerar os passos que precisamos seguir para chegar ao final do processo:
-1. Integrar o Backstage ao Azure DevOps;
-2. Ter um código Terraform que vai criar o recurso que queremos entregar;
-3. Ter um template do Backstage que receba os dados da solicitação do usuário e as coloque no código Terraform a ser utilizado. Depois faremos com que este mesmo template abra um Pull Request do código alterado;
-4. Se o PR for aprovado, uma pipeline faz a entrega.
+Este é o segundo post que faço abordando o Backstage. Confira o primeiro, onde falo de integração com o Entra ID [aqui](https://blog.lmeier.net/posts/autenticacao-backstage-entra-id-pt-BR/). Agora, vamos abordar todos os passos para a integração do Backstage ao Azure DevOps para automatizar a entrega de recursos na Azure por meio de uma pipeline. Se prepare, porque vai ser longo! 
 
 Eu vou manter no meu GitHub um repositório do Backstage com o resultado destes dois posts e também disponibilizando os arquivos que usaremos aqui.
+
+## Sumário
+
+1. [Introdução](#introdução)
+2. [Sumário](#sumário)
+3. [Crie um PAT para uso](#crie-um-pat-para-uso)
+4. [Configure o Backstage para usar o PAT](#configure-o-backstage-para-usar-o-pat)
+  - [Adicione o PAT ao Backstage](#adicione-o-pat-ao-backstage)
+  - [Teste o funcionamento da integração](#teste-o-funcionamento-da-integração)
+5. [Instale o plugin do Azure DevOps](#instale-o-plugin-do-azure-devops)
+6. [Crie o template para uso pelo Backstage](#crie-o-template-para-uso-pelo-backstage)
+7. [Crie o código Terraform](#crie-o-código-terraform)
+8. [Crie a pipeline para execução do código](#crie-a-pipeline-para-execução-do-código)
+  - [Crie uma conexão de serviço](#crie-uma-conexão-de-serviço)
+  - [Crie a pipeline no Azure DevOps](#crie-a-pipeline-no-azure-devops)
+9. [Teste final](#teste-final)
+10. [Conclusão](#conclusão)
+
 
 💡 **Nota**: Ter o Entra ID como IDP não é um pré-requisito para o funcionamento com o Azure DevOps. Porém, é comum que as duas soluções sejam usadas em ambiente Microsoft.
 
@@ -51,8 +65,8 @@ Dê um nome para o PAT e configure as permissões necessárias. Depois confirme 
 
 Copie o token e salve-o em algum lugar, pois você não poderá reavê-lo:
 
-![Criação co msucesso](assets/img/backstage-azure-devops/pat-raw.png)
-*Criação co msucesso*
+![Criação com sucesso](assets/img/backstage-azure-devops/pat-raw.png)
+*Criação com sucesso*
 
 ## Configure o Backstage para usar o PAT
 
@@ -364,46 +378,53 @@ Bom, com tudo no lugar, agora podemos finalmente testar todo o nosso ambiente. V
 
 1. Vá até o template e coloque o nome que deseja para o grupo de recursos:
 
-![Nome do RG](assets/img/backstage-azure-devops/rg-from-backstage.png)
-*Nome do RG*
+    ![Nome do RG](assets/img/backstage-azure-devops/rg-from-backstage.png)
+    *Nome do RG*
 
 2. Revise o que digitou:
 
-![Validando informações](assets/img/backstage-azure-devops/validating-name.png)
-*Validando informações*
+    ![Validando informações](assets/img/backstage-azure-devops/validating-name.png)
+    *Validando informações*
 
 3. Se tudo ok, confirme e aguarde a execução:
 
-![Execução completa](assets/img/backstage-azure-devops/complete-execution.png)
-*Execução completa*
+    ![Execução completa](assets/img/backstage-azure-devops/complete-execution.png)
+    *Execução completa*
 
 4. Após a execução, vá ao Azure DevOps e veja o Pull Request criado. Você pode, inclusive, validar os arquivos que foram alterados e incluídos no PR.
 
-![Pull Requests](assets/img/backstage-azure-devops/pull-requests.png)
-*Pull Requests*
+    ![Pull Requests](assets/img/backstage-azure-devops/pull-requests.png)
+    *Pull Requests*
 
-![Arquivos alterados](assets/img/backstage-azure-devops/changed-files.png)
-*Arquivos alterados*
+    ![Arquivos alterados](assets/img/backstage-azure-devops/changed-files.png)
+    *Arquivos alterados*
 
 5. Se tudo estiver ok, aprove o PR e complete-o.
 
-![Aprovação do PR](assets/img/backstage-azure-devops/pr-approval.png)
-*Aprovação do PR*
+    ![Aprovação do PR](assets/img/backstage-azure-devops/pr-approval.png)
+    *Aprovação do PR*
 
-![Completando o merge](assets/img/backstage-azure-devops/merge-complete.png)
-*Completando o merge*
+    ![Completando o merge](assets/img/backstage-azure-devops/merge-complete.png)
+    *Completando o merge*
 
-Aqui é interessante falar que fica muito a gosto do freguês o modelo de setup. Pode ser que a sua empresa prefira não ter aprovação. Ou pode ser que até queira ter mais de uma aprovação. Para todos estes cenários você deverá ajustar o ambiente à necessidade. O intuito aqui era mostrar o conceito e a forma de colocá-lo em prática.
+    Aqui é interessante falar que fica muito a gosto do freguês o modelo de setup. Pode ser que a sua empresa prefira não ter aprovação. Ou pode ser que até queira ter mais de uma aprovação. Para todos estes cenários você deverá ajustar o ambiente à necessidade. O intuito aqui era mostrar o conceito e a forma de colocá-lo em prática.
 
 6. Depois de aprovada a alteração, vá até a pipeline e acompanhe o resultado. Ela deve executar sem problemas e criar o seu recurso no Azure.
 
-![Pipeline](assets/img/backstage-azure-devops/merge-complete/pipeline.png)
+    ![Pipeline](assets/img/backstage-azure-devops/pipeline.png)
+    *Pipeline*
 
-![Execução da pipeline](assets/img/backstage-azure-devops/merge-complete/pipeline-execution.png)
-*Execução da pipeline*
+    ![Execução da pipeline](assets/img/backstage-azure-devops/pipeline-execution.png)
+    *Execução da pipeline*
 
 Se tudo correu conforme o esperado, você deve ver seu recurso criado na console da Azure.
 
 ## Conclusão
 
-Neste post você apredneu como integrar o Backstage ao Azure DevOps e como montar um processo fim a fim, desde a solicitação do recurso até a criação dele no seu provedor de nuvem. Agora é contigo extrapolar o que viu aqui e aproveitar. Caso tenha dúvidas, deixe nos comentários.
+Neste post, você aprendeu como integrar o Backstage ao Azure DevOps e configurar um fluxo automatizado para provisionamento de recursos. Exploramos desde a configuração do PAT, a integração do Backstage com o Azure DevOps, até a validação da conexão com um template de exemplo.
+
+Com essa base, você pode expandir essa implementação para atender às necessidades específicas do seu ambiente, automatizando ainda mais o processo de gerenciamento de infraestrutura.
+
+Agora, é sua vez de explorar novas possibilidades e adaptar esse fluxo para tornar o desenvolvimento e a operação mais eficientes.
+
+Caso tenha dúvidas ou sugestões, compartilhe nos comentários!
