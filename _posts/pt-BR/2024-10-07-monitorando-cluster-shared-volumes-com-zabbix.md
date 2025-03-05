@@ -45,13 +45,15 @@ C:\caminho\do\seu\script\MonitorCSV.ps1 "Cluster Disk 11" total
 
 #### 2) Adicionando o script ao Zabbix
 
-Eu disponibilizei um template [aqui](https://github.com/LuizMeier/Zabbix/blob/master/ClusterSharedVolume/Template_CSV.xml)para monitoramento, mas abaixo segue como criar a regra de descoberta:
+Eu disponibilizei um template [aqui](https://github.com/LuizMeier/Zabbix/blob/master/ClusterSharedVolume/Template_CSV.xml) para monitoramento, mas abaixo segue como criar a regra de descoberta:
 
 * a) Primeiro vamos criar a regra de descoberta em si, que consumirá os dados gerados na saída JSON. Isto processará periodicamente todos os volumes disponíveis. Caso um novo seja encontrado, os itens serão criado também para este novo item.
+
 ![Regras de descoberta](assets/img/monitor-csv/discovery-rules.png)
 *Regras de descoberta*
 
 * b) Agora criaremos os itens. Abaixo segue os detalhes de cada item que criei. O LLD criará novos itens iguais a esse para cada volume que encontrar.
+
 ![](assets/img/monitor-csv/item-prototype-1.png)
 Protótipo de itens
 
@@ -59,6 +61,7 @@ Protótipo de itens
 Protótipo de itens
 
 * c) Agora criaremos os protótipos de trigger e em seguida gráficos:
+
 ![](assets/img/monitor-csv/trigger-prototype-1.png)
 Protótipo de trigger
 

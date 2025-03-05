@@ -1,17 +1,17 @@
 ---
 layout: post
 title: "Integrando Backstage com Azure DevOps"
-description: "Integre o Azure DevOps ao Backstage para autenticação segura. Um guia passo a passo sobre o App Registration, backend e gestão de identidade."
-date: 2025-02-04 10:00:00 +0000
+description: "Automatize a entrega de recursos na Azure integrando o Backstage com o Azure DevOps. Um guia passo a passo sobre configuração, templates e pipelines."
+date: 2025-03-05 10:00:00 +0000
 author: Luiz Meier
 categories: [Backstage, DevOps, Cloud]
-tags: [Azure DevOps, Backstage, DevOps, Pipeline]
+tags: [Azure DevOps, Backstage, CI/CD Pipelines, Automação]
 lang: pt-BR
-#canonical_url: "placeholder"
+canonical_url: "https://blog.lmeier.net/posts/integrando-backstage-azure-devops-pt-BR"
 image: assets/img/backstage-azure-devops/cover.png
 ---
  
-[Read in English](https://blog.lmeier.net/posts/authentication-backstage-entra-id-en)
+[Read in English](https://blog.lmeier.net/posts/integrando-backstage-azure-devops-en)
 
 ## Introdução
 
@@ -82,7 +82,7 @@ integrations:
 ```
 
 ### Teste o funcionamento da integração
-Com isto configurado, já deve ser possível testar o acesso do Backstage ao seu repositório do Azure DevOps. Para testar, vamos armazenar um arquivo de template de teste, dentro do nosso repositório, numa pasta chamada template. Depois, vamos tentar importar este template para dentro do Backstage. Abaixo vou deixar um arquivo de modelo, que peguei da documentação do Backstage e só alterei o campo `name`:
+Com isto configurado, já deve ser possível testar o acesso do Backstage ao seu repositório do Azure DevOps. Para testar, vamos armazenar um arquivo de template de teste, dentro do nosso repositório, numa pasta chamada `template`. Depois, vamos tentar importar este template para dentro do Backstage. Abaixo vou deixar um arquivo de modelo, que peguei da documentação do Backstage e só alterei o campo `name`:
 
 ```yaml
 apiVersion: backstage.io/v1alpha1
