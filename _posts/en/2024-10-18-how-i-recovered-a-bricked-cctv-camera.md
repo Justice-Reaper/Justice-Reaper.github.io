@@ -2,12 +2,12 @@
 layout:	post
 title:	"How I Recovered a Bricked CCTV Camera"
 date:	2024-10-18
-author: Luiz Meier
+author: "Luiz Meier"
 categories: [CCTV, Hardware]
 tags: [CCTV, Hardware, Intelbras]
 description: "A Last-Resort Guide to Try Before Losing Your Equipment"
 lang: en
-#canonical_url: https://medium.lmeier.net/how-i-recovered-a-bricked-cctv-camera-f88913bebc83
+canonical_url: https://blog.lmeier.net/posts/how-i-recovered-a-bricked-cctv-camera/
 image: assets/img/bricked-camera/cover.png
 ---
 

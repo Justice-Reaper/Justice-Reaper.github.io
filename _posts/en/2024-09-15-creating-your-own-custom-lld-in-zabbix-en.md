@@ -1,14 +1,14 @@
 ---
 title: "Creating Your Custom LLD in Zabbix"
-author: Luiz Meier  # Corrigido de 'autor' para 'author'
-date: 2024-09-15 10:00:00
+author: "Luiz Meier"  # Corrigido de 'autor' para 'author'
+date: "2024-09-15 10:00:00"
 categories: [Zabbix, Automation]
-tags: [LLD, Monitoring, Powershell, Custom Scripts]
+tags: [LLD, Monitoring, Powershell, "Custom Scripts"]
 description: "A complete guide to creating a custom Low-Level Discovery in Zabbix."
 lang: en
 image: assets/img/zabbix-custom-lld/capa.png  # Removido campo duplicado
 layout: post
-#canonical_url: https://medium.lmeier.net/creating-your-own-custom-lld-in-zabbix-eb9bfb51fcfa
+canonical_url: https://blog.lmeier.net/posts/creating-your-own-custom-lld-in-zabbix-en/
 ---
 
 *Leia em [Português](https://blog.lmeier.net/posts/criando-seu-proprio-lld-personalizado-no-zabbix-pt-BR/)*
