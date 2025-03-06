@@ -47,25 +47,25 @@ For this post, I created a new project in Azure DevOps called Backstage, where w
 
 ## Create a PAT for use
 
-To create your token, go to the upper right corner of Azure DevOps and click on **User settings** and then **Personal access tokens**:
+1. To create your token, go to the upper right corner of Azure DevOps and click on **User settings** and then **Personal access tokens**:
 
-![PAT](assets/img/backstage-azure-devops/pat.png)
-*PAT*
+      ![PAT](assets/img/backstage-azure-devops/pat.png)
+      *PAT*
 
-Click on **New Token**:
+2. Click on **New Token**:
 
-![New token](assets/img/backstage-azure-devops/new-token.png)
-*New token*
+      ![New token](assets/img/backstage-azure-devops/new-token.png)
+      *New token*
 
-Give a name to the PAT and configure the necessary permissions. Then confirm the creation:
+3. Give a name to the PAT and configure the necessary permissions. Then confirm the creation:
 
-![PAT permissions](assets/img/backstage-azure-devops/pat-permissions.png)
-*PAT permissions*
+      ![PAT permissions](assets/img/backstage-azure-devops/pat-permissions.png)
+      *PAT permissions*
 
-Copy the token and save it somewhere, as you will not be able to retrieve it again:
+4. Copy the token and save it somewhere, as you will not be able to retrieve it again:
 
-![Successful creation](assets/img/backstage-azure-devops/pat-raw.png)
-*Successful creation*
+      ![Successful creation](assets/img/backstage-azure-devops/pat-raw.png)
+      *Successful creation*
 
 ## Configure Backstage to use the PAT
 
@@ -109,28 +109,31 @@ spec:
   lifecycle: production
 ```
 
-Now, go to Azure DevOps and create a folder called `templates` and create a new file, adding the code above and naming it `test.yaml`. Confirm the Commit to create the file and copy the URL that leads directly to it.
-![Test](assets/img/backstage-azure-devops/teste-yaml.png)
-*Test*
+1. Now, go to Azure DevOps and create a folder called `templates` and create a new file, adding the code above and naming it `test.yaml`. Confirm the Commit to create the file and copy the URL that leads directly to it.
 
-After copying the URL, go back to Backstage and go to the **Create...** menu and click on the **Register Existing Component** option:
-![Component registration](assets/img/backstage-azure-devops/register-existing-component.png)
-*Component registration*
+      ![Test](assets/img/backstage-azure-devops/teste-yaml.png)
+      *Test*
 
-Paste the URL of the file we just created and select **Analyze**. If the integration is functional, Backstage will be able to read the file from Azure DevOps and import it. Confirm the import.
+2. After copying the URL, go back to Backstage and go to the **Create...** menu and click on the **Register Existing Component** option:
 
-![File validation](assets/img/backstage-azure-devops/analyze.png)
-*File validation*
+      ![Component registration](assets/img/backstage-azure-devops/register-existing-component.png)
+      *Component registration*
 
-![Importing component](assets/img/backstage-azure-devops/import.png)
-*Importing component*
+3. Paste the URL of the file we just created and select **Analyze**. If the integration is functional, Backstage will be able to read the file from Azure DevOps and import it. Confirm the import.
 
-Clicking on **View Component** you will be able to see the information of the component you just imported, named `test-lab`:
-![Checking created component](assets/img/backstage-azure-devops/view-component.png)
-*Checking created component*
+      ![File validation](assets/img/backstage-azure-devops/analyze.png)
+      *File validation*
 
-![Properties of the created component](assets/img/backstage-azure-devops/test-lab.png)
-*Properties of the created component*
+      ![Importing component](assets/img/backstage-azure-devops/import.png)
+      *Importing component*
+
+4. Clicking on **View Component** you will be able to see the information of the component you just imported, named `test-lab`:
+
+      ![Checking created component](assets/img/backstage-azure-devops/view-component.png)
+      *Checking created component*
+
+      ![Properties of the created component](assets/img/backstage-azure-devops/test-lab.png)
+      *Properties of the created component*
 
 Congratulations, the integration with Azure DevOps is working!
 
@@ -210,7 +213,7 @@ spec:
       input:
         branch: <MY_AZURE_REPOSITORY_BRANCH>
         sourcePath: ./sub-directory
-        gitCommitMessage: Add ${{ parameters.name }} project files
+        gitCommitMessage: Add {% raw %}name: ${{ parameters.name }}{% endraw %} project files
 
     - id: pullRequestAzureRepo
       name: Create a Pull Request to Azure Repo
@@ -219,7 +222,7 @@ spec:
         sourceBranch: <MY_AZURE_REPOSITORY_BRANCH>
         targetBranch: "main"
         repoId: <MY_AZURE_REPOSITORY>
-        title: ${{ parameters.name }}
+        title: {% raw %}${{ parameters.name }}{% endraw %}
         project: <MY_AZURE_PROJECT>
         organization: <MY_AZURE_ORGANIZATION>
         description: "This is a pull request from Backstage"
@@ -266,7 +269,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "example" {
-  name     = "${{ values.name }} "
+  name     = {% raw %}"${{ values.name }}"{% endraw %}
   location = "<AZ_LOCATION>"
 }
 ```
@@ -374,34 +377,34 @@ Well, with everything in place, we can finally test our entire environment. Go t
 
 1. Go to the template and enter the name you want for the resource group:
 
-  ![Resource Group Name](assets/img/backstage-azure-devops/rg-from-backstage.png)
-  *Resource Group Name*
+    ![Resource Group Name](assets/img/backstage-azure-devops/rg-from-backstage.png)
+    *Resource Group Name*
 
 2. Review what you entered:
 
-  ![Validating Information](assets/img/backstage-azure-devops/validating-name.png)
-  *Validating Information*
+    ![Validating Information](assets/img/backstage-azure-devops/validating-name.png)
+    *Validating Information*
 
 3. If everything is okay, confirm and wait for the execution:
 
-  ![Complete Execution](assets/img/backstage-azure-devops/complete-execution.png)
-  *Complete Execution*
+    ![Complete Execution](assets/img/backstage-azure-devops/complete-execution.png)
+    *Complete Execution*
 
 4. After the execution, go to Azure DevOps and see the created Pull Request. You can even validate the files that were changed and included in the PR.
 
-  ![Pull Requests](assets/img/backstage-azure-devops/pull-requests.png)
-  *Pull Requests*
+    ![Pull Requests](assets/img/backstage-azure-devops/pull-requests.png)
+    *Pull Requests*
 
-  ![Changed Files](assets/img/backstage-azure-devops/changed-files.png)
-  *Changed Files*
+    ![Changed Files](assets/img/backstage-azure-devops/changed-files.png)
+    *Changed Files*
 
 5. If everything is okay, approve the PR and complete it.
 
-  ![PR Approval](assets/img/backstage-azure-devops/pr-approval.png)
-  *PR Approval*
+    ![PR Approval](assets/img/backstage-azure-devops/pr-approval.png)
+    *PR Approval*
 
-  ![Completing the Merge](assets/img/backstage-azure-devops/merge-complete.png)
-  *Completing the Merge*
+    ![Completing the Merge](assets/img/backstage-azure-devops/merge-complete.png)
+    *Completing the Merge*
 
   Here it is interesting to mention that the setup model is very customizable. Your company may prefer not to have approval, or it may want more than one approval. For all these scenarios, you should adjust the environment to the need. The intention here was to show the concept and how to put it into practice.
 
