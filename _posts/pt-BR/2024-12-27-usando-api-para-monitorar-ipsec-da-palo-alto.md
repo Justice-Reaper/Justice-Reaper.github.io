@@ -3,11 +3,11 @@ layout:	post
 title:	"Usando API para Monitorar IPSec da Palo Alto"
 date:	2024-12-27
 description: "Um guia para monitorar o status dos seus túneis IPSec"
-author: Luiz Meier
-categories: [Zabbix, Monitoring, Python, API, NGFW, Palo Alto]
-tags: [Zabbix, Monitoring, Python, API, NGFW, Palo Alto]
+author: "Luiz Meier"
+categories: [Zabbix, Monitoring, Python, API, NGFW, "Palo Alto"]
+tags: [Zabbix, Monitoring, Python, API, NGFW, "Palo Alto"]
 lang: en
-#canonical_url: https://medium.lmeier.net/usando-api-para-monitorar-ipsec-da-palo-alto-ba02edb91c31
+canonical_url: "https://blog.lmeier.net/posts/usando-api-para-monitorar-ipsec-da-palo-alto/"
 image: assets/img/monitoring-using-api/cover.png
 ---
 
