@@ -406,15 +406,15 @@ Well, with everything in place, we can finally test our entire environment. Go t
     ![Completing the Merge](assets/img/backstage-azure-devops/merge-complete.png)
     *Completing the Merge*
 
-  Here it is interesting to mention that the setup model is very customizable. Your company may prefer not to have approval, or it may want more than one approval. For all these scenarios, you should adjust the environment to the need. The intention here was to show the concept and how to put it into practice.
+    Here it is interesting to mention that the setup model is very customizable. Your company may prefer not to have approval, or it may want more than one approval. For all these scenarios, you should adjust the environment to the need. The intention here was to show the concept and how to put it into practice.
 
 6. After the change is approved, go to the pipeline and follow the result. It should run without problems and create your resource in Azure.
 
-  ![Pipeline](assets/img/backstage-azure-devops/pipeline.png)
-  *Pipeline*
+    ![Pipeline](assets/img/backstage-azure-devops/pipeline.png)
+    *Pipeline*
 
-  ![Pipeline Execution](assets/img/backstage-azure-devops/pipeline-execution.png)
-  *Pipeline Execution*
+    ![Pipeline Execution](assets/img/backstage-azure-devops/pipeline-execution.png)
+    *Pipeline Execution*
 
 If everything went as expected, you should see your resource created in the Azure console.
 
