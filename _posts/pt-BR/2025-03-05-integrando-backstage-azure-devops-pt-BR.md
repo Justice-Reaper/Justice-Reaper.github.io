@@ -48,25 +48,25 @@ Para este post, criei um projeto novo no Azure DevOps chamado Backstage, que é 
 
 ## Crie um PAT para uso
 
-Para criar o seu token, vá no campo superior direito do Azure DevOps e clique em **User settings** e depois em **Personal access tokens**:
+1. Para criar o seu token, vá no campo superior direito do Azure DevOps e clique em **User settings** e depois em **Personal access tokens**:
 
-![PAT](assets/img/backstage-azure-devops/pat.png)
-*PAT*
+      ![PAT](assets/img/backstage-azure-devops/pat.png)
+      *PAT*
 
-Clique em **New Token**:
+2. Clique em **New Token**:
 
-![Novo token](assets/img/backstage-azure-devops/new-token.png)
-*Novo token*
+      ![Novo token](assets/img/backstage-azure-devops/new-token.png)
+      *Novo token*
 
-Dê um nome para o PAT e configure as permissões necessárias. Depois confirme a criação:
+3. Dê um nome para o PAT e configure as permissões necessárias. Depois confirme a criação:
 
-![Permissões do PAT](assets/img/backstage-azure-devops/pat-permissions.png)
-*Permissões do PAT*
+      ![Permissões do PAT](assets/img/backstage-azure-devops/pat-permissions.png)
+      *Permissões do PAT*
 
-Copie o token e salve-o em algum lugar, pois você não poderá reavê-lo:
+4. Copie o token e salve-o em algum lugar, pois você não poderá reavê-lo:
 
-![Criação com sucesso](assets/img/backstage-azure-devops/pat-raw.png)
-*Criação com sucesso*
+      ![Criação com sucesso](assets/img/backstage-azure-devops/pat-raw.png)
+      *Criação com sucesso*
 
 ## Configure o Backstage para usar o PAT
 
@@ -110,28 +110,30 @@ spec:
   lifecycle: production
 ```
 
-Agora, vá ao Azure DevOps e crie uma pasta chamada `templates` e crie um novo arquivo, adicionando o código acima e nomeando-o como `teste.yaml`. Confirme o Commit para criação do arquivo e copie a url que leva diretamente a ele.
-![Teste](assets/img/backstage-azure-devops/teste-yaml.png)
-*Teste*
+1. Agora, vá ao Azure DevOps e crie uma pasta chamada `templates` e crie um novo arquivo, adicionando o código acima e nomeando-o como `teste.yaml`. Confirme o Commit para criação do arquivo e copie a url que leva diretamente a ele.
 
-Após copiar a url, volte no Backstage e vá ao menu **Create...** e clique na opção **Register Existing Component**:
-![Registro de componente](assets/img/backstage-azure-devops/register-existing-component.png)
-*Registro de componente*
+      ![Teste](assets/img/backstage-azure-devops/teste-yaml.png)
+      *Teste*
 
-Cole a url do arquivo que acabamos de criar e vá selecione **Analyze**. Se a integração estiver funcional, o Backstage será capaz de ler o arquivo do Azure DevOps e importá-lo. Confirme a importação.
+2. Após copiar a url, volte no Backstage e vá ao menu **Create...** e clique na opção **Register Existing Component**:
 
-![Validação do arquivo](assets/img/backstage-azure-devops/analyze.png)
-*Validação do arquivo*
+      ![Registro de componente](assets/img/backstage-azure-devops/register-existing-component.png)
+      *Registro de componente*
 
-![Importando componente](assets/img/backstage-azure-devops/import.png)
-*Importando componente*
+3. Cole a url do arquivo que acabamos de criar e vá selecione **Analyze**. Se a integração estiver funcional, o Backstage será capaz de ler o arquivo do Azure DevOps e importá-lo. Confirme a importação.
 
-Clicando em **View Component** você será capaz de ver as informações do componente que acabou de importar, com o nome `test-lab`:
-![Verificando componente criado](assets/img/backstage-azure-devops/view-component.png)
-*Verificando componente criado*
+      ![Validação do arquivo](assets/img/backstage-azure-devops/analyze.png)
+      *Validação do arquivo*
 
-![Propriedades do componente criado](assets/img/backstage-azure-devops/test-lab.png)
-*Propriedades do componente criado*
+      ![Importando componente](assets/img/backstage-azure-devops/import.png)
+      *Importando componente*
+
+4. Clicando em **View Component** você será capaz de ver as informações do componente que acabou de importar, com o nome `test-lab`:
+      ![Verificando componente criado](assets/img/backstage-azure-devops/view-component.png)
+      *Verificando componente criado*
+
+      ![Propriedades do componente criado](assets/img/backstage-azure-devops/test-lab.png)
+      *Propriedades do componente criado*
 
 Parabéns, a integração com o Azure DevOps está funcionando!
 
@@ -211,7 +213,7 @@ spec:
       input:
         branch: <MY_AZURE_REPOSITORY_BRANCH>
         sourcePath: ./sub-directory
-        gitCommitMessage: Add ${{ parameters.name }} project files
+        gitCommitMessage: Add {% raw %}${{ parameters.name }}{% endraw %} project files
 
     - id: pullRequestAzureRepo
       name: Create a Pull Request to Azure Repo
@@ -220,7 +222,7 @@ spec:
         sourceBranch: <MY_AZURE_REPOSITORY_BRANCH>
         targetBranch: "main"
         repoId: <MY_AZURE_REPOSITORY>
-        title: ${{ parameters.name }}
+        title: {% raw %}${{ parameters.name }}{% endraw %}
         project: <MY_AZURE_PROJECT>
         organization: <MY_AZURE_ORGANIZATION>
         description: "This is a pull request from Backstage"
@@ -268,14 +270,14 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "example" {
-  name     = "${{ values.name }} "
+  name     = {% raw %}"${{ values.name }}"{% endraw %}
   location = "<AZ_LOCATION>"
 }
 ```
 
 ⚠️ Eu não estou usando aqui uma conta de armazenamento para que você guarde o estado do seu Terraform! Para ambientes de produção, sugiro armazenar o estado em algum lugar seguro.
 
-Atenção para a variável `name`, pois ela será preeenchida pelo valor que vier do Backstage. Aqui estamos fazendo um exemplo bem simples, usando somente uma variável, mas extrapole essa ideia para qualquer código que você queira executar.
+Atenção para a variável `name`, pois ela será preenchida pelo valor que vier do Backstage. Aqui estamos fazendo um exemplo bem simples, usando somente uma variável, mas extrapole essa ideia para qualquer código que você queira executar.
 
 Uma vez criado o código terraform, vamos fazer o upload dele para o nosso repositório do Azure DevOps.
 
