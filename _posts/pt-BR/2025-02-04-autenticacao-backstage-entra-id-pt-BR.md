@@ -60,7 +60,7 @@ Você pode então acessar o Backstage localmente em `http://localhost:3000`, ent
 
 Para ativar a autenticação, você deve criar um **App Registration** no **Microsoft Entra ID**, que será utilizado pelo Backstage. A documentação para criação do recurso está [nesta](https://backstage.io/docs/auth/microsoft/provider) página.
 
-### Como Registrar um Aplicativo no Entra ID:
+### Como Registrar um Aplicativo no Entra ID
 
 1. Acesse **Entra ID** no portal do Azure:
 ![Selecionando o MS Entra ID](assets/img/backstage-entraid/entra-id.png)
@@ -77,11 +77,11 @@ Para ativar a autenticação, você deve criar um **App Registration** no **Micr
     Para desenvolvimento, utilize `http://localhost:7007/api/auth/microsoft/handler/frame` como **URL de redirecionamento**. (Você pode adicionar URLs adicionais para produção depois.)
 
 4. Vá para **Manage > API Permissions** e adicione as seguintes permissões **Delegadas** ao **Microsoft Graph**:  
-  - `email`  
-  - `offline_access`  
-  - `openid`  
-  - `profile`  
-  - `User.Read` 
+    - `email`  
+    - `offline_access`  
+    - `openid`  
+    - `profile`  
+    - `User.Read`
 
 ![Aplicando permissões](assets/img/backstage-entraid/app-permissions.png)
 *Aplicando permissões*
@@ -154,12 +154,12 @@ backend.start();
 
 ## Passo 5: Configurar o Frontend
 
-[Esta](https://backstage.io/docs/auth/#sign-in-configuration) página contém a documentação para adicionar o IDP ao frontend. Para fazer isso, vamos alterar o arquivo packages/app/src/App.tsx e tomar duas ações: 
+[Esta](https://backstage.io/docs/auth/#sign-in-configuration) página contém a documentação para adicionar o IDP ao frontend. Para fazer isso, vamos alterar o arquivo packages/app/src/App.tsx e tomar duas ações:
 
 1. Importar um componente;
 2. Adicionar o botão de login via Entra ID à interface gráfica.
 
-Para facilitar, vou colocar o trecho já pronto para evitar erros na hora de colar. Identifique o trecho e o substitua pelo abaixo: 
+Para facilitar, vou colocar o trecho já pronto para evitar erros na hora de colar. Identifique o trecho e o substitua pelo abaixo:
 
 ```typescript
 import { microsoftAuthApiRef } from '@backstage/core-plugin-api';
@@ -219,6 +219,7 @@ spec:
 ```
 
 📌 Notas:
+
 - `metadata.name`: é o valor de `Mail nickname`, ou o valor antes de `@seudominio.com`;
 - `metadata.annotations.graph.microsoft.com/user-id`: é o valor de `Object ID`;
 - `displayName`: nome do usuário;

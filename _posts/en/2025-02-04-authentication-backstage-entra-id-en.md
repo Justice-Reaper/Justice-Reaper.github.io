@@ -19,7 +19,7 @@ If you are a DevOps or cloud operator, you've likely encountered a situation whe
 
 I had to explore how Backstage works to address this exact challenge. What I discovered is that, while the tool is powerful, its documentation is not the most user-friendly.
 
-Since I found it difficult to locate online resources on authentication with Entra ID, I decided to create this post explaining what I believe is the simplest way to set it up. This tutorial will guide you through setting up Backstage from scratch and configuring Microsoft Entra ID as its identity provider (IDP) for secure and efficient authentication. 
+Since I found it difficult to locate online resources on authentication with Entra ID, I decided to create this post explaining what I believe is the simplest way to set it up. This tutorial will guide you through setting up Backstage from scratch and configuring Microsoft Entra ID as its identity provider (IDP) for secure and efficient authentication.
 
 ---
 
@@ -52,7 +52,7 @@ You can then access Backstage locally at `http://localhost:3000`, signing in as 
 ![Guest home page](assets/img/backstage-entraid/user-home.png)
 *Guest home page*
 
-💡 **Guest access is meant for development purposes only and is not recommended for production.** However, if you still want to enable full guest access, you can find the documentation [here](#).
+💡 **Guest access is meant for development purposes only and is not recommended for production.** However, if you still want to enable full guest access, you can find the documentation [here](https://backstage.io/docs/auth/guest/provider/).
 
 ---
 
@@ -75,6 +75,7 @@ To enable authentication, you must create an **App Registration** in **Microsoft
     For development, use `http://localhost:7007/api/auth/microsoft/handler/frame` as the **redirect URL**. (You can add additional URLs for production later.)  
 
 4. Go to **Manage > API Permissions**, and add the following **Delegated** permissions to **Microsoft Graph**:  
+
 - `email`  
 - `offline_access`  
 - `openid`  
@@ -193,6 +194,7 @@ Once this is done, you should see the **Microsoft login button** on the Backstag
 ---
 
 ## Step 6: Add Users to the Backstage Catalog
+
 For this tutorial, we will **manually create a user** in the catalog. However, you can automate user ingestion via **Microsoft Graph** (check documentation [here](https://backstage.io/docs/integrations/azure/org/)).
 
 Edit the file `examples/org.yaml`, adding the following snippet at the end:
@@ -216,6 +218,7 @@ spec:
 ```
 
 📌 Notes:
+
 - `metadata.name`: Mail nickname (value before @yourdomain.com).
 - `metadata.annotations.graph.microsoft.com/user-id`: `Object ID` of the user.
 - `displayName`: Full name of the user.

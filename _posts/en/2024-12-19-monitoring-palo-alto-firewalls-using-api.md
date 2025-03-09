@@ -13,7 +13,7 @@ image: assets/img/monitoring-using-api/cover.png
 
 *Também disponível em* [*Português*](https://blog.lmeier.net/posts/usando-api-para-monitorar-ipsec-da-palo-alto/)
 
-When it comes to networking monitoring, **SNMP **is by far one of the most used protocols. It is easy to have visibility over traffic and interface’s status polling network-related OIDs from SNMP database. However, not all vendors make it available to monitor virtual interfaces (such as IPSec) the same way as they do with physical ones. Palo Alto is one of these. If you check their documentation (linked [here](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000ClgECAS)) it will tell you that the IPSec tunnel status is monitored only via SNMP traps and not queries.
+When it comes to networking monitoring, **SNMP** is by far one of the most used protocols. It is easy to have visibility over traffic and interface’s status polling network-related OIDs from SNMP database. However, not all vendors make it available to monitor virtual interfaces (such as IPSec) the same way as they do with physical ones. Palo Alto is one of these. If you check their documentation (linked [here](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000ClgECAS)) it will tell you that the IPSec tunnel status is monitored only via SNMP traps and not queries.
 
 So, in this post I will address how to **monitor IPSec tunnel status** using API instead of SNMP, when the latter is not an option.
 
@@ -35,7 +35,6 @@ That would return a list of all interfaces, including **tunnel interfaces**:
 While SNMP retrieves tunnel interfaces listed in the GUI under `Network > Interface > Tunnel`, it does not monitor IPSec Tunnels located under `Network > IPSec Tunnels`, and here lies the critical issue:
 
 * **Tunnel interfaces are virtual** and do not reflect the real status of the IPSec tunnel. Even if the IPSec tunnel goes **down**, the associated tunnel interface will still appear as **operational**.
-
 
 #### Demonstrating the problem
 
@@ -65,7 +64,7 @@ snmpwalk -v 2c -c public 1.2.3.4 IF-MIB::ifOperStatus.400000001
 ![tunnel.1 operational status](assets/img/monitoring-using-api/tunnel-1-operation-status.png)
 *tunnel.1 operational status*
 
-#### Result:
+#### Result
 
 The SNMP response still reports the tunnel as operational.
 
@@ -77,7 +76,7 @@ As said above, I developed a Python script that consumes [the firewall’s API](
 2. **Status**: Returns a numeric status of a specific tunnel.
 You can find and download the script [**here**](https://github.com/LuizMeier/Zabbix/blob/master/Palo%20Alto/IPSec_EN.py). Below are examples of how to use it:
 
-**a) Discovery Mode**
+#### a) Discovery Mode
 
 The ``discovery`` action lists all tunnels in JSON format:
 
@@ -100,7 +99,7 @@ This JSON output is very powerful for tool like Zabbix to create dynamic monitor
 }
 ```
 
-**b) Status Mode**
+#### b) Status Mode
 
 To check the status of a specific tunnel, use the `status` action:
 

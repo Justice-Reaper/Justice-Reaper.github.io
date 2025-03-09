@@ -63,6 +63,7 @@ Conseguimos listar informações do arquivo em questão, mas juntamente com outr
 ```powershell
 (Get-ChildItem C:\Temp\lalala.zip).Lenght
 ```
+
 ![Exibe tamanho](assets/img/zabbix-custom-lld/exibe-tamanho.png)
 *Exibe somente o valor do tamanho*
 
@@ -87,6 +88,7 @@ Isto posto, salve esse script e execute-o via powershell, passando o nome do arq
 ```powershell
 C:\temp\monit-arquivos.ps1 lalala.zip
 ```
+
 ![Mostra tamanho via script](assets/img/zabbix-custom-lld/exibe-tamanho-via-parametro.png)
 *Mostrando tamanho usando arquivo como parâmetro do script*
 
@@ -106,12 +108,13 @@ If ($args\[0\] -eq "tamanho") {
   (Get-ChildItem "C:\Temp\"$args[1]).Length   
 } 
  ```
- 
+
 Agora salve o script e execute-o para checar se está funcionando conforme o esperado. Passaremos o primeiro parâmetro como `tamanho` e o segundo com o nome do arquivo.
 
 ```powershell
 C:\Temp\monit-arquivos.ps1 tamanho lalala.zip
 ```
+
 ![Informa ação](assets/img/zabbix-custom-lld/informa-acao.png)
 *Informando ação e arquivo como parâmetros*
 
@@ -150,6 +153,7 @@ Else {
   Write-Host "}"   
 }
  ```
+
 Execute o script para ver a saída em formato JSON, que você pode validar em qualquer validador desses na internet. Aqui usei o [JSONLint](https://jsonlint.com/).
 
 ![Saída JSON](assets/img/zabbix-custom-lld/saida-json.png)
@@ -202,7 +206,7 @@ Else
   Write-Host "}"   
 }
  ```
- 
+
 #### **O Host**
 
 Feita esta parte, vamos adicionar o script ao arquivo de configuração do host a ser monitorado, criando uma chave `monit-arquivos` via [UserParameter](https://www.zabbix.com/documentation/3.0/pt/manual/config/items/userparameters). O parâmetro de usuário nada mais é do que criar uma chave de monitoramento customizada, que quando executada chamará o comando/script declarado no arquivo de configuração.
@@ -212,6 +216,7 @@ Encontre o arquivo de configuração do seu host e adicione a seguinte linha (no
 ```bash
 UserParameter=monit-arquivos[*],powershell.exe -NoProfile -ExecutionPolicy Bypass -file "C:\Zabbix\monit-arquivos.ps1" "$1" "$2"
 ```
+
 Essa tag diz que estamos criando uma chave com o nome monit-arquivos, que aceitará parâmetros (`$1` e `$2`) e que quando chamada executará o comando que está após a vírgula. Caso tenha dúvidas, pesquise sobre os outros parâmetros de powershell que estão sendo utilizados nessa linha.  
 Note que os parâmetros estão declarados como `$1` e `$2`, que é o padrão do arquivo de configuração do Zabbix. Isso nada tem a ver com a liguagem utilizada no seu script.
 
@@ -228,11 +233,11 @@ zabbix_get -k monit-arquivos[tamanho,lalala.zip]
 ```
 
 #### **O Zabbix**
+
 Agora vamos criar o nosso processo de descoberta. Crie um template novo (ou edite um host) e vá até a aba Regras de Descoberta. Clique na opção `Criar regra de descoberta`.
 
 ![Criar regra de descoberta](assets/img/zabbix-custom-lld/cria-regra-descoberta.png)
 *Criar regra de descoberta*
-
 
 Na tela seguinte, dê um nome para a sua regra de descoberta e informe o nome da chave igual colocamos no parâmetro de usuário, no arquivo de configuração do Zabbix. Estamos configurando aqui de quanto em quanto tempo o Zabbix fará o processo de descoberta, que nada mais é que executar o script que criamos sem informar nenhum parâmetro.
 

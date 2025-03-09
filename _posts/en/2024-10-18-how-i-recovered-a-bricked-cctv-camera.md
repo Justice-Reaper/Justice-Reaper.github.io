@@ -108,8 +108,7 @@ Success! Once the camera booted, it retained its original settings. If this does
 
 Once I regained access to the camera, I simply performed a standard firmware upgrade using the .bin file downloaded from the vendor’s website. After that, I reconfigured everything and it was good to go!
 
-![](assets/img/bricked-camera/fireworks.gif)
+![Success!](assets/img/bricked-camera/fireworks.gif)
+*Success!*
 
 I hope you find this guide helpful — it might save your investment. Have a great day!
-
-  

@@ -64,7 +64,7 @@ snmpwalk -v 2c -c public 1.2.3.4 IF-MIB::ifOperStatus.400000001
 ![Status operacional da interface tunnel.1](assets/img/monitoring-using-api/tunnel-1-operation-status.png)
 *Status operacional da interface tunnel.1*
 
-#### Resultado:
+#### Resultado
 
 A resposta SNMP permanece trazendo que o estado do túnel é operacional.
 
@@ -76,7 +76,7 @@ Como dito acima, desenvolvi um script em Python que consome a [API do firewall](
 2. **Status**: Retorna um valor numérico de estado para um túnel específico.
 Você pode encontrar e baixar o script [**aqui**](https://github.com/LuizMeier/Zabbix/blob/master/Palo%20Alto/IPSec_PT-BR.py). Abaixo seguem alguns exemplos de como utilizá-lo:
 
-**a) Modo de descoberta**
+#### a) Modo de descoberta
 
 A ação `discovery` lista todas as interfaces IPSec em formato JSON:
 
@@ -99,7 +99,7 @@ Esta saída JSON é bastante poderosa para ferramentas como Zabbix para dinamica
 }
 ```
 
-**b) Modo status**
+#### b) Modo status
 
 Para coletar o estado específico de um túnel, use a ação `status`:
 
@@ -128,5 +128,3 @@ Você pode, facilmente, integrar o script à sua ferramenta de monitoramento. Pa
 Aproveitar a API da Palo Alto te dá a opção de contornar as limitações de coletas SNMP e aumentar a visibilidade dos seus túneis IPSec. Essa estratégia pode ser estendida para outros cenários em que a informação que você precisa só está disponível via API.
 
 Espero que você ache este post útil para o seu ambiente de monitoramento. Se tiver questões ou sugestões, sinta-se à vontade para compartilhar nos comentários. Grande Abraço!
-
-  

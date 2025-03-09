@@ -15,12 +15,11 @@ image: assets/img/lb-fortinet-paloalto/cover.png
 
 Não há dúvida de que Fortinet e Palo Alto são alguns dos maiores fabricantes no mercado de firewalls de nova geração (NGFW). Enquanto cada fabricante brilha em diferentes áreas, é natural que um engenheiro compare as capacidades de cada um, até encontrar a que melhor se encaixa em suas necessidades, especialmente quando se trata de adotar uma nova solução no seu ambiente.
 
-Ao me deparar com uma migração de Fortinet para Palo Alto, uma das capacidades a que não me atentei adequadamente foi o balanceamento de carga. Neste post, vou focar em um dos motores de rede que entendo mais úteis da Fortinet, o **Virtual Server **(solução nativa para balanceamento de carga), e falar um pouco como a Palo Alto lida com esse tipo de tarefa. Vou falar sobre uma automação customizada como sugestão para contornar algumas das limitações da Palo Alto, quando se fala em balanceamento/distribuição de tráfego.
+Ao me deparar com uma migração de Fortinet para Palo Alto, uma das capacidades a que não me atentei adequadamente foi o balanceamento de carga. Neste post, vou focar em um dos motores de rede que entendo mais úteis da Fortinet, o **Virtual Server**(solução nativa para balanceamento de carga), e falar um pouco como a Palo Alto lida com esse tipo de tarefa. Vou falar sobre uma automação customizada como sugestão para contornar algumas das limitações da Palo Alto, quando se fala em balanceamento/distribuição de tráfego.
 
-**O Balanceamento de Carga Nativo da Fortinet**
+## O Balanceamento de Carga Nativo da Fortinet
 
-Traduzindo literalmente da [documentação ](https://docs.fortinet.com/document/fortigate/6.2.16/cookbook/713497/virtual-server)do fabricante,
-
+Traduzindo literalmente da [documentação](https://docs.fortinet.com/document/fortigate/6.2.16/cookbook/713497/virtual-server)do fabricante,
 
 > “O balanceador de carga de servidor contém todas as capacidades de uma solução de balanceamento de carga. Você pode balancear tráfego entre vários servidores de backens, baseado em múltiplas opções de balanceamento: estático (failover), round robin e por peso (baseado na saúde e performance do servidor, incluindo o tempo de ida e volta e número de conexões).”
 
@@ -57,6 +56,7 @@ host = sys.argv[4]      # Endereço do host a ser removido ou adicionado ao grup
 username = sys.argv[5]  # Usuário de acesso ao firewall  
 password = sys.argv[6]  # Senha para acesso ao firewall
 ```
+
 Você pode executar o script pela linha de comando, passando os parâmetros necessários na seguinte ordem:
 
 ```shell
@@ -76,5 +76,3 @@ Essa solução provê uma maneira dinâmica e automatizada de gerenciar os servi
 Apesar da solução da Fortinet oferecer uma opção mais completa, a API da Palo Alto oferece um pouco de flexibilidade através da API, possibilitando algumas soluçõpes de contorno, usando um pouco de criatividade. Ao integrar uma ferramenta de monitoramento com um script customizado, você pode replicar algumas das funcionalidades que a solução não oferece nativamente e ter um balanceamento eficaz na sua infraestrutura.
 
 Por último, tanto a Fortinet quanto a Palo Alto possuem suas vantagens, e a escolha entre elas vai depender das suas necessidades específicas. Se o balanceamento de carga for um pré-requisito, esteja preparado para ter que customizar algumas coisas se decidir ir pra Palo Alto.
-
-  

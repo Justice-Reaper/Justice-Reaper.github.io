@@ -34,7 +34,7 @@ To start, run `C:\path\to\the\script\MonitorCSV.ps1`
 
 In the output, we can see that the script has found only one disk added to the cluster in CSV mode.
 
-The script accepts 4 arguments: used, free, pfree, and total. For example, if you want to know the total size of disk 11, run 
+The script accepts 4 arguments: used, free, pfree, and total. For example, if you want to know the total size of disk 11, run the command below:
 
 ```powershell
 C:\path\to\the\script\MonitorCSV.ps1 "Cluster Disk11" total
@@ -54,20 +54,18 @@ I’ve made a monitoring template available [here](https://github.com/LuizMeier/
 
 **b)** Now, create the items. Below are the details for each item I created. The LLD will dynamically create new items for each discovered volume.
 
-![](assets/img/monitor-csv/item-prototype-1.png)
+![Item prototype](assets/img/monitor-csv/item-prototype-1.png)
 *Item prototype*
 
-![](assets/img/monitor-csv/item-prototype-2.png)
+![Item prototype](assets/img/monitor-csv/item-prototype-2.png)
 *Item prototype*
 
 **c)** After that, create the trigger prototypes and graphs. All these elements will be dynamically created for each disk added to the cluster.
 
-![](assets/img/monitor-csv/trigger-prototype-1.png)
-*Trigger ptototypes*
+![Trigger prototypes](assets/img/monitor-csv/trigger-prototype-1.png)
+*Trigger prototypes*
 
-![](assets/img/monitor-csv/trigger-prototype-1.png)
+![Trigger prototypes](assets/img/monitor-csv/trigger-prototype-1.png)
 *Graph prototypes*
 
 I hope this is helpfull. Enjoy!
-
-  

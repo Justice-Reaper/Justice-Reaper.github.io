@@ -25,17 +25,16 @@ I'll keep a repository on my GitHub with the Backstage code resulting from these
 2. [Summary](#summary)
 3. [Create a PAT for use](#create-a-pat-for-use)
 4. [Configure Backstage to use the PAT](#configure-backstage-to-use-the-pat)
-  - [Add the PAT to Backstage](#add-the-pat-to-backstage)
-  - [Test the integration functioning](#test-the-integration-functioning)
+    - [Add the PAT to Backstage](#add-the-pat-to-backstage)
+    - [Test the integration functioning](#test-the-integration-functioning)
 5. [Install the Azure DevOps Plugin](#install-the-azure-devops-plugin)
 6. [Create the template for use by Backstage](#create-the-template-for-use-by-backstage)
 7. [Create the Terraform code](#create-the-terraform-code)
 8. [Create the pipeline to execute the code](#create-the-pipeline-to-execute-the-code)
-  - [Create a service connection](#create-a-service-connection)
-  - [Create the pipeline in Azure DevOps](#create-the-pipeline-in-azure-devops)
+    - [Create a service connection](#create-a-service-connection)
+    - [Create the pipeline in Azure DevOps](#create-the-pipeline-in-azure-devops)
 9. [Final Test](#final-test)
 10. [Conclusion](#conclusion)
-
 
 💡 **Note**: Having Entra ID as an IDP is not a prerequisite for working with Azure DevOps. However, it is common for both solutions to be used in a Microsoft environment.
 
@@ -70,6 +69,7 @@ For this post, I created a new project in Azure DevOps called Backstage, where w
 ## Configure Backstage to use the PAT
 
 ### Add the PAT to Backstage
+
 Now let's go back to the Backstage code to modify the `app-config.yaml` file. With it open, add the code snippet below to the `integrations` section:
 
 ```yaml
@@ -81,6 +81,7 @@ integrations:
 ```
 
 ### Test the integration functioning
+
 With that configured, it should already be possible to test Backstage's access to your Azure DevOps repository. To test this, let's store a test template file inside our repository, in a folder called `template`. After that, we will try to import this template into Backstage. Below, I'll provide a sample file that I took from the Backstage documentation and only changed the `name` field.
 
 ```yaml
@@ -138,6 +139,7 @@ spec:
 Congratulations, the integration with Azure DevOps is working!
 
 ## Install the Azure DevOps Plugin
+
 For our Backstage template to work properly, we will need the actions `azure:repo:clone`, `azure:repo:push`, and `azure:repo:pr`. These actions will be taken by the template to download the code, then push it, and finally create a pull request. To check if they are already installed, you can go to **Create** and then, in the upper right corner, select **Installed Actions**.
 
 ![Finding installed actions](assets/img/backstage-azure-devops/installe3d-actions-menu.png)

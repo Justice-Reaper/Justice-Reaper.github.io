@@ -15,7 +15,7 @@ image: assets/img/bricked-camera/cover.png
 
 Há algumas semanas tive uma dificuldade com duas câmeras de CFTV que brickaram inesperadamente. Apesar de existirem milhares de posts e vídeos no YouTube de pessoas ensinando a configurar, resetar, alterar senha e etc., não encontrei nenhuma informação a respeito de como tentar recuperar o equipamento no caso dele não iniciar. Abaixo explico como detectei que as câmeras não estavam condenadas e comecei os trabalhos para recuperá-las.
 
-Vou assumir que você já está habituado(a) com pelo menos o conceito básico de redes, CFTV e um pouco de eletrônica. Caso você decida seguir os mesmos passos que eu, vale dizer que ***NÃO ME RESPONSABILIZO *** por qualquer dano que possa ser causado no seu equipamento.
+Vou assumir que você já está habituado(a) com pelo menos o conceito básico de redes, CFTV e um pouco de eletrônica. Caso você decida seguir os mesmos passos que eu, vale dizer que ***NÃO ME RESPONSABILIZO*** por qualquer dano que possa ser causado no seu equipamento.
 
 #### Diagnóstico
 
@@ -106,8 +106,7 @@ Sucesso! Inclusive, como estava em uso, a câmera voltou com as mesmas configura
 
 Uma vez tendo acesso, fiz uma atualização comum, apontando o arquivo .binque o próprio fabricante disponibiliza. Assim, tive certeza de que a câmera estava configurada com tudo que precisava. Após isso, só configurar e usar!
 
-![](assets/img/bricked-camera/fireworks.gif)
+![Sucesso!](assets/img/bricked-camera/fireworks.gif)
+*Sucesso!*
 
 Espero que seja útil e possa vir a salvar o seu investimento. Tenha um bom dia!
-
-  

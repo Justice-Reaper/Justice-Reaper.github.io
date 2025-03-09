@@ -71,5 +71,3 @@ Eu disponibilizei um template [aqui](https://github.com/LuizMeier/Zabbix/blob/ma
 Dessa forma, todos estes elementos serão criados para cada novo disco adicionado de forma dinâmica, sem a necessidade de ter que criá-los manualmente.
 
 Espero que seja útil!
-
-  

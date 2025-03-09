@@ -48,7 +48,7 @@ Get-ChildItem C:\Temp
 ![Files list](assets/img/zabbix-custom-lld/files-list.png)
 *Files list*
 
-Wow! With just this cmdlet, we were already able to list the files in the folder along with their sizes. 
+Wow! With just this cmdlet, we were already able to list the files in the folder along with their sizes.
 
 Now, let’s test how to print only the size of a specific file. Suppose we need to know the size of a file called `lalala.zip`:
 
@@ -64,12 +64,13 @@ We were able to list the information for the file we want, but we also retrieved
 ```powershell
 (Get-ChildItem C:\Temp\lalala.zip).Lenght
 ```
+
 ![Show size](assets/img/zabbix-custom-lld/exibe-tamanho.png)
 *Shows the file size only*
 
 Great! We’ve successfully configured the script to print only the data we need. Now, we need to make the script run dynamically, so that for each file in the folder, the PowerShell prompt behaves differently.
 
-To achieve this, we can use a concept similar to Bash in Linux, which uses variables like $1, $2, and $n as parameters passed to a script. The only difference is that in PowerShell, this array starts at 0, using `$args[x]`, where `x` is the position of the parameter to be passed.  
+To achieve this, we can use a concept similar to Bash in Linux, which uses variables like $1, $2, and $n as parameters passed to a script. The only difference is that in PowerShell, this array starts at 0, using `$args[x]`, where`x` is the position of the parameter to be passed.  
 
 In the command below, for example, `abc` is `$args[0]` and `123` is `$args[1]`.
 
@@ -88,6 +89,7 @@ That said, save the script and run it via PowerShell, passing the file name as a
 ```powershell
 C:\temp\monit-arquivos.ps1 lalala.zip
 ```
+
 ![Show size via script](assets/img/zabbix-custom-lld/exibe-tamanho-via-parametro.png)
 *Showing size using file as a script parameter*
 
@@ -106,12 +108,13 @@ If ($args\[0\] -eq "tamanho") {
   (Get-ChildItem "C:\Temp\"$args[1]).Length   
 } 
  ```
- 
+
 Now save the script and run it to check if it works as expected. We will pass the first parameter as `tamanho` and the second as the file name:
 
 ```powershell
 C:\Temp\monit-arquivos.ps1 tamanho lalala.zip
 ```
+
 ![Declare action](assets/img/zabbix-custom-lld/informa-acao.png)
 *Informing action and file as parameters*
 
@@ -150,6 +153,7 @@ Else {
   Write-Host "}"   
 }
  ```
+
 Run the script to check the JSON output, which you can validate using any JSON validator available on the internet. Here, I used [JSONLint](https://jsonlint.com).
 
 ![JSON output](assets/img/zabbix-custom-lld/saida-json.png)
@@ -200,7 +204,7 @@ Else {
   Write-Host "}"   
 }
  ```
- 
+
 #### **The Host**
 
 With the script completed, we will add it to the configuration file of the host to be monitored, creating a key called monit-arquivos via UserParameter. The parameter used is simply a custom monitoring key that, when executed, will call the command/script declared in the .conf file.  
@@ -209,6 +213,7 @@ Find the configuration file of your host and add the following line (in my test,
 ```bash
 UserParameter=monit-arquivos[*],powershell.exe -NoProfile -ExecutionPolicy Bypass -file "C:\Zabbix\monit-arquivos.ps1" "$1" "$2"
 ```
+
 This tag says we are creating a key named monit-arquivos, which will accept parameters (`$1` and `$2`) and when called will execute the command that is after the comma. In case you are not sure, have a search about other powershell parameters used in this line.
 Note that the parameters are declared as `$1` and `$2`, and that is the default setting of Zabbix's configuration file. That has nothing to do with the language used in my script.
 
@@ -225,6 +230,7 @@ zabbix_get -k monit-arquivos[tamanho,lalala.zip]
 ```
 
 #### **The Zabbix**
+
 Now we will create our discovery process. Create a new template (or edit an existing host) and go to the tab named `Discovery Rules`. Click on the option `Create discovery rule`.
 
 ![Create discovery rule](assets/img/zabbix-custom-lld/cria-regra-descoberta.png)

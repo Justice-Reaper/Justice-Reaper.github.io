@@ -56,6 +56,7 @@ host = sys.argv[4]      # Host to be removed or added to address group
 username = sys.argv[5]  # Firewall's username  
 password = sys.argv[6]  # Firewall's password
 ```
+
 You can run the script from the command line, passing the necessary parameters in the following order:
 
 ```bash
@@ -77,5 +78,3 @@ This solution provides a dynamic, automated way to manage your load-balanced ser
 While Fortinet’s native load balancing offers a more complete solution, Palo Alto’s flexibility through its API enables creative workarounds. By integrating a monitoring tool with a custom script, you can replicate some of the missing functionalities and ensure smooth load balancing across your infrastructure.
 
 Ultimately, both Fortinet and Palo Alto have their strengths, and the choice between them will depend on your specific needs. If load balancing is a key factor, be prepared to implement custom solutions if you opt for Palo Alto.
-
-  
