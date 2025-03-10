@@ -19,7 +19,7 @@ Generally, the disks made available to a cluster have an “owner.” This means
 
 One of the “problems” with using CSV is that the cluster simply consumes the volume and places it in a folder inside C:\ClusterStorage\VolumeX, with X being incremented as new disks are added as CSVs.
 
-Considering that we can no longer monitor the disks natively in Zabbix using the default Zabbix keys (since the disks don’t exist in the same way!), the only option left is to develop a script to collect this data dynamically through LLD. If you don’t know what LLD is, I suggest you take a look at my [previous post](https://medium.com/@lfmmeier/creating-your-own-custom-lld-in-zabbix-eb9bfb51fcfa?source=user_profile_page---------0-------------3b52148ccc9f---------------) where I explain what it is and how to create your own discovery process.
+Considering that we can no longer monitor the disks natively in Zabbix using the default Zabbix keys (since the disks don’t exist in the same way!), the only option left is to develop a script to collect this data dynamically through LLD. If you don’t know what LLD is, I suggest you take a look at my [previous post](https://blog.lmeier.net/posts/creating-your-own-custom-lld-in-zabbix-en/) where I explain what it is and how to create your own discovery process.
 
 You can download the script (as well as the Zabbix template) that I created [here](https://github.com/LuizMeier/Zabbix/tree/master/ClusterSharedVolume). After downloading it, save it in a folder of your choice. For this script, you should save the file on the server to be monitored.
 
@@ -34,7 +34,7 @@ To start, run `C:\path\to\the\script\MonitorCSV.ps1`
 
 In the output, we can see that the script has found only one disk added to the cluster in CSV mode.
 
-The script accepts 4 arguments: used, free, pfree, and total. For example, if you want to know the total size of disk 11, run 
+The script accepts 4 arguments: used, free, pfree, and total. For example, if you want to know the total size of disk 11, run the command below:
 
 ```powershell
 C:\path\to\the\script\MonitorCSV.ps1 "Cluster Disk11" total
@@ -54,20 +54,18 @@ I’ve made a monitoring template available [here](https://github.com/LuizMeier/
 
 **b)** Now, create the items. Below are the details for each item I created. The LLD will dynamically create new items for each discovered volume.
 
-![](assets/img/monitor-csv/item-prototype-1.png)
+![Item prototype](assets/img/monitor-csv/item-prototype-1.png)
 *Item prototype*
 
-![](assets/img/monitor-csv/item-prototype-2.png)
+![Item prototype](assets/img/monitor-csv/item-prototype-2.png)
 *Item prototype*
 
 **c)** After that, create the trigger prototypes and graphs. All these elements will be dynamically created for each disk added to the cluster.
 
-![](assets/img/monitor-csv/trigger-prototype-1.png)
-*Trigger ptototypes*
+![Trigger prototypes](assets/img/monitor-csv/trigger-prototype-1.png)
+*Trigger prototypes*
 
-![](assets/img/monitor-csv/trigger-prototype-1.png)
+![Trigger prototypes](assets/img/monitor-csv/trigger-prototype-1.png)
 *Graph prototypes*
 
 I hope this is helpfull. Enjoy!
-
-  

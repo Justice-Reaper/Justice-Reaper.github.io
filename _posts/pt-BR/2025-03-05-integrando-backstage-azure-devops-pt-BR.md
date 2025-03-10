@@ -15,7 +15,7 @@ image: assets/img/backstage-azure-devops/cover.png
 
 ## Introdução
 
-Este é o segundo post que faço abordando o Backstage. Confira o primeiro, onde falo de integração com o Entra ID [aqui](https://blog.lmeier.net/posts/autenticacao-backstage-entra-id-pt-BR/). Agora, vamos abordar todos os passos para a integração do Backstage ao Azure DevOps para automatizar a entrega de recursos na Azure por meio de uma pipeline. Se prepare, porque vai ser longo! 
+Este é o segundo post que faço abordando o Backstage. Confira o primeiro, onde falo de integração com o Entra ID [aqui](https://blog.lmeier.net/posts/autenticacao-backstage-entra-id-pt-BR/). Agora, vamos abordar todos os passos para a integração do Backstage ao Azure DevOps para automatizar a entrega de recursos na Azure por meio de uma pipeline. Se prepare, porque vai ser longo!
 
 Eu vou manter no meu GitHub um repositório do Backstage com o resultado destes dois posts e também disponibilizando os arquivos que usaremos aqui.
 
@@ -25,17 +25,16 @@ Eu vou manter no meu GitHub um repositório do Backstage com o resultado destes 
 2. [Sumário](#sumário)
 3. [Crie um PAT para uso](#crie-um-pat-para-uso)
 4. [Configure o Backstage para usar o PAT](#configure-o-backstage-para-usar-o-pat)
-  - [Adicione o PAT ao Backstage](#adicione-o-pat-ao-backstage)
-  - [Teste o funcionamento da integração](#teste-o-funcionamento-da-integração)
+    - [Adicione o PAT ao Backstage](#adicione-o-pat-ao-backstage)
+    - [Teste o funcionamento da integração](#teste-o-funcionamento-da-integração)
 5. [Instale o plugin do Azure DevOps](#instale-o-plugin-do-azure-devops)
 6. [Crie o template para uso pelo Backstage](#crie-o-template-para-uso-pelo-backstage)
 7. [Crie o código Terraform](#crie-o-código-terraform)
 8. [Crie a pipeline para execução do código](#crie-a-pipeline-para-execução-do-código)
-  - [Crie uma conexão de serviço](#crie-uma-conexão-de-serviço)
-  - [Crie a pipeline no Azure DevOps](#crie-a-pipeline-no-azure-devops)
+    - [Crie uma conexão de serviço](#crie-uma-conexão-de-serviço)
+    - [Crie a pipeline no Azure DevOps](#crie-a-pipeline-no-azure-devops)
 9. [Teste final](#teste-final)
 10. [Conclusão](#conclusão)
-
 
 💡 **Nota**: Ter o Entra ID como IDP não é um pré-requisito para o funcionamento com o Azure DevOps. Porém, é comum que as duas soluções sejam usadas em ambiente Microsoft.
 
@@ -44,7 +43,6 @@ Para este post, criei um projeto novo no Azure DevOps chamado Backstage, que é 
 ⚠️ **Atenção**: Assumirei que você já sabe como criar um projeto, repositório e usar o mínimo de git necessário.
 
 [Neste link](https://backstage.io/docs/integrations/azure/locations) você pode checar a documentação do Backstage para fazer esta integração. O Backstage suporta uso de identidade gerenciada, service principal e PAT. Para o propósito do post, vou usar PAT por ser mais simples.
-
 
 ## Crie um PAT para uso
 
@@ -71,6 +69,7 @@ Para este post, criei um projeto novo no Azure DevOps chamado Backstage, que é 
 ## Configure o Backstage para usar o PAT
 
 ### Adicione o PAT ao Backstage
+
 Agora voltamos ao código do backstage para alterar o arquivo `app-config.yaml`. Com ele aberto, adicione o trecho de código abaixo à seção `integrations`:
 
 ```yaml
@@ -82,6 +81,7 @@ integrations:
 ```
 
 ### Teste o funcionamento da integração
+
 Com isto configurado, já deve ser possível testar o acesso do Backstage ao seu repositório do Azure DevOps. Para testar, vamos armazenar um arquivo de template de teste, dentro do nosso repositório, numa pasta chamada `template`. Depois, vamos tentar importar este template para dentro do Backstage. Abaixo vou deixar um arquivo de modelo, que peguei da documentação do Backstage e só alterei o campo `name`:
 
 ```yaml
@@ -138,6 +138,7 @@ spec:
 Parabéns, a integração com o Azure DevOps está funcionando!
 
 ## Instale o plugin do Azure DevOps
+
 Para que o nosso template do Backstage funcione adequadamente, precisaremos das ações `azure:repo:clone`, `azure:repo:push` e  `azure:repo:pr`. Estas ações serão tomadas pelo template para fazer o download do código, depois push e então criar um pull request. Para checar se elas já estão instaladas, você pode ir em **Create** e, então, no canto superior direito, selecionar **Installed Actions**.
 
 ![Encontrando as ações instaladas](assets/img/backstage-azure-devops/installe3d-actions-menu.png)
@@ -163,7 +164,7 @@ backend.add(import('@parfuemerie-douglas/scaffolder-backend-module-azure-reposit
 
 Agora que temos o Backstage pronto para falar com o Azure DevOps e, além disso, os plugins necessários instalados, vamos criar o template, que nada mais é que o formulário que receberá os dados do requisitante para provisionamento do recurso. Vou deixar um modelo de template bem simples, em que o usuário será solicitado a dizer o próprio nome e o nome do grupo de recursos que deseja que seja criado.
 
-Uma das coisas com a qual mais tive dificuldade foi conseguir encontrar as informações necessárias para conseguir chegar ao resultado esperado usando o template. Aqui segue um modelo de template bem simples. 
+Uma das coisas com a qual mais tive dificuldade foi conseguir encontrar as informações necessárias para conseguir chegar ao resultado esperado usando o template. Aqui segue um modelo de template bem simples.
 
 ```yaml
 # Template for creating a new Azure DevOps repository and pushing a new Backstage component to it.
@@ -239,10 +240,9 @@ spec:
 
 > ⚠️**Nota Importante sobre os templates**⚠️:
 >
->  Quando utilizamos caminho relativo na tratativa de arquivos no Backstage, ele **sempre** levará como local de partida o local de onde **o template foi importado**.
+> Quando utilizamos caminho relativo na tratativa de arquivos no Backstage, ele **sempre** levará como local de partida o local de onde **o template foi importado**.
 >
 > Em outras palavras, ele sempre concatenará o caminho que você informar com o caminho de onde o template foi importado. Dessa forma, ou você mantém os arquivos a serem tratados no mesmo local do arquivo de onde importou o template ou utiliza uma url de um lugar externo, que foi a abordagem que usei aqui na ação `fetch:template`. Mais sobre isso pode ser visto [aqui](https://backstage.io/docs/features/software-templates/) e [aqui](https://backstage.io/docs/tooling/cli/templates/).
-
 
 Voltando ao nosso processo, crie o arquivo do template no Azure DevOps (substituindo os campos devidos) e então vá até o Backstage e siga o mesmo processo de importação que fizemos antes no teste de integração. Na hora em que for importar o template, pode ser que se depare com o erro abaixo:
 
@@ -281,7 +281,8 @@ Atenção para a variável `name`, pois ela será preenchida pelo valor que vier
 
 Uma vez criado o código terraform, vamos fazer o upload dele para o nosso repositório do Azure DevOps.
 
-💡 **Importante**: como a ideia é que o Backstage faça a tratativa deste arquivo e depois faça o upload e subsequente criação de um Pull Request de código, este (contendo a variável `name`) será substituído pelo valor que virá do Backstage, tornando o código **não-reutilizável**. Para evitar isso, vamos separar o código com a variável, que chamaremos de `base`, do código que terá a variável preenchida, que chamaremos de `changed`, para facilitar. Assim, sempre teremos um lugar com o código pronto para ser utilizado.
+💡 **Importante**: como a ideia é que o Backstage faça a tratativa deste arquivo e depois faça o upload e subsequente criação de um Pull Request de código, este (contendo a variável `name`) será substituído pelo valor que virá do Backstage, tornando o código **não-reutilizável**.
+Para evitar isso, vamos separar o código com a variável, que chamaremos de `base`, do código que terá a variável preenchida, que chamaremos de `changed`, para facilitar. Assim, sempre teremos um lugar com o código pronto para ser utilizado.
 
 Abaixo segue a abordagem que entendo ser a mais simples, mas fique a vontade para adaptar à sua necessidade:
 
@@ -291,7 +292,6 @@ Abaixo segue a abordagem que entendo ser a mais simples, mas fique a vontade par
 ## Crie a pipeline para execução do código
 
 Por último, vamos criar uma pipeline que será disparada cada vez que houver uma alteração no código. Isso só acontecerá quando alguém aprovar o pull request que o Backstage criará.
-
 
 ### Crie uma conexão de serviço
 
@@ -308,7 +308,6 @@ Uma conexão de serviço é obrigatória para que o Azure DevOps possa criar rec
 3. Se tudo correu adequadamente, você verá a conexão criada.
 ![Conexão criada](assets/img/backstage-azure-devops/created-connection.png)
 *Conexão criada*
-
 
 ### Crie a pipeline no Azure DevOps
 

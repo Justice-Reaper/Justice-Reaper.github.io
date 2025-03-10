@@ -15,11 +15,12 @@ image: assets/img/bricked-camera/cover.png
 
 Há algumas semanas tive uma dificuldade com duas câmeras de CFTV que brickaram inesperadamente. Apesar de existirem milhares de posts e vídeos no YouTube de pessoas ensinando a configurar, resetar, alterar senha e etc., não encontrei nenhuma informação a respeito de como tentar recuperar o equipamento no caso dele não iniciar. Abaixo explico como detectei que as câmeras não estavam condenadas e comecei os trabalhos para recuperá-las.
 
-Vou assumir que você já está habituado(a) com pelo menos o conceito básico de redes, CFTV e um pouco de eletrônica. Caso você decida seguir os mesmos passos que eu, vale dizer que ***NÃO ME RESPONSABILIZO *** por qualquer dano que possa ser causado no seu equipamento.
+Vou assumir que você já está habituado(a) com pelo menos o conceito básico de redes, CFTV e um pouco de eletrônica. Caso você decida seguir os mesmos passos que eu, vale dizer que ***NÃO ME RESPONSABILIZO*** por qualquer dano que possa ser causado no seu equipamento.
 
 #### Diagnóstico
 
-Percebi (vários dias depois) que as câmeras haviam parado de funcionar e então removi-as do local para dar uma olhada mais de perto, já esperando que estivessem queimadas. Conectei-as à energia e ao meu roteador. Percebi então que a interface de rede do roteador ficava ligando e desligando após alguns segundos. Achei curioso e isso me fez ter esperança, pois imaginei que ainda havia algo vivo que estivesse gerando reboot do equipamento. Pra tentar diagnosticar o que estava ocorrendo, conectei a câmera direto no meu laptop e usei o Wireshark para capturar o tráfego de rede e então tentar ter alguma pista do motivo do comportamento.
+Percebi (vários dias depois) que as câmeras haviam parado de funcionar e então removi-as do local para dar uma olhada mais de perto, já esperando que estivessem queimadas. Conectei-as à energia e ao meu roteador. Percebi então que a interface de rede do roteador ficava ligando e desligando após alguns segundos. Achei curioso e isso me fez ter esperança, pois imaginei que ainda havia algo vivo que estivesse gerando reboot do equipamento.
+Para tentar diagnosticar o que estava ocorrendo, conectei a câmera direto no meu laptop e usei o Wireshark para capturar o tráfego de rede e então tentar ter alguma pista do motivo do comportamento.
 
 ![Wireshark](assets/img/bricked-camera/wireshark.png)
 *Wireshark*
@@ -30,7 +31,8 @@ Na imagem acima, algumas pistas aparecem:
 * **Pacote 16:** mostra que ela, então, via TFTP, tenta baixar o arquivo `upgrade_info_7db780a7134a.txt`, do servidor `192.168.254.254`. Sabendo disso, adicionei (também) o endereço 192.168.254.254 na interface de rede do laptop.
 Se não conseguir encontrar o arquivo procurado, tenta baixar o arquivo `failed.txt`.
 
-Este comportamento é bastante comum quando um equipamento não encontra o sistema operacional e tenta efetuar o boot via rede, usando TFTP. Comecei a pensar que talvez o armazenamento delas estivesse queimado ou com problemas. Comecei a pesquisa procurando por informações do arquivo `upgrade_info_7db780a7134a.txt`. A partir daí, tudo começou a se esclarecer, pois há bastante conteúdo disponível quando pesquisamos sobre ele. Aparentemente, a Intelbras usa o mesmo equipamento (se não o mesmo equipamento, então o mesmo bootloader) que uma outra fabricante chinesa chamada **Dahua**.
+Este comportamento é bastante comum quando um equipamento não encontra o sistema operacional e tenta efetuar o boot via rede, usando TFTP. Comecei a pensar que talvez o armazenamento delas estivesse queimado ou com problemas. Comecei a pesquisa procurando por informações do arquivo `upgrade_info_7db780a7134a.txt`. A partir daí, tudo começou a se esclarecer, pois há bastante conteúdo disponível quando pesquisamos sobre ele.
+Aparentemente, a Intelbras usa o mesmo equipamento (se não o mesmo equipamento, então o mesmo bootloader) que uma outra fabricante chinesa chamada **Dahua**.
 
 Navegando em vários fóruns, encontrei alguns que disponibilizavam o procedimento para conseguir fazer a instalação manual do firmware através da porta serial da câmera. Abri, então, uma delas e consegui encontrar as portas para acesso, conforme indicado [neste link](https://www.cctvforum.com/topic/41307-unbricking-your-dahua-ip-camera-tips-tricks-amp-firmware/). Segue abaixo uma foto com as portas identificadas:
 
@@ -106,8 +108,7 @@ Sucesso! Inclusive, como estava em uso, a câmera voltou com as mesmas configura
 
 Uma vez tendo acesso, fiz uma atualização comum, apontando o arquivo .binque o próprio fabricante disponibiliza. Assim, tive certeza de que a câmera estava configurada com tudo que precisava. Após isso, só configurar e usar!
 
-![](assets/img/bricked-camera/fireworks.gif)
+![Sucesso!](assets/img/bricked-camera/fireworks.gif)
+*Sucesso!*
 
 Espero que seja útil e possa vir a salvar o seu investimento. Tenha um bom dia!
-
-  
