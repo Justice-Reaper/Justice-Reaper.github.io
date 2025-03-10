@@ -51,7 +51,9 @@ jobs:
           bundle install
       
       - name: Run npm
-        run: npm install && npm run build
+        run: |
+          npm install
+          npm run build
 
       - name: Build site
         #run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
