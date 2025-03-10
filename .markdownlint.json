@@ -1,13 +1,6 @@
 {
-  "commands-show-output": false,
-  "blanks-around-fences": false,
-  "MD013": {
-    "line_length": 500
-  },
-  "MD033": {
-    "allowed_elements": ["kbd", "sub"]
-  },
-  "no-inline-html": {
-    "allowed_elements": ["kbd", "sub"]
+    "default": true,
+    "MD013": {
+      "line_length": 500
+    }
   }
-}
