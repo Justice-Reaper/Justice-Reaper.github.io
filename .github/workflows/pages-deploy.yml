@@ -44,6 +44,11 @@ jobs:
         with:
           ruby-version: 3.3
           bundler-cache: true
+      
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle install
 
       - name: Build site
         #run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
