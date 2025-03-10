@@ -282,7 +282,8 @@ Pay attention to the `name` variable, as it will be filled with the value coming
 
 Once the Terraform code is created, upload it to our Azure DevOps repository.
 
-💡 **Important**: since the idea is for Backstage to handle this file and then upload it and subsequently create a Pull Request of code, this (containing the `name` variable) will be replaced by the value coming from Backstage, making the code **non-reusable**. To avoid this, we will separate the code with the variable, which we will call `base`, from the code that will have the variable filled, which we will call `changed`, for simplicity. This way, we will always have a place with the code ready to be used.
+💡 **Important**: since the idea is for Backstage to handle this file and then upload it and subsequently create a Pull Request of code, this (containing the `name` variable) will be replaced by the value coming from Backstage, making the code **non-reusable**.
+To avoid this, we will separate the code with the variable, which we will call `base`, from the code that will have the variable filled, which we will call `changed`, for simplicity. This way, we will always have a place with the code ready to be used.
 
 Below is the approach I find the simplest, but feel free to adapt it to your needs:
 

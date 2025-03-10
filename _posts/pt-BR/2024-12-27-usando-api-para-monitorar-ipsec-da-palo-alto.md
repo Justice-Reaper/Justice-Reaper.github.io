@@ -13,7 +13,8 @@ image: assets/img/monitoring-using-api/cover.png
 
 *Also available in* [*English*](https://blog.lmeier.net/posts/monitoring-palo-alto-firewalls-using-api/)
 
-Quando se trata de monitoramento de rede, **SNMP** é, de longe, um dos protocolos mais utilizados. É simples de ter visibilidade de tráfego e status de interfaces somente coletando dados da base de dados das OIDs relacionadas à conectividade. Entretanto, nem todos os fabricantes disponibilizam o monitoramento de interfaces virtuais (como túneis IPSec) da mesma maneira das interfaces físicas. A Palo Alto é um destes casos. Se você consultar a documentação (disponível [aqui](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000ClgECAS)), verá que o status dos túneis IPSec é monitorado somente via traps SNMP, e não coletas.
+Quando se trata de monitoramento de rede, **SNMP** é, de longe, um dos protocolos mais utilizados. É simples de ter visibilidade de tráfego e status de interfaces somente coletando dados da base de dados das OIDs relacionadas à conectividade. Entretanto, nem todos os fabricantes disponibilizam o monitoramento de interfaces virtuais (como túneis IPSec) da mesma maneira das interfaces físicas. A Palo Alto é um destes casos.
+Se você consultar a documentação (disponível [aqui](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000ClgECAS)), verá que o status dos túneis IPSec é monitorado somente via traps SNMP, e não coletas.
 
 Sendo assim, neste post vou endereçar **como monitorar o status de túneis IPSec** utilizando chamadas API ao invés de SNMP, quando o último não é uma opção.
 

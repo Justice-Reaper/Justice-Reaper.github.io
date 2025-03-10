@@ -15,7 +15,8 @@ image: assets/img/lb-fortinet-paloalto/cover.png
 
 Não há dúvida de que Fortinet e Palo Alto são alguns dos maiores fabricantes no mercado de firewalls de nova geração (NGFW). Enquanto cada fabricante brilha em diferentes áreas, é natural que um engenheiro compare as capacidades de cada um, até encontrar a que melhor se encaixa em suas necessidades, especialmente quando se trata de adotar uma nova solução no seu ambiente.
 
-Ao me deparar com uma migração de Fortinet para Palo Alto, uma das capacidades a que não me atentei adequadamente foi o balanceamento de carga. Neste post, vou focar em um dos motores de rede que entendo mais úteis da Fortinet, o **Virtual Server**(solução nativa para balanceamento de carga), e falar um pouco como a Palo Alto lida com esse tipo de tarefa. Vou falar sobre uma automação customizada como sugestão para contornar algumas das limitações da Palo Alto, quando se fala em balanceamento/distribuição de tráfego.
+Ao me deparar com uma migração de Fortinet para Palo Alto, uma das capacidades a que não me atentei adequadamente foi o balanceamento de carga. Neste post, vou focar em um dos motores de rede que entendo mais úteis da Fortinet, o **Virtual Server**(solução nativa para balanceamento de carga), e falar um pouco como a Palo Alto lida com esse tipo de tarefa.
+Vou falar sobre uma automação customizada como sugestão para contornar algumas das limitações da Palo Alto, quando se fala em balanceamento/distribuição de tráfego.
 
 ## O Balanceamento de Carga Nativo da Fortinet
 

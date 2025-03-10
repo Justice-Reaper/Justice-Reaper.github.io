@@ -15,7 +15,8 @@ image: assets/img/monitor-csv/cover.png
 
 Neste post veremos como monitorar os discos de um cluster de failover Microsoft utilizando o LLD do Zabbix, simplificando o monitoramento de volumes compartilhados. Se você não sabe o que é um cluster de failover, sugiro dar uma estudada [aqui](https://technet.microsoft.com/pt-br/library/cc770737%28v=ws.11%29.aspx).
 
-De modo geral, os discos que são apresentados a um cluster possuem um “dono”. Isso quer dizer que a propriedade de leitura e gravação naquele disco é de um dos nós do cluster, e somente dele. Com o recurso de CSV (Cluster Shared Volumes, e não lista de valores separados por vírgula :)), ou volumes compartilhados do cluster, é possível que dois ou mais nós do cluster gravem dados em um mesmo volume ao mesmo tempo. Isso também agiliza o processo de failover, pois não é necessária a montagem e desmontagem do volume para a troca de propriedade. Mais informações sobre CSV [aqui](https://msdn.microsoft.com/pt-br/library/jj612868%28v=ws.11%29.aspx)
+De modo geral, os discos que são apresentados a um cluster possuem um “dono”. Isso quer dizer que a propriedade de leitura e gravação naquele disco é de um dos nós do cluster, e somente dele. Com o recurso de CSV (Cluster Shared Volumes, e não lista de valores separados por vírgula :)), ou volumes compartilhados do cluster, é possível que dois ou mais nós do cluster gravem dados em um mesmo volume ao mesmo tempo.
+Isso também agiliza o processo de failover, pois não é necessária a montagem e desmontagem do volume para a troca de propriedade. Mais informações sobre CSV [aqui](https://msdn.microsoft.com/pt-br/library/jj612868%28v=ws.11%29.aspx)
 
 Um dos pequenos “problemas” de se usar CSV é que o cluster simplesmente consome o volume e direciona-o para um diretório em C:\ClusterStorage\VolumeX, com X sendo incrementado a cada novo volume adicionado aos CSV.
 
