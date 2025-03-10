@@ -1,10 +1,10 @@
 ---
 ---
 
-@use 'main
+@use 'main' as *;
+
 {%- if jekyll.environment == 'production' -%}
-  .bundle
+@import 'main.bundle';
 {%- endif -%}
-';
 
 /* append your custom style below */
