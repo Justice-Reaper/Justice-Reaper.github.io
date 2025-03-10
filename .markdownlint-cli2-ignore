@@ -1,3 +1,2 @@
-/docs
-/docs/CHANGELOG.md
-/node_modules
+docs/**
+**/node_modules/**

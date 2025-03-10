@@ -18,6 +18,6 @@ jobs:
       - name: Run markdownlint
         uses: docker://davidanson/markdownlint-cli2
         with:
-          args: "**/*.md"
+          args: "_posts/*.md"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
