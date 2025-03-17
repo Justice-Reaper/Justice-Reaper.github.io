@@ -6,11 +6,16 @@ theme: jekyll-theme-chirpy
 # The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
 # If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
 # otherwise, the layout language will use the default value of 'en'.
-languages:
-  - en
-  - pt-BR
+languages: ["en", "pt-BR"]
 
-default_lang: en
+# Plugins
+plugins:
+  - jekyll-polyglot
+
+# Polylgot settings
+exclude_from_localization: ["javascript", "images", "css", "public", "sitemap"]
+parallel_localization: true
+default_lang: "en"
 
 # Change to your timezone › https://kevinnovak.github.io/Time-Zone-Picker
 timezone: America/Sao_Paulo
@@ -138,10 +143,19 @@ comments:
 # Self-hosted static assets, optional › https://github.com/cotes2020/chirpy-static-assets
 assets:
   self_host:
-    enabled: # boolean, keep empty means false
+    enabled: true # boolean, keep empty means false
     # specify the Jekyll environment, empty means both
     # only works if `assets.self_host.enabled` is 'true'
-    env: # [development | production]
+    env: [development | production]
+  css:
+    en:
+      - jekyll-theme-chirpy.css
+      - jekyll-theme-chirpy.scss
+      - jekyll-theme-chirpy.css.map
+    pt-BR:
+      - jekyll-theme-chirpy.css
+      - jekyll-theme-chirpy.scss
+      - jekyll-theme-chirpy.css.map
 
 pwa:
   enabled: true # The option for PWA feature (installable)
@@ -214,9 +228,9 @@ compress_html:
   ignore:
     envs: [development]
 
-exclude:
-  - "*.gem"
-  - "*.gemspec"
+exclude: 
+  - \*.gem
+  - \*.gemspec
   - docs
   - tools
   - README.md
