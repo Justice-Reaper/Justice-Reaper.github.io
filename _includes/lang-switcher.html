@@ -1,0 +1,47 @@
+<!-- This is a language switcher that will be included in the sidebar of the site. It will display the languages that are available on the site, and will allow the user to switch between them. -->
+
+<div class="sidebar-bottom d-flex flex-wrap align-items-center w-100">
+    <div class="lang-div d-flex flex-wrap w-100" >
+    <p style="font-weight: bold;" id="language"> {{site.data.locales[site.active_lang].tabs.languages}}
+    </p>
+    
+    </div>
+    <!-- jekyll-polyglot will process ferh= into href= through the static_href liquid block tag without relativizing the url; useful for making language navigation switchers  -->  
+    <div class="lang-div d-flex flex-column">
+      
+    {% for tongue in site.languages %}
+      <p class="lang-name-box">
+        {% if tongue == site.active_lang %}
+          <a class="lang-name" id="current-lang" style="font-weight: bold;">
+            {{ site.data.locales[tongue].tabs.lang_name }}
+          </a>
+        {% else %}
+
+          {% if page.lang-exclusive %}
+            {% assign is_lang_exclusive = false %}
+            {% for lang in page.lang-exclusive %}
+              {% if tongue == lang %}
+                {% assign is_lang_exclusive = true %}
+                <span>This language is in the lang_ex list</span>
+              {% endif %}
+            {% endfor %}
+            {% if is_lang_exclusive == false %}
+              <a class="lang-name disabled-lang">
+                {{ site.data.locales[tongue].tabs.lang_name }}
+              </a>
+            {% else %}
+              <a class="lang-name" {% static_href %}href="{% if tongue == site.default_lang %}{{site.baseurl}}{{page.url}}{% else %}{{site.baseurl}}/{{ tongue }}{{page.url}}{% endif %}"{% endstatic_href %}>
+                {{ site.data.locales[tongue].tabs.lang_name }}
+              </a>
+            {% endif %}
+          {% else %}
+              <a class="lang-name" {% static_href %}href="{% if tongue == site.default_lang %}{{site.baseurl}}{{page.url}}{% else %}{{site.baseurl}}/{{ tongue }}{{page.url}}{% endif %}"{% endstatic_href %}>
+                {{ site.data.locales[tongue].tabs.lang_name }}
+              </a>
+          {% endif %}
+        {% endif %}
+      </p>  
+    {% endfor %}
+    </div>
+  </div>
+<!-- End of lang-switcher.html -->
