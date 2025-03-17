@@ -1,0 +1,46 @@
+name: Test Site
+
+on:
+  # push:
+  #   branches:
+  #     - '**'
+  #   paths:
+  #     - '**.md'
+
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  test-site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3
+          bundler-cache: true
+      
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle install
+      
+      - name: Run npm
+        run: |
+          npm install
+          npm run build
+
+      - name: Build site
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: "production"
+
+      - name: Test site
+        run: |
+          bundle exec htmlproofer _site \
+            \-\-disable-external \
+            \-\-ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
