@@ -11,7 +11,7 @@ canonical_url: "https://blog.lmeier.net/posts/autenticacao-backstage-entra-id-pt
 image: assets/img/backstage-entraid/capa.png
 ---
  
-[Read in English](https://blog.lmeier.net/posts/authentication-backstage-entra-id-en)
+<!-- [Read in English](https://blog.lmeier.net/posts/authentication-backstage-entra-id-en) -->
 
 Há algum tempo venho ouvindo sobre como o Backstage é uma ferramenta revolucionária e como pode ajudar a dar mais liberdade aos desenvolvedores na solicitação de recursos em nuvem.  
 

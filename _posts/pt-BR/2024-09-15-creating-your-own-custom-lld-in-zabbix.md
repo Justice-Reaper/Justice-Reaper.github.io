@@ -11,7 +11,7 @@ layout: post
 canonical_url: "https://blog.lmeier.net/posts/criando-seu-proprio-lld-personalizado-no-zabbix-pt-BR/"
 ---
 
-*Read in [English](https://blog.lmeier.net/posts/creating-your-own-custom-lld-in-zabbix-en/)*
+<!-- *Read in [English](https://blog.lmeier.net/posts/creating-your-own-custom-lld-in-zabbix-en/)* -->
 
 <!--
 ![](assets/img/zabbix-custom-lld/capa.png)
