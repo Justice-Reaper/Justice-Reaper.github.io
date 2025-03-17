@@ -11,7 +11,7 @@ canonical_url: https://blog.lmeier.net/posts/monitoring-cluster-shared-volumes-w
 image: assets/img/monitor-csv/cover.png
 ---
 
-<!-- Também disponível em [*português*](https://blog.lmeier.net/posts/monitorando-cluster-shared-volumes-com-zabbix/). -->
+Também disponível em [*português*](https://blog.lmeier.net/posts/monitorando-cluster-shared-volumes-com-zabbix/).
 
 In this post, we’ll see how to monitor Microsoft’s failover cluster disks using Zabbix’s LLD. If you have no idea what a failover cluster is, I suggest you check [here](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770737%28v=ws.11%29?redirectedfrom=MSDN).
 

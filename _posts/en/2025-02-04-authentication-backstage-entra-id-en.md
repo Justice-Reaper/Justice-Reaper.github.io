@@ -11,7 +11,7 @@ image: assets/img/backstage-entraid/capa.png
 canonical_url: https://blog.lmeier.net/posts/authentication-backstage-entra-id-en/
 ---
 
-<!-- [Leia em Português](https://blog.lmeier.net/posts/autenticacao-backstage-entra-id-pt-BR) -->
+[Leia em Português](https://blog.lmeier.net/posts/autenticacao-backstage-entra-id-pt-BR)
 
 I've been hearing for a while about how Backstage is a revolutionary tool and how it can give developers more freedom when requesting cloud resources.
 
