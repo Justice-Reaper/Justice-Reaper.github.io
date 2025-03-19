@@ -15,8 +15,8 @@ tabs:
   tags: Tags
   archives: Arquivos
   about: Sobre
-  languages: Idiomas
-  lang_name: Português
+  #languages: Idiomas
+  #lang_name: Português
 
 # the text displayed in the search bar & search results
 search:
