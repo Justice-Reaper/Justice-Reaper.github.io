@@ -1,0 +1,1984 @@
+  Logging at level: debug
+    Jekyll Version: 4.4.1
+Configuration file: /home/cuca/devops/blog-chirpy/_config.yml
+             Theme: jekyll-theme-chirpy
+      Theme source: /home/cuca/devops/blog-chirpy
+ Theme Config file: /home/cuca/devops/blog-chirpy/_config.yml
+         Requiring: jekyll-paginate
+         Requiring: jekyll-redirect-from
+         Requiring: jekyll-seo-tag
+         Requiring: jekyll-archives
+         Requiring: jekyll-sitemap
+         Requiring: jekyll-include-cache
+         Requiring: /home/cuca/devops/blog-chirpy/_plugins/posts-lastmod-hook.rb
+         Requiring: jekyll-polyglot
+            Source: /home/cuca/devops/blog-chirpy
+       Destination: /home/cuca/devops/blog-chirpy/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+           Reading: /_layouts/archives.html
+           Reading: /_layouts/archives.html
+           Reading: /_layouts/categories.html
+           Reading: /_layouts/categories.html
+           Reading: /_layouts/category.html
+           Reading: /_layouts/category.html
+           Reading: /_layouts/compress.html
+           Reading: /_layouts/compress.html
+           Reading: /_layouts/default.html
+           Reading: /_layouts/default.html
+           Reading: /_layouts/home.html
+           Reading: /_layouts/home.html
+           Reading: /_layouts/page.html
+           Reading: /_layouts/page.html
+           Reading: /_layouts/post.html
+           Reading: /_layouts/post.html
+           Reading: /_layouts/tag.html
+           Reading: /_layouts/tag.html
+           Reading: /_layouts/tags.html
+           Reading: /_layouts/tags.html
+       EntryFilter: excluded /package-lock.json
+       EntryFilter: excluded /package-lock.json
+       EntryFilter: excluded /rollup.config.js
+       EntryFilter: excluded /rollup.config.js
+       EntryFilter: excluded /Gemfile.lock
+       EntryFilter: excluded /package.json
+       EntryFilter: excluded /Gemfile.lock
+       EntryFilter: excluded /package.json
+       EntryFilter: excluded /purgecss.js
+       EntryFilter: excluded /purgecss.js
+       EntryFilter: excluded /docs
+       EntryFilter: excluded /docs
+       EntryFilter: excluded /.jekyll-cache
+       EntryFilter: excluded /.jekyll-cache
+       EntryFilter: excluded /LICENSE
+       EntryFilter: excluded /LICENSE
+       EntryFilter: excluded /Gemfile
+       EntryFilter: excluded /README.md
+       EntryFilter: excluded /Gemfile
+       EntryFilter: excluded /README.md
+       EntryFilter: excluded /tools
+       EntryFilter: excluded /tools
+           Reading: _posts/en/2024-09-15-creating-your-own-custom-lld-in-zabbix.md
+           Reading: _posts/en/2024-09-15-creating-your-own-custom-lld-in-zabbix.md
+           Reading: _posts/en/2024-10-07-monitoring-cluster-shared-volumes-with-zabbix.md
+           Reading: _posts/en/2024-10-07-monitoring-cluster-shared-volumes-with-zabbix.md
+           Reading: _posts/en/2024-10-18-how-i-recovered-a-bricked-cctv-camera.md
+           Reading: _posts/en/2024-10-18-how-i-recovered-a-bricked-cctv-camera.md
+           Reading: _posts/en/2024-10-22-fortinet-vs--palo-alto--automating-load-balancing.md
+           Reading: _posts/en/2024-10-22-fortinet-vs--palo-alto--automating-load-balancing.md
+           Reading: _posts/en/2024-12-19-monitoring-palo-alto-firewalls-using-api.md
+           Reading: _posts/en/2024-12-19-monitoring-palo-alto-firewalls-using-api.md
+           Reading: _posts/en/2025-02-04-authentication-backstage-entra-id.md
+           Reading: _posts/en/2025-02-04-authentication-backstage-entra-id.md
+           Reading: _posts/en/2025-03-05-integrating-backstage-azure-devops.md
+           Reading: _posts/en/2025-03-05-integrating-backstage-azure-devops.md
+           Reading: _posts/pt-BR/2024-09-15-creating-your-own-custom-lld-in-zabbix.md
+           Reading: _posts/pt-BR/2024-09-15-creating-your-own-custom-lld-in-zabbix.md
+           Reading: _posts/pt-BR/2024-10-07-monitoring-cluster-shared-volumes-with-zabbix.md
+           Reading: _posts/pt-BR/2024-10-07-monitoring-cluster-shared-volumes-with-zabbix.md
+           Reading: _posts/pt-BR/2024-10-18-how-i-recovered-a-bricked-cctv-camera.md
+           Reading: _posts/pt-BR/2024-10-18-how-i-recovered-a-bricked-cctv-camera.md
+           Reading: _posts/pt-BR/2024-10-22-fortinet-vs--palo-alto--automating-load-balancing.md
+           Reading: _posts/pt-BR/2024-10-22-fortinet-vs--palo-alto--automating-load-balancing.md
+           Reading: _posts/pt-BR/2024-12-19-monitoring-palo-alto-firewalls-using-api.md
+           Reading: _posts/pt-BR/2024-12-19-monitoring-palo-alto-firewalls-using-api.md
+           Reading: _posts/pt-BR/2025-02-04-authentication-backstage-entra-id.md
+           Reading: _posts/pt-BR/2025-02-04-authentication-backstage-entra-id.md
+           Reading: _posts/pt-BR/2025-03-05-integrating-backstage-azure-devops.md
+           Reading: _posts/pt-BR/2025-03-05-integrating-backstage-azure-devops.md
+           Reading: assets/css/jekyll-theme-chirpy.scss
+           Reading: assets/css/jekyll-theme-chirpy.scss
+           Reading: assets/img/favicons/site.webmanifest
+           Reading: assets/img/favicons/site.webmanifest
+           Reading: assets/img/favicons/browserconfig.xml
+           Reading: assets/img/favicons/browserconfig.xml
+           Reading: assets/js/data/search.json
+           Reading: assets/js/data/search.json
+           Reading: assets/js/data/mathjax.js
+           Reading: assets/js/data/mathjax.js
+           Reading: assets/js/data/swconf.js
+           Reading: assets/js/data/swconf.js
+           Reading: assets/js/dist/sw.min.js
+           Reading: assets/js/dist/sw.min.js
+           Reading: assets/js/dist/app.min.js
+           Reading: assets/js/dist/app.min.js
+           Reading: assets/feed.xml
+           Reading: assets/feed.xml
+           Reading: assets/robots.txt
+           Reading: assets/robots.txt
+           Reading: assets/404.html
+           Reading: assets/404.html
+           Reading: index.html
+           Reading: index.html
+           Reading: _tabs/about.md
+           Reading: _tabs/about.md
+           Reading: _tabs/archives.md
+           Reading: _tabs/categories.md
+           Reading: _tabs/archives.md
+           Reading: _tabs/tags.md
+           Reading: _tabs/categories.md
+           Reading: _tabs/tags.md
+           Reading: assets/404.html
+             Theme: Ignoring assets/404.html in theme due to existing file with that path in site.
+           Reading: assets/404.html
+           Reading: assets/css/jekyll-theme-chirpy.scss
+             Theme: Ignoring assets/css/jekyll-theme-chirpy.scss in theme due to existing file with that path in site.
+           Reading: assets/feed.xml
+             Theme: Ignoring assets/404.html in theme due to existing file with that path in site.
+             Theme: Ignoring assets/feed.xml in theme due to existing file with that path in site.
+           Reading: assets/css/jekyll-theme-chirpy.scss
+             Theme: Ignoring /assets/img/backstage-azure-devops/analyze.png in theme due to existing file with that path in site.
+             Theme: Ignoring assets/css/jekyll-theme-chirpy.scss in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/changed-files.png in theme due to existing file with that path in site.
+           Reading: assets/feed.xml
+             Theme: Ignoring /assets/img/backstage-azure-devops/complete-execution.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/configuring-svc-connection.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/cover.png in theme due to existing file with that path in site.
+             Theme: Ignoring assets/feed.xml in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/create-pipeline.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/created-connection.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/creating-container.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/analyze.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/creating-svc-connection.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/changed-files.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/complete-execution.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/configuring-svc-connection.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/cover.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/create-pipeline.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/created-connection.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/enabling-template.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/creating-container.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/import.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/installe3d-actions-menu.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/listing-installed-actions.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/merge-complete.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/new-token.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/pat-permissions.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/pat-raw.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/pat.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/creating-svc-connection.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/pipeline-execution.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/pipeline.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/enabling-template.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/pr-approval.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/import.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/pull-requests.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/installe3d-actions-menu.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/register-existing-component.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/listing-installed-actions.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/rg-from-backstage.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/merge-complete.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/new-token.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/select-existing-yaml.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/pat-permissions.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/select-repo-place.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/pat-raw.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/select-repo.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/pat.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/template-available.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/pipeline-execution.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/template-import-error.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/pipeline.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/test-lab.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/pr-approval.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/teste-yaml.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/pull-requests.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/tf-files.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/register-existing-component.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/validating-name.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/rg-from-backstage.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/view-component.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/select-existing-yaml.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/select-repo-place.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-entraid/app-data.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/select-repo.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-entraid/app-home.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/template-available.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/template-import-error.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-entraid/app-password.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/test-lab.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-entraid/app-permissions.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/teste-yaml.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-entraid/app-select-permissions.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/tf-files.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-entraid/app-settings.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/validating-name.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-entraid/auth-error.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-azure-devops/view-component.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-entraid/capa.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-entraid/entra-id.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-entraid/install-module.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-entraid/app-data.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-entraid/new-app-registration.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-entraid/app-home.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-entraid/user-home.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-entraid/app-password.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-entraid/user-information.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-entraid/app-permissions.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-entraid/app-select-permissions.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/boot.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-entraid/app-settings.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/cam-gui.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-entraid/auth-error.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/connectivity-tests.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-entraid/capa.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/cover.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-entraid/entra-id.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/dc-failed.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-entraid/install-module.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/fireworks.gif in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-entraid/new-app-registration.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-entraid/user-home.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/firmware.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/backstage-entraid/user-information.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/boot.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/cam-gui.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/connectivity-tests.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/cover.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/help.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/dc-failed.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/fireworks.gif in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/installing-dk.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/interrupt-boot.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/ip-utility.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/os-files.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/printenv-output.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/serial-connection.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/serial-ports.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/firmware.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/starting.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/help.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/tftp-server.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/installing-dk.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/wireshark.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/interrupt-boot.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/ip-utility.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/favicons/android-chrome-192x192.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/os-files.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/favicons/android-chrome-512x512.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/printenv-output.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/favicons/apple-touch-icon.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/serial-connection.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/serial-ports.png in theme due to existing file with that path in site.
+           Reading: assets/img/favicons/browserconfig.xml
+             Theme: Ignoring /assets/img/bricked-camera/starting.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/tftp-server.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/bricked-camera/wireshark.png in theme due to existing file with that path in site.
+             Theme: Ignoring assets/img/favicons/browserconfig.xml in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/favicons/android-chrome-192x192.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/favicons/favicon-16x16.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/favicons/android-chrome-512x512.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/favicons/favicon-32x32.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/favicons/apple-touch-icon.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/favicons/favicon.ico in theme due to existing file with that path in site.
+           Reading: assets/img/favicons/browserconfig.xml
+             Theme: Ignoring /assets/img/favicons/mstile-150x150.png in theme due to existing file with that path in site.
+           Reading: assets/img/favicons/site.webmanifest
+             Theme: Ignoring assets/img/favicons/browserconfig.xml in theme due to existing file with that path in site.
+             Theme: Ignoring assets/img/favicons/site.webmanifest in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/favicons/favicon-16x16.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/lb-fortinet-paloalto/cover.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/favicons/favicon-32x32.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/lb-fortinet-paloalto/ftn-lb.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/favicons/favicon.ico in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/favicons/mstile-150x150.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitor-csv/cover.png in theme due to existing file with that path in site.
+           Reading: assets/img/favicons/site.webmanifest
+             Theme: Ignoring /assets/img/monitor-csv/discovery-rules.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitor-csv/item-prototype-1.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitor-csv/item-prototype-2.png in theme due to existing file with that path in site.
+             Theme: Ignoring assets/img/favicons/site.webmanifest in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitor-csv/size-disk-11.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/lb-fortinet-paloalto/cover.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitor-csv/testing-script.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/lb-fortinet-paloalto/ftn-lb.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitor-csv/trigger-prototype-1.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitor-csv/trigger-prototype-2.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitor-csv/cover.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitor-csv/discovery-rules.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitoring-using-api/cover.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitor-csv/item-prototype-1.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitoring-using-api/default-interface-list.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitor-csv/item-prototype-2.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitoring-using-api/discovery-output.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitor-csv/size-disk-11.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitoring-using-api/interface-list-with-tunnel-1.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitor-csv/testing-script.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitoring-using-api/list-ipsec-tunnels.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitor-csv/trigger-prototype-1.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitoring-using-api/list-tunnel-interfaces.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitor-csv/trigger-prototype-2.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitoring-using-api/tunnel-1-operation-status.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitoring-using-api/cover.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitoring-using-api/tunnel-status.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitoring-using-api/default-interface-list.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/zabbix-custom-lld/arquivo-especifico.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitoring-using-api/discovery-output.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/zabbix-custom-lld/capa.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitoring-using-api/interface-list-with-tunnel-1.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/zabbix-custom-lld/cria-regra-descoberta.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitoring-using-api/list-ipsec-tunnels.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/zabbix-custom-lld/exibe-tamanho-via-parametro.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitoring-using-api/list-tunnel-interfaces.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/zabbix-custom-lld/exibe-tamanho.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitoring-using-api/tunnel-1-operation-status.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/monitoring-using-api/tunnel-status.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/zabbix-custom-lld/arquivo-especifico.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/zabbix-custom-lld/capa.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/zabbix-custom-lld/cria-regra-descoberta.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/zabbix-custom-lld/files-list.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/zabbix-custom-lld/exibe-tamanho-via-parametro.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/zabbix-custom-lld/informa-acao.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/zabbix-custom-lld/prototipo-item.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/zabbix-custom-lld/regra-descoberta.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/zabbix-custom-lld/saida-json.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/zabbix-custom-lld/validador-json.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/zabbix-custom-lld/exibe-tamanho.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/zabbix-custom-lld/files-list.png in theme due to existing file with that path in site.
+           Reading: assets/js/data/mathjax.js
+             Theme: Ignoring /assets/img/zabbix-custom-lld/informa-acao.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/zabbix-custom-lld/prototipo-item.png in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/zabbix-custom-lld/regra-descoberta.png in theme due to existing file with that path in site.
+             Theme: Ignoring assets/js/data/mathjax.js in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/img/zabbix-custom-lld/saida-json.png in theme due to existing file with that path in site.
+           Reading: assets/js/data/search.json
+             Theme: Ignoring /assets/img/zabbix-custom-lld/validador-json.png in theme due to existing file with that path in site.
+             Theme: Ignoring assets/js/data/search.json in theme due to existing file with that path in site.
+           Reading: assets/js/data/mathjax.js
+           Reading: assets/js/data/swconf.js
+             Theme: Ignoring assets/js/data/swconf.js in theme due to existing file with that path in site.
+             Theme: Ignoring assets/js/data/mathjax.js in theme due to existing file with that path in site.
+           Reading: assets/js/data/search.json
+           Reading: assets/js/dist/app.min.js
+             Theme: Ignoring assets/js/dist/app.min.js in theme due to existing file with that path in site.
+             Theme: Ignoring assets/js/data/search.json in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/js/dist/categories.min.js in theme due to existing file with that path in site.
+           Reading: assets/js/data/swconf.js
+             Theme: Ignoring /assets/js/dist/commons.min.js in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/js/dist/home.min.js in theme due to existing file with that path in site.
+             Theme: Ignoring assets/js/data/swconf.js in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/js/dist/misc.min.js in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/js/dist/page.min.js in theme due to existing file with that path in site.
+           Reading: assets/js/dist/app.min.js
+             Theme: Ignoring /assets/js/dist/post.min.js in theme due to existing file with that path in site.
+           Reading: assets/js/dist/sw.min.js
+             Theme: Ignoring assets/js/dist/app.min.js in theme due to existing file with that path in site.
+             Theme: Ignoring assets/js/dist/sw.min.js in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/js/dist/categories.min.js in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/js/dist/commons.min.js in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/js/dist/theme.min.js in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/js/dist/home.min.js in theme due to existing file with that path in site.
+           Reading: assets/robots.txt
+             Theme: Ignoring /assets/js/dist/misc.min.js in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/js/dist/page.min.js in theme due to existing file with that path in site.
+             Theme: Ignoring assets/robots.txt in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/js/dist/post.min.js in theme due to existing file with that path in site.
+           Reading: assets/js/dist/sw.min.js
+             Theme: Ignoring assets/js/dist/sw.min.js in theme due to existing file with that path in site.
+             Theme: Ignoring /assets/js/dist/theme.min.js in theme due to existing file with that path in site.
+           Reading: assets/robots.txt
+             Theme: Ignoring assets/robots.txt in theme due to existing file with that path in site.
+           Reading: _data/authors.yml
+           Reading: _data/contact.yml
+           Reading: _data/authors.yml
+           Reading: _data/contact.yml
+           Reading: _data/media.yml
+           Reading: _data/media.yml
+           Reading: _data/share.yml
+           Reading: _data/en/l10n.yml
+           Reading: _data/share.yml
+           Reading: _data/locales/ar.yml
+           Reading: _data/en/l10n.yml
+           Reading: _data/locales/ar.yml
+           Reading: _data/locales/bg-BG.yml
+           Reading: _data/locales/bg-BG.yml
+           Reading: _data/locales/cs-CZ.yml
+           Reading: _data/locales/cs-CZ.yml
+           Reading: _data/locales/de-DE.yml
+           Reading: _data/locales/de-DE.yml
+           Reading: _data/locales/el-GR.yml
+           Reading: _data/locales/en.yml
+           Reading: _data/locales/es-ES.yml
+           Reading: _data/locales/el-GR.yml
+           Reading: _data/locales/fi-FI.yml
+           Reading: _data/locales/en.yml
+           Reading: _data/locales/fr-FR.yml
+           Reading: _data/locales/es-ES.yml
+           Reading: _data/locales/hu-HU.yml
+           Reading: _data/locales/id-ID.yml
+           Reading: _data/locales/fi-FI.yml
+           Reading: _data/locales/it-IT.yml
+           Reading: _data/locales/fr-FR.yml
+           Reading: _data/locales/ko-KR.yml
+           Reading: _data/locales/hu-HU.yml
+           Reading: _data/locales/my-MM.yml
+           Reading: _data/locales/pt-BR.yml
+           Reading: _data/locales/id-ID.yml
+           Reading: _data/locales/ru-RU.yml
+           Reading: _data/locales/it-IT.yml
+           Reading: _data/locales/sl-SI.yml
+           Reading: _data/locales/ko-KR.yml
+           Reading: _data/locales/my-MM.yml
+           Reading: _data/locales/sv-SE.yml
+           Reading: _data/locales/pt-BR.yml
+           Reading: _data/locales/th.yml
+           Reading: _data/locales/ru-RU.yml
+           Reading: _data/locales/tr-TR.yml
+           Reading: _data/locales/sl-SI.yml
+           Reading: _data/locales/uk-UA.yml
+           Reading: _data/locales/vi-VN.yml
+           Reading: _data/locales/sv-SE.yml
+           Reading: _data/locales/zh-CN.yml
+           Reading: _data/locales/th.yml
+           Reading: _data/locales/zh-TW.yml
+           Reading: _data/locales/tr-TR.yml
+           Reading: _data/origin/basic.yml
+           Reading: _data/origin/cors.yml
+           Reading: _data/locales/uk-UA.yml
+           Reading: _data/pt-BR/l10n.yml
+           Reading: _data/authors.yml
+           Reading: _data/contact.yml
+           Reading: _data/locales/vi-VN.yml
+           Reading: _data/media.yml
+           Reading: _data/share.yml
+           Reading: _data/en/l10n.yml
+           Reading: _data/locales/zh-CN.yml
+           Reading: _data/locales/ar.yml
+           Reading: _data/locales/zh-TW.yml
+           Reading: _data/locales/bg-BG.yml
+           Reading: _data/locales/cs-CZ.yml
+           Reading: _data/origin/basic.yml
+           Reading: _data/origin/cors.yml
+           Reading: _data/locales/de-DE.yml
+           Reading: _data/pt-BR/l10n.yml
+           Reading: _data/authors.yml
+           Reading: _data/locales/el-GR.yml
+           Reading: _data/contact.yml
+           Reading: _data/media.yml
+           Reading: _data/share.yml
+           Reading: _data/en/l10n.yml
+           Reading: _data/locales/en.yml
+           Reading: _data/locales/ar.yml
+           Reading: _data/locales/es-ES.yml
+           Reading: _data/locales/bg-BG.yml
+           Reading: _data/locales/fi-FI.yml
+           Reading: _data/locales/cs-CZ.yml
+           Reading: _data/locales/fr-FR.yml
+           Reading: _data/locales/de-DE.yml
+           Reading: _data/locales/hu-HU.yml
+           Reading: _data/locales/el-GR.yml
+           Reading: _data/locales/id-ID.yml
+           Reading: _data/locales/en.yml
+           Reading: _data/locales/it-IT.yml
+           Reading: _data/locales/es-ES.yml
+           Reading: _data/locales/ko-KR.yml
+           Reading: _data/locales/fi-FI.yml
+           Reading: _data/locales/my-MM.yml
+           Reading: _data/locales/fr-FR.yml
+           Reading: _data/locales/pt-BR.yml
+           Reading: _data/locales/hu-HU.yml
+           Reading: _data/locales/ru-RU.yml
+           Reading: _data/locales/id-ID.yml
+           Reading: _data/locales/sl-SI.yml
+           Reading: _data/locales/it-IT.yml
+           Reading: _data/locales/sv-SE.yml
+           Reading: _data/locales/ko-KR.yml
+           Reading: _data/locales/th.yml
+           Reading: _data/locales/my-MM.yml
+           Reading: _data/locales/tr-TR.yml
+           Reading: _data/locales/pt-BR.yml
+           Reading: _data/locales/uk-UA.yml
+           Reading: _data/locales/ru-RU.yml
+           Reading: _data/locales/vi-VN.yml
+           Reading: _data/locales/sl-SI.yml
+           Reading: _data/locales/zh-CN.yml
+           Reading: _data/locales/sv-SE.yml
+           Reading: _data/locales/zh-TW.yml
+           Reading: _data/locales/th.yml
+           Reading: _data/locales/tr-TR.yml
+           Reading: _data/origin/basic.yml
+           Reading: _data/locales/uk-UA.yml
+           Reading: _data/origin/cors.yml
+           Reading: _data/locales/vi-VN.yml
+           Reading: _data/pt-BR/l10n.yml
+           Reading: _data/locales/zh-CN.yml
+           Reading: _data/locales/zh-TW.yml
+           Reading: _data/origin/basic.yml
+           Reading: _data/origin/cors.yml
+           Reading: _data/pt-BR/l10n.yml
+        Generating: JekyllRedirectFrom::Generator finished in 0.031662148 seconds.
+        Generating: Jekyll::Archives::Archives finished in 0.00232933 seconds.
+        Generating: Jekyll::Paginate::Pagination finished in 0.005545721 seconds.
+        Generating: JekyllRedirectFrom::Generator finished in 0.034486944 seconds.
+        Generating: Jekyll::JekyllSitemap finished in 0.002179477 seconds.
+         Rendering: _posts/en/2024-09-15-creating-your-own-custom-lld-in-zabbix.md
+  Pre-Render Hooks: _posts/en/2024-09-15-creating-your-own-custom-lld-in-zabbix.md
+  Rendering Markup: _posts/en/2024-09-15-creating-your-own-custom-lld-in-zabbix.md
+        Generating: Jekyll::Archives::Archives finished in 0.002006401 seconds.
+        Generating: Jekyll::Paginate::Pagination finished in 0.004888791 seconds.
+        Generating: Jekyll::JekyllSitemap finished in 0.001777326 seconds.
+         Rendering: _posts/pt-BR/2024-09-15-creating-your-own-custom-lld-in-zabbix.md
+  Pre-Render Hooks: _posts/pt-BR/2024-09-15-creating-your-own-custom-lld-in-zabbix.md
+  Rendering Markup: _posts/pt-BR/2024-09-15-creating-your-own-custom-lld-in-zabbix.md
+Post-Convert Hooks: _posts/en/2024-09-15-creating-your-own-custom-lld-in-zabbix.md
+  Rendering Layout: _posts/en/2024-09-15-creating-your-own-custom-lld-in-zabbix.md
+Post-Convert Hooks: _posts/pt-BR/2024-09-15-creating-your-own-custom-lld-in-zabbix.md
+  Rendering Layout: _posts/pt-BR/2024-09-15-creating-your-own-custom-lld-in-zabbix.md
+Include cache miss: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+Include cache miss: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+Include cache miss: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+Include cache miss: /home/cuca/devops/blog-chirpy/_includes/footer.html
+Include cache miss: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+Include cache miss: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+Include cache miss: /home/cuca/devops/blog-chirpy/_includes/notification.html
+Include cache miss: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+Include cache miss: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+Include cache miss: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+         Rendering: _posts/en/2024-10-07-monitoring-cluster-shared-volumes-with-zabbix.md
+  Pre-Render Hooks: _posts/en/2024-10-07-monitoring-cluster-shared-volumes-with-zabbix.md
+  Rendering Markup: _posts/en/2024-10-07-monitoring-cluster-shared-volumes-with-zabbix.md
+Post-Convert Hooks: _posts/en/2024-10-07-monitoring-cluster-shared-volumes-with-zabbix.md
+  Rendering Layout: _posts/en/2024-10-07-monitoring-cluster-shared-volumes-with-zabbix.md
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+Include cache miss: /home/cuca/devops/blog-chirpy/_includes/footer.html
+Include cache miss: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+Include cache miss: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: _posts/en/2024-10-18-how-i-recovered-a-bricked-cctv-camera.md
+  Pre-Render Hooks: _posts/en/2024-10-18-how-i-recovered-a-bricked-cctv-camera.md
+  Rendering Markup: _posts/en/2024-10-18-how-i-recovered-a-bricked-cctv-camera.md
+Include cache miss: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: _posts/pt-BR/2024-10-07-monitoring-cluster-shared-volumes-with-zabbix.md
+  Pre-Render Hooks: _posts/pt-BR/2024-10-07-monitoring-cluster-shared-volumes-with-zabbix.md
+  Rendering Markup: _posts/pt-BR/2024-10-07-monitoring-cluster-shared-volumes-with-zabbix.md
+Post-Convert Hooks: _posts/en/2024-10-18-how-i-recovered-a-bricked-cctv-camera.md
+  Rendering Layout: _posts/en/2024-10-18-how-i-recovered-a-bricked-cctv-camera.md
+Post-Convert Hooks: _posts/pt-BR/2024-10-07-monitoring-cluster-shared-volumes-with-zabbix.md
+  Rendering Layout: _posts/pt-BR/2024-10-07-monitoring-cluster-shared-volumes-with-zabbix.md
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+         Rendering: _posts/pt-BR/2024-10-18-how-i-recovered-a-bricked-cctv-camera.md
+  Pre-Render Hooks: _posts/pt-BR/2024-10-18-how-i-recovered-a-bricked-cctv-camera.md
+  Rendering Markup: _posts/pt-BR/2024-10-18-how-i-recovered-a-bricked-cctv-camera.md
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: _posts/en/2024-10-22-fortinet-vs--palo-alto--automating-load-balancing.md
+  Pre-Render Hooks: _posts/en/2024-10-22-fortinet-vs--palo-alto--automating-load-balancing.md
+  Rendering Markup: _posts/en/2024-10-22-fortinet-vs--palo-alto--automating-load-balancing.md
+Post-Convert Hooks: _posts/pt-BR/2024-10-18-how-i-recovered-a-bricked-cctv-camera.md
+  Rendering Layout: _posts/pt-BR/2024-10-18-how-i-recovered-a-bricked-cctv-camera.md
+Post-Convert Hooks: _posts/en/2024-10-22-fortinet-vs--palo-alto--automating-load-balancing.md
+  Rendering Layout: _posts/en/2024-10-22-fortinet-vs--palo-alto--automating-load-balancing.md
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: _posts/en/2024-12-19-monitoring-palo-alto-firewalls-using-api.md
+  Pre-Render Hooks: _posts/en/2024-12-19-monitoring-palo-alto-firewalls-using-api.md
+  Rendering Markup: _posts/en/2024-12-19-monitoring-palo-alto-firewalls-using-api.md
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: _posts/pt-BR/2024-10-22-fortinet-vs--palo-alto--automating-load-balancing.md
+  Pre-Render Hooks: _posts/pt-BR/2024-10-22-fortinet-vs--palo-alto--automating-load-balancing.md
+  Rendering Markup: _posts/pt-BR/2024-10-22-fortinet-vs--palo-alto--automating-load-balancing.md
+Post-Convert Hooks: _posts/en/2024-12-19-monitoring-palo-alto-firewalls-using-api.md
+  Rendering Layout: _posts/en/2024-12-19-monitoring-palo-alto-firewalls-using-api.md
+Post-Convert Hooks: _posts/pt-BR/2024-10-22-fortinet-vs--palo-alto--automating-load-balancing.md
+  Rendering Layout: _posts/pt-BR/2024-10-22-fortinet-vs--palo-alto--automating-load-balancing.md
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: _posts/pt-BR/2024-12-19-monitoring-palo-alto-firewalls-using-api.md
+  Pre-Render Hooks: _posts/pt-BR/2024-12-19-monitoring-palo-alto-firewalls-using-api.md
+  Rendering Markup: _posts/pt-BR/2024-12-19-monitoring-palo-alto-firewalls-using-api.md
+Post-Convert Hooks: _posts/pt-BR/2024-12-19-monitoring-palo-alto-firewalls-using-api.md
+  Rendering Layout: _posts/pt-BR/2024-12-19-monitoring-palo-alto-firewalls-using-api.md
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: _posts/en/2025-02-04-authentication-backstage-entra-id.md
+  Pre-Render Hooks: _posts/en/2025-02-04-authentication-backstage-entra-id.md
+  Rendering Markup: _posts/en/2025-02-04-authentication-backstage-entra-id.md
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+Post-Convert Hooks: _posts/en/2025-02-04-authentication-backstage-entra-id.md
+  Rendering Layout: _posts/en/2025-02-04-authentication-backstage-entra-id.md
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: _posts/pt-BR/2025-02-04-authentication-backstage-entra-id.md
+  Pre-Render Hooks: _posts/pt-BR/2025-02-04-authentication-backstage-entra-id.md
+  Rendering Markup: _posts/pt-BR/2025-02-04-authentication-backstage-entra-id.md
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: _posts/en/2025-03-05-integrating-backstage-azure-devops.md
+  Pre-Render Hooks: _posts/en/2025-03-05-integrating-backstage-azure-devops.md
+  Rendering Liquid: _posts/en/2025-03-05-integrating-backstage-azure-devops.md
+  Rendering Markup: _posts/en/2025-03-05-integrating-backstage-azure-devops.md
+Post-Convert Hooks: _posts/pt-BR/2025-02-04-authentication-backstage-entra-id.md
+  Rendering Layout: _posts/pt-BR/2025-02-04-authentication-backstage-entra-id.md
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+Post-Convert Hooks: _posts/en/2025-03-05-integrating-backstage-azure-devops.md
+  Rendering Layout: _posts/en/2025-03-05-integrating-backstage-azure-devops.md
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: _posts/pt-BR/2025-03-05-integrating-backstage-azure-devops.md
+  Pre-Render Hooks: _posts/pt-BR/2025-03-05-integrating-backstage-azure-devops.md
+  Rendering Liquid: _posts/pt-BR/2025-03-05-integrating-backstage-azure-devops.md
+  Rendering Markup: _posts/pt-BR/2025-03-05-integrating-backstage-azure-devops.md
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: _tabs/categories.md
+  Pre-Render Hooks: _tabs/categories.md
+  Rendering Markup: _tabs/categories.md
+Post-Convert Hooks: _tabs/categories.md
+  Rendering Layout: _tabs/categories.md
+Post-Convert Hooks: _posts/pt-BR/2025-03-05-integrating-backstage-azure-devops.md
+  Rendering Layout: _posts/pt-BR/2025-03-05-integrating-backstage-azure-devops.md
+         Rendering: _tabs/categories.md/#excerpt
+  Pre-Render Hooks: _tabs/categories.md/#excerpt
+  Rendering Markup: _tabs/categories.md/#excerpt
+Post-Convert Hooks: _tabs/categories.md/#excerpt
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: _tabs/tags.md
+  Pre-Render Hooks: _tabs/tags.md
+  Rendering Markup: _tabs/tags.md
+Post-Convert Hooks: _tabs/tags.md
+  Rendering Layout: _tabs/tags.md
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+         Rendering: _tabs/tags.md/#excerpt
+  Pre-Render Hooks: _tabs/tags.md/#excerpt
+  Rendering Markup: _tabs/tags.md/#excerpt
+Post-Convert Hooks: _tabs/tags.md/#excerpt
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: _tabs/archives.md
+  Pre-Render Hooks: _tabs/archives.md
+  Rendering Markup: _tabs/archives.md
+Post-Convert Hooks: _tabs/archives.md
+  Rendering Layout: _tabs/archives.md
+         Rendering: _tabs/archives.md/#excerpt
+  Pre-Render Hooks: _tabs/archives.md/#excerpt
+  Rendering Markup: _tabs/archives.md/#excerpt
+Post-Convert Hooks: _tabs/archives.md/#excerpt
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: _tabs/about.md
+  Pre-Render Hooks: _tabs/about.md
+  Rendering Markup: _tabs/about.md
+Post-Convert Hooks: _tabs/about.md
+  Rendering Layout: _tabs/about.md
+         Rendering: _tabs/about.md/#excerpt
+  Pre-Render Hooks: _tabs/about.md/#excerpt
+  Rendering Markup: _tabs/about.md/#excerpt
+Post-Convert Hooks: _tabs/about.md/#excerpt
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: assets/404.html
+  Pre-Render Hooks: assets/404.html
+  Rendering Liquid: assets/404.html
+  Rendering Markup: assets/404.html
+Post-Convert Hooks: assets/404.html
+  Rendering Layout: assets/404.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: assets/js/dist/app.min.js
+  Pre-Render Hooks: assets/js/dist/app.min.js
+  Rendering Markup: assets/js/dist/app.min.js
+Post-Convert Hooks: assets/js/dist/app.min.js
+  Rendering Layout: assets/js/dist/app.min.js
+         Rendering: assets/img/favicons/browserconfig.xml
+  Pre-Render Hooks: assets/img/favicons/browserconfig.xml
+  Rendering Liquid: assets/img/favicons/browserconfig.xml
+  Rendering Markup: assets/img/favicons/browserconfig.xml
+Post-Convert Hooks: assets/img/favicons/browserconfig.xml
+  Rendering Layout: assets/img/favicons/browserconfig.xml
+         Rendering: assets/feed.xml
+  Pre-Render Hooks: assets/feed.xml
+  Rendering Liquid: assets/feed.xml
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+  Rendering Markup: assets/feed.xml
+Post-Convert Hooks: assets/feed.xml
+  Rendering Layout: assets/feed.xml
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: index.html
+  Pre-Render Hooks: index.html
+  Rendering Markup: index.html
+Post-Convert Hooks: index.html
+  Rendering Layout: index.html
+         Rendering: _tabs/categories.md
+  Pre-Render Hooks: _tabs/categories.md
+  Rendering Markup: _tabs/categories.md
+Post-Convert Hooks: _tabs/categories.md
+  Rendering Layout: _tabs/categories.md
+         Rendering: _tabs/categories.md/#excerpt
+  Pre-Render Hooks: _tabs/categories.md/#excerpt
+  Rendering Markup: _tabs/categories.md/#excerpt
+Post-Convert Hooks: _tabs/categories.md/#excerpt
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: _tabs/tags.md
+  Pre-Render Hooks: _tabs/tags.md
+  Rendering Markup: _tabs/tags.md
+Post-Convert Hooks: _tabs/tags.md
+  Rendering Layout: _tabs/tags.md
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: assets/css/jekyll-theme-chirpy.scss
+  Pre-Render Hooks: assets/css/jekyll-theme-chirpy.scss
+  Rendering Liquid: assets/css/jekyll-theme-chirpy.scss
+  Rendering Markup: assets/css/jekyll-theme-chirpy.scss
+         Rendering: _tabs/tags.md/#excerpt
+  Pre-Render Hooks: _tabs/tags.md/#excerpt
+  Rendering Markup: _tabs/tags.md/#excerpt
+Post-Convert Hooks: _tabs/tags.md/#excerpt
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: _tabs/archives.md
+  Pre-Render Hooks: _tabs/archives.md
+  Rendering Markup: _tabs/archives.md
+Post-Convert Hooks: _tabs/archives.md
+  Rendering Layout: _tabs/archives.md
+         Rendering: _tabs/archives.md/#excerpt
+  Pre-Render Hooks: _tabs/archives.md/#excerpt
+  Rendering Markup: _tabs/archives.md/#excerpt
+Post-Convert Hooks: _tabs/archives.md/#excerpt
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: _tabs/about.md
+  Pre-Render Hooks: _tabs/about.md
+  Rendering Markup: _tabs/about.md
+Post-Convert Hooks: _tabs/about.md
+  Rendering Layout: _tabs/about.md
+         Rendering: _tabs/about.md/#excerpt
+  Pre-Render Hooks: _tabs/about.md/#excerpt
+  Rendering Markup: _tabs/about.md/#excerpt
+Post-Convert Hooks: _tabs/about.md/#excerpt
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: assets/404.html
+  Pre-Render Hooks: assets/404.html
+  Rendering Liquid: assets/404.html
+  Rendering Markup: assets/404.html
+Post-Convert Hooks: assets/404.html
+  Rendering Layout: assets/404.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: assets/js/dist/app.min.js
+  Pre-Render Hooks: assets/js/dist/app.min.js
+  Rendering Markup: assets/js/dist/app.min.js
+Post-Convert Hooks: assets/js/dist/app.min.js
+  Rendering Layout: assets/js/dist/app.min.js
+         Rendering: assets/img/favicons/browserconfig.xml
+  Pre-Render Hooks: assets/img/favicons/browserconfig.xml
+  Rendering Liquid: assets/img/favicons/browserconfig.xml
+  Rendering Markup: assets/img/favicons/browserconfig.xml
+Post-Convert Hooks: assets/img/favicons/browserconfig.xml
+  Rendering Layout: assets/img/favicons/browserconfig.xml
+         Rendering: assets/feed.xml
+  Pre-Render Hooks: assets/feed.xml
+  Rendering Liquid: assets/feed.xml
+  Rendering Markup: assets/feed.xml
+Post-Convert Hooks: assets/feed.xml
+  Rendering Layout: assets/feed.xml
+         Rendering: index.html
+  Pre-Render Hooks: index.html
+  Rendering Markup: index.html
+Post-Convert Hooks: index.html
+  Rendering Layout: index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: assets/css/jekyll-theme-chirpy.scss
+  Pre-Render Hooks: assets/css/jekyll-theme-chirpy.scss
+  Rendering Liquid: assets/css/jekyll-theme-chirpy.scss
+  Rendering Markup: assets/css/jekyll-theme-chirpy.scss
+Post-Convert Hooks: assets/css/jekyll-theme-chirpy.scss
+         Rendering: assets/js/data/mathjax.js
+  Pre-Render Hooks: assets/js/data/mathjax.js
+  Rendering Liquid: assets/js/data/mathjax.js
+  Rendering Markup: assets/js/data/mathjax.js
+Post-Convert Hooks: assets/js/data/mathjax.js
+  Rendering Layout: assets/js/data/mathjax.js
+         Rendering: assets/robots.txt
+  Pre-Render Hooks: assets/robots.txt
+  Rendering Liquid: assets/robots.txt
+  Rendering Markup: assets/robots.txt
+Post-Convert Hooks: assets/robots.txt
+  Rendering Layout: assets/robots.txt
+         Rendering: assets/js/data/search.json
+  Pre-Render Hooks: assets/js/data/search.json
+  Rendering Liquid: assets/js/data/search.json
+  Rendering Markup: assets/js/data/search.json
+Post-Convert Hooks: assets/js/data/search.json
+  Rendering Layout: assets/js/data/search.json
+         Rendering: assets/img/favicons/site.webmanifest
+  Pre-Render Hooks: assets/img/favicons/site.webmanifest
+  Rendering Liquid: assets/img/favicons/site.webmanifest
+  Rendering Markup: assets/img/favicons/site.webmanifest
+Post-Convert Hooks: assets/img/favicons/site.webmanifest
+  Rendering Layout: assets/img/favicons/site.webmanifest
+         Rendering: assets/js/dist/sw.min.js
+  Pre-Render Hooks: assets/js/dist/sw.min.js
+  Rendering Markup: assets/js/dist/sw.min.js
+Post-Convert Hooks: assets/js/dist/sw.min.js
+  Rendering Layout: assets/js/dist/sw.min.js
+         Rendering: assets/js/data/swconf.js
+  Pre-Render Hooks: assets/js/data/swconf.js
+  Rendering Liquid: assets/js/data/swconf.js
+  Rendering Markup: assets/js/data/swconf.js
+Post-Convert Hooks: assets/js/data/swconf.js
+  Rendering Layout: assets/js/data/swconf.js
+         Rendering: redirect.html
+  Pre-Render Hooks: redirect.html
+  Rendering Markup: redirect.html
+Post-Convert Hooks: redirect.html
+  Rendering Layout: redirect.html
+         Rendering: redirect.html
+  Pre-Render Hooks: redirect.html
+  Rendering Markup: redirect.html
+Post-Convert Hooks: redirect.html
+  Rendering Layout: redirect.html
+         Rendering: redirect.html
+  Pre-Render Hooks: redirect.html
+  Rendering Markup: redirect.html
+Post-Convert Hooks: redirect.html
+  Rendering Layout: redirect.html
+         Rendering: redirects.json
+  Pre-Render Hooks: redirects.json
+  Rendering Markup: redirects.json
+Post-Convert Hooks: redirects.json
+  Rendering Layout: redirects.json
+         Rendering: tags/lld/index.html
+  Pre-Render Hooks: tags/lld/index.html
+  Rendering Markup: tags/lld/index.html
+Post-Convert Hooks: tags/lld/index.html
+  Rendering Layout: tags/lld/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/monitoring/index.html
+  Pre-Render Hooks: tags/monitoring/index.html
+  Rendering Markup: tags/monitoring/index.html
+Post-Convert Hooks: tags/monitoring/index.html
+  Rendering Layout: tags/monitoring/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/powershell/index.html
+  Pre-Render Hooks: tags/powershell/index.html
+  Rendering Markup: tags/powershell/index.html
+Post-Convert Hooks: tags/powershell/index.html
+  Rendering Layout: tags/powershell/index.html
+Post-Convert Hooks: assets/css/jekyll-theme-chirpy.scss
+         Rendering: assets/js/data/mathjax.js
+  Pre-Render Hooks: assets/js/data/mathjax.js
+  Rendering Liquid: assets/js/data/mathjax.js
+  Rendering Markup: assets/js/data/mathjax.js
+Post-Convert Hooks: assets/js/data/mathjax.js
+  Rendering Layout: assets/js/data/mathjax.js
+         Rendering: assets/robots.txt
+  Pre-Render Hooks: assets/robots.txt
+  Rendering Liquid: assets/robots.txt
+  Rendering Markup: assets/robots.txt
+Post-Convert Hooks: assets/robots.txt
+  Rendering Layout: assets/robots.txt
+         Rendering: assets/js/data/search.json
+  Pre-Render Hooks: assets/js/data/search.json
+  Rendering Liquid: assets/js/data/search.json
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/custom-scripts/index.html
+  Pre-Render Hooks: tags/custom-scripts/index.html
+  Rendering Markup: tags/custom-scripts/index.html
+Post-Convert Hooks: tags/custom-scripts/index.html
+  Rendering Layout: tags/custom-scripts/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+  Rendering Markup: assets/js/data/search.json
+Post-Convert Hooks: assets/js/data/search.json
+  Rendering Layout: assets/js/data/search.json
+         Rendering: assets/img/favicons/site.webmanifest
+  Pre-Render Hooks: assets/img/favicons/site.webmanifest
+  Rendering Liquid: assets/img/favicons/site.webmanifest
+  Rendering Markup: assets/img/favicons/site.webmanifest
+Post-Convert Hooks: assets/img/favicons/site.webmanifest
+  Rendering Layout: assets/img/favicons/site.webmanifest
+         Rendering: assets/js/dist/sw.min.js
+  Pre-Render Hooks: assets/js/dist/sw.min.js
+  Rendering Markup: assets/js/dist/sw.min.js
+Post-Convert Hooks: assets/js/dist/sw.min.js
+  Rendering Layout: assets/js/dist/sw.min.js
+         Rendering: assets/js/data/swconf.js
+  Pre-Render Hooks: assets/js/data/swconf.js
+  Rendering Liquid: assets/js/data/swconf.js
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/cluster-shared-volumes/index.html
+  Pre-Render Hooks: tags/cluster-shared-volumes/index.html
+  Rendering Markup: tags/cluster-shared-volumes/index.html
+Post-Convert Hooks: tags/cluster-shared-volumes/index.html
+  Rendering Layout: tags/cluster-shared-volumes/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+  Rendering Markup: assets/js/data/swconf.js
+Post-Convert Hooks: assets/js/data/swconf.js
+  Rendering Layout: assets/js/data/swconf.js
+         Rendering: redirect.html
+  Pre-Render Hooks: redirect.html
+  Rendering Markup: redirect.html
+Post-Convert Hooks: redirect.html
+  Rendering Layout: redirect.html
+         Rendering: redirect.html
+  Pre-Render Hooks: redirect.html
+  Rendering Markup: redirect.html
+Post-Convert Hooks: redirect.html
+  Rendering Layout: redirect.html
+         Rendering: redirect.html
+  Pre-Render Hooks: redirect.html
+  Rendering Markup: redirect.html
+Post-Convert Hooks: redirect.html
+  Rendering Layout: redirect.html
+         Rendering: redirects.json
+  Pre-Render Hooks: redirects.json
+  Rendering Markup: redirects.json
+Post-Convert Hooks: redirects.json
+  Rendering Layout: redirects.json
+         Rendering: tags/lld/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+  Pre-Render Hooks: tags/lld/index.html
+  Rendering Markup: tags/lld/index.html
+Post-Convert Hooks: tags/lld/index.html
+  Rendering Layout: tags/lld/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/cctv/index.html
+  Pre-Render Hooks: tags/cctv/index.html
+  Rendering Markup: tags/cctv/index.html
+Post-Convert Hooks: tags/cctv/index.html
+  Rendering Layout: tags/cctv/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/monitoramento/index.html
+  Pre-Render Hooks: tags/monitoramento/index.html
+  Rendering Markup: tags/monitoramento/index.html
+Post-Convert Hooks: tags/monitoramento/index.html
+  Rendering Layout: tags/monitoramento/index.html
+         Rendering: tags/hardware/index.html
+  Pre-Render Hooks: tags/hardware/index.html
+  Rendering Markup: tags/hardware/index.html
+Post-Convert Hooks: tags/hardware/index.html
+  Rendering Layout: tags/hardware/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+         Rendering: tags/powershell/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+  Pre-Render Hooks: tags/powershell/index.html
+  Rendering Markup: tags/powershell/index.html
+Post-Convert Hooks: tags/powershell/index.html
+  Rendering Layout: tags/powershell/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/intelbras/index.html
+  Pre-Render Hooks: tags/intelbras/index.html
+  Rendering Markup: tags/intelbras/index.html
+Post-Convert Hooks: tags/intelbras/index.html
+  Rendering Layout: tags/intelbras/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/scripts-personalizados/index.html
+  Pre-Render Hooks: tags/scripts-personalizados/index.html
+  Rendering Markup: tags/scripts-personalizados/index.html
+Post-Convert Hooks: tags/scripts-personalizados/index.html
+  Rendering Layout: tags/scripts-personalizados/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/zabbix/index.html
+  Pre-Render Hooks: tags/zabbix/index.html
+  Rendering Markup: tags/zabbix/index.html
+Post-Convert Hooks: tags/zabbix/index.html
+  Rendering Layout: tags/zabbix/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/python/index.html
+  Pre-Render Hooks: tags/python/index.html
+  Rendering Markup: tags/python/index.html
+Post-Convert Hooks: tags/python/index.html
+  Rendering Layout: tags/python/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/cluster-shared-volumes/index.html
+  Pre-Render Hooks: tags/cluster-shared-volumes/index.html
+  Rendering Markup: tags/cluster-shared-volumes/index.html
+Post-Convert Hooks: tags/cluster-shared-volumes/index.html
+  Rendering Layout: tags/cluster-shared-volumes/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/api/index.html
+  Pre-Render Hooks: tags/api/index.html
+  Rendering Markup: tags/api/index.html
+Post-Convert Hooks: tags/api/index.html
+  Rendering Layout: tags/api/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/cftv/index.html
+  Pre-Render Hooks: tags/cftv/index.html
+  Rendering Markup: tags/cftv/index.html
+Post-Convert Hooks: tags/cftv/index.html
+  Rendering Layout: tags/cftv/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/ngfw/index.html
+  Pre-Render Hooks: tags/ngfw/index.html
+  Rendering Markup: tags/ngfw/index.html
+Post-Convert Hooks: tags/ngfw/index.html
+  Rendering Layout: tags/ngfw/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/hardware/index.html
+  Pre-Render Hooks: tags/hardware/index.html
+  Rendering Markup: tags/hardware/index.html
+Post-Convert Hooks: tags/hardware/index.html
+  Rendering Layout: tags/hardware/index.html
+         Rendering: tags/palo-alto/index.html
+  Pre-Render Hooks: tags/palo-alto/index.html
+  Rendering Markup: tags/palo-alto/index.html
+Post-Convert Hooks: tags/palo-alto/index.html
+  Rendering Layout: tags/palo-alto/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/intelbras/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+  Pre-Render Hooks: tags/intelbras/index.html
+  Rendering Markup: tags/intelbras/index.html
+Post-Convert Hooks: tags/intelbras/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+  Rendering Layout: tags/intelbras/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/microsoft-entra-id/index.html
+  Pre-Render Hooks: tags/microsoft-entra-id/index.html
+  Rendering Markup: tags/microsoft-entra-id/index.html
+Post-Convert Hooks: tags/microsoft-entra-id/index.html
+  Rendering Layout: tags/microsoft-entra-id/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/zabbix/index.html
+  Pre-Render Hooks: tags/zabbix/index.html
+  Rendering Markup: tags/zabbix/index.html
+Post-Convert Hooks: tags/zabbix/index.html
+  Rendering Layout: tags/zabbix/index.html
+         Rendering: tags/authentication/index.html
+  Pre-Render Hooks: tags/authentication/index.html
+  Rendering Markup: tags/authentication/index.html
+Post-Convert Hooks: tags/authentication/index.html
+  Rendering Layout: tags/authentication/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/monitoring/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+  Pre-Render Hooks: tags/monitoring/index.html
+  Rendering Markup: tags/monitoring/index.html
+Post-Convert Hooks: tags/monitoring/index.html
+  Rendering Layout: tags/monitoring/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/identity-provider/index.html
+  Pre-Render Hooks: tags/identity-provider/index.html
+  Rendering Markup: tags/identity-provider/index.html
+Post-Convert Hooks: tags/identity-provider/index.html
+  Rendering Layout: tags/identity-provider/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/python/index.html
+  Pre-Render Hooks: tags/python/index.html
+  Rendering Markup: tags/python/index.html
+Post-Convert Hooks: tags/python/index.html
+  Rendering Layout: tags/python/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/backstage/index.html
+  Pre-Render Hooks: tags/backstage/index.html
+  Rendering Markup: tags/backstage/index.html
+Post-Convert Hooks: tags/backstage/index.html
+  Rendering Layout: tags/backstage/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/api/index.html
+  Pre-Render Hooks: tags/api/index.html
+  Rendering Markup: tags/api/index.html
+Post-Convert Hooks: tags/api/index.html
+  Rendering Layout: tags/api/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/azure-devops/index.html
+  Pre-Render Hooks: tags/azure-devops/index.html
+  Rendering Markup: tags/azure-devops/index.html
+Post-Convert Hooks: tags/azure-devops/index.html
+  Rendering Layout: tags/azure-devops/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/ngfw/index.html
+  Pre-Render Hooks: tags/ngfw/index.html
+  Rendering Markup: tags/ngfw/index.html
+Post-Convert Hooks: tags/ngfw/index.html
+  Rendering Layout: tags/ngfw/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/ci-cd-pipelines/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+  Pre-Render Hooks: tags/ci-cd-pipelines/index.html
+  Rendering Markup: tags/ci-cd-pipelines/index.html
+Post-Convert Hooks: tags/ci-cd-pipelines/index.html
+  Rendering Layout: tags/ci-cd-pipelines/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/palo-alto/index.html
+  Pre-Render Hooks: tags/palo-alto/index.html
+  Rendering Markup: tags/palo-alto/index.html
+Post-Convert Hooks: tags/palo-alto/index.html
+  Rendering Layout: tags/palo-alto/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/automation/index.html
+  Pre-Render Hooks: tags/automation/index.html
+  Rendering Markup: tags/automation/index.html
+Post-Convert Hooks: tags/automation/index.html
+  Rendering Layout: tags/automation/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/microsoft-entra-id/index.html
+  Pre-Render Hooks: tags/microsoft-entra-id/index.html
+  Rendering Markup: tags/microsoft-entra-id/index.html
+Post-Convert Hooks: tags/microsoft-entra-id/index.html
+  Rendering Layout: tags/microsoft-entra-id/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: categories/zabbix/index.html
+  Pre-Render Hooks: categories/zabbix/index.html
+  Rendering Markup: categories/zabbix/index.html
+Post-Convert Hooks: categories/zabbix/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+  Rendering Layout: categories/zabbix/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/autenticação/index.html
+  Pre-Render Hooks: tags/autenticação/index.html
+  Rendering Markup: tags/autenticação/index.html
+Post-Convert Hooks: tags/autenticação/index.html
+  Rendering Layout: tags/autenticação/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+         Rendering: categories/automation/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+  Pre-Render Hooks: categories/automation/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+  Rendering Markup: categories/automation/index.html
+Post-Convert Hooks: categories/automation/index.html
+  Rendering Layout: categories/automation/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/identity-provider/index.html
+  Pre-Render Hooks: tags/identity-provider/index.html
+  Rendering Markup: tags/identity-provider/index.html
+Post-Convert Hooks: tags/identity-provider/index.html
+  Rendering Layout: tags/identity-provider/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: categories/monitoring/index.html
+  Pre-Render Hooks: categories/monitoring/index.html
+  Rendering Markup: categories/monitoring/index.html
+Post-Convert Hooks: categories/monitoring/index.html
+  Rendering Layout: categories/monitoring/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/backstage/index.html
+  Pre-Render Hooks: tags/backstage/index.html
+  Rendering Markup: tags/backstage/index.html
+Post-Convert Hooks: tags/backstage/index.html
+  Rendering Layout: tags/backstage/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: categories/cluster-shared-volumes/index.html
+  Pre-Render Hooks: categories/cluster-shared-volumes/index.html
+  Rendering Markup: categories/cluster-shared-volumes/index.html
+Post-Convert Hooks: categories/cluster-shared-volumes/index.html
+  Rendering Layout: categories/cluster-shared-volumes/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/azure-devops/index.html
+  Pre-Render Hooks: tags/azure-devops/index.html
+  Rendering Markup: tags/azure-devops/index.html
+Post-Convert Hooks: tags/azure-devops/index.html
+  Rendering Layout: tags/azure-devops/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: categories/cctv/index.html
+  Pre-Render Hooks: categories/cctv/index.html
+  Rendering Markup: categories/cctv/index.html
+Post-Convert Hooks: categories/cctv/index.html
+  Rendering Layout: categories/cctv/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/ci-cd-pipelines/index.html
+  Pre-Render Hooks: tags/ci-cd-pipelines/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+  Rendering Markup: tags/ci-cd-pipelines/index.html
+Post-Convert Hooks: tags/ci-cd-pipelines/index.html
+  Rendering Layout: tags/ci-cd-pipelines/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: categories/hardware/index.html
+  Pre-Render Hooks: categories/hardware/index.html
+  Rendering Markup: categories/hardware/index.html
+Post-Convert Hooks: categories/hardware/index.html
+  Rendering Layout: categories/hardware/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: tags/automação/index.html
+  Pre-Render Hooks: tags/automação/index.html
+  Rendering Markup: tags/automação/index.html
+Post-Convert Hooks: tags/automação/index.html
+  Rendering Layout: tags/automação/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: categories/python/index.html
+  Pre-Render Hooks: categories/python/index.html
+  Rendering Markup: categories/python/index.html
+Post-Convert Hooks: categories/python/index.html
+  Rendering Layout: categories/python/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: categories/zabbix/index.html
+  Pre-Render Hooks: categories/zabbix/index.html
+  Rendering Markup: categories/zabbix/index.html
+Post-Convert Hooks: categories/zabbix/index.html
+  Rendering Layout: categories/zabbix/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: categories/api/index.html
+  Pre-Render Hooks: categories/api/index.html
+  Rendering Markup: categories/api/index.html
+Post-Convert Hooks: categories/api/index.html
+  Rendering Layout: categories/api/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: categories/automação/index.html
+         Rendering: categories/ngfw/index.html
+  Pre-Render Hooks: categories/ngfw/index.html
+  Pre-Render Hooks: categories/automação/index.html
+  Rendering Markup: categories/ngfw/index.html
+  Rendering Markup: categories/automação/index.html
+Post-Convert Hooks: categories/ngfw/index.html
+Post-Convert Hooks: categories/automação/index.html
+  Rendering Layout: categories/automação/index.html
+  Rendering Layout: categories/ngfw/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: categories/palo-alto/index.html
+  Pre-Render Hooks: categories/palo-alto/index.html
+  Rendering Markup: categories/palo-alto/index.html
+Post-Convert Hooks: categories/palo-alto/index.html
+         Rendering: categories/monitoramento/index.html
+  Rendering Layout: categories/palo-alto/index.html
+  Pre-Render Hooks: categories/monitoramento/index.html
+  Rendering Markup: categories/monitoramento/index.html
+Post-Convert Hooks: categories/monitoramento/index.html
+  Rendering Layout: categories/monitoramento/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: categories/backstage/index.html
+  Pre-Render Hooks: categories/backstage/index.html
+  Rendering Markup: categories/backstage/index.html
+Post-Convert Hooks: categories/backstage/index.html
+  Rendering Layout: categories/backstage/index.html
+         Rendering: categories/cluster-shared-volumes/index.html
+  Pre-Render Hooks: categories/cluster-shared-volumes/index.html
+  Rendering Markup: categories/cluster-shared-volumes/index.html
+Post-Convert Hooks: categories/cluster-shared-volumes/index.html
+  Rendering Layout: categories/cluster-shared-volumes/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+         Rendering: categories/devops/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+  Pre-Render Hooks: categories/devops/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+  Rendering Markup: categories/devops/index.html
+Post-Convert Hooks: categories/devops/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+  Rendering Layout: categories/devops/index.html
+         Rendering: categories/cftv/index.html
+  Pre-Render Hooks: categories/cftv/index.html
+  Rendering Markup: categories/cftv/index.html
+Post-Convert Hooks: categories/cftv/index.html
+  Rendering Layout: categories/cftv/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+         Rendering: categories/hardware/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+  Pre-Render Hooks: categories/hardware/index.html
+  Rendering Markup: categories/hardware/index.html
+Post-Convert Hooks: categories/hardware/index.html
+  Rendering Layout: categories/hardware/index.html
+         Rendering: categories/cloud/index.html
+  Pre-Render Hooks: categories/cloud/index.html
+  Rendering Markup: categories/cloud/index.html
+Post-Convert Hooks: categories/cloud/index.html
+  Rendering Layout: categories/cloud/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: categories/monitoring/index.html
+  Pre-Render Hooks: categories/monitoring/index.html
+  Rendering Markup: categories/monitoring/index.html
+Post-Convert Hooks: categories/monitoring/index.html
+  Rendering Layout: categories/monitoring/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: sitemap.xml
+  Pre-Render Hooks: sitemap.xml
+  Rendering Liquid: sitemap.xml
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: categories/python/index.html
+  Pre-Render Hooks: categories/python/index.html
+  Rendering Markup: categories/python/index.html
+Post-Convert Hooks: categories/python/index.html
+  Rendering Layout: categories/python/index.html
+  Rendering Markup: sitemap.xml
+Post-Convert Hooks: sitemap.xml
+  Rendering Layout: sitemap.xml
+         Rendering: assets/css/jekyll-theme-chirpy.css.map
+  Pre-Render Hooks: assets/css/jekyll-theme-chirpy.css.map
+  Rendering Markup: assets/css/jekyll-theme-chirpy.css.map
+Post-Convert Hooks: assets/css/jekyll-theme-chirpy.css.map
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: categories/api/index.html
+  Pre-Render Hooks: categories/api/index.html
+  Rendering Markup: categories/api/index.html
+Post-Convert Hooks: categories/api/index.html
+  Rendering Layout: categories/api/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/404.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/app.min.js
+           Writing: /home/cuca/devops/blog-chirpy/_site/assets/img/favicons/browserconfig.xml
+           Writing: /home/cuca/devops/blog-chirpy/_site/feed.xml
+           Writing: /home/cuca/devops/blog-chirpy/_site/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/assets/css/jekyll-theme-chirpy.css
+           Writing: /home/cuca/devops/blog-chirpy/_site/assets/js/data/mathjax.js
+           Writing: /home/cuca/devops/blog-chirpy/_site/robots.txt
+           Writing: /home/cuca/devops/blog-chirpy/_site/assets/js/data/search.json
+           Writing: /home/cuca/devops/blog-chirpy/_site/assets/img/favicons/site.webmanifest
+           Writing: /home/cuca/devops/blog-chirpy/_site/sw.min.js
+           Writing: /home/cuca/devops/blog-chirpy/_site/assets/js/data/swconf.js
+           Writing: /home/cuca/devops/blog-chirpy/_site/norobots/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/assets/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/posts/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/redirects.json
+           Writing: /home/cuca/devops/blog-chirpy/_site/tags/lld/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/tags/monitoring/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/tags/powershell/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/tags/custom-scripts/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/tags/cluster-shared-volumes/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/tags/cctv/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/tags/hardware/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/tags/intelbras/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/tags/zabbix/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/tags/python/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/tags/api/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/tags/ngfw/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/tags/palo-alto/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/tags/microsoft-entra-id/index.html
+         Rendering: categories/ngfw/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/tags/authentication/index.html
+  Pre-Render Hooks: categories/ngfw/index.html
+  Rendering Markup: categories/ngfw/index.html
+Post-Convert Hooks: categories/ngfw/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/tags/identity-provider/index.html
+  Rendering Layout: categories/ngfw/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/tags/backstage/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/tags/azure-devops/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/tags/ci-cd-pipelines/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/tags/automation/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/categories/zabbix/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/categories/automation/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/categories/monitoring/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/categories/cluster-shared-volumes/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/categories/cctv/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/categories/hardware/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/categories/python/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/categories/api/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/categories/ngfw/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/categories/palo-alto/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/categories/backstage/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/categories/devops/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/categories/cloud/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/sitemap.xml
+           Writing: /home/cuca/devops/blog-chirpy/_site/assets/css/jekyll-theme-chirpy.css.map
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: categories/palo-alto/index.html
+  Pre-Render Hooks: categories/palo-alto/index.html
+  Rendering Markup: categories/palo-alto/index.html
+Post-Convert Hooks: categories/palo-alto/index.html
+  Rendering Layout: categories/palo-alto/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/posts/creating-your-own-custom-lld-in-zabbix/index.html
+         Rendering: categories/backstage/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/posts/monitoring-cluster-shared-volumes-with-zabbix/index.html
+  Pre-Render Hooks: categories/backstage/index.html
+  Rendering Markup: categories/backstage/index.html
+Post-Convert Hooks: categories/backstage/index.html
+  Rendering Layout: categories/backstage/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/posts/how-i-recovered-a-bricked-cctv-camera/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/posts/fortinet-vs-palo-alto-automating-load-balancing/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/posts/monitoring-palo-alto-firewalls-using-api/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/posts/authentication-backstage-entra-id/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/posts/integrating-backstage-azure-devops/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/categories/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/tags/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/archives/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/about/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: categories/devops/index.html
+  Pre-Render Hooks: categories/devops/index.html
+  Rendering Markup: categories/devops/index.html
+Post-Convert Hooks: categories/devops/index.html
+  Rendering Layout: categories/devops/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: categories/cloud/index.html
+  Pre-Render Hooks: categories/cloud/index.html
+  Rendering Markup: categories/cloud/index.html
+Post-Convert Hooks: categories/cloud/index.html
+  Rendering Layout: categories/cloud/index.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/favicons.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/update-list.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/trending-tags.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/footer.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-results.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/notification.html
+ Include cache hit: /home/cuca/devops/blog-chirpy/_includes/search-loader.html
+         Rendering: sitemap.xml
+  Pre-Render Hooks: sitemap.xml
+  Rendering Liquid: sitemap.xml
+  Rendering Markup: sitemap.xml
+Post-Convert Hooks: sitemap.xml
+  Rendering Layout: sitemap.xml
+         Rendering: assets/css/jekyll-theme-chirpy.css.map
+  Pre-Render Hooks: assets/css/jekyll-theme-chirpy.css.map
+  Rendering Markup: assets/css/jekyll-theme-chirpy.css.map
+Post-Convert Hooks: assets/css/jekyll-theme-chirpy.css.map
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/404.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/app.min.js
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/assets/img/favicons/browserconfig.xml
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/feed.xml
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/assets/css/jekyll-theme-chirpy.css
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/assets/js/data/mathjax.js
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/robots.txt
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/assets/js/data/search.json
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/assets/img/favicons/site.webmanifest
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/sw.min.js
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/assets/js/data/swconf.js
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/norobots/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/assets/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/posts/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/redirects.json
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/tags/lld/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/tags/monitoramento/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/tags/powershell/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/tags/scripts-personalizados/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/tags/cluster-shared-volumes/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/tags/cftv/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/tags/hardware/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/tags/intelbras/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/tags/zabbix/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/tags/monitoring/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/tags/python/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/tags/api/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/tags/ngfw/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/tags/palo-alto/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/tags/microsoft-entra-id/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/tags/autenticação/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/tags/identity-provider/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/tags/backstage/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/tags/azure-devops/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/tags/ci-cd-pipelines/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/tags/automação/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/categories/zabbix/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/categories/automação/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/categories/monitoramento/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/categories/cluster-shared-volumes/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/categories/cftv/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/categories/hardware/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/categories/monitoring/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/categories/python/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/categories/api/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/categories/ngfw/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/categories/palo-alto/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/categories/backstage/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/categories/devops/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/categories/cloud/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/sitemap.xml
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/assets/css/jekyll-theme-chirpy.css.map
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/posts/creating-your-own-custom-lld-in-zabbix/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/posts/monitoring-cluster-shared-volumes-with-zabbix/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/posts/how-i-recovered-a-bricked-cctv-camera/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/posts/fortinet-vs-palo-alto-automating-load-balancing/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/posts/monitoring-palo-alto-firewalls-using-api/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/posts/authentication-backstage-entra-id/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/posts/integrating-backstage-azure-devops/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/categories/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/tags/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/archives/index.html
+           Writing: /home/cuca/devops/blog-chirpy/_site/pt-BR/about/index.html
+                    done in 1.606 seconds.
+ Auto-regeneration: disabled. Use --watch to enable.

@@ -4,8 +4,8 @@ title: "Fortinet vs. Palo Alto: Automatizando Balanceamento de Carga"
 date: "2024-10-22"
 description: "Como criar uma solução customizada para balanceamento de carga utilizando a API da Palo Alto em conjunto com ferramentas de monitoramento, como o Zabbix."
 author: "Luiz Meier"
-categories: [Zabbix, Monitoring, Python, API, NGFW, "Palo Alto"]
-tags: [Zabbix, Monitoring, Python, API, NGFW, "Palo Alto"]
+# categories: [Zabbix, Monitoring, Python, API, NGFW, "Palo Alto"]
+# tags: [Zabbix, Monitoring, Python, API, NGFW, "Palo Alto"]
 lang: pt-BR
 canonical_url: "https://blog.lmeier.net/posts/fortinet-vs-palo-alto-automatizando-balanceamento-de-carga/"
 image: assets/img/lb-fortinet-paloalto/cover.png

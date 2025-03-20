@@ -2,8 +2,8 @@
 title: "Monitoring Cluster Shared Volumes with Zabbix"
 author: "Luiz Meier"
 date: "2024-10-07 10:00:00"
-categories: [Zabbix, Monitoring, "Cluster Shared Volumes"]
-tags: [LLD, Monitoring, Powershell, Custom Scripts, "Cluster Shared Volumes"]
+# categories: [Zabbix, Monitoring, "Cluster Shared Volumes"]
+# tags: [LLD, Monitoring, Powershell, Custom Scripts, "Cluster Shared Volumes"]
 description: "How to monitor your cluster disks in Zabbix"
 lang: en
 layout: post

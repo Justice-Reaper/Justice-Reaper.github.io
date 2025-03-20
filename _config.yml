@@ -12,10 +12,13 @@ languages: ["en", "pt-BR"]
 plugins:
   - jekyll-polyglot
 
-# Polylgot settings
-exclude_from_localization: ["javascript", "images", "css", "public", "sitemap"]
-parallel_localization: true
-default_lang: "en"
+polyglot:
+  # Polylgot settings
+  exclude_from_localization: ["javascript", "images", "css", "public", "sitemap"]
+
+  parallel_localization: true
+  default_lang: "en"
+  lang_prefix: true
 
 # Change to your timezone › https://kevinnovak.github.io/Time-Zone-Picker
 timezone: America/Sao_Paulo

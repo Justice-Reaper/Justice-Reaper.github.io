@@ -4,8 +4,8 @@ title:	"Monitoring Palo Alto Firewalls using API"
 date:	2024-12-19
 description: "A Guide to Monitor the Status of Your IPSec Tunnels with Python and API integration."
 author: "Luiz Meier"
-categories: [Zabbix, Monitoring, Python, API, NGFW, Palo Alto]
-tags: [Zabbix, Monitoring, Python, API, NGFW, Palo Alto]
+# categories: [Zabbix, Monitoring, Python, API, NGFW, Palo Alto]
+# tags: [Zabbix, Monitoring, Python, API, NGFW, Palo Alto]
 lang: en
 canonical_url: https://blog.lmeier.net/posts/monitoring-palo-alto-firewalls-using-api/
 image: assets/img/monitoring-using-api/cover.png

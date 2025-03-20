@@ -4,8 +4,8 @@ title:	"Fortinet vs. Palo Alto: Automating Load Balancing"
 date:	2024-10-22
 description: "How to create a custom solution for load balancing in Palo Alto using API and monitoring tools like Zabbix."
 author: "Luiz Meier"
-categories: [Zabbix, Monitoring, Python, API, NGFW, "Palo Alto"]
-tags: [Zabbix, Monitoring, Python, API, NGFW, "Palo Alto"]
+# categories: [Zabbix, Monitoring, Python, API, NGFW, "Palo Alto"]
+# tags: [Zabbix, Monitoring, Python, API, NGFW, "Palo Alto"]
 lang: en
 canonical_url: https://blog.lmeier.net/posts/fortinet-vs-palo-alto-automating-load-balancing/
 image: assets/img/lb-fortinet-paloalto/cover.png
