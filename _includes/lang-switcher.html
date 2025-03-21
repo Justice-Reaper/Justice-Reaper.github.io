@@ -12,7 +12,7 @@
     {% for tongue in site.languages %}
       <p class="lang-name-box">
         {% if tongue == site.active_lang %}
-          <a class="lang-name" id="current-lang" style="font-weight: bold;">
+          <a class="lang-name" id="current-lang" style="font-weight: bold;" href="#">
             {{ site.data[tongue].l10n.lang_name }}
           </a>
         {% else %}
