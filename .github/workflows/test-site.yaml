@@ -1,22 +1,20 @@
-name: Test Site
+name: HTML Proofer
 
 permissions:
   contents: read
   pull-requests: write
 
 on:
-  # push:
-  #   branches:
-  #     - '**'
-  #   paths:
-  #     - '**.md'
+  push:
+    branches:
+      - '**'
 
   pull_request:
     branches:
       - '**'
 
 jobs:
-  test-site:
+  html-proofer:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
