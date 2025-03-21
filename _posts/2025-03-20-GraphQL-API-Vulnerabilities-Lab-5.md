@@ -6,16 +6,10 @@ categories:
   - Portswigger
   - GraphQL API Vulnerabilities
 tags:
-  - GraphQL
-  - API
-  - Vulnerabilities
-  - Bypassing
-  - GraphQL
-  - brute
-  - force
-  - protections
+  - GraphQL API Vulnerabilities
+  - Performing CSRF exploits over GraphQL
 image:
-  path: /assets/img/GraphQL-API-Vulnerabilities-Lab-4/Portswigger.png
+  path: /assets/img/GraphQL-API-Vulnerabilities-Lab-5/Portswigger.png
 ---
 
 ## Skills
@@ -38,15 +32,15 @@ Las `funciones de gestión de usuarios` de este `laboratorio` usa un `endpoint G
 
 Al `acceder` a la `web` vemos esto
 
-![[image_1.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-5/image_1.png)
 
 Si hacemos click sobre `My account`, nos podemos `loguear` con las credenciales `wiener:peter`
 
-![[image_2.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-5/image_2.png)
 
 Vemos que podemos `cambiar` nuestra `dirección` de `correo electrónico`
 
-![[image_3.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-5/image_3.png)
 
 Las `vulnerabilidades CSRF` pueden surgir cuando un `endpoint GraphQL` no valida el `tipo de contenido` de las `solicitudes` que recibe y no se implementan `tokens CSRF`
 
@@ -56,7 +50,7 @@ Sin embargo, `métodos alternativos` como `GET`, o cualquier `solicitud` que use
 
 Si `inspeccionamos` el `formulario` de `cambio` de `email` vemos como funciona
 
-![[image_4.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-5/image_4.png)
 
 Accediendo a `/resources/js/gqlUtil.js` vemos este código fuente
 
@@ -178,7 +172,7 @@ const displayContent = (path, queryParam) => {
 
 En `Burpsuite` con la extensión `Logger ++` vemos que se `tramita` esta `petición` a `GraphQL` cuando se `cambia` el `email`
 
-![[image_5.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-5/image_2.png)
 
 Podemos probar a cambiar el `content-type` de `application/json` a `application/x-www-form-urlencoded` y el `formato` de la `query` de `JSON` a `urlencoded` y si el `servidor` lo `acepta`, podríamos aprovecharnos de esto para `explotar` un `CSRF`. Para hacer esto lo podemos hacer de `forma manual` o podemos usar mi herramienta `graphQLConverter` [https://github.com/Justice-Reaper/graphQLConverter.git](https://github.com/Justice-Reaper/graphQLConverter.git). Le tenemos que pasar por parámetro la `query` que tenemos en `Burpsuite`
 
@@ -190,7 +184,7 @@ query=mutation+changeEmail%28%24input%3A+ChangeEmailInput%21%29+%7BchangeEmail%2
 
 Cambiamos el `content-type` de `application/json` a `application/x-www-form-urlencoded` e `insertamos` el nuevo `payload` en el `body`. Al `enviar` la `petición` vemos que `funciona correctamente`
 
-![[image_6.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-5/image_6.png)
 
 ```
 query=mutation%20changeEmail($input:ChangeEmailInput!)%20{changeEmail(input:$input)%20{email}}&operationName=changeEmail&variables:{"input":{"email":"test@gmail.com"}}}
@@ -198,21 +192,21 @@ query=mutation%20changeEmail($input:ChangeEmailInput!)%20{changeEmail(input:$inp
 
 Nos `generamos` un `PoC` de `CSRF`, para ello pulsamos `click derecho > Engagements tools > Generate CSRF PoC`
 
-![[image_7.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-5/image_7.png)
 
-![[image_8.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-5/image_8.png)
 
 Nos `dirigimos` a nuestro `Exploit server` y lo `pegamos`. Se ve así el `payload` porque hay valores que están `HTML encodeados`
 
-![[image_9.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-5/image_9.png)
 
 Si hacemos click en `View exploit` vemos como nos redirige a `/graphql/v1`
 
-![[image_10.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-5/image_10.png)
 
 `Comprobamos` que se nos haya `cambiado` el `correo electrónico` y efectivamente ha funcionado
 
-![[image_11.png]]
+![](/assets/img/GraphQL-API-Vulnerabilities-Lab-5/image_11.png)
 
 He modificado el `payload` manualmente para que tenga un `mejor desempeño`. Lo siguiente que debemos hacer es dirigirnos al `Exploit server`, pegamos el `payload` y pulsamos sobre `Deliver exploit to victim`. Debemos tener en cuenta que, para que funcione el `exploit`, debemos usar un `correo diferente al nuestro` en el `payload` porque, de lo contrario, no funcionará. Esto se debe a que `dos usuarios no pueden tener el mismo correo electrónico`
 
@@ -230,4 +224,3 @@ He modificado el `payload` manualmente para que tenga un `mejor desempeño`. 
   </body>
 </html>
 ```
-
