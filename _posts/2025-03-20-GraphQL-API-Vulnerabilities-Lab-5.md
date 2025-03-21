@@ -44,7 +44,7 @@ Si hacemos click sobre `My account`, nos podemos `loguear` con las credenciales 
 
 ![[image_2.png]]
 
-Vemos que podemos cambiar nuestra dirección de correo electrónico
+Vemos que podemos `cambiar` nuestra `dirección` de `correo electrónico`
 
 ![[image_3.png]]
 
