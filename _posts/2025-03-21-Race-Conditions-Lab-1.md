@@ -104,11 +104,9 @@ Desde el `Repeater` de `Burpsuite` podemos enviar fácilmente un grupo de `solic
 
 - Para `HTTP/2`, utiliza la técnica de `single-packet attack`
 
-El `single-packet attack` permite neutralizar completamente la interferencia del `network jitter` utilizando un único `paquete TCP` para completar de `20 a 30 solicitudes simultáneamente`
+El `single-packet attack` permite neutralizar completamente la interferencia del `network jitter` utilizando un único `paquete TCP` para completar de `20 a 30 solicitudes simultáneamente`. Aunque a menudo, podemos usar solo `dos solicitudes` para activar un `exploit`, `enviar` un `gran número` de `solicitudes` de esta manera `ayuda` a `mitigar` la `latencia interna`, también conocida como `server-side jitter`. Esto es especialmente útil durante la `fase inicial de descubrimiento`
 
 ![](/assets/img/Race-Conditions-Lab-1/image_10.png)
-
-Aunque a menudo, podemos usar solo `dos solicitudes` para activar un `exploit`, `enviar` un `gran número` de `solicitudes` de esta manera `ayuda` a `mitigar` la `latencia interna`, también conocida como `server-side jitter`. Esto es especialmente útil durante la `fase inicial de descubrimiento`
 
 Para `comprobar` si `existe` una `race condition` en este `laboratorio`, vamos a hacerlo a la hora de `aplicar` el `cupón` de `descuento`. Debemos añadir el artículo `Lightweight "l33t" Leather Jacket` a la cesta y aplicar el cupón `PROMO20`
 
