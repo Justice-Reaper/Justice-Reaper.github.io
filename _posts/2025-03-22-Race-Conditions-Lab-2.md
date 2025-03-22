@@ -60,7 +60,7 @@ El `período de tiempo` durante el cual una `colisión` es posible se conoce com
 
 Al igual que otros `fallos de lógica`, el `impacto` de una `race condition` depende en gran medida de la `aplicación` y de la `funcionalidad específica` en la que ocurra
 
-El tipo más conocido de `race condition` nos permite `exceder` algún tipo de `límite` impuesto por la `lógica de negocio` de la `aplicación`.
+El tipo más conocido de `race condition` nos permite `exceder` algún tipo de `límite` impuesto por la `lógica de negocio` de la `aplicación`
 
 Por ejemplo, consideremos una `tienda en línea` que nos permite ingresar un `código promocional` durante el `pago` para obtener un `descuento único` en nuestro `pedido`. Para aplicar este `descuento`, la `aplicación` puede realizar los siguientes `pasos de alto nivel`
 
