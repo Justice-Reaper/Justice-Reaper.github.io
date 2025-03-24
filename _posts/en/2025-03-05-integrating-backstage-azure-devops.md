@@ -4,8 +4,8 @@ title: "Integrating Backstage and Azure DevOps"
 description: "Automate the resource delivery in Azure integrating Backstage and Azure DevOps. A step-by-step guide about configuring, templates and pipelines."
 date: "2025-03-05 10:00:00 +0000"
 author: Luiz Meier
-# categories: [Backstage, DevOps, Cloud]
-# tags: ["Azure DevOps", Backstage, "CI/CD Pipelines", Automation]
+categories: [Backstage, DevOps, Cloud]
+tags: ["Azure DevOps", Backstage, "CI/CD Pipelines", Automation]
 lang: en
 canonical_url: https://blog.lmeier.net/posts/integrating-backstage-azure-devops-en/
 image: assets/img/backstage-azure-devops/cover.png

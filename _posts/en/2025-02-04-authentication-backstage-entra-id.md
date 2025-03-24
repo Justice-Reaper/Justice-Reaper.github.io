@@ -4,8 +4,8 @@ title: "Authentication on Backstage with MS Entra ID"
 description: "Integrate Microsoft Entra ID with Backstage for secure authentication. A step-by-step guide on App Registration, backend setup and identity management."
 date: "2025-02-04 10:00:00 +0000"
 author: Luiz Meier
-# categories: [Backstage, DevOps, Cloud]
-# tags: ["Microsoft Entra ID", Authentication, "Identity Provider", Backstage]
+categories: [Backstage, DevOps, Cloud]
+tags: ["Microsoft Entra ID", Authentication, "Identity Provider", Backstage]
 lang: en
 image: assets/img/backstage-entraid/capa.png
 canonical_url: https://blog.lmeier.net/posts/authentication-backstage-entra-id-en/
