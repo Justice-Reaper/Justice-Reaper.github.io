@@ -149,7 +149,7 @@ Cualquier cosa puede ser una `pista`. Solo debemos buscar alguna forma de `desvi
 
 Las `advanced race conditions` pueden causar `comportamientos inusuales y únicos`, por lo que la forma para obtener el `máximo impacto` no siempre es obvia de inmediato. Puede ayudar, pensar que cada `race condition` es como una `debilidad estructural`,en lugar de una `vulnerabilidad aislada`
 
-Enviar peticiones en paralelo con diferentes `valores` a un mismo `endpoint` a veces puede desencadenar importantes `race conditions`, a este tipo de `race condition` se le llama `single-endpoint race condition`
+Enviar `peticiones` en `paralelo` con diferentes `valores` a un mismo `endpoint` a veces puede desencadenar importantes `race conditions`, a este tipo de `race condition` se le llama `single-endpoint race condition`
 
 Por ejemplo, consideremos un `mecanismo` de `restablecimiento de contraseña` que almacena el `ID de usuario` y el `token de restablecimiento` en la `sesión` del usuario. En este escenario, enviar `dos solicitudes` de `restablecimiento de contraseña` en `paralelo` desde la misma `sesión`, pero con `dos nombres de usuario diferentes`, podría causar esta `colisión`
 
