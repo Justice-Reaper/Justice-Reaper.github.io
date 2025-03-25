@@ -11,7 +11,7 @@ canonical_url: https://blog.lmeier.net/posts/integrating-backstage-azure-devops-
 image: assets/img/backstage-azure-devops/cover.png
 ---
  
-[Leia em Português](https://blog.lmeier.net/posts/integrando-backstage-azure-devops-pt-BR)
+<!-- [Leia em Português](https://blog.lmeier.net/posts/integrando-backstage-azure-devops-pt-BR) -->
 
 ## Introduction
 

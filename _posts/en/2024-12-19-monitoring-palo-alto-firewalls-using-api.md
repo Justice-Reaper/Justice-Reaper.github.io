@@ -11,7 +11,7 @@ canonical_url: https://blog.lmeier.net/posts/monitoring-palo-alto-firewalls-usin
 image: assets/img/monitoring-using-api/cover.png
 ---
 
-*Também disponível em* [*Português*](https://blog.lmeier.net/posts/usando-api-para-monitorar-ipsec-da-palo-alto/)
+<!-- *Também disponível em* [*Português*](https://blog.lmeier.net/posts/usando-api-para-monitorar-ipsec-da-palo-alto/) -->
 
 When it comes to networking monitoring, **SNMP** is by far one of the most used protocols. It is easy to have visibility over traffic and interface’s status polling network-related OIDs from SNMP database. However, not all vendors make it available to monitor virtual interfaces (such as IPSec) the same way as they do with physical ones. Palo Alto is one of these.
 If you check their documentation (linked [here](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000ClgECAS)) it will tell you that the IPSec tunnel status is monitored only via SNMP traps and not queries.
