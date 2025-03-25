@@ -4,8 +4,8 @@ title:	"Como Recuperei Uma Câmera CFTV Brickada"
 description: "Um guia de último recurso para não perder seu equipamento"
 date:	"2024-10-18"
 author: "Luiz Meier"
-categories: [CFTV, Hardware]
-tags: [CFTV, Hardware, Intelbras]
+categories: [CCTV, Hardware]
+tags: [CCTV, Hardware, Intelbras]
 lang: pt-BR
 canonical_url: "https://blog.lmeier.net/posts/como-recuperei-uma-camera-cftv-brickada/"
 image: assets/img/bricked-camera/cover.png

@@ -5,7 +5,7 @@ description: "Integre o Microsoft Entra ID ao Backstage para autenticação segu
 date: "2025-02-04 10:00:00 +0000"
 author: "Luiz Meier"
 categories: [Backstage, DevOps, Cloud]
-tags: [Microsoft Entra ID, Autenticação, "Identity Provider", Backstage]
+tags: ["Microsoft Entra ID", Authentication, "Identity Provider", Backstage]
 lang: pt-BR
 canonical_url: "https://blog.lmeier.net/posts/autenticacao-backstage-entra-id-pt-BR/"
 image: assets/img/backstage-entraid/capa.png

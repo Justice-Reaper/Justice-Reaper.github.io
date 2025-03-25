@@ -5,7 +5,7 @@ description: "Automatize a entrega de recursos na Azure integrando o Backstage c
 date: "2025-03-05 10:00:00 +0000"
 author: "Luiz Meier"
 categories: [Backstage, DevOps, Cloud]
-tags: [Azure DevOps, Backstage, "CI/CD Pipelines", Automação]
+tags: ["Azure DevOps", Backstage, "CI/CD Pipelines", Automation]
 lang: pt-BR
 canonical_url: "https://blog.lmeier.net/posts/integrando-backstage-azure-devops-pt-BR/"
 image: assets/img/backstage-azure-devops/cover.png
