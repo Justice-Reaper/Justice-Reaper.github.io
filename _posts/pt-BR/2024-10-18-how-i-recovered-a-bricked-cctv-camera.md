@@ -4,14 +4,14 @@ title:	"Como Recuperei Uma Câmera CFTV Brickada"
 description: "Um guia de último recurso para não perder seu equipamento"
 date:	"2024-10-18"
 author: "Luiz Meier"
-categories: [CFTV, Hardware]
-tags: [CFTV, Hardware, Intelbras]
+categories: [CCTV, Hardware]
+tags: [CCTV, Hardware, Intelbras]
 lang: pt-BR
 canonical_url: "https://blog.lmeier.net/posts/como-recuperei-uma-camera-cftv-brickada/"
 image: assets/img/bricked-camera/cover.png
 ---
 
-*Read in [english](https://blog.lmeier.net/posts/how-i-recovered-a-bricked-cctv-camera/)*
+<!-- *Read in [english](https://blog.lmeier.net/posts/how-i-recovered-a-bricked-cctv-camera/)* -->
 
 Há algumas semanas tive uma dificuldade com duas câmeras de CFTV que brickaram inesperadamente. Apesar de existirem milhares de posts e vídeos no YouTube de pessoas ensinando a configurar, resetar, alterar senha e etc., não encontrei nenhuma informação a respeito de como tentar recuperar o equipamento no caso dele não iniciar. Abaixo explico como detectei que as câmeras não estavam condenadas e comecei os trabalhos para recuperá-las.
 

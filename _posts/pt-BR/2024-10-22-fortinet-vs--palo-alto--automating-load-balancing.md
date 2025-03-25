@@ -6,12 +6,12 @@ description: "Como criar uma solução customizada para balanceamento de carga u
 author: "Luiz Meier"
 categories: [Zabbix, Monitoring, Python, API, NGFW, "Palo Alto"]
 tags: [Zabbix, Monitoring, Python, API, NGFW, "Palo Alto"]
-lang: en
+lang: pt-BR
 canonical_url: "https://blog.lmeier.net/posts/fortinet-vs-palo-alto-automatizando-balanceamento-de-carga/"
 image: assets/img/lb-fortinet-paloalto/cover.png
 ---
 
-[*Read in english*](https://blog.lmeier.net/posts/fortinet-vs-palo-alto-automating-load-balancing/)
+<!-- [*Read in english*](https://blog.lmeier.net/posts/fortinet-vs-palo-alto-automating-load-balancing/) -->
 
 Não há dúvida de que Fortinet e Palo Alto são alguns dos maiores fabricantes no mercado de firewalls de nova geração (NGFW). Enquanto cada fabricante brilha em diferentes áreas, é natural que um engenheiro compare as capacidades de cada um, até encontrar a que melhor se encaixa em suas necessidades, especialmente quando se trata de adotar uma nova solução no seu ambiente.
 

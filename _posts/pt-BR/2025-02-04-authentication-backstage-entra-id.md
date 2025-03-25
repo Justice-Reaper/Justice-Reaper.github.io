@@ -5,13 +5,13 @@ description: "Integre o Microsoft Entra ID ao Backstage para autenticação segu
 date: "2025-02-04 10:00:00 +0000"
 author: "Luiz Meier"
 categories: [Backstage, DevOps, Cloud]
-tags: [Microsoft Entra ID, Autenticação, "Identity Provider", Backstage]
+tags: ["Microsoft Entra ID", Authentication, "Identity Provider", Backstage]
 lang: pt-BR
 canonical_url: "https://blog.lmeier.net/posts/autenticacao-backstage-entra-id-pt-BR/"
 image: assets/img/backstage-entraid/capa.png
 ---
  
-[Read in English](https://blog.lmeier.net/posts/authentication-backstage-entra-id-en)
+<!-- [Read in English](https://blog.lmeier.net/posts/authentication-backstage-entra-id-en) -->
 
 Há algum tempo venho ouvindo sobre como o Backstage é uma ferramenta revolucionária e como pode ajudar a dar mais liberdade aos desenvolvedores na solicitação de recursos em nuvem.  
 
