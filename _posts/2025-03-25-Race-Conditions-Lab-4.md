@@ -6,16 +6,10 @@ categories:
   - Portswigger
   - Race Conditions
 tags:
-  - GraphQL
-  - API
-  - Vulnerabilities
-  - Bypassing
-  - GraphQL
-  - brute
-  - force
-  - protections
+  - Race Conditions
+  - Single-endpoint race conditions
 image:
-  path: /assets/img/GraphQL-API-Vulnerabilities-Lab-4/Portswigger.png
+  path: /assets/img/Race-Conditions-Lab-4/Portswigger.png
 ---
 
 ## Skills
@@ -50,27 +44,27 @@ Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `
 
 Al `acceder` a la `web` vemos esto
 
-![[image_1.png]]
+![](/assets/img/Race-Conditions-Lab-3/image_1.png)
 
 Si hacemos click sobre `My account` nos podemos loguear con las credenciales `wiener:peter`
 
-![[image_2.png]]
+![](/assets/img/Race-Conditions-Lab-3/image_2.png)
 
 Después de `iniciar sesión` vemos que podemos `cambiarnos` el `correo electrónico` y que para `confirmar` el `cambio` de `correo` se nos manda un `email` a nuestro `correo electrónico`
 
-![[image_3.png]]
+![](/assets/img/Race-Conditions-Lab-3/image_3.png)
 
 Si accedeos al `Email client` vemos la `confirmación` para el `cambio` de `correo electrónico`
 
-![[image_4.png]]
+![](/assets/img/Race-Conditions-Lab-3/image_4.png)
 
 Si hacemos `click` sobre el `enlace de confirmación` recibimos este `mensaje` y nos redirige a `/confirm-email?user=wiener&token=WqzeuYaRrAm1tOlD`
 
-![[image_5.png]]
+![](/assets/img/Race-Conditions-Lab-3/image_5.png)
 
 Si nos dirigimos a `My account` podemos confirmar que el `cambio` de `correo electrónico` si ha funcionado
 
-![[image_6.png]]
+![](/assets/img/Race-Conditions-Lab-3/image_6.png)
 
 Las `race condition` son un tipo común de `vulnerabilidad` estrechamente relacionada con los `fallos de lógica de negocio`. Ocurren cuando los `sitios web` procesan `solicitudes` de forma concurrente sin los `mecanismos de protección` adecuados. Esto puede hacer que múltiples `hilos` distintos interactúen con los mismos `datos` al mismo tiempo, lo que resulta en una `colisión` que provoca un `comportamiento` no deseado en la `aplicación`. Un `ataque` de `race condition` utiliza `solicitudes` enviadas con una `sincronización` precisa para causar `colisiones` intencionadas y `explotar` este `comportamiento` no deseado con `fines maliciosos`
 
@@ -99,7 +93,7 @@ Como podemos ver, esto es en realidad una `secuencia de múltiples pasos` dentro
 
 Como estas `vulnerabilidades` son bastante `específicas de cada aplicación`, es importante primero `comprender` la `metodología general` que debemos aplicar para `identificarlas` de manera `eficiente`
 
-![[image_7.png]]
+![](/assets/img/Race-Conditions-Lab-3/image_7.png)
 
 `Predecir colisiones potenciales` - Probar `cada endpoint` no es `práctico`. Después de `mapear` el `sitio objetivo`, podemos `reducir` la cantidad de `endpoints` que necesitamos probar haciéndonos las siguientes `preguntas`
 
@@ -109,7 +103,7 @@ Como estas `vulnerabilidades` son bastante `específicas de cada aplicación`, e
 
 Por ejemplo, consideremos las siguientes `variaciones` de una `implementación` de `restablecimiento de contraseña`. Con el primer `ejemplo`, solicitar un `restablecimiento de contraseña` en `paralelo` para `dos usuarios diferentes` es `poco probable` que cause una `colisión`, ya que son cambios en dos `registros` diferentes. Sin embargo, la segunda `implementación` permite `editar` el mismo `registro` con solicitudes para dos `usuarios` diferentes
 
-![[image_8.png]]
+![](/assets/img/Race-Conditions-Lab-3/image_8.png)
 
 `Buscar pistas` - Para reconocer `pistas`, primero debemos `medir` cómo se comporta el `endpoint` bajo condiciones `normales`. Podemos hacer esto desde el `Repeater` agrupando todas las `solicitudes` y utilizando la opción `Send group in sequence (separate connections)`, en este tipo de solicitud el `Repeater` establece una `conexión` con el objetivo, envía la `solicitud` desde la primera `pestaña`, y luego cierra la `conexión` y `repite` este `proceso` para `todas` las demás `pestañas` en el `orden` en que están `dispuestas` en el `grupo`. Enviar las solicitudes a través de `separate connections` facilita testear `vulnerabilidades` que requieren de `múltiples pasos`
 
@@ -159,7 +153,7 @@ Enviar peticiones en paralelo con diferentes `valores` a un mismo `endpoint` a v
 
 Por ejemplo, consideremos un `mecanismo` de `restablecimiento de contraseña` que almacena el `ID de usuario` y el `token de restablecimiento` en la `sesión` del usuario. En este escenario, enviar `dos solicitudes` de `restablecimiento de contraseña` en `paralelo` desde la misma `sesión`, pero con `dos nombres de usuario diferentes`, podría causar esta `colisión`
 
-![[image_9.png]]
+![](/assets/img/Race-Conditions-Lab-3/image_9.png)
 
 `Tengamos en cuenta` el `estado final` cuando todas las `operaciones` se han `completado`
 
@@ -176,45 +170,45 @@ Las `confirmaciones` de `correo electrónico` o cualquier `operación basada` en
 
 Una vez sabemos esto, vamos a dirigirnos a la extensión `Logger ++` de `Burpsuite` y le echamos un vistazo a la petición de `cambio de email`
 
-![[image_10.png]]
+![](/assets/img/Race-Conditions-Lab-3/image_10.png)
 
 Vamos a `enviar` esta `petición` al `Repeater` y vamos a `testear` si es probable una `race condition`. Para ello vamos se recomienda usar entre `20` y `30` y cada una tiene que tener un `email diferente`
 
-![[image_11.png]]
+![](/assets/img/Race-Conditions-Lab-3/image_11.png)
 
 `Pinchamos` sobre los `tres puntos` y `creamos` un `grupo` pulsando en `Create tab group`
 
-![[image_12.png]]
+![](/assets/img/Race-Conditions-Lab-3/image_12.png)
 
-![[image_13.png]]
+![](/assets/img/Race-Conditions-Lab-3/image_13.png)
 
-![[image_14.png]]
+![](/assets/img/Race-Conditions-Lab-3/image_14.png)
 
 Vamos a `enviar todas las peticiones en grupo` usando la opción `Send group in sequence (separate connections)`. Usamos esta opción para `testear` las `race conditions`, en este caso tiene sentido porque los `correos electrónicos` usan `hilos` y al mandar `varias solicitudes` hay más `probabilidad` de que `colisionen`
 
-![[image_15.png]]
+![](/assets/img/Race-Conditions-Lab-3/image_15.png)
 
 Nos dirigimos al `Email client` y observamos que cada `email` obtiene el `código de confirmación` de su `correo electrónico`. Si mandamos las `peticiones en paralelo`, podríamos causar una `race condition` si el `servidor` no maneja correctamente los `emails` enviados
 
-![[image_16.png]]
+![](/assets/img/Race-Conditions-Lab-3/image_16.png)
 
 Una vez comprobado esto, seleccionamos la opción `Send group in parallel (single-packet attack)` y efectuamos un `single-packet attack`. Aunque las `condiciones` sean aparentemente `idóneas` puede ser que tengamos que `ejecutar` el `ataque` varias veces para que funcione
 
-![[image_17.png]]
+![](/assets/img/Race-Conditions-Lab-3/image_17.png)
 
 Si nos dirigimos al `Email client`, vemos algo `raro`. Estamos recibiendo para un `email` un `código de confirmación` de otro `email` completamente diferente
 
-![[image_18.png]]
+![](/assets/img/Race-Conditions-Lab-3/image_18.png)
 
 Si nos fijamos en el `delay` de las `peticiones` que han `colisionado`, por ejemplo `TESTING 1` con `TESTING 9`, vemos que el `delay` es `exactamente el mismo` o `varía de forma mínima`
 
-![[image_19.png]]
+![](/assets/img/Race-Conditions-Lab-3/image_19.png)
 
-![[image_20.png]]
+![](/assets/img/Race-Conditions-Lab-3/image_20.png)
 
 Si hacemos `click` en varios `enlaces`, nos daremos cuenta que solo es `válido` el `último` que recibido. Por lo tanto esto puede hacer que sea `complicado` obtener el `enlace` que queremos, para `solucionar` esto vamos a `reducir` el número de `peticiones` a `dos`, la `primera petición` tendrá nuestro `email` y la `segunda` el email `carlos@ginandjuice.shop`
 
-![[image_21.png]]
+![](/assets/img/Race-Conditions-Lab-3/image_21.png)
 
 ```
 email=testing29%40exploit-0a5c00e90479d99e82f0c4b201010058.exploit-server.net&csrf=yluvF2aFoPhltmxFukCcYNpRH3V3Djvt
@@ -226,18 +220,16 @@ email=carlos%40ginandjuice.shop&csrf=yluvF2aFoPhltmxFukCcYNpRH3V3Djvt
 
 El siguiente paso es `seleccionar` la opción `Send group in parallel (single-packet attack)` y `efectuar` un `single-packet attack` nuevamente. A continuación, si nos dirigimos al `Email client` vemos que hemos obtenido en nuestro `correo` el `correo de confirmación` de `carlos@ginandjuice.shop`
 
-![[image_22.png]]
+![](/assets/img/Race-Conditions-Lab-3/image_22.png)
 
 Hacemos `click` sobre el `enlace`, nos `redirige` a `/confirm-email?user=wiener&token=SsyCyXVYn26WqPG3` y `confirmamos` el `cambio` de `correo` a `carlos@ginandjuice.shop`
 
-![[image_23.png]]
+![](/assets/img/Race-Conditions-Lab-3/image_23.png)
 
 Si accedemos a `My account` podemos ver como el `cambio de correo` ha sido `exitoso`. Además, como ese `email` iba a ser el de un `usuario administrador`, ganamos `acceso` al `panel administrativo`
 
-![[image_24.png]]
+![](/assets/img/Race-Conditions-Lab-3/image_24.png)
 
 Accedemos a `Admin panel` y `eliminamos` al usuario `carlos`
 
-![[image_25.png]]
-
-
+![](/assets/img/Race-Conditions-Lab-3/image_25.png)
