@@ -8,6 +8,13 @@ on:
   push:
     branches:
       - '**'
+    paths-ignore:
+      - ".github/**"
+      - "!.github/workflows/ci.yml"
+      - .gitignore
+      - "docs/**"
+      - README.md
+      - LICENSE
       
 jobs:
   html-proofer:
