@@ -6,16 +6,10 @@ categories:
   - Portswigger
   - Race Conditions
 tags:
-  - GraphQL
-  - API
-  - Vulnerabilities
-  - Bypassing
-  - GraphQL
-  - brute
-  - force
-  - protections
+  - Race Conditions
+  - Exploiting time-sensitive vulnerabilities
 image:
-  path: /assets/img/GraphQL-API-Vulnerabilities-Lab-4/Portswigger.png
+  path: /assets/img/Race-Conditions-Lab-5/Portswigger.png
 ---
 
 ## Skills
@@ -50,27 +44,27 @@ Podemos `iniciar sesión` en nuestra cuenta con las credenciales `wiener:peter`
 
 Al `acceder` a la `web` vemos esto
 
-![[image_1.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_1.png)
 
 Si hacemos click sobre `My account` nos podemos `loguear` con las credenciales `wiener:peter`
 
-![[image_2.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_2.png)
 
 Después de `iniciar sesión` vemos que podemos `cambiarnos` el `correo electrónico` 
 
-![[image_3.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_3.png)
 
 Si pulsamos sobre `Forgot password?` vemos que podemos `resetear` nuestra `contraseña` proporcionando el `nombre de usuario` o nuestro `email`
 
-![[image_4.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_4.png)
 
 Se nos `mandará` un `email` a nuestro `correo`
 
-![[image_5.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_5.png)
 
 Si pulsamos sobre el `enlace` nos `redirigirá` a `/forgot-password?user=wiener&token=0838f9d972a6ebf021d46e6e74d1af997c888d91` y podremos `setear` una `nueva contraseña`
 
-![[image_6.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_6.png)
 
 Las `race condition` son un tipo común de `vulnerabilidad` estrechamente relacionada con los `fallos de lógica de negocio`. Ocurren cuando los `sitios web` procesan `solicitudes` de forma concurrente sin los `mecanismos de protección` adecuados. Esto puede hacer que múltiples `hilos` distintos interactúen con los mismos `datos` al mismo tiempo, lo que resulta en una `colisión` que provoca un `comportamiento` no deseado en la `aplicación`. Un `ataque` de `race condition` utiliza `solicitudes` enviadas con una `sincronización` precisa para causar `colisiones` intencionadas y `explotar` este `comportamiento` no deseado con `fines maliciosos`
 
@@ -99,7 +93,7 @@ Como podemos ver, esto es en realidad una `secuencia de múltiples pasos` dentro
 
 Como estas `vulnerabilidades` son bastante `específicas de cada aplicación`, es importante primero `comprender` la `metodología general` que debemos aplicar para `identificarlas` de manera `eficiente`
 
-![[image_7.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_7.png)
 
 `Predecir colisiones potenciales` - Probar `cada endpoint` no es `práctico`. Después de `mapear` el `sitio objetivo`, podemos `reducir` la cantidad de `endpoints` que necesitamos probar haciéndonos las siguientes `preguntas`
 
@@ -109,7 +103,7 @@ Como estas `vulnerabilidades` son bastante `específicas de cada aplicación`, e
 
 Por ejemplo, consideremos las siguientes `variaciones` de una `implementación` de `restablecimiento de contraseña`. Con el primer `ejemplo`, solicitar un `restablecimiento de contraseña` en `paralelo` para `dos usuarios diferentes` es `poco probable` que cause una `colisión`, ya que son cambios en dos `registros` diferentes. Sin embargo, la segunda `implementación` permite `editar` el mismo `registro` con solicitudes para dos `usuarios` diferentes
 
-![[image_8.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_8.png)
 
 `Buscar pistas` - Para reconocer `pistas`, primero debemos `medir` cómo se comporta el `endpoint` bajo condiciones `normales`. Podemos hacer esto desde el `Repeater` agrupando todas las `solicitudes` y utilizando la opción `Send group in sequence (separate connections)`, en este tipo de solicitud el `Repeater` establece una `conexión` con el objetivo, envía la `solicitud` desde la primera `pestaña`, y luego cierra la `conexión` y `repite` este `proceso` para `todas` las demás `pestañas` en el `orden` en que están `dispuestas` en el `grupo`. Enviar las solicitudes a través de `separate connections` facilita testear `vulnerabilidades` que requieren de `múltiples pasos`
 
@@ -161,37 +155,37 @@ Si consideramos un `token de restablecimiento de contraseña` que solo se `aleat
 
 Una vez sabemos esto, vamos a dirigirnos a la extensión `Logger ++` de `Burpsuite` y le echamos un vistazo a la petición de `Forgot password?`
 
-![[image_9.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_9.png)
 
 Vamos a `enviar` esta `petición` al `Repeater` y vamos a `testear` si es probable una `race condition`. Para ello vamos se recomienda usar entre `20` y `30` 
 
-![[image_10.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_10.png)
 
 `Pinchamos` sobre los `tres puntos` y `creamos` un `grupo` pulsando en `Create tab group`
 
-![[image_11.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_11.png)
 
-![[image_12.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_12.png)
 
-![[image_13.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_13.png)
 
 Vamos a `enviar todas las peticiones en grupo` usando la opción `Send group in sequence (separate connections)`. Usamos esta opción para `testear` las `race conditions`, en este caso tiene sentido porque los `correos electrónicos` usan `hilos` y al mandar `varias solicitudes` hay más `probabilidad` de que `colisionen`. Vemos que las `peticiones` tienen todas un `delay` similar, por lo este podría ser un `entorno ideal` para que se `produzca` una `race condition`
 
-![[image_14.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_14.png)
 
-![[image_15.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_15.png)
 
-![[image_16.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_16.png)
 
 A continuación usamos la opción `Send group in parallel (single-packet attack)`
 
-![[image_17.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_17.png)
 
 Al fijarnos en el `delay` de las `peticiones` vemos que la `diferencia` es `muy grande`
 
-![[image_18.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_18.png)
 
-![[image_19.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_19.png)
 
 Esto puede deberse a que algunos `frameworks` intentan evitar la `corrupción accidental de datos` mediante algún tipo de `bloqueo de solicitudes`. Por ejemplo, el `módulo nativo de PHP` para el manejo de `sesiones` solo procesa una `solicitud por sesión` a la vez
 
@@ -199,51 +193,51 @@ Es fundamental `detectar` este tipo de `comportamiento`, ya que puede ocultar `v
 
 Como en este `laboratorio` se está usando `PHP`, podría ser este el caso y por eso se produce ese `retraso` a la hora de enviar `peticiones`. Para comprobar si estamos en lo cierto, vamos a reducir el `número de peticiones` a `2` solamente y cada `petición` tendrá una `cookie diferente`. Para obtener `diferentes cookies` debemos abrirnos las `herramientas de desarrollador de Chrome`, `borrar la cookie` para que se nos asigne una `nueva` y `refrescar` la `web` con `F5`
 
-![[image_20.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_20.png)
 
 Posteriormente nos abrimos el `código fuente` y veremos un `token CSRF` que también necesitaremos, debido a que este `token` está `vinculado` a nuestra `cookie de sesión`
 
-![[image_21.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_21.png)
 
 Otra forma más cómoda es `capturar` una la `petición a /login` con `Burpsuite` y `eliminar` la cabecera `Cookie: phpsessionid=muXYmF0pTOMtm067D2Vuhd9xmw2amPSU`
 
-![[image_22.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_22.png)
 
 De esta forma al `enviar` la `petición` nos `seteará` una `nueva cookie`
 
-![[image_23.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_23.png)
 
 Si `filtramos` por `csrf` también podemos `obtener` el `token CSRF`
 
-![[image_24.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_24.png)
 
 El resultado final tendría que ser este. Para `comprobar` que `ambas sesiones` son `válidas` podemos mandar una `petición` de prueba pulsando en `Send`
 
-![[image_25.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_25.png)
 
-![[image_26.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_26.png)
 
 Cambiamos la opción a `Send group in parallel (single-packet attack)` y `ejecutamos` el `ataque`. Si nos fijamos ahora los tiempos de `respuesta` son `prácticamente idénticos`
 
-![[image_27.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_27.png)
 
-![[image_28.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_28.png)
 
 Debemos `ejecutar` este `ataque` hasta obtener `dos tokens idénticos` en el `Email client`. Este ataque ha funcionado debido a que el `token de restablecimiento de contraseña` solo se `aleatoriza` usando un `timestamp` y por lo tanto `si enviamos dos peticiones de forma simultánea obtendremos dos token de restablecimiento de contraseña iguales`
 
-![[image_29.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_29.png)
 
 Para `obtener` el `token de restablecimiento de contraseña` del usuario `carlos` debemos `cambiar` en una de las `peticiones` el `nombre` de `usuario` a `carlos`
 
-![[image_30.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_30.png)
 
 La otra petición `no la modificamos`
 
-![[image_31.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_31.png)
 
 El ejecutamos un `single-pack attack` con la opción `Send group in parallel (single-packet attack)`. Si nos dirigimos al `Email clien`t, solo nos llega `una petición` en este caso y eso es porque la otra petición le está llegando al `Email client` de `carlos`
 
-![[image_32.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_32.png)
 
 Debemos `copiarnos` el `enlace` y `sustituir` el `nombre` de `wiener` por `carlos`
 
@@ -257,16 +251,16 @@ Debemos `copiarnos` el `enlace` y `sustituir` el `nombre` de `wiener` por `carlo
 
 Accedemos a `/forgot-password?user=carlos&token=78e5d2447713cd97fc82095dd3b482fb5691ac8a` y le `cambiamos` la `contraseña` al usuario `carlos`
 
-![[image_33.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_33.png)
 
 Pulsamos sobre `My account` e `iniciamos sesión` como el usuario `carlos`
 
-![[image_34.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_34.png)
 
 `Ganamos acceso` a la `cuenta` del usuario `carlos`
 
-![[image_35.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_35.png)
 
 Pulsamos sobre `Admin panel` y `borramos` la `cuenta` de `carlos`
 
-![[image_36.png]]
+![](/assets/img/Race-Conditions-Lab-1/image_36.png)
