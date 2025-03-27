@@ -1,6 +1,6 @@
 # My Blog
 
-This is my personal blog where I share content about technology The goal is to contribute to the community by sharing knowledge and experiences.
+This is my personal blog where I share content about technology. The goal is to contribute to the community by sharing knowledge and experiences.
 
 ## Features and Customizations
 
