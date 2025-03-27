@@ -1,6 +1,6 @@
 # My Blog
 
-This is my personal blog where I share content about technology. The goal is to contribute to the community by sharing knowledge and experiences.
+This is my personal blog where I share content about technology The goal is to contribute to the community by sharing knowledge and experiences.
 
 ## Features and Customizations
 
@@ -26,6 +26,10 @@ bundle exec jekyll serve
 ```
 
 Then, open `http://localhost:4000` in your browser.
+
+## Contributing
+
+If you find any issues or have suggestions for improvements, feel free to open a pull request. Contributions are welcome! 🚀
 
 ## License and Credits
 
