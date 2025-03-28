@@ -242,10 +242,10 @@ spec:
 ```
 
 > **Important Note about Templates**:
->
-> When using relative paths for file handling in Backstage, it **always** starts from the location where **the template was imported**.
->
-> In other words, it always concatenates the path you provide with the path from where the template was imported. Thus, either you keep the files to be handled in the same location as the file from which you imported the template or use a URL from an external location, which is the approach I used here in the `fetch:template` action. More about this can be seen [here](https://backstage.io/docs/features/software-templates/) and [here](https://backstage.io/docs/tooling/cli/templates/).
+
+When using relative paths for file handling in Backstage, it **always** starts from the location where **the template was imported**.
+
+In other words, it always concatenates the path you provide with the path from where the template was imported. Thus, either you keep the files to be handled in the same location as the file from which you imported the template or use a URL from an external location, which is the approach I used here in the `fetch:template` action. More about this can be seen [here](https://backstage.io/docs/features/software-templates/) and [here](https://backstage.io/docs/tooling/cli/templates/).
 {: .prompt-warning }
 
 Returning to our process, create the template file in Azure DevOps (replacing the necessary fields) and then go to Backstage and follow the same import process we did before in the integration test. When importing the template, you might encounter the error below:
