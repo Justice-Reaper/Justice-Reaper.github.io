@@ -273,7 +273,7 @@ Pulsamos en `Start` y `marcamos` la casilla `Disable click actions` para `desact
 
 ![](/assets/img/Clickjacking-Lab-2/image_15.png)
 
-Lo siguiente sería `pulsar sobre el botón que queremos`, en este caso sobre `Delete account` que es el que queremos usar para el `ataque de Clickjacking`
+Lo siguiente sería `pulsar sobre el botón que queremos`, en este caso sobre `Update email` que es el que queremos usar para el `ataque de Clickjacking`
 
 ![](/assets/img/Clickjacking-Lab-2/image_16.png)
 
