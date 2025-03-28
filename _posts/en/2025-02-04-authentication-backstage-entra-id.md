@@ -191,8 +191,8 @@ const app = createApp({
 
 Once this is done, you should see the **Microsoft login button** on the Backstage UI.
 
-> 🚨 However, authentication will fail at this point because Backstage does not recognize the user in its catalog. This leads us to the next step.
-{: .prompt-error }
+> However, authentication will fail at this point because Backstage does not recognize the user in its catalog. This leads us to the next step.
+{: .prompt-danger }
 
 ![Authentication error](assets/img/backstage-entraid/auth-error.png)
 *Authentication error*
@@ -223,8 +223,7 @@ spec:
     - guests
 ```
 
-> 📌 Notes:
-
+>
 - `metadata.name`: Mail nickname (value before @yourdomain.com).
 - `metadata.annotations.graph.microsoft.com/user-id`: `Object ID` of the user.
 - `displayName`: Full name of the user.

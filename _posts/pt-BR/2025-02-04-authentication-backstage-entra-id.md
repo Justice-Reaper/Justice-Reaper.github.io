@@ -191,8 +191,8 @@ const app = createApp({
 
 Com isto feito já é possível ver que o botão de autenticação via Entra ID está disponível na interface.
 
-> 🚨 Contudo, a autenticação falhará, pois o Backstage não é capaz de reconhecer o usuário no catálogo. Isso nos leva ao próximo passo.
-{: .prompt-error }
+> Contudo, a autenticação falhará, pois o Backstage não é capaz de reconhecer o usuário no catálogo. Isso nos leva ao próximo passo.
+{: .prompt-danger }
 
 ![Erro de autenticação](assets/img/backstage-entraid/auth-error.png)
 *Erro de autenticação*
@@ -222,9 +222,7 @@ spec:
   memberOf:
     - guests
 ```
-
-> 📌 Notas:
-
+>
 - `metadata.name`: é o valor de `Mail nickname`, ou o valor antes de `@seudominio.com`;
 - `metadata.annotations.graph.microsoft.com/user-id`: é o valor de `Object ID`;
 - `displayName`: nome do usuário;
