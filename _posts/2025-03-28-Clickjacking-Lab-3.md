@@ -4,22 +4,17 @@ date: 2025-03-28 12:26:00 +0800
 author: Justice-Reaper
 categories:
   - Portswigger
-  - Race Conditions
+  - Clickjacking
 tags:
-  - GraphQL
-  - API
-  - Vulnerabilities
-  - Bypassing
-  - brute
-  - force
-  - protections
+  - Clickjacking
+  - Clickjacking with a frame buster script
 image:
-  path: /assets/img/GraphQL-API-Vulnerabilities-Lab-4/Portswigger.png
+  path: /assets/img/Clickjacking-Lab-3/Portswigger.png
 ---
 
 ## Skills
 
-- #Clickjacking with a frame buster script
+- Clickjacking with a frame buster script
 
 ## Certificaciones
 
@@ -30,7 +25,7 @@ image:
   
 ## Descripción
 
-Este `laboratorio` está protegido por un `frame buster` que evita que el `sitio web` sea incrustado en un `frame`. Debemos encontrar una forma para cambiar la `dirección de correo electrónico` del usuario `bypasseando` un `frame buster` y engañar al `usuario` para que `haga clic` en un botón de `"Actualizar correo electrónico"`, llevando así a cabo, un `ataque de clickjacking`
+Este `laboratorio` está protegido por un `frame buster` que evita que el `sitio web` sea incrustado en un `frame`. Debemos encontrar una forma para cambiar la `dirección de correo electrónico` del usuario `bypasseando` un `frame buster` y engañar al `usuario` para que `haga clic` en un botón de `"Actualizar correo electrónico"`, llevando así a cabo, un `ataque de Clickjacking`
 
 El `laboratorio` se considerará resuelto cuando la `dirección de correo electrónico` haya sido cambiada. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`
 
@@ -39,29 +34,29 @@ El `laboratorio` se considerará resuelto cuando la `dirección de correo ele
 
 Al `acceder` a la `web` vemos esto
 
-![[image_1.png]]
+![](/assets/img/Clickjacking-Lab-4/image_1.png)
 
 Si hacemos click sobre `My account` nos podemos `loguear` con las credenciales `wiener:peter`
 
-![[image_2.png]]
+![](/assets/img/Clickjacking-Lab-4/image_2.png)
 
 Después de `iniciar sesión` vemos que podemos `cambiarnos` el `correo electrónico`
 
-![[image_3.png]]
+![](/assets/img/Clickjacking-Lab-4/image_3.png)
 
 Si pulsamos sobre `View post` vemos que hay una sección de comentarios
 
-![[image_4.png]]
+![](/assets/img/Clickjacking-Lab-4/image_4.png)
 
-En un `ataque` de `clickjacking`, el atacante `superpone` u `oculta elementos maliciosos` en una `página web legítima`, por ejemplo, usando un `iframe`, de modo que cuando el `usuario` hace `click` en un `elemento aparentemente seguro` de una `página web`, en realidad, está haciendo `click` en un `elemento oculto` y ejecutando una `acción no deseada`
+En un `ataque` de `Clickjacking`, el atacante `superpone` u `oculta elementos maliciosos` en una `página web legítima`, por ejemplo, usando un `iframe`, de modo que cuando el `usuario` hace `click` en un `elemento aparentemente seguro` de una `página web`, en realidad, está haciendo `click` en un `elemento oculto` y ejecutando una `acción no deseada`
 
 Por ejemplo, un `usuario` accede a una `página web` (quizás mediante un `enlace` proporcionado por un `correo electrónico`) y hace `click` en un `botón` para ganar un `premio`. Sin saberlo, ha sido engañado por un `atacante` para presionar un `botón oculto`, lo que resulta la realización de una `compra` en otra `web`
 
 Este `ataque` se diferencia de un `ataque CSRF` en que el `usuario` debe realizar una `acción`, como hacer `click en un botón`, mientras que un `ataque CSRF` se basa en la `suplantación` de una `solicitud completa` sin el `conocimiento` o la `interacción` del `usuario`
 
-La `protección` contra los `ataques CSRF` suele proporcionarse mediante el uso de un `token CSRF` vinculado a una `cookie` de `sesión`. Los `tokens CSRF` no puede bloquear un `ataque de clickjacking` porque el `navegador` enviará `automáticamente` el `token CSRF`, esto es debido a que el `ataque` ocurre dentro de la `sesión del usuario` y dentro del `propio dominio`. Por lo tanto, la única diferencia con una `sesión normal`, sería que el `proceso` ocurre dentro de un `iframe oculto`
+La `protección` contra los `ataques CSRF` suele proporcionarse mediante el uso de un `token CSRF` vinculado a una `cookie` de `sesión`. Los `tokens CSRF` no puede bloquear un `ataque de Clickjacking` porque el `navegador` enviará `automáticamente` el `token CSRF`, esto es debido a que el `ataque` ocurre dentro de la `sesión del usuario` y dentro del `propio dominio`. Por lo tanto, la única diferencia con una `sesión normal`, sería que el `proceso` ocurre dentro de un `iframe oculto`
 
-Los `ataques de clickjacking` utilizan `CSS` para crear y manipular `capas`. El `atacante` incorpora el `sitio web legítimo` como una `capa iframe` superpuesta sobre `elementos maliciosos`
+Los `ataques de Clickjacking` utilizan `CSS` para crear y manipular `capas`. El `atacante` incorpora el `sitio web legítimo` como una `capa iframe` superpuesta sobre `elementos maliciosos`
 
 Un `ejemplo` utilizando la `etiqueta style` y sus `parámetros` es el siguiente
 
@@ -98,15 +93,15 @@ Se emplean valores de `posición absoluta` y `relativa` para garantizar que el `
 
 El `z-index` determina el `orden de apilamiento` del `iframe` y las `capas del sitio web`. El valor de `opacidad` se define en `0.0` (o cerca de `0.0`), haciendo que el `contenido del iframe` sea `transparente` para el `usuario`
 
-Hay algunas `protecciones contra clickjacking` en los `navegadores` que pueden `detectar la transparencia en iframes` mediante `umbrales`. Para `eludir` esto, el `atacante` debe `ajustar los valores de opacidad` de manera que el `efecto deseado` se logre sin `activar` las `protecciones`. Esta `medida de protección` no está presente en `todos los navegadores`. Por ejemplo, `Chrome versión 76` incluye este `comportamiento`, pero `Firefox` no. Esto significa que, `según el navegador`, podemos necesitar `modificar` el `payload`
+Hay algunas `protecciones contra Clickjacking` en los `navegadores` que pueden `detectar la transparencia en iframes` mediante `umbrales`. Para `eludir` esto, el `atacante` debe `ajustar los valores de opacidad` de manera que el `efecto deseado` se logre sin `activar` las `protecciones`. Esta `medida de protección` no está presente en `todos los navegadores`. Por ejemplo, `Chrome versión 76` incluye este `comportamiento`, pero `Firefox` no. Esto significa que, `según el navegador`, podemos necesitar `modificar` el `payload`
 
-Aunque podemos `crear manualmente` una `PoC` de un `ataque de clickjacking` como se describió anteriormente, esto puede ser `tedioso` y `consumir mucho tiempo`. Cuando `probamos` el `clickjacking` en entornos reales, es recomendable usar la herramienta `Clickbandit` [https://portswigger.net/burp/documentation/desktop/tools/clickbandit](https://portswigger.net/burp/documentation/desktop/tools/clickbandit) de `Burpsuite`, la cual nos permite usar nuestro `navegador` para `realizar las acciones deseadas` en la `página web cargada mediante el iframe` y luego `genera` un `archivo HTML` con una `superposición` para explotar el `clickjacking`
+Aunque podemos `crear manualmente` una `PoC` de un `ataque de Clickjacking` como se describió anteriormente, esto puede ser `tedioso` y `consumir mucho tiempo`. Cuando `probamos` el `Clickjacking` en entornos reales, es recomendable usar la herramienta `Clickbandit` [https://portswigger.net/burp/documentation/desktop/tools/clickbandit](https://portswigger.net/burp/documentation/desktop/tools/clickbandit) de `Burpsuite`, la cual nos permite usar nuestro `navegador` para `realizar las acciones deseadas` en la `página web cargada mediante el iframe` y luego `genera` un `archivo HTML` con una `superposición` para explotar el `Clickjacking`
 
-Existen varias `medidas defensivas` contra `clickjacking` del `lado del cliente`, sin embargo, a menudo, los `atacantes` pueden `eludir estas protecciones` con relativa `facilidad`. En consecuencia, se han desarrollado `protocolos implementados en el lado del servidor` que `restringen el uso de iframes` en el `navegador` y por lo tanto, `mitigan el clickjacking`
+Existen varias `medidas defensivas` contra `Clickjacking` del `lado del cliente`, sin embargo, a menudo, los `atacantes` pueden `eludir estas protecciones` con relativa `facilidad`. En consecuencia, se han desarrollado `protocolos implementados en el lado del servidor` que `restringen el uso de iframes` en el `navegador` y por lo tanto, `mitigan el Clickjacking`
 
-El `clickjacking` es un `comportamiento` que ocurre en el `lado del cliente`, y su `éxito` o `fracaso` depende de las `funcionalidades del navegador` y su `conformidad` con los `estándares web` y las `mejores prácticas actuales`. La `protección en el servidor` contra el `clickjacking` se logra `definiendo` y `comunicando restricciones` sobre el `uso de componentes` como los `iframes`. No obstante, la `eficacia` de estas `protecciones` depende de que el `navegador` `cumpla` y `aplique` dichas `restricciones`
+El `Clickjacking` es un `comportamiento` que ocurre en el `lado del cliente`, y su `éxito` o `fracaso` depende de las `funcionalidades del navegador` y su `conformidad` con los `estándares web` y las `mejores prácticas actuales`. La `protección en el servidor` contra el `Clickjacking` se logra `definiendo` y `comunicando restricciones` sobre el `uso de componentes` como los `iframes`. No obstante, la `eficacia` de estas `protecciones` depende de que el `navegador` `cumpla` y `aplique` dichas `restricciones`
 
-Dos `mecanismos clave` para la `protección contra clickjacking` desde el `servidor` son `X-Frame-Options` y `Content Security Policy (CSP)`
+Dos `mecanismos clave` para la `protección contra Clickjacking` desde el `servidor` son `X-Frame-Options` y `Content Security Policy (CSP)`
 
 `X-Frame-Options` - Fue introducido originalmente como una `cabecera de respuesta no oficial` en `Internet Explorer 8` y fue `rápidamente adoptado` por otros `navegadores`. Esta `cabecera` permite al propietario del sitio web `controlar el uso de iframes u objetos`, de modo que no es posible `cargar una página web desde en un iframe` puede ser `prohibida` con la `directiva deny`
 
@@ -126,7 +121,7 @@ O también puede `permitirse` únicamente que se `cargue` un `sitio web específ
 X-Frame-Options: allow-from https://normal-website.com
 ```
 
-`Content Security Policy (CSP)` - Es un `mecanismo de detección y prevención` que proporciona `mitigación` contra ataques como `XSS` y de `clickjacking`. `CSP` suele implementarse en el `servidor web` como un `encabezado de respuesta` con el siguiente formato
+`Content Security Policy (CSP)` - Es un `mecanismo de detección y prevención` que proporciona `mitigación` contra ataques como `XSS` y de `Clickjacking`. `CSP` suele implementarse en el `servidor web` como un `encabezado de respuesta` con el siguiente formato
 
 ```
 Content-Security-Policy: policy
@@ -134,7 +129,7 @@ Content-Security-Policy: policy
 
 La `Content Security Policy (CSP)` proporciona al `navegador` un `listado de fuentes` que considera `legítimas` (dominios, protocolos, scripts específicos) y que el `navegador` puede utilizar para la `detección` e `intercepción de comportamientos maliciosos`
 
-La `protección recomendada contra clickjacking` consiste en `incorporar` la `directiva frame-ancestors` en la `Content Security Policy (CSP)` de la aplicación
+La `protección recomendada contra Clickjacking` consiste en `incorporar` la `directiva frame-ancestors` en la `Content Security Policy (CSP)` de la aplicación
 
 - La directiva `frame-ancestors 'none'` tiene un `comportamiento similar` a `X-Frame-Options: deny`
     
@@ -152,9 +147,9 @@ Alternativamente, se puede `permitir` que solo se pueda `cargar la web` desde `s
 Content-Security-Policy: frame-ancestors normal-website.com;
 ```
 
-Hay que recalcar que `X-Frame-Options` no está `implementado de forma uniforme` en todos los `navegadores` (por ejemplo, la `directiva allow-from` no es `compatible` con `Chrome 76` ni con `Safari 12`). Sin embargo, cuando se `aplica correctamente` junto con `Content Security Policy (CSP)`, puede proporcionar una `protección efectiva` contra `ataques de clickjacking`
+Hay que recalcar que `X-Frame-Options` no está `implementado de forma uniforme` en todos los `navegadores` (por ejemplo, la `directiva allow-from` no es `compatible` con `Chrome 76` ni con `Safari 12`). Sin embargo, cuando se `aplica correctamente` junto con `Content Security Policy (CSP)`, puede proporcionar una `protección efectiva` contra `ataques de Clickjacking`
 
-Para ver si una `web` es `vulnerable` a `clickjacking` podemos usar la herramienta `shcheck` [https://github.com/santoru/shcheck.git]https://github.com/santoru/shcheck.git() para `identificar` las `cabeceras de seguridad`
+Para ver si una `web` es `vulnerable` a `Clickjacking` podemos usar la herramienta `shcheck` [https://github.com/santoru/shcheck.git]https://github.com/santoru/shcheck.git() para `identificar` las `cabeceras de seguridad`
 
 ```
 # shcheck.py -i -x -k https://0a6a0005048fd811816ed403009c00d9.web-security-academy.net/
@@ -193,9 +188,9 @@ Para ver si una `web` es `vulnerable` a `clickjacking` podemos usar la herramien
 
 Si preferimos usar una herramienta `web` podemos usar `securityheaders` [https://securityheaders.com/](https://securityheaders.com/) 
 
-![[image_5.png]]
+![](/assets/img/Clickjacking-Lab-4/image_5.png)
 
-En este caso, vemos que la `web` no tiene ni `Content-Security-Policy (CSP)` ni `X-Frame-Options`, lo cual la hace vulnerable a `clickjacking`
+En este caso, vemos que la `web` no tiene ni `Content-Security-Policy (CSP)` ni `X-Frame-Options`, lo cual la hace vulnerable a `Clickjacking`
 
 Algunos `sitios web` que requieren completar y enviar `formularios` permiten `rellenar previamente` los datos del `formulario` mediante `parámetros GET` antes del `envío`. Dado que los `valores GET` forman parte de la `URL`, la `URL de destino` puede `modificarse` para incorporar `valores elegidos por el atacante`
 
@@ -203,11 +198,11 @@ Hay otros `sitios web` que pueden requerir `interacción por parte del usuari
 
 Para `comprobar` si `el formulario permite rellenar previamente los datos mediante parámetros GET`, lo primero que necesitamos hacer es `identificar` los `nombres` de los `campos`. En este caso vemos que el valor del campo a `rellenar` es `email`
 
-![[image_6.png]]
+![](/assets/img/Clickjacking-Lab-4/image_6.png)
 
 El siguiente paso es `añadir` el `parámetro email` a la `URL` y ver si se `rellena` el `campo email del formulario`, para ello, accedemos a `https://0a0f00df03253f5280a3a31000330041.web-security-academy.net/my-account?email=pwned@gmail.com` y vemos que sí que funciona
 
-![[image_7.png]]
+![](/assets/img/Clickjacking-Lab-4/image_7.png)
 
 Una vez comprobado esto, ya podemos `construir` un `payload`, para ello, nos dirigimos al `Exploit Server` y pegamos este `payload`
 
@@ -231,11 +226,11 @@ Una vez comprobado esto, ya podemos `construir` un `payload`, para ello, nos dir
 <iframe src="https://0a6a0005048fd811816ed403009c00d9.web-security-academy.net/my-account?email=pwned@gmail.com"></iframe>
 ```
 
-![[image_8.png]]
+![](/assets/img/Clickjacking-Lab-4/image_8.png)
 
 Pinchamos sobre `View exploit` y nos `arroja` este `mensaje` de `error`
 
-![[image_9.png]]
+![](/assets/img/Clickjacking-Lab-4/image_9.png)
 
 Los `ataques de Clickjacking` son posibles siempre que los `sitios web` puedan ser `cargados en un iframe`. Por lo tanto, las `técnicas de prevención` se basan en `restringir la capacidad de carga en iframes` para los `sitios web`
 
@@ -283,11 +278,11 @@ Una vez sabemos esto, nos dirigimos al `Exploit server` y `pegamos` el `nuevo ex
 <iframe src="https://0a6a0005048fd811816ed403009c00d9.web-security-academy.net/my-account?email=pedro@gmail.com" sandbox="allow-forms"></iframe>
 ```
 
-![[image_10.png]]
+![](/assets/img/Clickjacking-Lab-4/image_10.png)
 
 Si pulsamos sobre `View exploit` vemos que ahora `si` que `funciona` el `payload`
 
-![[image_11.png]]
+![](/assets/img/Clickjacking-Lab-4/image_11.png)
 
 Como vemos que todo funciona correctamente, vamos a `cambiarle` la `opacidad` a `0`
 
@@ -311,54 +306,54 @@ Como vemos que todo funciona correctamente, vamos a `cambiarle` la `opacidad` a 
 <iframe src="https://0a6a0005048fd811816ed403009c00d9.web-security-academy.net/my-account?email=pedro@gmail.com" sandbox="allow-forms"></iframe>
 ```
 
-![[image_12.png]]
+![](/assets/img/Clickjacking-Lab-4/image_12.png)
 
 Otra forma alternativa sería usando la herramienta `Clickbandit` de `Burpsuite`, para usarla nos dirigimos a `Burpsuite` y pulsamos `Burp > Burp Clickbandit`
 
-![[image_13.png]]
+![](/assets/img/Clickjacking-Lab-4/image_13.png)
 
 Pulsamos sobre `Copy Clickbandit to clipboard`
 
-![[image_14.png]]
+![](/assets/img/Clickjacking-Lab-4/image_14.png)
 
 Nos dirigimos a `Chrome`, nos abrimos la `consola de desarrollador` y `pegamos` ahí todo el `código`
 
-![[image_15.png]]
+![](/assets/img/Clickjacking-Lab-4/image_15.png)
 
 Una vez hecho esto nos saldrá este `menú`
 
-![[image_16.png]]
+![](/assets/img/Clickjacking-Lab-4/image_16.png)
 
 `Marcamos` la casilla `Disable click actions` para `desactivar` los `clicks` y la de `Sandbox iframe?` para `evitar` la `restricción` del `lado del cliente`. Debemos `eliminar` el atributo `allow-scripts` de `Sandbox iframe?` para que funcione. Una vez hecho esto pulsamos en `Start`
 
-![[image_17.png]]
+![](/assets/img/Clickjacking-Lab-4/image_17.png)
 
-Lo siguiente sería `pulsar sobre el botón que queremos`, en este caso sobre `Update email` que es el que queremos usar para el `ataque de clickjacking`
+Lo siguiente sería `pulsar sobre el botón que queremos`, en este caso sobre `Update email` que es el que queremos usar para el `ataque de Clickjacking`
 
-![[image_18.png]]
+![](/assets/img/Clickjacking-Lab-4/image_18.png)
 
 Una vez hecho esto, `pulsamos` sobre `Finish` y se nos `mostrará` como es nuestro `payload` actualmente
 
-![[image_19.png]]
+![](/assets/img/Clickjacking-Lab-4/image_19.png)
 
 Usando los símbolos `-` y `+`, podemos `subir` o `bajar` el `aumento`, y con `Toogle transparency` podemos `activar` o `desactivar` la `transparencia`. En mi caso, lo voy a dejar de esta forma. Cuando ya lo tengamos como queremos, pulsamos en `Save` y se nos `descargará` un `documento HTML`
 
-![[image_20.png]]
+![](/assets/img/Clickjacking-Lab-4/image_20.png)
 
 `Pegamos` el `código` en el `Exploit server`
 
-![[image_21.png]]
+![](/assets/img/Clickjacking-Lab-4/image_21.png)
 
 Pulsamos sobre `View exploit` para ver si se ve correctamente
 
-![[image_22.png]]
+![](/assets/img/Clickjacking-Lab-4/image_22.png)
 
 Hacemos `click sobre el botón`
 
-![[image_23.png]]
+![](/assets/img/Clickjacking-Lab-4/image_23.png)
 
 Nos dirigimos a  `My account` para ver `si ha funcionado el ataque`, y vemos que así es. Una vez comprobado que se `ve` y `funciona` correctamente, pulsamos sobre `Deliver exploit to victim` y completamos el `laboratorio`. Debemos tener en cuenta que `dos usuarios no pueden tener el mismo email`, por lo tanto deberemos `modificar el nuestro o el email que se usa en el payload`
 
-![[image_24.png]]
+![](/assets/img/Clickjacking-Lab-4/image_24.png)
 
 
