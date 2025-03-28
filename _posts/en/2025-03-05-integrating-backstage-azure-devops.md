@@ -36,11 +36,13 @@ I'll keep a repository on my GitHub with the Backstage code resulting from these
 9. [Final Test](#final-test)
 10. [Conclusion](#conclusion)
 
-💡 **Note**: Having Entra ID as an IDP is not a prerequisite for working with Azure DevOps. However, it is common for both solutions to be used in a Microsoft environment.
+> **Note**: Having Entra ID as an IDP is not a prerequisite for working with Azure DevOps. However, it is common for both solutions to be used in a Microsoft environment.
+{: .prompt-tip }
 
 For this post, I created a new project in Azure DevOps called Backstage, where we will store our Backstage template, Terraform code, and the yaml file to create our pipeline.
 
-⚠️ **Attention**: I will assume that you already know how to create a project, repository, and use the minimum necessary git commands.
+> **Attention**: I will assume that you already know how to create a project, repository, and use the minimum necessary git commands.
+{: .prompt-warning}
 
 [In this link](https://backstage.io/docs/integrations/azure/locations) you can check the Backstage documentation for this integration. Backstage supports the use of managed identity, service principal, and PAT. For the purpose of this post, I will use PAT as it is simpler.
 
@@ -239,11 +241,12 @@ spec:
         entityRef: {% raw %}${{ steps.register.output.entityRef }}{% endraw %}
 ```
 
-> ⚠️**Important Note about Templates**⚠️:
->
-> When using relative paths for file handling in Backstage, it **always** starts from the location where **the template was imported**.
->
-> In other words, it always concatenates the path you provide with the path from where the template was imported. Thus, either you keep the files to be handled in the same location as the file from which you imported the template or use a URL from an external location, which is the approach I used here in the `fetch:template` action. More about this can be seen [here](https://backstage.io/docs/features/software-templates/) and [here](https://backstage.io/docs/tooling/cli/templates/).
+> **Important Note about Templates**:
+
+When using relative paths for file handling in Backstage, it **always** starts from the location where **the template was imported**.
+
+In other words, it always concatenates the path you provide with the path from where the template was imported. Thus, either you keep the files to be handled in the same location as the file from which you imported the template or use a URL from an external location, which is the approach I used here in the `fetch:template` action. More about this can be seen [here](https://backstage.io/docs/features/software-templates/) and [here](https://backstage.io/docs/tooling/cli/templates/).
+{: .prompt-warning }
 
 Returning to our process, create the template file in Azure DevOps (replacing the necessary fields) and then go to Backstage and follow the same import process we did before in the integration test. When importing the template, you might encounter the error below:
 
@@ -276,14 +279,16 @@ resource "azurerm_resource_group" "example" {
 }
 ```
 
-⚠️ I am not using a storage account here to store your Terraform state! For production environments, I suggest storing the state in a secure location.
+> I am not using a storage account here to store your Terraform state! For production environments, I suggest storing the state in a secure location.
+{: .prompt-tip }
 
 Pay attention to the `name` variable, as it will be filled with the value coming from Backstage. Here we are making a very simple example using only one variable, but extrapolate this idea to any code you want to execute.
 
 Once the Terraform code is created, upload it to our Azure DevOps repository.
 
-💡 **Important**: since the idea is for Backstage to handle this file and then upload it and subsequently create a Pull Request of code, this (containing the `name` variable) will be replaced by the value coming from Backstage, making the code **non-reusable**.
+> **Important**: since the idea is for Backstage to handle this file and then upload it and subsequently create a Pull Request of code, this (containing the `name` variable) will be replaced by the value coming from Backstage, making the code **non-reusable**.
 To avoid this, we will separate the code with the variable, which we will call `base`, from the code that will have the variable filled, which we will call `changed`, for simplicity. This way, we will always have a place with the code ready to be used.
+{: .prompt-info }
 
 Below is the approach I find the simplest, but feel free to adapt it to your needs:
 

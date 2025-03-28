@@ -36,11 +36,13 @@ Eu vou manter no meu GitHub um repositório do Backstage com o resultado destes 
 9. [Teste final](#teste-final)
 10. [Conclusão](#conclusão)
 
-💡 **Nota**: Ter o Entra ID como IDP não é um pré-requisito para o funcionamento com o Azure DevOps. Porém, é comum que as duas soluções sejam usadas em ambiente Microsoft.
+> **Nota**: Ter o Entra ID como IDP não é um pré-requisito para o funcionamento com o Azure DevOps. Porém, é comum que as duas soluções sejam usadas em ambiente Microsoft.
+{: .prompt-tip }
 
 Para este post, criei um projeto novo no Azure DevOps chamado Backstage, que é onde armazenaremos nosso template do Backstage, nosso código Terraform e o arquivo yaml para criarmos a nossa pipeline.
 
-⚠️ **Atenção**: Assumirei que você já sabe como criar um projeto, repositório e usar o mínimo de git necessário.
+> **Atenção**: Assumirei que você já sabe como criar um projeto, repositório e usar o mínimo de git necessário.
+{: .prompt-warning}
 
 [Neste link](https://backstage.io/docs/integrations/azure/locations) você pode checar a documentação do Backstage para fazer esta integração. O Backstage suporta uso de identidade gerenciada, service principal e PAT. Para o propósito do post, vou usar PAT por ser mais simples.
 
@@ -238,11 +240,12 @@ spec:
         entityRef: {% raw %}${{ steps.register.output.entityRef }}{% endraw %}
 ```
 
-> ⚠️**Nota Importante sobre os templates**⚠️:
->
-> Quando utilizamos caminho relativo na tratativa de arquivos no Backstage, ele **sempre** levará como local de partida o local de onde **o template foi importado**.
->
-> Em outras palavras, ele sempre concatenará o caminho que você informar com o caminho de onde o template foi importado. Dessa forma, ou você mantém os arquivos a serem tratados no mesmo local do arquivo de onde importou o template ou utiliza uma url de um lugar externo, que foi a abordagem que usei aqui na ação `fetch:template`. Mais sobre isso pode ser visto [aqui](https://backstage.io/docs/features/software-templates/) e [aqui](https://backstage.io/docs/tooling/cli/templates/).
+> **Nota Importante sobre os templates**:
+
+Quando utilizamos caminho relativo na tratativa de arquivos no Backstage, ele **sempre** levará como local de partida o local de onde **o template foi importado**.
+
+Em outras palavras, ele sempre concatenará o caminho que você informar com o caminho de onde o template foi importado. Dessa forma, ou você mantém os arquivos a serem tratados no mesmo local do arquivo de onde importou o template ou utiliza uma url de um lugar externo, que foi a abordagem que usei aqui na ação `fetch:template`. Mais sobre isso pode ser visto [aqui](https://backstage.io/docs/features/software-templates/) e [aqui](https://backstage.io/docs/tooling/cli/templates/).
+{: .prompt-warning }
 
 Voltando ao nosso processo, crie o arquivo do template no Azure DevOps (substituindo os campos devidos) e então vá até o Backstage e siga o mesmo processo de importação que fizemos antes no teste de integração. Na hora em que for importar o template, pode ser que se depare com o erro abaixo:
 
@@ -275,14 +278,16 @@ resource "azurerm_resource_group" "example" {
 }
 ```
 
-⚠️ Eu não estou usando aqui uma conta de armazenamento para que você guarde o estado do seu Terraform! Para ambientes de produção, sugiro armazenar o estado em algum lugar seguro.
+> Eu não estou usando aqui uma conta de armazenamento para que você guarde o estado do seu Terraform! Para ambientes de produção, sugiro armazenar o estado em algum lugar seguro.
+{: .prompt-tip }
 
 Atenção para a variável `name`, pois ela será preenchida pelo valor que vier do Backstage. Aqui estamos fazendo um exemplo bem simples, usando somente uma variável, mas extrapole essa ideia para qualquer código que você queira executar.
 
 Uma vez criado o código terraform, vamos fazer o upload dele para o nosso repositório do Azure DevOps.
 
-💡 **Importante**: como a ideia é que o Backstage faça a tratativa deste arquivo e depois faça o upload e subsequente criação de um Pull Request de código, este (contendo a variável `name`) será substituído pelo valor que virá do Backstage, tornando o código **não-reutilizável**.
+> **Importante**: como a ideia é que o Backstage faça a tratativa deste arquivo e depois faça o upload e subsequente criação de um Pull Request de código, este (contendo a variável `name`) será substituído pelo valor que virá do Backstage, tornando o código **não-reutilizável**.
 Para evitar isso, vamos separar o código com a variável, que chamaremos de `base`, do código que terá a variável preenchida, que chamaremos de `changed`, para facilitar. Assim, sempre teremos um lugar com o código pronto para ser utilizado.
+{: .prompt-info }
 
 Abaixo segue a abordagem que entendo ser a mais simples, mas fique a vontade para adaptar à sua necessidade:
 
