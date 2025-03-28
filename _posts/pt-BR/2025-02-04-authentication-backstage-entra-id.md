@@ -28,9 +28,11 @@ Como tive dificuldades para encontrar recursos sobre autenticação com o Entra 
 De acordo com sua [descrição](https://backstage.io/docs/overview/what-is-backstage) oficial:  
 
 > *[Backstage](https://backstage.io/) é uma estrutura de código aberto para construção de portais de desenvolvedores. Alimentado por um catálogo de software centralizado, o Backstage restaura a ordem de seus microsserviços e infraestrutura e permite que suas equipes de produto enviem códigos de alta qualidade rapidamente, sem comprometer a autonomia.*  
-> *Backstage unifica todas as ferramentas, serviços e documentação de sua infraestrutura para criar um ambiente de desenvolvimento simplificado de ponta a ponta.*  
+> *Backstage unifica todas as ferramentas, serviços e documentação de sua infraestrutura para criar um ambiente de desenvolvimento simplificado de ponta a ponta.*
+---
 
-💡 **Nota:** Backstage é totalmente **focado em desenvolvedores**. Se você, assim como eu, vem da área de infraestrutura, pode estranhar o fato de que toda a configuração é feita via arquivos de sistema—não há uma interface administrativa para gerenciar usuários, permissões, integrações ou plugins.  
+> **Nota:** O Backstage é totalmente **focado em desenvolvedores**. Se você, assim como eu, vem da área de infraestrutura, pode estranhar o fato de que toda a configuração é feita via arquivos de sistema—não há uma interface administrativa para gerenciar usuários, permissões, integrações ou plugins.
+{: .prompt-info }
 
 ---
 
@@ -52,8 +54,8 @@ Você pode então acessar o Backstage localmente em `http://localhost:3000`, ent
 ![Página inicial de convidado](assets/img/backstage-entraid/user-home.png)
 *Página inicial de convidado*
 
-💡 **O acesso de convidado é destinado apenas para desenvolvimento e não é recomendado para produção.** No entanto, se desejar habilitá-lo, consulte a documentação [aqui](https://backstage.io/docs/auth/guest/provider/).  
-
+> **O acesso de convidado é destinado apenas para desenvolvimento e não é recomendado para produção.** No entanto, se desejar habilitá-lo, consulte a documentação [aqui](https://backstage.io/docs/auth/guest/provider/).  
+{: .prompt-info }
 ---
 
 ## Passo 2: Criar um App Registration no Entra ID
@@ -110,10 +112,12 @@ auth:
             - resolver: userIdMatchingUserEntityAnnotation
 ```
 
-📌 Os valores para `clientId`, `tenantId` e `domainHint` podem ser encontrados na **página Overview** do seu App Registration no Entra ID.  
-📌 O `clientSecret` é gerado na seção **Certificates & Secrets**.  
-
-⚠️ **Aviso de Segurança:** Nunca armazene `clientSecret` diretamente no código. Utilize **variáveis de ambiente** em produção.
+> 📌 Os valores para `clientId`, `tenantId` e `domainHint` podem ser encontrados na **página Overview** do seu App Registration no Entra ID.  
+> 📌 O `clientSecret` é gerado na seção **Certificates & Secrets**.
+{: .prompt-tip }
+---
+> **Aviso de Segurança:** Nunca armazene `clientSecret` diretamente no código. Utilize **variáveis de ambiente** em produção.
+{: .prompt-warning }
 
 ![clientId, tenantId e domainHint](assets/img/backstage-entraid/app-data.png)
 *clientId, tenantId e domainHint*
@@ -187,7 +191,8 @@ const app = createApp({
 
 Com isto feito já é possível ver que o botão de autenticação via Entra ID está disponível na interface.
 
-🚨 Contudo, a autenticação falhará, pois o Backstage não é capaz de reconhecer o usuário no catálogo. Isso nos leva ao próximo passo.
+> 🚨 Contudo, a autenticação falhará, pois o Backstage não é capaz de reconhecer o usuário no catálogo. Isso nos leva ao próximo passo.
+{: .prompt-error }
 
 ![Erro de autenticação](assets/img/backstage-entraid/auth-error.png)
 *Erro de autenticação*
@@ -218,14 +223,13 @@ spec:
     - guests
 ```
 
-📌 Notas:
+> 📌 Notas:
 
 - `metadata.name`: é o valor de `Mail nickname`, ou o valor antes de `@seudominio.com`;
 - `metadata.annotations.graph.microsoft.com/user-id`: é o valor de `Object ID`;
 - `displayName`: nome do usuário;
 - `email`: endereço de email completo
-
----
+{: .prompt-tip }
 
 ## Considerações Finais
 

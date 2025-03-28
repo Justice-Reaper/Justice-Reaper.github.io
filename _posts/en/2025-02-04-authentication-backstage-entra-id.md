@@ -28,9 +28,11 @@ Since I found it difficult to locate online resources on authentication with Ent
 According to their official [description](https://backstage.io/docs/overview/what-is-backstage/):  
 
 > *[Backstage](https://backstage.io/) is an open-source framework for building developer portals. Powered by a centralized software catalog, Backstage restores order to your microservices and infrastructure and enables your product teams to ship high-quality code quickly — without compromising autonomy.*  
-> *Backstage unifies all your infrastructure tooling, services, and documentation to create a streamlined development environment from end to end.*  
+> *Backstage unifies all your infrastructure tooling, services, and documentation to create a streamlined development environment from end to end.*
+---
 
-💡 **Note:** Backstage is entirely **developer-focused**. If you, like me, come from an infrastructure background, you may find it challenging since all configurations are done through system files — there is no admin interface for managing users, permissions, integrations, or plugins.  
+> **Note:** Backstage is entirely **developer-focused**. If you, like me, come from an infrastructure background, you may find it challenging since all configurations are done through system files — there is no admin interface for managing users, permissions, integrations, or plugins.
+{: .prompt-info }
 
 ---
 
@@ -52,7 +54,8 @@ You can then access Backstage locally at `http://localhost:3000`, signing in as 
 ![Guest home page](assets/img/backstage-entraid/user-home.png)
 *Guest home page*
 
-💡 **Guest access is meant for development purposes only and is not recommended for production.** However, if you still want to enable full guest access, you can find the documentation [here](https://backstage.io/docs/auth/guest/provider/).
+> **Guest access is meant for development purposes only and is not recommended for production.** However, if you still want to enable full guest access, you can find the documentation [here](https://backstage.io/docs/auth/guest/provider/).
+{: .prompt-info }
 
 ---
 
@@ -109,10 +112,12 @@ auth:
             - resolver: userIdMatchingUserEntityAnnotation
 ```
 
-📌 The values for `clientId`, `tenantId`, and `domainHint` can be found on the **Overview** page of your App Registration in Entra ID.  
-📌 The `clientSecret` is created under **Certificates & Secrets**.  
-
-⚠️ **Security Warning:** Never store `clientSecret` directly in the code. Use **environment variables** for production environments.
+> 📌 The values for `clientId`, `tenantId`, and `domainHint` can be found on the **Overview** page of your App Registration in Entra ID.  
+> 📌 The `clientSecret` is created under **Certificates & Secrets**.
+{: .prompt-tip }
+---
+> **Security Warning:** Never store `clientSecret` directly in the code. Use **environment variables** for production environments.
+{: .prompt-warning }
 
 ![clientId, tenantId and domainHint](assets/img/backstage-entraid/app-data.png)
 *clientId, tenantId and domainHint*
@@ -186,7 +191,8 @@ const app = createApp({
 
 Once this is done, you should see the **Microsoft login button** on the Backstage UI.
 
-🚨 However, authentication will fail at this point because Backstage does not recognize the user in its catalog. This leads us to the next step.
+> 🚨 However, authentication will fail at this point because Backstage does not recognize the user in its catalog. This leads us to the next step.
+{: .prompt-error }
 
 ![Authentication error](assets/img/backstage-entraid/auth-error.png)
 *Authentication error*
@@ -217,12 +223,13 @@ spec:
     - guests
 ```
 
-📌 Notes:
+> 📌 Notes:
 
 - `metadata.name`: Mail nickname (value before @yourdomain.com).
 - `metadata.annotations.graph.microsoft.com/user-id`: `Object ID` of the user.
 - `displayName`: Full name of the user.
 - `email`: Full email address.
+{: .prompt-tip }
 
 ## Final Thoughts
 
