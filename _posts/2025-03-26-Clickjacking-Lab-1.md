@@ -152,7 +152,7 @@ Hay que recalcar que `X-Frame-Options` no está `implementado de forma uniforme`
 Para ver si una `web` es `vulnerable` a `clickjacking` podemos usar la herramienta `shcheck` [https://github.com/santoru/shcheck.git]https://github.com/santoru/shcheck.git() para identificar las `cabeceras de seguridad`
 
 ```
-shcheck.py -i -x -k https://0a160029048081a6869fe54a003f00c3.web-security-academy.net/
+# shcheck.py -i -x -k https://0a160029048081a6869fe54a003f00c3.web-security-academy.net/
 
 ======================================================
  > shcheck.py - santoru ..............................
