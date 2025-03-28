@@ -225,7 +225,7 @@ spec:
 
 >
 📌 Notes:
-
+>
 - `metadata.name`: Mail nickname (value before @yourdomain.com).
 - `metadata.annotations.graph.microsoft.com/user-id`: `Object ID` of the user.
 - `displayName`: Full name of the user.
