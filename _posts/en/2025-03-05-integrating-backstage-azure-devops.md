@@ -36,11 +36,13 @@ I'll keep a repository on my GitHub with the Backstage code resulting from these
 9. [Final Test](#final-test)
 10. [Conclusion](#conclusion)
 
-💡 **Note**: Having Entra ID as an IDP is not a prerequisite for working with Azure DevOps. However, it is common for both solutions to be used in a Microsoft environment.
+> **Note**: Having Entra ID as an IDP is not a prerequisite for working with Azure DevOps. However, it is common for both solutions to be used in a Microsoft environment.
+{: .prompt-tip }
 
 For this post, I created a new project in Azure DevOps called Backstage, where we will store our Backstage template, Terraform code, and the yaml file to create our pipeline.
 
-⚠️ **Attention**: I will assume that you already know how to create a project, repository, and use the minimum necessary git commands.
+>⚠️**Attention**: I will assume that you already know how to create a project, repository, and use the minimum necessary git commands.
+{: .prompt-warning}
 
 [In this link](https://backstage.io/docs/integrations/azure/locations) you can check the Backstage documentation for this integration. Backstage supports the use of managed identity, service principal, and PAT. For the purpose of this post, I will use PAT as it is simpler.
 
