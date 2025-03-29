@@ -7,7 +7,7 @@ order: 4
 
 ¡Bienvenido a mi blog! 
 
-Soy Sergio, tengo 23 años y desde siempre me ha gustado la informática pero no fue hasta hace 3 años que decidí dedicarme a este campo profesionalmente. Para iniciarme en este mundillo realicé el grado superior de Desarrollo de Aplicaciones Multiplataforma (DAM) en el cual construí aplicaciones para escritorio con Java y para móviles con Kotlin
+Me presento, soy Sergio, tengo 23 años y desde siempre me ha gustado la informática pero no fue hasta hace 3 años que decidí dedicarme a este campo profesionalmente. Para iniciarme en este mundillo realicé el grado superior de Desarrollo de Aplicaciones Multiplataforma (DAM) en el cual construí aplicaciones para escritorio con Java y para móviles con Kotlin
 
 Posteriomente me decanté por la rama de ciberseguridad ofensiva, porque considero que es la más divertida. Me creé un blog personal donde comparto writeups y artículos sobre los laboratorios de Portswigger y las máquinas de HackTheBox. Actualmente cuento con más de 230 artículos publicados, subo artículos contanstemente porque estoy preparándome para el OSCP y el BSCP
 
