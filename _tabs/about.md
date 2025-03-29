@@ -1,6 +1,5 @@
 ---
 # the default layout is 'pagoe'
-title: Sobre Mí
 icon: fas fa-info-circle
 order: 4
 ---
