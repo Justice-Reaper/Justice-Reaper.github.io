@@ -5,18 +5,47 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-¡Hola! Soy Sergio, recién graduado de DAM (Desarrollo de Aplicaciones Multiplataforma) con una gran pasión por la tecnología y la ciberseguridad. Desde muy joven, me ha fascinado el mundo de la informática y cómo la tecnología puede influir en nuestras vidas de formas asombrosas.
+# ¡Hola, soy Sergio! 👋
 
-Decidí enfocar mis estudios en el campo de la ciberseguridad debido a mi fascinación por los desafíos técnicos y la constante evolución de las amenazas en línea, especialmente en áreas como el pentesting y el red teaming. Me apasiona especialmente la parte ofensiva de la ciberseguridad, donde puedo aplicar mis habilidades para encontrar vulnerabilidades y mejorar la seguridad de los sistemas. Me encanta explorar nuevas tecnologías y encontrar soluciones creativas para proteger sistemas y datos.
+Bienvenido a mi perfil de GitHub, me presento, soy Sergio, tengo 23 años y desde siempre me ha gustado la informática pero no fue hasta hace 3 años que decidí dedicarme a este campo profesionalmente. Para iniciarme en este mundillo realicé el grado superior de Desarrollo de Aplicaciones Multiplataforma (DAM) en el cual construí aplicaciones para escritorio con Java y para móviles con Kotlin
 
-La creación de este blog surge de mi deseo de compartir mis experiencias y aprendizajes mientras resuelvo máquinas desafiantes en la plataforma Hack The Box (HTB) entre otras. Creo que compartir mis hallazgos no solo puede ser útil para otros apasionados de la ciberseguridad, sino también para aquellos que deseen sumergirse en este emocionante campo.
+Posteriomente me decanté por la rama de ciberseguridad ofensiva, porque considero que es la más divertida. Me creé un blog personal donde comparto writeups y artículos sobre los laboratorios de Portswigger y las máquinas de HackTheBox. Actualmente cuento con más de 230 artículos publicados, subo artículos contanstemente porque estoy preparándome para el OSCP y el BSCP
 
-Además, utilizo el blog como un portafolio de cara a empresas en el futuro, donde puedan apreciar mi experiencia, habilidades y dedicación en el campo de la ciberseguridad.
+Durante mi camino por este campo he ido encontrándome tareas que consideraba tediosas o repetitivas y por ello he creado varias herramientas empleando Bash y Python que automatizan estos procesos, permitiéndome enfocarme en lo importante
 
-En este espacio, espero proporcionar recursos, tutoriales y análisis detallados que ayuden a otros entusiastas de la ciberseguridad a mejorar sus habilidades y comprender mejor los conceptos clave de la seguridad informática.
+Respecto a los idiomas, considero que el inglés es una skill básica en este campo, por lo cual, este último año obtuve el B1 de Cambridge y actualmente me encuentro estudiando para obtener el B2
 
-Si quieres saber más sobre mi trabajo, puedes encontrarme en:
+## Sobre mí 🚀
 
-- <span>Redes sociales y contacto > </span> [https://linktr.ee/Justice_Reaper](https://linktr.ee/Justice_Reaper)
+- 🔭 Actualmente estoy trabajando en mejorar mis habilidades como pentester
+- 💪 Mi tiempo libre se lo dedico gimnasio y a los videojuegos
+- 💼 Actualmente me encuentro en búsqueda de empleo
+- 📫 En [Linktree](https://linktr.ee/Justice_Reaper) encontrarás mis datos de contacto, currículum, blog personal y redes sociales
+- ⚡ Me encanta aprender cosas nuevas y siempre estoy buscando nuevos desafíos
 
-¡Bienvenidos a mi blog y espero que disfruten explorando el fascinante mundo de la ciberseguridad junto a mí!
+## Certificaciones 🎓
+
+Actualmente estoy preparándome para las siguientes certificaciones
+
+- **OSCP (Offensive Security Certified Professional)**
+- **BSCP (Burp Suite Certified Practitioner)**
+
+## Titulaciones 📜
+
+- **Desarrollo de Aplicaciones Multiplataforma (DAM)**
+
+## Idiomas 🌍
+
+- **Español** - Nativo
+- **Inglés** - Nivel B1 (actualmente preparándome el B2 de Cambridge)
+
+## Proyectos Destacados 🌟
+
+Aquí tienes algunos de los proyectos en los que he estado trabajando
+
+- **[Justice-Reaper.github.io](https://github.com/Justice-Reaper/Justice-Reaper.github.io)** -  Mi blog personal donde subo writeups de Portswigger y HackTheBox
+- **[AutoBspwmKali](https://github.com/Justice-Reaper/AutoBspwmKali.git)** - Script para automatizar la instalación y configuración de un entorno BSPWM en Kali Linux
+- **[rpcEnum](https://github.com/Justice-Reaper/rpcEnum.git)** - Herramienta para enumerar el Active Directory a través del servicio RPC
+- **[TFG-DAM](https://github.com/Justice-Reaper/TFG-DAM.git)** - Proyecto de fin de grado de Desarrollo de Aplicaciones Multiplataforma (DAM)  
+- **[graphQLConverter](https://github.com/Justice-Reaper/graphQLConverter.git)** - convierte un JSON de GraphQL en un formato URL encoded
+- **[httpProxyPortScanner](https://github.com/Justice-Reaper/httpProxyPortScanner.git)** - Escáner de puertos que utiliza proxies HTTP
