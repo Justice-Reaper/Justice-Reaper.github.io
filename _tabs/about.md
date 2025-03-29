@@ -1,11 +1,9 @@
 ---
 # the default layout is 'pagoe'
-title: ¡Hola, soy Sergio! 👋
+title: ¡Bienvenido a mi blog! 👋
 icon: fas fa-info-circle
 order: 4
 ---
-
-¡Bienvenido a mi blog! 
 
 Me presento, soy Sergio, tengo 23 años y desde siempre me ha gustado la informática pero no fue hasta hace 3 años que decidí dedicarme a este campo profesionalmente. Para iniciarme en este mundillo realicé el grado superior de Desarrollo de Aplicaciones Multiplataforma (DAM) en el cual construí aplicaciones para escritorio con Java y para móviles con Kotlin
 
