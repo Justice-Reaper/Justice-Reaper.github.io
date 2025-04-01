@@ -25,7 +25,7 @@ image:
   
 ## Descripción
 
-Este `laboratorio` contiene una `vulnerabilidad de XSS` que se activa mediante un `click`. Debemos construir un `ataque de clickjacking` que engañe al `usuario` para que haga `click` en el botón `"Click me"` y llame a la `función print()`
+Este `laboratorio` contiene una `vulnerabilidad de XSS` que se activa mediante un `click`. Debemos construir un `ataque de Clickjacking` que engañe al `usuario` para que haga `click` en el botón `"Click me"` y llame a la `función print()`
 
 ---
 ## Resolución
@@ -46,15 +46,15 @@ Si pulsamos sobre `View post` vemos que hay una `sección` de `comentarios`
 
 ![](/assets/img/Clickjacking-Lab-4/image_4.png)
 
-En un `ataque` de `clickjacking`, el atacante `superpone` u `oculta elementos maliciosos` en una `página web legítima`, por ejemplo, usando un `iframe`, de modo que cuando el `usuario` hace `click` en un `elemento aparentemente seguro` de una `página web`, en realidad, está haciendo `click` en un `elemento oculto` y ejecutando una `acción no deseada`
+En un `ataque` de `Clickjacking`, el atacante `superpone` u `oculta elementos maliciosos` en una `página web legítima`, por ejemplo, usando un `iframe`, de modo que cuando el `usuario` hace `click` en un `elemento aparentemente seguro` de una `página web`, en realidad, está haciendo `click` en un `elemento oculto` y ejecutando una `acción no deseada`
 
 Por ejemplo, un `usuario` accede a una `página web` (quizás mediante un `enlace` proporcionado por un `correo electrónico`) y hace `click` en un `botón` para ganar un `premio`. Sin saberlo, ha sido engañado por un `atacante` para presionar un `botón oculto`, lo que resulta la realización de una `compra` en otra `web`
 
 Este `ataque` se diferencia de un `ataque CSRF` en que el `usuario` debe realizar una `acción`, como hacer `click en un botón`, mientras que un `ataque CSRF` se basa en la `suplantación` de una `solicitud completa` sin el `conocimiento` o la `interacción` del `usuario`
 
-La `protección` contra los `ataques CSRF` suele proporcionarse mediante el uso de un `token CSRF` vinculado a una `cookie` de `sesión`. Los `tokens CSRF` no puede bloquear un `ataque de clickjacking` porque el `navegador` enviará `automáticamente` el `token CSRF`, esto es debido a que el `ataque` ocurre dentro de la `sesión del usuario` y dentro del `propio dominio`. Por lo tanto, la única diferencia con una `sesión normal`, sería que el `proceso` ocurre dentro de un `iframe oculto`
+La `protección` contra los `ataques CSRF` suele proporcionarse mediante el uso de un `token CSRF` vinculado a una `cookie` de `sesión`. Los `tokens CSRF` no puede bloquear un `ataque de Clickjacking` porque el `navegador` enviará `automáticamente` el `token CSRF`, esto es debido a que el `ataque` ocurre dentro de la `sesión del usuario` y dentro del `propio dominio`. Por lo tanto, la única diferencia con una `sesión normal`, sería que el `proceso` ocurre dentro de un `iframe oculto`
 
-Los `ataques de clickjacking` utilizan `CSS` para crear y manipular `capas`. El `atacante` incorpora el `sitio web legítimo` como una `capa iframe` superpuesta sobre `elementos maliciosos`
+Los `ataques de Clickjacking` utilizan `CSS` para crear y manipular `capas`. El `atacante` incorpora el `sitio web legítimo` como una `capa iframe` superpuesta sobre `elementos maliciosos`
 
 Un `ejemplo` utilizando la `etiqueta style` y sus `parámetros` es el siguiente
 
@@ -91,15 +91,15 @@ Se emplean valores de `posición absoluta` y `relativa` para garantizar que el `
 
 El `z-index` determina el `orden de apilamiento` del `iframe` y las `capas del sitio web`. El valor de `opacidad` se define en `0.0` (o cerca de `0.0`), haciendo que el `contenido del iframe` sea `transparente` para el `usuario`
 
-Hay algunas `protecciones contra clickjacking` en los `navegadores` que pueden `detectar la transparencia en iframes` mediante `umbrales`. Para `eludir` esto, el `atacante` debe `ajustar los valores de opacidad` de manera que el `efecto deseado` se logre sin `activar` las `protecciones`. Esta `medida de protección` no está presente en `todos los navegadores`. Por ejemplo, `Chrome versión 76` incluye este `comportamiento`, pero `Firefox` no. Esto significa que, `según el navegador`, podemos necesitar `modificar` el `payload`
+Hay algunas `protecciones contra Clickjacking` en los `navegadores` que pueden `detectar la transparencia en iframes` mediante `umbrales`. Para `eludir` esto, el `atacante` debe `ajustar los valores de opacidad` de manera que el `efecto deseado` se logre sin `activar` las `protecciones`. Esta `medida de protección` no está presente en `todos los navegadores`. Por ejemplo, `Chrome versión 76` incluye este `comportamiento`, pero `Firefox` no. Esto significa que, `según el navegador`, podemos necesitar `modificar` el `payload`
 
-Aunque podemos `crear manualmente` una `PoC` de un `ataque de clickjacking` como se describió anteriormente, esto puede ser `tedioso` y `consumir mucho tiempo`. Cuando `probamos` el `clickjacking` en entornos reales, es recomendable usar la herramienta `Clickbandit` [https://portswigger.net/burp/documentation/desktop/tools/clickbandit](https://portswigger.net/burp/documentation/desktop/tools/clickbandit) de `Burpsuite`, la cual nos permite usar nuestro `navegador` para `realizar las acciones deseadas` en la `página web cargada mediante el iframe` y luego `genera` un `archivo HTML` con una `superposición` para explotar el `clickjacking`
+Aunque podemos `crear manualmente` una `PoC` de un `ataque de Clickjacking` como se describió anteriormente, esto puede ser `tedioso` y `consumir mucho tiempo`. Cuando `probamos` el `Clickjacking` en entornos reales, es recomendable usar la herramienta `Clickbandit` [https://portswigger.net/burp/documentation/desktop/tools/clickbandit](https://portswigger.net/burp/documentation/desktop/tools/clickbandit) de `Burpsuite`, la cual nos permite usar nuestro `navegador` para `realizar las acciones deseadas` en la `página web cargada mediante el iframe` y luego `genera` un `archivo HTML` con una `superposición` para explotar el `Clickjacking`
 
-Existen varias `medidas defensivas` contra `clickjacking` del `lado del cliente`, sin embargo, a menudo, los `atacantes` pueden `eludir estas protecciones` con relativa `facilidad`. En consecuencia, se han desarrollado `protocolos implementados en el lado del servidor` que `restringen el uso de iframes` en el `navegador` y por lo tanto, `mitigan el clickjacking`
+Existen varias `medidas defensivas` contra `Clickjacking` del `lado del cliente`, sin embargo, a menudo, los `atacantes` pueden `eludir estas protecciones` con relativa `facilidad`. En consecuencia, se han desarrollado `protocolos implementados en el lado del servidor` que `restringen el uso de iframes` en el `navegador` y por lo tanto, `mitigan el Clickjacking`
 
-El `clickjacking` es un `comportamiento` que ocurre en el `lado del cliente`, y su `éxito` o `fracaso` depende de las `funcionalidades del navegador` y su `conformidad` con los `estándares web` y las `mejores prácticas actuales`. La `protección en el servidor` contra el `clickjacking` se logra `definiendo` y `comunicando restricciones` sobre el `uso de componentes` como los `iframes`. No obstante, la `eficacia` de estas `protecciones` depende de que el `navegador` `cumpla` y `aplique` dichas `restricciones`
+El `Clickjacking` es un `comportamiento` que ocurre en el `lado del cliente`, y su `éxito` o `fracaso` depende de las `funcionalidades del navegador` y su `conformidad` con los `estándares web` y las `mejores prácticas actuales`. La `protección en el servidor` contra el `Clickjacking` se logra `definiendo` y `comunicando restricciones` sobre el `uso de componentes` como los `iframes`. No obstante, la `eficacia` de estas `protecciones` depende de que el `navegador` `cumpla` y `aplique` dichas `restricciones`
 
-Dos `mecanismos clave` para la `protección contra clickjacking` desde el `servidor` son `X-Frame-Options` y `Content Security Policy (CSP)`
+Dos `mecanismos clave` para la `protección contra Clickjacking` desde el `servidor` son `X-Frame-Options` y `Content Security Policy (CSP)`
 
 `X-Frame-Options` - Fue introducido originalmente como una `cabecera de respuesta no oficial` en `Internet Explorer 8` y fue `rápidamente adoptado` por otros `navegadores`. Esta `cabecera` permite al propietario del sitio web `controlar el uso de iframes u objetos`, de modo que no es posible `cargar una página web desde en un iframe` puede ser `prohibida` con la `directiva deny`
 
@@ -119,7 +119,7 @@ O también puede `permitirse` únicamente que se `cargue` un `sitio web específ
 X-Frame-Options: allow-from https://normal-website.com
 ```
 
-`Content Security Policy (CSP)` - Es un `mecanismo de detección y prevención` que proporciona `mitigación` contra ataques como `XSS` y de `clickjacking`. `CSP` suele implementarse en el `servidor web` como un `encabezado de respuesta` con el siguiente formato
+`Content Security Policy (CSP)` - Es un `mecanismo de detección y prevención` que proporciona `mitigación` contra ataques como `XSS` y de `Clickjacking`. `CSP` suele implementarse en el `servidor web` como un `encabezado de respuesta` con el siguiente formato
 
 ```
 Content-Security-Policy: policy
@@ -127,7 +127,7 @@ Content-Security-Policy: policy
 
 La `Content Security Policy (CSP)` proporciona al `navegador` un `listado de fuentes` que considera `legítimas` (dominios, protocolos, scripts específicos) y que el `navegador` puede utilizar para la `detección` e `intercepción de comportamientos maliciosos`
 
-La `protección recomendada contra clickjacking` consiste en `incorporar` la `directiva frame-ancestors` en la `Content Security Policy (CSP)` de la aplicación
+La `protección recomendada contra Clickjacking` consiste en `incorporar` la `directiva frame-ancestors` en la `Content Security Policy (CSP)` de la aplicación
 
 - La directiva `frame-ancestors 'none'` tiene un `comportamiento similar` a `X-Frame-Options: deny`
     
@@ -145,9 +145,9 @@ Alternativamente, se puede `permitir` que solo se pueda `cargar la web` desde `s
 Content-Security-Policy: frame-ancestors normal-website.com;
 ```
 
-Hay que recalcar que `X-Frame-Options` no está `implementado de forma uniforme` en todos los `navegadores` (por ejemplo, la `directiva allow-from` no es `compatible` con `Chrome 76` ni con `Safari 12`). Sin embargo, cuando se `aplica correctamente` junto con `Content Security Policy (CSP)`, puede proporcionar una `protección efectiva` contra `ataques de clickjacking`
+Hay que recalcar que `X-Frame-Options` no está `implementado de forma uniforme` en todos los `navegadores` (por ejemplo, la `directiva allow-from` no es `compatible` con `Chrome 76` ni con `Safari 12`). Sin embargo, cuando se `aplica correctamente` junto con `Content Security Policy (CSP)`, puede proporcionar una `protección efectiva` contra `ataques de Clickjacking`
 
-Para ver si una `web` es `vulnerable` a `clickjacking` podemos usar la herramienta `shcheck` [https://github.com/santoru/shcheck.git]https://github.com/santoru/shcheck.git() para `identificar` las `cabeceras de seguridad`
+Para ver si una `web` es `vulnerable` a `Clickjacking` podemos usar la herramienta `shcheck` [https://github.com/santoru/shcheck.git]https://github.com/santoru/shcheck.git() para `identificar` las `cabeceras de seguridad`
 
 ```
 # shcheck.py -i -x -k https://0a7b006303c26c1f81e366e3002500bf.web-security-academy.net/        
@@ -187,9 +187,9 @@ Si preferimos usar una herramienta `web` podemos usar `securityheaders` [https:/
 
 ![](/assets/img/Clickjacking-Lab-4/image_5.png)
 
-En este caso, vemos que la `web` no tiene ni `Content-Security-Policy (CSP)` ni `X-Frame-Options`, lo cual la hace vulnerable a `clickjacking`
+En este caso, vemos que la `web` no tiene ni `Content-Security-Policy (CSP)` ni `X-Frame-Options`, lo cual la hace vulnerable a `Clickjacking`
 
-Históricamente, el `clickjacking` se ha utilizado para realizar acciones como `aumentar` los `"me gusta"` en una página de `Facebook`. Sin embargo, la verdadera potencia del `clickjacking` se revela cuando se utiliza como un `vector para otro ataque`, como un `DOM XSS`. La implementación de este ataque combinado es relativamente sencilla, suponiendo que el atacante haya identificado primero la `vulnerabilidad` de `XSS`. Luego, el `exploit XSS` se combina con la `URL` del `iframe`, de modo que el usuario haga `click` en el `botón o enlace` y, en consecuencia, ejecute el ataque de `DOM XSS`
+Históricamente, el `Clickjacking` se ha utilizado para realizar acciones como `aumentar` los `"me gusta"` en una página de `Facebook`. Sin embargo, la verdadera potencia del `Clickjacking` se revela cuando se utiliza como un `vector para otro ataque`, como un `DOM XSS`. La implementación de este ataque combinado es relativamente sencilla, suponiendo que el atacante haya identificado primero la `vulnerabilidad` de `XSS`. Luego, el `exploit XSS` se combina con la `URL` del `iframe`, de modo que el usuario haga `click` en el `botón o enlace` y, en consecuencia, ejecute el ataque de `DOM XSS`
 
 Si nos fijamos en el `código fuente` de la `página desde la que se envía el formulario` vemos que se `carga` un `archivo .js`
 
@@ -311,7 +311,7 @@ Una vez hecho esto nos saldrá este `menú`
 
 ![](/assets/img/Clickjacking-Lab-4/image_23.png)
 
-Lo siguiente sería `pulsar sobre el botón que queremos`, en este caso sobre `Submit feedback` que es el que queremos usar para el `ataque de clickjacking`
+Lo siguiente sería `pulsar sobre el botón que queremos`, en este caso sobre `Submit feedback` que es el que queremos usar para el `ataque de Clickjacking`
 
 ![](/assets/img/Clickjacking-Lab-4/image_24.png)
 
