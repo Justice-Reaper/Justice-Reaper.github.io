@@ -183,7 +183,6 @@ Para ver si una `web` es `vulnerable` a `Clickjacking` podemos usar la herramien
 [!] Headers analyzed for https://0a6a0005048fd811816ed403009c00d9.web-security-academy.net/
 [+] There are 0 security headers
 [-] There are not 12 security headers
-
 ```
 
 Si preferimos usar una herramienta `web` podemos usar `securityheaders` [https://securityheaders.com/](https://securityheaders.com/) 
