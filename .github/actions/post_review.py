@@ -1,12 +1,12 @@
 import os
-import openai
+from openai import OpenAI
 from github import Github
 import git
 import json
 import textwrap
 
 # Load OpenAI API key from environment
-openai.api_key = os.getenv('OPENAI_API_KEY')
+OpenAI.api_key = os.getenv('OPENAI_API_KEY')
 
 # Set the maximum token limit for GPT-4
 TOKEN_LIMIT = 4000
@@ -72,7 +72,7 @@ def send_to_openai(files):
     reviews = []
     for chunk in chunks:
         # Send a message to OpenAI with each chunk of the code for review
-        message = openai.ChatCompletion.create(
+        message = OpenAI.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
                 {
