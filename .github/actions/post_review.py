@@ -1,12 +1,12 @@
 import os
-from openai import OpenAI
+import openai  # Correct import for OpenAI
 from github import Github
 import git
 import json
 import textwrap
 
 # Load OpenAI API key from environment
-OpenAI.api_key = os.getenv('OPENAI_API_KEY')
+openai.api_key = os.getenv('OPENAI_API_KEY')
 
 # Set the maximum token limit for GPT-4
 TOKEN_LIMIT = 4000
@@ -21,8 +21,12 @@ def get_file_content(file_path):
     Returns:
         str: The content of the file.
     """
-    with open(file_path, 'r') as file:
-        return file.read()
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            return file.read()
+    except UnicodeDecodeError as e:
+        print(f"Failed to read {file_path}: {e}")
+        return None  # Return None for files that cannot be read
 
 def get_changed_files(pr):
     """
@@ -64,7 +68,7 @@ def send_to_openai(files):
         str: The review returned by OpenAI.
     """
     # Concatenate all the files into a single string
-    code = '\n'.join(files.values())
+    code = '\n'.join([content for content in files.values() if content])  # Skip None values
 
     # Split the code into chunks that are each within the token limit
     chunks = textwrap.wrap(code, TOKEN_LIMIT)
@@ -72,18 +76,22 @@ def send_to_openai(files):
     reviews = []
     for chunk in chunks:
         # Send a message to OpenAI with each chunk of the code for review
-        message = OpenAI.ChatCompletion.create(
-            model="gpt-3.5-turbo",
+        response = openai.ChatCompletion.create(
+            model="gpt-4",
             messages=[
                 {
                     "role": "user",
-                    "content": "You are assigned as a code reviewer. Your responsibility is to review the provided code and offer recommendations for enhancement. Identify any problematic code snippets, highlight potential issues, and evaluate the overall quality of the code you review:\n" + chunk
+                    "content": (
+                        "You are assigned as a code reviewer. Your responsibility is to review the provided code "
+                        "and offer recommendations for enhancement. Identify any problematic code snippets, highlight "
+                        "potential issues, and evaluate the overall quality of the code you review:\n" + chunk
+                    )
                 }
-            ],
+            ]
         )
 
         # Add the assistant's reply to the list of reviews
-        reviews.append(message['choices'][0]['message']['content'])
+        reviews.append(response.choices[0].message.content)
 
     # Join all the reviews into a single string
     review = "\n".join(reviews)
