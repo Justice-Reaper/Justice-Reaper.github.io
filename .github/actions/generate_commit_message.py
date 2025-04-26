@@ -43,7 +43,7 @@ def get_commit_message(diff):
 
     # Using the ChatCompletion interface to interact with gpt-3.5-turbo
     response = openai.ChatCompletion.create(
-        model="gpt-4",
+        model="gpt-3.5-turbo",
         messages=[
             {
                 "role": "system",
@@ -55,10 +55,10 @@ def get_commit_message(diff):
             }
         ]
     )
-
+    
     # Extracting the assistant's message from the response and parsing it
-    message_from_assistant = response.choices[0].message.content
-
+    message_from_assistant = response.choices[0].message['content']
+    
     # Extract the title and body from the model's response
     title = message_from_assistant.split('Title:')[1].split('Body:')[0].strip()
     body = message_from_assistant.split('Body:')[1].strip()
