@@ -80,9 +80,7 @@ def send_to_openai(files):
                 {
                     "role": "user",
                     "content": (
-                        "You are assigned as a code reviewer. Your responsibility is to review the provided code "
-                        "and offer recommendations for enhancement. Identify any problematic code snippets, "
-                        "highlight potential issues, and evaluate the overall quality of the code you review:\n" + chunk
+                        "This is an api test. Answer if it is ok\n" + chunk
                     ),
                 }
             ],
