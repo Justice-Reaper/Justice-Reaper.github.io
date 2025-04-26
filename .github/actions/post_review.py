@@ -72,18 +72,22 @@ def send_to_openai(files):
     reviews = []
     for chunk in chunks:
         # Send a message to OpenAI with each chunk of the code for review
-        message = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
+        response = openai.ChatCompletion.create(
+            model="gpt-4",
             messages=[
                 {
                     "role": "user",
-                    "content": "You are assigned as a code reviewer. Your responsibility is to review the provided code and offer recommendations for enhancement. Identify any problematic code snippets, highlight potential issues, and evaluate the overall quality of the code you review:\n" + chunk
+                    "content": (
+                        "You are assigned as a code reviewer. Your responsibility is to review the provided code "
+                        "and offer recommendations for enhancement. Identify any problematic code snippets, highlight "
+                        "potential issues, and evaluate the overall quality of the code you review:\n" + chunk
+                    )
                 }
-            ],
+            ]
         )
 
         # Add the assistant's reply to the list of reviews
-        reviews.append(message['choices'][0]['message']['content'])
+        reviews.append(response.choices[0].message.content)
 
     # Join all the reviews into a single string
     review = "\n".join(reviews)
