@@ -1,12 +1,14 @@
 import os
-import openai
+from openai import OpenAI
 from github import Github
 import git
 import json
 import textwrap
 
 # Load OpenAI API key from environment
-openai.api_key = os.getenv('OPENAI_API_KEY')
+# openai.api_key = os.getenv('OPENAI_API_KEY')
+
+client = OpenAI()
 
 # Set the maximum token limit for GPT-4
 TOKEN_LIMIT = 4000
@@ -72,18 +74,22 @@ def send_to_openai(files):
     reviews = []
     for chunk in chunks:
         # Send a message to OpenAI with each chunk of the code for review
-        message = openai.ChatCompletion.create(
+        response = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
                 {
                     "role": "user",
-                    "content": "You are assigned as a code reviewer. Your responsibility is to review the provided code and offer recommendations for enhancement. Identify any problematic code snippets, highlight potential issues, and evaluate the overall quality of the code you review:\n" + chunk
+                    "content": (
+                        "You are assigned as a code reviewer. Your responsibility is to review the provided code "
+                        "and offer recommendations for enhancement. Identify any problematic code snippets, "
+                        "highlight potential issues, and evaluate the overall quality of the code you review:\n" + chunk
+                    ),
                 }
             ],
         )
 
         # Add the assistant's reply to the list of reviews
-        reviews.append(message['choices'][0]['message']['content'])
+        reviews.append(response.choices[0].message.content)
 
     # Join all the reviews into a single string
     review = "\n".join(reviews)
