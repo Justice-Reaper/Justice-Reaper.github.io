@@ -1,12 +1,14 @@
 import os
-import openai
+from openai import OpenAI
 from github import Github
 import git
 import json
 import textwrap
 
 # Load OpenAI API key from environment
-openai.api_key = os.getenv('OPENAI_API_KEY')
+# openai.api_key = os.getenv('OPENAI_API_KEY')
+
+client = OpenAI()
 
 # Set the maximum token limit for GPT-4
 TOKEN_LIMIT = 4000
@@ -72,18 +74,20 @@ def send_to_openai(files):
     reviews = []
     for chunk in chunks:
         # Send a message to OpenAI with each chunk of the code for review
-        message = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",
             messages=[
                 {
                     "role": "user",
-                    "content": "You are assigned as a code reviewer. Your responsibility is to review the provided code and offer recommendations for enhancement. Identify any problematic code snippets, highlight potential issues, and evaluate the overall quality of the code you review:\n" + chunk
+                    "content": (
+                        "You are assingned as a tech blog reviewer. Your job is to review the provided post text and suggest corrections or improvements. Please do not use creativity, just return a list of things to change in the blog post.\n" + chunk
+                    ),
                 }
             ],
         )
 
         # Add the assistant's reply to the list of reviews
-        reviews.append(message['choices'][0]['message']['content'])
+        reviews.append(response.choices[0].message.content)
 
     # Join all the reviews into a single string
     review = "\n".join(reviews)
@@ -114,7 +118,7 @@ def main():
     
     # Instantiate the Github object using the Github token
     # and get the pull request object
-    pr = Github(os.getenv('GITHUB_TOKEN')).get_repo(event['repository']['full_name']).get_pull(event['number'])
+    pr = Github(os.getenv('TOKEN_GITHUB')).get_repo(event['repository']['full_name']).get_pull(event['number'])
 
     # Get the changed files in the pull request
     files = get_changed_files(pr)
