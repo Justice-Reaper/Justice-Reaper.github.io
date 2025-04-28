@@ -80,7 +80,7 @@ def send_to_openai(files):
                 {
                     "role": "user",
                     "content": (
-                        "You are assingned as a tech blog reviewer. Your job is to review the provided post text and suggest corrections or improvements. Please do not use creativity, just return a list of things to change in the blog post.\n" + chunk
+                        "You are assingned as a tech blog reviewer. Your job is to review the provided post text (if it is a markdown file) and suggest corrections or improvements. Please do not use creativity, just return a list of things to change in the blog post.\n" + chunk
                     ),
                 }
             ],

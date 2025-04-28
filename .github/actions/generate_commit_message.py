@@ -1,5 +1,5 @@
 import os
-import openai
+from openai import OpenAI
 import subprocess
 
 def get_code_diff():
@@ -42,8 +42,8 @@ def get_commit_message(diff):
                "Start with 'Title:' for the title and 'Body:' for the detailed description. Here are the code changes:")
 
     # Using the ChatCompletion interface to interact with gpt-3.5-turbo
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
         messages=[
             {
                 "role": "system",
