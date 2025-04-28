@@ -118,7 +118,7 @@ def main():
     
     # Instantiate the Github object using the Github token
     # and get the pull request object
-    pr = Github(os.getenv('GITHUB_TOKEN')).get_repo(event['repository']['full_name']).get_pull(event['number'])
+    pr = Github(os.getenv('TOKEN_GITHUB')).get_repo(event['repository']['full_name']).get_pull(event['number'])
 
     # Get the changed files in the pull request
     files = get_changed_files(pr)
