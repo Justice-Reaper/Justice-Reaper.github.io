@@ -59,7 +59,8 @@ def get_commit_message(diff):
     )
     
     # Extracting the assistant's message from the response and parsing it
-    message_from_assistant = response.choices[0].message['content']
+    #message_from_assistant = response.choices[0].message['content']
+    message_from_assistant = response.choices[0].message.content
     
     # Extract the title and body from the model's response
     title = message_from_assistant.split('Title:')[1].split('Body:')[0].strip()
