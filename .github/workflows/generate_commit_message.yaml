@@ -1,7 +1,7 @@
 name: Generate Commit Message
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
   
 # Trigger the workflow on a push event to the main branch.
@@ -9,7 +9,6 @@ on:
   push:
     branches:
       - main
-    #paths: '**/_posts/*.md'
 
 jobs:
   generate_message:
