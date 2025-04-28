@@ -2,6 +2,8 @@ import os
 from openai import OpenAI
 import subprocess
 
+client = OpenAI()
+
 def get_code_diff():
     """
     Get the difference in code for the most recent commit.
