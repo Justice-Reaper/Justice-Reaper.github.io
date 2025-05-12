@@ -9,6 +9,10 @@
     content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
   >
 
+  {% if page.title == "404: Page not found" %}
+    <meta name="robots" content="noindex, nofollow">
+  {% endif %}
+
   {%- capture seo_tags -%}
     {% seo title=false %}
   {%- endcapture -%}
