@@ -1,4 +1,4 @@
-name: Code Review with OpenAI
+name: Post Review with OpenAI
 
 permissions:
   contents: read
@@ -6,7 +6,7 @@ permissions:
 
 on:
   pull_request:
-    paths: '**/_posts/*.md'
+    paths: '**/_posts/**/*.md'
 
 jobs:
   review:

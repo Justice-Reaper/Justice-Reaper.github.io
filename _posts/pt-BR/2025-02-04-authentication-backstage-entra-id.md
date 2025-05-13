@@ -7,7 +7,7 @@ author: "Luiz Meier"
 categories: [Backstage, DevOps, Cloud]
 tags: ["Microsoft Entra ID", Authentication, "Identity Provider", Backstage]
 lang: pt-BR
-canonical_url: "https://blog.lmeier.net/posts/autenticacao-backstage-entra-id-pt-BR/"
+canonical_url: "https://blog.lmeier.net/pt-BR/posts/authentication-backstage-entra-id/"
 image: assets/img/backstage-entraid/capa.png
 ---
  

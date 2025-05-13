@@ -7,7 +7,7 @@ author: "Luiz Meier"
 categories: [Backstage, DevOps, Cloud]
 tags: ["Azure DevOps", Backstage, "CI/CD Pipelines", Automation]
 lang: pt-BR
-canonical_url: "https://blog.lmeier.net/posts/integrando-backstage-azure-devops-pt-BR/"
+canonical_url: "https://blog.lmeier.net/pt-BR/posts/integrating-backstage-azure-devops/"
 image: assets/img/backstage-azure-devops/cover.png
 ---
  
