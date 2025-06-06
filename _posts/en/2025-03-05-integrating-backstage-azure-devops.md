@@ -7,15 +7,14 @@ author: Luiz Meier
 categories: [Backstage, DevOps, Cloud]
 tags: ["Azure DevOps", Backstage, "CI/CD Pipelines", Automation]
 lang: en
-canonical_url: https://blog.lmeier.net/posts/integrating-backstage-azure-devops-en/
 image: assets/img/backstage-azure-devops/cover.png
 ---
  
-<!-- [Leia em Português](https://blog.lmeier.net/posts/integrando-backstage-azure-devops-pt-BR) -->
+<!-- [Leia em Português](https://blog.lmeier.net/pt-BR/posts/integrando-backstage-azure-devops/) -->
 
 ## Introduction
 
-This is the second post I am writing about Backstage. Check out the first one, where I discuss integration with Entra ID [here](https://blog.lmeier.net/posts/authentication-backstage-entra-id-en). Now, let's walk through all the steps to integrate Backstage and Azure DevOps to automate resource delivery in Azure using a CI/CD pipeline. Be prepared, because this one is going to be long!
+This is the second post I am writing about Backstage. Check out the first one, where I discuss integration with Entra ID [here](https://blog.lmeier.net/posts/authentication-backstage-entra-id/). Now, let's walk through all the steps to integrate Backstage and Azure DevOps to automate resource delivery in Azure using a CI/CD pipeline. Be prepared, because this one is going to be long!
 
 I'll keep a repository on my GitHub with the Backstage code resulting from these two posts and will also make available the files we will use here.
 

@@ -11,6 +11,7 @@ languages: ["en", "pt-BR"]
 # Plugins
 plugins:
   - jekyll-polyglot
+  - jekyll-seo-tag
 
 polyglot:
   # Polylgot settings

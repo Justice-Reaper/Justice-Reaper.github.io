@@ -8,10 +8,9 @@ description: "Um guia completo para criar um Low-Level Discovery customizado no 
 lang: pt-BR
 image: assets/img/zabbix-custom-lld/capa.png  # Removido campo duplicado
 layout: post
-canonical_url: "https://blog.lmeier.net/pt-BR/posts/creating-your-own-custom-lld-in-zabbix/"
 ---
 
-<!-- *Read in [English](https://blog.lmeier.net/posts/creating-your-own-custom-lld-in-zabbix-en/)* -->
+<!-- *Read in [English](https://blog.lmeier.net/posts/creating-your-own-custom-lld-in-zabbix/)* -->
 
 <!--
 ![](assets/img/zabbix-custom-lld/capa.png)

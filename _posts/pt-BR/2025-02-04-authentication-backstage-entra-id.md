@@ -7,11 +7,10 @@ author: "Luiz Meier"
 categories: [Backstage, DevOps, Cloud]
 tags: ["Microsoft Entra ID", Authentication, "Identity Provider", Backstage]
 lang: pt-BR
-canonical_url: "https://blog.lmeier.net/pt-BR/posts/authentication-backstage-entra-id/"
 image: assets/img/backstage-entraid/capa.png
 ---
  
-<!-- [Read in English](https://blog.lmeier.net/posts/authentication-backstage-entra-id-en) -->
+<!-- [Read in English](https://blog.lmeier.net/posts/authentication-backstage-entra-id/) -->
 
 Há algum tempo venho ouvindo sobre como o Backstage é uma ferramenta revolucionária e como pode ajudar a dar mais liberdade aos desenvolvedores na solicitação de recursos em nuvem.  
 

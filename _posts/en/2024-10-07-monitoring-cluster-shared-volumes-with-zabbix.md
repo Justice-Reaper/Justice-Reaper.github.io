@@ -7,7 +7,6 @@ tags: [LLD, Monitoring, Powershell, Custom Scripts, "Cluster Shared Volumes"]
 description: "How to monitor your cluster disks in Zabbix"
 lang: en
 layout: post
-canonical_url: https://blog.lmeier.net/posts/monitoring-cluster-shared-volumes-with-zabbix/
 image: assets/img/monitor-csv/cover.png
 ---
 
@@ -19,7 +18,7 @@ Generally, the disks made available to a cluster have an “owner.” This means
 
 One of the “problems” with using CSV is that the cluster simply consumes the volume and places it in a folder inside C:\ClusterStorage\VolumeX, with X being incremented as new disks are added as CSVs.
 
-Considering that we can no longer monitor the disks natively in Zabbix using the default Zabbix keys (since the disks don’t exist in the same way!), the only option left is to develop a script to collect this data dynamically through LLD. If you don’t know what LLD is, I suggest you take a look at my [previous post](https://blog.lmeier.net/posts/creating-your-own-custom-lld-in-zabbix-en/) where I explain what it is and how to create your own discovery process.
+Considering that we can no longer monitor the disks natively in Zabbix using the default Zabbix keys (since the disks don’t exist in the same way!), the only option left is to develop a script to collect this data dynamically through LLD. If you don’t know what LLD is, I suggest you take a look at my [previous post](https://blog.lmeier.net/posts/creating-your-own-custom-lld-in-zabbix/) where I explain what it is and how to create your own discovery process.
 
 You can download the script (as well as the Zabbix template) that I created [here](https://github.com/LuizMeier/Zabbix/tree/master/ClusterSharedVolume). After downloading it, save it in a folder of your choice. For this script, you should save the file on the server to be monitored.
 

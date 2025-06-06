@@ -7,7 +7,6 @@ author: "Luiz Meier"
 categories: [CCTV, Hardware]
 tags: [CCTV, Hardware, Intelbras]
 lang: pt-BR
-canonical_url: "https://blog.lmeier.net/pt-BR/posts/how-i-recovered-a-bricked-cctv-camera/"
 image: assets/img/bricked-camera/cover.png
 ---
 
