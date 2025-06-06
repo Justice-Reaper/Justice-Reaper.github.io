@@ -7,15 +7,18 @@ author: "Luiz Meier"
 categories: [Backstage, DevOps, Cloud]
 tags: ["Azure DevOps", Backstage, "CI/CD Pipelines", Automation]
 lang: pt-BR
-canonical_url: "https://blog.lmeier.net/pt-BR/posts/integrating-backstage-azure-devops/"
 image: assets/img/backstage-azure-devops/cover.png
+redirect_from:
+  - /posts/integrando-backstage-azure-devops-pt-BR/
+  - /posts/integrando-backstage-azure-devops-pt-BR
+  - /pt-BR/posts/integrando-backstage-azure-devops-pt-BR/
 ---
  
-<!-- [Read in English](https://blog.lmeier.net/posts/integrating-backstage-azure-devops-en/) -->
+<!-- [Read in English](https://blog.lmeier.net/posts/integrating-backstage-azure-devops/) -->
 
 ## Introdução
 
-Este é o segundo post que faço abordando o Backstage. Confira o primeiro, onde falo de integração com o Entra ID [aqui](https://blog.lmeier.net/posts/autenticacao-backstage-entra-id-pt-BR/). Agora, vamos abordar todos os passos para a integração do Backstage ao Azure DevOps para automatizar a entrega de recursos na Azure por meio de uma pipeline. Se prepare, porque vai ser longo!
+Este é o segundo post que faço abordando o Backstage. Confira o primeiro, onde falo de integração com o Entra ID [aqui](https://blog.lmeier.net/pt-BR/posts/autenticacao-backstage-entra-id/). Agora, vamos abordar todos os passos para a integração do Backstage ao Azure DevOps para automatizar a entrega de recursos na Azure por meio de uma pipeline. Se prepare, porque vai ser longo!
 
 Eu vou manter no meu GitHub um repositório do Backstage com o resultado destes dois posts e também disponibilizando os arquivos que usaremos aqui.
 

@@ -7,7 +7,6 @@ categories: [CCTV, Hardware]
 tags: [CCTV, Hardware, Intelbras]
 description: "A Last-Resort Guide to Try Before Losing Your Equipment"
 lang: en
-canonical_url: https://blog.lmeier.net/posts/how-i-recovered-a-bricked-cctv-camera/
 image: assets/img/bricked-camera/cover.png
 ---
 
