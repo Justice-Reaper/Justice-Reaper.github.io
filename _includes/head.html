@@ -54,11 +54,16 @@
 
   {{ seo_tags }}
 
-  {% if page.canonical_url %}
-    <link rel="canonical" href="{{ page.canonical_url }}">
-  {% else %}
-    <link rel="canonical" href="{{ page.url | absolute_url }}">
-  {% endif %}
+  <!-- Manual Hreflang Tags -->
+  {%- for lang_code in site.languages -%}
+    {%- assign translated_url = page.url | abs_translate_url: lang_code -%}
+    <link rel="alternate" hreflang="{{ lang_code }}" href="{{ translated_url }}" />
+  {%- endfor -%}
+  {%- if site.default_lang -%}
+    {%- assign x_default_url = page.url | abs_translate_url: site.default_lang -%}
+    <link rel="alternate" hreflang="x-default" href="{{ x_default_url }}" />
+  {%- endif -%}
+  <!-- End Manual Hreflang Tags -->
 
   <title>
     {%- unless page.layout == 'home' -%}

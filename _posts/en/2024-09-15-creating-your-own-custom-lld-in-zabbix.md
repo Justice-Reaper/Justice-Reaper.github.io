@@ -8,6 +8,7 @@ description: "A complete guide to creating a custom Low-Level Discovery in Zabbi
 lang: en
 image: assets/img/zabbix-custom-lld/capa.png  # Removido campo duplicado
 layout: post
+redirect_from: /posts/creating-your-own-custom-lld-in-zabbix-en/
 ---
 
 <!-- *Leia em [Português](https://blog.lmeier.net/pt-BR/posts/criando-seu-proprio-lld-personalizado-no-zabbix/)* -->

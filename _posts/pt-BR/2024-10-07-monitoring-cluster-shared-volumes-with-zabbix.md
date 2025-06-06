@@ -8,6 +8,9 @@ description: "Como monitorar os discos do seu cluster no Zabbix"
 lang: pt-BR
 layout: post
 image: assets/img/monitor-csv/cover.png
+redirect_from:
+  - /pt-BR/posts/monitorando-cluster-shared-volumes-com-zabbix/
+  - /posts/monitorando-cluster-shared-volumes-com-zabbix/
 ---
 
 <!-- *Also available in [english](https://blog.lmeier.net/posts/monitoring-cluster-shared-volumes-with-zabbix/)* -->

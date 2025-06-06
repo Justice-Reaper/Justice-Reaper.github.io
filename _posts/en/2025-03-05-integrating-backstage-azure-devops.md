@@ -8,6 +8,7 @@ categories: [Backstage, DevOps, Cloud]
 tags: ["Azure DevOps", Backstage, "CI/CD Pipelines", Automation]
 lang: en
 image: assets/img/backstage-azure-devops/cover.png
+redirect_from: /posts/integrating-backstage-azure-devops-en/
 ---
  
 <!-- [Leia em Português](https://blog.lmeier.net/pt-BR/posts/integrando-backstage-azure-devops/) -->

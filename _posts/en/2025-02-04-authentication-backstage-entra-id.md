@@ -8,6 +8,7 @@ categories: [Backstage, DevOps, Cloud]
 tags: ["Microsoft Entra ID", Authentication, "Identity Provider", Backstage]
 lang: en
 image: assets/img/backstage-entraid/capa.png
+redirect_from: /posts/authentication-backstage-entra-id-en/
 ---
 
 <!-- [Leia em Português](https://blog.lmeier.net/pt-BR/posts/autenticacao-backstage-entra-id/) -->
