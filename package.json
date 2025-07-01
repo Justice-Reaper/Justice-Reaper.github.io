@@ -28,7 +28,7 @@
     "bootstrap": "^5.3.6"
   },
   "devDependencies": {
-    "@babel/core": "^7.27.4",
+    "@babel/core": "^7.27.7",
     "@babel/plugin-transform-class-properties": "^7.27.1",
     "@babel/plugin-transform-private-methods": "^7.27.1",
     "@babel/preset-env": "^7.27.2",
@@ -44,8 +44,8 @@
     "conventional-changelog-conventionalcommits": "^9.0.0",
     "husky": "^9.1.7",
     "purgecss": "^7.0.2",
-    "rollup": "^4.44.0",
-    "semantic-release": "^24.2.5",
+    "rollup": "^4.44.1",
+    "semantic-release": "^24.2.6",
     "stylelint": "^16.21.0",
     "stylelint-config-standard-scss": "^15.0.1"
   },
