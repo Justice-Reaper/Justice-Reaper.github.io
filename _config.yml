@@ -12,6 +12,7 @@ languages: ["en", "pt-BR"]
 plugins:
   - jekyll-polyglot
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 polyglot:
   # Polylgot settings
