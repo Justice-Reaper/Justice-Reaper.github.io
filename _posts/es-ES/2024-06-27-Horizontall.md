@@ -235,7 +235,6 @@ ID           Response   Lines    Word       Chars       Payload
 Al acceder a `api-prod.horizontall.htb/admin/init` podemos ver la `versión` de `strapi` 
 
 ![](/assets/img/Horizontall/image_8.png)
-
 ## Intrusión
 
 Ahora que tenemos la `versión` podemos usar `searchploit` para ver si existe algún `exploit` para esta versión de `strapi`, efectivamente existen varios exploits para esta versión
