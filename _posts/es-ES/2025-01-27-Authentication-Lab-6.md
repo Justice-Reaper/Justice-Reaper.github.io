@@ -29,6 +29,7 @@ image:
 Este `laboratorio` es vulnerable debido a un `fallo lógico` en su `protección contra ataques de fuerza bruta de contraseñas`. Para `resolver` el laboratorio, debemos realizar un `ataque de fuerza bruta` para obtener la `contraseña de la víctima`, luego `iniciar sesión` y `acceder a la página de su cuenta`. Nuestras `credenciales` son `wiener:peter`, el `nombre` del `usuario víctima` es `carlos` y el `diccionario` para `bruteforcear contraseñas` es `Candidate passwords` [https://portswigger.net/web-security/authentication/auth-lab-passwords](https://portswigger.net/web-security/authentication/auth-lab-passwords)
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

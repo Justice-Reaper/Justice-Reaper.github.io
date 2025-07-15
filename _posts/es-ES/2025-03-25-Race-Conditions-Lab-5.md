@@ -41,6 +41,7 @@ Para `resolver` el `laboratorio` debemos
 Podemos `iniciar sesión` en nuestra cuenta con las credenciales `wiener:peter`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` vemos esto

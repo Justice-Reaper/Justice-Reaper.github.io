@@ -29,6 +29,7 @@ image:
 Este `laboratorio` tiene una `vulnerabilidad` en los `mensajes web`. Para `resolver` el `laboratorio`, debemos usar el `servidor de exploits` para `publicar` un `mensaje` en el sitio objetivo que haga que se llame a la función `print()`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

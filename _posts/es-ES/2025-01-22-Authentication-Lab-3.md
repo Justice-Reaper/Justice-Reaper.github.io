@@ -29,6 +29,7 @@ image:
 Este `laboratorio` tiene una `vulnerabilidad` en la funcionalidad de `restablecimiento de contraseña`. Para `resolver` el laboratorio, debemos `restablecer` la `contraseña` de `Carlos`, luego `iniciar sesión` y acceder a su página de `Mi cuenta`. Nuestras credenciales son `wiener:peter` y la víctima es `carlos`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

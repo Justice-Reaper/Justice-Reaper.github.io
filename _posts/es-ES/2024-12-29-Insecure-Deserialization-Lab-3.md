@@ -29,6 +29,7 @@ image:
 Este `laboratorio` utiliza un mecanismo basado en `serialización` para manejar las `sesiones`. Una determinada `característica` invoca un método tomando como parámetro los `datos` proporcionados en un `objeto serializado`. Para `resolver` el laboratorio, debemos `editar` el `objeto serializado` en la `cookie` de la `sesión` y usarlo para `eliminar` el archivo `morale.txt` del directorio de inicio de `Carlos`. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter` También tenemos acceso a una cuenta de respaldo, a la que podemos acceder con las credenciales `gregg:rosebud`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

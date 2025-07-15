@@ -43,6 +43,7 @@ image:
 `Intelligence` es una máquina de `Windows` de dificultad `media` que muestra una serie de ataques comunes en un entorno de `Active Directory`. Después de recuperar documentos `PDF` internos almacenados en el servidor web (`forzando un esquema de nombres común`) e inspeccionar su contenido y metadatos, que revelan una `contraseña` por defecto y una lista de posibles `usuarios de AD`, el `password spraying` conduce al descubrimiento de una `cuenta` válida, otorgando un `foothold` inicial en el sistema. Se descubre un `script de PowerShell` programado que envía solicitudes autenticadas a servidores web según su `nombre de host`; al agregar un `registro DNS` personalizado, es posible forzar una solicitud que puede ser interceptada para capturar el `hash` de un segundo usuario, que es fácilmente `crackeable`. Este usuario puede leer la `contraseña` de una `cuenta de servicio gestionada` por un grupo, que a su vez tiene acceso de `delegación restringida` al `controlador de dominio`, resultando en un `shell` con `privilegios administrativos`
 
 ---
+
 ## Reconocimiento
 
 Se comprueba que la `máquina` está `activa` y se determina su `sistema operativo`, el `ttl` de las máquinas `windows` suele ser `128`, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
@@ -58,6 +59,7 @@ PING 10.129.95.154 (10.129.95.154) 56(84) bytes of data.
 3 packets transmitted, 3 received, 0% packet loss, time 2004ms
 rtt min/avg/max/mdev = 36.845/37.538/38.541/0.725 ms
 ```
+
 ### Nmap
 
 Se va a realizar un escaneo de todos los `puertos` abiertos en el protocolo `TCP` a través de nmap
@@ -242,6 +244,7 @@ Post-scan script results:
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 2 IP addresses (2 hosts up) scanned in 189.83 seconds
 ```
+
 ### SMB Enumeration
 
 Obtenemos el `nombre de la máquina` y el `dominio`
@@ -263,6 +266,7 @@ Añadimos el `dominio` al `/etc/hosts`
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ```
+
 ### Web Enumeration
 
 Al acceder a `http://10.129.95.154/` vemos esta página web
@@ -506,6 +510,7 @@ NewIntelligenceCorpUser9876
 
 After logging in please change your password as soon as possible.
 ```
+
 ## Abusing Smb
 
 `Validamos` las `credenciales` obtenidas `Tiffany.Molina:NewIntelligenceCorpUser9876`
@@ -594,6 +599,7 @@ Send-MailMessage -From 'Ted Graves <Ted.Graves@intelligence.htb>' -To 'Ted Grave
 } catch {}
 }
 ```
+
 ## Abusing DNS
 
 Si inyectamos un `DNS record` que apunte hacia nuestra `IP`, podemos capturar las `credenciales` que se envían. Para ello, lo primero es clonarnos este `repositorio` [https://github.com/dirkjanm/krbrelayx](https://github.com/dirkjanm/krbrelayx) y posteriormente inyectar un `DNS record` que apunte a nuestro `equipo`
@@ -699,6 +705,7 @@ Mr.Teddy         (Ted.Graves)
 Use the "--show --format=netntlmv2" options to display all of the cracked passwords reliably
 Session completed. 
 ```
+
 ## Privilege Escalation
 
 Como no tenemos acceso a la `máquina víctima`, vamos a usar `bloodhound-python`. Si nos da problemas, podemos eliminar la opción del `archivo ZIP` e importar todos los `JSON`

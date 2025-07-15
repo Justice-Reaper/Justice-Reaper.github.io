@@ -33,6 +33,7 @@ image:
 `Horizontall` es una máquina `easy linux` donde estaremos vulnerando la máquina a través de su `api` de `strapi`, listaremos sus `subdominios` y explotaremos una versión antigua desactualizada de `strapi` accediendo a la máquina víctima. Una vez dentro realizaremos un `remote port forwarding` y explotaremos el `CVE-2021-3129` obteniendo así el usuario `root`
 
 ---
+
 ## Reconocimiento
 
 Se comprueba que la `máquina` está `activa` y se determina su `sistema operativo`, el `ttl` de las máquinas `linux` suele ser `64`, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
@@ -47,6 +48,7 @@ PING 10.129.95.96 (10.129.95.96) 56(84) bytes of data.
 2 packets transmitted, 2 received, 0% packet loss, time 1002ms
 rtt min/avg/max/mdev = 37.662/42.667/47.672/5.005 ms
 ```
+
 ### Nmap
 
 Se va a realizar un escaneo de todos los `puertos` abiertos en el protocolo `TCP` a través de nmap
@@ -94,6 +96,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 10.79 seconds
 ```
+
 ### Web Enumeration
 
 Nos dirigimos a la página web y se visualiza lo siguiente:
@@ -235,6 +238,7 @@ ID           Response   Lines    Word       Chars       Payload
 Al acceder a `api-prod.horizontall.htb/admin/init` podemos ver la `versión` de `strapi` 
 
 ![](/assets/img/Horizontall/image_8.png)
+
 ## Intrusión
 
 Ahora que tenemos la `versión` podemos usar `searchploit` para ver si existe algún `exploit` para esta versión de `strapi`, efectivamente existen varios exploits para esta versión
@@ -352,6 +356,7 @@ Ya tenemos un `consola` completamente `interactiva`
 strapi@horizontall:~/myapi$ whoami
 strapi
 ```
+
 ## Privilege Escalation
 
 Inspeccionando el código me he encontrado con estas `credenciales` del usuario `developer`

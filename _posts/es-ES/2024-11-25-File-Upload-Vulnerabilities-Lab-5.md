@@ -29,6 +29,7 @@ image:
 Este `laboratorio` contiene una `función` de carga de imágenes `vulnerable`, ciertas `extensiones` de `archivo` están `blacklisteadas`, pero esta defensa puede ser `eludida` usando una `clásica técnica` de `ofuscación`. Para resolver el laboratorio, debemos subir una web shell básica en `PHP`, utilizarla para `extraer` el `contenido` del archivo `/home/carlos/secret` y enviar este secreto utilizando el botón proporcionado en la barra del laboratorio. Podemos `iniciar sesión` con nuestra propia cuenta utilizando las siguientes credenciales: `wiener:peter`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

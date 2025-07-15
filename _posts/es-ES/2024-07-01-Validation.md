@@ -30,6 +30,7 @@ image:
 `Validarion` es una máquina `easy linux` donde estaremos vulnerando la máquina a través de una `sql injection into outfile` encontrada en su página web, obtendremos `acceso` a la `máquina víctima` mediante la creación de un `archivo .php` que nos permitirá `ejecución de comandos`, escalaremos privilegios debido a información privilegiada encontrada en un archivo de configuración
 
 ---
+
 ## Reconocimiento
 
 Se comprueba que la `máquina` está `activa` y se determina su `sistema operativo`, el `ttl` de las máquinas `linux` suele ser `64`, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
@@ -43,6 +44,7 @@ PING 10.129.95.235 (10.129.95.235) 56(84) bytes of data.
 1 packets transmitted, 1 received, 0% packet loss, time 0ms
 rtt min/avg/max/mdev = 58.104/58.104/58.104/0.000 ms
 ```
+
 ### Nmap
 
 Se va a realizar un escaneo de todos los `puertos` abiertos en el protocolo `TCP` a través de nmap
@@ -99,6 +101,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 17.22 seconds
 ```
+
 ### Web Enumeration
 
 Nos dirigimos a la página web y se visualiza lo siguiente:
@@ -211,6 +214,7 @@ Processed Requests: 220560
 Filtered Requests: 220544
 Requests/sec.: 1018.026
 ```
+
 ## Intrusión
 
 Al acceder a la ruta `/config.php` no vemos nada porque el `código` php está siendo `interpretado`, sin embargo, podemos ver si a través de la inyección sql tenemos `permisos` de `escritura`, si es así podremos `inyectar código php` en algún archivo de esa ruta y ganar acceso a la máquina víctima
@@ -274,6 +278,7 @@ Ya tenemos un `consola` completamente `interactiva`
 www-data@validation:/var/www/html$ whoami
 www-data
 ```
+
 ## Privilege Escalation
 
 Lo siguiente que hacemos es `inspeccionar` el `config.php` que hemos encontrado y encontramos las `credenciales` del `usuario` uhc a la base de datos

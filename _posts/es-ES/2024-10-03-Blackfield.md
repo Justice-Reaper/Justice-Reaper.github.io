@@ -47,6 +47,7 @@ image:
 `Backfield` es una máquina `hard windows` que presenta errores de configuración en `Windows` y `Active Directory`. Se utiliza el acceso `anónimo/invitado` a un recurso compartido de `SMB` para enumerar `usuarios`. Una vez que se encuentra un usuario con la `preautenticación de Kerberos` deshabilitada, esto nos permite realizar un ataque `ASREPRoasting`. Este ataque nos permite recuperar un `hash` del material encriptado contenido en el `AS-REP`, el cual puede ser sometido a un ataque de `fuerza bruta offline` para obtener la `contraseña` en texto plano. Con este `usuario`, podemos acceder a un recurso compartido de `SMB` que contiene artefactos `forenses`, incluido un volcado del proceso `lsass`. Este volcado contiene un `nombre de usuario` y una `contraseña` para un usuario con privilegios de `WinRM`, quien también es miembro del grupo de `Backup Operators`. Los privilegios conferidos por este `grupo privilegiado` se utilizan para extraer la `base de datos de Active Directory` y recuperar el `hash` del `administrador de dominio principal`
 
 ---
+
 ## Reconocimiento
 
 Se comprueba que la `máquina` está `activa` y se determina su `sistema operativo`, el `ttl` de las máquinas `windows` suele ser `128`, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
@@ -62,6 +63,7 @@ PING 10.129.229.17 (10.129.229.17) 56(84) bytes of data.
 3 packets transmitted, 3 received, 0% packet loss, time 2002ms
 rtt min/avg/max/mdev = 36.974/38.107/39.177/0.900 ms
 ```
+
 ### Nmap
 
 Se va a realizar un escaneo de todos los `puertos` abiertos en el protocolo `TCP` a través de nmap
@@ -133,6 +135,7 @@ Host script results:
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 52.13 seconds
 ```
+
 ### Smb Enumeration
 
 `Obtenemos` el `nombre` de la `máquina` y el `dominio`
@@ -499,6 +502,7 @@ smb: \> dir
 
 		5102079 blocks of size 4096. 1693094 blocks available
 ```
+
 ### Kerberos Enumeration
 
 `Enumeramos usuarios` válidos usando el listado de usuarios obtenidos anteriormente
@@ -550,6 +554,7 @@ Press 'q' or Ctrl-C to abort, almost any other key for status
 Use the "--show" option to display all of the cracked passwords reliably
 Session completed. 
 ```
+
 ## Intrusión
 
 Con `bloodhound-python` podemos `listar información` de la máquina víctima sin necesidad de conectarnos
@@ -1265,6 +1270,7 @@ Info: Establishing connection to remote endpoint
 *Evil-WinRM* PS C:\Users\svc_backup\Documents> whoami
 blackfield\svc_backup
 ```
+
 ## Privilege Escalation
 
 `Listamos` los `privilegios` que tiene nuestro usuario y vemos que pertenece al grupo de `Backup Operators`, voy a estar siguiendo los pasos de [https://github.com/k4sth4/SeBackupPrivilege](https://github.com/k4sth4/SeBackupPrivilege)

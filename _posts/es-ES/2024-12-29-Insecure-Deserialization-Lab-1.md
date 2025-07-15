@@ -29,6 +29,7 @@ image:
 Este `laboratorio` utiliza un mecanismo de `sesión basado en serialización` y es `vulnerable` a una `escalada de privilegios` como resultado. Para `resolver` el laboratorio, debemos editar el `objeto serializado` en la `cookie de sesión` para `explotar esta vulnerabilidad` y obtener `privilegios de administrador`. Luego, debemos eliminar al usuario `carlos`. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

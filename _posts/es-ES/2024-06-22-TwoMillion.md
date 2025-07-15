@@ -36,6 +36,7 @@ image:
 `TwoMillion` es una máquina `easy linux` donde estaremos vulnerando la máquina a través de su `api`, listaremos sus endpoints`endpoints` y los explotaremos convirtiéndonos en usuario `administrador` y obteniendo acceso a la máquina víctima mediante un `command injection`. Una vez dentro escalaremos privilegios gracias a unas `credenciales` de base de datos y posteriormente explotaremos el `CVE-2023-0386` obteniendo así el usuario root
 
 ---
+
 ## Reconocimiento
 
 Se comprueba que la máquina está activa y se determina su sistema operativo, el ttl de las máquinas `linux` suele ser `64`, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
@@ -50,6 +51,7 @@ PING 10.129.229.66 (10.129.229.66) 56(84) bytes of data.
 2 packets transmitted, 2 received, 0% packet loss, time 1003ms
 rtt min/avg/max/mdev = 39.457/40.627/41.797/1.170 ms
 ```
+
 ### Nmap
 
 Se va a realizar un escaneo de todos los puertos abiertos en el protocolo TCP a través de nmap
@@ -95,6 +97,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 10.44 seconds
 ```
+
 ### Web Enumeration
 
 Nos dirigimos a la página web y se visualiza lo siguiente:
@@ -288,6 +291,7 @@ www-data
 ```
 
 Efectivamente, tenemos un `remote command execution`, el `;` lo usamos para que después del comando anterior se `ejecute` otro comando y el `#` lo usamos para `comentar` lo siguiente, debido a que puede haber más parámetros después del username
+
 ## Intrusión
 
 Podemos intentar obtener una `reverse shell`, lo primero en ver si tenemos traza, para ello ejecutamos el siguiente comando

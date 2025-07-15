@@ -29,6 +29,7 @@ image:
 Este `laboratorio` permite a los usuarios `adjuntar avatares` a los `comentarios` y utiliza la biblioteca `Apache Batik` para `procesar` los `archivos` de `imagen` de los avatares. Para `resolver` el `laboratorio`, debemos `subir` una `imagen` que muestre el `contenido` del archivo `/etc/hostname` después de ser procesada y luego usar el botón `Enviar solución` para `enviar` el `valor` del `nombre` del `host` del `servidor`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

@@ -32,6 +32,7 @@ image:
 `ScriptKiddie` es una máquina `easy linux`, accedemos a la máquina a través de `explotar` una `vulnerabilidad` en `msfvenom`. Una vez dentro nos `aprovechamos` de un script de otro usuario de la máquina para `pivotar` a ese usuario, este nuevo usuario puede ejecutar `msfconsole` con `sudo`, lo cual usamos para `convertirnos` en `root`
 
 ---
+
 ## Reconocimiento
 
 Se comprueba que la `máquina` está `activa` y se determina su `sistema operativo`, el `ttl` de las máquinas `linux` suele ser `64`, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
@@ -47,6 +48,7 @@ PING 10.129.95.150 (10.129.95.150) 56(84) bytes of data.
 3 packets transmitted, 3 received, 0% packet loss, time 2000ms
 rtt min/avg/max/mdev = 57.165/83.802/126.073/30.225 ms
 ```
+
 ### Nmap
 
 Se va a realizar un escaneo de todos los `puertos` abiertos en el protocolo `TCP` a través de `nmap`
@@ -99,6 +101,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 11.96 seconds
 ```
+
 ### Web Enumeration
 
 Si accedemos a `http://10.129.95.150:5000/` vemos lo siguiente
@@ -123,6 +126,7 @@ Shellcodes: No Results
 # searchsploit -x multiple/local/49491.py
 print(f"Do: msfvenom -x {apk_file} -p android/meterpreter/reverse_tcp LHOST=127.0.0.1 LPORT=4444 -o /dev/null")
 ```
+
 ## Web Exploitation
 
 Nos ponemos en `escucha` en `netcat`
@@ -176,6 +180,7 @@ Efectuamos el `tratamiento` a la `TTY`
 # stty rows 45 columns 183
 [ENTER]
 ```
+
 ## Privilege Escalation
 
 En la ruta `/home/kid/html` he encontrado el archivo `app.py`

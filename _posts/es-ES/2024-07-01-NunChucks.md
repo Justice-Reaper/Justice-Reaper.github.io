@@ -30,6 +30,7 @@ image:
 `NunChucks` es una máquina `easy linux` donde estaremos vulnerando la máquina a través de una `server side template injection` encontrada en su página web, obtendremos `acceso` a la `máquina víctima` explotando el `ssti`. Escalaremos privilegios aprovechando un `bug` de `AppArmor`
 
 ---
+
 ## Reconocimiento
 
 Se comprueba que la `máquina` está `activa` y se determina su `sistema operativo`, el `ttl` de las máquinas `linux` suele ser `64`, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
@@ -43,6 +44,7 @@ PING 10.129.95.252 (10.129.95.252) 56(84) bytes of data.
 1 packets transmitted, 1 received, 0% packet loss, time 0ms
 rtt min/avg/max/mdev = 58.658/58.658/58.658/0.000 ms
 ```
+
 ### Nmap
 
 Se va a realizar un escaneo de todos los `puertos` abiertos en el protocolo `TCP` a través de nmap
@@ -100,6 +102,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 20.69 seconds
 ```
+
 ### Web Enumeration
 
 Nos dirigimos a la página web y se visualiza lo siguiente:
@@ -269,6 +272,7 @@ Ya tenemos un `consola` completamente `interactiva`
 david@nunchucks:/var/www/store.nunchucks$ whoami
 david
 ```
+
 ## Privilege Escalation
 
 Al listar `capabilities` nos damos cuenta que con `perl` podríamos `escalar privilegios`

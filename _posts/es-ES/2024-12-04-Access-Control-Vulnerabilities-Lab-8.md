@@ -29,6 +29,7 @@ image:
 Este `laboratorio` tiene una `página de cuenta de usuario` que contiene la `contraseña actual` del usuario, prellenada en un `campo de entrada enmascarado`. Para `resolver` el laboratorio, debemos `recuperar` la `contraseña` del `administrador`, luego usarla para `eliminar` al `usuario carlos`. Podemos `iniciar sesión` en nuestra cuenta con las credenciales `wiener:peter`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

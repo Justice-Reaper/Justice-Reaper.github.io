@@ -29,6 +29,7 @@ image:
 Las `funciones de gestión de usuarios` de este `laboratorio` usa un `endpoint GraphQL`. Este `endpoint` acepta solicitudes con un `content-type` de `x-www-form-urlencoded` y, por lo tanto, es vulnerable a `ataques de falsificación de petición en sitios cruzados (CSRF)`. Para `resolver` el `laboratorio`, debemos crear un `HTML` que utilice un `ataque CSRF` para `cambiar` el `correo electrónico` del `usuario víctima`. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` vemos esto

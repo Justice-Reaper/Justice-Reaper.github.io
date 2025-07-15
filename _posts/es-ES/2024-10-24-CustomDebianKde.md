@@ -18,6 +18,7 @@ image:
 En este artículo muestro mi configuración de Debian 12 con KDE para mi portátil HP-Victus 16 con una gráfica Nvidia 3050 4GB y con un procesador Ryzen 7 6800H
 
 ---
+
 ## Aclaraciones Pre-Instalación
 
 El `Secure Boot` es recomendable desactivarlo con el fin de evitar problemas
@@ -27,6 +28,7 @@ Si su gráfica es una Nvidia antigua debe mirar la documentación de Debian y ve
 Si su equipo tiene solamente un gráfica, el proceso de instalación de drivers tiene una pequeña variación, para posibles dudas consulte la documentación
 
 Documentación de Debian [https://wiki.debian.org/NvidiaGraphicsDrivers](https://wiki.debian.org/NvidiaGraphicsDrivers)
+
 ## Instalación Básica
 
 Instalamos las dependencias básicas
@@ -52,6 +54,7 @@ Nuestro `Display Manager` es SDDM, si tenemos una tarjeta Nvidia es preferible u
 ![](/assets/img/CustomDebianKde/image_1.png)
 
 ## Configuración del Sistema
+
 ### Tema Oscuro
 
 Para configurar el modo oscuro accedemos a `Preferencias del sistema` > `Aspecto` > `Tema global`
@@ -121,15 +124,19 @@ Otro efecto a tener en cuenta sería el de `Ventanas Tambaleantes`, en mi caso n
 ### Servicios en Segundo Plano
 
 Vamos a modificar los servicios segundo plano, para ello accedemos a `Preferencias del sistema` > `Arranque y apagado` > `Servicios en segundo plano` y desactivamos los que no utilicemos
+
 ### Fondo de Escritorio
 
 Hacemos click derecho sobre el escritorio y pulsamos sobre `Configurar el escritorio y la imagen de fondo`, seleccionamos la que deseemos y pulsamos en `Aceptar`
+
 ### Pantalla de Bloqueo
 
 Para seleccionar una imagen de pantalla de bloqueo nos dirigimos a `Preferencias del sistema` > `Comportamiento del espacio de trabajo` > `Bloqueo de pantalla`, seleccionamos la `imagen` que deseemos y pulsamos en `Aplicar`
+
 ### Touchpad
 
 Para deshabilitar el touchpad nos dirigimos a `Preferencias del sistema` > `Dispositivos de entrada` > `Panel táctil`, desactivamos la casilla de `Dispositivo activado` y pulsamos en `Aplicar`
+
 ### Barra de tareas
 
 Damos click derecho sobre la barra de tareas y pulsamos en `Entrar en modo edición` nuevamente. Pulsamos en `Añadir separador` y añadimos dos separadores, al pasar el ratón por encima del pagina nos saldrá la opción de `Eliminar` y la ejecutamos. Una vez hecho esto arrastramos el `Gestor de tareas solo iconos` al centro de la pantalla entre los dos separadores y el `Lanzador de aplicaciones` lo arrastramos a la izquierda. La `Altura del panel` la ponemos en `40`, posteriormente hacemos click sobre `Más opciones`, cambiamos la `Opacidad` a `opaco` y la `Alineación del panel` a `centro`
@@ -137,12 +144,15 @@ Damos click derecho sobre la barra de tareas y pulsamos en `Entrar en modo edici
 ![](/assets/img/CustomDebianKde/image_13.png)
 
 Si queremos eliminar una aplicación del `Gestor de tareas` hacemos click sobre su icono y pulsamos `Liberar del gestor de tareas`, si queremos añadir una aplicación podemos hacer click derecho sobre su icono, bien desde el `Gestor de tareas` o desde el `Panel de inicio` y pulsar `Fijar en el gestor de tareas`
+
 ### Carpetas
 
 Para que cuando hagamos click sobre una carpeta se `seleccione` en vez `abrirse` nos dirigimos a `Preferencias del sistema` > `Comportamiento del espacio de trabajo` > `Comportamiento general`, en la opción `Al pulsar archivos o carpetas` seleccionamos la opción `Se seleccionan` y posteriormente pulsamos en `Aplicar`
+
 ### Papelera
 
 Abrimos `dolphin`, hacemos click derecho sobre `Papelera` y pulsamos en `Configurar la papelera...`, una vez ahí marcamos la casilla de `Limpieza` y seleccionamos cada cuantos días queremos que se borren los archivos de la papelera, en mi caso voy a seleccionar cada `3 días`. Una vez configurado pulsamos en `Aplicar` y posteriormente en `Aceptar`
+
 ### Fonts
 
 Nos descargamos las `Hack Nerd Fonts` [https://www.nerdfonts.com/](https://www.nerdfonts.com/) y las instalamos. Tam
@@ -156,6 +166,7 @@ unzip -o Hack.zip
 mv *.ttf fonts/
 cp -r fonts /usr/local/share 
 ```
+
 ### Konsole
 
 Cuando abrimos esta consola de comando pulsamos en `Preferencias` > `Gestionar perfiles`. Una vez dentro pulsamos en `Nuevo`, marcamos la casilla de `Perfil predeterminado` y cambiamos `/bin/bash` por `/bin/zsh`
@@ -175,6 +186,7 @@ Dentro de `Aspecto` pinchamos sobre `Varios`, seleccionamos como márgenes 10px 
 ![](/assets/img/CustomDebianKde/image_17.png)
 
 El siguiente paso es pulsar en `Preferencias` y desmarcamos la casilla llamada `Mostrar la barra de menú`, si queremos activarla nuevamente hacemos `click derecho` en el centro de la consola y volvemos a marcar la casilla
+
 ## Configuración Flameshot
 
 Para configurar accesos rápidos para flameshot accedemos a `Preferencias del sistema` > `Accesos rápidos` > `Accesos rápidos`, pulsamos en `Añadir aplicación` y añadimos `flameshot`
@@ -238,6 +250,7 @@ Habilitamos el servicio de zramswap
 sudo systemctl enable zramswap
 sudo systemctl start zramswap
 ```
+
 ## Configuración Flatpak
 
 Instalamos Flatpak [https://flatpak.org/setup/Debian](https://flatpak.org/setup/Debian) y lo vinculamos con la tienda de aplicaciones discover
@@ -252,6 +265,7 @@ Reiniciamos el sistema
 ```
 sudo reboot
 ```
+
 ## Configuración ZapZap
 
 Abrimos la tienda de aplicaciones Discover e instalamos ZapZap [https://github.com/rafatosta/zapzap.git](https://github.com/rafatosta/zapzap.git), para desactivar el mensaje de donación pulsamos en `Avanzado` y desmarcamos la casilla de `Donation message`
@@ -267,6 +281,7 @@ sudo apt install -y ./discord*
 sudo apt install -y ./obsidian*
 sudo apt install -y ./fastfetch*
 ```
+
 ## Instalación de VMware
 
 Nos descargamos VMware [https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware+Workstation+Pro](https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware+Workstation+Pro). Para loguearnos usamos estas credenciales
@@ -287,6 +302,7 @@ sudo ./VMware-Workstation*
 ```
 
 Creamos una carpeta en `/home/sergio/Documentos` llamada `ISO's` donde almacenaremos todas las imágenes de las máquinas virtuales que creemos
+
 ## Configuración de Chromium
 
 Vamos a usar como buscador Google en vez de DuckDuckGo, para ello nos dirigimos a chromium y copiamos esto en la url
@@ -435,9 +451,11 @@ su root
 ln -s -f /home/sergio/.zshrc /root/.zshrc
 ln -s -f /home/sergio/.p10k.zsh /root/.p10k.zsh
 ```
+
 ## FZF
 
 FZF es una herramienta de búsqueda de fuzzy (difusa) para la línea de comandos. Permite buscar y filtrar de manera rápida y eficiente en listas de archivos, directorios, comandos, y más. FZF se encuentra implementado en `konsole` para hacer más cómodo su manejo, usando `CTRL + R` busca en el historial de comandos y usando `CTRL + T` busca archivos en el sistema de archivos
+
 ## Drivers Privativos de Nvidia
 
 Vamos a instalar los drivers privativos de Nvidai [https://wiki.debian.org/NvidiaGraphicsDrivers](https://wiki.debian.org/NvidiaGraphicsDrivers), lo primero que debemos hacer es instalar los prerrequisitos

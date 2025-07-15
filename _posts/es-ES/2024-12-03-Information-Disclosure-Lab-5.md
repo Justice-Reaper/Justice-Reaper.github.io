@@ -29,6 +29,7 @@ image:
 Este `laboratorio` `revela` información `sensible` a través de su `historial de control de versiones`. Para `resolver` el laboratorio, `obtén` la `contraseña` del `usuario administrador`, luego `inicia sesión` y `elimina` al `usuario` `carlos`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

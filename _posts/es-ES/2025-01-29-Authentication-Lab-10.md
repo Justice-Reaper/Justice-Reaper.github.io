@@ -29,6 +29,7 @@ image:
 Este `laboratorio` almacena el `hash de la contraseña` del usuario en una `cookie`. Además, contiene una `vulnerabilidad de XSS` en la `funcionalidad de comentarios`. Para `resolver` el `laboratorio`, debemos `obtener la cookie stay-logged-in` de `Carlos` mediante `XSS`, `crackear su hash de contraseña` y luego `iniciar sesión` como `carlos`. Finalmente, debemos `eliminar su cuenta` desde la página `Mi cuenta`. Podemos usar nuestras credenciales `wiener:peter` para iniciar sesión, el `nombre de usuario` de la `víctima` es `carlos` y podemos usar el diccionario `Candidate passwords` [https://portswigger.net/web-security/authentication/auth-lab-passwords](https://portswigger.net/web-security/authentication/auth-lab-passwords) para `crackear` la `contraseña`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

@@ -33,6 +33,7 @@ image:
 `SolidState` es una máquina `easy linux`, nos `logueamos` con las `credenciales` por `defecto` en el `servicio RSIP` y les `cambiamos` la `contraseña` varios `usuarios`, posteriormente `leemos` los `correos` de estos `usuarios` accediendo al `servicio POP3` obteniendo así las `credenciales` de `SSH` de un usuario y `ganando acceso` así a la máquina víctima. Al ingresar a la máquina víctima `escapamos` de una `restricted bash` y abusando de una `tarea cron` nos convertimos en usuario `root` 
 
 ---
+
 ## Reconocimiento
 
 Se comprueba que la `máquina` está `activa` y se determina su `sistema operativo`, el `ttl` de las máquinas `linux` suele ser `64`, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
@@ -48,6 +49,7 @@ PING 10.129.188.225 (10.129.188.225) 56(84) bytes of data.
 3 packets transmitted, 3 received, 0% packet loss, time 2003ms
 rtt min/avg/max/mdev = 55.869/56.753/58.344/1.127 ms
 ```
+
 ### Nmap
 
 Se va a realizar un escaneo de todos los `puertos` abiertos en el protocolo `TCP` a través de `nmap`
@@ -108,6 +110,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 377.40 seconds
 ```
+
 ## RSIP Enumeration
 
 Nos `conectamos` usando las `credenciales` por defecto `root:root`
@@ -176,6 +179,7 @@ Password for mindy reset
 setpassword mailadmin test
 Password for mailadmin reset
 ```
+
 ## POP3 Enumeration
 
 Nos `conectamos` como el usuario `mindy` y `vemos` los `mensajes` que tiene en la `bandeja de entrada` del correo electrónico
@@ -247,6 +251,7 @@ pass: P@55W0rd1!2@
 Respectfully,
 James
 ```
+
 ## Intrusión
 
 Nos conectamos por `SSH` y `escapamos` de la `restricted bash`
@@ -302,6 +307,7 @@ mindy
 ```
 ${debian_chroot:+($debian_chroot)}mindy@solidstate:/home$ export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games:/snap/bin:/home/mindy/.local/bin
 ```
+
 ## Privilege Escalation
 
 Nos `montamos` un `servidor http` con `python` en nuestra máquina para transferir el `pspy32` a la máquina víctima [https://github.com/DominicBreuker/pspy/releases/tag/v1.2.1](https://github.com/DominicBreuker/pspy/releases/tag/v1.2.1). Vamos a `analizar` los `procesos` del `sistema`

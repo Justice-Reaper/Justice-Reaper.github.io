@@ -29,6 +29,7 @@ image:
 Este `laboratorio` tiene una `race condition` en el `flujo de compra`, lo que nos permite comprar artículos a un `precio no intencionado`. Para `resolver` el `laboratorio`, tenemos que `comprar` una `chaqueta Lightweight L33t de cuero`. Podemos `iniciar sesión` con las credenciales `wiener:peter`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` vemos esto

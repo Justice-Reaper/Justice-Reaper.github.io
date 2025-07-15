@@ -29,6 +29,7 @@ image:
 Este `laboratorio` contiene una `vulnerabilidad de XSS` que se activa mediante un `click`. Debemos construir un `ataque de Clickjacking` que engañe al `usuario` para que haga `click` en el botón `"Click me"` y llame a la `función print()`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` vemos esto

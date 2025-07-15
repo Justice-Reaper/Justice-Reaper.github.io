@@ -41,6 +41,7 @@ Para `resolver` el `laboratorio` debemos `seguir` los siguientes `pasos`
 Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`. También tenemos `acceso` a un `cliente de correo electrónico`, donde podemos `ver` todos los `correos electrónicos` enviados a direcciones con el dominio `@exploit-<YOUR-EXPLOIT-SERVER-ID>.exploit-server.net`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` vemos esto

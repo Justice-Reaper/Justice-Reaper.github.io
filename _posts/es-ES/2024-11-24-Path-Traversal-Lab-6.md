@@ -29,6 +29,7 @@ image:
 Este `laboratorio` contiene una `vulnerabilidad` de `path traversal` en la `visualización` de `imágenes` de `productos`. La aplicación valida que el `nombre` de `archivo` proporcionado termine con la `extensión` de `archivo` esperada. Para `resolver` el `laboratorio`, hay que `obtener` el contenido del archivo `/etc/passwd`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

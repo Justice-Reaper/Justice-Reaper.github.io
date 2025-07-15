@@ -29,6 +29,7 @@ image:
 Este `laboratorio` tiene un `panel de administración` en `/admin`. Solo es accesible para `usuarios autenticados` con un `roleid` de `2`. Para `resolver` el laboratorio, debemos `acceder` al `panel de administración` y `eliminar` al `usuario carlos`. Podemos `iniciar sesión` en tu nuestra cuenta con las siguientes credenciales `wiener:peter`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

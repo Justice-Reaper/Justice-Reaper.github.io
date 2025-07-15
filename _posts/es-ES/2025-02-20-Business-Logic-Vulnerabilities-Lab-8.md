@@ -29,6 +29,7 @@ image:
 Este `laboratorio` asume de forma `errónea` el `nivel` de `privilegio` del `usuario` sobre la `secuencia de eventos` en el `flujo de compra`. Para `resolver` el laboratorio, debemos `explotar este fallo` para `comprar` una `chaqueta de cuero ligera l33t`. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` vemos esto

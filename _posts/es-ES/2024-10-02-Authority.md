@@ -47,6 +47,7 @@ image:
 `authority` es una máquina `medium windows`, destaca los peligros de las `malas configuraciones`, la `reutilización de contraseñas`, el `almacenamiento de credenciales en recursos compartidos`, y cómo las `configuraciones predeterminadas en Active Directory` (como la capacidad de que todos los usuarios del dominio puedan agregar hasta 10 computadoras al dominio) pueden combinarse con otros fallos de seguridad (como las `plantillas de certificados vulnerables de AD CS`) para tomar el control de un dominio
 
 ---
+
 ## Reconocimiento
 
 Se comprueba que la `máquina` está `activa` y se determina su `sistema operativo`, el `ttl` de las máquinas `windows` suele ser `128`, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
@@ -62,6 +63,7 @@ PING 10.129.229.56 (10.129.229.56) 56(84) bytes of data.
 3 packets transmitted, 3 received, 0% packet loss, time 2003ms
 rtt min/avg/max/mdev = 36.046/36.167/36.402/0.165 ms
 ```
+
 ### Nmap
 
 Se va a realizar un escaneo de todos los `puertos` abiertos en el protocolo `TCP` a través de nmap
@@ -276,6 +278,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 40.90 seconds
 ```
+
 ### Smb Enumeration
 
 `Obtenemos` el `nombre` de la `máquina` y el `dominio`
@@ -446,6 +449,7 @@ pWm_@dm!N_!23
 # cat hash_3_decrypted.txt 
 DevT3st@123 
 ```
+
 ### Web Enumeration
 
 Si accedemos a `https://10.129.144.88:8443/` vemos esto
@@ -457,6 +461,7 @@ Si accedemos a `https://10.129.144.88:8443/` vemos esto
 Pinchamos en `Configuration Editor` y nos logueamos
 
 ![](/assets/img/Authority/image_3.png)
+
 ## Web Exploitation
 
 Una vez dentro pulsamos en `LDAP` y en `Connection` 
@@ -558,6 +563,7 @@ Pulsamos en `Test LDAP Profile` y `capturamos` una `autenticación`
 [LDAP] Cleartext Password : lDaP_1n_th3_cle4r!
 [+] Exiting...
 ```
+
 ## Intrusión
 
 `Validamos` las `credenciales`
@@ -583,6 +589,7 @@ Info: Establishing connection to remote endpoint
 *Evil-WinRM* PS C:\Users\svc_ldap\Documents> whoami
 htb\svc_ldap
 ```
+
 ## Privilege Escalation
 
 `Enumeramos` los `grupos` y `privilegios` de nuestro usuario, el grupo `Certificate Service DCOM Access` me llama la atención

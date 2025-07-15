@@ -29,6 +29,7 @@ image:
 Este `laboratorio` es vulnerable a la `enumeración de nombres de usuario` utilizando los tiempos de respuesta. Para `resolver` el laboratorio, debemos `enumerar un nombre de usuario válido`, realizar un `ataque de fuerza bruta` para obtener la `contraseña` de este usuario y luego `acceder a la página de su cuenta`. Nuestras credenciales son `wiener:peter`, tenemos los diccionarios `Candidate usernames` [https://portswigger.net/web-security/authentication/auth-lab-usernames](https://portswigger.net/web-security/authentication/auth-lab-usernames) y `Candidate passwords` [https://portswigger.net/web-security/authentication/auth-lab-passwords](https://portswigger.net/web-security/authentication/auth-lab-passwords) para `bruteforcear`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

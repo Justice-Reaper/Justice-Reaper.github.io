@@ -32,6 +32,7 @@ image:
 `BoardLight` es una `máquina` de `Linux` de dificultad `fácil` que presenta una instancia de `Dolibarr` vulnerable a la `CVE-2023-30253`. Esta `vulnerabilidad` se aprovecha para obtener acceso como `www-data`. Después de `enumerar` y `volcar` los contenidos del `archivo de configuración web`, las `credenciales` en texto plano permiten acceder a la máquina por `SSH`. Al enumerar el `sistema`, se identifica un `binario SUID` relacionado con `enlightenment` que es vulnerable a la `escalada de privilegios` a través de la `CVE-2022-37706` y que puede ser explotado para obtener una `root shell`
 
 ---
+
 ## Reconocimiento
 
 Se comprueba que la `máquina` está `activa` y se determina su `sistema operativo`, el `ttl` de las máquinas `linux` suele ser `64`, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
@@ -47,6 +48,7 @@ PING 10.129.231.37 (10.129.231.37) 56(84) bytes of data.
 3 packets transmitted, 3 received, 0% packet loss, time 2003ms
 rtt min/avg/max/mdev = 36.090/37.786/41.152/2.380 mss
 ```
+
 ### Nmap
 
 Se va a realizar un escaneo de todos los `puertos` abiertos en el protocolo `TCP` a través de nmap
@@ -96,6 +98,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 9.76 seconds
 ```
+
 ### Web Enumeration
 
 Si accedemos al servicio web vemos esto
@@ -161,6 +164,7 @@ Si buscamos en google `Dolibarr default credentials` vemos que son `admin:admin`
 Nos `logueamos` en el panel `administrativo`
 
 ![](/assets/img/BoardLight/image_5.png)
+
 ## Web Exploitation
 
 Nos `descargamos` este `exploit` [https://github.com/nikn0laty/Exploit-for-Dolibarr-17.0.0-CVE-2023-30253.git](https://github.com/nikn0laty/Exploit-for-Dolibarr-17.0.0-CVE-2023-30253.git) y nos ponemos en `escucha` con `netcat`
@@ -218,6 +222,7 @@ Efectuamos el `tratamiento` a la `TTY`
 # stty rows 45 columns 183
 [ENTER]
 ```
+
 ## Privilege Escalation
 
 Buscamos en google `Dolibarr conf file path`

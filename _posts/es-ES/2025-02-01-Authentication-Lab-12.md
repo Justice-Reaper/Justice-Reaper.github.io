@@ -29,6 +29,7 @@ image:
 Este `laboratorio` tiene una `funcionalidad de cambio de contraseña` vulnerable a `ataques de fuerza bruta`. Para `resolver` el laboratorio, debemos usar la `lista de contraseñas candidatas` para realizar un `ataque de fuerza bruta` contra la `cuenta de carlos` y acceder a su página de `My account`. Podemos usar nuestras credenciales `wiener:peter` para iniciar sesión, el `nombre de usuario` de la `víctima` es `carlos` y podemos usar el diccionario `Candidate passwords` [https://portswigger.net/web-security/authentication/auth-lab-passwords](https://portswigger.net/web-security/authentication/auth-lab-passwords) para `crackear` la `contraseña`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

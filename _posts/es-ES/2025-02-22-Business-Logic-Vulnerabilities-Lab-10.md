@@ -29,6 +29,7 @@ image:
 Este `laboratorio` tiene un `fallo lógico` en su `flujo` de `compra`. Para `resolver` el `laboratorio`, debemos `explotar` este `fallo` para `comprar` el artículo `Lightweight "l33t" Leather Jacket`. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` vemos esto

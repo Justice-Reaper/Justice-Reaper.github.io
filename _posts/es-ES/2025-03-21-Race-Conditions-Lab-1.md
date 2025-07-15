@@ -29,6 +29,7 @@ image:
 El `flujo` de `compra` de este `laboratorio` contiene una `race condition` que permite `comprar artículos a un precio no deseado`. Para `resolver` el `laboratorio`, debemos `comprar` una `Lightweight L33t Leather Jacket`. Podemos `iniciar sesión` en nuestra cuenta con las credenciales `wiener:peter`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` vemos esto

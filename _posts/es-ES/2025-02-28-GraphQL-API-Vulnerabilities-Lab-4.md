@@ -30,6 +30,7 @@ Este `laboratorio` utiliza un mecanismo de `inicio` de `sesión` impulsado por u
 Utilizaremos un `diccionario` de `contraseñas` [https://portswigger.net/web-security/authentication/auth-lab-passwords](https://portswigger.net/web-security/authentication/auth-lab-passwords) y un `diccionario` de `usuarios` [https://portswigger.net/web-security/authentication/auth-lab-usernames](https://portswigger.net/web-security/authentication/auth-lab-usernames). Podemos `loguearnos` usando las credenciales `wiener:peter`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` vemos esto

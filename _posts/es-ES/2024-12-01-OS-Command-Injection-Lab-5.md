@@ -29,6 +29,7 @@ image:
 Este `laboratorio` contiene una `Blind OS Command Injection` en la `función` de `comentarios`. La aplicación `ejecuta` un `comando` en la `terminal` que incluye `datos` proporcionados por el `usuario`. El `comando` se ejecuta de forma `asíncrona` y no tiene efecto en la `respuesta` de la aplicación. No es posible `redireccionar` la `salida` a una `ubicación` accesible. Sin embargo, es posible desencadenar `out-of-band interactions` con un `dominio externo`. Para resolver el `laboratorio`, debemos ejecutar el `comando` `whoami` y exfiltra su `salida` mediante una `consulta DNS` a `Burp Collaborator`. Necesitaremos introducir el `nombre` del `usuario` actual para completar el `laboratorio`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

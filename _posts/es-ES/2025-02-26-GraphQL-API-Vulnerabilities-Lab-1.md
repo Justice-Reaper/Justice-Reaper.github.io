@@ -29,6 +29,7 @@ image:
 La página del `blog` para este `laboratorio` contiene una `entrada oculta` que tiene una `contraseña secreta`. Para `resolver` el `laboratorio`, debemos `encontrar` la `entrada oculta` del `blog` e `introducir` la `contraseña`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` vemos esto

@@ -29,6 +29,7 @@ image:
 Este `laboratorio` no valida adecuadamente las entradas del `usuario`. Podemos `explotar` un `fallo` de `lógica` en el `flujo` de trabajo de `compra` para adquirir artículos a un `precio no intencionado`. Para `resolver` el laboratorio, debemos comprar la chaqueta `Lightweight l33t leather jacket`. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter` 
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

@@ -37,6 +37,7 @@ image:
 `Apocalyst` es una máquina `medium linux`, la `web` es un `Wordpress` así que obtenemos el usuario debido al `nombre` del `autor` de un artículo, nos montamos un `diccionario` con `cewl` y `fuzzeando rutas` con encontramos con una `imagen` con `contenido oculto`. El `contenido oculto` es una `lista` de `palabras`, usamos esta `lista` para `bruteforcear` el panel de `login` del `Wordpres` ganando así `acceso`, desde el `Wordpress` ganamos `acceso` a la máquina víctima `modificando` el archivo `404.php`. Una vez dentro vemos un `archivo` con la `contraseña` de un `usuario` lo que nos permite `cambiar` de `usuario`, posteriormente usamos `linpeas` para `analizar` el `sistema` y `sobrescribimos` el `/etc/passwd` convirtiéndonos así en usuario `root`
 
 ---
+
 ## Reconocimiento
 
 Se comprueba que la `máquina` está `activa` y se determina su `sistema operativo`, el `ttl` de las máquinas `linux` suele ser `64`, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
@@ -52,6 +53,7 @@ PING 10.129.156.119 (10.129.156.119) 56(84) bytes of data.
 3 packets transmitted, 3 received, 0% packet loss, time 2002ms
 rtt min/avg/max/mdev = 55.527/59.388/63.546/3.280 ms
 ```
+
 ### Nmap
 
 Se va a realizar un escaneo de todos los `puertos` abiertos en el protocolo `TCP` a través de `nmap`
@@ -100,6 +102,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 17.78 seconds
 ```
+
 ### Web Enumeration
 
 En la página `web` vemos lo siguiente
@@ -175,6 +178,7 @@ Vemos esto al acceder a `/Rightiousness`, con las demás rutas también veíamos
 Enter passphrase: 
 wrote extracted data to "list.txt".
 ```
+
 ## Web Exploitation
 
 Mediante `wpscan` hacemos `bruteforce` contra el `panel` de `login` del Wordpress
@@ -284,6 +288,7 @@ Trying falaraki / total Time: 00:01:02 <========================================
 Una vez `accedemos` al `Wordpress` con las credenciales `falaraki:Transclisiation` vemos lo siguiente
 
 ![](/assets/img/Apocalyst/image_7.png)
+
 ## Intrusión
 
 A continuación vamos a mandarnos una reverse shell a nuestro equipo, para ello pulsamos en `Appearance` y luego en `Editor`
@@ -352,6 +357,7 @@ Ya estamos en una `TTY` completamente `interactiva`
 www-data@apocalyst:/var/www/html/apocalyst.htb$ whoami
 www-data
 ```
+
 ## Privilege Escalation
 
 `Obtenemos` las `credenciales` de la `base de datos` del `wp-config.php`, sin embargo, `no` nos `sirve de nada` debido a que en la `base de datos` no hay `nada interesante`

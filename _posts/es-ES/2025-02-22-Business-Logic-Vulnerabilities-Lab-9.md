@@ -29,6 +29,7 @@ image:
 Este `laboratorio` asume de forma `errónea` la `secuencia` de `eventos` en el `proceso` de `inicio` de `sesión`. Para `resolver` el `laboratorio`, debemos `explotar` esta `falla` para `bypassear` el `panel` de `autenticación` del `laboratorio`, `acceder` a la `interfaz` de `administración` y `eliminar` al usuario `carlos`. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` vemos esto

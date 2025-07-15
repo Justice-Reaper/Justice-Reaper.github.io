@@ -31,6 +31,7 @@ Este `laboratorio` está protegido por un `frame buster` que evita que el `sitio
 El `laboratorio` se considerará resuelto cuando la `dirección de correo electrónico` haya sido cambiada. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` vemos esto

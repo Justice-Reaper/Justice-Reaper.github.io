@@ -29,6 +29,7 @@ image:
 Este `laboratorio` presenta un `fallo de lógica` en su flujo de trabajo de `compra`. Para `resolver` el laboratorio, debemos explotar este fallo para comprar la `Lightweight l33t leather jacket`. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto, vemos que hay un `cupón` llamado `NEWCUST5`

@@ -29,6 +29,7 @@ image:
 Este `laboratorio` tiene una `autenticación de dos factores` vulnerable debido a su `lógica defectuosa`. Para `resolver` el laboratorio, debemos acceder a la `página de la cuenta` de `Carlos`. Podemos usar nuestras credenciales `wiener:peter`. El `nombre de usuario` de la `víctima` es `carlos`. También tenemos acceso al `servidor de correo electrónico` para recibir el `código de verificación 2FA`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

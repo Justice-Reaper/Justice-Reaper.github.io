@@ -37,6 +37,7 @@ image:
 `Timelapse` es una máquina de `easy windows`, que implica `acceder` a un recurso compartido `SMB` públicamente accesible que `contiene` un `archivo zip`. Este archivo `zip` requiere una `contraseña` que se puede `descifrar` utilizando `John`. Al `extraer` el archivo `zip`, se obtiene un `archivo` PFX `cifrado` con `contraseña`, el cual también se puede `descifrar` con `John`. A partir del `archivo PFX`, se pueden `extraer` un `certificado SSL` y una `clave privada`, que se utilizan para `iniciar sesión` en el sistema a través de `WinRM`. Después de la autenticación, descubrimos un `archivo` de `historial` de `PowerShell` que contiene `credenciales` de inicio de sesión para el usuario `svc_deploy`. La enumeración de usuarios muestra que `svc_deploy` es parte de un grupo llamado `LAPS_Readers`. El grupo `LAPS_Readers` tiene la capacidad de `gestionar contraseñas` en `LAPS` y cualquier usuario en este grupo puede `leer` las `contraseñas locales` de las máquinas en el dominio. Al `abusar` de esta `confianza`, `recuperamos` la `contraseña` del `Administrador` y `accedemos` mediante `WinRM`
 
 ---
+
 ## Reconocimiento
 
 Se comprueba que la `máquina` está `activa` y se determina su `sistema operativo`, el `ttl` de las máquinas `windows` suele ser `128`, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
@@ -52,6 +53,7 @@ PING 10.129.227.113 (10.129.227.113) 56(84) bytes of data.
 3 packets transmitted, 3 received, 0% packet loss, time 2002ms
 rtt min/avg/max/mdev = 69.114/108.377/178.636/49.794 ms
 ```
+
 ### Nmap
 
 Se va a realizar un escaneo de todos los `puertos` abiertos en el protocolo `TCP` a través de `nmap`
@@ -156,6 +158,7 @@ Host script results:
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 100.98 seconds
 ```
+
 ### SMB Enumeration
 
 Listamos `recursos compartidos` con `crackmapexec`
@@ -302,6 +305,7 @@ Enter Import Password: thuglegacy
 
 Enter Import Password: thuglegacy
 ```
+
 ## Intrusión
 
 Nos `conectamos` a `través` de `winrm` a la máquina víctima `usando` los `certificados`
@@ -321,6 +325,7 @@ Info: Establishing connection to remote endpoint
 *Evil-WinRM* PS C:\Users\legacyy\Documents> whoami
 timelapse\legacyy
 ```
+
 ## Privilege Escalation
 
 Listamos usuarios

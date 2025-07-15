@@ -29,6 +29,7 @@ image:
 Esta `tienda en línea` tiene una `función de chat en vivo` implementada usando `WebSockets`. Cuenta con un `filtro XSS` agresivo pero con `fallos`. Para `resolver` el laboratorio, debemos usar un `mensaje WebSocket` para `activar` un `popup alert()` en el `navegador` del `agente de soporte`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

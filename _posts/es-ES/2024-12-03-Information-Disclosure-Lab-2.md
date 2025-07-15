@@ -29,6 +29,7 @@ image:
 Este `laboratorio` contiene una `página de depuración` que `revela` información `sensible` sobre la `aplicación`. Para `resolver` el laboratorio, `obtén` y `envía` la `variable` de `entorno` `SECRET_KEY`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

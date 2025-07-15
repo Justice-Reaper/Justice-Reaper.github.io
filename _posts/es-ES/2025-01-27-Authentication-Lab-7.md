@@ -29,6 +29,7 @@ image:
 Este `laboratorio` es vulnerable a la `enumeración de nombres de usuario`. Utiliza `bloqueo de cuentas`, pero contiene un `fallo lógico`. Para `resolver` el laboratorio, debemos `enumerar un nombre de usuario válido`, realizar un `ataque de fuerza bruta` para obtener la `contraseña` de este usuario y luego `acceder a la página de su cuenta`. Tenemos a nuestra disposición un diccionario de usuarios `Candidate usernames` [https://portswigger.net/web-security/authentication/auth-lab-usernames](https://portswigger.net/web-security/authentication/auth-lab-usernames) y el diccionario de contraseñas `Candidate passwords` [https://portswigger.net/web-security/authentication/auth-lab-passwords](https://portswigger.net/web-security/authentication/auth-lab-passwords)
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

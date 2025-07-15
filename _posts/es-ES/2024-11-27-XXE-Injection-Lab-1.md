@@ -29,6 +29,7 @@ image:
 Este `laboratorio` tiene una `función` llamada `Check stock` que analiza entradas XML y devuelve cualquier valor inesperado en la respuesta. Para resolver el laboratorio, hay que `inyectar` una entidad externa XML (XXE) para `obtener` el contenido del archivo `/etc/passwd`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

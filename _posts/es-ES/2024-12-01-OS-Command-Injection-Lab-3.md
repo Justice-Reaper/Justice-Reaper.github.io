@@ -29,6 +29,7 @@ image:
 Este `laboratorio` contiene una `Blind OS Command Injection` en la `función` de `comentarios`. La aplicación `ejecuta` un `comando` en la `terminal` que incluye `datos` proporcionados por el `usuario`. La `salida` del `comando` no se `devuelve` en la respuesta. Sin embargo, podemos usar la `redirección` de `salida` para capturarla. Existe una `carpeta` escribible en: `/var/www/images/`. La aplicación `sirve` las `imágenes` del catálogo de productos desde esta `ubicación`. Podemos `redireccionar` la `salida` del `comando` inyectado a un `archivo` en esta `carpeta` y luego usar la `URL` de `carga` de imágenes para `recuperar` el contenido del `archivo`. Para resolver el `laboratorio`, debemos ejecutar el comando `whoami` y `recuperar` su `salida`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

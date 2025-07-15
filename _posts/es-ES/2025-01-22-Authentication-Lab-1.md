@@ -29,6 +29,7 @@ image:
 Este `laboratorio` es vulnerable a ataques de `enumeración de nombres de usuario` y `fuerza bruta de contraseñas`. Tiene una cuenta con un `nombre de usuario` y `contraseña predecibles`, que se pueden encontrar en los diccionarios `Candidate usernames` [https://portswigger.net/web-security/authentication/auth-lab-usernames](https://portswigger.net/web-security/authentication/auth-lab-usernames) y `Candidate passwords` [https://portswigger.net/web-security/authentication/auth-lab-passwords](https://portswigger.net/web-security/authentication/auth-lab-passwords). Para `resolver` el laboratorio, debemos `enumerar` un `nombre de usuario válido`, realizar un `ataque` de `fuerza bruta` para descubrir la `contraseña` de este usuario y acceder a su `página de cuenta`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

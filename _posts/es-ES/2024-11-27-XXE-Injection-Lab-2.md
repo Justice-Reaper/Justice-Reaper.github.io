@@ -29,6 +29,7 @@ image:
 Este laboratorio tiene una función llamada `Check stock` que analiza la `entrada` en `formato XML` y devuelve cualquier valor inesperado en la respuesta. El `servidor` del laboratorio está ejecutando un `endpoint` de `metadatos` de `EC2 (simulado)` en la `URL` predeterminada, que es `[http://169.254.169.254/](http://169.254.169.254/)`. Este `endpoint` puede usarse para obtener datos sobre la instancia, algunos de los cuales podrían ser sensibles. Para `resolver` el `laboratorio`, hay que `explotar` la vulnerabilidad `XXE` para llevar a cabo un ataque `SSRF` que `obtenga` la `clave secreta` de acceso `IAM` del servidor desde el `endpoint` de `metadatos` de `EC2`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

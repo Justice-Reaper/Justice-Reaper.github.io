@@ -29,6 +29,7 @@ image:
 Este `laboratorio` tiene un `panel de administración` sin `protección`, ubicado en una `ubicación impredecible`. Sin embargo, la `ubicación` se `menciona` en algún lugar de la `aplicación`. Para `resolver` el laboratorio, debemos `encontrar` y `acceder` al `panel de administración`, luego `eliminar` al `usuario carlos`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

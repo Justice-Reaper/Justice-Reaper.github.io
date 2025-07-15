@@ -29,6 +29,7 @@ image:
 Este `laboratorio` es vulnerable a `inyección indirecta de prompts`. El usuario `carlos` usa frecuentemente el `live chat` para preguntar sobre el producto `Lightweight "l33t" Leather Jacket`. Para `resolver` el laboratorio, debemos `eliminar` a `carlos`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

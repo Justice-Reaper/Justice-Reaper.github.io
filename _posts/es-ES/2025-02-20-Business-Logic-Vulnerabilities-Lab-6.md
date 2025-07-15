@@ -29,6 +29,7 @@ image:
 Este `laboratorio` no valida adecuadamente la `entrada de usuario`. Podemos `explotar` un `fallo lógico` en su `proceso de registro de cuentas` para `obtener acceso` a la `funcionalidad administrativa`. Para `resolver` el laboratorio, debemos acceder al `panel de administración` y `eliminar` al usuario `carlos`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` vemos esto

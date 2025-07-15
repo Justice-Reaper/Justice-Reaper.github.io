@@ -29,6 +29,7 @@ image:
 Este `laboratorio` utiliza `mensajes web` y analiza el `mensaje` como `JSON`. Para `resolver` el `laboratorio`, debemos construir una página `HTML` en el `servidor de exploits` que `explote` esta `vulnerabilidad` y llame a la función `print()`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

@@ -29,6 +29,7 @@ image:
 Este `laboratorio` tiene una `lógica defectuosa` que permite a `usuarios arbitrarios` acceder a funcionalidades de `administración` que deberían estar disponibles solo para `empleados de la empresa`. Para `resolver` el laboratorio, debemos acceder al `panel de administración` y `eliminar` al usuario `carlos`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

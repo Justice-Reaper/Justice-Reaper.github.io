@@ -29,6 +29,7 @@ image:
 Este `laboratorio` contiene un `fallo lógico` que expone un `oracle cifrado` a los `usuarios`. Para `resolver` el laboratorio, debemos `explotar` este `fallo` para `obtener acceso` al `panel` de `administración` y `eliminar` al `usuario carlos`. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` vemos esto

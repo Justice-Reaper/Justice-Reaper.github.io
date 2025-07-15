@@ -29,6 +29,7 @@ image:
 Este `laboratorio` utiliza un `endpoint GraphQL` para gestionar las `funciones` de `administración` de `usuarios`. El `laboratorio` contiene una `vulnerabilidad` de `control` de `acceso` que nos permite inducir a la `API` a revelar los `campos` de `credenciales` de `usuario`. Para `resolver` el `laboratorio`, debemos `iniciar sesión` como `administrador` y `eliminar` al `usuario` `carlos`. Podemos `loguearnos` usando las credenciales `wiener:peter`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` vemos esto

@@ -29,6 +29,7 @@ image:
 Este `laboratorio` no valida adecuadamente la `entrada del usuario`. Podemos explotar un `fallo lógico` en su `flujo de compra` para `adquirir artículos` por un `precio no previsto`. Para `resolver` el laboratorio, debemos `comprar` una `chaqueta de cuero ligera l33t`. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` vemos esto

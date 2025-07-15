@@ -29,6 +29,7 @@ image:
 Este `laboratorio` utiliza un `endpoint GraphQL oculto` para las `funciones` de `gestión` de `usuarios`. No podremos `encontrar` este `endpoint` simplemente `navegando` por las `páginas` de la `web`. Además, el `endpoint` cuenta con `defensas` contra la `introspección`. Para `resolver` el `laboratorio`, debemos `encontrar` el `endpoint oculto` y `eliminar` al `usuario carlos`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` vemos esto

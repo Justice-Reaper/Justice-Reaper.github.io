@@ -29,6 +29,7 @@ image:
 Este `laboratorio` presenta una `DOM-based client-side cookie manipulation`. Para `resolver` el `laboratorio`, debemos `inyectar` una `cookie` que cause `XSS` en una página diferente y llame a la función `print()`. Necesitaremos usar el `servidor de exploits` para dirigir a la `víctima` a las `páginas correctas`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

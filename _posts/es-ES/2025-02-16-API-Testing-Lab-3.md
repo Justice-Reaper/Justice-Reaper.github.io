@@ -29,6 +29,7 @@ image:
 Para `resolver` el laboratorio, debemos explotar un `endpoint oculto de la API` para comprar una `Lightweight l33t Leather Jacket`. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

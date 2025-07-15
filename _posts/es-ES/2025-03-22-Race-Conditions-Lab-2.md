@@ -41,6 +41,7 @@ Para `resolver` el laboratorio
 Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`. Como `diccionario` de `contraseñas` podemos usar [https://portswigger.net/web-security/authentication/auth-lab-passwords](https://portswigger.net/web-security/authentication/auth-lab-passwords)
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` vemos esto

@@ -29,6 +29,7 @@ image:
 Esta `tienda en línea` tiene una función de `chat en vivo` implementada con `WebSockets`. Los `mensajes de chat` que enviamos son vistos por un `agente de soporte` en `tiempo real`. Para `resolver` el laboratorio, debemos usar un `mensaje WebSocket` para activar una `ventana emergente` con `alert()` en el `navegador` del `agente de soporte`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

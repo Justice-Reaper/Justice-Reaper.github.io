@@ -29,6 +29,7 @@ image:
 Este `laboratorio` tiene una `función` de `Check stock` que `inserta` la `entrada` del `usuario` dentro de un `documento XML` en el `servidor`, el cual se procesa posteriormente. Dado que podemos controlar todo el `documento XML`, no podemos `definir` un `DTD` para lanzar un ataque `XXE` clásico. Para `resolver` el `laboratorio`, `inyecta` una `declaración XInclude` para `obtener` el `contenido` del archivo `/etc/passwd`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

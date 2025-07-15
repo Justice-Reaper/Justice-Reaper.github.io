@@ -29,6 +29,7 @@ image:
 Este laboratorio tiene una función de `Check stock` que analiza la entrada XML, pero `no muestra valores inesperados` y `bloquea` las `solicitudes` que contienen `entidades externas regulares`. Para resolver el laboratorio, debemos utilizar una `entidad` de `parámetro` para que el `analizador XML` realice una `búsqueda DNS` y una `solicitud HTTP` a `Burp Collaborator`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

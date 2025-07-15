@@ -29,6 +29,7 @@ image:
 Este `laboratorio` contiene una `vulnerabilidad` de `path traversal` en la `visualización` de `imágenes` de `productos`. La aplicación transmite la `ruta completa` del `archivo` a través de un `parámetro` en la `solicitud` y valida que la ruta proporcionada `comience` con la `carpeta` esperada. Para `resolver` el `laboratorio`, hay que `obtener` el contenido del archivo `/etc/passwd`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

@@ -29,6 +29,7 @@ image:
 Este `laboratorio` utiliza un mecanismo de `sesiones` basado en la `serialización`, el cual emplea una `cookie firmada`. Además, usa un `framework` común de `PHP`. Aunque no tenemos acceso al `código fuente`, todavía podemos `explotar` la `deserialización insegura` de este laboratorio utilizando `cadenas de gadgets` predefinidas. Para `resolver` el laboratorio, debemos identificar el `framework objetivo` y usar una `herramienta de terceros` para generar un `objeto serializado malicioso` que contenga una `carga útil de ejecución remota de código`. Luego, trabajamos en cómo generar una `cookie firmada válida` que incluya nuestro `objeto malicioso`. Finalmente, pasamos esta cookie al `sitio web` para eliminar el archivo `morale.txt` del `directorio personal` de `Carlos`. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

@@ -29,6 +29,7 @@ image:
 Este `laboratorio` utiliza un mecanismo de `sesiones` basado en `serialización` y es vulnerable a la `inyección arbitraria de objetos`. Para `resolver` el laboratorio, debemos `crear e inyectar un objeto serializado malicioso` para `eliminar` el archivo `morale.txt` del directorio personal de `Carlos`. Necesitaremos `obtener acceso` al `código fuente` para `resolver` este `laboratorio`. Podemos `iniciar sesión` en nuestra cuenta utilizando las credenciales `wiener:peter`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

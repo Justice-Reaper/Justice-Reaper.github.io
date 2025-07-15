@@ -29,6 +29,7 @@ image:
 Este `laboratorio` tiene un fallo de lógica que permite bypassear la `autenticación en dos factores`. Ya hemos obtenido un `nombre de usuario` y `contraseña válidos`, pero no tenemos acceso al `código de verificación 2FA` del usuario. Para `resolver` el laboratorio, debemos acceder a la `página de cuenta` de `Carlos`. Nuestras credenciales son `wiener:peter` y las credenciales de la víctima son `carlos:montoya`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

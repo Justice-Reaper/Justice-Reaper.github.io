@@ -32,6 +32,7 @@ image:
 `Stratosphere` es una máquina `medium linux` donde estaremos vulnerando la máquina a través de un `rce` (remote code execution), el cual obtenemos al `explotar` el `CVE-2017-5638` de `Struts`. Mediante el rce `accedemos` a la `base de datos` y `obtenemos` las `credenciales` de acceso al `ssh` de la máquina víctima, una vez dentro nos convertimos en usuario root `abusando` del `sudoers`
 
 ---
+
 ## Reconocimiento
 
 Se comprueba que la `máquina` está `activa` y se determina su `sistema operativo`, el `ttl` de las máquinas `linux` suele ser `64`, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
@@ -46,6 +47,7 @@ PING 10.129.252.189 (10.129.252.189) 56(84) bytes of data.
 2 packets transmitted, 2 received, 0% packet loss, time 1001ms
 rtt min/avg/max/mdev = 60.490/61.847/63.205/1.357 ms
 ```
+
 ### Nmap
 
 Se va a realizar un escaneo de todos los `puertos` abiertos en el protocolo `TCP` a través de `nmap`
@@ -284,6 +286,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 28.62 seconds
 ```
+
 ### Web Enumeration
 
 El servicio web en el `puerto 80` y en el `puerto 8080` son `exactamente` las `mismas` páginas `web`
@@ -582,6 +585,7 @@ password        username
 
 [%] Done.
 ```
+
 ## Intrusión
 
 Accedemos por `ssh` a la máquina víctima con las `credenciales` conseguidas a través de `mysql`
@@ -601,6 +605,7 @@ Last login: Sun Dec  3 12:20:42 2023 from 10.10.10.2
 richard@stratosphere:~$ whoami
 richard
 ```
+
 ## Privilege Escalation (First Method)
 
 Vemos que nuestro usuario puede ejecutar `python` con `sudo` siempre y cuando ejecute un archivo que está en nuestro directorio `/home`
@@ -647,6 +652,7 @@ Nos `convertimos` en usuario `root`
 richard@stratosphere:~$ sudo /usr/bin/python /home/richard/test.py 
 root@stratosphere:/home/richard# 
 ```
+
 ## Privilege Escalation (Second Method)
 
 Vemos que se están usando `librerías` sin indicar un `path` para ellas

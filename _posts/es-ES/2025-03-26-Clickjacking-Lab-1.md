@@ -31,6 +31,7 @@ Este `laboratorio` contiene funcionalidad de `inicio de sesión` y un botón de 
 Para `resolver` el `laboratorio`, debemos crear un `HTML` que enmarque la página de la cuenta y `engañe` al `usuario` para que `elimine` su `cuenta`. El `laboratorio` se resuelve cuando la `cuenta` es eliminada. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`
 
 ---
+
 ## Resolución
 
 Al `acceder` a la `web` vemos esto
