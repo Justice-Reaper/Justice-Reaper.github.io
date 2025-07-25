@@ -19,7 +19,7 @@ image:
 
 ## Skills
 
-- Abusing declared Javascript functions from the browser console
+- Abusing declared Javascript functions from the browser console x
 - Abusing the API to generate a valid invite code
 - Abusing the API to elevate our privilege to administrator
 - Command injection via poorly designed API functionality
