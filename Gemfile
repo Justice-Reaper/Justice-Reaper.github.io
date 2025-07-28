@@ -17,5 +17,3 @@ gem "jekyll-polyglot", "~> 1.9"
 
 gem 'jekyll-sitemap', '~> 1.4'
 
-gem "jekyll-archives", path: ".gems/jekyll-archives"
-
