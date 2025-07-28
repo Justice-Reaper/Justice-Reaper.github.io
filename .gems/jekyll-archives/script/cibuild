@@ -1,0 +1,5 @@
+#! /bin/sh
+set -e
+
+script/fmt
+bundle exec rake test

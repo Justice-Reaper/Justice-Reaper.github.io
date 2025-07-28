@@ -45,7 +45,7 @@ layout: page
           <a href="{{ _category_url | relative_url }}" class="mx-2">{{ category_name }}</a>
 
           <!-- content count -->
-          {% assign top_posts_size = site.categories[category_name] | size %}
+          {% assign top_posts_size = site.data["categories"][category_name] | size %}
           <span class="text-muted small font-weight-light">
             {% if sub_categories_size > 0 %}
               {{ sub_categories_size }}
@@ -106,10 +106,11 @@ layout: page
               <li class="list-group-item">
                 <i class="far fa-folder fa-fw"></i>
 
-                {% capture _sub_ctg_url %}/categories/{{ sub_category | slugify | url_encode }}/{% endcapture %}
+                {% capture _sub_category_name %}{{ category_name }}-{{ sub_category }}{% endcapture %}
+                {% capture _sub_ctg_url %}/categories/{{ _sub_category_name | slugify | url_encode }}/{% endcapture %}
                 <a href="{{ _sub_ctg_url | relative_url }}" class="mx-2">{{ sub_category }}</a>
 
-                {% assign posts_size = site.categories[sub_category] | size %}
+                {% assign posts_size = site.data["categories"][_sub_category_name] | size %}
                 <span class="text-muted small font-weight-light">
                   {{ posts_size }}
 
