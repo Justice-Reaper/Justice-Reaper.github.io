@@ -1,10 +1,11 @@
 ---
 title: TwoMillion
-description: "Máquina TwoMillion de Hackthebox"
 date: 2024-06-22 20:11:00 +0800
 lang: en
 author: Justice-Reaper
-categories: [Hackthebox, Linux]
+categories:
+  - Hackthebox
+  - Linux
 tags:
   - Api Abusing
   - Kernel Exploitation
@@ -18,7 +19,7 @@ image:
 
 ## Skills
 
-- Abusing declared Javascript functions from the browser console x
+- Abusing declared Javascript functions from the browser console
 - Abusing the API to generate a valid invite code
 - Abusing the API to elevate our privilege to administrator
 - Command injection via poorly designed API functionality

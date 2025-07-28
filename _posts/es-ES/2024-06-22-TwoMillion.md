@@ -4,7 +4,9 @@ description: "Máquina TwoMillion de Hackthebox"
 date: 2024-06-22 20:11:00 +0800
 lang: es-ES
 author: Justice-Reaper
-categories: [Hackthebox, Linux]
+categories:
+  - Hackthebox
+  - Linux
 tags:
   - Api Abusing
   - Kernel Exploitation
