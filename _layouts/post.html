@@ -136,7 +136,7 @@ script_includes:
           {% if _category_name.blank == "" %}
             {% capture _category_name = "" %}{{ category }}{% endcapture %}
           {% else %}
-            {% capture _category_name = "" %}{{ _category_name }}/{{ category }}{% endcapture %}
+            {% capture _category_name = "" %}{{ _category_name }}-{{ category }}{% endcapture %}
           {% endif %}
           <a href='{{ site.baseurl }}/categories/{{ _category_name | slugify | url_encode }}/'>{{ category }}</a>  
           {%- unless forloop.last -%},{%- endunless -%}
