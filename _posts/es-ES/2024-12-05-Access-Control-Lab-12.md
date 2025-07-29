@@ -1,14 +1,14 @@
 ---
 title: "Multi-step process with no access control on one step"
-description: "Laboratorio de Portswigger sobre Access Control Vulnerabilities"
+description: "Laboratorio de Portswigger sobre Access Control"
 date: 2024-12-05 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger
-  - Access Control Vulnerabilities
+  - Access Control
 tags:
-  - Access Control Vulnerabilities
+  - Access Control
   - Multi-step process with no access control on one step
 image:
   path: /assets/img/Portswigger/Portswigger.png

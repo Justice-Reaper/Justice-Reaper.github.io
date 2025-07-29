@@ -1,14 +1,14 @@
 ---
 title: "Unprotected admin functionality with unpredictable URL"
-description: "Laboratorio de Portswigger sobre Access Control Vulnerabilities"
+description: "Laboratorio de Portswigger sobre Access Control"
 date: 2024-12-04 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger
-  - Access Control Vulnerabilities
+  - Access Control
 tags:
-  - Access Control Vulnerabilities
+  - Access Control
   - Unprotected admin functionality with unpredictable URL
 image:
   path: /assets/img/Portswigger/Portswigger.png

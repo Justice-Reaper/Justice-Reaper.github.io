@@ -1,14 +1,14 @@
 ---
 title: "Accidental exposure of private GraphQL fields"
-description: "Laboratorio de Portswigger sobre GraphQL API Vulnerabilities"
+description: "Laboratorio de Portswigger sobre GraphQL API"
 date: 2025-02-26 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger
-  - GraphQL API Vulnerabilities
+  - GraphQL API
 tags:
-  - GraphQL API Vulnerabilities
+  - GraphQL API
   - Accidental exposure of private GraphQL fields
 image:
   path: /assets/img/Portswigger/Portswigger.png

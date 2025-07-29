@@ -1,14 +1,14 @@
 ---
 title: "Web shell upload via path traversal"
-description: "Laboratorio de Portswigger sobre File Upload Vulnerabilities"
+description: "Laboratorio de Portswigger sobre File Upload"
 date: 2024-11-25 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger
-  - File Upload Vulnerabilities
+  - File Upload
 tags:
-  - File Upload Vulnerabilities
+  - File Upload
   - Web shell upload via path traversal
 image:
   path: /assets/img/Portswigger/Portswigger.png

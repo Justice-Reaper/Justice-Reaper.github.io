@@ -1,14 +1,14 @@
 ---
 title: "High-level logic vulnerability"
-description: "Laboratorio de Portswigger sobre Business Logic Vulnerabilities"
+description: "Laboratorio de Portswigger sobre Business Logic"
 date: 2024-12-08 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger
-  - Business Logic Vulnerabilities
+  - Business Logic
 tags:
-  - Business Logic Vulnerabilities
+  - Business Logic
   - High-level logic vulnerability
 image:
   path: /assets/img/Portswigger/Portswigger.png

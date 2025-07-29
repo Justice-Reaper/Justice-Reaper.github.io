@@ -1,12 +1,12 @@
 ---
 title: "DOM-based cookie manipulation"
-description: "Laboratorio de Portswigger sobre DOM Based Vulnerabilities"
+description: "Laboratorio de Portswigger sobre DOM Based"
 date: 2025-01-21 12:25:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger
-  - DOM Based Vulnerabilities
+  - DOM Based
 tags:
   - DOM
   - DOM-based cookie manipulation

@@ -1,14 +1,14 @@
 ---
 title: "User role can be modified in user profile"
-description: "Laboratorio de Portswigger sobre Access Control Vulnerabilities"
+description: "Laboratorio de Portswigger sobre Access Control"
 date: 2024-12-04 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger
-  - Access Control Vulnerabilities
+  - Access Control
 tags:
-  - Access Control Vulnerabilities
+  - Access Control
   - User role can be modified in user profile
 image:
   path: /assets/img/Portswigger/Portswigger.png

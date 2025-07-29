@@ -1,14 +1,14 @@
 ---
 title: "Insufficient workflow validation"
-description: "Laboratorio de Portswigger sobre Business Logic Vulnerabilities"
+description: "Laboratorio de Portswigger sobre Business Logic"
 date: 2025-02-20 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger
-  - Business Logic Vulnerabilities
+  - Business Logic
 tags:
-  - Business Logic Vulnerabilities
+  - Business Logic
   - Insufficient workflow validation
 image:
   path: /assets/img/Portswigger/Portswigger.png

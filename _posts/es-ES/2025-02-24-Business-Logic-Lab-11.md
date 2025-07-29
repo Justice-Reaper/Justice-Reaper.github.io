@@ -1,14 +1,14 @@
 ---
 title: "Authentication bypass via encryption oracle"
-description: "Laboratorio de Portswigger sobre Business Logic Vulnerabilities"
+description: "Laboratorio de Portswigger sobre Business Logic"
 date: 2025-02-24 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger
-  - Business Logic Vulnerabilities
+  - Business Logic
 tags:
-  - Business Logic Vulnerabilities
+  - Business Logic
   - Authentication bypass via encryption oracle
 image:
   path: /assets/img/Portswigger/Portswigger.png

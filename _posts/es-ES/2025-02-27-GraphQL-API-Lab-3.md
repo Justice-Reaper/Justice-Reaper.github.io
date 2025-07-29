@@ -1,14 +1,14 @@
 ---
 title: "Finding a hidden GraphQL endpoint"
-description: "Laboratorio de Portswigger sobre GraphQL API Vulnerabilities"
+description: "Laboratorio de Portswigger sobre GraphQL API"
 date: 2025-02-27 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger
-  - GraphQL API Vulnerabilities
+  - GraphQL API
 tags:
-  - GraphQL API Vulnerabilities
+  - GraphQL API
   - Finding a hidden GraphQL endpoint
 image:
   path: /assets/img/Portswigger/Portswigger.png

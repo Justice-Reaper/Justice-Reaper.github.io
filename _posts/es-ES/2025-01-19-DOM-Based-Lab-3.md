@@ -1,14 +1,14 @@
 ---
 title: "DOM XSS using web messages and JSON.parse"
-description: "Laboratorio de Portswigger sobre DOM Based Vulnerabilities"
+description: "Laboratorio de Portswigger sobre DOM Based"
 date: 2025-01-19 12:25:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger
-  - DOM Based Vulnerabilities
+  - DOM Based
 tags:
-  - DOM Based Vulnerabilities
+  - DOM Based
   - DOM XSS using web messages and JSON.parse
 image:
   path: /assets/img/Portswigger/Portswigger.png

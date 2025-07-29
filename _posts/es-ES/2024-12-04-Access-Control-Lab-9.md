@@ -1,14 +1,14 @@
 ---
 title: "Insecure direct object references"
-description: "Laboratorio de Portswigger sobre Access Control Vulnerabilities"
+description: "Laboratorio de Portswigger sobre Access Control"
 date: 2024-12-04 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger
-  - Access Control Vulnerabilities
+  - Access Control
 tags:
-  - Access Control Vulnerabilities
+  - Access Control
   - Insecure direct object references
 image:
   path: /assets/img/Portswigger/Portswigger.png

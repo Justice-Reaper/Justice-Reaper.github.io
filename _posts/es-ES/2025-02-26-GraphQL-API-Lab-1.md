@@ -1,14 +1,14 @@
 ---
 title: "Accessing private GraphQL posts"
-description: "Laboratorio de Portswigger sobre GraphQL API Vulnerabilities"
+description: "Laboratorio de Portswigger sobre GraphQL API"
 date: 2025-02-26 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger
-  - GraphQL API Vulnerabilities
+  - GraphQL API
 tags:
-  - GraphQL API Vulnerabilities
+  - GraphQL API
   - Accessing private GraphQL posts
 image:
   path: /assets/img/Portswigger/Portswigger.png

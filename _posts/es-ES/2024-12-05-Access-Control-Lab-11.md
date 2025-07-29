@@ -1,14 +1,14 @@
 ---
 title: "Method-based access control can be circumvented"
-description: "Laboratorio de Portswigger sobre Access Control Vulnerabilities"
+description: "Laboratorio de Portswigger sobre Access Control"
 date: 2024-12-05 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger
-  - Access Control Vulnerabilities
+  - Access Control
 tags:
-  - Access Control Vulnerabilities
+  - Access Control
   - Method-based access control can be circumvented
 image:
   path: /assets/img/Portswigger/Portswigger.png

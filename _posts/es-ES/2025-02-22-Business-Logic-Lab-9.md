@@ -1,14 +1,14 @@
 ---
 title: "Authentication bypass via flawed state machine"
-description: "Laboratorio de Portswigger sobre Business Logic Vulnerabilities"
+description: "Laboratorio de Portswigger sobre Business Logic"
 date: 2025-02-22 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger
-  - Business Logic Vulnerabilities
+  - Business Logic
 tags:
-  - Business Logic Vulnerabilities
+  - Business Logic
   - Authentication bypass via flawed state machine
 image:
   path: /assets/img/Portswigger/Portswigger.png

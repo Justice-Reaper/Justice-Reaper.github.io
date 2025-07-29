@@ -1,14 +1,14 @@
 ---
 title: "Performing CSRF exploits over GraphQL"
-description: "Laboratorio de Portswigger sobre GraphQL API Vulnerabilities"
+description: "Laboratorio de Portswigger sobre GraphQL API"
 date: 2025-03-20 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger
-  - GraphQL API Vulnerabilities
+  - GraphQL API
 tags:
-  - GraphQL API Vulnerabilities
+  - GraphQL API
   - Performing CSRF exploits over GraphQL
 image:
   path: /assets/img/Portswigger/Portswigger.png
