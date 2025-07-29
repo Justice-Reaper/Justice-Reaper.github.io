@@ -10,7 +10,7 @@ tags:
   - Information Disclosure
   - Information disclosure on debug page
 image:
-  path: /assets/img/Information-Disclosure-Lab-2/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

@@ -10,7 +10,7 @@ tags:
   - Business Logic Vulnerabilities
   - Low-level logic flaw
 image:
-  path: /assets/img/Business-Logic-Vulnerabilities-Lab-5/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

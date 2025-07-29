@@ -10,7 +10,7 @@ tags:
   - XXE Injection
   - Exploiting XXE using external entities to retrieve files
 image:
-  path: /assets/img/XXE-Injection-Lab-1/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

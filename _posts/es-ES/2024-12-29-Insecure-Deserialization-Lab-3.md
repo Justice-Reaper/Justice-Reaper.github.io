@@ -10,7 +10,7 @@ tags:
   - Insecure Deserialization
   - Using application functionality to exploit insecure deserialization
 image:
-  path: /assets/img/Insecure-Deserialization-Lab-3/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

@@ -10,7 +10,7 @@ tags:
   - Path Traversal
   - File path traversal, traversal sequences stripped non-recursively
 image:
-  path: /assets/img/Path-Traversal-Lab-3/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

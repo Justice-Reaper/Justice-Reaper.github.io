@@ -10,7 +10,7 @@ tags:
   - Information Disclosure
   - Information disclosure in error messages
 image:
-  path: /assets/img/Information-Disclosure-Lab-1/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

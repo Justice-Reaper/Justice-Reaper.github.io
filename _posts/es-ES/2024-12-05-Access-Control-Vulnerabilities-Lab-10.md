@@ -10,7 +10,7 @@ tags:
   - Access Control Vulnerabilities
   - URL-based access control can be circumvented
 image:
-  path: /assets/img/Access-Control-Vulnerabilities-Lab-10/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

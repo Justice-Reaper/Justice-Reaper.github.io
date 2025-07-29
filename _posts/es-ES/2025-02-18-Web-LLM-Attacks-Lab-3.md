@@ -10,7 +10,7 @@ tags:
   - APIWeb LLM Attacks
   - Indirect prompt injection
 image:
-  path: /assets/img/Web-LLM-Attacks-Lab-3/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

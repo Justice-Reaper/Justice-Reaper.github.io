@@ -10,7 +10,7 @@ tags:
   - Essential Skills
   - Scanning non-standard data structures
 image:
-  path: /assets/img/Essential-Skills-Lab-2/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

@@ -10,7 +10,7 @@ tags:
   - File Upload Vulnerabilities
   - Remote code execution via polyglot web shell upload
 image:
-  path: /assets/img/File-Upload-Vulnerabilities-Lab-6/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

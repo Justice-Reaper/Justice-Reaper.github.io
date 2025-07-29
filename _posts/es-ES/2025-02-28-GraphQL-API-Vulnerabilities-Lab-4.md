@@ -10,7 +10,7 @@ tags:
   - GraphQL API Vulnerabilities
   - Bypassing GraphQL brute force protections
 image:
-  path: /assets/img/GraphQL-API-Vulnerabilities-Lab-4/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

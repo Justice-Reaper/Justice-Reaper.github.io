@@ -10,7 +10,7 @@ tags:
   - Web LLM Attacks
   - Exploiting LLM APIs with excessive agency
 image:
-  path: /assets/img/Web-LLM-Attacks-Lab-1/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

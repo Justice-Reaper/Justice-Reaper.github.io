@@ -10,7 +10,7 @@ tags:
   - XXE Injection
   - Exploiting blind XXE to retrieve data via error messages
 image:
-  path: /assets/img/XXE-Injection-Lab-6/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

@@ -10,7 +10,7 @@ tags:
   - Path Traversal
   - File path traversal, validation of start of path
 image:
-  path: /assets/img/Path-Traversal-Lab-5/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

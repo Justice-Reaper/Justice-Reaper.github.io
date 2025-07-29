@@ -10,7 +10,7 @@ tags:
   - Insecure Deserialization
   - Exploiting Ruby deserialization using a documented gadget chain
 image:
-  path: /assets/img/Insecure-Deserialization-Lab-7/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

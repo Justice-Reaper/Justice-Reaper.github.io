@@ -10,7 +10,7 @@ tags:
   - OS Command Injection
   - Blind OS command injection with out-of-band interaction
 image:
-  path: /assets/img/OS-Command-Injection-Lab-4/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

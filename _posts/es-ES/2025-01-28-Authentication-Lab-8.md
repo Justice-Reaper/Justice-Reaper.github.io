@@ -10,7 +10,7 @@ tags:
   - Authentication
   - 2FA broken logic
 image:
-  path: /assets/img/Authentication-Lab-8/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

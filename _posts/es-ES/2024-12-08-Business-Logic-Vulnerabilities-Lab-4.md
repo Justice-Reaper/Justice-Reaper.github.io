@@ -10,7 +10,7 @@ tags:
   - Business Logic Vulnerabilities
   - Flawed enforcement of business rules
 image:
-  path: /assets/img/Business-Logic-Vulnerabilities-Lab-4/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

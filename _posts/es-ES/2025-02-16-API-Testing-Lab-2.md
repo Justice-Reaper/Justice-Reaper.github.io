@@ -10,7 +10,7 @@ tags:
   - API Testing
   - Exploiting server-side parameter pollution in a query string
 image:
-  path: /assets/img/API-Testing-Lab-2/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

@@ -10,7 +10,7 @@ tags:
   - Information Disclosure
   - Authentication bypass via information disclosure
 image:
-  path: /assets/img/Information-Disclosure-Lab-4/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

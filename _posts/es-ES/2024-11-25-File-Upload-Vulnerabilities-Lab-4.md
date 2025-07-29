@@ -10,7 +10,7 @@ tags:
   - File Upload Vulnerabilities
   - Web shell upload via extension blacklist bypass
 image:
-  path: /assets/img/File-Upload-Vulnerabilities-Lab-4/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

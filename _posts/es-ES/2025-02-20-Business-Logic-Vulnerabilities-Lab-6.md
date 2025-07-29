@@ -10,7 +10,7 @@ tags:
   - Business Logic Vulnerabilities
   - Inconsistent handling of exceptional input
 image:
-  path: /assets/img/Business-Logic-Vulnerabilities-Lab-6/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

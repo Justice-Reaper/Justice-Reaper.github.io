@@ -10,7 +10,7 @@ tags:
   - Race Conditions
   - Exploiting time-sensitive vulnerabilities
 image:
-  path: /assets/img/Race-Conditions-Lab-5/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

@@ -10,7 +10,7 @@ tags:
   - Business Logic Vulnerabilities
   - Excessive trust in client-side controls
 image:
-  path: /assets/img/Business-Logic-Vulnerabilities-Lab-1/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

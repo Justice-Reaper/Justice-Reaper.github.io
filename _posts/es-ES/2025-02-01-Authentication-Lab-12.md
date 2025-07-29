@@ -10,7 +10,7 @@ tags:
   - Authentication
   - Password brute-force via password change
 image:
-  path: /assets/img/Authentication-Lab-12/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

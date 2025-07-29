@@ -10,7 +10,7 @@ tags:
   - Business Logic Vulnerabilities
   - Authentication bypass via encryption oracle
 image:
-  path: /assets/img/Business-Logic-Vulnerabilities-Lab-11/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

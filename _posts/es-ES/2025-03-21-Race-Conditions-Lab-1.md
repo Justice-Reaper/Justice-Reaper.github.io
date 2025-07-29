@@ -10,7 +10,7 @@ tags:
   - Race Conditions
   - Limit overrun race conditions
 image:
-  path: /assets/img/Race-Conditions-Lab-1/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

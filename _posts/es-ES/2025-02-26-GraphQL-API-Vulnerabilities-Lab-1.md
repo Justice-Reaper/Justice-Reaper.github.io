@@ -10,7 +10,7 @@ tags:
   - GraphQL API Vulnerabilities
   - Accessing private GraphQL posts
 image:
-  path: /assets/img/GraphQL-API-Vulnerabilities-Lab-1/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

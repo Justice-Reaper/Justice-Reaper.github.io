@@ -10,7 +10,7 @@ tags:
   - Clickjacking
   - Basic clickjacking with CSRF token protection
 image:
-  path: /assets/img/Clickjacking-Lab-1/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

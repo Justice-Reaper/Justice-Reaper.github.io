@@ -10,7 +10,7 @@ tags:
   - XXE Injection
   - Exploiting XXE to perform SSRF attacks
 image:
-  path: /assets/img/XXE-Injection-Lab-2/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

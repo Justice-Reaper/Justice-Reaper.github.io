@@ -10,7 +10,7 @@ tags:
   - DOM Based Vulnerabilities
   - DOM XSS using web messages and a JavaScript URL
 image:
-  path: /assets/img/DOM-Based-Vulnerabilities-Lab-2/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

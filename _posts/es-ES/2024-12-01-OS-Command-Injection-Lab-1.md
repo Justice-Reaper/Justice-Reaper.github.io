@@ -10,7 +10,7 @@ tags:
   - OS Command Injection
   - OS command injection, simple case
 image:
-  path: /assets/img/OS-Command-Injection-Lab-1/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

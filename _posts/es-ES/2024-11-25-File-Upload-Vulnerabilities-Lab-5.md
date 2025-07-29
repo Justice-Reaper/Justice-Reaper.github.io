@@ -10,7 +10,7 @@ tags:
   - File Upload Vulnerabilities
   - Web shell upload via obfuscated file extension
 image:
-  path: /assets/img/File-Upload-Vulnerabilities-Lab-5/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

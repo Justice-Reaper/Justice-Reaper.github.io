@@ -10,7 +10,7 @@ tags:
   - Authentication
   - Broken brute-force protection, IP block
 image:
-  path: /assets/img/Authentication-Lab-6/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

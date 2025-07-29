@@ -10,7 +10,7 @@ tags:
   - Authentication
   - 2FA simple bypass
 image:
-  path: /assets/img/Authentication-Lab-2/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

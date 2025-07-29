@@ -10,7 +10,7 @@ tags:
   - Business Logic Vulnerabilities
   - Weak isolation on dual-use endpoint 
 image:
-  path: /assets/img/Business-Logic-Vulnerabilities-Lab-7/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

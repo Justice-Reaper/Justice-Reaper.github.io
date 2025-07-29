@@ -10,7 +10,7 @@ tags:
   - API Testing
   - Exploiting a mass assignment vulnerability
 image:
-  path: /assets/img/API-Testing-Lab-4/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

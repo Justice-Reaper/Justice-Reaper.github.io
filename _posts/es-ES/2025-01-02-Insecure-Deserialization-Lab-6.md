@@ -10,7 +10,7 @@ tags:
   - Insecure Deserialization
   - Exploiting PHP deserialization with a pre-built gadget chain
 image:
-  path: /assets/img/Insecure-Deserialization-Lab-6/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

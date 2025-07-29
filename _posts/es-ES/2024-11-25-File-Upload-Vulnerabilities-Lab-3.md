@@ -10,7 +10,7 @@ tags:
   - File Upload Vulnerabilities
   - Web shell upload via path traversal
 image:
-  path: /assets/img/File-Upload-Vulnerabilities-Lab-3/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

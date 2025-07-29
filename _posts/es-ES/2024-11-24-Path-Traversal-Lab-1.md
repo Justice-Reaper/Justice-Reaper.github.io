@@ -10,7 +10,7 @@ tags:
   - Path Traversal
   - File path traversal, simple case
 image:
-  path: /assets/img/Path-Traversal-Lab-1/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

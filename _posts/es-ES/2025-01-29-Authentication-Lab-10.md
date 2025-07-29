@@ -10,7 +10,7 @@ tags:
   - Authentication
   - Offline password cracking
 image:
-  path: /assets/img/Authentication-Lab-10/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

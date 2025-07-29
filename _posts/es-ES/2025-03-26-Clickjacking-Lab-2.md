@@ -10,7 +10,7 @@ tags:
   - Clickjacking
   - Clickjacking with form input data prefilled from a URL parameter
 image:
-  path: /assets/img/Clickjacking-Lab-2/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

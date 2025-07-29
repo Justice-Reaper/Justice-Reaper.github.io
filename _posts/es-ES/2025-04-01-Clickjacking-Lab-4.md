@@ -10,7 +10,7 @@ tags:
   - Clickjacking
   - Exploiting clickjacking vulnerability to trigger DOM-based XSS
 image:
-  path: /assets/img/Clickjacking-Lab-4/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

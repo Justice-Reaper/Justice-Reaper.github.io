@@ -10,7 +10,7 @@ tags:
   - Race Conditions
   - Bypassing rate limits via race conditions
 image:
-  path: /assets/img/Race-Conditions-Lab-2/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

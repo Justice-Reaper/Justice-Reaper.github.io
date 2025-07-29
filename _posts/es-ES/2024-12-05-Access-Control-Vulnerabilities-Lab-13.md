@@ -10,7 +10,7 @@ tags:
   - Access Control Vulnerabilities
   - Referer-based access control
 image:
-  path: /assets/img/Access-Control-Vulnerabilities-Lab-12/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

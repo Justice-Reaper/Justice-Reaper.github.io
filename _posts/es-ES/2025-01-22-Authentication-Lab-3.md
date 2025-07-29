@@ -10,7 +10,7 @@ tags:
   - Authentication
   - Password reset broken logic
 image:
-  path: /assets/img/Authentication-Lab-3/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

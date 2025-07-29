@@ -10,7 +10,7 @@ tags:
   - Access Control Vulnerabilities
   - Method-based access control can be circumvented
 image:
-  path: /assets/img/Access-Control-Vulnerabilities-Lab-11/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

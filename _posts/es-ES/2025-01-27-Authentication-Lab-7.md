@@ -10,7 +10,7 @@ tags:
   - Authentication
   - Username enumeration via account lock
 image:
-  path: /assets/img/Authentication-Lab-7/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

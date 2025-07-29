@@ -10,7 +10,7 @@ tags:
   - Authentication
   - Username enumeration via response timing
 image:
-  path: /assets/img/Authentication-Lab-5/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

@@ -10,7 +10,7 @@ tags:
   - Business Logic Vulnerabilities
   - Insufficient workflow validation
 image:
-  path: /assets/img/Business-Logic-Vulnerabilities-Lab-8/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

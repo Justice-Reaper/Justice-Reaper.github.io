@@ -10,7 +10,7 @@ tags:
   - Insecure Deserialization
   - Exploiting Java deserialization with Apache Commons
 image:
-  path: /assets/img/Insecure-Deserialization-Lab-5/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

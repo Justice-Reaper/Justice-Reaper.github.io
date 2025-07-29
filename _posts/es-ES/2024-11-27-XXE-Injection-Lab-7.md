@@ -10,7 +10,7 @@ tags:
   - XXE Injection
   - Exploiting XInclude to retrieve files
 image:
-  path: /assets/img/XXE-Injection-Lab-7/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

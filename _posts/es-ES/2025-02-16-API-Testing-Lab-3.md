@@ -10,7 +10,7 @@ tags:
   - API Testing
   - Finding and exploiting an unused API endpoint
 image:
-  path: /assets/img/API-Testing-Lab-3/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

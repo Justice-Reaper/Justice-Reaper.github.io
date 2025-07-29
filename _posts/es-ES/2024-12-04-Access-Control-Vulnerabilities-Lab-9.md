@@ -10,7 +10,7 @@ tags:
   - Access Control Vulnerabilities
   - Insecure direct object references
 image:
-  path: /assets/img/Access-Control-Vulnerabilities-Lab-9/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

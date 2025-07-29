@@ -10,7 +10,7 @@ tags:
   - API Testing
   - Exploiting an API endpoint using documentation
 image:
-  path: /assets/img/API-Testing-Lab-1/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

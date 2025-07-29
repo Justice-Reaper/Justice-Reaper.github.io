@@ -10,7 +10,7 @@ tags:
   - Authentication
   - Brute-forcing a stay-logged-in cookie
 image:
-  path: /assets/img/Authentication-Lab-9/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

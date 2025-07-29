@@ -10,7 +10,7 @@ tags:
   - Business Logic Vulnerabilities
   - Authentication bypass via flawed state machine
 image:
-  path: /assets/img/Business-Logic-Vulnerabilities-Lab-9/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

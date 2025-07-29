@@ -10,7 +10,7 @@ tags:
   - Path Traversal
   - File path traversal, traversal sequences blocked with absolute path bypass
 image:
-  path: /assets/img/Path-Traversal-Lab-2/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

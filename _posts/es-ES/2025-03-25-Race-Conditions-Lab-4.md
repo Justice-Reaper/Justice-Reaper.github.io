@@ -10,7 +10,7 @@ tags:
   - Race Conditions
   - Single-endpoint race conditions
 image:
-  path: /assets/img/Race-Conditions-Lab-4/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

@@ -10,7 +10,7 @@ tags:
   - Access Control Vulnerabilities
   - User ID controlled by request parameter with data leakage in redirect
 image:
-  path: /assets/img/Access-Control-Vulnerabilities-Lab-7/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

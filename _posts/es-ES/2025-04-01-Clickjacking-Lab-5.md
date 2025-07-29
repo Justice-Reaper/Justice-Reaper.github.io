@@ -10,7 +10,7 @@ tags:
   - Clickjacking
   - Multistep clickjacking
 image:
-  path: /assets/img/Clickjacking-Lab-5/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

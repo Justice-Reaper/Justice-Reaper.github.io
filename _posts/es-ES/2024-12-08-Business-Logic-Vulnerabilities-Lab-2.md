@@ -10,7 +10,7 @@ tags:
   - Business Logic Vulnerabilities
   - High-level logic vulnerability
 image:
-  path: /assets/img/Business-Logic-Vulnerabilities-Lab-2/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

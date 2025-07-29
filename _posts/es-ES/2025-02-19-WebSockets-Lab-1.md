@@ -10,7 +10,7 @@ tags:
   - WebSockets
   - Manipulating WebSocket messages to exploit vulnerabilities
 image:
-  path: /assets/img/WebSockets-Lab-1/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

@@ -10,7 +10,7 @@ tags:
   - Path Traversal
   - File path traversal, validation of file extension with null byte bypass
 image:
-  path: /assets/img/Path-Traversal-Lab-6/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

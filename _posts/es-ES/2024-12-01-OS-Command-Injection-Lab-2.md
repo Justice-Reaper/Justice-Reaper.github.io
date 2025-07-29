@@ -10,7 +10,7 @@ tags:
   - OS Command Injection
   - Blind OS command injection with time delays
 image:
-  path: /assets/img/OS-Command-Injection-Lab-2/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

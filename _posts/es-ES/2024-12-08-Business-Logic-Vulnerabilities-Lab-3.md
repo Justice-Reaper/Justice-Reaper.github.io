@@ -10,7 +10,7 @@ tags:
   - Business Logic Vulnerabilities
   - Inconsistent security controls
 image:
-  path: /assets/img/Business-Logic-Vulnerabilities-Lab-3/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

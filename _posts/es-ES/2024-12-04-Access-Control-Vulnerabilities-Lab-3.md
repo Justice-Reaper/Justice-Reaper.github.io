@@ -10,7 +10,7 @@ tags:
   - Access Control Vulnerabilities
   - User role controlled by request parameter
 image:
-  path: /assets/img/Access-Control-Vulnerabilities-Lab-3/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

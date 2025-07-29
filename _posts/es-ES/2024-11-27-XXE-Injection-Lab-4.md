@@ -10,7 +10,7 @@ tags:
   - XXE Injection
   - Blind XXE with out-of-band interaction via XML parameter entities
 image:
-  path: /assets/img/XXE-Injection-Lab-4/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

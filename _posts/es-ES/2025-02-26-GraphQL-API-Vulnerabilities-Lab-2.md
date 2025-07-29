@@ -10,7 +10,7 @@ tags:
   - GraphQL API Vulnerabilities
   - Accidental exposure of private GraphQL fields
 image:
-  path: /assets/img/GraphQL-API-Vulnerabilities-Lab-2/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

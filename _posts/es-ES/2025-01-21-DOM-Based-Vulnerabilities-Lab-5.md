@@ -10,7 +10,7 @@ tags:
   - DOM
   - DOM-based cookie manipulation
 image:
-  path: /assets/img/DOM-Based-Vulnerabilities-Lab-5/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

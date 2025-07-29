@@ -10,7 +10,7 @@ tags:
   - Authentication
   - Password reset poisoning via middleware
 image:
-  path: /assets/img/Authentication-Lab-11/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

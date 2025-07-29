@@ -10,7 +10,7 @@ tags:
   - Web LLM Attacks
   - Exploiting vulnerabilities in LLM APIs
 image:
-  path: /assets/img/Web-LLM-Attacks-Lab-2/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

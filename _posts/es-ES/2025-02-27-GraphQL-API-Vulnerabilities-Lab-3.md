@@ -10,7 +10,7 @@ tags:
   - GraphQL API Vulnerabilities
   - Finding a hidden GraphQL endpoint
 image:
-  path: /assets/img/GraphQL-API-Vulnerabilities-Lab-3/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

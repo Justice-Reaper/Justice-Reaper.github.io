@@ -10,7 +10,7 @@ tags:
   - Information Disclosure
   - Information disclosure in version control history
 image:
-  path: /assets/img/Information-Disclosure-Lab-5/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

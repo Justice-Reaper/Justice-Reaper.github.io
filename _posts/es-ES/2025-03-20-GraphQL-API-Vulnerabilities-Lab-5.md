@@ -10,7 +10,7 @@ tags:
   - GraphQL API Vulnerabilities
   - Performing CSRF exploits over GraphQL
 image:
-  path: /assets/img/GraphQL-API-Vulnerabilities-Lab-5/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

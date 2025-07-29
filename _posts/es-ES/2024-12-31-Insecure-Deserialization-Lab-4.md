@@ -10,7 +10,7 @@ tags:
   - Insecure Deserialization
   - Arbitrary object injection in PHP
 image:
-  path: /assets/img/Insecure-Deserialization-Lab-4/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

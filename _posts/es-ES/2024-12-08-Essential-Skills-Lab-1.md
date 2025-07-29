@@ -10,7 +10,7 @@ tags:
   - Essential Skills
   - Discovering vulnerabilities quickly with targeted scanning
 image:
-  path: /assets/img/Essential-Skills-Lab-1/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

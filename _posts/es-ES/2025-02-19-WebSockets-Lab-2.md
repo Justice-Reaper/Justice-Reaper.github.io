@@ -10,7 +10,7 @@ tags:
   - WebSockets
   - Cross-site WebSocket hijacking
 image:
-  path: /assets/img/WebSockets-Lab-2/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

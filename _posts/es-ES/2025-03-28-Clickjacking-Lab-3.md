@@ -10,7 +10,7 @@ tags:
   - Clickjacking
   - Clickjacking with a frame buster script
 image:
-  path: /assets/img/Clickjacking-Lab-3/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

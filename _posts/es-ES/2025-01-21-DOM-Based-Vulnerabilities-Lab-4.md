@@ -10,7 +10,7 @@ tags:
   - DOM
   - BOM-based open redirection
 image:
-  path: /assets/img/DOM-Based-Vulnerabilities-Lab-4/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

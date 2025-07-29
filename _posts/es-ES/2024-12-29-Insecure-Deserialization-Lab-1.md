@@ -10,7 +10,7 @@ tags:
   - Insecure Deserialization
   - Modifying serialized objects
 image:
-  path: /assets/img/Insecure-Deserialization-Lab-1/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

@@ -10,7 +10,7 @@ tags:
   - WebSockets
   - Manipulating the WebSocket handshake to exploit vulnerabilities
 image:
-  path: /assets/img/WebSockets-Lab-3/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

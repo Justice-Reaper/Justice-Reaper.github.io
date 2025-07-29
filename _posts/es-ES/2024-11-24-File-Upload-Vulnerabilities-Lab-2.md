@@ -10,7 +10,7 @@ tags:
   - File Upload Vulnerabilities
   - Web shell upload via Content-Type restriction bypass
 image:
-  path: /assets/img/File-Upload-Vulnerabilities-Lab-2/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

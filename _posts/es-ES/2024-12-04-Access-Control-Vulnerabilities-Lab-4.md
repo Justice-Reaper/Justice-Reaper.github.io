@@ -10,7 +10,7 @@ tags:
   - Access Control Vulnerabilities
   - User role can be modified in user profile
 image:
-  path: /assets/img/Access-Control-Vulnerabilities-Lab-4/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

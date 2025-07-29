@@ -10,7 +10,7 @@ tags:
   - Business Logic Vulnerabilities
   - Infinite money logic flaw
 image:
-  path: /assets/img/Business-Logic-Vulnerabilities-Lab-10/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

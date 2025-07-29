@@ -10,7 +10,7 @@ tags:
   - Information Disclosure
   - Source code disclosure via backup files
 image:
-  path: /assets/img/Information-Disclosure-Lab-3/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

@@ -10,7 +10,7 @@ tags:
   - XXE Injection
   - Exploiting blind XXE to exfiltrate data using a malicious external DTD
 image:
-  path: /assets/img/XXE-Injection-Lab-5/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills

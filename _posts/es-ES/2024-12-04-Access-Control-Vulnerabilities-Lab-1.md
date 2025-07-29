@@ -10,7 +10,7 @@ tags:
   - Access Control Vulnerabilities
   - Unprotected admin functionality
 image:
-  path: /assets/img/Access-Control-Vulnerabilities-Lab-1/Portswigger.png
+  path: /assets/img/Portswigger/Portswigger.png
 ---
 
 ## Skills
