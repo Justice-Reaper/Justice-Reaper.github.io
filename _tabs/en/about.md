@@ -1,50 +1,50 @@
 ---
 # the default layout is 'pagoe'
-title: ¡Bienvenido a mi blog! 👋
+title: Welcome to my blog! 👋
 icon: fas fa-info-circle
 lang: en
 order: 4
 ---
 
-Me presento, soy Sergio, tengo 23 años y desde siempre me ha gustado la informática pero no fue hasta hace 3 años que decidí dedicarme a este campo profesionalmente. Para iniciarme en este mundillo realicé el grado superior de Desarrollo de Aplicaciones Multiplataforma (DAM) en el cual construí aplicaciones para escritorio con Java y para móviles con Kotlin
+Let me introduce myself, I'm Sergio, I'm 23 years old, and I've always been passionate about computers. However, it wasn't until three years ago that I decided to pursue this field professionally. To get started, I completed a Higher Degree in Multiplatform Application Development (MAD), where I built desktop applications with Java and mobile apps with Kotlin
 
-Posteriomente me decanté por la rama de ciberseguridad ofensiva, porque considero que es la más divertida. Me creé un blog personal donde comparto writeups y artículos sobre los laboratorios de Portswigger y las máquinas de HackTheBox. Actualmente cuento con más de 230 artículos publicados, subo artículos contanstemente porque estoy preparándome para el OSCP y el BSCP
+Later, I leaned toward offensive cybersecurity because I find it the most exciting. I created a personal blog where I share writeups and articles about Portswigger labs and HackTheBox machines. Currently, I have over 290 published articles and post regularly as I prepare for the OSCP and BSCP certifications
 
-Durante mi camino por este campo he ido encontrándome tareas que consideraba tediosas o repetitivas y por ello he creado varias herramientas empleando Bash y Python que automatizan estos procesos, permitiéndome enfocarme en lo importante
+Throughout my journey in this field, I've encountered tasks I found tedious or repetitive. To address this, I've developed several tools using Bash and Python to automate these processes, allowing me to focus on what matters most
 
-Respecto a los idiomas, considero que el inglés es una skill básica en este campo, por lo cual, este último año obtuve el B1 de Cambridge y actualmente me encuentro estudiando para obtener el B2
+When it comes to languages, I believe English is a fundamental skill in this field. That’s why I earned my Cambridge B2 certificate last year, and I plan to prepare for the C1 next year
 
-## Sobre mí 🚀
+## About Me 🚀
 
-- 🔭 Actualmente estoy trabajando en mejorar mis habilidades como pentester
-- 💪 Mi tiempo libre se lo dedico gimnasio y a los videojuegos
-- 💼 Actualmente me encuentro en búsqueda de empleo
-- 📫 En [Linktree](https://linktr.ee/Justice_Reaper) encontrarás mis datos de contacto, currículum, blog personal y redes sociales
-- ⚡ Me encanta aprender cosas nuevas y siempre estoy buscando nuevos desafíos
+- 🔭 Currently sharpening my pentesting skills
+- 💪 I spend my free time at the gym and playing video games
+- 💼 Open to job opportunities
+- 📫 Find my resume, blog, and socials on [Linktree](https://linktr.ee/Justice_Reaper)
+- ⚡ I love learning and always seek new challenges
 
-## Certificaciones 🎓
+## Certifications 🎓
 
-Actualmente estoy preparándome para las siguientes certificaciones
+Currently preparing for
 
 - OSCP (Offensive Security Certified Professional)
 - BSCP (Burp Suite Certified Practitioner)
 
-## Titulaciones 📜
+## Education 📜
 
-- Desarrollo de Aplicaciones Multiplataforma (DAM)
+- Multiplatform Application Development (MAD)
 
-## Idiomas 🌍
+## Languages 🌍
 
-- Español - Nativo
-- Inglés - Nivel B1 (actualmente preparándome el B2 de Cambridge)
+- Spanish – Native
+- English – Cambridge B2 First
 
-## Proyectos Destacados 🌟
+## Featured Projects 🌟
 
-Aquí tienes algunos de los proyectos en los que he estado trabajando
+Here are some of my key projects
 
-- [Justice-Reaper.github.io](https://github.com/Justice-Reaper/Justice-Reaper.github.io) - Mi blog personal donde subo writeups de Portswigger y HackTheBox
-- [AutoBspwmKali](https://github.com/Justice-Reaper/AutoBspwmKali.git) - Script para automatizar la instalación y configuración de un entorno BSPWM en Kali Linux
-- [rpcEnum](https://github.com/Justice-Reaper/rpcEnum.git) - Herramienta para enumerar el Active Directory a través del servicio RPC
-- [TFG-DAM](https://github.com/Justice-Reaper/TFG-DAM.git) - Proyecto de fin de grado de Desarrollo de Aplicaciones Multiplataforma (DAM)  
-- [graphQLConverter](https://github.com/Justice-Reaper/graphQLConverter.git) - Convierte un JSON de GraphQL en un formato URL encoded
-- [httpProxyPortScanner](https://github.com/Justice-Reaper/httpProxyPortScanner.git) - Escáner de puertos que utiliza proxies HTTP
+- [Justice-Reaper.github.io](https://github.com/Justice-Reaper/Justice-Reaper.github.io) – My personal blog with PortSwigger & HackTheBox write-ups
+- [AutoBspwmKali](https://github.com/Justice-Reaper/AutoBspwmKali.git) – Script to auto-install & configure BSPWM on Kali Linux
+- [rpcEnum](https://github.com/Justice-Reaper/rpcEnum.git) – Tool for Active Directory enumeration via RPC
+- [TFG-DAM](https://github.com/Justice-Reaper/TFG-DAM.git) – Final project for my associate’s degree in Multiplatform Application Development (MAD)
+- [graphQLConverter](https://github.com/Justice-Reaper/graphQLConverter.git) – Converts GraphQL JSON to URL-encoded format
+- [httpProxyPortScanner](https://github.com/Justice-Reaper/httpProxyPortScanner.git) – Port scanner using HTTP proxies
