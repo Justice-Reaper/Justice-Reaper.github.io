@@ -1,5 +1,6 @@
 ---
 title: "Basic clickjacking with CSRF token protection"
+description: "Laboratorio de Portswigger sobre Clickjacking"
 date: 2025-03-26 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

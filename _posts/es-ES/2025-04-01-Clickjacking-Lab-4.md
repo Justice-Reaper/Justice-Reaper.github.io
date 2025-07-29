@@ -1,5 +1,6 @@
 ---
 title: "Exploiting clickjacking vulnerability to trigger DOM-based XSS"
+description: "Laboratorio de Portswigger sobre Clickjacking"
 date: 2025-04-01 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

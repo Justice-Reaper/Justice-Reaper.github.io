@@ -1,5 +1,6 @@
 ---
 title: "Source code disclosure via backup files"
+description: "Laboratorio de Portswigger sobre Information Disclosure"
 date: 2024-12-03 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

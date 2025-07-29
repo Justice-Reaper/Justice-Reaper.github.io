@@ -1,5 +1,6 @@
 ---
 title: "File path traversal, traversal sequences stripped with superfluous URL-decode"
+description: "Laboratorio de Portswigger sobre Path Traversal"
 date: 2024-11-24 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

@@ -1,5 +1,6 @@
 ---
 title: "Authentication bypass via flawed state machine"
+description: "Laboratorio de Portswigger sobre Business Logic Vulnerabilities"
 date: 2025-02-22 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

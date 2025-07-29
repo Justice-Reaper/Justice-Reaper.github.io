@@ -1,5 +1,6 @@
 ---
 title: "DOM XSS using web messages"
+description: "Laboratorio de Portswigger sobre DOM Based Vulnerabilities"
 date: 2025-01-19 12:25:00 +0800
 lang: es-ES
 author: Justice-Reaper

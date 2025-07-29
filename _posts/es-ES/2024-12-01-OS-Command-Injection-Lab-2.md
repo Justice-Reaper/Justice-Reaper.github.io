@@ -1,5 +1,6 @@
 ---
 title: "Blind OS command injection with time delays"
+description: "Laboratorio de Portswigger sobre OS Command Injection"
 date: 2024-12-01 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

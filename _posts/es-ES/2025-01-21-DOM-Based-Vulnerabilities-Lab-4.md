@@ -1,5 +1,6 @@
 ---
 title: "DOM-based open redirection"
+description: "Laboratorio de Portswigger sobre DOM Based Vulnerabilities"
 date: 2025-01-21 12:25:00 +0800
 lang: es-ES
 author: Justice-Reaper

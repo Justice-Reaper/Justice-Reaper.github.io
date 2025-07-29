@@ -1,5 +1,6 @@
 ---
 title: "Accessing private GraphQL posts"
+description: "Laboratorio de Portswigger sobre GraphQL API Vulnerabilities"
 date: 2025-02-26 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

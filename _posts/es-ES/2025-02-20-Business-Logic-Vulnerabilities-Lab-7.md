@@ -1,5 +1,6 @@
 ---
 title: "Weak isolation on dual-use endpoint "
+description: "Laboratorio de Portswigger sobre Business Logic Vulnerabilities"
 date: 2025-02-20 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

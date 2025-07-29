@@ -1,5 +1,6 @@
 ---
 title: "Exploiting XInclude to retrieve files"
+description: "Laboratorio de Portswigger sobre XXE Injection"
 date: 2024-11-27 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

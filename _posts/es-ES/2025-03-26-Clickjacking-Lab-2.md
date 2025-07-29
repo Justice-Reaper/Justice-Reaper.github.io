@@ -1,5 +1,6 @@
 ---
 title: "Clickjacking with form input data prefilled from a URL parameter"
+description: "Laboratorio de Portswigger sobre Clickjacking"
 date: 2025-03-26 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

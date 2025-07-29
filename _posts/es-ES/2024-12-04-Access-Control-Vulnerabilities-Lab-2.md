@@ -1,5 +1,6 @@
 ---
 title: "Unprotected admin functionality with unpredictable URL"
+description: "Laboratorio de Portswigger sobre Access Control Vulnerabilities"
 date: 2024-12-04 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

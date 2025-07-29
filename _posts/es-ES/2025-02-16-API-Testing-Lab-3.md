@@ -1,5 +1,6 @@
 ---
 title: "Finding and exploiting an unused API endpoint"
+description: "Laboratorio de Portswigger sobre API Testing"
 date: 2025-02-16 12:27:00 +0800
 lang: es-ES
 author: Justice-Reaper

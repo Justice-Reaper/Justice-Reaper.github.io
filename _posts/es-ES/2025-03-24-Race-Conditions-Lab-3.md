@@ -1,5 +1,6 @@
 ---
 title: "Multi-endpoint race conditions"
+description: "Laboratorio de Portswigger sobre Race Conditions"
 date: 2025-03-24 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

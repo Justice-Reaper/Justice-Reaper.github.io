@@ -1,5 +1,6 @@
 ---
 title: "Discovering vulnerabilities quickly with targeted scanning"
+description: "Laboratorio de Portswigger sobre Essential Skills"
 date: 2024-12-08 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

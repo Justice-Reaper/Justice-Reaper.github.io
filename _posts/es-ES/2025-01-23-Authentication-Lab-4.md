@@ -1,5 +1,6 @@
 ---
 title: "Username enumeration via subtly different responses"
+description: "Laboratorio de Portswigger sobre Authentication"
 date: 2025-01-23 12:25:00 +0800
 lang: es-ES
 author: Justice-Reaper

@@ -1,5 +1,6 @@
 ---
 title: "Web shell upload via path traversal"
+description: "Laboratorio de Portswigger sobre File Upload Vulnerabilities"
 date: 2024-11-25 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

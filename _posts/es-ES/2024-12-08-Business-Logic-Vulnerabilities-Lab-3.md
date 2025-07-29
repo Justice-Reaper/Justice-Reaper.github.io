@@ -1,5 +1,6 @@
 ---
 title: "Inconsistent security controls"
+description: "Laboratorio de Portswigger sobre Business Logic Vulnerabilities"
 date: 2024-12-08 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
