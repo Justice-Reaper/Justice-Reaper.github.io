@@ -12,7 +12,7 @@ Later, I leaned toward offensive cybersecurity because I find it the most exciti
 
 Throughout my journey in this field, I've encountered tasks I found tedious or repetitive. To address this, I've developed several tools using Bash and Python to automate these processes, allowing me to focus on what matters most
 
-When it comes to languages, I believe English is a fundamental skill in this field. That’s why I earned my Cambridge B2 certificate last year, and I plan to prepare for the C1 next year
+When it comes to languages, I believe English is a fundamental skill in this field. That’s why I earned my Cambridge B2 certificate this year, and I plan to prepare for the C1 next year
 
 ## About Me 🚀
 
