@@ -1,7 +1,6 @@
 ---
 title: TwoMillion
 description: "Máquina TwoMillion de Hackthebox"
-description: "Máquina TwoMillion de Hackthebox"
 date: 2024-06-22 20:11:00 +0800
 lang: es-ES
 author: Justice-Reaper
