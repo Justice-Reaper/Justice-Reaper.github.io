@@ -12,7 +12,7 @@ Posteriomente me decanté por la rama de ciberseguridad ofensiva, porque conside
 
 Durante mi camino por este campo he ido encontrándome tareas que consideraba tediosas o repetitivas y por ello he creado varias herramientas empleando Bash y Python que automatizan estos procesos, permitiéndome enfocarme en lo importante
 
-Respecto a los idiomas, considero que el inglés es una skill básica en este campo, por lo cual, este último año obtuve el B1 de Cambridge y actualmente me encuentro estudiando para obtener el B2
+Respecto a los idiomas, considero que el inglés es una skill básica en este campo, por lo cual, este año obtuve el B2 de Cambridge y el año que viene planeo prepararme para el C1
 
 ## Sobre mí 🚀
 
