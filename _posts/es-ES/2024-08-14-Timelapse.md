@@ -1,5 +1,6 @@
 ---
 title: Timelapse
+description: "Máquina Timelapse de Hackthebox"
 date: 2024-08-14 23:50:00 +0800
 lang: es-ES
 author: Justice-Reaper

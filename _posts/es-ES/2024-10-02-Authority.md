@@ -1,5 +1,6 @@
 ---
 title: Authority
+description: "Máquina Authority de Hackthebox"
 date: 2024-10-02 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

@@ -1,5 +1,6 @@
 ---
 title: Apocalyst
+description: "Máquina Apocalyst de Hackthebox"
 date: 2024-08-03 23:20:00 +0800
 lang: es-ES
 author: Justice-Reaper
