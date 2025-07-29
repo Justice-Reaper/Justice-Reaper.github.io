@@ -1,5 +1,5 @@
 ---
-title: "Essential Skills Lab 2"
+title: "Scanning non-standard data structures"
 date: 2024-12-08 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Scanning non-standard data structures
 
 ## Certificaciones
 

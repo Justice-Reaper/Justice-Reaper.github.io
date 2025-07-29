@@ -1,5 +1,5 @@
 ---
-title: "Authentication Lab 3"
+title: "Password reset broken logic"
 date: 2025-01-22 12:25:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -13,10 +13,6 @@ image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
 
-## Skills
-
-- Password reset broken logic
-  
 ## Certificaciones
 
 - eWPT

@@ -1,5 +1,5 @@
 ---
-title: "API Testing Lab 1"
+title: "Exploiting an API endpoint using documentation"
 date: 2025-02-16 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Exploiting an API endpoint using documentation
 
 ## Certificaciones
 

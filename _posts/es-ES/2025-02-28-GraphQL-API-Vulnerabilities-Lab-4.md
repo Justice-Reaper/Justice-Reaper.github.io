@@ -1,5 +1,5 @@
 ---
-title: "GraphQL API Vulnerabilities Lab 4"
+title: "Bypassing GraphQL brute force protections"
 date: 2025-02-28 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Bypassing GraphQL brute force protections
 
 ## Certificaciones
 

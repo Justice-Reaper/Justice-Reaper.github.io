@@ -1,5 +1,5 @@
 ---
-title: "File Upload Vulnerabilities Lab 4"
+title: "Web shell upload via extension blacklist bypass"
 date: 2024-11-25 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Web shell upload via extension blacklist bypass
 
 ## Certificaciones
 

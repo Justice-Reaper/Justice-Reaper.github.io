@@ -1,5 +1,5 @@
 ---
-title: "File Upload Vulnerabilities Lab 2"
+title: "Web shell upload via Content-Type restriction bypass"
 date: 2024-11-24 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Web shell upload via Content-Type restriction bypass
 
 ## Certificaciones
 

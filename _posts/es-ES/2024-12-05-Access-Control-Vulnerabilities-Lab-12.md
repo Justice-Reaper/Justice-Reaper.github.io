@@ -1,5 +1,5 @@
 ---
-title: "Access Control Vulnerabilities Lab 12"
+title: "Multi-step process with no access control on one step"
 date: 2024-12-05 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Multi-step process with no access control on one step
 
 ## Certificaciones
 

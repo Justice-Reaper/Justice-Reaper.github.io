@@ -1,5 +1,5 @@
 ---
-title: "Web LLM Attacks Lab 2"
+title: "Exploiting vulnerabilities in LLM APIs"
 date: 2025-02-17 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Exploiting vulnerabilities in LLM APIs
 
 ## Certificaciones
 

@@ -1,5 +1,5 @@
 ---
-title: "API Testing Lab 4"
+title: "Exploiting a mass assignment vulnerability"
 date: 2025-02-17 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Exploiting a mass assignment vulnerability
 
 ## Certificaciones
 

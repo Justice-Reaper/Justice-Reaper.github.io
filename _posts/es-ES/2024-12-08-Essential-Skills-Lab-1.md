@@ -1,5 +1,5 @@
 ---
-title: "Essential Skills Lab 1"
+title: "Discovering vulnerabilities quickly with targeted scanning"
 date: 2024-12-08 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Discovering vulnerabilities quickly with targeted scanning
 
 ## Certificaciones
 

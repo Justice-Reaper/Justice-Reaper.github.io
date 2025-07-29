@@ -1,5 +1,5 @@
 ---
-title: "Web LLM Attacks Lab 3"
+title: " Indirect prompt injection"
 date: 2025-02-18 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
--  Indirect prompt injection
 
 ## Certificaciones
 

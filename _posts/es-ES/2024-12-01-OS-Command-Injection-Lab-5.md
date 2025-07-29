@@ -1,5 +1,5 @@
 ---
-title: "OS Command Injection Lab 5"
+title: "Blind OS command injection with out-of-band data exfiltration"
 date: 2024-12-01 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Blind OS command injection with out-of-band data exfiltration
 
 ## Certificaciones
 

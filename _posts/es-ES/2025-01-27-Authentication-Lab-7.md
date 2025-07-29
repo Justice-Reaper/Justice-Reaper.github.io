@@ -1,5 +1,5 @@
 ---
-title: "Authentication Lab 7"
+title: "Username enumeration via account lock"
 date: 2025-01-27 12:25:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Username enumeration via account lock
 
 ## Certificaciones
 

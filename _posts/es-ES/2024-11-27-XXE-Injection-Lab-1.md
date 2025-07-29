@@ -1,5 +1,5 @@
 ---
-title: "XXE Injection Lab 1"
+title: "Exploiting XXE using external entities to retrieve files"
 date: 2024-11-27 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Exploiting XXE using external entities to retrieve files
 
 ## Certificaciones
 

@@ -1,5 +1,5 @@
 ---
-title: "Business Logic Vulnerabilities Lab 9"
+title: "Authentication bypass via flawed state machine"
 date: 2025-02-22 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Authentication bypass via flawed state machine
 
 ## Certificaciones
 

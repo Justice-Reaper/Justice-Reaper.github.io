@@ -1,5 +1,5 @@
 ---
-title: "Insecure Deserialization Lab 2"
+title: "Modifying serialized objects"
 date: 2024-12-29 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Modifying serialized objects
 
 ## Certificaciones
 

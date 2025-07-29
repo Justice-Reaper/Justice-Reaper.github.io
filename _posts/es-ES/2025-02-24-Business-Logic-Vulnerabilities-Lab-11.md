@@ -1,5 +1,5 @@
 ---
-title: "Business Logic Vulnerabilities Lab 11"
+title: "Authentication bypass via encryption oracle"
 date: 2025-02-24 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Authentication bypass via encryption oracle
 
 ## Certificaciones
 

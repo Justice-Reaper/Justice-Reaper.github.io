@@ -1,5 +1,5 @@
 ---
-title: "Authentication Lab 10"
+title: "Offline password cracking"
 date: 2025-01-29 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Offline password cracking
 
 ## Certificaciones
 

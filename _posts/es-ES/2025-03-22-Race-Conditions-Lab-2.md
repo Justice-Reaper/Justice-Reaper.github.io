@@ -1,5 +1,5 @@
 ---
-title: "Race Conditions Lab 2"
+title: "Bypassing rate limits via race conditions"
 date: 2025-03-22 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Bypassing rate limits via race conditions
 
 ## Certificaciones
 

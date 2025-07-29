@@ -1,5 +1,5 @@
 ---
-title: "Information Disclosure Lab 5"
+title: "Information disclosure in version control history"
 date: 2024-12-03 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Information disclosure in version control history
 
 ## Certificaciones
 

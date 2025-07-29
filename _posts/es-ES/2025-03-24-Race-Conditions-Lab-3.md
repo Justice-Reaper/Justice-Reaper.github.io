@@ -1,5 +1,5 @@
 ---
-title: "Race Conditions Lab 3"
+title: "Multi-endpoint race conditions"
 date: 2025-03-24 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Multi-endpoint race conditions
 
 ## Certificaciones
 

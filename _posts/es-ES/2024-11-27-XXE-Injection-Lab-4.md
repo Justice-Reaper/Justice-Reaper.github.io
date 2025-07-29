@@ -1,5 +1,5 @@
 ---
-title: "XXE Injection Lab 4"
+title: "Blind XXE with out-of-band interaction via XML parameter entities"
 date: 2024-11-27 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Blind XXE with out-of-band interaction via XML parameter entities
 
 ## Certificaciones
 

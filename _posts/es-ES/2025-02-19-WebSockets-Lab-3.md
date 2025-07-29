@@ -1,5 +1,5 @@
 ---
-title: "WebSockets Lab 3"
+title: "Manipulating the WebSocket handshake to exploit vulnerabilities"
 date: 2025-02-19 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Manipulating the WebSocket handshake to exploit vulnerabilities
 
 ## Certificaciones
 

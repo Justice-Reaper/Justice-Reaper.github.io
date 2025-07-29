@@ -1,5 +1,5 @@
 ---
-title: "DOM Based Vulnerabilities Lab 4"
+title: "DOM-based open redirection"
 date: 2025-01-21 12:25:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -13,10 +13,6 @@ image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
 
-## Skills
-
-- DOM-based open redirection
-  
 ## Certificaciones
 
 - eWPT

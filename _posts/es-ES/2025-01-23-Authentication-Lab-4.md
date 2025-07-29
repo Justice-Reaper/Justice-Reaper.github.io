@@ -1,5 +1,5 @@
 ---
-title: "Authentication Lab 4"
+title: "Username enumeration via subtly different responses"
 date: 2025-01-23 12:25:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -13,10 +13,6 @@ image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
 
-## Skills
-
-- Username enumeration via subtly different responses
-  
 ## Certificaciones
 
 - eWPT

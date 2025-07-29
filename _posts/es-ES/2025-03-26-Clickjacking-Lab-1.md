@@ -1,5 +1,5 @@
 ---
-title: "Clickjackings Lab 1"
+title: "Basic clickjacking with CSRF token protection"
 date: 2025-03-26 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Basic clickjacking with CSRF token protection
 
 ## Certificaciones
 

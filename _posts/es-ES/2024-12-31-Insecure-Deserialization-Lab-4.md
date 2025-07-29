@@ -1,5 +1,5 @@
 ---
-title: "Insecure Deserialization Lab 4"
+title: "Arbitrary object injection in PHP"
 date: 2024-12-31 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Arbitrary object injection in PHP
 
 ## Certificaciones
 

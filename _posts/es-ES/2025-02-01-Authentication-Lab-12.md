@@ -1,5 +1,5 @@
 ---
-title: "Authentication Lab 12"
+title: "Password brute-force via password change"
 date: 2025-02-01 12:25:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Password brute-force via password change
 
 ## Certificaciones
 

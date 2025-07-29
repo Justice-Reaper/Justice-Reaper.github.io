@@ -1,5 +1,5 @@
 ---
-title: "Race Conditions Lab 4"
+title: "Single-endpoint race conditions"
 date: 2025-03-25 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Single-endpoint race conditions
 
 ## Certificaciones
 

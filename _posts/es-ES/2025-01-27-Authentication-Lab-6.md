@@ -1,5 +1,5 @@
 ---
-title: "Authentication Lab 6"
+title: "Broken brute-force protection, IP block"
 date: 2025-01-27 12:25:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Broken brute-force protection, IP block
 
 ## Certificaciones
 

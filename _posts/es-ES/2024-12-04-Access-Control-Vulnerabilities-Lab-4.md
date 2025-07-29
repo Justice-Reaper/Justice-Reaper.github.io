@@ -1,5 +1,5 @@
 ---
-title: "Access Control Vulnerabilities Lab 4"
+title: "User role can be modified in user profile"
 date: 2024-12-04 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- User role can be modified in user profile
 
 ## Certificaciones
 

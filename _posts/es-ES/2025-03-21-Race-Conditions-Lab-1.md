@@ -1,5 +1,5 @@
 ---
-title: "Race Conditions Lab 1"
+title: "Limit overrun race conditions"
 date: 2025-03-21 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Limit overrun race conditions
 
 ## Certificaciones
 

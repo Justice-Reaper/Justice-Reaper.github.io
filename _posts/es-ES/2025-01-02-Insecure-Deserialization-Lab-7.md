@@ -1,5 +1,5 @@
 ---
-title: "Insecure Deserialization Lab 7"
+title: "Exploiting Ruby deserialization using a documented gadget chain"
 date: 2025-01-02 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Exploiting Ruby deserialization using a documented gadget chain
 
 ## Certificaciones
 

@@ -1,5 +1,5 @@
 ---
-title: "GraphQL API Vulnerabilities Lab 5"
+title: "Performing CSRF exploits over GraphQL"
 date: 2025-03-20 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Performing CSRF exploits over GraphQL
 
 ## Certificaciones
 

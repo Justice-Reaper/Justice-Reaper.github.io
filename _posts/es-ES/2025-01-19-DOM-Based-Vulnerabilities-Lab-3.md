@@ -1,5 +1,5 @@
 ---
-title: "DOM Based Vulnerabilities Lab 3"
+title: "DOM XSS using web messages and JSON.parse"
 date: 2025-01-19 12:25:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -13,10 +13,6 @@ image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
 
-## Skills
-
-- DOM XSS using web messages and JSON.parse
-  
 ## Certificaciones
 
 - eWPT

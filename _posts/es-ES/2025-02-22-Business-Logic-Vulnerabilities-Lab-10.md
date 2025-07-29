@@ -1,5 +1,5 @@
 ---
-title: "Business Logic Vulnerabilities Lab 10"
+title: "Infinite money logic flaw"
 date: 2025-02-22 12:28:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Infinite money logic flaw
 
 ## Certificaciones
 

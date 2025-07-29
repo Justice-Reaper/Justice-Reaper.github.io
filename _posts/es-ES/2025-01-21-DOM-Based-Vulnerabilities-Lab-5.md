@@ -1,5 +1,5 @@
 ---
-title: "DOM Based Vulnerabilities Lab 5"
+title: "DOM-based cookie manipulation"
 date: 2025-01-21 12:25:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -13,10 +13,6 @@ image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
 
-## Skills
-
-- DOM-based cookie manipulation
-  
 ## Certificaciones
 
 - eWPT

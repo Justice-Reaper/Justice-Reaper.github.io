@@ -1,5 +1,5 @@
 ---
-title: "Clickjackings Lab 2"
+title: "Clickjacking with form input data prefilled from a URL parameter"
 date: 2025-03-26 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Clickjacking with form input data prefilled from a URL parameter
 
 ## Certificaciones
 

@@ -1,5 +1,5 @@
 ---
-title: "GraphQL API Vulnerabilities Lab 3"
+title: "Finding a hidden GraphQL endpoint"
 date: 2025-02-27 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Finding a hidden GraphQL endpoint
 
 ## Certificaciones
 

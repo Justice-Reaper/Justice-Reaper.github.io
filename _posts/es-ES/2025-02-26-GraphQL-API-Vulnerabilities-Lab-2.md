@@ -1,5 +1,5 @@
 ---
-title: "GraphQL API Vulnerabilities Lab 2"
+title: "Accidental exposure of private GraphQL fields"
 date: 2025-02-26 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Accidental exposure of private GraphQL fields
 
 ## Certificaciones
 

@@ -1,5 +1,5 @@
 ---
-title: "Path Traversal Lab 4"
+title: "File path traversal, traversal sequences stripped with superfluous URL-decode"
 date: 2024-11-24 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- File path traversal, traversal sequences stripped with superfluous URL-decode
 
 ## Certificaciones
 

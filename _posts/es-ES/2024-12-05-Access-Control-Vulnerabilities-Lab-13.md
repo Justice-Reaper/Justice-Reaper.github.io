@@ -1,5 +1,5 @@
 ---
-title: "Access Control Vulnerabilities Lab 13"
+title: "Referer-based access control"
 date: 2024-12-05 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Referer-based access control
 
 ## Certificaciones
 

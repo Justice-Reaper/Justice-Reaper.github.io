@@ -1,5 +1,5 @@
 ---
-title: "Access Control Vulnerabilities Lab 11"
+title: "Method-based access control can be circumvented"
 date: 2024-12-05 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Method-based access control can be circumvented
 
 ## Certificaciones
 

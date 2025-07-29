@@ -1,5 +1,5 @@
 ---
-title: "API Testing Lab 3"
+title: "Finding and exploiting an unused API endpoint"
 date: 2025-02-16 12:27:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Finding and exploiting an unused API endpoint
 
 ## Certificaciones
 

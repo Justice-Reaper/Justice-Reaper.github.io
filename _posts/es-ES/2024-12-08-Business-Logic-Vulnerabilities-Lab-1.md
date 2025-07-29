@@ -1,5 +1,5 @@
 ---
-title: "Business Logic Vulnerabilities Lab 1"
+title: "Excessive trust in client-side controls"
 date: 2024-12-08 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Excessive trust in client-side controls
 
 ## Certificaciones
 

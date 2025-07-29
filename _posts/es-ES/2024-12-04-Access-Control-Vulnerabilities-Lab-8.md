@@ -1,5 +1,5 @@
 ---
-title: "Access Control Vulnerabilities Lab 8"
+title: "User ID controlled by request parameter with password disclosure"
 date: 2024-12-04 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- User ID controlled by request parameter with password disclosure
 
 ## Certificaciones
 

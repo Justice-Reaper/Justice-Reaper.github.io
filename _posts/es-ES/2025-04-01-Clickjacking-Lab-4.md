@@ -1,5 +1,5 @@
 ---
-title: "Clickjacking Lab 4"
+title: "Exploiting clickjacking vulnerability to trigger DOM-based XSS"
 date: 2025-04-01 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Exploiting clickjacking vulnerability to trigger DOM-based XSS
 
 ## Certificaciones
 

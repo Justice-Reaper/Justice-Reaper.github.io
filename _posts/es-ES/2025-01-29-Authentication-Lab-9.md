@@ -1,5 +1,5 @@
 ---
-title: "Authentication Lab 9"
+title: "Brute-forcing a stay-logged-in cookie"
 date: 2025-01-29 12:25:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Brute-forcing a stay-logged-in cookie
 
 ## Certificaciones
 

@@ -1,5 +1,5 @@
 ---
-title: "Business Logic Vulnerabilities Lab 7"
+title: "Weak isolation on dual-use endpoint "
 date: 2025-02-20 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Weak isolation on dual-use endpoint 
 
 ## Certificaciones
 

@@ -1,5 +1,5 @@
 ---
-title: "WebSockets Lab 1"
+title: "Manipulating WebSocket messages to exploit vulnerabilities"
 date: 2025-02-19 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -12,10 +12,6 @@ tags:
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
-
-## Skills
-
-- Manipulating WebSocket messages to exploit vulnerabilities
 
 ## Certificaciones
 
