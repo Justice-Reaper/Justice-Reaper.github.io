@@ -1,5 +1,5 @@
 ---
-title: DOM Based Vulnerabilities Lab 1
+title: "DOM Based Vulnerabilities Lab 1"
 date: 2025-01-19 12:25:00 +0800
 lang: es-ES
 author: Justice-Reaper

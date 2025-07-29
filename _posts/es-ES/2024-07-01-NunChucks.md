@@ -1,5 +1,5 @@
 ---
-title: NunChucks
+title: "NunChucks"
 description: "Máquina NunChucks de Hackthebox"
 date: 2024-07-01 13:37:00 +0800
 lang: es-ES

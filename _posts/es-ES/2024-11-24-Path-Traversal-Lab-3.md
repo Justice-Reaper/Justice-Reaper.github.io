@@ -1,5 +1,5 @@
 ---
-title: Path Traversal Lab 3
+title: "Path Traversal Lab 3"
 date: 2024-11-24 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

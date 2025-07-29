@@ -1,5 +1,5 @@
 ---
-title: XXE Injection Lab 1
+title: "XXE Injection Lab 1"
 date: 2024-11-27 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

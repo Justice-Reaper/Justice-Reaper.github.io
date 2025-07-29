@@ -1,5 +1,5 @@
 ---
-title: Web LLM Attacks Lab 1
+title: "Web LLM Attacks Lab 1"
 date: 2025-02-17 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

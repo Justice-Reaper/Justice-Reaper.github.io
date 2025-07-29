@@ -1,5 +1,5 @@
 ---
-title: Access Control Vulnerabilities Lab 3
+title: "Access Control Vulnerabilities Lab 3"
 date: 2024-12-04 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

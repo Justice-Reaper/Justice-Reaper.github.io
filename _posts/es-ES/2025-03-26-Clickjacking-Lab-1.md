@@ -1,5 +1,5 @@
 ---
-title: Clickjackings Lab 1
+title: "Clickjackings Lab 1"
 date: 2025-03-26 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

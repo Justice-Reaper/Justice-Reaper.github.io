@@ -1,5 +1,5 @@
 ---
-title: BoardLight
+title: "BoardLight"
 description: "Máquina BoardLight de Hackthebox"
 date: 2024-10-04 12:26:00 +0800
 lang: es-ES

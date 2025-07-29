@@ -1,5 +1,5 @@
 ---
-title: Authentication Lab 10
+title: "Authentication Lab 10"
 date: 2025-01-29 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

@@ -1,5 +1,5 @@
 ---
-title: WebSockets Lab 1
+title: "WebSockets Lab 1"
 date: 2025-02-19 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

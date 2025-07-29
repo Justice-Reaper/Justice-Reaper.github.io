@@ -1,5 +1,5 @@
 ---
-title: Information Disclosure Lab 1
+title: "Information Disclosure Lab 1"
 date: 2024-12-03 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

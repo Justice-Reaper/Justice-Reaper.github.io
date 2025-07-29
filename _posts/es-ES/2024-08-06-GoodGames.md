@@ -1,5 +1,5 @@
 ---
-title: GoodGames
+title: "GoodGames"
 description: "Máquina GoodGames de Hackthebox"
 date: 2024-08-06 23:50:00 +0800
 lang: es-ES

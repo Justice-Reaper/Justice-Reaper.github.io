@@ -1,5 +1,5 @@
 ---
-title: Race Conditions Lab 2
+title: "Race Conditions Lab 2"
 date: 2025-03-22 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

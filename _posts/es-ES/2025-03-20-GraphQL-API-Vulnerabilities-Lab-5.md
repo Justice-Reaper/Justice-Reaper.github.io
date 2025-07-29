@@ -1,5 +1,5 @@
 ---
-title: GraphQL API Vulnerabilities Lab 5
+title: "GraphQL API Vulnerabilities Lab 5"
 date: 2025-03-20 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

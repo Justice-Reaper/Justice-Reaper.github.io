@@ -1,5 +1,5 @@
 ---
-title: CustomDebianKde
+title: "CustomDebianKde"
 description: "Guía de customización de Debian"
 date: 2024-10-24 20:11:00 +0800
 lang: es-ES

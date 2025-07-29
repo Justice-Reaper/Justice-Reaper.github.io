@@ -1,5 +1,5 @@
 ---
-title: Insecure Deserialization Lab 2
+title: "Insecure Deserialization Lab 2"
 date: 2024-12-29 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

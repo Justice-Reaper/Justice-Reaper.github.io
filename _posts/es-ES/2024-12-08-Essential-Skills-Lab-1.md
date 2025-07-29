@@ -1,5 +1,5 @@
 ---
-title: Essential Skills Lab 1
+title: "Essential Skills Lab 1"
 date: 2024-12-08 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

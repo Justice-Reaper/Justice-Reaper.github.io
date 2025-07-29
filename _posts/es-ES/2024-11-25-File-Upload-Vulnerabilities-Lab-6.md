@@ -1,5 +1,5 @@
 ---
-title: File Upload Vulnerabilities Lab 6
+title: "File Upload Vulnerabilities Lab 6"
 date: 2024-11-25 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

@@ -1,5 +1,5 @@
 ---
-title: Business Logic Vulnerabilities Lab 2
+title: "Business Logic Vulnerabilities Lab 2"
 date: 2024-12-08 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

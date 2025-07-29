@@ -1,5 +1,5 @@
 ---
-title: Blackfield
+title: "Blackfield"
 description: "Máquina Blackfield de Hackthebox"
 date: 2024-10-03 12:26:00 +0800
 lang: es-ES
