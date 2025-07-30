@@ -74,7 +74,7 @@ webmaster_verifications:
 # Web Analytics Settings
 analytics:
   google:
-    id: "G-CQRJCZ1RJL" # fill in your Google Analytics ID
+    id: # fill in your Google Analytics ID
   goatcounter:
     id: "justice-reaper.goatcounter.com" # fill in your GoatCounter ID
   umami:
