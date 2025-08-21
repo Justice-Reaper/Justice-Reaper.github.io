@@ -40,7 +40,7 @@ I’m currently preparing for the following certifications:
 
 ## Featured Projects 🌟
 
-Here are some of my key projects
+Here are some of my key projects:
 
 - [Justice-Reaper.github.io](https://github.com/Justice-Reaper/Justice-Reaper.github.io) – My personal blog with PortSwigger & HackTheBox write-ups
 - [AutoBspwmKali](https://github.com/Justice-Reaper/AutoBspwmKali.git) – Script to auto-install & configure BSPWM on Kali Linux
