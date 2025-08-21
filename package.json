@@ -28,10 +28,10 @@
     "bootstrap": "^5.3.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.0",
+    "@babel/core": "^7.28.3",
     "@babel/plugin-transform-class-properties": "^7.27.1",
     "@babel/plugin-transform-private-methods": "^7.27.1",
-    "@babel/preset-env": "^7.28.0",
+    "@babel/preset-env": "^7.28.3",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@rollup/plugin-babel": "^6.0.4",
@@ -44,7 +44,7 @@
     "conventional-changelog-conventionalcommits": "^9.1.0",
     "husky": "^9.1.7",
     "purgecss": "^7.0.2",
-    "rollup": "^4.46.2",
+    "rollup": "^4.46.3",
     "semantic-release": "^24.2.7",
     "stylelint": "^16.23.1",
     "stylelint-config-standard-scss": "^15.0.1"
