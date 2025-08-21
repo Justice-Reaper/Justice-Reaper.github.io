@@ -1,5 +1,5 @@
 ---
-title: "SQLI"
+title: "Guía sobre SQLI"
 description: "Guía sobre la vulnerabilidad SQLI"
 date: 2025-07-21 12:30:00 +0800
 lang: es-ES
