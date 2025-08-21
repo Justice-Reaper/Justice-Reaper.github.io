@@ -5,9 +5,10 @@ date: 2024-12-05 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
+  - Portswigger Labs
   - Access Control
 tags:
+  - Portswigger Labs
   - Access Control
   - Method-based access control can be circumvented
 image:

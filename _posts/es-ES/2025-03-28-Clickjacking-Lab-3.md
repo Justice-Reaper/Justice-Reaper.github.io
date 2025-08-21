@@ -5,9 +5,10 @@ date: 2025-03-28 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
+  - Portswigger Labs
   - Clickjacking
 tags:
+  - Portswigger Labs
   - Clickjacking
   - Clickjacking with a frame buster script
 image:

@@ -5,9 +5,10 @@ date: 2024-12-01 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
+  - Portswigger Labs
   - OS Command Injection
 tags:
+  - Portswigger Labs
   - OS Command Injection
   - OS command injection, simple case
 image:

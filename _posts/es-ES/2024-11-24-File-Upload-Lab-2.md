@@ -5,9 +5,10 @@ date: 2024-11-24 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
+  - Portswigger Labs
   - File Upload
 tags:
+  - Portswigger Labs
   - File Upload
   - Web shell upload via Content-Type restriction bypass
 image:

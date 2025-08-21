@@ -5,9 +5,10 @@ date: 2025-02-28 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
+  - Portswigger Labs
   - GraphQL API
 tags:
+  - Portswigger Labs
   - GraphQL API
   - Bypassing GraphQL brute force protections
 image:

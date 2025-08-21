@@ -5,9 +5,10 @@ date: 2024-12-05 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
+  - Portswigger Labs
   - Access Control
 tags:
+  - Portswigger Labs
   - Access Control
   - Multi-step process with no access control on one step
 image:

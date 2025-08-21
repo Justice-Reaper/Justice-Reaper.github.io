@@ -5,9 +5,10 @@ date: 2024-12-29 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
+  - Portswigger Labs
   - Insecure Deserialization
 tags:
+  - Portswigger Labs
   - Insecure Deserialization
   - Modifying serialized objects
 image:

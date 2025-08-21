@@ -5,9 +5,10 @@ date: 2025-03-22 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
+  - Portswigger Labs
   - Race Conditions
 tags:
+  - Portswigger Labs
   - Race Conditions
   - Bypassing rate limits via race conditions
 image:

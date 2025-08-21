@@ -5,9 +5,10 @@ date: 2025-02-17 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
+  - Portswigger Labs
   - Web LLM Attacks
 tags:
+  - Portswigger Labs
   - Web LLM Attacks
   - Exploiting vulnerabilities in LLM APIs
 image:

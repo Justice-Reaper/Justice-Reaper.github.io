@@ -5,9 +5,10 @@ date: 2024-11-24 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
+  - Portswigger Labs
   - Path Traversal
 tags:
+  - Portswigger Labs
   - Path Traversal
   - File path traversal, simple case
 image:

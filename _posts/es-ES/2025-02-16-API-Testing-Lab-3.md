@@ -5,9 +5,10 @@ date: 2025-02-16 12:27:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
+  - Portswigger Labs
   - API Testing
 tags:
+  - Portswigger Labs
   - API Testing
   - Finding and exploiting an unused API endpoint
 image:

@@ -5,9 +5,10 @@ date: 2024-12-04 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
+  - Portswigger Labs
   - Access Control
 tags:
+  - Portswigger Labs
   - Access Control
   - User ID controlled by request parameter
 image:

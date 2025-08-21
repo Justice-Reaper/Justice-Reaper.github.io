@@ -5,9 +5,10 @@ date: 2024-11-25 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
+  - Portswigger Labs
   - File Upload
 tags:
+  - Portswigger Labs
   - File Upload
   - Web shell upload via extension blacklist bypass
 image:

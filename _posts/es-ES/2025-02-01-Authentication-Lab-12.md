@@ -5,9 +5,10 @@ date: 2025-02-01 12:25:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
+  - Portswigger Labs
   - Authentication
 tags:
+  - Portswigger Labs
   - Authentication
   - Password brute-force via password change
 image:

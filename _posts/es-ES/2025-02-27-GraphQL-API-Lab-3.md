@@ -5,9 +5,10 @@ date: 2025-02-27 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
+  - Portswigger Labs
   - GraphQL API
 tags:
+  - Portswigger Labs
   - GraphQL API
   - Finding a hidden GraphQL endpoint
 image:

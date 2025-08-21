@@ -5,9 +5,10 @@ date: 2025-01-02 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
+  - Portswigger Labs
   - Insecure Deserialization
 tags:
+  - Portswigger Labs
   - Insecure Deserialization
   - Exploiting Ruby deserialization using a documented gadget chain
 image:

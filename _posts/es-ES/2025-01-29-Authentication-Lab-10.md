@@ -5,9 +5,10 @@ date: 2025-01-29 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
+  - Portswigger Labs
   - Authentication
 tags:
+  - Portswigger Labs
   - Authentication
   - Offline password cracking
 image:

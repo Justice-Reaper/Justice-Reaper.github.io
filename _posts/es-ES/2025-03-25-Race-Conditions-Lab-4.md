@@ -5,9 +5,10 @@ date: 2025-03-25 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
+  - Portswigger Labs
   - Race Conditions
 tags:
+  - Portswigger Labs
   - Race Conditions
   - Single-endpoint race conditions
 image:

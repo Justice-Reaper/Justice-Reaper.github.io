@@ -5,9 +5,10 @@ date: 2024-12-08 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
+  - Portswigger Labs
   - Business Logic
 tags:
+  - Portswigger Labs
   - Business Logic
   - Flawed enforcement of business rules
 image:

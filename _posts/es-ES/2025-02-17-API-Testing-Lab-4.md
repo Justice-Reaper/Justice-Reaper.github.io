@@ -5,9 +5,10 @@ date: 2025-02-17 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
+  - Portswigger Labs
   - API Testing
 tags:
+  - Portswigger Labs
   - API Testing
   - Exploiting a mass assignment vulnerability
 image:

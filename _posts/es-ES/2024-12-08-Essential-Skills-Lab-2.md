@@ -5,9 +5,10 @@ date: 2024-12-08 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
+  - Portswigger Labs
   - Essential Skills
 tags:
+  - Portswigger Labs
   - Essential Skills
   - Scanning non-standard data structures
 image:

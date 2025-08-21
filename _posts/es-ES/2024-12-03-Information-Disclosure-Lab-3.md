@@ -5,9 +5,10 @@ date: 2024-12-03 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
+  - Portswigger Labs
   - Information Disclosure
 tags:
+  - Portswigger Labs
   - Information Disclosure
   - Source code disclosure via backup files
 image:

@@ -5,9 +5,10 @@ date: 2024-11-27 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
+  - Portswigger Labs
   - XXE Injection
 tags:
+  - Portswigger Labs
   - XXE Injection
   - Exploiting blind XXE to retrieve data via error messages
 image:

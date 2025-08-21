@@ -5,9 +5,10 @@ date: 2025-03-20 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
+  - Portswigger Labs
   - GraphQL API
 tags:
+  - Portswigger Labs
   - GraphQL API
   - Performing CSRF exploits over GraphQL
 image:

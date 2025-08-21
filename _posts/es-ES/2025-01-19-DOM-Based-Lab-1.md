@@ -5,9 +5,10 @@ date: 2025-01-19 12:25:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
+  - Portswigger Labs
   - DOM Based
 tags:
+  - Portswigger Labs
   - DOM Based
   - DOM XSS using web messages
 image:

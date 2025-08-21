@@ -5,9 +5,10 @@ date: 2025-02-24 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
+  - Portswigger Labs
   - Business Logic
 tags:
+  - Portswigger Labs
   - Business Logic
   - Authentication bypass via encryption oracle
 image:

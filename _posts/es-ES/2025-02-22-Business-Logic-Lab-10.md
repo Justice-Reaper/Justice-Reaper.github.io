@@ -5,9 +5,10 @@ date: 2025-02-22 12:28:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
+  - Portswigger Labs
   - Business Logic
 tags:
+  - Portswigger Labs
   - Business Logic
   - Infinite money logic flaw
 image:

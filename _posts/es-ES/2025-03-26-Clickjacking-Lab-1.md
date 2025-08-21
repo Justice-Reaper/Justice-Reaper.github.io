@@ -5,9 +5,10 @@ date: 2025-03-26 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
+  - Portswigger Labs
   - Clickjacking
 tags:
+  - Portswigger Labs
   - Clickjacking
   - Basic clickjacking with CSRF token protection
 image:
