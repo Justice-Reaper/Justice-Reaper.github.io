@@ -24,7 +24,7 @@ When it comes to languages, I believe English is a fundamental skill in this fie
 
 ## Certifications 🎓
 
-Currently preparing for
+I’m currently preparing for the following certifications:
 
 - OSCP (Offensive Security Certified Professional)
 - BSCP (Burp Suite Certified Practitioner)
