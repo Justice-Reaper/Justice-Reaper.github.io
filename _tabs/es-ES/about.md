@@ -24,7 +24,7 @@ Respecto a los idiomas, considero que el inglés es una skill básica en este ca
 
 ## Certificaciones 🎓
 
-Actualmente estoy preparándome para las siguientes certificaciones
+Actualmente estoy preparándome para las siguientes certificaciones:
 
 - OSCP (Offensive Security Certified Professional)
 - BSCP (Burp Suite Certified Practitioner)
