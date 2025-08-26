@@ -1,5 +1,5 @@
 ---
-title: "CSRF-guide"
+title: "CSRF guide"
 description: "Guía sobre la vulnerabilidad CSRF"
 date: 2025-08-24 12:30:00 +0800
 lang: es-ES
