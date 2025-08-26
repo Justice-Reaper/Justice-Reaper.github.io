@@ -1,7 +1,7 @@
 ---
 title: "CSRF-guide"
 description: "Guía sobre la vulnerabilidad CSRF"
-date: 2025-24-08 12:30:00 +0800
+date: 2025-08-24 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
