@@ -111,7 +111,7 @@ Surgen algunas `precauciones importantes`:
     
 - Los `tokens CSRF` no protegen contra `vulnerabilidades stored XSS`. Si una `página web` protegida por un `token CSRF` es también donde `se refleja el stored XSS`, entonces ese `XSS` puede `explotarse normalmente`
 
-## POC de CSRF
+## PoC de CSRF
 
 Crear manualmente el `HTML` necesario para un `exploit de CSRF` puede ser `engorroso`, especialmente cuando la `solicitud deseada contiene muchos parámetros` o presenta `peculiaridades`. La forma más sencilla de construir un `exploit de CSRF` es utilizando el `CSRF PoC generator` integrado en `Burp Suite Professional`. Para ello, debemos `seguir` estos `pasos`:
 
