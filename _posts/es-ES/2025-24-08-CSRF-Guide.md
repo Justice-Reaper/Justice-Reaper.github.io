@@ -1,15 +1,13 @@
 ---
-title: CSRF-guide
-description: Guía sobre la vulnerabilidad CSRF
+title: "CSRF-guide"
+description: "Guía sobre la vulnerabilidad CSRF"
 date: 2025-24-08 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
-  - Guide
+  - Portswigger Guides
 tags:
-  - Portswigger
-  - Guide
+  - Portswigger Guides
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
@@ -265,15 +263,15 @@ Al determinar si una `solicitud` es `same-site` o no, también se tiene en cuent
 
 Es posible que nos encontremos con el término `effective top-level domain (eTLD)`. Esto es simplemente es una forma de tener en cuenta los `sufijos reservados multipart` que en la práctica se tratan como `dominios de nivel superior`, como por ejemplo `.co.uk`
 
-![[image_1.png]]
+![](/assets/img/CSRF-Guide/image_1.png)
 
 La diferencia entre un `sitio web` y un `origen` es su `alcance`, un `sitio web` abarca varios `nombres de dominio`, mientras que un `origen` solo incluye `uno`. Aunque están estrechamente relacionados, es importante no utilizar los términos `indistintamente`, ya que mezclarlos puede tener `graves consecuencias para la seguridad`. Se considera que dos `URL` tienen el mismo `origen` si comparten exactamente el mismo `esquema`, `nombre de dominio` y `puerto`
 
-![[image_2.png]]
+![](/assets/img/CSRF-Guide/image_2.png)
 
 Como podemos ver en este `ejemplo`, el término `sitio web` es mucho `menos específico`, ya que solo tiene en cuenta el `esquema` y la `última parte` del `nombre de dominio`. Fundamentalmente, esto significa que una `petición` de `origen cruzado (cross-origin)` puede seguir siendo del `mismo sitio web`, pero no `al revés`. Esta es una distinción importante, ya que significa que cualquier `vulnerabilidad` que `permita` la `ejecución de código JavaScript` puede ser utilizada para `eludir` las `defensas del sitio web` en otros `dominios` que pertenecen al mismo `sitio web`
 
-![[image_3.png]]
+![](/assets/img/CSRF-Guide/image_3.png)
 
 ### ¿Cómo funciona SameSite?
 
