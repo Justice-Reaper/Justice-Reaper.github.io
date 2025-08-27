@@ -28,6 +28,10 @@ El objetivo del `laboratorio` es cambiar la `dirección de correo electrónico` 
 
 ---
 
+## Guía de clickjacking
+
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de clickjacking` [https://justice-reaper.github.io/posts/Clickjacking-Guide/](https://justice-reaper.github.io/posts/Clickjacking-Guide/)
+
 ## Resolución
 
 Al `acceder` a la `web` vemos esto

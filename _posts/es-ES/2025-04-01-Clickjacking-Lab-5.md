@@ -28,6 +28,10 @@ Este `laboratorio` tiene una funcionalidad de `cuenta` protegida por un `token C
 
 ---
 
+## Guía de clickjacking
+
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de clickjacking` [https://justice-reaper.github.io/posts/Clickjacking-Guide/](https://justice-reaper.github.io/posts/Clickjacking-Guide/)
+
 ## Resolución
 
 Al `acceder` a la `web` vemos esto
