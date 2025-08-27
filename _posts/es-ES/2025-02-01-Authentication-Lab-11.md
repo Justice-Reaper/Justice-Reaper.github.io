@@ -24,7 +24,7 @@ image:
 
 ## Descripción
 
-Este `laboratorio` es vulnerable a `password reset poisoning`. El usuario `carlos` hará clic en cualquier `enlace` en los `correos electrónicos` que reciba. Para `resolver` el laboratorio, debemos `iniciar sesión` en la `cuenta de Carlos`. Podemos `iniciar sesión` en nuestra propia `cuenta` utilizando las credenciales `wiener:peter`. Cualquier `correo electrónico` enviado a esta `cuenta` puede ser `leído` a través del `cliente de correo` en el `servidor de explotación`
+Este `laboratorio` es vulnerable a `password reset poisoning`. El usuario `carlos` hará click en cualquier `enlace` en los `correos electrónicos` que reciba. Para `resolver` el laboratorio, debemos `iniciar sesión` en la `cuenta de Carlos`. Podemos `iniciar sesión` en nuestra propia `cuenta` utilizando las credenciales `wiener:peter`. Cualquier `correo electrónico` enviado a esta `cuenta` puede ser `leído` a través del `cliente de correo` en el `servidor de explotación`
 
 ---
 

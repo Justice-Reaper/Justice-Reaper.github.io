@@ -24,7 +24,7 @@ image:
   
 ## Descripción
 
-Este `laboratorio` está protegido por un `frame buster` que evita que el `sitio web` sea incrustado en un `frame`. Debemos encontrar una forma para cambiar la `dirección de correo electrónico` del usuario `bypasseando` un `frame buster` y engañar al `usuario` para que `haga clic` en un botón de `"Actualizar correo electrónico"`, llevando así a cabo, un `ataque de Clickjacking`
+Este `laboratorio` está protegido por un `frame buster` que evita que el `sitio web` sea incrustado en un `frame`. Debemos encontrar una forma para cambiar la `dirección de correo electrónico` del usuario `bypasseando` un `frame buster` y engañar al `usuario` para que `haga click` en un botón de `"Actualizar correo electrónico"`, llevando así a cabo, un `ataque de Clickjacking`
 
 El `laboratorio` se considerará resuelto cuando la `dirección de correo electrónico` haya sido cambiada. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`
 

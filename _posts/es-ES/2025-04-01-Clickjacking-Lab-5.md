@@ -24,7 +24,7 @@ image:
   
 ## Descripción
 
-Este `laboratorio` tiene una funcionalidad de `cuenta` protegida por un `token CSRF` y un `diálogo de confirmación` para defenderse contra el `Clickjacking`. Para `resolver` este `laboratorio`, debemos realizar un `ataque de Clickjacking` que engañe al `usuario` para que haga clic en el `botón de eliminación de cuenta` y en el `diálogo de confirmación`, utilizando las acciones señuelo `"Click me first"` y `"Click me next"`. Necesitaremos usar `dos elementos` para este `laboratorio`. Podemos `iniciar sesión` en la `cuenta` utilizando las credenciales `wiener:peter`
+Este `laboratorio` tiene una funcionalidad de `cuenta` protegida por un `token CSRF` y un `diálogo de confirmación` para defenderse contra el `Clickjacking`. Para `resolver` este `laboratorio`, debemos realizar un `ataque de Clickjacking` que engañe al `usuario` para que haga click en el `botón de eliminación de cuenta` y en el `diálogo de confirmación`, utilizando las acciones señuelo `"Click me first"` y `"Click me next"`. Necesitaremos usar `dos elementos` para este `laboratorio`. Podemos `iniciar sesión` en la `cuenta` utilizando las credenciales `wiener:peter`
 
 ---
 

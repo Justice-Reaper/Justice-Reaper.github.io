@@ -113,13 +113,13 @@ Surgen algunas `precauciones importantes`:
 
 ## PoC de CSRF
 
-Crear manualmente el `HTML` necesario para un `exploit de CSRF` puede ser `engorroso`, especialmente cuando la `solicitud deseada contiene muchos parámetros` o presenta `peculiaridades`. La forma más sencilla de construir un `exploit de CSRF` es utilizando el `CSRF PoC generator` integrado en `Burp Suite Professional`. Para ello, debemos `seguir` estos `pasos`:
+Crear manualmente el `HTML` necesario para un `exploit de CSRF` puede ser `engorroso`, especialmente cuando la `solicitud deseada contiene muchos parámetros` o presenta `peculiaridades`. La forma más sencilla de construir un `exploit de CSRF` es utilizando el `CSRF PoC generator` integrado en `Burpsuite Professional`. Para ello, debemos `seguir` estos `pasos`:
 
-- Seleccionar una `solicitud` en `Burp Suite Professional` que queramos `probar o explotar`
+- Seleccionar una `solicitud` en `Burpsuite Professional` que queramos `probar o explotar`
     
 - En el `menú contextual` (click derecho), elegir `Engagement tools / Generate CSRF PoC`
     
-- `Burp Suite` generará un `HTML` que disparará la `solicitud seleccionada` (excepto las `cookies`, que serán añadidas automáticamente por el `navegador de la víctima`)
+- `Burpsuite` generará un `HTML` que disparará la `solicitud seleccionada` (excepto las `cookies`, que serán añadidas automáticamente por el `navegador de la víctima`)
     
 - Se pueden ajustar varias `opciones en el CSRF PoC generator` para afinar aspectos del ataque. Esto puede ser necesario en situaciones poco comunes con `solicitudes peculiares`
     

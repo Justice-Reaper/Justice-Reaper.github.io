@@ -56,7 +56,7 @@ session=zqEeGuTsB0x4zgTkv5Pl3BDpMbM4KYDL
 
 ![](/assets/img/Essential-Skills-Lab-2/image_4.png)
 
-Sin embargo, en este caso, parece que se trata de dos `estructuras de datos` diferentes. Por ello, no tendría sentido manejarlo de esta manera, ya que `Burp Suite` enviaría un único `payload` para toda la `estructura`. En estos casos, o cuando trabajamos con un `JSON`, lo mejor es `enviar` la `petición` al `Intruder`, establecer `puntos de inserción` (insertion points) en cada `dato` y escanear los valores de manera `independiente` y no como un `único bloque`. Cuando se abra la nueva `ventana` en `Burp Intruder`, debemos pulsar en `OK` y comenzará el `escaneo`
+Sin embargo, en este caso, parece que se trata de dos `estructuras de datos` diferentes. Por ello, no tendría sentido manejarlo de esta manera, ya que `Burpsuite` enviaría un único `payload` para toda la `estructura`. En estos casos, o cuando trabajamos con un `JSON`, lo mejor es `enviar` la `petición` al `Intruder`, establecer `puntos de inserción` (insertion points) en cada `dato` y escanear los valores de manera `independiente` y no como un `único bloque`. Cuando se abra la nueva `ventana` en `Burp Intruder`, debemos pulsar en `OK` y comenzará el `escaneo`
 
 ![](/assets/img/Essential-Skills-Lab-2/image_5.png)
 

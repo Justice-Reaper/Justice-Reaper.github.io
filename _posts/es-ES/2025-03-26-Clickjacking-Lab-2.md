@@ -24,7 +24,7 @@ image:
   
 ## Descripción
 
-El objetivo del `laboratorio` es cambiar la `dirección de correo electrónico` del usuario rellenando previamente un `formulario` mediante un `parámetro en la URL` y `engañando` al `usuario` para que `haga clic` en un botón de `"Actualizar correo electrónico"`, llevando así a cabo, un `ataque de Clickjacking`. El `laboratorio` se considerará resuelto cuando la `dirección de correo electrónico` haya sido cambiada. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`
+El objetivo del `laboratorio` es cambiar la `dirección de correo electrónico` del usuario rellenando previamente un `formulario` mediante un `parámetro en la URL` y `engañando` al `usuario` para que `haga click` en un botón de `"Actualizar correo electrónico"`, llevando así a cabo, un `ataque de Clickjacking`. El `laboratorio` se considerará resuelto cuando la `dirección de correo electrónico` haya sido cambiada. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`
 
 ---
 

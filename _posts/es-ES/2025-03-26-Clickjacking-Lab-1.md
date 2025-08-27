@@ -24,7 +24,7 @@ image:
   
 ## Descripción
 
-Este `laboratorio` contiene funcionalidad de `inicio de sesión` y un botón de `eliminar cuenta` que está protegido por un `token CSRF`. El `usuario víctima` hará `clic` en elementos que muestran la palabra `"click"`
+Este `laboratorio` contiene funcionalidad de `inicio de sesión` y un botón de `eliminar cuenta` que está protegido por un `token CSRF`. El `usuario víctima` hará `click` en elementos que muestran la palabra `"click"`
 
 Para `resolver` el `laboratorio`, debemos crear un `HTML` que enmarque la página de la cuenta y `engañe` al `usuario` para que `elimine` su `cuenta`. El `laboratorio` se resuelve cuando la `cuenta` es eliminada. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`
 
