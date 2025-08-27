@@ -1,15 +1,13 @@
 ---
-title: Clickjacking guide
-description: Guía sobre la vulnerabilidad clickjacking
-date: 2025-27-08 12:30:00 +0800
+title: "Clickjacking guide"
+description: "Guía sobre la vulnerabilidad clickjacking"
+date: 2025-08-27 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
-  - Guide
+  - Portswigger Guides
 tags:
-  - Portswigger
-  - Guide
+  - Portswigger Guides
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
@@ -37,7 +35,7 @@ Este `ataque` se diferencia de un `ataque CSRF` en que el `usuario` debe r
 
 La `protección` contra los `ataques CSRF` suele proporcionarse mediante el uso de un `token CSRF` vinculado a una `cookie` de `sesión`. Los `tokens CSRF` no puede bloquear un `ataque de Clickjacking` porque el `navegador` enviará `automáticamente` el `token CSRF`, esto es debido a que el `ataque` ocurre dentro de la `sesión del usuario` y dentro del `propio dominio`. Por lo tanto, la única diferencia con una `sesión normal`, sería que el `proceso` ocurre dentro de un `iframe oculto`
 
-## ¿Cómo identificar un clickjacking?
+## ¿Cómo identificar una web vulnerable a clickjacking?
 
 Podemos usar el `escáner` de `Burpsuite` o herramientas como `Security Headers` [https://securityheaders.com/](https://securityheaders.com/) o Shcheck [https://github.com/santoru/shcheck.git](https://github.com/santoru/shcheck.git)  para `identificar` las `cabeceras de seguridad` de una `web`
 
