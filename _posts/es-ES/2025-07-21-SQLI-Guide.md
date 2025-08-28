@@ -21,7 +21,7 @@ image:
   
 ## Descripción
 
-`Explicación técnica de la vulnerabilidad de inyección SQL`. Detallamos cómo `identificar` y `explotar` esta vulnerabilidad, tanto `manualmente` como con `herramientas automatizadas`. Además, exploramos `estrategias clave para prevenirla`, incluyendo el uso de `consultas parametrizadas` y `buenas prácticas de seguridad`
+`Explicación técnica de la vulnerabilidad SQLI`. Detallamos cómo `identificar` y `explotar` esta vulnerabilidad, tanto `manualmente` como con `herramientas automatizadas`. Además, exploramos `estrategias clave para prevenirla`, incluyendo el uso de `consultas parametrizadas` y `buenas prácticas de seguridad`
 
 ---
 
