@@ -21,7 +21,7 @@ image:
   
 ## Descripción
 
-`Explicación técnica de la vulnerabilidad de CSRF`. Detallamos cómo `identificar` y `explotar` esta vulnerabilidad, tanto `manualmente` como con `herramientas automatizadas`. Además, exploramos `estrategias clave para prevenirla`
+`Explicación técnica de la vulnerabilidad CSRF`. Detallamos cómo `identificar` y `explotar` esta vulnerabilidad, tanto `manualmente` como con `herramientas automatizadas`. Además, exploramos `estrategias clave para prevenirla`
 
 ---
 
