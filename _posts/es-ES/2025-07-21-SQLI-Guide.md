@@ -39,7 +39,7 @@ Es posible `detectar inyecciones SQL` de varias formas, en mi caso uso estas:
 
 2. `Analizar la query con ghauri 2 veces` para `confirmar que sqlmap no se saltó nada`
 
-3. Hacer un` escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+3. Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
 
 4. `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
 
