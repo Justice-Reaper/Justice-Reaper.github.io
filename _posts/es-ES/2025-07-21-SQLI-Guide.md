@@ -45,9 +45,7 @@ Es posible `detectar inyecciones SQL` de varias formas, sigo estos pasos:
 
 5. `Analizar la query con ghauri 2 veces` para `confirmar que sqlmap no se saltó nada`
 
-6. Si no encontramos nada, usaremos `sqlmap` junto con la extensión `SQLMap DNS Collaborator` de `Burpsuite` para `exfiltrar data`
-
-7. Si lo anterior no funciona, nos centraremos en buscar `inyecciones SQL de forma manual` utilizando las `cheatsheets` de `Portswigger, PayloadsAllTheThings y Hacktricks`
+6. Si lo anterior no funciona, nos centraremos en buscar `inyecciones SQL de forma manual` utilizando las `cheatsheets` de `Portswigger, PayloadsAllTheThings y Hacktricks`
 
 ## Cheatsheets de inyecciones SQL
 
