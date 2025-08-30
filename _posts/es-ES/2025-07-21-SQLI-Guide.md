@@ -35,19 +35,19 @@ En muchos casos, un atacante puede `modificar` o `eliminar` estos `datos`, causa
 
 Es posible `detectar inyecciones SQL` de varias formas, sigo estos pasos:
 
-1. Hacer un` escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+1. `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-2. `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
+2. Hacer un` escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
 
-3. `Analizar la query con sqlmap 2 veces`, debido a que `puede fallar en ocasiones `
+3. `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
 
-4. `Analizar la query con ghauri 2 veces` para `confirmar que sqlmap no se saltó nada`
+4. `Analizar la query con sqlmap 2 veces`, debido a que `puede fallar en ocasiones `
 
-5. Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+5. `Analizar la query con ghauri 2 veces` para `confirmar que sqlmap no se saltó nada`
 
-6. `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
+6. Si no encontramos nada, usaremos `sqlmap` junto con la extensión `SQLMap DNS Collaborator` de `Burpsuite` para `exfiltrar data`
 
-7. Si no encontramos nada, nos centraremos en buscar `inyecciones SQL de forma manual` utilizando las `cheatsheets` de `Portswigger, PayloadsAllTheThings y Hacktricks`
+7. Si lo anterior no funciona, nos centraremos en buscar `inyecciones SQL de forma manual` utilizando las `cheatsheets` de `Portswigger, PayloadsAllTheThings y Hacktricks`
 
 ## Cheatsheets de inyecciones SQL
 
