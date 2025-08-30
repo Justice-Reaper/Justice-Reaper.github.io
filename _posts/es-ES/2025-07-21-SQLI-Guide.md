@@ -31,7 +31,7 @@ La `inyección SQL (SQLi)` es una `vulnerabilidad de seguridad web` que permite 
 
 En muchos casos, un atacante puede `modificar` o `eliminar` estos `datos`, causando `cambios persistentes` en el `contenido` o el `comportamiento` de la `aplicación`. Hay casos en los que un atacante puede `escalar` un `ataque de inyección SQL` para `comprometer` el `servidor subyacente` u otra `infraestructura de backend`. Además de esto, también puede permitirles realizar `ataques de denegación de servicio`
 
-## Detectar vulnerabilidades de inyección SQL
+## ¿Cómo detectar una inyección SQL?
 
 Es posible `detectar inyecciones SQL` de varias formas, en mi caso uso estas:
 
