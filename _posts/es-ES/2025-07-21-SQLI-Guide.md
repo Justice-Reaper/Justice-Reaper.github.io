@@ -31,7 +31,7 @@ La `inyección SQL (SQLi)` es una `vulnerabilidad de seguridad web` que permite 
 
 En muchos casos, un atacante puede `modificar` o `eliminar` estos `datos`, causando `cambios persistentes` en el `contenido` o el `comportamiento` de la `aplicación`. Hay casos en los que un atacante puede `escalar` un `ataque de inyección SQL` para `comprometer` el `servidor subyacente` u otra `infraestructura de backend`. Además de esto, también puede permitirles realizar `ataques de denegación de servicio`
 
-## ¿Cómo detectar una inyección SQL?
+## ¿Cómo detectar y explotar una inyección SQL?
 
 Es posible `detectar inyecciones SQL` de varias formas, sigo estos pasos:
 
@@ -66,6 +66,8 @@ Tenemos estas dos `herramientas` para `automatizar` la `explotación` de `inyecc
 - Ghauri [https://github.com/r0oth3x49/ghauri.git](https://github.com/r0oth3x49/ghauri.git)
 
 - Sqlmap [https://github.com/sqlmapproject/sqlmap.git](https://github.com/sqlmapproject/sqlmap.git)
+
+- SQLMap DNS Collaborator [https://github.com/portswigger/sqlmap-dns-collaborator](https://github.com/portswigger/sqlmap-dns-collaborator)
 
 ## Inyección SQL en diferentes partes de la consulta
 
