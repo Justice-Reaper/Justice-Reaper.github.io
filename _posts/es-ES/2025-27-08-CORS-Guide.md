@@ -1,15 +1,13 @@
 ---
-title: CORS guide
-description: Guía sobre la vulnerabilidad CORS
+title: "CORS guide"
+description: "Guía sobre la vulnerabilidad CORS"
 date: 2025-27-08 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger
-  - Guide
+  - Portswigger Guides
 tags:
-  - Portswigger
-  - Guide
+  - Portswigger Guides
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
@@ -31,7 +29,7 @@ image:
 
 El `Cross-Origin Resource Sharing (CORS)` es un `mecanismo` del `navegador` que permite el `acceso controlado` a `recursos` ubicados fuera de un `dominio` determinado. Amplía y flexibiliza la `SOP`. Sin embargo, también puede generar `ataques cross-domain` si la `política de CORS` de un `sitio web` está `mal configurada` o `mal implementada`. El `CORS` no protegerá contra ataques `cross-origin`, como el `CSRF`
 
-![[image_1.png]]
+![](/assets/img/CORS-Guide/image_1.png)
 
 ## ¿Qúe es la same-origin policy (SOP)?
 
