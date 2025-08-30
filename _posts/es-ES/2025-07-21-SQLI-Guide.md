@@ -33,17 +33,21 @@ En muchos casos, un atacante puede `modificar` o `eliminar` estos `datos`, causa
 
 ## ¿Cómo detectar una inyección SQL?
 
-Es posible `detectar inyecciones SQL` de varias formas, en mi caso uso estas:
+Es posible `detectar inyecciones SQL` de varias formas, sigo estos pasos:
 
-1. `Analizar la query con sqlmap 2 veces`, debido a que `puede fallar en ocasiones `
+1. Hacer un` escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
 
-2. `Analizar la query con ghauri 2 veces` para `confirmar que sqlmap no se saltó nada`
+2. `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
 
-3. Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+3. `Analizar la query con sqlmap 2 veces`, debido a que `puede fallar en ocasiones `
 
-4. `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
+4. `Analizar la query con ghauri 2 veces` para `confirmar que sqlmap no se saltó nada`
 
-5. Si no encontramos nada, nos centraremos en buscar `inyecciones SQL de forma manual` utilizando las `cheatsheets` de `Portswigger, PayloadsAllTheThings y Hacktricks`
+5. Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+
+6. `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
+
+7. Si no encontramos nada, nos centraremos en buscar `inyecciones SQL de forma manual` utilizando las `cheatsheets` de `Portswigger, PayloadsAllTheThings y Hacktricks`
 
 ## Cheatsheets de inyecciones SQL
 
