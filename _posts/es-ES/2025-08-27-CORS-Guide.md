@@ -446,7 +446,7 @@ El `servidor de la aplicación` está confiando en `solicitudes a recursos` desd
 
 ## Cheatsheets para CORS
 
-En `Hacktricks` tenemos una `metodología` para `encontrar XSS` y `explotarlos`. En `Portswigger` tenemos diferentes `payloads` que, combinados con `Burpsuite`, nos permiten `identificar` qué `tags` y `eventos` están `permitidos` y de esta forma `construir un payload válido`. En `PayloadsAllTheThings` tenemos `payloads` que podemos `usar` y `herramientas recomendadas`
+En `Hacktricks` tenemos una `metodología` para `encontrar errores de configuración en CORS` y `explotarlos`. En `PayloadsAllTheThings` tenemos `payloads` que podemos `usar`. En `Portswigger` tenemos diferentes `payloads`, los cuales podemos usar para `bypassear` ciertos `filtros` que las `webs` apliquen al `valor` de la `cabecera Origin`
 
 - Hacktricks [https://book.hacktricks.wiki/en/pentesting-web/cors-bypass.html](https://book.hacktricks.wiki/en/pentesting-web/cors-bypass.html)
 
