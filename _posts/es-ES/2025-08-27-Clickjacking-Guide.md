@@ -35,9 +35,13 @@ Este `ataque` se diferencia de un `ataque CSRF` en que el `usuario` debe r
 
 La `protección` contra los `ataques CSRF` suele proporcionarse mediante el uso de un `token CSRF` vinculado a una `cookie` de `sesión`. Los `tokens CSRF` no puede bloquear un `ataque de clickjacking` porque el `navegador` enviará `automáticamente` el `token CSRF`, esto es debido a que el `ataque` ocurre dentro de la `sesión del usuario` y dentro del `propio dominio`. Por lo tanto, la única diferencia con una `sesión normal`, sería que el `proceso` ocurre dentro de un `iframe oculto`
 
-## ¿Cómo identificar una web vulnerable a clickjacking?
+## ¿Cómo detectar y explotar un clickjacking?
 
-Podemos usar el `escáner` de `Burpsuite` o herramientas como `Security Headers` [https://securityheaders.com/](https://securityheaders.com/) o Shcheck [https://github.com/santoru/shcheck.git](https://github.com/santoru/shcheck.git)  para `identificar` las `cabeceras de seguridad` de una `web`
+Es posible `detectar` una web `vulnerable` a `clickjacking` de varias formas, en mi caso sigo estos pasos:
+
+1. Usaremos herramientas como `Security Headers` [https://securityheaders.com/](https://securityheaders.com/) o Shcheck [https://github.com/santoru/shcheck.git](https://github.com/santoru/shcheck.git)  para `identificar` las `cabeceras de seguridad` de una `web` y ver si es `vulnerable`
+
+2. `Creamos` un `PoC` usando `Clickbandit` 
 
 ## ¿Cómo construir un ataque de clickjacking?
 
