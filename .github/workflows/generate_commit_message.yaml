@@ -21,7 +21,7 @@ jobs:
         fetch-depth: 2  # Fetch the last two commits to perform a diff later.
 
     - name: Set up Python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v6
       with:
         python-version: 3.11  # Specify Python version.
 
