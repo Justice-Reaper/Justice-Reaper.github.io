@@ -48,4 +48,6 @@ Here are some of my key projects:
 - [TFG-DAM](https://github.com/Justice-Reaper/TFG-DAM.git) – Final project for my associate’s degree in Multiplatform Application Development (MAD)
 - [graphQLConverter](https://github.com/Justice-Reaper/graphQLConverter.git) – Converts GraphQL JSON to URL-encoded format
 - [httpProxyPortScanner](https://github.com/Justice-Reaper/httpProxyPortScanner.git) – Port scanner using HTTP proxies
-- [wallapopMessagesDownloader](https://github.com/Justice-Reaper/wallapopMessagesDownloader.git) - Tool to download chat messages from Wallapop
+- [payloadSplitter](https://github.com/Justice-Reaper/PayloadSplitter.git) – Splits large files into smaller chunks with customizable sizes
+- [getTopPorts](https://github.com/Justice-Reaper/getTopPorts.git) – Extracts the most common ports from Nmap
+- [wallapopMessagesDownloader](https://github.com/Justice-Reaper/wallapopMessagesDownloader.git) – Downloads and saves Wallapop inbox messages using the Wallapop API
