@@ -440,9 +440,11 @@ El `servidor de la aplicación` está confiando en `solicitudes a recursos` desd
 
 6. Si en este punto `no podemos explotar CORS`, tenemos que buscar un `dominio de confianza` que sea `vulnerable` a `XSS`. Para ello, debemos revisar la `guía de XSS` para saber como `identificarlos`
 
-7. Para crear un `PoC` usaremos `C0rsPwn3r` o lo haremos de forma `manual`
+7. Si no encontramos nada, procedemos a buscar de `forma manual` siguiendo los pasos de `PayloadsAllTheThings` y `Hacktricks`
 
-8. En el caso de estar en una `intranet` usaremos `of-CORS` para la `explotación`
+8. Para crear un `PoC` usaremos `C0rsPwn3r` o lo haremos de forma `manual`
+
+9. En el caso de estar en una `intranet` usaremos `of-CORS` para la `explotación`
 
 ## Cheatsheets para CORS
 
