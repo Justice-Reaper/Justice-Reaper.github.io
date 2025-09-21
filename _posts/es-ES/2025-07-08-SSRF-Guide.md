@@ -219,33 +219,35 @@ Es posible `detectar SSRF` de varias formas, en mi caso sigo estos pasos:
 
 3. `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
 
-4. Una vez detectada la vulnerabilidad, si tiene este aspecto `http://192.168.0.1:8080/product/stock/check?productId=1&storeId=1` vamos a intentar ver si tiene algo corriendo en el localhost `http://127.0.0.1:FUZZ`, para ello podemos usar el `Intruder` o `ffuf`. Podemos escanear los `65535` puertos existentes o usar la herramienta `getTopPorts` [https://github.com/Justice-Reaper/getTopPorts.git](https://github.com/Justice-Reaper/getTopPorts.git) para `obtener` los `puertos más comunes` y efectuar el `escaneo` más `rápido`
+4. Si el `escáner` de `Burpsuite` no encuentra nada, procedemos a buscar de `forma manual` siguiendo los pasos de `PayloadsAllTheThings` y `Hacktricks`
 
-5. Si no encontramos nada en el `localhost`, escanearemos las posibles rutas `http://192.168.0.1:8080/FUZZ` para ver si hay algo interesante. En mi caso uso los `diccionarios` de `seclists`
+5. Una vez detectada la vulnerabilidad, si tiene este aspecto `http://192.168.0.1:8080/product/stock/check?productId=1&storeId=1` vamos a intentar ver si tiene algo corriendo en el localhost `http://127.0.0.1:FUZZ`, para ello podemos usar el `Intruder` o `ffuf`. Podemos escanear los `65535` puertos existentes o usar la herramienta `getTopPorts` [https://github.com/Justice-Reaper/getTopPorts.git](https://github.com/Justice-Reaper/getTopPorts.git) para `obtener` los `puertos más comunes` y efectuar el `escaneo` más `rápido`
 
-6. En el caso de no encontrar nada, procederemos a buscar si hay servicios en otros puertos `http://192.168.0.1:FUZZ`
+6. Si no encontramos nada en el `localhost`, escanearemos las posibles rutas `http://192.168.0.1:8080/FUZZ` para ver si hay algo interesante. En mi caso uso los `diccionarios` de `seclists`
 
-7. Si no encontramos nada, vamos a `fuzzear` para ver si hay algún otro dispositivo que esté `corriendo` algún `servicio` por el mismo puerto `http://192.168.0.FUZZ:8080`
+7. En el caso de no encontrar nada, procederemos a buscar si hay servicios en otros puertos `http://192.168.0.1:FUZZ`
 
-8. Si no hay nada procederemos a buscar otros dispositivos conectados a la red, para ello `fuzzearemos` de esta forma `http://192.168.0.FUZZ:FUZZ`. Para el `primer elemento` a `fuzzear` usaremos `números` desde el `0 al 255` y para el `segundo elemento` usaremos `puertos`
+8. Si no encontramos nada, vamos a `fuzzear` para ver si hay algún otro dispositivo que esté `corriendo` algún `servicio` por el mismo puerto `http://192.168.0.FUZZ:8080`
 
-9. Si no encontramos nada, ampliamos la búsqueda `http://192.168.FUZZ.FUZZ:FUZZ`. Para los `dos primeros elementos` a `fuzzear` usaremos `números` desde el `0 al 255` y para el `tercer elemento` usaremos `puertos`
+9. Si no hay nada procederemos a buscar otros dispositivos conectados a la red, para ello `fuzzearemos` de esta forma `http://192.168.0.FUZZ:FUZZ`. Para el `primer elemento` a `fuzzear` usaremos `números` desde el `0 al 255` y para el `segundo elemento` usaremos `puertos`
 
-10. Si no encontramos nada, ampliamos la búsqueda `http://192.FUZZ.FUZZ.FUZZ:FUZZ`. Para los `tres primeros elementos` a `fuzzear` usaremos `números` desde el `0 al 255` y para el `cuarto elemento` usaremos `puertos`
+10. Si no encontramos nada, ampliamos la búsqueda `http://192.168.FUZZ.FUZZ:FUZZ`. Para los `dos primeros elementos` a `fuzzear` usaremos `números` desde el `0 al 255` y para el `tercer elemento` usaremos `puertos`
 
-11. Si no encontramos nada, ampliamos la búsqueda `http://FUZZ.FUZZ.FUZZ.FUZZ:FUZZ`. Para los `cuatro primeros elementos` a `fuzzear` usaremos `números` desde el `0 al 255` y para el `quinto elemento` usaremos `puertos`
+11. Si no encontramos nada, ampliamos la búsqueda `http://192.FUZZ.FUZZ.FUZZ:FUZZ`. Para los `tres primeros elementos` a `fuzzear` usaremos `números` desde el `0 al 255` y para el `cuarto elemento` usaremos `puertos`
 
-12. Sabremos que hemos encontrado otro `dispositivo` porque nos `devolverá un código de estado o error diferente`, puede ser un `200, 404 etc`. Una vez hecho esto vamos a `fuzzear` por rutas `http://192.168.0.1:8080/FUZZ`
+12. Si no encontramos nada, ampliamos la búsqueda `http://FUZZ.FUZZ.FUZZ.FUZZ:FUZZ`. Para los `cuatro primeros elementos` a `fuzzear` usaremos `números` desde el `0 al 255` y para el `quinto elemento` usaremos `puertos`
 
-13. Puede ser que se nos `devuelva algún código de estado o error diferente` indicando que hay alguna `dirección IP blacklisteada`. Para estas situaciones usaremos la extensión `Encode IP` de `Burpsuite` y las herramientas `Ipfuscator` y `SSRF Payload Generator`, en ese orden. En el caso en el que esté la dirección `127.0.0.1` o el `localhost` blacklistado podemos usar la `cheatsheet de Portswigger` o `SSRF PayloadMaker`. Aunque estas dos últimas `herramientas` no estén hechas para esta función disponen de un `mayor número de payloads` para estas `situaciones`. Si ninguna de estas funciona debemos checkear `PayloadsAllTheThings` y `Portswigger` para ver si se puede efectuar otro `bypass` que no esté `contemplado`
+13. Sabremos que hemos encontrado otro `dispositivo` porque nos `devolverá un código de estado o error diferente`, puede ser un `200, 404 etc`. Una vez hecho esto vamos a `fuzzear` por rutas `http://192.168.0.1:8080/FUZZ`
 
-14. Si recibimos un `código de estado o error diferente` indicando que hay alguna `dirección ruta blacklisteada`, podemos usar `Recollapse` para efectuar un `bypass`. En el caso de no funcionar, deberemos echar un vistazo primeramente a esta `guía de ofuscación` [https://justice-reaper.github.io/posts/Ofuscation-Guide/](https://justice-reaper.github.io/posts/Ofuscation-Guide/) y si no funciona deberemos checkear `Hacktricks`
+14. Puede ser que se nos `devuelva algún código de estado o error diferente` indicando que hay alguna `dirección IP blacklisteada`. Para estas situaciones usaremos la extensión `Encode IP` de `Burpsuite` y las herramientas `Ipfuscator` y `SSRF Payload Generator`, en ese orden. En el caso en el que esté la dirección `127.0.0.1` o el `localhost` blacklistado podemos usar la `cheatsheet de Portswigger` o `SSRF PayloadMaker`. Aunque estas dos últimas `herramientas` no estén hechas para esta función disponen de un `mayor número de payloads` para estas `situaciones`. Si ninguna de estas funciona debemos checkear `PayloadsAllTheThings` y `Portswigger` para ver si se puede efectuar otro `bypass` que no esté `contemplado`
 
-15. Si estamos ante un `Blind SSRF` usaremos la `cheatsheet de Portswigger` o `SSRF PayloadMaker` para `detectarlo`. Esta `última herramienta` nos proporciona un `mayor número de payloads`
+15. Si recibimos un `código de estado o error diferente` indicando que hay alguna `dirección ruta blacklisteada`, podemos usar `Recollapse` para efectuar un `bypass`. En el caso de no funcionar, deberemos echar un vistazo primeramente a esta `guía de ofuscación` [https://justice-reaper.github.io/posts/Ofuscation-Guide/](https://justice-reaper.github.io/posts/Ofuscation-Guide/) y si no funciona deberemos checkear `Hacktricks`
 
-16. Si encontramos un `open redirect` debemos fijarnos bien si podemos `derivarlo` a un `SSRF`
+16. Si estamos ante un `Blind SSRF` usaremos la `cheatsheet de Portswigger` o `SSRF PayloadMaker` para `detectarlo`. Esta `última herramienta` nos proporciona un `mayor número de payloads`
 
-17. Desafortunadamente en los laboratorios de `Portswigger` no funciona `SSRFmap`, pero es una `herramienta` muy `recomendable` si es posible usarla
+17. Si encontramos un `open redirect` debemos fijarnos bien si podemos `derivarlo` a un `SSRF`
+
+18. Desafortunadamente en los laboratorios de `Portswigger` no funciona `SSRFmap`, pero es una `herramienta` muy `recomendable` si es posible usarla
 
 ## Cheatsheets para SSRF
 
