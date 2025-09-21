@@ -1,6 +1,6 @@
 ---
-title: SSRF guide
-description: Guía sobre la vulnerabilidad SSRF
+title: "SSRF guide"
+description: "Guía sobre la vulnerabilidad SSRF"
 date: 2025-07-08 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -21,7 +21,7 @@ image:
   
 ## Descripción
 
-`Explicación técnica de la vulnerabilidad SSRF`. Detallamos cómo `identificar` y `explotar` esta vulnerabilidad, tanto `manualmente` como con `herramientas automatizadas`. Además, exploramos `estrategias clave para prevenirla`
+`Explicación técnica de la vulnerabilidad SSRF`. Detallamos cómo `identificar` y `explotar` esta vulnerabilidad, tanto `manualmente` como con `herramientas automatizadas`
 
 ---
 
