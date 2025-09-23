@@ -455,6 +455,7 @@ En `Hacktricks` tenemos una `metodología` para `encontrar errores de configurac
 - Portswigger [https://portswigger.net/web-security/ssrf/url-validation-bypass-cheat-sheet](https://portswigger.net/web-security/ssrf/url-validation-bypass-cheat-sheet)
 
 - PayloadsAllTheThings [https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/CORS%20Misconfiguration](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/CORS%20Misconfiguration)
+
 ## Herramientas
 
 Tenemos estas `herramientas` para `facilitar` la `detección` y `explotación` de `CORS`:
