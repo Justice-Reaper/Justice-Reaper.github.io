@@ -434,7 +434,7 @@ El `servidor de la aplicación` está confiando en `solicitudes a recursos` desd
 
 3. Para verificar los `dominios de confianza` usaremos la extensión `Trusted Domain CORS Scanner` de `Burpsuite`
 
-4. Si preferimos usar herramientas por consola podemos usar `CORScanner`, `CorsOne` o `CorsMe`. La que más me gusta de todas es `CORScanner`, ya que `CorsOne` y `CorsMe` tienen el problema de que para detectar si el `Origin` acepta como valor `null`, solo prueban con el valor `Null` y no con `NULL` o `null`, y esto puede provocar que `no detecten la vulnerabilidad en ciertas ocasiones`
+4. Si preferimos usar herramientas por consola podemos usar `CORScanner`, `CorsOne` o `CorsMe`. La que más gustan son `CORScanner` y `CorsOne`, ya que `CorsMe` tienen el problema de que para detectar si el `Origin` acepta como valor `null`, solo prueban con el valor `Null` y no con `NULL` o `null`, y esto puede provocar que `no detecten la vulnerabilidad en ciertas ocasiones`
 
 5. Si tenemos dudas de cómo explotar el ataque, `Corsy` nos da pistas sobre ello
 
