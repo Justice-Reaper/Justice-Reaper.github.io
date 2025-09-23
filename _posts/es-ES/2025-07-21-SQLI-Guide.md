@@ -75,13 +75,15 @@ Es posible `detectar inyecciones SQL` de varias formas, sigo estos pasos:
 
 3. `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
 
-4. `Analizar la query con sqlmap 2 veces`, debido a que `puede fallar en ocasiones `
+4. Realizar un `ataque` con la extensión `Agartha` de `Burpsuite`
 
-5. `Analizar la query con ghauri 2 veces` para `confirmar que sqlmap no se saltó nada`
+5. Ejecutar un `ataque de fuerza bruta` con los `diccionarios` recomendados
 
-6. Ejecutar un `ataque de fuerza bruta` con los `diccionarios` recomendados
+6. `Analizar la query con sqlmap 2 veces`, debido a que `puede fallar en ocasiones `
 
-7. Si lo anterior no funciona, nos centraremos en buscar `inyecciones SQL de forma manual` utilizando las `cheatsheets` de `Portswigger, PayloadsAllTheThings y Hacktricks`
+7. `Analizar la query con ghauri 2 veces` para `confirmar que sqlmap no se saltó nada`
+
+8. Si lo anterior no funciona, nos centraremos en buscar `inyecciones SQL de forma manual` utilizando las `cheatsheets` de `Portswigger, PayloadsAllTheThings y Hacktricks`
 
 ## Cheatsheets de inyecciones SQL
 
@@ -102,6 +104,8 @@ Tenemos estas dos `herramientas` para `automatizar` la `explotación` de `inyecc
 - Sqlmap [https://github.com/sqlmapproject/sqlmap.git](https://github.com/sqlmapproject/sqlmap.git)
 
 - SQLMap DNS Collaborator [https://github.com/portswigger/sqlmap-dns-collaborator](https://github.com/portswigger/sqlmap-dns-collaborator)
+
+- Agartha [https://github.com/PortSwigger/agartha.git](https://github.com/PortSwigger/agartha.git)
 
 ## Diccionarios
 
