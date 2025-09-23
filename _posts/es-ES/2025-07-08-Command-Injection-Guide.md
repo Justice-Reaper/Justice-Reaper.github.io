@@ -1,6 +1,6 @@
 ---
 title: Command injection guide
-description: Guía sobre la vulnerabilidad command injection
+description: Guía sobre Command Injection
 date: 2025-07-08 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -75,7 +75,7 @@ Colocar el `&` después del `comando inyectado` es útil porque `separa` el `com
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- OS command injection, simple case - [https://justice-reaper.github.io/posts/OS-Command-Injection-Lab-1/](https://justice-reaper.github.io/posts/OS-Command-Injection-Lab-1/)
+- Command injection, simple case - [https://justice-reaper.github.io/posts/Command-Injection-Lab-1/](https://justice-reaper.github.io/posts/Command-Injection-Lab-1/)
 
 ## Blind command injection
 
@@ -103,7 +103,7 @@ Este comando hace que la aplicación `haga un ping a su loopback durante 10 segu
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Blind OS command injection with time delays - [https://justice-reaper.github.io/posts/OS-Command-Injection-Lab-2/](https://justice-reaper.github.io/posts/OS-Command-Injection-Lab-2/)
+- Blind command injection with time delays - [https://justice-reaper.github.io/posts/Command-Injection-Lab-2/](https://justice-reaper.github.io/posts/Command-Injection-Lab-2/)
 
 ### Explotar blind command injection redirigiendo su output
 
@@ -121,7 +121,7 @@ https://vulnerable-website.com/whoami.txt
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Blind OS command injection with output redirection - [https://justice-reaper.github.io/posts/OS-Command-Injection-Lab-3/](https://justice-reaper.github.io/posts/OS-Command-Injection-Lab-3/)
+- Blind command injection with output redirection - [https://justice-reaper.github.io/posts/Command-Injection-Lab-3/](https://justice-reaper.github.io/posts/Command-Injection-Lab-3/)
 
 ### Explotar un blind command injection usando técnicas out-of-band (OAST)
 
@@ -133,7 +133,7 @@ Se puede usar un `comando inyectado` que `genere` una `interacción` con un `sis
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Blind OS command injection with out-of-band interaction - [https://justice-reaper.github.io/posts/OS-Command-Injection-Lab-4/](https://justice-reaper.github.io/posts/OS-Command-Injection-Lab-4/)
+- Blind command injection with out-of-band interaction - [https://justice-reaper.github.io/posts/Command-Injection-Lab-4/](https://justice-reaper.github.io/posts/Command-Injection-Lab-4/)
 
 El `atacante` puede `concatenar` un `comando` al `payload` anterior para saber si `el comando fue ejecutado con éxito`. Por ejemplo:
 
@@ -149,7 +149,7 @@ wwwuser.kgji2ohoyw.web-attacker.com
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Blind OS command injection with out-of-band data exfiltration - [https://justice-reaper.github.io/posts/OS-Command-Injection-Lab-5/](https://justice-reaper.github.io/posts/OS-Command-Injection-Lab-5/)
+- Blind command injection with out-of-band data exfiltration - [https://justice-reaper.github.io/posts/Command-Injection-Lab-5/](https://justice-reaper.github.io/posts/Command-Injection-Lab-5/)
 
 ## Comandos útiles
 

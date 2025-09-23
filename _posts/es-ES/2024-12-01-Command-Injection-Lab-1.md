@@ -1,16 +1,16 @@
 ---
-title: "OS command injection, simple case"
-description: "Laboratorio de Portswigger sobre OS Command Injection"
+title: "Command injection, simple case"
+description: "Laboratorio de Portswigger sobre Command Injection"
 date: 2024-12-01 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger Labs
-  - OS Command Injection
+  - Command Injection
 tags:
   - Portswigger Labs
-  - OS Command Injection
-  - OS command injection, simple case
+  - Command Injection
+  - Command injection, simple case
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
@@ -28,19 +28,23 @@ Este `laboratorio` contiene una `vulnerabilidad` de `inyección` de `comandos` d
 
 ---
 
+## Guía de command injection
+
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de command injection` [https://justice-reaper.github.io/posts/Command-Injection-Guide/](https://justice-reaper.github.io/posts/Command-Injection-Guide/)
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto
 
-![](/assets/img/OS-Command-Injection-Lab-1/image_1.png)
+![](/assets/img/Command-Injection-Lab-1/image_1.png)
 
 Pulsamos en `View details` y vemos la `descripción`
 
-![](/assets/img/OS-Command-Injection-Lab-1/image_2.png)
+![](/assets/img/Command-Injection-Lab-1/image_2.png)
 
 Hacemos `click` sobre `Check stock` y `capturamos` la `petición` con `Burpsuite`
 
-![](/assets/img/OS-Command-Injection-Lab-1/image_3.png)
+![](/assets/img/Command-Injection-Lab-1/image_3.png)
 
 En Hacktricks [https://book.hacktricks.xyz/pentesting-web/command-injection#command-injection-execution](https://book.hacktricks.xyz/pentesting-web/command-injection#command-injection-execution) tenemos varios `payload` para probar `inyecciones` de `comandos`, en este caso usamos el pipe `|` para `ejecutar comandos`
 
