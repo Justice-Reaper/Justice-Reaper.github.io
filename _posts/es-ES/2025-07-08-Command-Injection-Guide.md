@@ -1,6 +1,6 @@
 ---
-title: Command injection guide
-description: Guía sobre Command Injection
+title: "Command injection guide"
+description: "Guía sobre Command Injection"
 date: 2025-07-08 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -194,7 +194,7 @@ A veces, el `input` que `controlamos` aparece dentro de `comillas` en el `comand
 
 ## ¿Cómo detectar y explotar un command injection?
 
-Es posible `detectar SSRF` de varias formas, en mi caso sigo estos pasos:
+Es posible `detectar` un `command injection` de varias formas, en mi caso sigo estos pasos:
 
 1. `Añadir` el `dominio` y sus `subdominios` al `scope`
 
