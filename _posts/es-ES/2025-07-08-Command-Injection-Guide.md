@@ -204,13 +204,9 @@ Es posible `detectar` un `command injection` de varias formas, en mi caso sigo e
 
 4. Desafortunadamente, `Commix` no funciona al `100%` en los `laboratorios de Portswigger` por el `firewall` que tienen implementado pero es una `herramienta` muy `recomendable` si es posible usarla
 
-5. Realizar un `ataque` con la extensión `Agartha` de `Burpsuite`
+5. Realizar un `ataque de fuerza bruta` con el `Intruder` y los `diccionarios recomendados`. Si no encontramos nada, usar los `payloads` de la extensión `Agartha` de `Burpsuite` y si tampoco encontramos nada, usar la extensión `Command injection attacker` de `Burpsuite`. Es recomendable setear la opción `Delay between requests` en `1` y desactivar el `Automatic throttling` para que `el tiempo de respuesta del servidor varíe lo menos posible`. También debemos `disminuir` el `número de hilos` para `no colapsar` el `servidor`
 
-6. Si no encontramos nada realizar un `ataque` con la extensión `Command injection attacker` de `Burpsuite`
-
-7. Ejecutar un `ataque de fuerza bruta` con los `diccionarios` recomendados
-
-8. Si no encontramos nada con los `escáneres` podemos `checkear` las `cheatsheets` de `PayloadsAllTheThings` y `Hacktricks` pero lo más seguro es que haya un `command injection`
+6. Si no encontramos nada con los `escáneres` podemos `checkear` las `cheatsheets` de `PayloadsAllTheThings` y `Hacktricks` pero lo más seguro es que haya un `command injection`
 
 ## Cheatsheets para command injection
 
