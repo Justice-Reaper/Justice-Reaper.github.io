@@ -198,7 +198,7 @@ Es posible `detectar` un `command injection` de varias formas, en mi caso sigo e
 
 1. `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-2. Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+2. Hacer un `escaneo general` mediante `Burpsuite` con las extensiones `Collaborator Everywhere` y `Command injection attacker` instaladas. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
 
 3. `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
 
@@ -221,6 +221,8 @@ En `PayloadsAllTheThings` y  en `Hacktricks` tenemos diferentes `tipos de ataque
 Tenemos estas `herramientas` para `automatizar` la `detección` y `explotación` de un `command injection`:
 
 - Command injection attacker [https://github.com/PortSwigger/command-injection-attacker.git](https://github.com/PortSwigger/command-injection-attacker.git)
+
+- Collaborator Everywhere [https://github.com/PortSwigger/collaborator-everywhere-v2.git](https://github.com/PortSwigger/collaborator-everywhere-v2.git)
 
 - Agartha [https://github.com/PortSwigger/agartha.git](https://github.com/PortSwigger/agartha.git)
 
