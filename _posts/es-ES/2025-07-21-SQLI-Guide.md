@@ -75,15 +75,13 @@ Es posible `detectar inyecciones SQL` de varias formas, sigo estos pasos:
 
 3. `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
 
-4. Realizar un `ataque` con la extensión `Agartha` de `Burpsuite`
+4. `Analizar la query con sqlmap 2 veces`, debido a que `puede fallar en ocasiones `
 
-5. Ejecutar un `ataque de fuerza bruta` con los `diccionarios` recomendados
+5. `Analizar la query con ghauri 2 veces` para `confirmar que sqlmap no se saltó nada`
 
-6. `Analizar la query con sqlmap 2 veces`, debido a que `puede fallar en ocasiones `
+6. Realizar un `ataque de fuerza bruta` con el `Intruder` y los `diccionarios` de `Loxs`. Si no encontramos nada usar los `payloads` de los `diccionarios recomendados` y si tampoco encontramos nada, usar la extensión `Agartha` de `Burpsuite`. Es recomendable setear la opción `Delay between requests` en `1` y desactivar el `Automatic throttling` para que `el tiempo de respuesta del servidor varíe lo menos posible`. También debemos `disminuir` el `número de hilos` para `no colapsar` el `servidor`
 
-7. `Analizar la query con ghauri 2 veces` para `confirmar que sqlmap no se saltó nada`
-
-8. Si lo anterior no funciona, nos centraremos en buscar `inyecciones SQL de forma manual` utilizando las `cheatsheets` de `Portswigger, PayloadsAllTheThings y Hacktricks`
+7. Si lo anterior no funciona, nos centraremos en buscar `inyecciones SQL de forma manual` utilizando las `cheatsheets` de `Portswigger, PayloadsAllTheThings y Hacktricks`
 
 ## Cheatsheets de inyecciones SQL
 
@@ -106,6 +104,8 @@ Tenemos estas dos `herramientas` para `automatizar` la `explotación` de `inyecc
 - SQLMap DNS Collaborator [https://github.com/portswigger/sqlmap-dns-collaborator](https://github.com/portswigger/sqlmap-dns-collaborator)
 
 - Agartha [https://github.com/PortSwigger/agartha.git](https://github.com/PortSwigger/agartha.git)
+
+- Loxs [https://github.com/coffinxp/loxs.git](https://github.com/coffinxp/loxs.git)
 
 ## Diccionarios
 
