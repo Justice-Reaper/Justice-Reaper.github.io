@@ -426,13 +426,23 @@ Access-Control-Allow-Origin: *
 
 El `servidor de la aplicación` está confiando en `solicitudes a recursos` desde `cualquier origen` sin `credenciales`. Si los `usuarios dentro del espacio de IP privadas` acceden a `internet`, entonces se puede realizar un `ataque CORS` desde un `sitio externo` que utilice el `navegador de la víctima` como `proxy` para acceder a los `recursos de la intranet`
 
+## Cheatsheet
+
+Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
+
+- Hacking Cheatsheet [https://justice-reaper.github.io/posts/Hacking-Cheatsheet/](https://justice-reaper.github.io/posts/Hacking-Cheatsheet/)
+
 ## ¿Cómo detectar y explotar una mala configuración de CORS?
 
-1. `Añadir` el `dominio` y sus `subdominios` al `scope`
+Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-2. Primeramente usaremos la extensión `CORS* - Additional CORS Checks` de `Burpsuite`
+1. `Instalar` las `extensiones básicas` de `Burpsuite`. También debemos `instalar` las extensiones `CORS* - Additional CORS Checks` y `Trusted Domain CORS Scanner`
 
-3. Para verificar los `dominios de confianza` usaremos la extensión `Trusted Domain CORS Scanner` de `Burpsuite`
+2. `Añadir` el `dominio` y sus `subdominios` al `scope`
+
+3. Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+
+4. `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
 
 4. Si preferimos usar herramientas por consola podemos usar `CORScanner`, `CorsOne` o `CorsMe`. La que más gustan son `CORScanner` y `CorsOne`, ya que `CorsMe` tienen el problema de que para detectar si el `Origin` acepta como valor `null`, solo prueban con el valor `Null` y no con `NULL` o `null`, y esto puede provocar que `no detecten la vulnerabilidad en ciertas ocasiones`
 
@@ -445,36 +455,6 @@ El `servidor de la aplicación` está confiando en `solicitudes a recursos` desd
 8. Para crear un `PoC` usaremos `C0rsPwn3r` o lo haremos de forma `manual`
 
 9. En el caso de estar en una `intranet` usaremos `of-CORS` para la `explotación`
-
-## Cheatsheets para CORS
-
-En `Hacktricks` tenemos una `metodología` para `encontrar errores de configuración en CORS` y `explotarlos`. En `PayloadsAllTheThings` tenemos `payloads` que podemos `usar`. En `Portswigger` tenemos diferentes `payloads`, los cuales podemos usar para `bypassear` ciertos `filtros` que las `webs` apliquen al `valor` de la `cabecera Origin`
-
-- Hacktricks [https://book.hacktricks.wiki/en/pentesting-web/cors-bypass.html](https://book.hacktricks.wiki/en/pentesting-web/cors-bypass.html)
-
-- Portswigger [https://portswigger.net/web-security/ssrf/url-validation-bypass-cheat-sheet](https://portswigger.net/web-security/ssrf/url-validation-bypass-cheat-sheet)
-
-- PayloadsAllTheThings [https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/CORS%20Misconfiguration](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/CORS%20Misconfiguration)
-
-## Herramientas
-
-Tenemos estas `herramientas` para `facilitar` la `detección` y `explotación` de `CORS`:
-
-- CorsOne [https://github.com/omranisecurity/CorsOne.git](https://github.com/omranisecurity/CorsOne.git)
-
-- CORScanner [https://github.com/chenjj/CORScanner.git](https://github.com/chenjj/CORScanner.git)
-
-- CorsMe [https://github.com/Shivangx01b/CorsMe.git](https://github.com/Shivangx01b/CorsMe.git)
-
-- Corsy [https://github.com/s0md3v/Corsy.git](https://github.com/s0md3v/Corsy.git)
-
-- CORS* - Additional CORS Checks [https://github.com/PortSwigger/additional-cors-checks.git](https://github.com/PortSwigger/additional-cors-checks.git)
-
-- Trusted Domain CORS Scanner [https://github.com/PortSwigger/trusted-domain-cors-scanner.git](https://github.com/PortSwigger/trusted-domain-cors-scanner.git)
-
-- C0rsPwn3r [https://github.com/YaiYai8/C0rsPwn3r.git](https://github.com/YaiYai8/C0rsPwn3r.git)
-
-- of-CORS [https://github.com/trufflesecurity/of-CORS.git](https://github.com/trufflesecurity/of-CORS.git)
 
 ## Prevenir ataques CORS-based
 
