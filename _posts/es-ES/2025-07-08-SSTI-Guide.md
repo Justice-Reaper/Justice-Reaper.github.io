@@ -73,7 +73,7 @@ Sin embargo, a veces este `comportamiento` se implementa de forma `intencionada`
 
 `Identificar` un `SSTI` y `elaborar` un `ataque exitoso` típicamente implica el siguiente `proceso` de `alto nivel`
 
-![[image_1.png]]
+![](/assets/img/SSTI-Guide/image_1.png)
 
 ### Detectar
 
@@ -157,7 +157,7 @@ Si no obtenemos un `mensaje de error claro`, tendremos que `probar manualmente p
 
 Una forma común de hacerlo es `inyectar operaciones matemáticas arbitrarias` usando la `sintaxis de diferentes motores de plantillas` y observar si se `evalúan correctamente`. Para ayudar en este proceso, podemos usar un `árbol de decisiones` similar al siguiente:
 
-![[image_2.png]]
+![](/assets/img/SSTI-Guide/image_2.png)
 
 ### Explotar
 
