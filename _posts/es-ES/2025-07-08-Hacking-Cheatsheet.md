@@ -12,12 +12,6 @@ image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
 
-## Descripción
-
-Cheatsheet de hacking
-
----
-
 ## Plataformas de bug bounty
 
 HackerOne [https://hackerone.com/](https://hackerone.com/)
