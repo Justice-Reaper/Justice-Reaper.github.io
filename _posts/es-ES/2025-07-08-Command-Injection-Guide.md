@@ -206,7 +206,7 @@ Es posible `detectar` un `command injection` de varias formas, en mi caso sigo e
 
 5. Realizar un `ataque de fuerza bruta` con el `Intruder` y los `diccionarios recomendados`. Si no encontramos nada, usar los `payloads` de la extensión `Agartha` de `Burpsuite` y si tampoco encontramos nada, usar la extensión `Command injection attacker` de `Burpsuite`. Es recomendable setear la opción `Delay between requests` en `1` y desactivar el `Automatic throttling` para que `el tiempo de respuesta del servidor varíe lo menos posible`. También debemos `disminuir` el `número de hilos` para `no colapsar` el `servidor`
 
-6. Si no encontramos nada con los `escáneres` podemos `checkear` las `cheatsheets` de `PayloadsAllTheThings` y `Hacktricks` pero lo más seguro es que haya un `command injection`
+6. Si no encontramos nada con los `escáneres` podemos `checkear` las `cheatsheets` de `PayloadsAllTheThings` y `Hacktricks` pero lo más seguro es que no haya un `command injection`
 
 ## Cheatsheets para command injection
 
