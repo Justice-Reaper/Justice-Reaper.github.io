@@ -26,6 +26,10 @@ YesWeHack [https://www.yeswehack.com/](https://www.yeswehack.com/)
 
 Exploit notes [https://exploit-notes.hdks.org/](https://exploit-notes.hdks.org/)
 
+Hideandsec [https://hideandsec.sh/](https://hideandsec.sh/)
+
+Deep Hacking [https://deephacking.tech/](https://deephacking.tech/)
+
 Hacktricks [https://book.hacktricks.wiki/en/index.html](https://book.hacktricks.wiki/en/index.html)
 
 PayloadsAllTheThings [https://github.com/swisskyrepo/PayloadsAllTheThings.git](https://github.com/swisskyrepo/PayloadsAllTheThings.git)
@@ -34,11 +38,9 @@ InternalAllTheThings [https://github.com/swisskyrepo/InternalAllTheThings.git](h
 
 HardwareAllTheThings [https://github.com/swisskyrepo/HardwareAllTheThings.git](https://github.com/swisskyrepo/HardwareAllTheThings.git)
 
-Deep Hacking [https://deephacking.tech/](https://deephacking.tech/)
-
-Hideandsec [https://hideandsec.sh/](https://hideandsec.sh/)
-
 Advanced Bug Hunting Toolkit [https://lostsec.xyz/](https://lostsec.xyz/)
+
+Awesome Bug Bounty Tools [https://github.com/vavkamil/awesome-bugbounty-tools.git](https://github.com/vavkamil/awesome-bugbounty-tools.git)
 
 ## Sistema Operativo
 
@@ -57,6 +59,20 @@ Tor [https://www.torproject.org/es/download/](https://www.torproject.org/es/down
 ## VPN
 
 TorGuard [https://torguard.net/](https://torguard.net/)
+
+## Correo electrónico temporal
+
+HouseHole [https://github.com/TheCyberpunker/houseHole.git](https://github.com/TheCyberpunker/houseHole.git)
+
+## Wifi
+
+Airgeddon [https://github.com/v1s1t0r1sh3r3/airgeddon.git](https://github.com/v1s1t0r1sh3r3/airgeddon.git)
+
+## Android
+
+Scrpy [https://github.com/Genymobile/scrcpy.git](https://github.com/Genymobile/scrcpy.git)
+
+MobSF [https://github.com/MobSF/Mobile-Security-Framework-MobSF.git](https://github.com/MobSF/Mobile-Security-Framework-MobSF.git)
 
 ## OSINT
 
@@ -118,49 +134,27 @@ PimEyes [https://pimeyes.com/](https://pimeyes.com/)
 
 Bug Bounty Search Engine [https://nitinyadav00.github.io/Bug-Bounty-Search-Engine/](https://nitinyadav00.github.io/Bug-Bounty-Search-Engine/)
 
-## Diccionarios
-
-Auto Wordlists [https://github.com/carlospolop/Auto_Wordlists.git](https://github.com/carlospolop/Auto_Wordlists.git)
-    
-SecLists [https://github.com/danielmiessler/SecLists.git](https://github.com/danielmiessler/SecLists.git)
-    
-Payloadbox [https://github.com/orgs/payloadbox/repositories](https://github.com/orgs/payloadbox/repositories)
-
-OneListForAll [https://github.com/six2dez/OneListForAll.git](https://github.com/six2dez/OneListForAll.git)
-
-Kaonashi [https://github.com/kaonashi-passwords/Kaonashi.git](https://github.com/kaonashi-passwords/Kaonashi.git)
-
-Weakpass [https://weakpass.com/](https://weakpass.com/)
-
-### Generar diccionarios
-
-CeWL [https://github.com/digininja/CeWL.git](https://github.com/digininja/CeWL.git)
-
-Psudohash [https://github.com/t3l3machus/psudohash.git](https://github.com/t3l3machus/psudohash.git)
-
-Undust [https://github.com/t3l3machus/undust.py.git](https://github.com/t3l3machus/undust.py.git)
-
-Cupp [https://github.com/Mebus/cupp.git](https://github.com/Mebus/cupp.git)
-
-## Wifi
-
-Airgeddon [https://github.com/v1s1t0r1sh3r3/airgeddon.git](https://github.com/v1s1t0r1sh3r3/airgeddon.git)
-
 ## Subnetting
 
 IPv4 Subnet Calculator [https://www.site24x7.com/tools/ipv4-subnetcalculator.html](https://www.site24x7.com/tools/ipv4-subnetcalculator.html)
 
 IPv6 Subnet Calculator [https://www.site24x7.com/tools/ipv6-subnetcalculator.html](https://www.site24x7.com/tools/ipv6-subnetcalculator.html)
 
-## Android
+## Reconocimiento
 
-Scrpy [https://github.com/Genymobile/scrcpy.git](https://github.com/Genymobile/scrcpy.git)
+Masscan [https://github.com/robertdavidgraham/masscan.git](https://github.com/robertdavidgraham/masscan.git)
 
-MobSF [https://github.com/MobSF/Mobile-Security-Framework-MobSF.git](https://github.com/MobSF/Mobile-Security-Framework-MobSF.git)
+Arp Scan [https://github.com/royhills/arp-scan.git](https://github.com/royhills/arp-scan.git)
 
-## Emails
+Nmap [https://github.com/nmap/nmap.git](https://github.com/nmap/nmap.git)
 
-HouseHole [https://github.com/TheCyberpunker/houseHole.git](https://github.com/TheCyberpunker/houseHole.git)
+GetTopPorts [https://github.com/Justice-Reaper/getTopPorts.git](https://github.com/Justice-Reaper/getTopPorts.git)
+
+## Escáneres de vulnerabilidades
+
+Nuclei [https://github.com/projectdiscovery/nuclei.git](https://github.com/projectdiscovery/nuclei.git)
+
+Nuclei Templates [https://github.com/projectdiscovery/nuclei-templates.git](https://github.com/projectdiscovery/nuclei-templates.git)
 
 ## Proxies
 
@@ -186,64 +180,35 @@ Backslash Powered Scanner [https://github.com/PortSwigger/backslash-powered-scan
 
 Content Type Converter [https://github.com/PortSwigger/content-type-converter.git](https://github.com/PortSwigger/content-type-converter.git)
 
-## Encoding
+Software Vulnerability Scanner [https://github.com/PortSwigger/software-vulnerability-scanner.git](https://github.com/PortSwigger/software-vulnerability-scanner.git)
 
-Hackvertor [https://github.com/PortSwigger/hackvertor.git](https://github.com/PortSwigger/hackvertor.git)
+## Diccionarios
 
-CyberChef [https://github.com/gchq/CyberChef.git](https://github.com/gchq/CyberChef.git)
+Auto Wordlists [https://github.com/carlospolop/Auto_Wordlists.git](https://github.com/carlospolop/Auto_Wordlists.git)
+    
+SecLists [https://github.com/danielmiessler/SecLists.git](https://github.com/danielmiessler/SecLists.git)
+    
+Payloadbox [https://github.com/orgs/payloadbox/repositories](https://github.com/orgs/payloadbox/repositories)
 
-Ciphey [https://github.com/bee-san/Ciphey.git](https://github.com/bee-san/Ciphey.git)
+OneListForAll [https://github.com/six2dez/OneListForAll.git](https://github.com/six2dez/OneListForAll.git)
 
-## Hashes
+Kaonashi [https://github.com/kaonashi-passwords/Kaonashi.git](https://github.com/kaonashi-passwords/Kaonashi.git)
 
-### Identificar
+Weakpass [https://weakpass.com/](https://weakpass.com/)
 
-Hash Identifier [https://hashes.com/en/tools/hash_identifier](https://hashes.com/en/tools/hash_identifier)
+### Generar diccionarios
 
-Hash Identifier [https://github.com/blackploit/hash-identifier.git](https://github.com/blackploit/hash-identifier.git)
+CeWL [https://github.com/digininja/CeWL.git](https://github.com/digininja/CeWL.git)
 
-HashID [https://github.com/psypanda/hashID.git](https://github.com/psypanda/hashID.git)
+Psudohash [https://github.com/t3l3machus/psudohash.git](https://github.com/t3l3machus/psudohash.git)
 
-Name That Hash [https://github.com/bee-san/Name-That-Hash.git](https://github.com/bee-san/Name-That-Hash.git)
+Undust [https://github.com/t3l3machus/undust.py.git](https://github.com/t3l3machus/undust.py.git)
 
-Haiti [https://github.com/noraj/haiti.git](https://github.com/noraj/haiti.git)
+Cupp [https://github.com/Mebus/cupp.git](https://github.com/Mebus/cupp.git)
 
-### Crackear
+### Dividir diccionarios
 
-Hashcat [https://github.com/hashcat/hashcat.git](https://github.com/hashcat/hashcat.git)
-
-John the Ripper [https://github.com/openwall/john.git](https://github.com/openwall/john.git)
-
-### Wrappers
-
-Hashcatalyst [https://github.com/stealthsploit/Hashcatalyst.git](https://github.com/stealthsploit/Hashcatalyst.git)
-
-### Reglas
-
-OneRuleToRuleThemStill [https://github.com/stealthsploit/OneRuleToRuleThemStill.git](https://github.com/stealthsploit/OneRuleToRuleThemStill.git)
-
-### Rainbow tables
-
-Hashes [https://hashes.com/en/decrypt/hash](https://hashes.com/en/decrypt/hash)
-
-CrackStation [https://crackstation.net/](https://crackstation.net/)
-
-Weakpass [https://weakpass.com/tools/lookup](https://weakpass.com/tools/lookup)
-
-## Pivoting
-
-### Unix
-
-#### Enumeración
-
-Pivoting Enum [https://github.com/S12cybersecurity/Pivoting_Enum.git](https://github.com/S12cybersecurity/Pivoting_Enum.git)
-
-### Tunneling
-
-Ligolo-ng [https://github.com/nicocha30/ligolo-ng.git](https://github.com/nicocha30/ligolo-ng.git)
-
-Chisel [https://github.com/jpillora/chisel.git](https://github.com/jpillora/chisel.git)
-
+payloadSplitter [https://github.com/Justice-Reaper/payloadSplitter.git](https://github.com/Justice-Reaper/payloadSplitter.git)
 
 ## Web
 
@@ -371,16 +336,6 @@ XSRFProbe [https://github.com/0xInfection/XSRFProbe.git](https://github.com/0xI
     
 Project Forgery [https://github.com/haqqibrahim/Project-Forgery.git](https://github.com/haqqibrahim/Project-Forgery.git)
 
-#### CSRF
-
-CSRF Scanner [https://github.com/PortSwigger/csrf-scanner.git](https://github.com/PortSwigger/csrf-scanner.git)
-    
-Bolt [https://github.com/s0md3v/Bolt.git](https://github.com/s0md3v/Bolt.git)
-    
-XSRFProbe [https://github.com/0xInfection/XSRFProbe.git](https://github.com/0xInfection/XSRFProbe.git)
-    
-Project Forgery [https://github.com/haqqibrahim/Project-Forgery.git](https://github.com/haqqibrahim/Project-Forgery.git)
-
 #### SQLI
 
 Ghauri [https://github.com/r0oth3x49/ghauri.git](https://github.com/r0oth3x49/ghauri.git)
@@ -449,6 +404,14 @@ SSTImap [https://github.com/vladko312/SSTImap.git](https://github.com/vladko312/
 
 Template Injection Table [https://github.com/Hackmanit/template-injection-table.git](https://github.com/Hackmanit/template-injection-table.git)
 
+#### Information Disclosure
+
+##### Carpeta .git expuesta
+
+GitTools [https://github.com/internetwache/GitTools.git](https://github.com/internetwache/GitTools.git)
+
+Git Cola [https://github.com/git-cola/git-cola.git](https://github.com/git-cola/git-cola.git)
+
 ## Exploits
 
 Sploitify [https://sploitify.haxx.it/](https://sploitify.haxx.it/)
@@ -456,6 +419,8 @@ Sploitify [https://sploitify.haxx.it/](https://sploitify.haxx.it/)
 Exploit Database [https://www.exploit-db.com/](https://www.exploit-db.com/)
 
 Exploit Database's Binary Exploits [https://gitlab.com/exploit-database/exploitdb-bin-sploits](https://gitlab.com/exploit-database/exploitdb-bin-sploits)
+
+Vulners [https://vulners.com/](https://vulners.com/)
 
 ## Shells
 
@@ -466,20 +431,6 @@ Villain [https://github.com/t3l3machus/Villain.git](https://github.com/t3l3machu
 Obtener una TTY interactiva en linux [https://ironhackers.es/tutoriales/como-conseguir-tty-totalmente-interactiva/](https://ironhackers.es/tutoriales/como-conseguir-tty-totalmente-interactiva/)
 
 ConPtyShell [https://github.com/antonioCoco/ConPtyShell.git](https://github.com/antonioCoco/ConPtyShell.git)
-
-## Container breakout
-
-- Amicontained [https://github.com/genuinetools/amicontained.git](https://github.com/genuinetools/amicontained.git)
-
-- Deepce [https://github.com/stealthcopter/deepce.git](https://github.com/stealthcopter/deepce.git)
-
-- CDK [https://github.com/cdk-team/CDK.git](https://github.com/cdk-team/CDK.git)
-
-## Dumpear credenciales
-
-LaZagne [https://github.com/AlessandroZ/LaZagne.git](https://github.com/AlessandroZ/LaZagne.git)
-
-HackBrowserData [https://github.com/moonD4rk/HackBrowserData.git](https://github.com/moonD4rk/HackBrowserData.git)
 
 ## Unix 
 
@@ -506,3 +457,67 @@ Lolbas [https://lolbas-project.github.io/](https://lolbas-project.github.io/)
 WADComs [https://wadcoms.github.io/](https://wadcoms.github.io/)
 
 AdPeas [https://github.com/61106960/adPEAS.git](https://github.com/61106960/adPEAS.git)
+
+## Container breakout
+
+- Amicontained [https://github.com/genuinetools/amicontained.git](https://github.com/genuinetools/amicontained.git)
+
+- Deepce [https://github.com/stealthcopter/deepce.git](https://github.com/stealthcopter/deepce.git)
+
+- CDK [https://github.com/cdk-team/CDK.git](https://github.com/cdk-team/CDK.git)
+
+## Dumpear credenciales
+
+LaZagne [https://github.com/AlessandroZ/LaZagne.git](https://github.com/AlessandroZ/LaZagne.git)
+
+HackBrowserData [https://github.com/moonD4rk/HackBrowserData.git](https://github.com/moonD4rk/HackBrowserData.git)
+
+## Hashes
+
+### Identificar
+
+Hash Identifier [https://hashes.com/en/tools/hash_identifier](https://hashes.com/en/tools/hash_identifier)
+
+Hash Identifier [https://github.com/blackploit/hash-identifier.git](https://github.com/blackploit/hash-identifier.git)
+
+HashID [https://github.com/psypanda/hashID.git](https://github.com/psypanda/hashID.git)
+
+Name That Hash [https://github.com/bee-san/Name-That-Hash.git](https://github.com/bee-san/Name-That-Hash.git)
+
+Haiti [https://github.com/noraj/haiti.git](https://github.com/noraj/haiti.git)
+
+### Crackear
+
+Hashcat [https://github.com/hashcat/hashcat.git](https://github.com/hashcat/hashcat.git)
+
+John the Ripper [https://github.com/openwall/john.git](https://github.com/openwall/john.git)
+
+### Wrappers
+
+Hashcatalyst [https://github.com/stealthsploit/Hashcatalyst.git](https://github.com/stealthsploit/Hashcatalyst.git)
+
+### Reglas
+
+OneRuleToRuleThemStill [https://github.com/stealthsploit/OneRuleToRuleThemStill.git](https://github.com/stealthsploit/OneRuleToRuleThemStill.git)
+
+### Rainbow tables
+
+Hashes [https://hashes.com/en/decrypt/hash](https://hashes.com/en/decrypt/hash)
+
+CrackStation [https://crackstation.net/](https://crackstation.net/)
+
+Weakpass [https://weakpass.com/tools/lookup](https://weakpass.com/tools/lookup)
+
+## Pivoting
+
+### Unix
+
+#### Enumeración
+
+Pivoting Enum [https://github.com/S12cybersecurity/Pivoting_Enum.git](https://github.com/S12cybersecurity/Pivoting_Enum.git)
+
+### Tunneling
+
+Ligolo-ng [https://github.com/nicocha30/ligolo-ng.git](https://github.com/nicocha30/ligolo-ng.git)
+
+Chisel [https://github.com/jpillora/chisel.git](https://github.com/jpillora/chisel.git)
