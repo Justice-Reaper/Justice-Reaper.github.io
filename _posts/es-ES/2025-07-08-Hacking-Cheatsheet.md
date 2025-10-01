@@ -453,6 +453,8 @@ Tplmap [https://github.com/epinna/tplmap.git](https://github.com/epinna/tplmap.g
 
 SSTImap [https://github.com/vladko312/SSTImap.git](https://github.com/vladko312/SSTImap.git)
 
+Template Injection Table [https://github.com/Hackmanit/template-injection-table.git](https://github.com/Hackmanit/template-injection-table.git)
+
 ## Exploits
 
 Sploitify [https://sploitify.haxx.it/](https://sploitify.haxx.it/)
