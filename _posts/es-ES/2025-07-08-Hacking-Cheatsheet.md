@@ -1,13 +1,13 @@
 ---
-title: Hacking Cheatsheet
-description: Cheatsheet de
+title: "Hacking Cheatsheet"
+description: "Cheatsheet de hacking"
 date: 2025-07-08 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger Guides
+  - Hacking Cheatsheets
 tags:
-  - Portswigger Guides
+  - Hacking Cheatsheets
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
