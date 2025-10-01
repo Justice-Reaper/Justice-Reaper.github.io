@@ -192,29 +192,30 @@ Los diferentes `caracteres` tienen `comportamientos sutilmente distintos`, lo cu
 
 A veces, el `input` que `controlamos` aparece dentro de `comillas` en el `comando original`. En esta situación, es necesario `cerrar el contexto de comillas usando " o '` antes de usar los `caracteres` adecuados para `inyectar` un `nuevo comando`
 
+## Cheatsheet
+
+Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
+
+- Hacking Cheatsheet [https://justice-reaper.github.io/posts/Hacking-Cheatsheet/](https://justice-reaper.github.io/posts/Hacking-Cheatsheet/)
+
 ## ¿Cómo detectar y explotar un command injection?
 
-Es posible `detectar` un `command injection` de varias formas, en mi caso sigo estos pasos:
+Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1. `Añadir` el `dominio` y sus `subdominios` al `scope`
+1. `Instalar` las `extensiones básicas` de `Burpsuite` y también la extensión `Command injection attacker`
 
-2. Hacer un `escaneo general` mediante `Burpsuite` con las extensiones `Collaborator Everywhere` y `Command injection attacker` instaladas. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+2. `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-3. `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
+3. Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+
+4. `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
 
 4. Desafortunadamente, `Commix` no funciona al `100%` en los `laboratorios de Portswigger` por el `firewall` que tienen implementado pero es una `herramienta` muy `recomendable` si es posible usarla
 
-5. Realizar un `ataque de fuerza bruta` con el `Intruder` y los `diccionarios recomendados`. Si no encontramos nada, usar los `payloads` de la extensión `Agartha` de `Burpsuite` y si tampoco encontramos nada, usar la extensión `Command injection attacker` de `Burpsuite`. Es recomendable setear la opción `Delay between requests` en `1` y desactivar el `Automatic throttling` para que `el tiempo de respuesta del servidor varíe lo menos posible`. También debemos `disminuir` el `número de hilos` para `no colapsar` el `servidor`
+5. Realizar un `ataque de fuerza bruta` con el `Intruder` y los `diccionarios recomendados`. Si no encontramos nada, usar los `payloads` de la extensión `Agartha` de `Burpsuite` y si tampoco encontramos nada, usar la extensión `Command injection attacker` de `Burpsuite`. Es recomendable `setear` la opción `Delay between requests` en `1` y desactivar el `Automatic throttling` para que `el tiempo de respuesta del servidor varíe lo menos posible`, esto es importante para poder `identificar` si hay un `blind command injection`. También debemos `disminuir` el `número de hilos` para `no colapsar` el `servidor`
 
 6. Si no encontramos nada con los `escáneres` podemos `checkear` las `cheatsheets` de `PayloadsAllTheThings` y `Hacktricks` pero lo más seguro es que no haya un `command injection`
 
-## Cheatsheets para command injection
-
-En `PayloadsAllTheThings` y  en `Hacktricks` tenemos diferentes `tipos de ataques y bypasses` 
-
-- Hacktricks [https://book.hacktricks.wiki/en/pentesting-web/command-injection.html](https://book.hacktricks.wiki/en/pentesting-web/command-injection.html)
-
-- PayloadsAllTheThings [https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Command%20Injection](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Command%20Injection)
 
 ## Herramientas
 
