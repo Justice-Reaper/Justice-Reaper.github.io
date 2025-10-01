@@ -35,14 +35,6 @@ Este `ataque` se diferencia de un `ataque CSRF` en que el `usuario` debe r
 
 La `protección` contra los `ataques CSRF` suele proporcionarse mediante el uso de un `token CSRF` vinculado a una `cookie` de `sesión`. Los `tokens CSRF` no puede bloquear un `ataque de clickjacking` porque el `navegador` enviará `automáticamente` el `token CSRF`, esto es debido a que el `ataque` ocurre dentro de la `sesión del usuario` y dentro del `propio dominio`. Por lo tanto, la única diferencia con una `sesión normal`, sería que el `proceso` ocurre dentro de un `iframe oculto`
 
-## ¿Cómo detectar y explotar un clickjacking?
-
-Es posible `detectar` una web `vulnerable` a `clickjacking` de varias formas, en mi caso sigo estos pasos:
-
-1. Usaremos herramientas como `Security Headers` [https://securityheaders.com/](https://securityheaders.com/) o Shcheck [https://github.com/santoru/shcheck.git](https://github.com/santoru/shcheck.git)  para `identificar` las `cabeceras de seguridad` de una `web` y ver si es `vulnerable`
-
-2. `Creamos` un `PoC` usando `Clickbandit` 
-
 ## ¿Cómo construir un ataque de clickjacking?
 
 Los `ataques de clickjacking` utilizan `CSS` para crear y manipular `capas`. El `atacante` incorpora el `sitio web legítimo` como una `capa iframe` superpuesta sobre `elementos maliciosos`. Un `ejemplo` utilizando la `etiqueta style` y sus `parámetros` es el siguiente:
@@ -150,23 +142,19 @@ En este `laboratorio` podemos ver como se `aplica` esta `técnica`:
 
 - Multistep clickjacking - [https://justice-reaper.github.io/posts/Clickjacking-Lab-5/](https://justice-reaper.github.io/posts/Clickjacking-Lab-5/)
 
-## Cheatsheets para clickjacking
+## Cheatsheet
 
-En `PayloadsAllTheThings` y `Hacktricks` tenemos un amplia variedad de `payloads` que nos ayudarán a la hora de `explotar` la `explotar` un `clickjacking`
+Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
 
-- Hacktricks [https://book.hacktricks.wiki/en/pentesting-web/clickjacking.html](https://book.hacktricks.wiki/en/pentesting-web/clickjacking.html)
+- Hacking Cheatsheet [https://justice-reaper.github.io/posts/Hacking-Cheatsheet/](https://justice-reaper.github.io/posts/Hacking-Cheatsheet/)
 
-- PayloadsAllTheThings [https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Clickjacking](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Clickjacking)
+## ¿Cómo detectar y explotar un clickjacking?
 
-## Herramientas
+Es posible `detectar` una web `vulnerable` a `clickjacking` de varias formas, en mi caso sigo estos pasos:
 
-Tenemos estas `herramientas` para `automatizar` la `detección` y `explotación` de la vulnerabilidad `clickjacking`:
+1. Usaremos herramientas como `Security Headers` o `Shcheck` para `identificar` las `cabeceras de seguridad` de una `web` y ver si es `vulnerable`
 
-- Security Headers [https://securityheaders.com/](https://securityheaders.com/)
-
-- Shcheck [https://github.com/santoru/shcheck.git](https://github.com/santoru/shcheck.git)
-
-- Clickbandit [https://portswigger.net/burp/documentation/desktop/tools/clickbandit](https://portswigger.net/burp/documentation/desktop/tools/clickbandit)
+2. `Creamos` un `PoC` usando `Clickbandit` 
 
 ## Prevenir ataques de clickjacking
 
