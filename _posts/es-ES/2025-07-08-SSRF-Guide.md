@@ -227,7 +227,7 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 4. `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
 
-5. Si el `escáner` de `Burpsuite` no encuentra nada, procedemos a buscar de `forma manual` siguiendo los pasos de `PayloadsAllTheThings` y `Hacktricks`
+5. Si el `escáner` de `Burpsuite` no encuentra nada, procedemos a buscar de `forma manual` siguiendo los pasos de `PayloadsAllTheThings` y `Hacktricks`. Si vemos `payloads` o `diccionarios` para aplicar `fuerza bruta` debemos probarlos
 
 6. Una vez detectada la vulnerabilidad, si tiene este aspecto `http://192.168.0.1:8080/product/stock/check?productId=1&storeId=1` vamos a ver si tiene algo corriendo en el localhost `http://127.0.0.1:FUZZ`, para ello podemos usar el `Intruder` u otro `fuzzer`. Podemos escanear los `65535` puertos existentes o usar la herramienta `getTopPorts` para `obtener` los `puertos más comunes` y efectuar el `escaneo` más `rápido`
 
@@ -253,7 +253,7 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 17. Si estamos ante un `Blind SSRF` usaremos la `cheatsheet de Portswigger` o `SSRF PayloadMaker` para `detectarlo`. Esta `última herramienta` nos proporciona un `mayor número de payloads`
 
-18. Si encontramos un `open redirect` debemos fijarnos bien si podemos `derivarlo` a un `SSRF`
+18. Si encontramos un `open redirect` debemos fijarnos en si podemos `derivarlo` a un `SSRF`
 
 19. Desafortunadamente en los laboratorios de `Portswigger` no funciona `SSRFmap`, pero es una `herramienta` muy `recomendable` si es posible usarla
 
