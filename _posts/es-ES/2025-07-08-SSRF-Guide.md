@@ -209,21 +209,29 @@ El enlace `<a href="https://www.misrecetas.com/pastel-chocolate">esta receta de 
 
 Como resultado de todo esto, el `encabezado Referer` es a menudo una `superficie de ataque útil` para `explotar vulnerabilidades SSRF`
 
+## Cheatsheet
+
+Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
+
+- Hacking Cheatsheet [https://justice-reaper.github.io/posts/Hacking-Cheatsheet/](https://justice-reaper.github.io/posts/Hacking-Cheatsheet/)
+
 ## ¿Cómo detectar y explotar un SSRF?
 
-Es posible `detectar SSRF` de varias formas, en mi caso sigo estos pasos:
+Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1. `Añadir` el `dominio` y sus `subdominios` al `scope`
+1. `Instalar` las `extensiones básicas` de `Burpsuite`
 
-2. Con la extensión `Collaborator Everywhere` de `Burpsuite` activada hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+2. `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-3. `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
+3. Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+
+4. `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
 
 4. Si el `escáner` de `Burpsuite` no encuentra nada, procedemos a buscar de `forma manual` siguiendo los pasos de `PayloadsAllTheThings` y `Hacktricks`
 
-5. Una vez detectada la vulnerabilidad, si tiene este aspecto `http://192.168.0.1:8080/product/stock/check?productId=1&storeId=1` vamos a intentar ver si tiene algo corriendo en el localhost `http://127.0.0.1:FUZZ`, para ello podemos usar el `Intruder` o `ffuf`. Podemos escanear los `65535` puertos existentes o usar la herramienta `getTopPorts` [https://github.com/Justice-Reaper/getTopPorts.git](https://github.com/Justice-Reaper/getTopPorts.git) para `obtener` los `puertos más comunes` y efectuar el `escaneo` más `rápido`
+5. Una vez detectada la vulnerabilidad, si tiene este aspecto `http://192.168.0.1:8080/product/stock/check?productId=1&storeId=1` vamos a ver si tiene algo corriendo en el localhost `http://127.0.0.1:FUZZ`, para ello podemos usar el `Intruder` u otro `fuzzer`. Podemos escanear los `65535` puertos existentes o usar la herramienta `getTopPorts` para `obtener` los `puertos más comunes` y efectuar el `escaneo` más `rápido`
 
-6. Si no encontramos nada en el `localhost`, escanearemos las posibles rutas `http://192.168.0.1:8080/FUZZ` para ver si hay algo interesante. En mi caso uso los `diccionarios` de `seclists`
+6. Si no encontramos nada en el `localhost`, `escanearemos` posibles rutas `http://192.168.0.1:8080/FUZZ` para ver si hay algo interesante. En mi caso uso los `diccionarios` de `SecLists`
 
 7. En el caso de no encontrar nada, procederemos a buscar si hay servicios en otros puertos `http://192.168.0.1:FUZZ`
 
@@ -248,36 +256,6 @@ Es posible `detectar SSRF` de varias formas, en mi caso sigo estos pasos:
 17. Si encontramos un `open redirect` debemos fijarnos bien si podemos `derivarlo` a un `SSRF`
 
 18. Desafortunadamente en los laboratorios de `Portswigger` no funciona `SSRFmap`, pero es una `herramienta` muy `recomendable` si es posible usarla
-
-## Cheatsheets para SSRF
-
-En `PayloadsAllTheThings` tenemos `payloads` que podemos `usar` para efectuar `bypasses` y llevar a cabo ataques `SSRF` de forma más directa. En `Hacktricks` tenemos una `metodología` mucho más `completa` y entra más en detalle en los distintos `tipos de ataque` y `bypasses` que existen. En `Portswigger` tenemos una `herramienta` que nos permitirá `crear` un `listado de payloads` para `identificar` si estamos ante un `Blind SSRF` y también disponemos de `payloads` para usar cuando `http://127.0.0.1` y/o `http://localhost` estén `blacklisteados`
-
-- Hacktricks [https://book.hacktricks.wiki/en/pentesting-web/ssrf-server-side-request-forgery/index.html](https://book.hacktricks.wiki/en/pentesting-web/ssrf-server-side-request-forgery/index.html)
-
-- Portswigger [https://portswigger.net/web-security/ssrf/url-validation-bypass-cheat-sheet](https://portswigger.net/web-security/ssrf/url-validation-bypass-cheat-sheet)
-
-- PayloadsAllTheThings [https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Request%20Forgery](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Request%20Forgery)
-
-## Herramientas
-
-Tenemos estas `herramientas` para `ayudarnos` en la `explotación` de `SSRF`:
-
-- Hackvertor [https://github.com/PortSwigger/hackvertor.git](https://github.com/PortSwigger/hackvertor.git)
-
-- Collaborator Everywhere [https://github.com/PortSwigger/collaborator-everywhere-v2.git](https://github.com/PortSwigger/collaborator-everywhere-v2.git)
-
-- Encode IP [https://github.com/PortSwigger/encode-ip.git](https://github.com/PortSwigger/encode-ip.git)
-
-- Ipfuscator [https://github.com/dwisiswant0/ipfuscator.git](https://github.com/dwisiswant0/ipfuscator.git)
-
-- SSRF Payload Generator [https://github.com/cxosmo/ssrf-payload-generator.git](https://github.com/cxosmo/ssrf-payload-generator.git)
-
-- SSRF PayloadMaker [https://github.com/deXwn/SSRF-PayloadMaker.git](https://github.com/deXwn/SSRF-PayloadMaker.git)
-
-- SSRFmap [https://github.com/swisskyrepo/SSRFmap.git](https://github.com/swisskyrepo/SSRFmap.git)
-
-- Recollapse [https://github.com/0xacb/recollapse.git](https://github.com/0xacb/recollapse.git)
 
 
 
