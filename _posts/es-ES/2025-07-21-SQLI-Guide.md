@@ -65,57 +65,31 @@ La mayoría de las `vulnerabilidades de inyección SQL` ocurren dentro de la cl�
 
 - SQL injection vulnerability allowing login bypass - [https://justice-reaper.github.io/posts/SQLI-Lab-2/](https://justice-reaper.github.io/posts/SQLI-Lab-2/)
 
+## Cheatsheet
+
+Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
+
+- Hacking Cheatsheet [https://justice-reaper.github.io/posts/Hacking-Cheatsheet/](https://justice-reaper.github.io/posts/Hacking-Cheatsheet/)
+
 ## ¿Cómo detectar y explotar una inyección SQL?
 
-Es posible `detectar inyecciones SQL` de varias formas, sigo estos pasos:
+Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1. `Añadir` el `dominio` y sus `subdominios` al `scope`
+1. `Instalar` las `extensiones básicas` de `Burpsuite`
 
-2. Hacer un` escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+2. `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-3. `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
+3. Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+
+4. `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
 
 4. `Analizar la query con sqlmap 2 veces`, debido a que `puede fallar en ocasiones `
 
 5. `Analizar la query con ghauri 2 veces` para `confirmar que sqlmap no se saltó nada`
 
-6. Realizar un `ataque de fuerza bruta` con el `Intruder` y los `diccionarios` de `Loxs`. Si no encontramos nada usar los `payloads` de los `diccionarios recomendados` y si tampoco encontramos nada, usar la extensión `Agartha` de `Burpsuite`. Es recomendable setear la opción `Delay between requests` en `1` y desactivar el `Automatic throttling` para que `el tiempo de respuesta del servidor varíe lo menos posible`. También debemos `disminuir` el `número de hilos` para `no colapsar` el `servidor`
+6. Realizar un `ataque de fuerza bruta` con el `Intruder` y los `diccionarios` de `Loxs`. Si no encontramos nada usar los `payloads` de los `diccionarios` de la `Hacking Cheatsheet` para `SQLI` y si tampoco encontramos nada, usar la extensión `Agartha` de `Burpsuite`. Es recomendable setear la opción `Delay between requests` en `1` y desactivar el `Automatic throttling` para que `el tiempo de respuesta del servidor varíe lo menos posible`. También debemos `disminuir` el `número de hilos` para `no colapsar` el `servidor`
 
 7. Si lo anterior no funciona, nos centraremos en buscar `inyecciones SQL de forma manual` utilizando las `cheatsheets` de `Portswigger, PayloadsAllTheThings y Hacktricks`
-
-## Cheatsheets de inyecciones SQL
-
-En `Hacktricks` y `PayloadsAllTheThings` a parte de `queries específicas` para `obtener información de las bases de datos`, tenemos `diccionarios` que podemos usar para aplicar `fuerza bruta` con el fin de `descubrir` alguna `inyección SQL`. Por otra parte, en `Portswigger` tenemos diferentes `payloads` para `identificar inyecciones SQL`
-
-- Hacktricks [https://book.hacktricks.wiki/en/pentesting-web/sql-injection/index.html?highlight=sql%20injection#what-is-sql-injection](https://book.hacktricks.wiki/en/pentesting-web/sql-injection/index.html?highlight=sql%20injection#what-is-sql-injection)
-
-- Portswigger [https://portswigger.net/web-security/sql-injection/cheat-sheet](https://portswigger.net/web-security/sql-injection/cheat-sheet)
-
-- PayloadsAllTheThings [https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SQL%20Injection](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SQL%20Injection)
-
-## Herramientas
-
-Tenemos estas dos `herramientas` para `automatizar` la `explotación` de `inyecciones SQL`. Desde mi experiencia, recomiendo usar `sqlmap` y si no encuentra nada usar `ghauri`. En caso de que tampoco encuentre nada, procederemos a probar de `forma manual `
-
-- Ghauri [https://github.com/r0oth3x49/ghauri.git](https://github.com/r0oth3x49/ghauri.git)
-
-- Sqlmap [https://github.com/sqlmapproject/sqlmap.git](https://github.com/sqlmapproject/sqlmap.git)
-
-- SQLMap DNS Collaborator [https://github.com/portswigger/sqlmap-dns-collaborator](https://github.com/portswigger/sqlmap-dns-collaborator)
-
-- Agartha [https://github.com/PortSwigger/agartha.git](https://github.com/PortSwigger/agartha.git)
-
-- Loxs [https://github.com/coffinxp/loxs.git](https://github.com/coffinxp/loxs.git)
-
-## Diccionarios
-
-Podemos usar estos `diccionarios` para llevar a cabo `ataques de fuerza bruta`:
-
-- Auto Wordlists [https://github.com/carlospolop/Auto_Wordlists.git](https://github.com/carlospolop/Auto_Wordlists.git)
-
-- SecLists [https://github.com/danielmiessler/SecLists.git](https://github.com/danielmiessler/SecLists.git)
-
-- Payloadbox [https://github.com/payloadbox/sql-injection-payload-list.git](https://github.com/payloadbox/sql-injection-payload-list.git)
 
 ## Prevenir inyecciones SQL
 
