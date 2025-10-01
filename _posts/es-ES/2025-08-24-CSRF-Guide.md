@@ -447,39 +447,23 @@ En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
 - CSRF with broken Referer validation - [https://justice-reaper.github.io/posts/CSRF-Lab-12/](https://justice-reaper.github.io/posts/CSRF-Lab-12/)
 
+
+
 ## ¿Cómo detectar y explotar un CSRF?
 
-Es posible detectar webs vulnerables a `ataques CSRF` de varias formas, sigo estos pasos:
+Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1. `Añadir` el `dominio` y sus `subdominios` al `scope`
-    
-2. Hacer un `escaneo general` con `Burpsuite` con la extensión `CSRF Scanner` instalada. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+1. `Instalar` las `extensiones básicas` de `Burpsuite` y la extensión `CSRF Scanner`
 
-3. Podemos usar `Bolt` o `XSRFProbe` para una` detección rápida`, pero debemos tener en cuenta que `estas herramientas pueden no ser del todo efectivas si la forma de explotar el CSRF es compleja`
+2. `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-4. Si no encontramos nada, podemos usar la `metodología` de `PayloadsAllTheThings` para `detectar si es posible llevar a cabo un ataque CSRF` y para una mayor variedad de ataques consultaremos `Hacktricks`
+3. Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
 
-5. Por último, debemos `generar` un `PoC` usando `Project Forgery` o el `CSRF PoC Generator` de `Burpsuite` 
+4. Podemos usar `Bolt` o `XSRFProbe` para una` detección rápida`, pero debemos tener en cuenta que `estas herramientas pueden no ser del todo efectivas si la forma de explotar el CSRF es compleja`
 
-## Cheatsheets para CSRF
+5. Si no encontramos nada, podemos usar la `metodología` de `PayloadsAllTheThings` para `detectar si es posible llevar a cabo un ataque CSRF` y para una mayor variedad de ataques consultaremos `Hacktricks`
 
-En `PayloadsAllTheThings` tenemos una `metodología` que nos ayuda a `identificar` los `CSRF` y en `Hacktricks` disponemos de una gran variedad de `payloads` y `bypasses` para explotarlos
-
-- Hacktricks [https://book.hacktricks.wiki/en/pentesting-web/csrf-cross-site-request-forgery.html](https://book.hacktricks.wiki/en/pentesting-web/csrf-cross-site-request-forgery.html)
-
-- PayloadsAllTheThings [https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Cross-Site%20Request%20Forgery](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Cross-Site%20Request%20Forgery)
-
-## Herramientas
-
-Tenemos estas `herramientas` para `automatizar` la `explotación` de `CSRF`:
-
-- CSRF Scanner [https://github.com/PortSwigger/csrf-scanner.git](https://github.com/PortSwigger/csrf-scanner.git)
-
-- Bolt [https://github.com/s0md3v/Bolt.git](https://github.com/s0md3v/Bolt.git)
-
-- XSRFProbe [https://github.com/0xInfection/XSRFProbe.git](https://github.com/0xInfection/XSRFProbe.git)
-
-- Project Forgery [https://github.com/haqqibrahim/Project-Forgery.git](https://github.com/haqqibrahim/Project-Forgery.git)
+6. Por último, debemos `generar` un `PoC` usando `Project Forgery` o el `CSRF PoC Generator` de `Burpsuite` 
 
 ## Prevenir vulnerabilidades CSRF
 
