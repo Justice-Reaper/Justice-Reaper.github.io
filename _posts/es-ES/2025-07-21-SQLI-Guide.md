@@ -83,13 +83,13 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 4. `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
 
-4. `Analizar la query con sqlmap 2 veces`, debido a que `puede fallar en ocasiones `
+5. `Analizar la query con sqlmap 2 veces`, debido a que `puede fallar en ocasiones `
 
-5. `Analizar la query con ghauri 2 veces` para `confirmar que sqlmap no se saltó nada`
+6. `Analizar la query con ghauri 2 veces` para `confirmar que sqlmap no se saltó nada`
 
-6. Realizar un `ataque de fuerza bruta` con el `Intruder` y los `diccionarios` de `Loxs`. Si no encontramos nada usar los `payloads` de los `diccionarios` de la `Hacking Cheatsheet` para `SQLI` y si tampoco encontramos nada, usar la extensión `Agartha` de `Burpsuite`. Es recomendable setear la opción `Delay between requests` en `1` y desactivar el `Automatic throttling` para que `el tiempo de respuesta del servidor varíe lo menos posible`. También debemos `disminuir` el `número de hilos` para `no colapsar` el `servidor`
+7. Realizar un `ataque de fuerza bruta` con el `Intruder` y los `diccionarios` de `Loxs`. Si no encontramos nada usar los `payloads` de los `diccionarios` de la `Hacking Cheatsheet` para `SQLI` y si tampoco encontramos nada, usar la extensión `Agartha` de `Burpsuite`. Es recomendable setear la opción `Delay between requests` en `1` y desactivar el `Automatic throttling` para que `el tiempo de respuesta del servidor varíe lo menos posible`. También debemos `disminuir` el `número de hilos` para `no colapsar` el `servidor`
 
-7. Si lo anterior no funciona, nos centraremos en buscar `inyecciones SQL de forma manual` utilizando las `cheatsheets` de `Portswigger, PayloadsAllTheThings y Hacktricks`
+8. Si lo anterior no funciona, nos centraremos en buscar `inyecciones SQL de forma manual` utilizando las `cheatsheets` de `Portswigger, PayloadsAllTheThings y Hacktricks`
 
 ## Prevenir inyecciones SQL
 
