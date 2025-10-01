@@ -273,9 +273,9 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 7. Si esto no da resultado, usaremos `Template Injection Table`
 
-8. Si no podemos explotarlo con estas herramientas, ejecutamos una `ataque de fuerza bruta` con el `Intruder` de `Burpsuite` empleando varios `diccionarios`. Primeramente vamos a usar el `diccionario integrado de Burpsuite` llamado `Fuzzing - template injection`, posteriormente usaremos los diccionarios que contengan `payloads` para esta `vulnerabilidad` y si en `Hacktricks` o `PayloadsAllTheThings` hay alguno, también podemos probarlos
+8. Si no podemos explotarlo con estas herramientas, ejecutamos una `ataque de fuerza bruta` con el `Intruder` de `Burpsuite` empleando varios `diccionarios`. Primeramente vamos a usar el `diccionario integrado de Burpsuite` llamado `Fuzzing - template injection`, posteriormente usaremos los diccionarios que contengan `payloads` para esta `vulnerabilidad`
 
-9. Si no encontramos nada, `checkearemos` las `cheatsheets` de `PayloadsAllTheThings` y `Hacktricks` e iremos `testeando de forma manual`
+9. Si no encontramos nada, `checkearemos` las `cheatsheets` de `PayloadsAllTheThings` y `Hacktricks` e iremos `testeando de forma manual`. Si vemos `payloads` o `diccionarios` para aplicar `fuerza bruta` debemos probarlos
 
 10. Si hemos logrado `identificar el motor de plantillas` pero `no llevar a cabo una explotación` debemos `buscar vulnerabilidades para esa plantilla`. Si no encontramos ninguna, `revisaremos su documentación` para ver si podemos `aprovecharnos de alguna característica para obtener información interesante`
 
