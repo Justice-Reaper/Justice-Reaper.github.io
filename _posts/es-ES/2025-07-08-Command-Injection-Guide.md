@@ -216,29 +216,6 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 6. Si no encontramos nada con los `escáneres` podemos `checkear` las `cheatsheets` de `PayloadsAllTheThings` y `Hacktricks` pero lo más seguro es que no haya un `command injection`
 
-
-## Herramientas
-
-Tenemos estas `herramientas` para `automatizar` la `detección` y `explotación` de un `command injection`:
-
-- Command injection attacker [https://github.com/PortSwigger/command-injection-attacker.git](https://github.com/PortSwigger/command-injection-attacker.git)
-
-- Collaborator Everywhere [https://github.com/PortSwigger/collaborator-everywhere-v2.git](https://github.com/PortSwigger/collaborator-everywhere-v2.git)
-
-- Agartha [https://github.com/PortSwigger/agartha.git](https://github.com/PortSwigger/agartha.git)
-
-- Commix [https://github.com/commixproject/commix.git](https://github.com/commixproject/commix.git)
-
-## Diccionarios
-
-Podemos usar estos `diccionarios` para llevar a cabo `ataques de fuerza bruta`:
-
-- Auto Wordlists [https://github.com/carlospolop/Auto_Wordlists.git](https://github.com/carlospolop/Auto_Wordlists.git)
-
-- SecLists [https://github.com/danielmiessler/SecLists.git](https://github.com/danielmiessler/SecLists.git)
-
-- Payloadbox [https://github.com/payloadbox/command-injection-payload-list.git](https://github.com/payloadbox/command-injection-payload-list.git)
-
 ## Prevenir ataques de command injection
 
 La forma más efectiva de prevenir vulnerabilidades de `command injection` es `nunca llamar a comandos del sistema operativo desde el código de la capa de aplicación`. En casi todos los casos, existen `formas alternativas` de implementar la funcionalidad requerida usando `APIs`
