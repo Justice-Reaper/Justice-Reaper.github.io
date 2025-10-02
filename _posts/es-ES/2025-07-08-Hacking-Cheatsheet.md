@@ -405,7 +405,21 @@ SSTImap [https://github.com/vladko312/SSTImap.git](https://github.com/vladko312/
 
 Template Injection Table [https://github.com/Hackmanit/template-injection-table.git](https://github.com/Hackmanit/template-injection-table.git)
 
-#### Information Disclosure
+#### Path traversal
+
+LFITester [https://github.com/kostas-pa/LFITester.git](https://github.com/kostas-pa/LFITester.git)
+
+Liffy [https://github.com/mzfr/liffy.git](https://github.com/mzfr/liffy.git)
+
+LFISuite [https://github.com/D35m0nd142/LFISuite.git](https://github.com/D35m0nd142/LFISuite.git)
+
+Agartha [https://github.com/PortSwigger/agartha.git](https://github.com/PortSwigger/agartha.git)
+
+Loxs [https://github.com/coffinxp/loxs.git](https://github.com/coffinxp/loxs.git)
+
+Panoptic [https://github.com/lightos/Panoptic.git](https://github.com/lightos/Panoptic.git)
+
+#### Information disclosure
 
 ##### Carpeta .git expuesta
 
