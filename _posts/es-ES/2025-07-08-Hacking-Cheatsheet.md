@@ -413,6 +413,10 @@ GitTools [https://github.com/internetwache/GitTools.git](https://github.com/inte
 
 Git Cola [https://github.com/git-cola/git-cola.git](https://github.com/git-cola/git-cola.git)
 
+##### Archivo phpinfo expuesto
+
+Funciones PHP peligrosas [https://gist.github.com/mccabe615/b0907514d34b2de088c4996933ea1720](https://gist.github.com/mccabe615/b0907514d34b2de088c4996933ea1720)
+
 ## Exploits
 
 Sploitify [https://sploitify.haxx.it/](https://sploitify.haxx.it/)
