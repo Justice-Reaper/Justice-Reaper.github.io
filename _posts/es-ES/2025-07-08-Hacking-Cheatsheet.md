@@ -419,6 +419,8 @@ Loxs [https://github.com/coffinxp/loxs.git](https://github.com/coffinxp/loxs.git
 
 Panoptic [https://github.com/lightos/Panoptic.git](https://github.com/lightos/Panoptic.git)
 
+Nginx Alias Traversal [https://github.com/PortSwigger/nginx-alias-traversal.git](https://github.com/PortSwigger/nginx-alias-traversal.git)
+
 #### Information disclosure
 
 ##### Carpeta .git expuesta
