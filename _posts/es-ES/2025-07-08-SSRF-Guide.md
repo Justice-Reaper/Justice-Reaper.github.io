@@ -256,6 +256,3 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 18. Si encontramos un `open redirect` debemos fijarnos en si podemos `derivarlo` a un `SSRF`
 
 19. Desafortunadamente en los laboratorios de `Portswigger` no funciona `SSRFmap`, pero es una `herramienta` muy `recomendable` si es posible usarla
-
-
-
