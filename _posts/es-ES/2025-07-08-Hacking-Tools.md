@@ -194,6 +194,8 @@ SecLists [https://github.com/danielmiessler/SecLists.git](https://github.com/da
     
 Payloadbox [https://github.com/orgs/payloadbox/repositories](https://github.com/orgs/payloadbox/repositories)
 
+Assetnote [https://wordlists.assetnote.io/](https://wordlists.assetnote.io/)
+
 OneListForAll [https://github.com/six2dez/OneListForAll.git](https://github.com/six2dez/OneListForAll.git)
 
 Kaonashi [https://github.com/kaonashi-passwords/Kaonashi.git](https://github.com/kaonashi-passwords/Kaonashi.git)
@@ -406,7 +408,7 @@ Tplmap [https://github.com/epinna/tplmap.git](https://github.com/epinna/tplmap.g
 
 SSTImap [https://github.com/vladko312/SSTImap.git](https://github.com/vladko312/SSTImap.git)
 
-Template Injection Table [https://github.com/Hackmanit/template-injection-table.git](https://github.com/Hackmanit/template-injection-table.git)
+Template Injection Table [https://cheatsheet.hackmanit.de/template-injection-table/](https://cheatsheet.hackmanit.de/template-injection-table/)
 
 #### Path traversal
 
