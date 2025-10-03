@@ -447,8 +447,6 @@ En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
 - CSRF with broken Referer validation - [https://justice-reaper.github.io/posts/CSRF-Lab-12/](https://justice-reaper.github.io/posts/CSRF-Lab-12/)
 
-
-
 ## ¿Cómo detectar y explotar un CSRF?
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
