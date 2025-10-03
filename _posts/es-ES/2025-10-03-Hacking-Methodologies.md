@@ -1,6 +1,6 @@
 ---
-title: Hacking Methodologies
-description: Metodologías de hacking
+title: "Hacking methodologies"
+description: "Metodologías de hacking"
 date: 2025-10-03 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper
