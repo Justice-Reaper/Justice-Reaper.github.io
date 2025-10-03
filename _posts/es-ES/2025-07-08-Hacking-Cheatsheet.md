@@ -1,6 +1,6 @@
 ---
-title: "Hacking Cheatsheet"
-description: "Cheatsheet de hacking"
+title: "Hacking tools"
+description: "Heramientas de hacking"
 date: 2025-07-08 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper

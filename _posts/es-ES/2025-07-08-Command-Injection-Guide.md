@@ -196,7 +196,7 @@ A veces, el `input` que `controlamos` aparece dentro de `comillas` en el `comand
 
 Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
 
-- Hacking Cheatsheet [https://justice-reaper.github.io/posts/Hacking-Cheatsheet/](https://justice-reaper.github.io/posts/Hacking-Cheatsheet/)
+- Hacking tools [https://justice-reaper.github.io/posts/Hacking-Cheatsheet/](https://justice-reaper.github.io/posts/Hacking-Cheatsheet/)
 
 ## ¿Cómo detectar y explotar un command injection?
 
