@@ -76,6 +76,10 @@ Scrpy [https://github.com/Genymobile/scrcpy.git](https://github.com/Genymobile/s
 
 MobSF [https://github.com/MobSF/Mobile-Security-Framework-MobSF.git](https://github.com/MobSF/Mobile-Security-Framework-MobSF.git)
 
+## Informes
+
+BlackStone [https://github.com/micro-joan/BlackStone.git](https://github.com/micro-joan/BlackStone.git)
+
 ## OSINT
 
 SpiderFoot [https://github.com/smicallef/spiderfoot.git](https://github.com/smicallef/spiderfoot.git)
