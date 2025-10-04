@@ -42,7 +42,17 @@ Advanced Bug Hunting Toolkit [https://lostsec.xyz/](https://lostsec.xyz/)
 
 Awesome Bug Bounty Tools [https://github.com/vavkamil/awesome-bugbounty-tools.git](https://github.com/vavkamil/awesome-bugbounty-tools.git)
 
-## Sistema Operativo
+## Ordenadores
+
+System76 [https://system76.com/](https://system76.com/)
+
+Star Labs [https://starlabs.systems/](https://starlabs.systems/)
+
+Slimbook [https://slimbook.com/](https://slimbook.com/)
+
+Tuxedo computers [https://www.tuxedocomputers.com/index.php](https://www.tuxedocomputers.com/index.php)
+
+## Sistema operativo
 
 Kali Linux [https://www.kali.org/](https://www.kali.org/)
 
@@ -79,6 +89,10 @@ OpenBTS [https://github.com/PentHertz/OpenBTS.git](https://github.com/PentHertz/
 Scrpy [https://github.com/Genymobile/scrcpy.git](https://github.com/Genymobile/scrcpy.git)
 
 MobSF [https://github.com/MobSF/Mobile-Security-Framework-MobSF.git](https://github.com/MobSF/Mobile-Security-Framework-MobSF.git)
+
+### Custom roms
+
+GrapheneOS [https://grapheneos.org/](https://grapheneos.org/)
 
 ## Informes
 
