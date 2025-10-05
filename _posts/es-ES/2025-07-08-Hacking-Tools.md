@@ -52,7 +52,7 @@ Slimbook [https://slimbook.com/](https://slimbook.com/)
 
 Tuxedo computers [https://www.tuxedocomputers.com/index.php](https://www.tuxedocomputers.com/index.php)
 
-## Sistema operativo
+## Sistemas operativos
 
 Kali Linux [https://www.kali.org/](https://www.kali.org/)
 
@@ -66,7 +66,7 @@ Firefox [https://www.firefox.com/es-ES/](https://www.firefox.com/es-ES/)
 
 Tor [https://www.torproject.org/es/download/](https://www.torproject.org/es/download/)
 
-## VPN
+## VPNs
 
 TorGuard [https://torguard.net/](https://torguard.net/)
 
@@ -74,7 +74,7 @@ Mullvad [https://mullvad.net/es](https://mullvad.net/es)
 
 Ivpn [https://www.ivpn.net/es/](https://www.ivpn.net/es/)
 
-## Correo electrónico temporal
+## Correos electrónicos temporales
 
 HouseHole [https://github.com/TheCyberpunker/houseHole.git](https://github.com/TheCyberpunker/houseHole.git)
 
@@ -121,6 +121,8 @@ DeHashed [https://dehashed.com/](https://dehashed.com/)
 Waybackurls [https://github.com/tomnomnom/waybackurls.git](https://github.com/tomnomnom/waybackurls.git)
 
 Wayback Machine [https://web.archive.org/](https://web.archive.org/)
+
+Amass [https://github.com/owasp-amass/amass.git](https://github.com/owasp-amass/amass.git)
 
 Phonebook [https://phonebook.cz/](https://phonebook.cz/)
 
