@@ -118,10 +118,6 @@ Breach Directory [https://breachdirectory.org/](https://breachdirectory.org/)
 
 DeHashed [https://dehashed.com/](https://dehashed.com/)
 
-Waybackurls [https://github.com/tomnomnom/waybackurls.git](https://github.com/tomnomnom/waybackurls.git)
-
-Wayback Machine [https://web.archive.org/](https://web.archive.org/)
-
 Amass [https://github.com/owasp-amass/amass.git](https://github.com/owasp-amass/amass.git)
 
 Phonebook [https://phonebook.cz/](https://phonebook.cz/)
@@ -149,6 +145,18 @@ Shodan [https://www.shodan.io/](https://www.shodan.io/)
 Fofa [https://fofa.so/](https://fofa.so/)
 
 ZoomEye [https://www.zoomeye.ai/](https://www.zoomeye.ai/)
+
+### Internet archive
+
+TheTimeMachine [https://github.com/anmolksachan/TheTimeMachine.git](https://github.com/anmolksachan/TheTimeMachine.git)
+
+WayBackupFinder [https://github.com/anmolksachan/WayBackupFinder.git](https://github.com/anmolksachan/WayBackupFinder.git)
+
+WayBackLister [https://github.com/anmolksachan/wayBackLister.git](https://github.com/anmolksachan/wayBackLister.git)
+
+Waybackurls [https://github.com/tomnomnom/waybackurls.git](https://github.com/tomnomnom/waybackurls.git)
+
+Wayback Machine [https://web.archive.org/](https://web.archive.org/)
 
 ### Redes sociales
 
