@@ -9,7 +9,7 @@ categories:
 tags:
   - Hacking Cheatsheets
 image:
-  path: /assets/img/Portswigger/Portswigger.png
+  path: /assets/img/Hacking/Hacking.png
 ---
 
 ## Plataformas de bug bounty
