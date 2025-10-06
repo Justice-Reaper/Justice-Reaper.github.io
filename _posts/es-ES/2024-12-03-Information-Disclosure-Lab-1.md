@@ -1,6 +1,6 @@
 ---
-title: "Information disclosure in error messages"
-description: "Laboratorio de Portswigger sobre Information Disclosure"
+title: Information disclosure in error messages
+description: Laboratorio de Portswigger sobre Information Disclosure
 date: 2024-12-03 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

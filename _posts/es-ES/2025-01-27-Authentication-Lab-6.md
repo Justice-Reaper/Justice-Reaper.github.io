@@ -1,6 +1,6 @@
 ---
-title: "Broken brute-force protection, IP block"
-description: "Laboratorio de Portswigger sobre Authentication"
+title: Broken brute-force protection, IP block
+description: Laboratorio de Portswigger sobre Authentication
 date: 2025-01-27 12:25:00 +0800
 lang: es-ES
 author: Justice-Reaper

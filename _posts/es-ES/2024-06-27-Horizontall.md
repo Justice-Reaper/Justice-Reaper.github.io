@@ -1,6 +1,6 @@
 ---
-title: "Horizontall"
-description: "Máquina Horizontall de Hackthebox"
+title: Horizontall
+description: Máquina Horizontall de Hackthebox
 date: 2024-06-30 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

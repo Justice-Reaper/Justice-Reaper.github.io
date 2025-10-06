@@ -1,6 +1,6 @@
 ---
-title: "Command injection, simple case"
-description: "Laboratorio de Portswigger sobre Command Injection"
+title: Command injection, simple case
+description: Laboratorio de Portswigger sobre Command Injection
 date: 2024-12-01 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

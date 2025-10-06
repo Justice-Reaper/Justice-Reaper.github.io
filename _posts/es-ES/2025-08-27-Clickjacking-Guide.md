@@ -1,6 +1,6 @@
 ---
-title: "Clickjacking guide"
-description: "Guía sobre Clickjacking"
+title: Clickjacking guide
+description: Guía sobre Clickjacking
 date: 2025-08-27 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper

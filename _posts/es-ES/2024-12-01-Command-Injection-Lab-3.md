@@ -1,6 +1,6 @@
 ---
-title: "Blind command injection with output redirection"
-description: "Laboratorio de Portswigger sobre Command Injection"
+title: Blind command injection with output redirection
+description: Laboratorio de Portswigger sobre Command Injection
 date: 2024-12-01 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

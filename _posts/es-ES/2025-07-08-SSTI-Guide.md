@@ -1,6 +1,6 @@
 ---
-title: "SSTI guide"
-description: "Guía sobre SSTI"
+title: SSTI guide
+description: Guía sobre SSTI
 date: 2025-07-08 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper

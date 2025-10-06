@@ -1,6 +1,6 @@
 ---
-title: "Insecure direct object references"
-description: "Laboratorio de Portswigger sobre Access Control"
+title: Insecure direct object references
+description: Laboratorio de Portswigger sobre Access Control
 date: 2024-12-04 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

@@ -1,6 +1,6 @@
 ---
-title: "Monteverde"
-description: "Máquina Monteverde de Hackthebox"
+title: Monteverde
+description: Máquina Monteverde de Hackthebox
 date: 2024-08-23 16:30:00 +0800
 lang: es-ES
 author: Justice-Reaper

@@ -1,6 +1,6 @@
 ---
-title: "Offline password cracking"
-description: "Laboratorio de Portswigger sobre Authentication"
+title: Offline password cracking
+description: Laboratorio de Portswigger sobre Authentication
 date: 2025-01-29 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

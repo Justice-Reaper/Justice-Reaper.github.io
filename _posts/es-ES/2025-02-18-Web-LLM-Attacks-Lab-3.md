@@ -1,6 +1,6 @@
 ---
-title: "Indirect prompt injection"
-description: "Laboratorio de Portswigger sobre Web LLM Attacks"
+title: Indirect prompt injection
+description: Laboratorio de Portswigger sobre Web LLM Attacks
 date: 2025-02-18 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

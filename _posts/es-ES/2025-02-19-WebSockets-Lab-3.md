@@ -1,6 +1,6 @@
 ---
-title: "Manipulating the WebSocket handshake to exploit vulnerabilities"
-description: "Laboratorio de Portswigger sobre WebSockets"
+title: Manipulating the WebSocket handshake to exploit vulnerabilities
+description: Laboratorio de Portswigger sobre WebSockets
 date: 2025-02-19 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

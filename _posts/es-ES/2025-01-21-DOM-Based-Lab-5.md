@@ -1,6 +1,6 @@
 ---
-title: "DOM-based cookie manipulation"
-description: "Laboratorio de Portswigger sobre DOM Based"
+title: DOM-based cookie manipulation
+description: Laboratorio de Portswigger sobre DOM Based
 date: 2025-01-21 12:25:00 +0800
 lang: es-ES
 author: Justice-Reaper

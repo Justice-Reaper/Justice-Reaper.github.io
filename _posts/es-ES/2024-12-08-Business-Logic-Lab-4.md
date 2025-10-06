@@ -1,6 +1,6 @@
 ---
-title: "Flawed enforcement of business rules"
-description: "Laboratorio de Portswigger sobre Business Logic"
+title: Flawed enforcement of business rules
+description: Laboratorio de Portswigger sobre Business Logic
 date: 2024-12-08 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

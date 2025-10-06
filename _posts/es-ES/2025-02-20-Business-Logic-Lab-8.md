@@ -1,6 +1,6 @@
 ---
-title: "Insufficient workflow validation"
-description: "Laboratorio de Portswigger sobre Business Logic"
+title: Insufficient workflow validation
+description: Laboratorio de Portswigger sobre Business Logic
 date: 2025-02-20 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

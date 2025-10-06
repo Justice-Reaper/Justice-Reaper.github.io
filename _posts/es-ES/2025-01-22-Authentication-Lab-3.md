@@ -1,6 +1,6 @@
 ---
-title: "Password reset broken logic"
-description: "Laboratorio de Portswigger sobre Authentication"
+title: Password reset broken logic
+description: Laboratorio de Portswigger sobre Authentication
 date: 2025-01-22 12:25:00 +0800
 lang: es-ES
 author: Justice-Reaper

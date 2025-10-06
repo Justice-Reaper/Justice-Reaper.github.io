@@ -1,6 +1,6 @@
 ---
-title: "SSRF guide"
-description: "Guía sobre SSRF"
+title: SSRF guide
+description: Guía sobre SSRF
 date: 2025-07-08 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper

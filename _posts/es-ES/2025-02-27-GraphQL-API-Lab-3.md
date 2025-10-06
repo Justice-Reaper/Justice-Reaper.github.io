@@ -1,6 +1,6 @@
 ---
-title: "Finding a hidden GraphQL endpoint"
-description: "Laboratorio de Portswigger sobre GraphQL API"
+title: Finding a hidden GraphQL endpoint
+description: Laboratorio de Portswigger sobre GraphQL API
 date: 2025-02-27 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

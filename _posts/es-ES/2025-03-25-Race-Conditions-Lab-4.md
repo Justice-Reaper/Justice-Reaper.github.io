@@ -1,6 +1,6 @@
 ---
-title: "Single-endpoint race conditions"
-description: "Laboratorio de Portswigger sobre Race Conditions"
+title: Single-endpoint race conditions
+description: Laboratorio de Portswigger sobre Race Conditions
 date: 2025-03-25 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

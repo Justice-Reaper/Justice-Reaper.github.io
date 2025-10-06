@@ -1,6 +1,6 @@
 ---
-title: "Clickjacking with a frame buster script"
-description: "Laboratorio de Portswigger sobre Clickjacking"
+title: Clickjacking with a frame buster script
+description: Laboratorio de Portswigger sobre Clickjacking
 date: 2025-03-28 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

@@ -1,6 +1,6 @@
 ---
-title: "Stratosphere"
-description: "Máquina Stratosphere de Hackthebox"
+title: Stratosphere
+description: Máquina Stratosphere de Hackthebox
 date: 2024-07-06 23:50:00 +0800
 lang: es-ES
 author: Justice-Reaper

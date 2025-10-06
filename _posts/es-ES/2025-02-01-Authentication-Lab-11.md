@@ -1,6 +1,6 @@
 ---
-title: "Password reset poisoning via middleware"
-description: "Laboratorio de Portswigger sobre Authentication"
+title: Password reset poisoning via middleware
+description: Laboratorio de Portswigger sobre Authentication
 date: 2025-02-01 12:25:00 +0800
 lang: es-ES
 author: Justice-Reaper

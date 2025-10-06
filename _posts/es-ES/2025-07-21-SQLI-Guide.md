@@ -1,6 +1,6 @@
 ---
-title: "SQLI guide"
-description: "Guía sobre SQLI"
+title: SQLI guide
+description: Guía sobre SQLI
 date: 2025-07-21 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper

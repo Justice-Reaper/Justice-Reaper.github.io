@@ -1,6 +1,6 @@
 ---
-title: "Intelligence"
-description: "Máquina Intelligence de Hackthebox"
+title: Intelligence
+description: Máquina Intelligence de Hackthebox
 date: 2024-10-08 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

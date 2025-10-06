@@ -1,6 +1,6 @@
 ---
-title: "Brute-forcing a stay-logged-in cookie"
-description: "Laboratorio de Portswigger sobre Authentication"
+title: Brute-forcing a stay-logged-in cookie
+description: Laboratorio de Portswigger sobre Authentication
 date: 2025-01-29 12:25:00 +0800
 lang: es-ES
 author: Justice-Reaper

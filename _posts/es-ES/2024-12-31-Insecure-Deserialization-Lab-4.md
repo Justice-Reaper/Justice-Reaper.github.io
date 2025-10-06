@@ -1,6 +1,6 @@
 ---
-title: "Arbitrary object injection in PHP"
-description: "Laboratorio de Portswigger sobre Insecure Deserialization"
+title: Arbitrary object injection in PHP
+description: Laboratorio de Portswigger sobre Insecure Deserialization
 date: 2024-12-31 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

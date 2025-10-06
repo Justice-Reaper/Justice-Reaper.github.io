@@ -1,6 +1,6 @@
 ---
-title: "Multi-step process with no access control on one step"
-description: "Laboratorio de Portswigger sobre Access Control"
+title: Multi-step process with no access control on one step
+description: Laboratorio de Portswigger sobre Access Control
 date: 2024-12-05 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

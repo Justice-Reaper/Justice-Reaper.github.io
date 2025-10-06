@@ -1,6 +1,6 @@
 ---
-title: "SolidState"
-description: "Máquina SolidState de Hackthebox"
+title: SolidState
+description: Máquina SolidState de Hackthebox
 date: 2024-08-02 23:20:00 +0800
 lang: es-ES
 author: Justice-Reaper

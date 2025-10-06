@@ -1,6 +1,6 @@
 ---
-title: "CSRF guide"
-description: "Guía sobre CSRF"
+title: CSRF guide
+description: Guía sobre CSRF
 date: 2025-08-24 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper

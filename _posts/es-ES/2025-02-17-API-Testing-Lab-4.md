@@ -1,6 +1,6 @@
 ---
-title: "Exploiting a mass assignment vulnerability"
-description: "Laboratorio de Portswigger sobre API Testing"
+title: Exploiting a mass assignment vulnerability
+description: Laboratorio de Portswigger sobre API Testing
 date: 2025-02-17 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

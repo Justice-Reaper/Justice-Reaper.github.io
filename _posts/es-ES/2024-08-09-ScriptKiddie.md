@@ -1,6 +1,6 @@
 ---
-title: "ScriptKiddie"
-description: "Máquina ScriptKiddie de Hackthebox"
+title: ScriptKiddie
+description: Máquina ScriptKiddie de Hackthebox
 date: 2024-08-09 23:50:00 +0800
 lang: es-ES
 author: Justice-Reaper

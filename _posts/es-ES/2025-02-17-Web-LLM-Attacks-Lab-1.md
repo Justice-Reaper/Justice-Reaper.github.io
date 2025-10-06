@@ -1,6 +1,6 @@
 ---
-title: "Exploiting LLM APIs with excessive agency"
-description: "Laboratorio de Portswigger sobre Web LLM Attacks"
+title: Exploiting LLM APIs with excessive agency
+description: Laboratorio de Portswigger sobre Web LLM Attacks
 date: 2025-02-17 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

@@ -1,6 +1,6 @@
 ---
-title: "CORS guide"
-description: "Guía sobre CORS"
+title: CORS guide
+description: Guía sobre CORS
 date: 2025-08-27 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper

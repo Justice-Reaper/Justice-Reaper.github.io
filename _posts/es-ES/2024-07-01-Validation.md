@@ -1,6 +1,6 @@
 ---
-title: "Validation"
-description: "Máquina Validation de Hackthebox"
+title: Validation
+description: Máquina Validation de Hackthebox
 date: 2024-07-01 21:47:00 +0800
 lang: es-ES
 author: Justice-Reaper

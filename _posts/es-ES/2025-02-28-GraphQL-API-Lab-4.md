@@ -1,6 +1,6 @@
 ---
-title: "Bypassing GraphQL brute force protections"
-description: "Laboratorio de Portswigger sobre GraphQL API"
+title: Bypassing GraphQL brute force protections
+description: Laboratorio de Portswigger sobre GraphQL API
 date: 2025-02-28 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper

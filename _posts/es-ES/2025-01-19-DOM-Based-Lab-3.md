@@ -1,6 +1,6 @@
 ---
-title: "DOM XSS using web messages and JSON.parse"
-description: "Laboratorio de Portswigger sobre DOM Based"
+title: DOM XSS using web messages and JSON.parse
+description: Laboratorio de Portswigger sobre DOM Based
 date: 2025-01-19 12:25:00 +0800
 lang: es-ES
 author: Justice-Reaper

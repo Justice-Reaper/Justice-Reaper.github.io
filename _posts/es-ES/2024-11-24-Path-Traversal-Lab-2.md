@@ -1,6 +1,6 @@
 ---
-title: "File path traversal, traversal sequences blocked with absolute path bypass"
-description: "Laboratorio de Portswigger sobre Path Traversal"
+title: File path traversal, traversal sequences blocked with absolute path bypass
+description: Laboratorio de Portswigger sobre Path Traversal
 date: 2024-11-24 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
