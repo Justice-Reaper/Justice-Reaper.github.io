@@ -286,7 +286,7 @@ Ipfuscator [https://github.com/dwisiswant0/ipfuscator.git](https://github.com/d
 
 URL validation bypass [https://portswigger.net/web-security/ssrf/url-validation-bypass-cheat-sheet](https://portswigger.net/web-security/ssrf/url-validation-bypass-cheat-sheet)
 
-Recollapse https://github.com/0xacb/recollapse.git
+Recollapse [https://github.com/0xacb/recollapse.git](https://github.com/0xacb/recollapse.git)
 
 403 Bypasser [https://github.com/PortSwigger/403-bypasser.git](https://github.com/PortSwigger/403-bypasser.git)
 
