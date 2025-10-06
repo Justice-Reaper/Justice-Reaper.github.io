@@ -1,5 +1,5 @@
 ---
-title: Path Traversal guide
+title: Path traversal guide
 description: Guía sobre Path Traversal
 date: 2025-10-02 12:30:00 +0800
 lang: es-ES
