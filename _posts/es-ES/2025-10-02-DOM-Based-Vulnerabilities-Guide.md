@@ -1,6 +1,6 @@
 ---
-title: DOM based vulnerabilities guide
-description: Guía sobre DOM Based Vulnerabilities
+title: "DOM based vulnerabilities guide"
+description: "Guía sobre DOM Based Vulnerabilities"
 date: 2025-10-02 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper
