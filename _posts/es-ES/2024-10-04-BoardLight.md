@@ -55,7 +55,7 @@ rtt min/avg/max/mdev = 36.090/37.786/41.152/2.380 mss
 Se va a realizar un escaneo de todos los `puertos` abiertos en el protocolo `TCP` a través de nmap
 
 ```
-#  sudo nmap -p- --open --min-rate 5000 -sS -Pn -n -v 10.129.231.37 -oG openPorts
+# sudo nmap -p- --open --min-rate 5000 -sS -Pn -n -v 10.129.231.37 -oG openPorts
 [sudo] password for justice-reaper: 
 Sorry, try again.
 [sudo] password for justice-reaper: 
