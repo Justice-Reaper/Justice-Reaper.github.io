@@ -84,6 +84,14 @@ Airgeddon [https://github.com/v1s1t0r1sh3r3/airgeddon.git](https://github.com/v1
 
 OpenBTS [https://github.com/PentHertz/OpenBTS.git](https://github.com/PentHertz/OpenBTS.git)
 
+### Análisis de tráfico de red
+
+Wireshark & Tshark [https://gitlab.com/wireshark/wireshark.git](https://gitlab.com/wireshark/wireshark.git)
+
+PCredz [https://github.com/lgandx/PCredz.git](https://github.com/lgandx/PCredz.git)
+
+CredSLayer [https://github.com/ShellCode33/CredSLayer.git](https://github.com/ShellCode33/CredSLayer.git)
+
 ## Android
 
 Scrpy [https://github.com/Genymobile/scrcpy.git](https://github.com/Genymobile/scrcpy.git)
