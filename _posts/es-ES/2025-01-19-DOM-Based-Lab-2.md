@@ -24,7 +24,7 @@ image:
   
 ## Descripción
 
-Este `laboratorio` tiene una vulnerabilidad de `DOM-based redirection` que se activa mediante `mensajes web`. Para `resolver` el `laboratorio`, debemos construir una página `HTML` en el `servidor de exploits` que `explote` esta `vulnerabilidad` y llame a la función `print()`
+Este `laboratorio` tiene una vulnerabilidad de `DOM based redirection` que se activa mediante `mensajes web`. Para `resolver` el `laboratorio`, debemos construir una página `HTML` en el `servidor de exploits` que `explote` esta `vulnerabilidad` y llame a la función `print()`
 
 ---
 

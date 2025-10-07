@@ -1,5 +1,5 @@
 ---
-title: Exploiting clickjacking vulnerability to trigger DOM-based XSS
+title: Exploiting clickjacking vulnerability to trigger DOM based XSS
 description: Laboratorio de Portswigger sobre Clickjacking
 date: 2025-04-01 12:26:00 +0800
 lang: es-ES
@@ -10,7 +10,7 @@ categories:
 tags:
   - Portswigger Labs
   - Clickjacking
-  - Exploiting clickjacking vulnerability to trigger DOM-based XSS
+  - Exploiting clickjacking vulnerability to trigger DOM based XSS
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---

@@ -130,7 +130,7 @@ La `implementación` de este `ataque combinado` es relativamente `sencilla`, sup
 
 En este `laboratorio` podemos ver como se `aplica` esta `técnica`:
 
-- Exploiting clickjacking vulnerability to trigger DOM-based XSS - [https://justice-reaper.github.io/posts/Clickjacking-Lab-4/](https://justice-reaper.github.io/posts/Clickjacking-Lab-4/)
+- Exploiting clickjacking vulnerability to trigger DOM based XSS - [https://justice-reaper.github.io/posts/Clickjacking-Lab-4/](https://justice-reaper.github.io/posts/Clickjacking-Lab-4/)
 
 ## Clickjacking en múltiples pasos
 

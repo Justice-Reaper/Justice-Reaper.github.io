@@ -1,5 +1,5 @@
 ---
-title: DOM-based open redirection
+title: DOM based open redirection
 description: Laboratorio de Portswigger sobre DOM Based
 date: 2025-01-21 12:25:00 +0800
 lang: es-ES
@@ -10,7 +10,7 @@ categories:
 tags:
   - Portswigger Labs
   - DOM
-  - BOM-based open redirection
+  - BOM based open redirection
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
@@ -24,7 +24,7 @@ image:
   
 ## Descripción
 
-Este `laboratorio` contiene una vulnerabilidad `DOM-based open-redirection`. Para `resolver` el laboratorio, debemos `explotar` esta `vulnerabilidad` y `redireccionar` a la víctima al `servidor de exploits`
+Este `laboratorio` contiene una vulnerabilidad `DOM based open redirection`. Para `resolver` el laboratorio, debemos `explotar` esta `vulnerabilidad` y `redireccionar` a la víctima al `servidor de exploits`
 
 ---
 
