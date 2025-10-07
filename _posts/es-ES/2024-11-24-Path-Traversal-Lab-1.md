@@ -28,6 +28,10 @@ Este `laboratorio` contiene una `vulnerabilidad` de `path traversal` en la `visu
 
 ---
 
+## Guía de path traversal
+
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de path traversal` [https://justice-reaper.github.io/posts/Path-Traversal-Guide/](https://justice-reaper.github.io/posts/Path-Traversal-Guide/)
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

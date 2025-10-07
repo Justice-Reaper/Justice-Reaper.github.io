@@ -28,6 +28,10 @@ Este `laboratorio` presenta una `DOM based client-side cookie manipulation`. Par
 
 ---
 
+## Guía de DOM based vulnerabilities
+
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de DOM based vulnerabilities` [https://justice-reaper.github.io/posts/DOM-Based-Vulnerabilities-Guide/](https://justice-reaper.github.io/posts/DOM-Based-Vulnerabilities-Guide/)
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

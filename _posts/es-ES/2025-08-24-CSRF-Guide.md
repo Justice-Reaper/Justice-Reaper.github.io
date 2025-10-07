@@ -347,7 +347,7 @@ En este `laboratorio` podemos ver como se `aplica` esta `técnica`:
 
 ### Bypassear restricciones SameSite usando gadgets del sitio web
 
-Un `gadget` posible es `una redirección del lado del cliente` que construya dinámicamente el `objetivo de redirección` usando `una entrada controlable por el atacante` como `parámetros de URL`. Para algunos ejemplos, se pueden consultar los materiales sobre `DOM-based open redirection`
+Un `gadget` posible es `una redirección del lado del cliente` que construya dinámicamente el `objetivo de redirección` usando `una entrada controlable por el atacante` como `parámetros de URL`. Para algunos ejemplos, se pueden consultar los materiales sobre `DOM based open redirection`
 
 Para los `navegadores`, estas `redirecciones del lado del cliente` no son realmente `redirecciones`. Esto quiere decir que, la `solicitud resultante` se trata como una `solicitud ordinaria` e `independiente`. Lo más importante de esto, es que es una `solicitud same-site` y, por lo tanto, incluirá todas las `cookies` relacionadas con el `sitio web`, sin importar las `restricciones` que estén en vigor
 
