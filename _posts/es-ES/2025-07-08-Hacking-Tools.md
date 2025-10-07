@@ -260,6 +260,10 @@ Cupp [https://github.com/Mebus/cupp.git](https://github.com/Mebus/cupp.git)
 
 payloadSplitter [https://github.com/Justice-Reaper/payloadSplitter.git](https://github.com/Justice-Reaper/payloadSplitter.git)
 
+### Fuerza bruta
+
+Hydra [https://github.com/vanhauser-thc/thc-hydra.git](https://github.com/vanhauser-thc/thc-hydra.git)
+
 ## Web
 
 ### Identificar tecnologías web
@@ -530,11 +534,11 @@ AdPeas [https://github.com/61106960/adPEAS.git](https://github.com/61106960/adPE
 
 ## Container breakout
 
-- Amicontained [https://github.com/genuinetools/amicontained.git](https://github.com/genuinetools/amicontained.git)
+Amicontained [https://github.com/genuinetools/amicontained.git](https://github.com/genuinetools/amicontained.git)
 
-- Deepce [https://github.com/stealthcopter/deepce.git](https://github.com/stealthcopter/deepce.git)
+Deepce [https://github.com/stealthcopter/deepce.git](https://github.com/stealthcopter/deepce.git)
 
-- CDK [https://github.com/cdk-team/CDK.git](https://github.com/cdk-team/CDK.git)
+CDK [https://github.com/cdk-team/CDK.git](https://github.com/cdk-team/CDK.git)
 
 ## Dumpear credenciales
 
