@@ -490,6 +490,8 @@ Funciones PHP peligrosas [https://gist.github.com/mccabe615/b0907514d34b2de088c4
 
 ## Exploits
 
+0day Archive [https://0day-archive.fullhunt.io/](https://0day-archive.fullhunt.io/)
+
 Sploitify [https://sploitify.haxx.it/](https://sploitify.haxx.it/)
 
 Exploit Database [https://www.exploit-db.com/](https://www.exploit-db.com/)
