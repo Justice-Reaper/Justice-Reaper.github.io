@@ -65,13 +65,13 @@ Por ejemplo, un `sitio web de ventas minoristas` podría `impedir` que los usuar
 
 Los `broken access control` existen cuando un `usuario` puede `acceder a recursos` o `realizar acciones` que `no debería poder hacer`
 
-### Vertical privilege escalation  
+### Privilege escalation vertical  
 
-Si un usuario puede obtener acceso a `funcionalidades` para las cuales `no tiene permiso`, esto se denomina `vertical privilege escalation`. Por ejemplo, si un `usuario no administrativo` puede acceder a una `página de administrador` donde puede `eliminar cuentas de usuario`, entonces esto es `vertical privilege escalation`.
+Si un usuario puede obtener acceso a `funcionalidades` para las cuales `no tiene permiso`, esto se denomina `privilege escalation vertical`. Por ejemplo, si un `usuario no administrativo` puede acceder a una `página de administrador` donde puede `eliminar cuentas de usuario`, entonces esto es `privilege escalation vertical`
 
 ### Funcionalidad desprotegida
 
-En su forma más básica, la `vertical privilege escalation` ocurre cuando una `aplicación` no aplica ninguna `protección` sobre una `funcionalidad sensible`. Por ejemplo, las `funciones administrativas` pueden estar enlazadas desde la `página de bienvenida del administrador` pero no desde la de un `usuario normal`. Sin embargo, un usuario podría acceder a las `funciones administrativas` simplemente `navegando` a la `URL de administración` correspondiente
+En su forma más básica, la `privilege escalation vertical` ocurre cuando una `aplicación` no aplica ninguna `protección` sobre una `funcionalidad sensible`. Por ejemplo, las `funciones administrativas` pueden estar enlazadas desde la `página de bienvenida del administrador` pero no desde la de un `usuario normal`. Sin embargo, un usuario podría acceder a las `funciones administrativas` simplemente `navegando` a la `URL de administración` correspondiente
 
 Por ejemplo, un sitio web podría alojar una `funcionalidad sensible` en la siguiente `URL`:
 
@@ -180,11 +180,11 @@ Discrepancias similares pueden surgir si los `desarrolladores` que usan el `fram
 
 En otros sistemas, puede encontrarse `discrepancias` sobre si `/admin/deleteUser` y `/admin/deleteUser/` se tratan como `endpoints distintos`. En ese caso, puede ser posible `bypassear` los controles de acceso añadiendo una `barra diagonal (/)` al final de la ruta
 
-## Horizontal privilege escalation
+## Privilege escalation horizontal
 
-La `horizontal privilege escalation` ocurre si un `usuario` puede `obtener acceso` a `recursos pertenecientes a otro usuario`, en lugar de a sus propios recursos del mismo tipo. Por ejemplo, si un `empleado` puede acceder a los `registros de otros empleados` además de a los suyos, eso es `horizontal privilege escalation`
+Un `privilege escalation horizontal` ocurre si un `usuario` puede `obtener acceso` a `recursos pertenecientes a otro usuario`, en lugar de a sus propios recursos del mismo tipo. Por ejemplo, si un `empleado` puede acceder a los `registros de otros empleados` además de a los suyos, eso es `privilege escalation horizontal`
 
-Los ataques de `horizontal privilege escalation` pueden usar `métodos de explotación similares` a los de `vertical privilege escalation`. Por ejemplo, un usuario podría `acceder` al `perfil de  su cuenta` usando la siguiente `URL`:
+Los ataques de `privilege escalation horizontal` pueden usar `métodos de explotación similares` a los de `privilege escalation vertical`. Por ejemplo, un usuario podría `acceder` al `perfil de  su cuenta` usando la siguiente `URL`:
 
 ```
 https://insecure-website.com/myaccount?id=123
@@ -212,9 +212,9 @@ En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
 ## Privilege escalation horizontal a vertical 
 
-A menudo, un `ataque de horizontal privilege escalation` puede convertirse en un `vertical privilege escalation` comprometiendo a un `usuario con más privilegios`. Por ejemplo, un `horizontal privilege escalation` podría permitir a un atacante `restablecer` o `capturar` la `contraseña` de `otro usuario`. Si el atacante apunta a un `usuario administrador` y `compromete` su `cuenta`, entonces puede obtener `acceso administrativo` y así llevar a cabo un `vertical privilege escalation`.
+A menudo, un `ataque de privilege escalation horizontal` puede convertirse en un `privilege escalation vertical` comprometiendo a un `usuario con más privilegios`. Por ejemplo, un `privilege escalation horizontal` podría permitir a un atacante `restablecer` o `capturar` la `contraseña` de `otro usuario`. Si el atacante apunta a un `usuario administrador` y `compromete` su `cuenta`, entonces puede obtener `acceso administrativo` y así llevar a cabo un `privilege escalation vertical`.
 
-Un atacante podría ser capaz de `acceder al perfil de otro usuario` usando la `técnica de manipulación de parámetros`, ya descrita para `horizontal privilege escalation`. Por ejemplo:
+Un atacante podría ser capaz de `acceder al perfil de otro usuario` usando la `técnica de manipulación de parámetros`, ya descrita para `privilege escalation horizontal`. Por ejemplo:
 
 ```
 https://insecure-website.com/myaccount?id=456
@@ -232,7 +232,7 @@ En esta sección explicaremos qué son las `insecure direct object references (I
 
 ### ¿Qué es un IDOR?  
 
-Un `IDOR (insecure direct object references)` es un tipo de `vulnerabilidad de access control` que surge cuando `una aplicación utiliza entrada proporcionada por el usuario para acceder a objetos directamente`. El término `IDOR` se popularizó por su aparición en el `OWASP 2007 Top Ten`. Sin embargo, es solo un ejemplo entre muchas `implementaciones erróneas` de `access control` que pueden llevar a que los controles de acceso sean `eludidos`. Las `vulnerabilidades IDOR` se asocian más comúnmente con un `horizontal privilege escalation`, pero también pueden surgir en relación con un `vertical privilege escalation`
+Un `IDOR (insecure direct object references)` es un tipo de `vulnerabilidad de access control` que surge cuando `una aplicación utiliza entrada proporcionada por el usuario para acceder a objetos directamente`. El término `IDOR` se popularizó por su aparición en el `OWASP 2007 Top Ten`. Sin embargo, es solo un ejemplo entre muchas `implementaciones erróneas` de `access control` que pueden llevar a que los controles de acceso sean `eludidos`. Las `vulnerabilidades IDOR` se asocian más comúnmente con un `privilege escalation horizontal`, pero también pueden surgir en relación con un `privilege escalation vertical`
 
 ### Ejemplos de IDOR
 
@@ -246,9 +246,9 @@ Consideremos un `sitio web` que utiliza una `URL` para `acceder` al `perfil de u
 https://insecure-website.com/customer_account?customer_number=132355
 ```
 
-Aquí, el `customer_number` se usa directamente como `índice de registro` en las `consultas` que se realizan a la `base de datos`. Si no existen otros controles, un `atacante` puede simplemente `modificar el valor de customer_number`, `eludiendo los access control` para `ver` los `registros` de `otros clientes`. Este es un ejemplo de una `vulnerabilidad IDOR` que conduce a un `horizontal privilege escalation`
+Aquí, el `customer_number` se usa directamente como `índice de registro` en las `consultas` que se realizan a la `base de datos`. Si no existen otros controles, un `atacante` puede simplemente `modificar el valor de customer_number`, `eludiendo los access control` para `ver` los `registros` de `otros clientes`. Este es un ejemplo de una `vulnerabilidad IDOR` que conduce a un `privilege escalation horizontal`
 
-Un `atacante` podría realizar un `horizontal` y `vertical privilege escalation` cambiar el usuario por uno con `privilegios adicionales` mientras `elude` los `controles de acceso`. Otras posibilidades incluyen `explotar` una `password leakage` o `modificar parámetros` una vez que el atacante ha accedido al `perfil de la víctima`, por ejemplo
+Un `atacante` podría realizar un `horizontal` y `privilege escalation vertical` cambiar el usuario por uno con `privilegios adicionales` mientras `elude` los `controles de acceso`. Otras posibilidades incluyen `explotar` una `password leakage` o `modificar parámetros` una vez que el atacante ha accedido al `perfil de la víctima`, por ejemplo
 
 #### IDOR con referencia directa a archivos estáticos  
 
