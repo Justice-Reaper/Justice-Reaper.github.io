@@ -37,23 +37,23 @@ El `access control` es la aplicación de `restricciones` sobre quién o qué est
 
 Los `broken access controls` son comunes y suelen representar una `vulnerabilidad crítica de seguridad`. El `diseño y la gestión` del `access control` es un `problema complejo y dinámico` que aplica `restricciones empresariales, organizativas y legales` a una `implementación técnica`. Las `decisiones de diseño` del `access control` deben ser tomadas por `personas`, por lo que el `potencial de errores` es alto
 
-![[Pasted image 20251023104549.png]]
+![](/assets/img/Broken-Access-Control/image_1.png)
 
 ## Tipos de access controls
 
 Existen diferentes `tipos` de `access controls` dependiendo de a qué se le aplican las `restricciones`
 
-### Vertical access controls
+### Access controls verticalees
 
-Los `vertical access controls` son mecanismos que `restringen el acceso` a `funcionalidades sensibles` a `tipos específicos de usuarios`
+Los `access controls verticales` son mecanismos que `restringen el acceso` a `funcionalidades sensibles` a `tipos específicos de usuarios`
 
-Con los `vertical access controls`, distintos tipos de usuarios tienen acceso a diferentes `funciones de la aplicación`. Por ejemplo, un `administrador` podría `modificar o eliminar` la `cuenta` de `cualquier usuario`, mientras que un `usuario común` no tiene acceso a esas acciones. Los `vertical access controls` pueden ser implementaciones más `granulares` de `modelos de seguridad` diseñados para aplicar `políticas empresariales` como la `separación de funciones` y el `principio de menor privilegio`
+Con los `access controls verticales`, distintos tipos de usuarios tienen acceso a diferentes `funciones de la aplicación`. Por ejemplo, un `administrador` podría `modificar o eliminar` la `cuenta` de `cualquier usuario`, mientras que un `usuario común` no tiene acceso a esas acciones. Los `access controls verticales` pueden ser implementaciones más `granulares` de `modelos de seguridad` diseñados para aplicar `políticas empresariales` como la `separación de funciones` y el `principio de menor privilegio`
 
-### Horizontal access controls
+### Access controls horizontales
 
-Los `horizontal access controls` son mecanismos que `restringen el acceso` a `recursos` para `usuarios específicos`
+Los `access controls horizontales` son mecanismos que `restringen el acceso` a `recursos` para `usuarios específicos`
 
-Con los `horizontal access controls`, distintos usuarios tienen acceso a un `subconjunto de recursos` del mismo tipo. Por ejemplo, una `aplicación bancaria` permitirá que un usuario `vea transacciones` y `realice pagos` desde sus propias cuentas, pero `no desde las cuentas de otros usuarios`
+Con los `access controls horizontales`, distintos usuarios tienen acceso a un `subconjunto de recursos` del mismo tipo. Por ejemplo, una `aplicación bancaria` permitirá que un usuario `vea transacciones` y `realice pagos` desde sus propias cuentas, pero `no desde las cuentas de otros usuarios`
 
 ### Access controls dependientes del contexto
 
