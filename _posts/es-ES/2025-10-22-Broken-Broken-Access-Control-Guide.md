@@ -145,7 +145,7 @@ En estos `laboratorios` podemos ver como `aplicar` esta `técnica`:
 
 - User role can be modified in user profileble URL - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-4/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-4/)
 
-### Broken access control resultante de una mala configuración de la plataforma
+### Access control resultante de una mala configuración de la plataforma
 
 Algunas `aplicaciones` aplican `access control` en la capa de plataforma. Lo hacen `restringiendo` el `acceso` a `URLs` y `métodos HTTP` específicos según el `rol del usuario`. Por ejemplo, una aplicación podría configurar una `regla` así:
 
@@ -173,7 +173,7 @@ En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
 - Method-based access control can be circumvented - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-11/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-11/)
 
-### Broken access control resultante de discrepancias en la correspondencia de URL
+### Access control resultante de discrepancias en la correspondencia de URL
 
 Los `sitios web` pueden variar en cuán estrictamente `coinciden` la `ruta` de una `petición entrante` con un `endpoint` definido. Por ejemplo, pueden tolerar una `capitalización inconsistente`, de modo que una `petición` a `/ADMIN/DELETEUSER` aún pueda mapearse al `endpoint /admin/deleteUser`. Si el mecanismo de `access control` es menos tolerante, puede tratarlas como `dos endpoints distintos` y `fallar` en `aplicar las restricciones` correctas como resultado
 
@@ -211,7 +211,7 @@ En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
 - User ID controlled by request parameter with data leakage in redirect - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-7/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-7/)
 
-## Privilege escalation horizontal a vertical 
+## Privilege escalation de horizontal a vertical 
 
 A menudo, un `ataque de privilege escalation horizontal` puede convertirse en un `privilege escalation vertical` comprometiendo a un `usuario con más privilegios`. Por ejemplo, un `privilege escalation horizontal` podría permitir a un atacante `restablecer` o `capturar` la `contraseña` de `otro usuario`. Si el atacante apunta a un `usuario administrador` y `compromete` su `cuenta`, entonces puede obtener `acceso administrativo` y así llevar a cabo un `privilege escalation vertical`.
 
