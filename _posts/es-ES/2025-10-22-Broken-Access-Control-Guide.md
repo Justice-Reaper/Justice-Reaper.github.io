@@ -37,7 +37,7 @@ El `access control` es la aplicación de `restricciones` sobre quién o qué est
 
 Los `broken access controls` son comunes y suelen representar una `vulnerabilidad crítica de seguridad`. El `diseño y la gestión` del `access control` es un `problema complejo y dinámico` que aplica `restricciones empresariales, organizativas y legales` a una `implementación técnica`. Las `decisiones de diseño` del `access control` deben ser tomadas por `personas`, por lo que el `potencial de errores` es alto
 
-![](/assets/img/Broken-Access-Control/image_1.png)
+![](/assets/img/Broken-Access-Control-Guide/image_1.png)
 
 ## Tipos de access controls
 
