@@ -1,15 +1,15 @@
 ---
 title: URL-based access control can be circumvented
-description: Laboratorio de Portswigger sobre Access Control
+description: Laboratorio de Portswigger sobre Broken Access Control
 date: 2024-12-05 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger Labs
-  - Access Control
+  - Broken Access Control
 tags:
   - Portswigger Labs
-  - Access Control
+  - Broken Access Control
   - URL-based access control can be circumvented
 image:
   path: /assets/img/Portswigger/Portswigger.png
@@ -32,7 +32,7 @@ Este `sitio web` tiene un `panel de administración` no autenticado en `/admin`,
 
 Al `acceder` a la `web` nos sale esto
 
-![](/assets/img/Access-Control-Lab-10/image_1.png)
+![](/assets/img/Broken-Access-Control-Lab-10/image_1.png)
 
 Si pulsamos en `Admin panel` no nos deja acceder y nos muestra un código de estado `403 Access Denied`. Existe una herramienta llamada `bypas-403` [https://github.com/v0rl0x/bypass-403-updated.git](https://github.com/v0rl0x/bypass-403-updated.git), la cual mediante diferentes `headers` intenta `bypassear` este código de estado. Podemos encontrar `payloads` y otras herramientas en `Hacktricks` [https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/403-and-401-bypasses](https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/403-and-401-bypasses). Es importante probar con `/admin` y con `admin` debido a que hay varias cabeceras que necesitan una ruta
 
@@ -83,12 +83,12 @@ Way back machine:
 
 Si `capturamos` la `petición` y aplicamos la cabecera `X-Original-Url: /admin`
 
-![](/assets/img/Access-Control-Lab-10/image_2.png)
+![](/assets/img/Broken-Access-Control-Lab-10/image_2.png)
 
 Hacemos click derecho, pulsamos sobre `Show response in browser` y accedemos a un panel administrativo
 
-![](/assets/img/Access-Control-Lab-10/image_3.png)
+![](/assets/img/Broken-Access-Control-Lab-10/image_3.png)
 
 Si intentamos `eliminar` a un `usuario` no nos dejará y nos `redirigirá` a `https://0a2a003604de8f1180f0ade5008900ae.web-security-academy.net/admin/delete?username=carlos`. Debemos realizar la `petición` de esta forma para poder `eliminar` al usuario `carlos`
 
-![](/assets/img/Access-Control-Lab-10/image_4.png)
+![](/assets/img/Broken-Access-Control-Lab-10/image_4.png)

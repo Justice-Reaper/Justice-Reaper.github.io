@@ -1,15 +1,15 @@
 ---
 title: Unprotected admin functionality
-description: Laboratorio de Portswigger sobre Access Control
+description: Laboratorio de Portswigger sobre Broken Access Control
 date: 2024-12-04 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger Labs
-  - Access Control
+  - Broken Access Control
 tags:
   - Portswigger Labs
-  - Access Control
+  - Broken Access Control
   - Unprotected admin functionality
 image:
   path: /assets/img/Portswigger/Portswigger.png
@@ -32,7 +32,7 @@ Este `laboratorio` tiene un `panel de administración` sin `protección`. Para `
 
 Al `acceder` a la `web` nos sale esto
 
-![](/assets/img/Access-Control-Lab-1/image_1.png)
+![](/assets/img/Broken-Access-Control-Lab-1/image_1.png)
 
 `Fuzzeamos` la `web`, además de hacerlo desde `Burpsuite` podemos usar herramientas como `fuff` desde `consola`
 
@@ -72,8 +72,8 @@ robots.txt              [Status: 200, Size: 45, Words: 3, Lines: 3, Duration: 53
 
 Si accedemos a `https://0a13001403de35cd811e201100ae0089.web-security-academy.net/robots.txt` veremos una ruta llamada `/administrator-panel`
 
-![](/assets/img/Access-Control-Lab-1/image_2.png)
+![](/assets/img/Broken-Access-Control-Lab-1/image_2.png)
 
 Si accedemos a `https://0a13001403de35cd811e201100ae0089.web-security-academy.net/administrator-panel` veremos un `panel` `administrativo` desde el cual podemos `borrar` al usuarios `carlos` completando así el `laboratorio`
 
-![](/assets/img/Access-Control-Lab-1/image_3.png)
+![](/assets/img/Broken-Access-Control-Lab-1/image_3.png)

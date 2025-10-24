@@ -30,9 +30,9 @@ image:
 El `access control` es la aplicación de `restricciones` sobre quién o qué está `autorizado` para realizar `acciones` o `acceder a recursos`. En el contexto de las `aplicaciones web`, el `access control` depende de la `autenticación` y la `gestión de sesiones`:
 
 - La `autenticación` confirma que el `usuario` es quien dice ser
-    
+
 - La `gestión de sesiones` identifica qué `solicitudes HTTP` posteriores están siendo realizadas por ese mismo usuario
-    
+
 - El `access control` determina si el `usuario` tiene `permiso` para realizar la `acción` que intenta ejecutar
 
 Los `broken access controls` son comunes y suelen representar una `vulnerabilidad crítica de seguridad`. El `diseño y la gestión` del `access control` es un `problema complejo y dinámico` que aplica `restricciones empresariales, organizativas y legales` a una `implementación técnica`. Las `decisiones de diseño` del `access control` deben ser tomadas por `personas`, por lo que el `potencial de errores` es alto
@@ -89,7 +89,7 @@ Incluso si la `URL` no se `revela` en ninguna parte del `sitio web`, un `atacant
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Unprotected admin functionality - [https://justice-reaper.github.io/posts/Access-Control-Lab-1/](https://justice-reaper.github.io/posts/Access-Control-Lab-1/)
+- Unprotected admin functionality - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-1/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-1/)
 
 En algunos casos, la `funcionalidad sensible` se oculta usando una `URL menos predecible`. Esto es un ejemplo de lo que se conoce como `security by obscurity`. Sin embargo, `ocultar una funcionalidad sensible` no es un `access control efectivo`, ya que los `usuarios` pueden `descubrir la URL ofuscada` de diversas formas
 
@@ -118,7 +118,7 @@ Este script `agrega` un `enlace` a la `interfaz de usuario` si el usuario es un 
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Unprotected admin functionality with unpredictable URL - [https://justice-reaper.github.io/posts/Access-Control-Lab-2/](https://justice-reaper.github.io/posts/Access-Control-Lab-2/)
+- Unprotected admin functionality with unpredictable URL - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-2/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-2/)
 
 ### Access controls basados en parámetro
 
@@ -141,9 +141,9 @@ Este enfoque es `inseguro` porque un `usuario` puede `modificar el valor` y así
 
 En estos `laboratorios` podemos ver como `aplicar` esta `técnica`:
 
-- User role controlled by request parameter - [https://justice-reaper.github.io/posts/Access-Control-Lab-3/](https://justice-reaper.github.io/posts/Access-Control-Lab-3/)
+- User role controlled by request parameter - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-3/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-3/)
 
-- User role can be modified in user profileble URL - [https://justice-reaper.github.io/posts/Access-Control-Lab-4/](https://justice-reaper.github.io/posts/Access-Control-Lab-4/)
+- User role can be modified in user profileble URL - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-4/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-4/)
 
 ### Broken access control resultante de una mala configuración de la plataforma
 
@@ -165,13 +165,13 @@ X-Original-URL: /admin/deleteUser
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- URL-based access control can be circumvented - [https://justice-reaper.github.io/posts/Access-Control-Lab-10/](https://justice-reaper.github.io/posts/Access-Control-Lab-10/)
+- URL-based access control can be circumvented - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-10/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-10/)
 
 Un `ataque alternativo` está relacionado con el `método HTTP` usado en la `petición`. Los `controles` del `front-end` descritos en las secciones anteriores `restringen` el `acceso` basándose en la `URL` y el `método HTTP`. Algunos `sitios web` toleran `métodos HTTP diferentes` al realizar una `acción`. Si un `atacante` puede usar el `GET (u otro método)` para realizar `acciones` en una `URL restringida`, puede `bypassear` el `access control` que está implementado
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Method-based access control can be circumvented - [https://justice-reaper.github.io/posts/Access-Control-Lab-11/](https://justice-reaper.github.io/posts/Access-Control-Lab-11/)
+- Method-based access control can be circumvented - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-11/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-11/)
 
 ### Broken access control resultante de discrepancias en la correspondencia de URL
 
@@ -197,19 +197,19 @@ Este caso es un ejemplo de un `IDOR (insecure direct object reference)`. Este ti
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- User ID controlled by request parameter - [https://justice-reaper.github.io/posts/Access-Control-Lab-5/](https://justice-reaper.github.io/posts/Access-Control-Lab-5/)
+- User ID controlled by request parameter - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-5/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-5/)
 
 En algunas `aplicaciones`, el `parámetro explotable no tiene un valor predecible`. Por ejemplo, en lugar de un `número incremental`, una aplicación puede usar `GUIDs (identificadores globales únicos)` para `identificar` a los `usuarios`. Esto puede `impedir que un atacante adivine o prediga el identificador de otro usuario`. Sin embargo, los `GUIDs` pertenecientes a otros `usuarios` podrían `verse` en otras partes de la aplicación donde `se hace referencia a usuarios`, como en `mensajes de usuario` o `reseñas`
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- User ID controlled by request parameter, with unpredictable user IDs - [https://justice-reaper.github.io/posts/Access-Control-Lab-6/](https://justice-reaper.github.io/posts/Access-Control-Lab-6/)
+- User ID controlled by request parameter, with unpredictable user IDs - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-6/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-6/)
 
 En algunos casos, una `aplicación detecta` cuando un `usuario` no tiene `permisos` para `acceder` un recurso y `devuelve` una `redirección a la página de inicio de sesión`. Sin embargo, la `respuesta` que contiene la `redirección` podría todavía incluir `datos sensibles` pertenecientes al `usuario objetivo`, por lo que el `ataque` sigue siendo `exitoso`
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- User ID controlled by request parameter with data leakage in redirect - [https://justice-reaper.github.io/posts/Access-Control-Lab-7/](https://justice-reaper.github.io/posts/Access-Control-Lab-7/)
+- User ID controlled by request parameter with data leakage in redirect - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-7/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-7/)
 
 ## Privilege escalation horizontal a vertical 
 
@@ -225,7 +225,7 @@ Si el `usuario objetivo` es un `administrador de la aplicación`, entonces el at
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- User ID controlled by request parameter with password disclosure - [https://justice-reaper.github.io/posts/Access-Control-Lab-8/](https://justice-reaper.github.io/posts/Access-Control-Lab-8/)
+- User ID controlled by request parameter with password disclosure - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-8/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-8/)
 
 ## IDOR
 
@@ -263,7 +263,7 @@ En esta situación, un `atacante` puede simplemente `modificar el nombre del arc
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Insecure direct object references - [https://justice-reaper.github.io/posts/Access-Control-Lab-9/](https://justice-reaper.github.io/posts/Access-Control-Lab-9/)
+- Insecure direct object references - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-9/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-9/)
 
 ## Vulnerabilidades de access control en procesos de múltiples pasos
 
@@ -285,7 +285,7 @@ A veces, un `sitio web` aplicará `controles de access control rigurosos` sobre 
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Multi-step process with no access control on one step - [https://justice-reaper.github.io/posts/Access-Control-Lab-12/](https://justice-reaper.github.io/posts/Access-Control-Lab-12/)
+- Multi-step process with no access control on one step - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-12/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-12/)
 
 ## Access controls basados en Referer
 
@@ -297,7 +297,7 @@ En este caso, el `encabezado Referer` puede ser `controlado completamente por un
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Referer-based access control - [https://justice-reaper.github.io/posts/Access-Control-Lab-13/](https://justice-reaper.github.io/posts/Access-Control-Lab-13/)
+- Referer-based access control - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-13/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-13/)
 
 ## Access controls basados en la localización
 
@@ -321,7 +321,7 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 4. Si el `escaneo` no ha descubierto ninguna `ruta interesante`, es hora de intentar `buscar vulnerabilidades` de forma `manual`. Para ello, cada vez que demos con una `feature interesante` debemos probar a `cambiar el método` mediante el que se hace la `petición`. Esto lo podemos hacer haciendo `click derecho > Change request method`. Si probamos con `otro usuario diferente al nuestro` y `no funciona`, `debemos` probar también con `nuestro usuario` para asegurarnos si funciona realmente
 
-5. Si tenemos `dos cuentas` y `una` tiene `más privilegios` que la `otra`, `usaremos dos navegadores` e `iniciaremos sesión` con `una cuenta en uno` y con `la otra en otro`. Podemos usar las extensiones `Auth Analyzer` y `Autorize` de `Burpsuite` para ayudarnos a encontrar `vulnerabilidades` de `broken access control`
+5. Si tenemos `dos cuentas` y `una` tiene `más privilegios` que la `otra`, `usaremos dos navegadores` e `iniciaremos sesión` con `una cuenta en uno` y con `la otra en otro`. Podemos usar las extensiones `Auth Analyzer` y `Autorize` de `Burpsuite` para ayudarnos a encontrar `vulnerabilidades` de `access control`
 
 6. Si tenemos alguna duda debemos mirar los diferentes ejemplos de `vulnerabilidades` que hay en este `post`
 

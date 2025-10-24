@@ -1,15 +1,15 @@
 ---
 title: User role can be modified in user profile
-description: Laboratorio de Portswigger sobre Access Control
+description: Laboratorio de Portswigger sobre Broken Access Control
 date: 2024-12-04 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger Labs
-  - Access Control
+  - Broken Access Control
 tags:
   - Portswigger Labs
-  - Access Control
+  - Broken Access Control
   - User role can be modified in user profile
 image:
   path: /assets/img/Portswigger/Portswigger.png
@@ -32,11 +32,11 @@ Este `laboratorio` tiene un `panel de administración` en `/admin`. Solo es acce
 
 Al `acceder` a la `web` nos sale esto
 
-![](/assets/img/Access-Control-Lab-4/image_1.png)
+![](/assets/img/Broken-Access-Control-Lab-4/image_1.png)
 
 Pulsamos en `My account` y nos logueamos con las credenciales `wiener:peter`
 
-![](/assets/img/Access-Control-Lab-4/image_2.png)
+![](/assets/img/Broken-Access-Control-Lab-4/image_2.png)
 
 `Fuzzeamos` rutas y encontramos una llamada `/admin`
 
@@ -77,19 +77,19 @@ my-account              [Status: 302, Size: 0, Words: 1, Lines: 1, Duration: 59m
 
 Si accedemos a `/admin` nos `muestra` este `mensaje`
 
-![](/assets/img/Access-Control-Lab-4/image_3.png)
+![](/assets/img/Broken-Access-Control-Lab-4/image_3.png)
 
 En la parte de `My account` vemos que podemos `actualizar` nuestro `email`
 
-![](/assets/img/Access-Control-Lab-4/image_4.png)
+![](/assets/img/Broken-Access-Control-Lab-4/image_4.png)
 
 Si `interceptamos` la `petición` mediante `Burpsuite` vemos esto
 
-![](/assets/img/Access-Control-Lab-4/image_5.png)
+![](/assets/img/Broken-Access-Control-Lab-4/image_5.png)
 
 Si `enviamos` la `petición`, esta es la `repuesta` que `recibimos`
 
-![](/assets/img/Access-Control-Lab-4/image_6.png)
+![](/assets/img/Broken-Access-Control-Lab-4/image_6.png)
 
 Podemos `enviar` este `payload` en el cual cambiamos nuestro `roleid` a `2` con el fin de `escalar privilegios`
 
@@ -102,4 +102,4 @@ Podemos `enviar` este `payload` en el cual cambiamos nuestro `roleid` a `2` con 
 
 Una vez `ascendido` nuestro `privilegio` ya podemos `acceder` a `/admin`, `borrar` al usuario `carlos` y `ascender` nuestro `privilegio`
 
-![](/assets/img/Access-Control-Lab-4/image_7.png)
+![](/assets/img/Broken-Access-Control-Lab-4/image_7.png)

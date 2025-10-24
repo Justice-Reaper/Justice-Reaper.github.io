@@ -1,15 +1,15 @@
 ---
 title: Multi-step process with no access control on one step
-description: Laboratorio de Portswigger sobre Access Control
+description: Laboratorio de Portswigger sobre Broken Access Control
 date: 2024-12-05 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger Labs
-  - Access Control
+  - Broken Access Control
 tags:
   - Portswigger Labs
-  - Access Control
+  - Broken Access Control
   - Multi-step process with no access control on one step
 image:
   path: /assets/img/Portswigger/Portswigger.png
@@ -32,32 +32,32 @@ Este `laboratorio` tiene un `panel de administración` con un proceso defectuoso
 
 Al `acceder` a la `web` nos sale esto
 
-![](/assets/img/Access-Control-Lab-12/image_1.png)
+![](/assets/img/Broken-Access-Control-Lab-12/image_1.png)
 
 Pulsamos sobre `My account` y nos `logueamos` con credenciales `administrator:admin`
 
-![](/assets/img/Access-Control-Lab-12/image_2.png)
+![](/assets/img/Broken-Access-Control-Lab-12/image_2.png)
 
 Pulsamos en `Admin panel` y vemos que podemos `subirle` los `privilegios` a otros `usuarios`
 
-![](/assets/img/Access-Control-Lab-12/image_3.png)
+![](/assets/img/Broken-Access-Control-Lab-12/image_3.png)
 
 Si pulsamos sobre `Upgrade user` nos sale este `mensaje` de `confirmación`
 
-![](/assets/img/Access-Control-Lab-12/image_4.png)
+![](/assets/img/Broken-Access-Control-Lab-12/image_4.png)
 
 Pulsamos sobre `Yes` y `capturamos` la `petición` con `Burpsuite`
 
-![](/assets/img/Access-Control-Lab-12/image_5.png)
+![](/assets/img/Broken-Access-Control-Lab-12/image_5.png)
 
 Nos `logueamos` como el `wiener`
 
-![](/assets/img/Access-Control-Lab-12/image_6.png)
+![](/assets/img/Broken-Access-Control-Lab-12/image_6.png)
 
 Pulsamos `Ctrl + Shift + i` y copiamos el valor de `session`
 
-![](/assets/img/Access-Control-Lab-12/image_7.png)
+![](/assets/img/Broken-Access-Control-Lab-12/image_7.png)
 
 Copiamos el `valor` de `session` aquí y `upgradeamos` los `privilegios` a nuestro `usuario`
 
-![](/assets/img/Access-Control-Lab-12/image_8.png)
+![](/assets/img/Broken-Access-Control-Lab-12/image_8.png)
