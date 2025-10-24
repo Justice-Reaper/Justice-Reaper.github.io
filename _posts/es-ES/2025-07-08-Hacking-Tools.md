@@ -476,6 +476,12 @@ Panoptic [https://github.com/lightos/Panoptic.git](https://github.com/lightos/Pa
 
 Nginx Alias Traversal [https://github.com/PortSwigger/nginx-alias-traversal.git](https://github.com/PortSwigger/nginx-alias-traversal.git)
 
+#### Broken access control
+
+Auth Analyzer [https://github.com/PortSwigger/auth-analyzer.git](https://github.com/PortSwigger/auth-analyzer.git)
+
+Autorize [https://github.com/PortSwigger/autorize.git](https://github.com/PortSwigger/autorize.git)
+
 #### Information disclosure
 
 ##### Carpeta .git expuesta
