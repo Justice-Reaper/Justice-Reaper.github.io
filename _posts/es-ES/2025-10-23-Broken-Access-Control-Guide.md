@@ -90,6 +90,7 @@ Incluso si la `URL` no se `revela` en ninguna parte del `sitio web`, un `atacant
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
 - Unprotected admin functionality - [https://justice-reaper.github.io/posts/Access-Control-Lab-1/](https://justice-reaper.github.io/posts/Access-Control-Lab-1/)
+
 En algunos casos, la `funcionalidad sensible` se oculta usando una `URL menos predecible`. Esto es un ejemplo de lo que se conoce como `security by obscurity`. Sin embargo, `ocultar una funcionalidad sensible` no es un `access control efectivo`, ya que los `usuarios` pueden `descubrir la URL ofuscada` de diversas formas
 
 Imaginemos que `una aplicación aloja funciones administrativas` en la siguiente `URL`:
@@ -301,6 +302,28 @@ En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 ## Access controls basados en la localización
 
 Algunos `sitios web` aplican `access control` basados en la `ubicación geográfica` del `usuario`. Esto puede aplicarse, por ejemplo, en `aplicaciones bancarias` o `servicios de medios` donde existen `restricciones legales o comerciales` según el estado o país. Estos `access control` a menudo pueden ser `eludidos` mediante el uso de `proxies web`, `VPNs` o la `manipulación de mecanismos de geolocalización del lado del cliente`
+
+## Cheatsheet
+
+Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
+
+- Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
+
+## ¿Cómo detectar y explotar un broken access control?
+
+Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
+
+1. `Instalar` las `extensiones básicas` de `Burpsuite`
+
+2. `Añadir` el `dominio` y sus `subdominios` al `scope`
+
+3. Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+
+4. Si el `escaneo` no ha descubierto ninguna `ruta interesante`, es hora de intentar `buscar vulnerabilidades` de forma `manual`. Para ello, cada vez que demos con una `feature interesante` debemos probar a `cambiar el método` mediante el que se hace la `petición`. Esto lo podemos hacer haciendo `click derecho > Change request method`. Si probamos con `otro usuario diferente al nuestro` y `no funciona`, `debemos` probar también con `nuestro usuario` para asegurarnos si funciona realmente
+
+5. Si tenemos `dos cuentas` y `una` tiene `más privilegios` que la `otra`, `usaremos dos navegadores` e `iniciaremos sesión` con `una cuenta en uno` y con `la otra en otro`. Podemos usar las extensiones `Auth Analyzer` y `Autorize` de `Burpsuite` para ayudarnos a encontrar `vulnerabilidades` de `broken access control`
+
+6. Si tenemos alguna duda debemos mirar los diferentes ejemplos de `vulnerabilidades` que hay en este `post`
 
 ## Prevenir vulnerabilidades de access control
 
