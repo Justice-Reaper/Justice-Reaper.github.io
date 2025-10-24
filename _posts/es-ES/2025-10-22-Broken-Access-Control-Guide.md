@@ -1,6 +1,6 @@
 ---
 title: Broken access control guide
-description: Guía sobre Broken Cccess Control
+description: Guía sobre Broken Access Control
 date: 2025-10-22 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper
