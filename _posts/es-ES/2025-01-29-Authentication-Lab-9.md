@@ -185,7 +185,7 @@ chelsea
 Otra forma sería `creando` un `archivo` con el hash `91cb315a6405bfcc30e2c4571ccfb8ce` en su interior y `bruteforcearlo` con `john`
 
 ```
-# john --format=raw-MD5 -w passwords.txt hash 
+# john --format=raw-MD5 --wordlist=passwords.txt hash 
 Using default input encoding: UTF-8
 Loaded 1 password hash (Raw-MD5 [MD5 256/256 AVX2 8x3])
 Warning: no OpenMP support for this hash type, consider --fork=8
