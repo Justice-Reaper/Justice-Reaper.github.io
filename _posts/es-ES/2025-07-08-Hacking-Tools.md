@@ -568,8 +568,6 @@ Hash Identifier [https://github.com/blackploit/hash-identifier.git](https://gith
 
 HashID [https://github.com/psypanda/hashID.git](https://github.com/psypanda/hashID.git)
 
-Name That Hash [https://github.com/bee-san/Name-That-Hash.git](https://github.com/bee-san/Name-That-Hash.git)
-
 Haiti [https://github.com/noraj/haiti.git](https://github.com/noraj/haiti.git)
 
 ### Crackear
