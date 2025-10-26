@@ -88,7 +88,7 @@ OpenBTS [https://github.com/PentHertz/OpenBTS.git](https://github.com/PentHertz/
 
 ### Análisis de tráfico de red
 
-Wireshark & Tshark [https://gitlab.com/wireshark/wireshark.git](https://gitlab.com/wireshark/wireshark.git)
+Wireshark y Tshark [https://gitlab.com/wireshark/wireshark.git](https://gitlab.com/wireshark/wireshark.git)
 
 PCredz [https://github.com/lgandx/PCredz.git](https://github.com/lgandx/PCredz.git)
 
@@ -267,6 +267,14 @@ payloadSplitter [https://github.com/Justice-Reaper/payloadSplitter.git](https://
 ### Fuerza bruta
 
 Hydra [https://github.com/vanhauser-thc/thc-hydra.git](https://github.com/vanhauser-thc/thc-hydra.git)
+
+## Encoding y decoding
+
+CyberChef [https://gchq.github.io/CyberChef/](https://gchq.github.io/CyberChef/)
+
+Chepy [https://github.com/securisec/chepy.git](https://github.com/securisec/chepy.git)
+
+Ciphey [https://github.com/bee-san/Ciphey.git](https://github.com/bee-san/Ciphey.git)
 
 ## Web
 
