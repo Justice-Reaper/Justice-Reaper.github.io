@@ -222,6 +222,8 @@ Active Scan ++ [https://github.com/PortSwigger/active-scan-plus-plus.git](https
     
 Error Message Checks [https://github.com/PortSwigger/error-message-checks.git](https://github.com/PortSwigger/error-message-checks.git)
 
+Param Miner [https://github.com/PortSwigger/param-miner.git](https://github.com/PortSwigger/param-miner.git)
+
 Additional Scanner Checks [https://github.com/PortSwigger/additional-scanner-checks.git](https://github.com/PortSwigger/additional-scanner-checks.git)
 
 Collaborator Everywhere [https://github.com/PortSwigger/collaborator-everywhere-v2.git](https://github.com/PortSwigger/collaborator-everywhere-v2.git)
