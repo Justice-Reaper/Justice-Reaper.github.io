@@ -270,6 +270,10 @@ Hydra [https://github.com/vanhauser-thc/thc-hydra.git](https://github.com/vanhau
 
 ## Encoding y decoding
 
+Boxentriq [https://www.boxentriq.com/code-breaking/cipher-identifier](https://www.boxentriq.com/code-breaking/cipher-identifier)
+
+Dcode [https://www.dcode.fr/cipher-identifier](https://www.dcode.fr/cipher-identifier)
+
 CyberChef [https://gchq.github.io/CyberChef/](https://gchq.github.io/CyberChef/)
 
 Chepy [https://github.com/securisec/chepy.git](https://github.com/securisec/chepy.git)
