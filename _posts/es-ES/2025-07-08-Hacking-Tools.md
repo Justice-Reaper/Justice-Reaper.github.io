@@ -274,6 +274,8 @@ Boxentriq [https://www.boxentriq.com/code-breaking/cipher-identifier](https://ww
 
 Dcode [https://www.dcode.fr/cipher-identifier](https://www.dcode.fr/cipher-identifier)
 
+Hackvertor [https://github.com/portswigger/hackvertor](https://github.com/portswigger/hackvertor)
+
 CyberChef [https://gchq.github.io/CyberChef/](https://gchq.github.io/CyberChef/)
 
 Chepy [https://github.com/securisec/chepy.git](https://github.com/securisec/chepy.git)
