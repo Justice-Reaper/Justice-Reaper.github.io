@@ -21,7 +21,7 @@ image:
   
 ## Descripción
 
-`Explicación técnica de vulnerabilidades de authentication`. Detallamos cómo `identificar` y `explotar` esta vulnerabilidad. Además, exploramos `estrategias clave para prevenirla`
+`Explicación técnica de vulnerabilidades de authentication`. Detallamos cómo `identificar` y `explotar` estas `vulnerabilidades`. Además, exploramos `estrategias clave para prevenirlas`
 
 ---
 
