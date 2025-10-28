@@ -21,7 +21,7 @@ image:
   
 ## Descripción
 
-`Explicación técnica de vulnerabilidad del DOM`. Detallamos cómo `identificar` y `explotar` estas vulnerabilidades, tanto `manualmente` como con `herramientas automatizadas`. Además, exploramos `estrategias clave para prevenirla` CAMBIAR ESTA VAINA
+`Explicación técnica de vulnerabilidades del DOM`. Detallamos cómo `identificar` y `explotar` estas `vulnerabilidades`, tanto `manualmente` como con `herramientas automatizadas`. Además, exploramos `estrategias clave para prevenirlas`
 
 ---
 
