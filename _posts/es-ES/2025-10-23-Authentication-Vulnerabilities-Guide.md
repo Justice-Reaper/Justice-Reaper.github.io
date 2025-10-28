@@ -342,7 +342,7 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 - Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
 
-## ¿Cómo detectar y explotar un vulnerabilidad de authentication?
+## ¿Cómo detectar y explotar una vulnerabilidad de autenticación?
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
