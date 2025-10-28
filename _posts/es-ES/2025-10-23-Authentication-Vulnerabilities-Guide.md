@@ -39,7 +39,7 @@ Existen tres tipos principales de `autenticación`:
 
 Los `mecanismos de autenticación` utilizan diferentes `tecnologías` para verificar uno o más de estos `factores`
 
-![[image_1.png]]
+![](/assets/img/Authentication-Vulnerabilities-Guide/image_1.png)
 
 ## Diferencia entre autenticación y autorización
 
