@@ -1,6 +1,6 @@
 ---
-title: WebSockets attacks guide
-description: Guía sobre WebSockets Attacks
+title: WebSocket attacks guide
+description: Guía sobre WebSocket Attacks
 date: 2025-10-23 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper

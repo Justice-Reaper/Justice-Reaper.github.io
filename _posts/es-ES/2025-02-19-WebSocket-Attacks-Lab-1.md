@@ -1,15 +1,15 @@
 ---
 title: Manipulating WebSocket messages to exploit vulnerabilities
-description: Laboratorio de Portswigger sobre WebSockets
+description: Laboratorio de Portswigger sobre WebSocket Attacks
 date: 2025-02-19 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger Labs
-  - WebSockets Attacks
+  - WebSocket Attacks
 tags:
   - Portswigger Labs
-  - WebSockets Attacks
+  - WebSocket Attacks
   - Manipulating WebSocket messages to exploit vulnerabilities
 image:
   path: /assets/img/Portswigger/Portswigger.png

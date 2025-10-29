@@ -1,15 +1,15 @@
 ---
 title: Cross-site WebSocket hijacking
-description: Laboratorio de Portswigger sobre WebSockets
+description: Laboratorio de Portswigger sobre WebSocket Attacks
 date: 2025-02-19 12:26:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger Labs
-  - WebSockets Attacks
+  - WebSocket Attacks
 tags:
   - Portswigger Labs
-  - WebSockets Attacks
+  - WebSocket Attacks
   - Cross-site WebSocket hijacking
 image:
   path: /assets/img/Portswigger/Portswigger.png
