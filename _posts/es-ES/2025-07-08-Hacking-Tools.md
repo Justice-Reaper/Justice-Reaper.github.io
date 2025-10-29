@@ -310,6 +310,10 @@ Fuzzuli [https://github.com/musana/fuzzuli.git](https://github.com/musana/fuzzul
 
 ### Bypasses
 
+IpRangeGenerator [https://github.com/Justice-Reaper/ipRangeGenerator.git](https://github.com/Justice-Reaper/ipRangeGenerator.git)
+
+Random IP Address Header [https://github.com/PortSwigger/random-ip-address-header.git](https://github.com/PortSwigger/random-ip-address-header.git)
+
 Encode IP [https://github.com/PortSwigger/encode-ip.git](https://github.com/PortSwigger/encode-ip.git)
     
 Ipfuscator [https://github.com/dwisiswant0/ipfuscator.git](https://github.com/dwisiswant0/ipfuscator.git)
