@@ -498,6 +498,12 @@ Auth Analyzer [https://github.com/PortSwigger/auth-analyzer.git](https://github.
 
 Autorize [https://github.com/PortSwigger/autorize.git](https://github.com/PortSwigger/autorize.git)
 
+#### WebSockets Attacks
+
+WebSocket Turbo Intruder [https://github.com/PortSwigger/websocket-turbo-intruder.git](https://github.com/PortSwigger/websocket-turbo-intruder.git)
+
+Socket Sleuth [https://github.com/PortSwigger/socket-sleuth.git](https://github.com/PortSwigger/socket-sleuth.git)
+
 #### Information disclosure
 
 ##### Carpeta .git expuesta
