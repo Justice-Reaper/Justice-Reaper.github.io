@@ -366,7 +366,7 @@ La `autenticación` es un tema `complejo` y, como hemos demostrado, es lamentabl
 
 Incluso `los mecanismos de autenticación más robustos son ineficaces` si, `sin querer`, `revelamos credenciales válidas` a un `atacante`. Debería ser obvio que `nunca debemos enviar datos de inicio de sesión por conexiones no cifradas`. Aunque hayamos implementado `HTTPS` para `las peticiones del login`, `debemos asegurarnos de forzar esto redirigiendo cualquier intento por HTTP a HTTPS
 
-También `debemos auditar` el sitio para asegurarnos de que `ningún nombre de usuario ni direcciones de correo se filtrar a través de perfiles públicos o se reflejan en respuestas HTTP
+También debemos `auditar` el `sitio web` para `asegurarnos` de que `ningún nombre de usuario ni direcciones de correo se filtrar a través de perfiles públicos o se reflejan en respuestas HTTP`
 
 ### No confiar en los usuarios para la seguridad
 
