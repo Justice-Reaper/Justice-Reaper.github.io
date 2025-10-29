@@ -346,17 +346,19 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1. Usar la extensión `Param Miner` de `Burpsuite` para descubrir si podemos usar alguna `cabecera`. Para esta `vulnerabilidad` seguramente podamos usar `X-Forwarded-For` para `bypassear` los `bloqueos mayores a 1 minuto`. Una vez probado que podemos usar `X-Forwarded-For`, podemos usar la extensión `Random IP Address Header` para que nos `añada` esta `cabecera` a todas las `peticiones`
+1. Instalar las extensiones `Param Miner` y `Random IP Address Header` de `Burpsuite`
 
-2. Observar si se nos ha asignado alguna `cookie` que tenga un `nombre de usuario` o que esté `encodeada` en `base64`. Para `averiguar` la `codificación` usaremos `Dcode` y `Boxentriq`
+2. Usar la extensión `Param Miner` de `Burpsuite` para descubrir si podemos usar alguna `cabecera`. Para esta `vulnerabilidad` seguramente podamos usar `X-Forwarded-For` para `bypassear` los `bloqueos mayores a 1 minuto`. Una vez probado que podemos usar `X-Forwarded-For`, podemos usar la extensión `Random IP Address Header` para que nos `añada` esta `cabecera` a todas las `peticiones`
 
-3. Si nos aparece `2FA` podemos intentar `bruteforcear los 4 dígitos` para `acceder` a la `cuenta` de otro `usuario` o bien intentar `bypassearlo`
+3. Observar si se nos ha asignado alguna `cookie` que tenga un `nombre de usuario` o que esté `encodeada` en `base64`. Para `averiguar` la `codificación` usaremos `Dcode` y `Boxentriq`
 
-4. Testear si podemos `enumerar usuarios` de las diferentes maneras existentes. Para ello usaremos este `diccionario de nombres de usuario` [https://portswigger.net/web-security/authentication/auth-lab-usernames](https://portswigger.net/web-security/authentication/auth-lab-usernames)
+4. Si nos aparece `2FA` podemos intentar `bruteforcear los 4 dígitos` para `acceder` a la `cuenta` de otro `usuario` o bien intentar `bypassearlo`
 
-5. Posteriormente intentaremos `bruteforcear` la `contraseña` para `acceder a su cuenta`. Puede ser que necesitemos `crackearla offline`, para ello usaremos `John The Ripper`. Para esto, usaremos este `diccionario de contraseñas` [https://portswigger.net/web-security/authentication/auth-lab-passwords](https://portswigger.net/web-security/authentication/auth-lab-passwords)
+5. Testear si podemos `enumerar usuarios` de las diferentes maneras existentes. Para ello usaremos este `diccionario de nombres de usuario` [https://portswigger.net/web-security/authentication/auth-lab-usernames](https://portswigger.net/web-security/authentication/auth-lab-usernames)
 
-6. Si encontramos algún `XSS` podemos `robar` la `cookie` a algún `usuario` e `iniciar sesión` en su `cuenta`. El `XSS` seguramente sea `stored`
+6. Posteriormente intentaremos `bruteforcear` la `contraseña` para `acceder a su cuenta`. Puede ser que necesitemos `crackearla offline`, para ello usaremos `John The Ripper`. Para esto, usaremos este `diccionario de contraseñas` [https://portswigger.net/web-security/authentication/auth-lab-passwords](https://portswigger.net/web-security/authentication/auth-lab-passwords)
+
+7. Si encontramos algún `XSS` podemos `robar` la `cookie` a algún `usuario` e `iniciar sesión` en su `cuenta`. El `XSS` seguramente sea `stored`
 
 ## ¿Cómo asegurar los mecanismos de autenticación?
 
