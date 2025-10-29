@@ -436,7 +436,7 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1. `Instalar` las `extensiones básicas` de `Burpsuite`. También debemos `instalar` las extensiones `CORS* - Additional CORS Checks` y `Trusted Domain CORS Scanner`
+1. `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Additional Scanner Checks`, `Collaborator Everywhere`, `Backslash Powered Scanner`, `CORS* - Additional CORS Checks` y `Trusted Domain CORS Scanner` de `Burpsuite` 
 
 2. `Añadir` el `dominio` y sus `subdominios` al `scope`
 
@@ -453,8 +453,6 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 7. Si no encontramos nada, procedemos a buscar de `forma manual` siguiendo los pasos de `PayloadsAllTheThings` y `Hacktricks`
 
 8. Para crear un `PoC` usaremos `C0rsPwn3r` o lo haremos de forma `manual`
-
-9. En el caso de estar en una `intranet` usaremos `of-CORS` para la `explotación`
 
 ## Prevenir ataques CORS-based
 
