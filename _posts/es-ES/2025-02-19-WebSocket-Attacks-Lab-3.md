@@ -72,7 +72,7 @@ Ahora lo que vamos a hacer es `tunelizar` las `peticiones` del `navegador` a tra
 
 ![](/assets/img/WebSocket-Attacks-Lab-3/image_9.png)
 
-Si enviamos un `payload` que tenga `contenido malicioso` y nos los `vuelve` a `detectar` nos `banearía` también la `nueva IP`, para evitar esto vamos a usar la extensión `Request Randomizer` [https://github.com/portswigger/request-randomizer](https://github.com/portswigger/request-randomizer). Para poder instalar esta `extensión` debemos tener instalado `jython`, podemos instalarlo desde `github` [https://github.com/jython/jython](https://github.com/jython/jython) o con `apt`
+Si enviamos un `payload` que tenga `contenido malicioso` y nos los `vuelve` a `detectar` nos `banearía` también la `nueva IP`, para evitar esto vamos a usar la extensión Random IP Address Header [https://github.com/PortSwigger/random-ip-address-header.git](https://github.com/PortSwigger/random-ip-address-header.git) o `Request Randomizer` [https://github.com/portswigger/request-randomizer](https://github.com/portswigger/request-randomizer). Para este caso he preferido usar `Request Randomizer` pero `ambas funcionan igual`. Para poder instalar `Request Randomizer` primero debemos instalar `jython`, podemos instalarlo desde `github` [https://github.com/jython/jython](https://github.com/jython/jython) o con `apt`
 
 ```
 # sudo apt install jython
