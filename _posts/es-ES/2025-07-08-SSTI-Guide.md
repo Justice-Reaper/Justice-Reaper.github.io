@@ -259,25 +259,25 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1. `Instalar` las `extensiones básicas` de `Burpsuite`
+1. `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Additional Scanner Checks`, `Collaborator Everywhere` y `Backslash Powered Scanner` de `Burpsuite`
 
-2. `Añadir` el `dominio` y sus `subdominios` al `scope`
+3. `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-3. Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+4. Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
 
-4. `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
+5. `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
 
-5. Jugaremos con las opciones de `Tplmap` y de `SSTImap` para intentar `explotar` el `SSTI`
+6. Jugaremos con las opciones de `Tplmap` y de `SSTImap` para intentar `explotar` el `SSTI`
 
-6. Si no podemos explotarlo de primeras, vamos a usar la herramienta `TInjA` para intentar `identificar` la `plantilla` que se está `usando`
+7. Si no podemos explotarlo de primeras, vamos a usar la herramienta `TInjA` para intentar `identificar` la `plantilla` que se está `usando`
 
-7. Si esto no da resultado, usaremos `Template Injection Table`
+8. Si esto no da resultado, usaremos `Template Injection Table`
 
-8. Si no podemos explotarlo con estas herramientas, ejecutamos una `ataque de fuerza bruta` con el `Intruder` de `Burpsuite` empleando varios `diccionarios`. Primeramente vamos a usar el `diccionario integrado de Burpsuite` llamado `Fuzzing - template injection`, posteriormente usaremos los diccionarios que contengan `payloads` para esta `vulnerabilidad`
+9. Si no podemos explotarlo con estas herramientas, ejecutamos una `ataque de fuerza bruta` con el `Intruder` de `Burpsuite` empleando varios `diccionarios`. Primeramente vamos a usar el `diccionario integrado de Burpsuite` llamado `Fuzzing - template injection`, posteriormente usaremos los diccionarios que contengan `payloads` para esta `vulnerabilidad`
 
-9. Si no encontramos nada, `checkearemos` las `cheatsheets` de `PayloadsAllTheThings` y `Hacktricks` e iremos `testeando de forma manual`. Si vemos `payloads` o `diccionarios` para aplicar `fuerza bruta` debemos probarlos
+10. Si no encontramos nada, `checkearemos` las `cheatsheets` de `PayloadsAllTheThings` y `Hacktricks` e iremos `testeando de forma manual`. Si vemos `payloads` o `diccionarios` para aplicar `fuerza bruta` debemos probarlos
 
-10. Si hemos logrado `identificar el motor de plantillas` pero `no llevar a cabo una explotación` debemos `buscar vulnerabilidades para esa plantilla`. Si no encontramos ninguna, `revisaremos su documentación` para ver si podemos `aprovecharnos de alguna característica para obtener información interesante`
+11. Si hemos logrado `identificar el motor de plantillas` pero `no llevar a cabo una explotación` debemos `buscar vulnerabilidades para esa plantilla`. Si no encontramos ninguna, `revisaremos su documentación` para ver si podemos `aprovecharnos de alguna característica para obtener información interesante`
 
 ## Prevenir un SSTI
 
