@@ -272,11 +272,13 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1. Usar la extensión `Param Miner` de `Burpsuite` para descubrir si podemos usar alguna `cabecera`. Para esta `vulnerabilidad` seguramente podamos usar `X-Forwarded-For` para `bypassear` los `bloqueos mayores a 1 minuto`. Una vez probado que podemos usar `X-Forwarded-For`, podemos usar la extensión `Random IP Address Header` para que nos `añada` esta `cabecera` a todas las `peticiones`
+1. Instalar las extensiones `Param Miner` y `Random IP Address Header` de `Burpsuite`
 
-2. Observar a ver si podemos enviar algún `payload` mediante un `message WebSocket`. Revisar la `guía de ofuscación` y la de `XSS`
+2. Usar la extensión `Param Miner` de `Burpsuite` para descubrir si podemos usar alguna `cabecera`. Para esta `vulnerabilidad` seguramente podamos usar `X-Forwarded-For` para `bypassear` los `bloqueos mayores a 1 minuto`. Una vez probado que podemos usar `X-Forwarded-For`, podemos usar la extensión `Random IP Address Header` para que nos `añada` esta `cabecera` a todas las `peticiones`
 
-3. Si observamos que se nos asigna una `cookie` y `no existe token CSRF` podemos probar a `enviarle` un `payload` al `usuario víctima` y `obtener su chat`
+3. Observar a ver si podemos enviar algún `payload` mediante un `message WebSocket`. Revisar la `guía de ofuscación` y la de `XSS`
+
+4. Si observamos que se nos asigna una `cookie` y `no existe token CSRF` podemos probar a `enviarle` un `payload` al `usuario víctima` y `obtener su chat`
 
 ## ¿Cómo asegurar una conexión WebSocket?
 
