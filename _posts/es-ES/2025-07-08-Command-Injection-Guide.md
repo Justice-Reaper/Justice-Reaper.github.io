@@ -202,7 +202,7 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1. `Instalar` las `extensiones básicas` de `Burpsuite` y también la extensión `Command injection attacker`
+1. `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Additional Scanner Checks`, `Collaborator Everywhere`, `Backslash Powered Scanner` y `Command injection attacker` de `Burpsuite`
 
 2. `Añadir` el `dominio` y sus `subdominios` al `scope`
 
@@ -210,11 +210,9 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 4. `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
 
-4. Desafortunadamente, `Commix` no funciona al `100%` en los `laboratorios de Portswigger` por el `firewall` que tienen implementado pero es una `herramienta` muy `recomendable` si es posible usarla
-
 5. Realizar un `ataque de fuerza bruta` con el `Intruder` y los diccionarios mencionados en `hacking tools`. Si no encontramos nada, usar los `payloads` de la extensión `Agartha` de `Burpsuite` y si tampoco encontramos nada, usar la extensión `Command injection attacker` de `Burpsuite`. Es recomendable `setear` la opción `Delay between requests` en `1` y desactivar el `Automatic throttling` para que `el tiempo de respuesta del servidor varíe lo menos posible`, esto es importante para poder `identificar` si hay un `blind command injection`. También debemos `disminuir` el `número de hilos` para `no colapsar` el `servidor`
 
-6. Si no encontramos nada con los `escáneres` podemos `checkear` las `cheatsheets` de `PayloadsAllTheThings` y `Hacktricks` pero lo más seguro es que no haya un `command injection`
+6. Si no encontramos nada con los `escáneres` podemos `checkear` las `cheatsheets` de `PayloadsAllTheThings` y `Hacktricks`
 
 ## Prevenir ataques de command injection
 
