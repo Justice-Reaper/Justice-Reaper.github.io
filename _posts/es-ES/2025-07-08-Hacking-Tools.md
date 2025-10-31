@@ -538,6 +538,8 @@ Reverse shell generator [https://github.com/0dayCTF/reverse-shell-generator.git]
 
 Villain [https://github.com/t3l3machus/Villain.git](https://github.com/t3l3machus/Villain.git)
 
+Penelope [https://github.com/brightio/penelope.git](https://github.com/brightio/penelope.git)
+
 Obtener una TTY interactiva en linux [https://ironhackers.es/tutoriales/como-conseguir-tty-totalmente-interactiva/](https://ironhackers.es/tutoriales/como-conseguir-tty-totalmente-interactiva/)
 
 ConPtyShell [https://github.com/antonioCoco/ConPtyShell.git](https://github.com/antonioCoco/ConPtyShell.git)
