@@ -510,6 +510,10 @@ Socket Sleuth [https://github.com/PortSwigger/socket-sleuth.git](https://github.
 
 #### Insecure Deserealization
 
+##### PHP
+
+PHPGCC [https://github.com/ambionics/phpggc.git](https://github.com/ambionics/phpggc.git)
+
 ##### Java
 
 Ysoserial [https://github.com/frohoff/ysoserial.git](https://github.com/frohoff/ysoserial.git)
