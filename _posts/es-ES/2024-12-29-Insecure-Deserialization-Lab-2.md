@@ -1,5 +1,5 @@
 ---
-title: Modifying serialized objects
+title: Modifying serialized data types
 description: Laboratorio de Portswigger sobre Insecure Deserialization
 date: 2024-12-29 12:26:00 +0800
 lang: es-ES
@@ -10,7 +10,7 @@ categories:
 tags:
   - Portswigger Labs
   - Insecure Deserialization
-  - Modifying serialized objects
+  - Modifying serialized data types
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
