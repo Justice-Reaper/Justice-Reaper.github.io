@@ -508,6 +508,14 @@ WebSocket Turbo Intruder [https://github.com/PortSwigger/websocket-turbo-intrude
 
 Socket Sleuth [https://github.com/PortSwigger/socket-sleuth.git](https://github.com/PortSwigger/socket-sleuth.git)
 
+#### Insecure Deserealization
+
+##### Java
+
+Ysoserial [https://github.com/frohoff/ysoserial.git](https://github.com/frohoff/ysoserial.git)
+
+SerializationDumper [https://github.com/NickstaDB/SerializationDumper.git](https://github.com/NickstaDB/SerializationDumper.git)
+
 #### Information disclosure
 
 ##### Carpeta .git expuesta
