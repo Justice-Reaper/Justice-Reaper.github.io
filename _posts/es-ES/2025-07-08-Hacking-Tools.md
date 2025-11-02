@@ -216,7 +216,7 @@ Burpsuite professional [https://github.com/xiv3r/Burpsuite-Professional.git](htt
 
 FoxyProxy [https://chromewebstore.google.com/detail/foxyproxy-b%C3%A1sico/dookpfaalaaappcdneeahomimbllocnb?hl=es](https://chromewebstore.google.com/detail/foxyproxy-b%C3%A1sico/dookpfaalaaappcdneeahomimbllocnb?hl=es)
 
-### Extensiones básicas de Burpsuite
+### Extensiones con propósito general de Burpsuite
 
 Active Scan ++ [https://github.com/PortSwigger/active-scan-plus-plus.git](https://github.com/PortSwigger/active-scan-plus-plus.git)
     
