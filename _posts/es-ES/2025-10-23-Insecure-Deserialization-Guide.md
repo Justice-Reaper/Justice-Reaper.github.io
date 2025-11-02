@@ -33,7 +33,7 @@ En esta sección cubriremos qué es un `insecure deserialization` y describiremo
 
 ## ¿Qué es la serialización?
 
-La `serialización` es` el proceso de convertir estructuras de datos complejas`, como `objetos y sus campos`, a un `formato "más plano"` que pueda `enviarse` y `recibirse` como un `flujo secuencial de bytes`. Serializar datos facilita mucho las siguientes cosas:
+La `serialización` es `el proceso de convertir estructuras de datos complejas`, como `objetos y sus campos`, a un `formato "más plano"` que pueda `enviarse` y `recibirse` como un `flujo secuencial de bytes`. Serializar datos facilita mucho las siguientes cosas:
 
 - `Escribir datos complejos en la memoria entre procesos`, en un `archivo` o en una `base de datos`
     
