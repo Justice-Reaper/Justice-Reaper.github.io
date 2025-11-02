@@ -326,7 +326,7 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 1. `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-2. Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`. El objetivo de esto es `encontrar` archivos como `phpinfo.php` o archivos de `backup`. En el caso del `phpinfo.php` deberemos buscar el `valor` de `secret_key`
+2. Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`. También podemos usar `ffuf` junto con el diccionario `common.txt` de `seclists`. El objetivo de esto es `encontrar` archivos como `phpinfo.php` o archivos de `backup`. En el caso del `phpinfo.php` deberemos buscar el `valor` de `secret_key`
 
 3. Si no encontramos nada, podemos usar el `diccionario raft-large-extensions-lowercase.txt de seclists` para `fuzzear` por `extensiones de archivo` y ver si existe algún `backup`
 
