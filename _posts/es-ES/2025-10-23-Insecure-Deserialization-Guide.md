@@ -29,7 +29,7 @@ image:
 
 En esta sección cubriremos qué es un `insecure deserialization` y describiremos cómo puede exponer `sitios web` a `ataques de alta gravedad`. Señalaremos escenarios típicos y demostraremos algunas técnicas ampliamente aplicables usando ejemplos concretos de `PHP`, `Ruby` y `Java`. También veremos `formas de evitar vulnerabilidades de insecure deserializacion` en nuestros propios `sitios web`
 
-![[image_1.png]]
+![](/assets/img/Insecure-Deserialization-Guide/image_1.png)
 
 ## ¿Qué es la serialización?
 
@@ -45,7 +45,7 @@ Crucialmente, al `serializar un objeto`, también `se persiste su estado`. Es de
 
 La `deserialización` es e`l proceso de restaurar ese flujo de bytes a una réplica totalmente funcional del objeto original y en el mismo estado en que fue serializado`. La `lógica` del `sitio web` puede entonces `interactuar` con este objeto `deserializado`, igual que lo haría con `cualquier otro objeto`
 
-![[image_2.png]]
+![](/assets/img/Insecure-Deserialization-Guide/image_2.png)
 
 Muchos `lenguajes de programación` ofrecen `soporte nativo` para la `serialización`. Exactamente `cómo se serializan los objetos depende del lenguaje`, por ejemplo, algunos usan `formatos binarios` y otros usan `formatos de texto con distintos niveles de legibilidad humana`. Hay que notar que `todos los atributos originales del objeto se almacenan en el flujo serializado, incluidos los campos privados`. Para `evitar` que un `campo` se `serialice`, debe `marcarse` explícitamente como `transient` en la `declaración de la clase`
 
