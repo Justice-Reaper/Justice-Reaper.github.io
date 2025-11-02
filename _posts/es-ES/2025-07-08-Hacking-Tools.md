@@ -322,6 +322,8 @@ URL validation bypass [https://portswigger.net/web-security/ssrf/url-validation-
 
 Recollapse [https://github.com/0xacb/recollapse.git](https://github.com/0xacb/recollapse.git)
 
+GoByPASS401/403 [https://github.com/slicingmelon/gobypass403.git](https://github.com/slicingmelon/gobypass403.git)
+
 403 Bypasser [https://github.com/PortSwigger/403-bypasser.git](https://github.com/PortSwigger/403-bypasser.git)
 
 NoMore403 [https://github.com/devploit/nomore403.git](https://github.com/devploit/nomore403.git)
