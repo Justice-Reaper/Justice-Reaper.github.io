@@ -30,7 +30,7 @@ Este `laboratorio` implementa controles de acceso basados parcialmente en el `m�
 
 ## Guía de broken access control
 
-`Antes` de completar este laboratorio es recomendable leerse esta guía de broken access control [https://justice-reaper.github.io/posts/Broken-Access-Control-Guide/](https://justice-reaper.github.io/posts/Broken-Access-Control-Guide/)
+`Antes `de `completar` este `laboratorio` es recomendable `leerse` esta `guía de broken access control` [https://justice-reaper.github.io/posts/Broken-Access-Control-Guide/](https://justice-reaper.github.io/posts/Broken-Access-Control-Guide/)
 
 ## Resolución
 

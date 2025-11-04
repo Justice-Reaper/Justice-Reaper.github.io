@@ -28,6 +28,10 @@ Este `laboratorio` `revela` información `sensible` a través de su `historial d
 
 ---
 
+## Guía de information disclosure
+
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de information disclosure` [https://justice-reaper.github.io/posts/Information-Disclosure-Guide/](https://justice-reaper.github.io/posts/Information-Disclosure-Guide/)
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

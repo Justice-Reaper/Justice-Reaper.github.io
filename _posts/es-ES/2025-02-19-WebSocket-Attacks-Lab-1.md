@@ -30,7 +30,7 @@ Esta `tienda en línea` tiene una función de `chat en vivo` implementada con `W
 
 ## Guía de WebSocket Attacks
 
-`Antes` de completar este laboratorio es recomendable leerse esta guía de websocket attacks [https://justice-reaper.github.io/posts/WebSocket-Attacks-Guide/](https://justice-reaper.github.io/posts/WebSocket-Attacks-Guide/)
+`Antes `de `completar` este `laboratorio` es recomendable `leerse` esta `guía de websocket attacks` [https://justice-reaper.github.io/posts/WebSocket-Attacks-Guide/](https://justice-reaper.github.io/posts/WebSocket-Attacks-Guide/)
 
 ## Resolución
 

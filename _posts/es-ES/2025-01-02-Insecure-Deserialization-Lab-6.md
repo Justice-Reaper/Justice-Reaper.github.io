@@ -28,6 +28,10 @@ Este `laboratorio` utiliza un mecanismo de `sesiones` basado en la `serializaci�
 
 ---
 
+## Guía de insecure deserialization
+
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de insecure deserialization` [https://justice-reaper.github.io/posts/Insecure-Deserialization-Guide/](https://justice-reaper.github.io/posts/Insecure-Deserialization-Guide/)
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

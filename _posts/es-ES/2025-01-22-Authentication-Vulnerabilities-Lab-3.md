@@ -30,7 +30,7 @@ Este `laboratorio` tiene una `vulnerabilidad` en la funcionalidad de `restableci
 
 ## Guía de authentication vulnerabilities
 
-`Antes` de completar este laboratorio es recomendable leerse esta guía de authentication vulnerabilities [https://justice-reaper.github.io/posts/Authentication-Vulnerabilities-Guide/](https://justice-reaper.github.io/posts/Authentication-Vulnerabilities-Guide/)
+`Antes `de `completar` este `laboratorio` es recomendable `leerse` esta `guía de authentication vulnerabilities` [https://justice-reaper.github.io/posts/Authentication-Vulnerabilities-Guide/](https://justice-reaper.github.io/posts/Authentication-Vulnerabilities-Guide/)
 
 ## Resolución
 
