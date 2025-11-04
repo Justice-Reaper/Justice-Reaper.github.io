@@ -324,19 +324,13 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1. `Añadir` el `dominio` y sus `subdominios` al `scope`
+1. `Seguir los pasos de la guía de information disclosure` [https://justice-reaper.github.io/posts/Information-Disclosure-Guide/](https://justice-reaper.github.io/posts/Information-Disclosure-Guide/) para `recopilar` la `máxima información posible` y luego intentar `explotar` el `insecure deserialization` con la `información obtenida`
 
-2. Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`. También podemos usar `ffuf` junto con el diccionario `common.txt` de `seclists`. El objetivo de esto es `encontrar` archivos como `phpinfo.php` o archivos de `backup`. En el caso del `phpinfo.php` deberemos buscar el `valor` de `secret_key`
+2. Debemos `inspeccionar` la `cookie` de `nuestro usuario` desde `Burpsuite`. Para `identificar` la `tecnología` que se está usando podemos `borrar parte de la cookie para provocar un error`. En el que caso en que se use `Java` para la `serialización` del `objeto` podemos usar `ysoserial` y si se usa `PHP` usaremos `phpggc`. Si el `lenguaje` es `distinto` a `PHP` o `Java` tendremos que `buscar herramientas alternativas` o `exploits documentados`
 
-3. Si no encontramos nada, podemos usar el `diccionario raft-large-extensions-lowercase.txt de seclists` para `fuzzear` por `extensiones de archivo` y ver si existe algún `backup`
+3. Cuando `desconozcamos` el `access_token` u otro `parámetro` de `otro usuario` podemos intentar `sustituirlo` por un `booleano b:1` o por un `integer i:0` y de esta forma `bypassear la validación`
 
-4. Lo siguiente es `buscar comentarios`, para ello pulsamos sobre `Site map > click derecho sobre el dominio > Engagement tools > Find comments` y si no encontramos nada, `buscaremos comentarios manualmente`
-
-5. Debemos `inspeccionar` la `cookie` de `nuestro usuario` desde `Burpsuite`. Para `identificar` la `tecnología` que se está usando podemos `borrar parte de la cookie para provocar un error`. En el que caso en que se use `Java` para la `serialización` del `objeto` podemos usar `ysoserial` y si se usa `PHP` usaremos `phpggc`. Si el `lenguaje` es `distinto` a `PHP` o `Java` tendremos que `buscar herramientas alternativas` o `exploits documentados`
-
-6. Cuando `desconozcamos` el `access_token` u otro `parámetro` de `otro usuario` podemos intentar `sustituirlo` por un `booleano b:1` o por un `integer i:0` y de esta forma `bypassear la validación`
-
-7. Puede darse el caso de que `encontremos` una `funcionalidad` de la `aplicación` que `nos permita borrar nuestra cuenta de usuario`. Si se `transmite` un `objeto` con `nuestra información` y ahí se encuentra nuestra `foto de perfil` por ejemplo, podríamos `modificar esa ruta dentro del objeto` para que `se borre el archivo que nosotros queremos`
+4. Puede darse el caso de que `encontremos` una `funcionalidad` de la `aplicación` que `nos permita borrar nuestra cuenta de usuario`. Si se `transmite` un `objeto` con `nuestra información` y ahí se encuentra nuestra `foto de perfil` por ejemplo, podríamos `modificar esa ruta dentro del objeto` para que `se borre el archivo que nosotros queremos`
 
 ## ¿Cómo prevenir un insecure deserealization?
 
