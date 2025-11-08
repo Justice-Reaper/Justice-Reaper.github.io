@@ -282,6 +282,10 @@ Chepy [https://github.com/securisec/chepy.git](https://github.com/securisec/chep
 
 Ciphey [https://github.com/bee-san/Ciphey.git](https://github.com/bee-san/Ciphey.git)
 
+## Regex
+
+Regex Generator [https://regex-generator.olafneumann.org/](https://regex-generator.olafneumann.org/)
+
 ## Web
 
 ### Identificar tecnologías web
