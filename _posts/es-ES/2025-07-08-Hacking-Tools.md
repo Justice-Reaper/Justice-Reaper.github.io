@@ -208,6 +208,8 @@ Nuclei [https://github.com/projectdiscovery/nuclei.git](https://github.com/proje
 
 Nuclei Templates [https://github.com/projectdiscovery/nuclei-templates.git](https://github.com/projectdiscovery/nuclei-templates.git)
 
+Nikto [https://github.com/sullo/nikto.git](https://github.com/sullo/nikto.git)
+
 ## Proxies
 
 Caido [https://caido.io/](https://caido.io/)
