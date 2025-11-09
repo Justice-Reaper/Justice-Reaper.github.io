@@ -42,6 +42,8 @@ Advanced Bug Hunting Toolkit [https://lostsec.xyz/](https://lostsec.xyz/)
 
 Awesome Bug Bounty Tools [https://github.com/vavkamil/awesome-bugbounty-tools.git](https://github.com/vavkamil/awesome-bugbounty-tools.git)
 
+Awesome Burp Extensions [https://github.com/snoopysecurity/awesome-burp-extensions.git](https://github.com/snoopysecurity/awesome-burp-extensions.git)
+
 ## Ordenadores
 
 System76 [https://system76.com/](https://system76.com/)
