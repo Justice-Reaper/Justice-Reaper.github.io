@@ -120,7 +120,7 @@ AddType application/x-httpd-php .pwned
 
 Cuando `pulsamos` sobre `upload` tenemos que `capturar` la `petición` y `cambiarle` el `nombre del archivo`, de `htaccess` a `.htaccess`. Esto `lo tenemos que hacer ahora porque si lo hubiéramos hecho antes, thunar no hubiera podido encontrar el archivo, ya que estaba oculto`
 
-![[Pasted image 20251109104645.png]]
+![](/assets/img/File-Upload-Vulnerabilities-Lab-4/image_13.png)
 
 Si ahora nos `creamos` un `archivo llamado shell.pwned` con este `contenido` y lo `subimos`
 
@@ -132,10 +132,10 @@ Si ahora nos `creamos` un `archivo llamado shell.pwned` con este `contenido` y l
 
 Podemos acceder a `https://0a20003e03543e85818a53bf005100f3.web-security-academy.net/files/avatars/shell.pwned?cmd=whoami` y `comprobar` que `podemos ejecutar comandos`
 
-![[Pasted image 20251109105007.png]]
+![](/assets/img/File-Upload-Vulnerabilities-Lab-4/image_14.png)
 
 Obtenemos el contenido del archivo secret `https://0a20003e03543e85818a53bf005100f3.web-security-academy.net/files/avatars/shell.pwned?cmd=cat%20/home/carlos/secret`
 
 `Submiteamos` la `solución`
 
-![](/assets/img/File-Upload-Vulnerabilities-Lab-4/image_13.png)
+![](/assets/img/File-Upload-Vulnerabilities-Lab-4/image_15.png)
