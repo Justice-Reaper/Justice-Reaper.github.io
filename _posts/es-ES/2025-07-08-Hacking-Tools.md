@@ -384,7 +384,7 @@ XXEinjector [https://github.com/enjoiz/XXEinjector.git](https://github.com/enjo
     
 XXExploiter [https://github.com/luisfontes19/xxexploiter.git](https://github.com/luisfontes19/xxexploiter.git)
     
-Oxml_xxe [https://github.com/BuffaloWill/oxml_xxe.git](https://github.com/BuffaloWill/oxml_xxe.git)
+Oxml XXE [https://github.com/BuffaloWill/oxml_xxe.git](https://github.com/BuffaloWill/oxml_xxe.git)
     
 Docem [https://github.com/whitel1st/docem.git](https://github.com/whitel1st/docem.git)
 
