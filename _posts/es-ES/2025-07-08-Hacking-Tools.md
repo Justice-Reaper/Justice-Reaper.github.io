@@ -110,6 +110,8 @@ GrapheneOS [https://grapheneos.org/](https://grapheneos.org/)
 
 BlackStone [https://github.com/micro-joan/BlackStone.git](https://github.com/micro-joan/BlackStone.git)
 
+SysReptor [https://github.com/Syslifters/sysreptor.git](https://github.com/Syslifters/sysreptor.git)
+
 ## OSINT
 
 SpiderFoot [https://github.com/smicallef/spiderfoot.git](https://github.com/smicallef/spiderfoot.git)
@@ -663,6 +665,8 @@ Weakpass [https://weakpass.com/tools/lookup](https://weakpass.com/tools/lookup)
 Pivoting Enum [https://github.com/S12cybersecurity/Pivoting_Enum.git](https://github.com/S12cybersecurity/Pivoting_Enum.git)
 
 ### Tunneling
+
+Ligolo-mp [https://github.com/ttpreport/ligolo-mp.git](https://github.com/ttpreport/ligolo-mp.git)
 
 Ligolo-ng [https://github.com/nicocha30/ligolo-ng.git](https://github.com/nicocha30/ligolo-ng.git)
 
