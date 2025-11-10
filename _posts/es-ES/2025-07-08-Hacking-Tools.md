@@ -506,6 +506,8 @@ Panoptic [https://github.com/lightos/Panoptic.git](https://github.com/lightos/Pa
 
 Nginx Alias Traversal [https://github.com/PortSwigger/nginx-alias-traversal.git](https://github.com/PortSwigger/nginx-alias-traversal.git)
 
+Psycho Path [https://github.com/PortSwigger/psycho-path.git](https://github.com/PortSwigger/psycho-path.git)
+
 #### Broken access control
 
 Auth Analyzer [https://github.com/PortSwigger/auth-analyzer.git](https://github.com/PortSwigger/auth-analyzer.git)
@@ -541,6 +543,18 @@ Git Cola [https://github.com/git-cola/git-cola.git](https://github.com/git-cola/
 ##### Archivo phpinfo.php expuesto
 
 Funciones PHP peligrosas [https://gist.github.com/mccabe615/b0907514d34b2de088c4996933ea1720](https://gist.github.com/mccabe615/b0907514d34b2de088c4996933ea1720)
+
+### Insecure File upload
+
+Upload Bypass [https://github.com/sAjibuu/Upload_Bypass.git](https://github.com/sAjibuu/Upload_Bypass.git)
+
+Fuxploider [https://github.com/almandin/fuxploider.git](https://github.com/almandin/fuxploider.git)
+
+Upload Scanner [https://github.com/PortSwigger/upload-scanner.git](https://github.com/PortSwigger/upload-scanner.git)
+
+File Upload Traverser [https://github.com/PortSwigger/file-upload-traverser.git](https://github.com/PortSwigger/file-upload-traverser.git)
+
+Magic Byte Selector [https://github.com/PortSwigger/magic-byte-selector.git](https://github.com/PortSwigger/magic-byte-selector.git)
 
 ## Exploits
 
