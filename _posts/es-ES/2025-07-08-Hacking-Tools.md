@@ -276,6 +276,10 @@ payloadSplitter [https://github.com/Justice-Reaper/payloadSplitter.git](https://
 
 Hydra [https://github.com/vanhauser-thc/thc-hydra.git](https://github.com/vanhauser-thc/thc-hydra.git)
 
+## Estenografía
+
+Steg Cloak [https://github.com/KuroLabs/stegcloak.git](https://github.com/KuroLabs/stegcloak.git)
+
 ## Encoding y decoding
 
 Boxentriq [https://www.boxentriq.com/code-breaking/cipher-identifier](https://www.boxentriq.com/code-breaking/cipher-identifier)
