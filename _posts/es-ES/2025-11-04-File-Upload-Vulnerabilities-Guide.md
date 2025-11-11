@@ -278,7 +278,7 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 5. Si el `escaneo general` ha `identificado` un `XXE` en la `subida de archivos`, debemos ir a la `guía de XXE` [https://justice-reaper.github.io/posts/XXE-Guide/](https://justice-reaper.github.io/posts/XXE-Guide) para saber como `explotarlo`
 
-6. Usamos la herramienta `Upload Bypass` para `explotar` la `vulnerabilidad`
+6. Si `no hay` ningún `XXE` usaremos `Upload Bypass` para intentar `subir` una `web shell` con la cual poder `ejecutar comandos`
 
 7. `Si la herramienta anterior no detecta nada`, puede ser porque necesitemos hacer un `path traversal` para `subir el archivo`. Para ello, `buscamos un path traversal siguiendo los pasos de esta guía` [https://justice-reaper.github.io/posts/Path-Traversal-Guide/](https://justice-reaper.github.io/posts/Path-Traversal-Guide) 
 
