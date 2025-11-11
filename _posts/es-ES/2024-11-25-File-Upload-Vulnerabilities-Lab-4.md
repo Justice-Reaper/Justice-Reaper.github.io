@@ -28,6 +28,10 @@ Este `laboratorio` contiene una `función` de carga de imágenes `vulnerable`, c
 
 ---
 
+## Guía de file upload vulnerabilities
+
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de file upload vulnerabilities` [https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Guide/](https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Guide/)
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto
