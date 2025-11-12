@@ -222,26 +222,6 @@ Burpsuite professional [https://github.com/xiv3r/Burpsuite-Professional.git](htt
 
 FoxyProxy [https://chromewebstore.google.com/detail/foxyproxy-b%C3%A1sico/dookpfaalaaappcdneeahomimbllocnb?hl=es](https://chromewebstore.google.com/detail/foxyproxy-b%C3%A1sico/dookpfaalaaappcdneeahomimbllocnb?hl=es)
 
-### Extensiones con propósito general de Burpsuite
-
-Active Scan ++ [https://github.com/PortSwigger/active-scan-plus-plus.git](https://github.com/PortSwigger/active-scan-plus-plus.git)
-    
-Error Message Checks [https://github.com/PortSwigger/error-message-checks.git](https://github.com/PortSwigger/error-message-checks.git)
-
-Additional Scanner Checks [https://github.com/PortSwigger/additional-scanner-checks.git](https://github.com/PortSwigger/additional-scanner-checks.git)
-
-Collaborator Everywhere [https://github.com/PortSwigger/collaborator-everywhere-v2.git](https://github.com/PortSwigger/collaborator-everywhere-v2.git)
-
-Backslash Powered Scanner [https://github.com/PortSwigger/backslash-powered-scanner.git](https://github.com/PortSwigger/backslash-powered-scanner.git)
-
-Software Vulnerability Scanner [https://github.com/PortSwigger/software-vulnerability-scanner.git](https://github.com/PortSwigger/software-vulnerability-scanner.git)
-
-Content Type Converter [https://github.com/PortSwigger/content-type-converter.git](https://github.com/PortSwigger/content-type-converter.git)
-
-Param Miner [https://github.com/PortSwigger/param-miner.git](https://github.com/PortSwigger/param-miner.git)
-
-Collabfiltrator [https://github.com/PortSwigger/collabfiltrator.git](https://github.com/PortSwigger/collabfiltrator.git)
-
 ## Diccionarios
 
 Auto Wordlists [https://github.com/carlospolop/Auto_Wordlists.git](https://github.com/carlospolop/Auto_Wordlists.git)
@@ -385,6 +365,34 @@ MoodleScan [https://github.com/inc0d3/moodlescan.git](https://github.com/inc0d3/
 Toxssin [https://github.com/t3l3machus/toxssin.git](https://github.com/t3l3machus/toxssin.git)
 
 Beef [https://github.com/beefproject/beef.git](https://github.com/beefproject/beef.git)
+
+### Mejoras generales para el escáner de Burpsuite
+
+Active Scan ++ [https://github.com/PortSwigger/active-scan-plus-plus.git](https://github.com/PortSwigger/active-scan-plus-plus.git)
+    
+Error Message Checks [https://github.com/PortSwigger/error-message-checks.git](https://github.com/PortSwigger/error-message-checks.git)
+
+Additional Scanner Checks [https://github.com/PortSwigger/additional-scanner-checks.git](https://github.com/PortSwigger/additional-scanner-checks.git)
+
+Collaborator Everywhere [https://github.com/PortSwigger/collaborator-everywhere-v2.git](https://github.com/PortSwigger/collaborator-everywhere-v2.git)
+
+Backslash Powered Scanner [https://github.com/PortSwigger/backslash-powered-scanner.git](https://github.com/PortSwigger/backslash-powered-scanner.git)
+
+Software Vulnerability Scanner [https://github.com/PortSwigger/software-vulnerability-scanner.git](https://github.com/PortSwigger/software-vulnerability-scanner.git)
+
+### Utilidades adicionales para Burpsuite
+
+Copy As Python Requests [https://github.com/PortSwigger/copy-as-python-requests.git](https://github.com/PortSwigger/copy-as-python-requests.git)
+
+Content Type Converter [https://github.com/PortSwigger/content-type-converter.git](https://github.com/PortSwigger/content-type-converter.git)
+
+### Herramientas de propósito general
+
+Param Miner [https://github.com/PortSwigger/param-miner.git](https://github.com/PortSwigger/param-miner.git)
+
+Collabfiltrator [https://github.com/PortSwigger/collabfiltrator.git](https://github.com/PortSwigger/collabfiltrator.git)
+
+Sign Saboteur [https://github.com/PortSwigger/sign-saboteur.git](https://github.com/PortSwigger/sign-saboteur.git)
 
 ### Vulnerabilidades
 
@@ -556,7 +564,7 @@ Git Cola [https://github.com/git-cola/git-cola.git](https://github.com/git-cola/
 
 Funciones PHP peligrosas [https://gist.github.com/mccabe615/b0907514d34b2de088c4996933ea1720](https://gist.github.com/mccabe615/b0907514d34b2de088c4996933ea1720)
 
-### Insecure File upload
+#### Insecure File upload
 
 Upload Bypass [https://github.com/sAjibuu/Upload_Bypass.git](https://github.com/sAjibuu/Upload_Bypass.git)
 
@@ -568,7 +576,7 @@ File Upload Traverser [https://github.com/PortSwigger/file-upload-traverser.git]
 
 Magic Byte Selector [https://github.com/PortSwigger/magic-byte-selector.git](https://github.com/PortSwigger/magic-byte-selector.git)
 
-### JWT
+#### JWT
 
 JWT Editor [https://github.com/PortSwigger/jwt-editor.git](https://github.com/PortSwigger/jwt-editor.git)
 
