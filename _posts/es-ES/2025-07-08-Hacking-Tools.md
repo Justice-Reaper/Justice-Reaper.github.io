@@ -524,7 +524,7 @@ Auth Analyzer [https://github.com/PortSwigger/auth-analyzer.git](https://github.
 
 Autorize [https://github.com/PortSwigger/autorize.git](https://github.com/PortSwigger/autorize.git)
 
-#### WebSocket Attacks
+#### WebSocket
 
 WebSocket Turbo Intruder [https://github.com/PortSwigger/websocket-turbo-intruder.git](https://github.com/PortSwigger/websocket-turbo-intruder.git)
 
@@ -565,6 +565,22 @@ Upload Scanner [https://github.com/PortSwigger/upload-scanner.git](https://githu
 File Upload Traverser [https://github.com/PortSwigger/file-upload-traverser.git](https://github.com/PortSwigger/file-upload-traverser.git)
 
 Magic Byte Selector [https://github.com/PortSwigger/magic-byte-selector.git](https://github.com/PortSwigger/magic-byte-selector.git)
+
+### JWT
+
+JWT Editor [https://github.com/PortSwigger/jwt-editor.git](https://github.com/PortSwigger/jwt-editor.git)
+
+JWT4B [https://github.com/PortSwigger/json-web-tokens.git](https://github.com/PortSwigger/json-web-tokens.git)
+
+JWT Scanner [https://github.com/PortSwigger/jwt-scanner.git](https://github.com/PortSwigger/jwt-scanner.git)
+
+JOSEPH [https://github.com/PortSwigger/json-web-token-attacker.git](https://github.com/PortSwigger/json-web-token-attacker.git)
+
+JWT Tool [https://github.com/ticarpi/jwt_tool.git](https://github.com/ticarpi/jwt_tool.git)
+
+JWT Cracker [https://github.com/brendan-rius/c-jwt-cracker.git](https://github.com/brendan-rius/c-jwt-cracker.git)
+
+Jwt.io [https://www.jwt.io/](https://www.jwt.io/)
 
 ## Exploits
 
