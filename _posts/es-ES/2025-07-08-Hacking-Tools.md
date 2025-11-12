@@ -258,6 +258,8 @@ Kaonashi [https://github.com/kaonashi-passwords/Kaonashi.git](https://github.com
 
 Weakpass [https://weakpass.com/](https://weakpass.com/)
 
+JWT Secrets [https://github.com/wallarm/jwt-secrets.git](https://github.com/wallarm/jwt-secrets.git)
+
 ### Generar diccionarios
 
 CeWL [https://github.com/digininja/CeWL.git](https://github.com/digininja/CeWL.git)
