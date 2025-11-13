@@ -317,6 +317,18 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 8. Dependiendo de la `vulnerabilidad` que `identifique` deberemos `seguir los pasos de un laboratorio u otro para lograr llevar a cabo el ataque correspondiente de forma exitosa`
 
+9. Si nos identifica `Invalid JWT Signature` o `JWT Signature not required` iremos al `primer laboratorio`
+
+10. Si nos identifica `JWT algorithm none attack` iremos al `segundo laboratorio`
+
+11. Si nos identifica `JWT is signed symmetrically` o `JWT weak HMAC secret` iremos al `tercer laboratorio`
+
+12. Si nos identifica `JWT jwk header injection` iremos al `cuarto laboratorio`
+
+13. Si nos identifica `JWT jku pingback` iremos al `quinto laboratorio`
+
+14. Si nos identifica `JWT kid header path traversal` iremos al `sexto laboratorio`
+
 ## ¿Cómo prevenir vulnerabilidades de subida de archivos?
 
 Podemos `proteger` nuestros `sitios web` frente a muchas de las `vulnerabilidades` vistas `adoptando` las siguientes `medidas`:
