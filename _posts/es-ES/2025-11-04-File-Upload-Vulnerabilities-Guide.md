@@ -268,7 +268,7 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1. `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Backslash Powered Scanner` y `Upload Scanner`  de `Burpsuite`
+1. `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Backslash Powered Scanner` y `Upload Scanner` de `Burpsuite`
     
 2. `Añadir` el `dominio` y sus `subdominios` al `scope`
     
