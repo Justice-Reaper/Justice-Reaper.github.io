@@ -67,11 +67,11 @@ Sin conocer la `secret key` del `servidor`, `no debería ser posible generar la 
 
 Los `JWTs` pueden `firmarse` usando una gran `variedad` de `algoritmos diferentes`. Algunos de estos, como `HS256 (HMAC + SHA-256)`, usan una `clave simétrica`. Esto significa que el `servidor` usa `una única clave tanto para firmar como para verificar el token`. Claramente, esta `clave` debe de `ser` siempre `secreta`, `como si fuese que una contraseña`
 
-![[JWT-Attacks-Guide/image_2.png]]
+![](/assets/img/JWT-Attacks-Guide/image_1.png)
 
 Otros `algoritmos`, como `RS256 (RSA + SHA-256)`, usan `un par de claves asimétricas`. Esto `consiste` en una `clave privada`, que el `servidor` usa para `firmar` el `token`, y una `clave pública relacionada matemáticamente` que puede `usarse` para `verificar` la `firma`
 
-![[image_3.png]]
+![](/assets/img/JWT-Attacks-Guide/image_2.png)
 
 Como sugieren los nombres, la `clave privada` debe de `ser` siempre `secreta`, pero la `clave pública` suele `compartirse` para que `cualquiera` pueda `verificar` la `firma` de `los tokens emitidos por el servidor`
 
@@ -79,7 +79,7 @@ Como sugieren los nombres, la `clave privada` debe de `ser` siempre `secreta`, p
 
 La especificación de `JWT` en realidad es muy limitada. Solo `define un formato para representar información (claims) como un objeto JSON que puede transferirse entre dos partes`. En la práctica, `los JWT casi nunca se usan por sí solos`. La especificación `JWT` proviene de `JSON Web Signature (JWS)` y de `JSON Web Encryption (JWE)`, que `definen formas concretas de implementar los tokens`
 
-![[JWT-Attacks-Guide/image_1.png]]
+![](/assets/img/JWT-Attacks-Guide/image_3.png)
 
 En otras palabras, un `JWT` normalmente es o un `JWS` o un `JWE`. Cuando la gente dice `JWT`, `casi siempre se están refiriendo en realidad a un JWS`. Los `JWE` son `muy similares`, `excepto porque el contenido del token está cifrado en lugar de solo codificado`
 
