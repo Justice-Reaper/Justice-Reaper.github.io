@@ -6,10 +6,10 @@ lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger Labs
-  - JWT
+  - JWT Attacks
 tags:
   - Portswigger Labs
-  - JWT
+  - JWT Attacks
   - JWT authentication bypass via jwk header injection
 image:
   path: /assets/img/Portswigger/Portswigger.png
@@ -32,23 +32,23 @@ Este `laboratorio` utiliza un mecanismo basado en `JWT` para manejar las `sesion
 
 Al `acceder` a la `web` nos sale esto
 
-![](/assets/img/JWT-Lab-4/image_1.png)
+![](/assets/img/JWT-Attacks-Lab-4/image_1.png)
 
 Pulsamos sobre `My account` y nos `logueamos` con credenciales `wiener:peter`
 
-![](/assets/img/JWT-Lab-4/image_2.png)
+![](/assets/img/JWT-Attacks-Lab-4/image_2.png)
 
 `Recargamos` la `página` y `capturamos` la `petición` mediante `Burpsuite`
 
-![](/assets/img/JWT-Lab-4/image_3.png)
+![](/assets/img/JWT-Attacks-Lab-4/image_3.png)
 
 Debemos tener instalado la extensión `JWT Editor`, esta `extensión` nos avisará si `detecta` un `token`
 
-![](/assets/img/JWT-Lab-4/image_4.png)
+![](/assets/img/JWT-Attacks-Lab-4/image_4.png)
 
 Si `pulsamos` sobre la `pestaña` llamada `JSON Web Token` veremos `todas las partes` que `componen` al `JWT`
 
-![](/assets/img/JWT-Lab-4/image_5.png)
+![](/assets/img/JWT-Attacks-Lab-4/image_5.png)
 
 De acuerdo con la `especificación` de `JWS`, solo el parámetro `alg` del `header` es `obligatorio`. Sin embargo, en la práctica, las `cabeceras` del `JWT` a menudo `contienen` otros `parámetros`
 
@@ -58,20 +58,20 @@ La `especificación` de `JWS (JSON Web Signature)` describe un `parámetro opcio
 
 Sin embargo, los `servidores mal configurados` a veces `aceptan cualquier clave incrustada en el parámetro jwk`. Podemos `explotar` este comportamiento `firmando un JWT modificado utilizando nuestra propia clave privada RSA y luego incrustando la clave pública correspondiente en la cabecera jwk`. Para hacer esto, nos dirigimos al `Burpsuite`, hacemos `click` sobre `JWT Editor` y pulsamos sobre `New RSA Key` para `generar` una `nueva clave RSA`
 
-![](/assets/img/JWT-Lab-4/image_6.png)
+![](/assets/img/JWT-Attacks-Lab-4/image_6.png)
 
 Nos dirigimos al `repeater` pulsamos en `Attack` y pulsamos sobre `Embedded JWK`, de esta forma `Burpsuite` extrae la `clave pública` de la `clave RSA` y la `inyecta` en el `parámetro jwk`
 
-![](/assets/img/JWT-Lab-4/image_7.png)
+![](/assets/img/JWT-Attacks-Lab-4/image_7.png)
 
 `Cambiamos` el `nombre` de `usuario` a `administrador` y `firmamos` el `JWT` con la `clave privada`. En este caso la extensión `JWT Editor` de `Burpsuite` nos `actualiza` el parámetro `kid`, pero si realizamos este `ataque` de forma `manual` deberemos `actualizarlo` nosotros para que `funcione`
 
-![](/assets/img/JWT-Lab-4/image_8.png)
+![](/assets/img/JWT-Attacks-Lab-4/image_8.png)
 
 Pulsamos `Ctrl + Shift + i` y `pegamos` el nuevo `JWT`
 
-![](/assets/img/JWT-Lab-4/image_9.png)
+![](/assets/img/JWT-Attacks-Lab-4/image_9.png)
 
 `Refrescamos` la `web` con `F5`, `accedemos` al `panel` de `administrador` y `borramos` al usuario `carlos`
 
-![](/assets/img/JWT-Lab-4/image_10.png)
+![](/assets/img/JWT-Attacks-Lab-4/image_10.png)

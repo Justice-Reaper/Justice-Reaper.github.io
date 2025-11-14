@@ -6,10 +6,10 @@ lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger Labs
-  - JWT
+  - JWT Attacks
 tags:
   - Portswigger Labs
-  - JWT
+  - JWT Attacks
   - JWT authentication bypass via weak signing key
 image:
   path: /assets/img/Portswigger/Portswigger.png
@@ -32,23 +32,23 @@ Este `laboratorio` utiliza un mecanismo basado en `JWT` para manejar las `sesion
 
 Al `acceder` a la `web` nos sale esto
 
-![](/assets/img/JWT-Lab-3/image_1.png)
+![](/assets/img/JWT-Attacks-Lab-3/image_1.png)
 
 Pulsamos sobre `My account` y nos `logueamos` con credenciales `wiener:peter`
 
-![](/assets/img/JWT-Lab-3/image_2.png)
+![](/assets/img/JWT-Attacks-Lab-3/image_2.png)
 
 `Recargamos` la `página` y `capturamos` la `petición` mediante `Burpsuite`
 
-![](/assets/img/JWT-Lab-3/image_3.png)
+![](/assets/img/JWT-Attacks-Lab-3/image_3.png)
 
 Debemos tener instalado la extensión `JWT Editor`, esta `extensión` nos avisará si `detecta` un `token`
 
-![](/assets/img/JWT-Lab-3/image_4.png)
+![](/assets/img/JWT-Attacks-Lab-3/image_4.png)
 
 Si `pulsamos` sobre la `pestaña` llamada `JSON Web Token` veremos `todas las partes` que `componen` al `JWT`
 
-![](/assets/img/JWT-Lab-3/image_5.png)
+![](/assets/img/JWT-Attacks-Lab-3/image_5.png)
 
 Vemos que el `algoritmo` usado para cifrar el `JWT` es `HS256`, este `algoritmo` es `HMAC + SHA-256`. Existen otros como `HS384`, `HS512`, los cuales también son `algoritmos débiles` y a los cuales se les puede aplicar `fuerza bruta` fácilmente. Esto se debe a que usan una `cadena aleatoria` e `independiente` como `clave secreta`. Este `diccionario` [https://github.com/wallarm/jwt-secrets.git](https://github.com/wallarm/jwt-secrets.git) está formado por `secretos` usados para `firmar JWT's`. Lo primero para `bruteforcear` el `JWT` es `crearnos` un `archivo` con el `JWT` en su `interior`
 
@@ -79,20 +79,20 @@ También podemos usar `hashcat` para `bruteforcear` el `JWT`
 
 Con la contraseña obtenida `secret1`, no dirigimos a `JWT Editor` en `Burpsuite` y pulsamos sobre `New Symmetric Key`
 
-![](/assets/img/JWT-Lab-3/image_6.png)
+![](/assets/img/JWT-Attacks-Lab-3/image_6.png)
 
 Una vez hecho esto nos vamos al `repeater`, `cambiamos` nuestro `usuario` por `administrator`, en el apartado `JSON Web token` pulsamos en `Sign` y ya podríamos `enviar` la `petición`
 
-![](/assets/img/JWT-Lab-3/image_7.png)
+![](/assets/img/JWT-Attacks-Lab-3/image_7.png)
 
 Otra opción hacerlo en `jwt.io` [https://jwt.io/](https://jwt.io/) , `cambiamos` nuestro `nombre` por el de `administrator` e introducimos el secreto. La opción `secret base64 encoded` es para `encodear` el `secreto` en `base64`, en este caso al `no` estar `encodeado` el `secreto` no debemos `marcar` la `casilla`
 
-![](/assets/img/JWT-Lab-3/image_8.png)
+![](/assets/img/JWT-Attacks-Lab-3/image_8.png)
 
 Hacemos `Ctrl + Shift + i` y pegamos el nuevo `valor` en el parámetro `session`
 
-![](/assets/img/JWT-Lab-3/image_9.png)
+![](/assets/img/JWT-Attacks-Lab-3/image_9.png)
 
 `Recargamos` la `web` con `F5` y `panel` de `administrador`, lo que quiere decir que nos hemos `convertidos` en ese `usuario`
 
-![](/assets/img/JWT-Lab-3/image_10.png)
+![](/assets/img/JWT-Attacks-Lab-3/image_10.png)

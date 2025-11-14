@@ -6,10 +6,10 @@ lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger Labs
-  - JWT
+  - JWT Attacks
 tags:
   - Portswigger Labs
-  - JWT
+  - JWT Attacks
   - JWT authentication bypass via jku header injection
 image:
   path: /assets/img/Portswigger/Portswigger.png
@@ -32,27 +32,27 @@ Este `laboratorio` utiliza un `mecanismo` basado en `JWT` para `manejar` las `se
 
 Al `acceder` a la `web` nos sale esto
 
-![](/assets/img/JWT-Lab-5/image_1.png)
+![](/assets/img/JWT-Attacks-Lab-5/image_1.png)
 
 Pulsamos en `My account` y nos `logueamos` con las credenciales `wiener:peter`
 
-![](/assets/img/JWT-Lab-5/image_2.png)
+![](/assets/img/JWT-Attacks-Lab-5/image_2.png)
 
 `Recargamos` con `F5` y `capturamos` la `petición` con `Burpsuite`
 
-![](/assets/img/JWT-Lab-5/image_3.png)
+![](/assets/img/JWT-Attacks-Lab-5/image_3.png)
 
 Este es el `JWT`, lo vemos así gracias a la extensión `JWT Editor`
 
-![](/assets/img/JWT-Lab-5/image_4.png)
+![](/assets/img/JWT-Attacks-Lab-5/image_4.png)
 
 Vemos que el `algoritmo` usado en un `RS256`, nos dirigimos a la ventana `JWT Editor` y nos `creamos` una `clave RSA` pulsando en `New RSA Key`
 
-![](/assets/img/JWT-Lab-5/image_5.png)
+![](/assets/img/JWT-Attacks-Lab-5/image_5.png)
 
 Hacemos `click derecho` sobre la `clave generada` y `pulsamos` sobre `Copy Public Key as JWK`
 
-![](/assets/img/JWT-Lab-5/image_6.png)
+![](/assets/img/JWT-Attacks-Lab-5/image_6.png)
 
 El `contenido copiado` debería tener esta `estructura`
 
@@ -88,27 +88,27 @@ Content-Type: application/json
 
 `Cambiamos` el `nombre` de `usuario` a `administrator`
 
-![](/assets/img/JWT-Lab-5/image_7.png)
+![](/assets/img/JWT-Attacks-Lab-5/image_7.png)
 
 `Actualizamos` el `kid`, el cual `debe ser el mismo que el de la clave  que hemos generado` y `añadimos` el parámetro `jku` que apunta al `servidor` desde donde `cargaremos` la `clave RSA`
 
-![](/assets/img/JWT-Lab-5/image_8.png)
+![](/assets/img/JWT-Attacks-Lab-5/image_8.png)
 
 `Firmamos` el `JSON` con la `clave privada`
 
-![](/assets/img/JWT-Lab-5/image_9.png)
+![](/assets/img/JWT-Attacks-Lab-5/image_9.png)
 
 Hacemos una `petición` a `/admin` para `comprobar` que nos hemos `convertido` en `administrador`
 
-![](/assets/img/JWT-Lab-5/image_10.png)
+![](/assets/img/JWT-Attacks-Lab-5/image_10.png)
 
 En el navegador pulsamos `Ctrl + Shift+ i` y pegamos la cookie
 
-![](/assets/img/JWT-Lab-5/image_11.png)
+![](/assets/img/JWT-Attacks-Lab-5/image_11.png)
 
 `Refrescamos` la `web` con `F5` y ya podemos `eliminar` al usuario `carlos`
 
-![](/assets/img/JWT-Lab-5/image_12.png)
+![](/assets/img/JWT-Attacks-Lab-5/image_12.png)
 
 Hemos podido `vulnerar` este `laboratorio` debido a que, en lugar de `incorporar claves públicas` directamente mediante el `parámetro jwt` del `header`, algunos `servidores` permiten `utilizar` el `parámetro jku (URL del conjunto JWK)` para `hacer referencia` a un `conjunto JWK` que `contiene` la `clave`. Durante el proceso de `verificación de la firma`, el `servidor` obtiene la clave relevante desde esta `URL`. Este es un `ejemplo` de un `conjunto de claves JWK` al cual podemos `acceder` mediante el `parámetro jku`
 

@@ -120,7 +120,7 @@ Las `librerías JWT` normalmente `ofrecen` un `método` para `verificar tokens` 
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- JWT authentication bypass via unverified signature - [https://justice-reaper.github.io/posts/JWT-Lab-1/](https://justice-reaper.github.io/posts/JWT-Lab-1/)
+- JWT authentication bypass via unverified signature - [https://justice-reaper.github.io/posts/JWT-Attacks-Lab-1/](https://justice-reaper.github.io/posts/JWT-Attacks-Lab-1/)
 
 ### Aceptar tokens sin firma
 
@@ -139,7 +139,7 @@ Los `JWTs` pueden `firmarse` con `distintos algoritmos`, pero también `pueden d
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- JWT authentication bypass via flawed signature verification - [https://justice-reaper.github.io/posts/JWT-Lab-2/](https://justice-reaper.github.io/posts/JWT-Lab-2/)
+- JWT authentication bypass via flawed signature verification - [https://justice-reaper.github.io/posts/JWT-Attacks-Lab-2/](https://justice-reaper.github.io/posts/JWT-Attacks-Lab-2/)
 
 ## Bruteforcear la secret key
 
@@ -165,7 +165,7 @@ Si `ejecutamos el comando más de una vez`, debemos `incluir la opción --show p
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- JWT authentication bypass via weak signing key - [https://justice-reaper.github.io/posts/JWT-Lab-3/](https://justice-reaper.github.io/posts/JWT-Lab-3/)
+- JWT authentication bypass via weak signing key - [https://justice-reaper.github.io/posts/JWT-Attacks-Lab-3/](https://justice-reaper.github.io/posts/JWT-Attacks-Lab-3/)
 
 ## Inyecciones de parámetros en el header del JWT
 
@@ -223,7 +223,7 @@ Aunque `podemos añadir o modificar manualmente el parámetro jwk` en `Burpsuite
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- JWT authentication bypass via jwk header injection - [https://justice-reaper.github.io/posts/JWT-Lab-4/](https://justice-reaper.github.io/posts/JWT-Lab-4/)
+- JWT authentication bypass via jwk header injection - [https://justice-reaper.github.io/posts/JWT-Attacks-Lab-4/](https://justice-reaper.github.io/posts/JWT-Attacks-Lab-4/)
 
 ### Inyectando un JWT auto firmado a través del parámetro jku
 
@@ -256,7 +256,7 @@ Los `sitios web` más `seguros` solo `obtienen` estas `claves` desde `dominios d
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- JWT authentication bypass via jku header injection - [https://justice-reaper.github.io/posts/JWT-Lab-5/](https://justice-reaper.github.io/posts/JWT-Lab-5/)
+- JWT authentication bypass via jku header injection - [https://justice-reaper.github.io/posts/JWT-Attacks-Lab-5/](https://justice-reaper.github.io/posts/JWT-Attacks-Lab-5/)
 
 ### Inyectando un JWT auto firmados a través del parámetro kid
 
@@ -281,7 +281,7 @@ En teoría, esto podría hacerse con cualquier `archivo`, pero uno de los `mét
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- JWT authentication bypass via kid header path traversal - [https://justice-reaper.github.io/posts/JWT-Lab-6/](https://justice-reaper.github.io/posts/JWT-Lab-6/)
+- JWT authentication bypass via kid header path traversal - [https://justice-reaper.github.io/posts/JWT-Attacks-Lab-6/](https://justice-reaper.github.io/posts/JWT-Attacks-Lab-6/)
 
 ### Otros parámetros interesantes en el header del JWT
 

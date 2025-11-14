@@ -6,10 +6,10 @@ lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger Labs
-  - JWT
+  - JWT Attacks
 tags:
   - Portswigger Labs
-  - JWT
+  - JWT Attacks
   - JWT authentication bypass via kid header path traversal
 image:
   path: /assets/img/Portswigger/Portswigger.png
@@ -32,43 +32,43 @@ Este `laboratorio` utiliza un mecanismo basado en `JWT` para manejar las `sesion
 
 Al `acceder` a la `web` nos sale esto
 
-![](/assets/img/JWT-Lab-6/image_1.png)
+![](/assets/img/JWT-Attacks-Lab-6/image_1.png)
 
 Pulsamos en `My account` y nos `logueamos` con las credenciales `wiener:peter`
 
-![](/assets/img/JWT-Lab-6/image_2.png)
+![](/assets/img/JWT-Attacks-Lab-6/image_2.png)
 
 `Recargamos` con `F5` y `capturamos` la `petición` con `Burpsuite`
 
-![](/assets/img/JWT-Lab-6/image_3.png)
+![](/assets/img/JWT-Attacks-Lab-6/image_3.png)
 
 Este es el `JWT`, el cual lo vemos así gracias a la extensión `JWT Editor` de `Burpsuite`
 
-![](/assets/img/JWT-Lab-6/image_4.png)
+![](/assets/img/JWT-Attacks-Lab-6/image_4.png)
 
 Cambiamos el `nombre` de `usuario` a `administrator`
 
-![](/assets/img/JWT-Lab-6/image_5.png)
+![](/assets/img/JWT-Attacks-Lab-6/image_5.png)
 
 Efectuamos un `path traversal` y cargamos el `/dev/null`
 
-![](/assets/img/JWT-Lab-6/image_6.png)
+![](/assets/img/JWT-Attacks-Lab-6/image_6.png)
 
 `Firmamos` el `JWT` con una `clave vacía`
 
-![](/assets/img/JWT-Lab-6/image_7.png)
+![](/assets/img/JWT-Attacks-Lab-6/image_7.png)
 
 `Realizamos` una `petición` a `/admin` para comprobar que nuestro `ataque` ha `funcionado` y que tenemos `acceso` al `panel administrativo`
 
-![](/assets/img/JWT-Lab-6/image_8.png)
+![](/assets/img/JWT-Attacks-Lab-6/image_8.png)
 
 En el `navegador` pulsamos `Ctrl + Shift+ i` y `pegamos` la `cookie`
 
-![](/assets/img/JWT-Lab-6/image_9.png)
+![](/assets/img/JWT-Attacks-Lab-6/image_9.png)
 
 `Refrescamos` la `web` con `F5` y `borramos` al usuario `carlos`
 
-![](/assets/img/JWT-Lab-6/image_10.png)
+![](/assets/img/JWT-Attacks-Lab-6/image_10.png)
 
 Hemos podido `realizar` este `ataque` debido a que los `servidores` pueden utilizar varias `claves criptográficas` para `firmar` distintos `tipos` de `datos`, no solo `JWT`. Por este motivo, el `header` de un `JWT` normalmente `contiene` un `parámetro kid (ID de clave)`, que `ayuda` al `servidor` a `identificar` la `clave que debe utilizar al verificar la firma`
 
