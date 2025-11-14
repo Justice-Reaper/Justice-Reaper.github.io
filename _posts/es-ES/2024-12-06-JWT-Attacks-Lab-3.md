@@ -28,6 +28,10 @@ Este `laboratorio` utiliza un mecanismo basado en `JWT` para manejar las `sesion
 
 ---
 
+## Guía de JWT Attacks
+
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de JWT attacks` [https://justice-reaper.github.io/posts/JWT-Attacks-Guide/](https://justice-reaper.github.io/posts/JWT-Attacks-Guide/)
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto
