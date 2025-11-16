@@ -34,7 +34,7 @@ Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `
 
 ## Guía de vulnerabilidades de OAuth
 
-`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de vulnerabilidades de OAuth` https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Guide/
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de vulnerabilidades de OAuth` [https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Guide/](https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Guide/)
 
 ## Resolución
 
