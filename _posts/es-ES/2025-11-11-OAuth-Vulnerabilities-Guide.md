@@ -88,7 +88,7 @@ Toda la `comunicación` que ocurre `después` del `intercambio del código/token
 
 Dado que los `datos` más `sensibles`, es decir, el `token de acceso` y los `datos del usuario`, `no se envían a través del navegador`, este `grant type` es probablemente el más `seguro`. Las `aplicaciones del lado del servidor` deberían usar siempre estos `grant types` si es `posible`
 
-![](/assets/img/OAuth-Vulnerabilities-Guide/image_1.png)
+![[image_1.png]]
 
 #### 1. Authorization request
 
@@ -189,7 +189,7 @@ Puede que te preguntes por qué las `aplicaciones cliente` no siempre usan el `g
 
 El `grant type implicit` es más adecuado para `aplicaciones de una sola página` y `aplicaciones nativas de escritorio` que `no pueden almacenar fácilmente` el `client_secret` en el `back-end` y por lo tanto, no se benefician tanto del `grant type authorization code`
 
-![](/assets/img/OAuth-Vulnerabilities-Guide/image_2.png)
+![[image_2.png]]
 
 #### 1. Authorization request
 
@@ -290,17 +290,13 @@ Una vez sepamos el `nombre de host` del `servidor de autorización`, siempre deb
 
 Estos suelen `devolver` un `archivo de configuración JSON` con `información clave`, como `detalles` sobre `funciones adicionales` que podrían estar `soportadas`. En ocasiones, esto puede `revelar` una `superficie de ataque más amplia` o `características admitidas que no se mencionan en la documentación`
 
-### Explotación de vulnerabilidades de autenticación OAuth
-
-Las `vulnerabilidades` pueden `aparecer` tanto en la `implementación de OAuth por parte de la aplicación cliente` como en la `configuración` del propio `servicio OAuth`
-
-#### Vulnerabilidades en la aplicación cliente de OAuth
+### Vulnerabilidades en la aplicación cliente de OAuth
 
 Las `aplicaciones cliente` suelen `utilizar servicios OAuth reconocidos y altamente robustos`, que están `bien protegidos` contra `exploits conocidos`. Sin embargo, su propia `implementación` puede ser `menos segura`
 
 Como ya hemos mencionado, la `especificación` de `OAuth` está `poco definida`. Esto es especialmente cierto en lo que respecta a la `implementación por parte de la aplicación cliente`. Un `flujo de OAuth` involucra muchos `componentes dinámicos`, con numerosos `parámetros opcionales` y `ajustes de configuración` en cada `grant type`, lo que significa que hay un `amplio margen` para `configuraciones incorrectas`
 
-##### Implementación incorrecta del grant type
+#### Implementación incorrecta del grant type
 
 Debido a los `peligros` que implica `enviar tokens de acceso` a través del `navegador`, el `implicit grant type` se recomienda principalmente para `SPA (aplicaciones de una sola página)`. Sin embargo, también se utiliza con `frecuencia` en `aplicaciones web clásicas de tipo cliente-servidor` debido a su relativa `simplicidad`
 
@@ -314,7 +310,7 @@ En este `laboratorio` podemos ver un `ejemplo` de esto:
 
 - Authentication bypass via OAuth implicit flow - [https://justice-reaper.github.io/posts/OAuth-Lab-1/](https://justice-reaper.github.io/posts/OAuth-Lab-1/)
 
-##### Protección CSRF defectuosa
+#### Protección CSRF defectuosa
 
 Aunque muchos `componentes` de los `flujos de OAuth` son `opcionales`, algunos están `fuertemente recomendados` a menos que `exista` una `razón importante` para `no usarlos`. Un ejemplo de esto es el `parámetro state`
 
@@ -326,11 +322,11 @@ En este `laboratorio` podemos ver un `ejemplo` de esto:
 
 - Forced OAuth profile linking - [https://justice-reaper.github.io/posts/OAuth-Lab-3/](https://justice-reaper.github.io/posts/OAuth-Lab-3/)
 
-#### Vulnerabilidades en el servicio OAuth
+### Vulnerabilidades en el servicio OAuth
 
 `Mientras que las aplicaciones cliente pueden tener implementaciones débiles`, el `servicio OAuth en sí mismo (proveedor de identidad)` no es `inmune` a `vulnerabilidades críticas`. Aunque `servicios` como `Google`, `Facebook` o `GitHub` suelen estar `bien asegurados`, en `entornos corporativos o servicios personalizados es común encontrar servicios OAuth mal configurados o con implementaciones defectuosas`
 
-##### Leaks de códigos de autorización y de tokens de acceso
+#### Leaks de códigos de autorización y de tokens de acceso
 
 Quizás la `vulnerabilidad` más infame `basada en OAuth` es cuando `la configuración del propio servicio OAuth permite a los atacantes robar códigos de autorización o tokens de acceso asociados a las cuentas de otros usuarios`. Al `robar` un `código o token válido`, el `atacante` podría `acceder` a los `datos` de la `víctima`. En última instancia, esto puede `comprometer completamente su cuenta`, ya que el `atacante` podría `iniciar sesión` como el `usuario víctima` en `cualquier aplicación cliente` que esté `registrada` con este `servicio OAuth`
 
@@ -346,7 +342,7 @@ En este `laboratorio` podemos ver un `ejemplo` de esto:
 
 - OAuth account hijacking via redirect_uri - [https://justice-reaper.github.io/posts/OAuth-Lab-4/](https://justice-reaper.github.io/posts/OAuth-Lab-4/)
 
-###### Validación Defectuosa de redirect_uri
+##### Validación Defectuosa de redirect_uri
 
 Debido a `los tipos de ataques vistos en el laboratorio anterior`, es una `práctica recomendada` que `las aplicaciones cliente proporcionen una whitelist de sus URI de callback genuinos al registrarse en el servicio OAuth`. De esta manera, `cuando el servicio OAuth recibe una nueva solicitud, puede validar el parámetro redirect_uri contra esta whitelist`. En este caso, `proporcionar` una `URI externa` probablemente `resultará` en un `error`. Sin embargo, aún puede `haber formas de eludir esta validación`
 
@@ -372,7 +368,7 @@ Algunos `servidores` también dan un `tratamiento especial` a las `URI` de `loca
 
 Es importante destacar que `no debemos limitar las pruebas solo a testear el parámetro redirect_uri de forma aislada`. En entornos reales, a menudo `necesitaremos experimentar con diferentes combinaciones de cambios en varios parámetros`. A veces, `cambiar un parámetro puede afectar la validación de otros`. Por ejemplo, cambiar el `response_mode` de `query` a `fragment` a veces puede `alterar completamente el análisis del redirect_uri`, permitiéndonos `enviar URIs que de otro modo estarían bloqueadas`. `Si el modo de respuesta web_message es compatible, debemos tenerlo en cuenta, ya que permite un rango más amplio de subdominios en el redirect_uri`
 
-###### Robar códigos y tokens de acceso mediante una página proxy
+##### Robar códigos y tokens de acceso mediante una página proxy
 
 Contra `objetivos` más `robustos`, puede que descubramos que, hagamos lo que hagamos, `no logramos enviar correctamente un dominio externo como redirect_uri`
 
@@ -400,11 +396,11 @@ En este `laboratorio` podemos ver un `ejemplo` de esto:
 
 - Stealing OAuth access tokens via an open redirect - [https://justice-reaper.github.io/posts/OAuth-Lab-5/](https://justice-reaper.github.io/posts/OAuth-Lab-5/)
 
-##### Validación defectuosa de scope
+#### Validación defectuosa de scope
 
 En cualquier `flujo OAuth`, el `usuario` debe `aprobar el acceso solicitado basándose en el scope definido en la solicitud de autorización`. `El token resultante permite que la aplicación cliente acceda solo al scope que fue aprobado por el usuario`. Pero en algunos casos, es posible que `un atacante actualice un token de acceso (ya sea robado u obtenido mediante una aplicación cliente maliciosa) con permisos adicionales debido a una validación defectuosa por parte del servicio OAuth`. El `proceso` para hacerlo `depende` del `grant type`
 
-###### Upgradear el Scope en el flujo Authorization Code
+##### Upgradear el Scope en el flujo Authorization Code
 
 Con el `grant type authorization code`, `los datos del usuario se solicitan y se envían mediante comunicación segura entre servidores`, lo que cual hace que `un atacante externo normalmente no los pueda manipular directamente`. Sin embargo, aún puede ser posible `lograr el mismo resultado registrando su propia aplicación cliente en el servicio OAuth`
 
@@ -428,13 +424,13 @@ Si `el servidor no valida este valor comparándolo con el scope de la solicitud 
 
 `El atacante podría entonces usar su aplicación para hacer las llamadas a la API necesarias y acceder a los datos del perfil del usuario`
 
-###### Upgradear el Scope en el flujo Implicit
+##### Upgradear el Scope en el flujo Implicit
 
 En el `grant type implicit`, el `token de acceso` se `envía` mediante el `navegador`, lo que significa que `un atacante puede robar tokens asociados con aplicaciones cliente legítimas y usarlos directamente`. Una vez que ha `robado un token de acceso`, puede `enviar` una `solicitud normal` desde el `navegador` al `endpoint /userinfo` del `servicio OAuth`, `añadiendo manualmente un nuevo parámetro scope en el proceso`
 
 Idealmente, `el servicio OAuth debería validar este valor comparándolo con el scope usado cuando se generó el token`, pero `no siempre ocurre así`. Siempre y cuando `los permisos alterados no excedan el nivel previamente concedido a esa aplicación cliente`, el `atacante` puede potencialmente `acceder a datos adicionales sin requerir más aprobación del usuario`
 
-##### Registro de usuario no verificado
+#### Registro de usuario no verificado
 
 Cuando se `autentica` a los `usuarios` mediante `OAuth`, `la aplicación cliente asume implícitamente que la información almacenada por el proveedor OAuth es correcta`. Esta puede ser una `suposición peligrosa`
 
