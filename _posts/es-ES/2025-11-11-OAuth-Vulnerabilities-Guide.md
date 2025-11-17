@@ -88,7 +88,7 @@ Toda la `comunicación` que ocurre `después` del `intercambio del código/token
 
 Dado que los `datos` más `sensibles`, es decir, el `token de acceso` y los `datos del usuario`, `no se envían a través del navegador`, este `grant type` es probablemente el más `seguro`. Las `aplicaciones del lado del servidor` deberían usar siempre estos `grant types` si es `posible`
 
-![[image_1.png]]
+![](/assets/img/OAuth-Vulnerabilities-Guide/image_1.png)
 
 #### 1. Authorization request
 
@@ -189,7 +189,7 @@ Puede que te preguntes por qué las `aplicaciones cliente` no siempre usan el `g
 
 El `grant type implicit` es más adecuado para `aplicaciones de una sola página` y `aplicaciones nativas de escritorio` que `no pueden almacenar fácilmente` el `client_secret` en el `back-end` y por lo tanto, no se benefician tanto del `grant type authorization code`
 
-![[image_2.png]]
+![](/assets/img/OAuth-Vulnerabilities-Guide/image_2.png)
 
 #### 1. Authorization request
 
