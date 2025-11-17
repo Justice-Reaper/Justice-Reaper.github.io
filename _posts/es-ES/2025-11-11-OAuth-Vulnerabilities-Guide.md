@@ -562,7 +562,7 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1. `Instalar` la extensión `OAUTH Scan` Burpsuite`
+1. `Instalar` la extensión `OAUTH Scan` de `Burpsuite`
 
 2. `Sin llegar a loguearse`, `añadir` el `dominio` de `autenticación de OAuth`, el de la `página web`  y sus respectivos `subdominios` al `scope`
 
