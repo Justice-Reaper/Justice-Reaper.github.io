@@ -240,6 +240,8 @@ Weakpass [https://weakpass.com/](https://weakpass.com/)
 
 JWT Secrets [https://github.com/wallarm/jwt-secrets.git](https://github.com/wallarm/jwt-secrets.git)
 
+GraphQL Wordlist [https://github.com/Escape-Technologies/graphql-wordlist.git](https://github.com/Escape-Technologies/graphql-wordlist.git)
+
 Flask Unsign Wordlist [https://github.com/Paradoxis/Flask-Unsign-Wordlist.git](https://github.com/Paradoxis/Flask-Unsign-Wordlist.git)
 
 ### Generar diccionarios
@@ -609,6 +611,8 @@ Graphw00f [https://github.com/dolevf/graphw00f.git](https://github.com/dolevf/gr
 GraphQL Threat Matrix [https://github.com/nicholasaleks/graphql-threat-matrix.git](https://github.com/nicholasaleks/graphql-threat-matrix.git)
 
 GraphQL Cop [https://github.com/dolevf/graphql-cop.git](https://github.com/dolevf/graphql-cop.git)
+
+GraphCrawler [https://github.com/gsmith257-cyber/GraphCrawler.git](https://github.com/gsmith257-cyber/GraphCrawler.git)
 
 GraphQL Path Enum [https://gitlab.com/dee-see/graphql-path-enum.git](https://gitlab.com/dee-see/graphql-path-enum.git)
 
