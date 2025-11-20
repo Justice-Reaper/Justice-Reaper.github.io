@@ -182,13 +182,9 @@ URL Encoded Data:
 query=mutation+changeEmail%28%24input%3A+ChangeEmailInput%21%29+%7BchangeEmail%28input%3A+%24input%29+%7Bemail%7D%7D&operationName=changeEmail&variables=%7B%22input%22%3A+%7B%22email%22%3A+%22test%40gmail.com%22%7D%7D
 ```
 
-Cambiamos el `content-type` de `application/json` a `application/x-www-form-urlencoded` e `insertamos` el nuevo `payload` en el `body`. Al `enviar` la `petición` vemos que `funciona correctamente`
+Cambiamos el `content-type` de `application/json` a `application/x-www-form-urlencoded` e `insertamos` el nuevo `payload` en el `body`. Al `enviar` la `petición` vemos que `funciona correctamente`. `Hay casos en los que al añadirle Content-Type: application/x-www-form-urlencoded manualmente, Burpsuite no identifica correctamente el payload`, esto lo sabemos porque la `data` en el `body` está toda de `color blanco`. Para que funcione correctamente debemos pulsar `click derecho > Change request method`, posteriormente `hacemos lo mismo`, `click derecho > Change request method` y ahora `al pegar el payload aparecerá de un color verde`, lo cual `significa` que `Burpsuite lo identifica correctamente`. Si no hacemos esto, `no podremos generar el PoC de CSRF desde Burpsuite`
 
 ![](/assets/img/GraphQL-API-Vulnerabilities-Lab-5/image_6.png)
-
-```
-query=mutation%20changeEmail($input:ChangeEmailInput!)%20{changeEmail(input:$input)%20{email}}&operationName=changeEmail&variables:{"input":{"email":"test@gmail.com"}}}
-```
 
 Nos `generamos` un `PoC` de `CSRF`, para ello pulsamos `click derecho > Engagements tools > Generate CSRF PoC`
 
