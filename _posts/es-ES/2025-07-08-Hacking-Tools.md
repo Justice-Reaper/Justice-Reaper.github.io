@@ -592,6 +592,24 @@ JWT Cracker [https://github.com/brendan-rius/c-jwt-cracker.git](https://github.c
 
 Jwt.io [https://www.jwt.io/](https://www.jwt.io/)
 
+#### GraphQL
+
+GraphQL Voyager [https://apis.guru/graphql-voyager/](https://apis.guru/graphql-voyager/)
+
+InQL [https://github.com/PortSwigger/inql.git](https://github.com/PortSwigger/inql.git)
+
+GQLSpection [https://github.com/doyensec/GQLSpection.git](https://github.com/doyensec/GQLSpection.git)
+
+Clairvoyance [https://github.com/nikitastupin/clairvoyance.git](https://github.com/nikitastupin/clairvoyance.git)
+
+CrackQL [https://github.com/nicholasaleks/CrackQL.git](https://github.com/nicholasaleks/CrackQL.git)
+
+Graphw00f [https://github.com/dolevf/graphw00f.git](https://github.com/dolevf/graphw00f.git)
+
+GraphQL Threat Matrix [https://github.com/nicholasaleks/graphql-threat-matrix.git](https://github.com/nicholasaleks/graphql-threat-matrix.git)
+
+GraphQL Cop [https://github.com/dolevf/graphql-cop.git](https://github.com/dolevf/graphql-cop.git)
+
 ## Exploits
 
 0day Archive [https://0day-archive.fullhunt.io/](https://0day-archive.fullhunt.io/)
