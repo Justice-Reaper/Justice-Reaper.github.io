@@ -610,6 +610,8 @@ GraphQL Threat Matrix [https://github.com/nicholasaleks/graphql-threat-matrix.gi
 
 GraphQL Cop [https://github.com/dolevf/graphql-cop.git](https://github.com/dolevf/graphql-cop.git)
 
+GraphQL Path Enum [https://gitlab.com/dee-see/graphql-path-enum.git](https://gitlab.com/dee-see/graphql-path-enum.git)
+
 ## Exploits
 
 0day Archive [https://0day-archive.fullhunt.io/](https://0day-archive.fullhunt.io/)
