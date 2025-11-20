@@ -616,6 +616,8 @@ GraphCrawler [https://github.com/gsmith257-cyber/GraphCrawler.git](https://githu
 
 GraphQL Path Enum [https://gitlab.com/dee-see/graphql-path-enum.git](https://gitlab.com/dee-see/graphql-path-enum.git)
 
+Graphinder [https://github.com/Escape-Technologies/graphinder.git](https://github.com/Escape-Technologies/graphinder.git)
+
 ## Exploits
 
 0day Archive [https://0day-archive.fullhunt.io/](https://0day-archive.fullhunt.io/)
