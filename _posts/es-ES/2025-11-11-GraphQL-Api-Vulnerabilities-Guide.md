@@ -419,7 +419,7 @@ Los `servicios GraphQL` suelen `responder` a `solicitudes no válidas` con `erro
 
 ### Métodos HTTP
 
-El `siguiente paso` es `probar diferentes métodos HTTP`. Lo ideal (en producción) es que el `endpoint de GraphQL` acepte solamente `peticiones por POST` y en `formato json (Content-Type: application/json)`, porque `ayuda a proteger contra ataques CSRF`  
+El `siguiente paso` es `probar diferentes métodos HTTP`. Lo ideal (en producción) es que el `endpoint de GraphQL` acepte solamente `peticiones por POST` y en `formato json (Content-Type: application/json)`, porque `ayuda a proteger contra ataques CSRF`
 
 Pero algunos `endpoints` también `aceptan`:
 
@@ -791,7 +791,7 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 9. `Una vez consigamos realizar la consulta de introspección`, vamos a `guardar los resultados en el Site map`, para ello, pulsamos `click derecho en la respuesta > GraphQL > Save GraphQL queries to site map`. `Esto lo hacemos para ver si hay consultas interesantes`
 
-10. Vamos ahora a utilizar `InQL`, podemos simplemente `hacer click derecho > Extensions > InQL - GraphQL Scanner > Generate queries` o `importar` en `formato JSON` el `schema de GraphQL`  que hemos `obtenido` al `realizar` la `introspección`. `Es recomendable utilizar esta herramienta porque puede permitirnos obtener información adicional`
+10. Vamos ahora a utilizar `InQL`, podemos simplemente `hacer click derecho > Extensions > InQL - GraphQL Scanner > Generate queries` o `importar` en `formato JSON` el `schema de GraphQL` que hemos `obtenido` al `realizar` la `introspección`. `Es recomendable utilizar esta herramienta porque puede permitirnos obtener información adicional`
 
 11. Para `visualizar` los `resultados` de la `introspección` hacemos `click derecho la respuesta > Extensions > InQL - GraphQL Scanner > Open in GraphQL Voyager`
 

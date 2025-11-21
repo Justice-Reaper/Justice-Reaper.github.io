@@ -38,7 +38,7 @@ Al `acceder` a la `web` vemos esto
 
 ![](/assets/img/Clickjacking-Lab-5/image_1.png)
 
-Hacemos `click` sobre  `My account` y nos logueamos con las credenciales `wiener:peter`
+Hacemos `click` sobre `My account` y nos logueamos con las credenciales `wiener:peter`
 
 ![](/assets/img/Clickjacking-Lab-5/image_2.png)
 

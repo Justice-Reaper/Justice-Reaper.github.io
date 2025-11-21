@@ -88,7 +88,7 @@ Para comprobar que se trata de `GraphQL` podemos usar `universal queries`, si el
 
 ![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_6.png)
 
-En la mayoría de casos los `endpoints` en `GraphQL` solo aceptan `peticiones POST` con `content-type` de `application/json` porque esto ayuda a `proteger` contra `vulnerabilidades` de `CSRF`. Sin embargo, en este caso también se pueden `enviar` un `datos` en el `body` de una `petición` por `GET` con `GraphQL`, pero `no se recomienda` porque las `peticiones` por `GET` suelen ser `idempotentes` y utilizan `parámetros` de `consulta`. Sin embargo, algunos `servidores` pueden `permitirlo` por `comodidad`, aunque esto `va en contra de los estándares HTTP`
+En la mayoría de casos los `endpoints` en `GraphQL` solo aceptan `peticiones POST` con `content-type` de `application/json` porque esto ayuda a `proteger` contra `vulnerabilidades` de `CSRF`. Sin embargo, en este caso también se pueden `enviar` un `datos` en el `body` de una `petición` por `GET` con `GraphQL`, pero `no se recomienda` porque las `peticiones` por `GET` suelen ser `independientes` y utilizan `parámetros` de `consulta`. Sin embargo, algunos `servidores` pueden `permitirlo` por `comodidad`, aunque esto `va en contra de los estándares HTTP`
 
 ![](/assets/img/GraphQL-API-Vulnerabilities-Lab-3/image_7.png)
 

@@ -185,7 +185,7 @@ En otros sistemas, puede encontrarse `discrepancias` sobre si `/admin/deleteUser
 
 Un `privilege escalation horizontal` ocurre si un `usuario` puede `obtener acceso` a `recursos pertenecientes a otro usuario`, en lugar de a sus propios recursos del mismo tipo. Por ejemplo, si un `empleado` puede acceder a los `registros de otros empleados` además de a los suyos, eso es `privilege escalation horizontal`
 
-Los ataques de `privilege escalation horizontal` pueden usar `métodos de explotación similares` a los de `privilege escalation vertical`. Por ejemplo, un usuario podría `acceder` al `perfil de  su cuenta` usando la siguiente `URL`:
+Los ataques de `privilege escalation horizontal` pueden usar `métodos de explotación similares` a los de `privilege escalation vertical`. Por ejemplo, un usuario podría `acceder` al `perfil de su cuenta` usando la siguiente `URL`:
 
 ```
 https://insecure-website.com/myaccount?id=123

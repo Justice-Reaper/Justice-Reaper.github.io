@@ -265,9 +265,9 @@ Un atacante puede `construir` una `URL` que, si la `víctima` la `visita`, haga 
 
 ##### ¿Cuál es el impacto de un DOM based open redirection?
 
-Este comportamiento puede aprovecharse para facilitar `ataques de phishing` contra los usuarios del  `sitio web`. La capacidad de usar una  `URL auténtica ` de la aplicación que  `apunta` al  `dominio correcto` y con un  `certificado TLS válido (si se usa TLS)` aporta  `credibilidad ` al  `ataque ` porque muchos usuarios, incluso si verifican esos elementos,  `no notarán la redirección posterior a un dominio externo`
+Este comportamiento puede aprovecharse para facilitar `ataques de phishing` contra los usuarios del `sitio web`. La capacidad de usar una `URL auténtica` de la aplicación que `apunta` al `dominio correcto` y con un `certificado TLS válido (si se usa TLS)` aporta `credibilidad ` al `ataque` porque muchos usuarios, incluso si verifican esos elementos, `no notarán la redirección posterior a un dominio externo`
 
-Si un  `atacante` puede  `controlar` el  `inicio de la cadena` que se pasa al `sink`, es posible escalar la vulnerabilidad a un  `JavaScript injection`. Un `atacante` podría `construir` una  `URL` con usando `javascript: pseudo-protocol ` para  `ejecutar código arbitrario cuando el navegador procese la URL`
+Si un `atacante` puede `controlar` el `inicio de la cadena` que se pasa al `sink`, es posible escalar la vulnerabilidad a un `JavaScript injection`. Un `atacante` podría `construir` una `URL` con usando `javascript: pseudo-protocol` para `ejecutar código arbitrario cuando el navegador procese la URL`
 
 En este `laboratorio` podemos ver como se `aplica` esta `técnica`:
 

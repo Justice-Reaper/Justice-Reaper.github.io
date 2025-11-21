@@ -290,7 +290,7 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 - `Comprobar` si la `extensión del archivo` contra una `whitelist` de `extensiones permitidas`, en lugar de contra una `blacklis` de `extensiones prohibidadas`
 
-- `Asegurarnos de que el nombre del archivo no contenga subcadenas` que puedan `interpretarse` como `directorios` o  `secuencias de path traversal (../)`
+- `Asegurarnos de que el nombre del archivo no contenga subcadenas` que puedan `interpretarse` como `directorios` o `secuencias de path traversal (../)`
 
 - `Renombrar los archivos subidos para evitar colisiones que puedan provocar la sobrescritura de archivos existentes`
 

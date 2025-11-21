@@ -30,10 +30,6 @@ Este `laboratorio` contiene un `fallo lógico` que expone un `oracle cifrado` a 
 
 ## Guía de business logic vulnerabilities
 
-`Antes` de  este `laboratorio` es recomendable `leerse` esta `guía de business logic vulnerabilities` [https://justice-reaper.github.io/posts/Business-Logic-Vulnerabilities-Guide/](https://justice-reaper.github.io/posts/Business-Logic-Vulnerabilities-Guide/)
-
-## Guía de business logic vulnerabilities
-
 `Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de business logic vulnerabilities` [https://justice-reaper.github.io/posts/Business-Logic-Vulnerabilities-Guide/](https://justice-reaper.github.io/posts/Business-Logic-Vulnerabilities-Guide/)
 
 ## Resolución

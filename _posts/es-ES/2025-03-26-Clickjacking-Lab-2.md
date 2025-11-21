@@ -200,6 +200,6 @@ Hacemos `click sobre el botón`
 
 ![](/assets/img/Clickjacking-Lab-2/image_21.png)
 
-Nos dirigimos a  `My account` para ver `si ha funcionado el ataque`, y vemos que así es. Una vez comprobado que se `ve` y `funciona` correctamente, pulsamos sobre `Deliver exploit to victim` y completamos el `laboratorio`. Debemos tener en cuenta que `dos usuarios no pueden tener el mismo email`, por lo tanto deberemos `modificar el nuestro o el email que se usa en el payload`
+Nos dirigimos a `My account` para ver `si ha funcionado el ataque`, y vemos que así es. Una vez comprobado que se `ve` y `funciona` correctamente, pulsamos sobre `Deliver exploit to victim` y completamos el `laboratorio`. Debemos tener en cuenta que `dos usuarios no pueden tener el mismo email`, por lo tanto deberemos `modificar el nuestro o el email que se usa en el payload`
 
 ![](/assets/img/Clickjacking-Lab-2/image_22.png)

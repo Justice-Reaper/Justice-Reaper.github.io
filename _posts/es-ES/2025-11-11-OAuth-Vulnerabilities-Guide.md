@@ -438,7 +438,7 @@ Algunos `sitios web` que ofrecen un `servicio OAuth` permiten `registrar una cue
 
 ## ¿Qué es OpenID Connect?
 
-`OpenID Connect amplía el protocolo OAuth para proporcionar una capa dedicada a la  identidad y autenticación que se sitúa encima de la implementación básica de OAuth`. Además, `añade` una `funcionalidad sencilla` que `permite` un `mejor soporte` para `el caso de uso de autenticación en OAuth`
+`OpenID Connect amplía el protocolo OAuth para proporcionar una capa dedicada a la identidad y autenticación que se sitúa encima de la implementación básica de OAuth`. Además, `añade` una `funcionalidad sencilla` que `permite` un `mejor soporte` para `el caso de uso de autenticación en OAuth`
 
 `OAuth no fue diseñado inicialmente pensando en la autenticación`, su propósito original era `servir` como un `mecanismo` para `delegar autorizaciones entre aplicaciones para recursos específicos`. Sin embargo, muchos `sitios web` comenzaron a `adaptar OAuth para usarlo como mecanismo de autenticación`. Para lograrlo, normalmente `solicitaban acceso de lectura a algunos datos básicos del usuario y si se les concedía este acceso, asumían que el usuario se había autenticado en el lado del proveedor de OAuth`
 
@@ -560,7 +560,7 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 1. `Instalar` la extensión `OAUTH Scan` de `Burpsuite`
 
-2. `Sin llegar a loguearse`, `añadir` el `dominio` de `autenticación de OAuth`, el de la `página web`  y sus respectivos `subdominios` al `scope`
+2. `Sin llegar a loguearse`, `añadir` el `dominio` de `autenticación de OAuth`, el de la `página web` y sus respectivos `subdominios` al `scope`
 
 3. Hacer un `escaneo general` con `Burpsuite` de ambos `dominios`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
 

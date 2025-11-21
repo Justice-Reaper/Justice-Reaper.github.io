@@ -83,7 +83,7 @@ Alternativamente, la referencia puede proporcionarse utilizando el `code point d
 
 En `ubicaciones específicas` dentro del `documento HTML`, como el `contenido de un elemento o el valor de un atributo`, los navegadores `decodificarán automáticamente` estas `referencias` cuando `analicen` el `documento`. Al `inyectar código` en dicha `ubicación`, podemos aprovecharnos de esto para `ofuscar payloads en ataques del lado del cliente`, ocultándolos de cualquier `defensa del lado del servidor`
 
-Si observamos detenidamente el `payload` de  `XSS` del ejemplo anterior, vemos que se está `inyectando` dentro de un `atributo HTML`, concretamente en el manejador de eventos `onerror`. Si las comprobaciones del `lado del servidor` buscan explícitamente `alert()`, podrían `no detectarla` si `HTML encodeamos uno o más de los caracteres`. Por ejemplo:
+Si observamos detenidamente el `payload` de `XSS` del ejemplo anterior, vemos que se está `inyectando` dentro de un `atributo HTML`, concretamente en el manejador de eventos `onerror`. Si las comprobaciones del `lado del servidor` buscan explícitamente `alert()`, podrían `no detectarla` si `HTML encodeamos uno o más de los caracteres`. Por ejemplo:
 
 ```
 <img src=x onerror="&#x61;lert(1)">
@@ -93,7 +93,7 @@ Cuando el navegador `renderiza` la `página web`, `decodificará y ejecutará el
 
 ### Ceros a la izquierda
 
-Curiosamente, al utilizar `HTML encoding` en `formato decimal o hexadecimal`, podemos `incluir` opcionalmente cualquier `número de ceros a la izquierda` en los `code points`. Algunos `WAFs`  y otros `filtros de entrada no tienen esto en cuenta o cometen errores en su validación`
+Curiosamente, al utilizar `HTML encoding` en `formato decimal o hexadecimal`, podemos `incluir` opcionalmente cualquier `número de ceros a la izquierda` en los `code points`. Algunos `WAFs` y otros `filtros de entrada no tienen esto en cuenta o cometen errores en su validación`
 
 Si nuestro `payload` sigue siendo `bloqueado` después de `HTML encodearlo`, podemos intentar `evadir el filtro añadiendo unos cuantos ceros a los code points`. Por ejemplo:
 
