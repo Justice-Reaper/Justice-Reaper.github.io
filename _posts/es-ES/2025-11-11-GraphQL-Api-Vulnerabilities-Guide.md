@@ -1,7 +1,7 @@
 ---
 title: GraphQL api vulnerabilities guide
 description: Guía sobre GraphQL api vulnerabilities
-date: 2025-11-04 12:30:00 +0800
+date: 2025-11-11 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
