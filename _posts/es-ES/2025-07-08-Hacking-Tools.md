@@ -68,6 +68,14 @@ Firefox [https://www.firefox.com/es-ES/](https://www.firefox.com/es-ES/)
 
 Tor [https://www.torproject.org/es/download/](https://www.torproject.org/es/download/)
 
+## IA
+
+Claude [https://claude.ai/](https://claude.ai/)
+
+DeepSeek [https://chat.deepseek.com/](https://chat.deepseek.com/)
+
+ChatGPT [https://chatgpt.com/](https://chatgpt.com/)
+
 ## VPNs
 
 TorGuard [https://torguard.net/](https://torguard.net/)
