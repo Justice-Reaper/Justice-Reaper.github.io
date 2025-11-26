@@ -88,6 +88,8 @@ Ivpn [https://www.ivpn.net/es/](https://www.ivpn.net/es/)
 
 HouseHole [https://github.com/TheCyberpunker/houseHole.git](https://github.com/TheCyberpunker/houseHole.git)
 
+Internxt [https://internxt.com/es/temporary-email](https://internxt.com/es/temporary-email)
+
 ## Wifi
 
 NetworkManager [https://gitlab.freedesktop.org/NetworkManager/NetworkManager.git](https://gitlab.freedesktop.org/NetworkManager/NetworkManager.git)
