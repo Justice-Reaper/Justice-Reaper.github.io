@@ -70,6 +70,8 @@ Tor [https://www.torproject.org/es/download/](https://www.torproject.org/es/down
 
 ## IA
 
+CAI [https://github.com/aliasrobotics/cai.git](https://github.com/aliasrobotics/cai.git)
+
 Claude [https://claude.ai/](https://claude.ai/)
 
 DeepSeek [https://chat.deepseek.com/](https://chat.deepseek.com/)
