@@ -25,7 +25,7 @@ image:
 
 ---
 
-## ## NoSQLI
+## NoSQLI
 
 Una `NoSQLI` es una `vulnerabilidad` en la que un `atacante` puede `interferir` con las `consultas que una aplicación realiza a una base de datos NoSQL`. Una `NoSQLI` puede permitir a un `atacante` las siguientes cosas:
 
@@ -491,7 +491,7 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1. `Instalar` las extensiones `NoSQLI Scanner` y `Content Type Converter` de `Burpsuite`
+1. `Instalar` las extensiones `Hackvertor`, `NoSQLI Scanner` y `Content Type Converter` de `Burpsuite`
 
 2. `Añadir` el `dominio` y sus `subdominios` al `scope`
 
@@ -503,11 +503,13 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 6. `En el caso en el que nos haga falta algún token para poder resetear la contraseña podemos aprovecharnos del operador $where para obtener ese campo del documento`. Para hacer esto podemos usar el script `NoSQLI-Field-Dumper-Post-Method.py` de `NoSQLI Attack Suite` para `obtener` el `token`
 
-7. `Si el escaneo no identifica nada y tampoco podemos realizar inyecciones en el login`, vamos a `buscar las inyecciones de forma manual`, para ello cuando veamos una `URL` de este estilo `https://example.com/user/lookup?user=`, vamos a `testear los caracteres que se mencionan en la sección NoSQL syntax injectión > Detectar una syntax injection en MongoDB uno por uno y ver si la web nos arroja algún error`
+7. `Si el escaneo no identifica nada y tampoco podemos realizar inyecciones en el login`, vamos a `buscar las inyecciones de forma manual`, para ello cuando veamos una `URL` de este estilo `https://example.com/user/lookup?user=`, vamos a `testear los caracteres que se mencionan en la sección` [https://justice-reaper.github.io/posts/NoSQLI-Guide/#detectar-una-syntax-injection-en-mongodb](https://justice-reaper.github.io/posts/NoSQLI-Guide/#detectar-una-syntax-injection-en-mongodb) `uno por uno y ver si la web nos arroja algún error`
 
 8. Una vez `detectada` la `inyección`, vamos a intentar `escapar el carácter que provoca el error con una barra invertida \`. Si esto `soluciona` el `error` es `probable` que estemos ante una `NoSQLI`
 
-9. Una vez `detectada` la `NoSQLI`, vamos a `usar` el script `NoSQLI-Field-Dumper-Get-Method.py` de `NoSQLI Attack Suite` para `obtener` la `contraseña` del `usuario` que `deseemos`
+9. Posteriomente, vamos a `consultar` esta `sección` [https://justice-reaper.github.io/posts/NoSQLI-Guide/#operadores-l%C3%B3gicos-en-javascript](https://justice-reaper.github.io/posts/NoSQLI-Guide/#operadores-l%C3%B3gicos-en-javascript) para `confirmar si podemos manipular el comportamiento condicional de la NoSQLI`
+
+10. Una vez `detectada` la `NoSQLI`, vamos a `usar` el script `NoSQLI-Field-Dumper-Get-Method.py` de `NoSQLI Attack Suite` para `obtener` la `contraseña` del `usuario` que `deseemos`
 
 ## ¿Cómo prevenir una NoSQLI?
 
