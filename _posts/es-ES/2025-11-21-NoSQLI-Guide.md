@@ -82,8 +82,26 @@ this.category == 'fizzy'
 Para `testear` si la `entrada` puede ser `vulnerable`, enviamos una `cadena` como `valor` del `parámetro category`. Un ejemplo de `cadena` para `MongoDB` es:
 
 ```
-'"`{\r;$Foo}\n$Foo \xYZ`
+'"`{
+;$Foo}
+$Foo \xYZ
 ```
+
+`Sin saltos de línea se vería así`:
+
+```
+'"`{\r;$Foo}\n$Foo \xYZ
+```
+
+Podemos codificar estas cadenas podemos usar el `Decoder` de `Burpsuite` o la `extensión Hackvertor`. Con `Hackvertor` tenemos disponibles las siguientes formas de `URL encoding`:
+
+- `urlencode` - Esta función realiza una `codificación estándar de URL`. En este caso, `se codifican todos los caracteres especiales` y `se reemplazan por su representación en formato hexadecimal precedida por un %`. Sin embargo, un `detalle importante` es que `los espacios se codifican como +`
+
+- `urlencode_all` - Esta función es más `exhaustiva` en su enfoque. `Codifica todos los caracteres`, incluyendo los `no imprimibles` y `especiales`, que normalmente no se codificarían en una `URL estándar`
+
+- `urlencode_not_plus` - Esta función es similar a la función `urlencode`, pero con una diferencia clave, `no codifica los espacios como +, sino que los mantiene como %20`, que es la `representación estándar` de un `espacio` en una `URL`
+
+- `burp_urlencode` - Esta función realiza una `codificación estándar de URL` como la función `urlencode`, pero optimizada para `Burpsuite` para evitar problemas con `proxies` y `herramientas de seguridad`
 
 Usamos esta `cadena` para `construir` el siguiente `ataque`:
 
@@ -116,6 +134,42 @@ this.category == '\\''
 ```
 
 `Si esto no causa un error de sintaxis puede significar que la aplicación es vulnerable a un ataque de inyección`
+
+### Operadores lógicos en JavaScript
+
+Es importante `conocer` el `funcionamiento` de los `operadores lógicos or (||) y and (&&)` en `JavaScript` para `poder confirmar si hay un comportamiento condicional y también para saber como sobrescribir condiciones existentes`
+
+#### Or (||)
+
+Esta es una `lista de pasos` a seguir para `entender` como `funciona` el `operador lógico or (||)`
+
+```
+Pregunta: ¿Al menos uno de los dos es verdadero?
+
+true || false → ✓ devuelve true
+
+false || false → ✗ devuelve false
+
+1 || 0 → ✓ devuelve 1 (porque 1 se considera verdadero)
+
+💡 Si el primero ya es verdadero, ignora el segundo y lo devuelve.
+```
+
+#### And (&&)
+
+Esta es una `lista de pasos a seguir` para `entender` como `funciona` el `operador lógico and (&&)`
+
+```
+Pregunta: ¿Los dos son verdaderos?
+
+true && true → ✓ devuelve true
+
+true && false → ✗ devuelve false
+
+"hola" && 42 → ✓ devuelve 42 (porque ambos se consideran verdaderos)
+
+💡 Si el primero es falso, ni mira el segundo y devuelve ese falso.
+```
 
 ### Confirmar comportamiento condicional
 
@@ -196,6 +250,66 @@ this.category == 'fizzy'\u0000' && this.released == 1
 `Debemos tener cuidado al inyectar condiciones que siempre evalúan como verdaderas en una consulta NoSQL`. Aunque pueda parecer `inofensivo` en el `contexto inicial`, es `común` que `las aplicaciones reutilicen los datos de una misma solicitud en múltiples consultas diferentes`
 
 `Si la aplicación usa ese dato al actualizar o eliminar información`, esto podría `provocar una pérdida accidental de datos`
+
+### Explotar un syntax injection para extraer datos
+
+En muchas `bases de datos NoSQL`, algunos `operadores` o `funciones` pueden `ejecutar JavaScript` pero con `limitaciones`, como el `operador $where` de `MongoDB` o la `función mapReduce()`. Esto significa que, `si una aplicación vulnerable usa estos operadores o funciones, la base de datos puede evaluar el código JavaScript como parte de la consulta`. Por lo tanto, podemos usar `funciones JavaScript` para `extraer datos de la base de datos`
+
+#### Exfiltrar datos en MongoDB
+
+Consideremos una `aplicación vulnerable` que `permite a los usuarios buscar a otros usuarios registrados y muestra su rol`. Esto `genera` esta `solicitud` en la `URL`:
+
+```
+https://insecure-website.com/user/lookup?username=admin
+```
+
+Esto produce la siguiente `consulta NoSQL` sobre la `colección users`:
+
+```
+{"$where":"this.username == 'admin'"}
+```
+
+Como la `consulta` usa el `operador $where`, `podemos intentar inyectar funciones JavaScript para que devuelva datos sensibles`. Por ejemplo, `podemos enviar el siguiente payload`:
+
+```
+admin' && this.password[0] == 'a' || 'a'=='b
+```
+
+Esto `devuelve` el `primer carácter` de la `contraseña` del `usuario`, permitiendo `extraer la contraseña carácter por carácter`
+
+También podemos usar la `función JavaScript match()` para `extraer información`. Por ejemplo, `el siguiente payload permite identificar si la contraseña contiene dígitos`:
+
+```
+admin' && this.password.match(/\d/) || 'a'=='b
+```
+
+En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
+
+- Exploiting NoSQL injection to extract data - [https://justice-reaper.github.io/posts/NoSQLI-Lab-3/](https://justice-reaper.github.io/posts/NoSQLI-Lab-3/)
+
+##### Identificar el nombre de los campos
+
+`Como MongoDB maneja datos semiestructurados que no requieren un esquema fijo`, puede ser necesario `identificar` los `campos válidos` de la `colección` antes de poder `extraer datos mediante un JavaScript injection`
+
+Por ejemplo, `para identificar si la base de datos MongoDB contiene un campo password, podríamos enviar el siguiente payload`:
+
+```
+https://insecure-website.com/user/lookup?username=admin'+%26%26+this.password!%3d'
+```
+
+`Enviamos el payload otra vez usando un campo existente y usando un campo que no existe`. En este ejemplo, sabemos que `el campo username existe`, así que podemos `enviar` estos `payloads`:
+
+```
+admin' && this.username!='
+```
+
+```
+admin' && this.foo!='
+```
+
+`Si el campo password existe`, esperamos que la `respuesta` sea `idéntica` a la del `campo existente username` pero `diferente` a la del `campo inexistente foo`
+
+`Si queremos probar diferentes nombres de campo`, podemos realizar un `ataque de fuerza bruta` usando un `diccionario` para `iterar sobre posibles nombres de campos`
 
 ## Time based injection
 
@@ -305,71 +419,11 @@ En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
 - Exploiting NoSQL operator injection to bypass authentication - [https://justice-reaper.github.io/posts/NoSQLI-Lab-2/](https://justice-reaper.github.io/posts/NoSQLI-Lab-2/)
 
-## Explotar un syntax injection para extraer datos
-
-En muchas `bases de datos NoSQL`, algunos `operadores` o `funciones` pueden `ejecutar JavaScript` pero con `limitaciones`, como el `operador $where` de `MongoDB` o la `función mapReduce()`. Esto significa que, `si una aplicación vulnerable usa estos operadores o funciones, la base de datos puede evaluar el código JavaScript como parte de la consulta`. Por lo tanto, podemos usar `funciones JavaScript` para `extraer datos de la base de datos`
-
-### Exfiltrar datos en MongoDB
-
-Consideremos una `aplicación vulnerable` que `permite a los usuarios buscar a otros usuarios registrados y muestra su rol`. Esto `genera` esta `solicitud` en la `URL`:
-
-```
-https://insecure-website.com/user/lookup?username=admin
-```
-
-Esto produce la siguiente `consulta NoSQL` sobre la `colección users`:
-
-```
-{"$where":"this.username == 'admin'"}
-```
-
-Como la `consulta` usa el `operador $where`, `podemos intentar inyectar funciones JavaScript para que devuelva datos sensibles`. Por ejemplo, `podemos enviar el siguiente payload`:
-
-```
-admin' && this.password[0] == 'a' || 'a'=='b
-```
-
-Esto `devuelve` el `primer carácter` de la `contraseña` del `usuario`, permitiendo `extraer la contraseña carácter por carácter`
-
-También podemos usar la `función JavaScript match()` para `extraer información`. Por ejemplo, `el siguiente payload permite identificar si la contraseña contiene dígitos`:
-
-```
-admin' && this.password.match(/\d/) || 'a'=='b
-```
-
-En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
-
-- Exploiting NoSQL injection to extract data - [https://justice-reaper.github.io/posts/NoSQLI-Lab-3/](https://justice-reaper.github.io/posts/NoSQLI-Lab-3/)
-
-#### Identificar el nombre de los campos
-
-`Como MongoDB maneja datos semiestructurados que no requieren un esquema fijo`, puede ser necesario `identificar` los `campos válidos` de la `colección` antes de poder `extraer datos mediante un JavaScript injection`
-
-Por ejemplo, `para identificar si la base de datos MongoDB contiene un campo password, podríamos enviar el siguiente payload`:
-
-```
-https://insecure-website.com/user/lookup?username=admin'+%26%26+this.password!%3d'
-```
-
-`Enviamos el payload otra vez usando un campo existente y usando un campo que no existe`. En este ejemplo, sabemos que `el campo username existe`, así que podemos `enviar` estos `payloads`:
-
-```
-admin' && this.username!='
-```
-
-```
-admin' && this.foo!='
-```
-
-`Si el campo password existe`, esperamos que la `respuesta` sea `idéntica` a la del `campo existente username` pero `diferente` a la del `campo inexistente foo`
-
-`Si queremos probar diferentes nombres de campo`, podemos realizar un `ataque de fuerza bruta` usando un `diccionario` para `iterar sobre posibles nombres de campos`
-
-## Explotar un NoSQL operator injection para extraer datos
+### Explotar un NoSQL operator injection para extraer datos
 
 `Aunque la consulta original no use operadores que permitan ejecutar código JavaScript arbitrario, nosotros podemos inyectar uno de estos operadores`. Posteriormente, `usamos condiciones booleanas para determinar si la aplicación ejecuta el código JavaScript que inyectamos mediante ese operador`
 
-### Inyección de operadores en MongoDB
+#### Inyección de operadores en MongoDB
 
 Imaginemos una `aplicación vulnerable` que acepta `username` y `password` en el `body` de una `petición por POST`:
 
@@ -389,7 +443,7 @@ Para `comprobar` si podemos `inyectar operadores`, debemos intentar `añadir` el
 
 Si hay una `diferencia` entre las `respuestas`, esto puede `indicar` que la `expresión JavaScript` que hay `dentro` de la `cláusula $where` está siendo `evaluada`
 
-### Extracción de nombres de campos
+#### Extracción de nombres de campos
 
 `Si hemos inyectado un operador que permite ejecutar JavaScript`, podemos usar `keys()` para `extraer` los `nombres` de los `campos`. Por ejemplo, podemos `enviar` el siguiente `payload`:
 
@@ -403,7 +457,7 @@ En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
 - Exploiting NoSQL operator injection to extract unknown fields - [https://justice-reaper.github.io/posts/NoSQLI-Lab-4/](https://justice-reaper.github.io/posts/NoSQLI-Lab-4/)
 
-### Exfiltración de datos usando operadores
+#### Exfiltración de datos usando operadores
 
 `También podemos extraer datos usando operadores que no permiten ejecutar código JavaScript`. Por ejemplo, podemos `usar` el `operador $regex` para `extraer datos carácter por carácter`
 
@@ -437,33 +491,23 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1. `Instalar` las extensiones `InQL` y `Content Type Converter` de `Burpsuite`
+1. `Instalar` las extensiones `NoSQLI Scanner` y `Content Type Converter` de `Burpsuite`
 
 2. `Añadir` el `dominio` y sus `subdominios` al `scope`
 
 3. Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
 
-4. `Si Burpsuite no encuentra el endpoint de GraphQL`, vamos a `fuzzear` usando los `payloads` que nos proporciona `Hacktricks` [https://book.hacktricks.wiki/en/network-services-pentesting/pentesting-web/graphql.html#directory-brute-force-attacks-and-graphql](https://book.hacktricks.wiki/en/network-services-pentesting/pentesting-web/graphql.html#directory-brute-force-attacks-and-graphql) y si no encontramos nada, usaremos los `diccionarios` de `SecLists`. Como `fuzzer` podemos usar `Burpsuite` o `ffuf`
+4. `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
 
-5. Una vez `encontramos` el `endpoint` de `GraphQL`, vamos a `identificar` el `punto de inyección` mediante este `payload query=query{__typename}`, ya sea en `formato JSON {"query":"query{__typename}"}` o en `formato form-url encoded query=query%7b__typename%7d`. El `formato JSON se puede enviar solo en el body` y el `formato form-url encoded se puede enviar tanto en la URL como en el body` 
+5. Si nos encontramos un `login` en el que se `envían` los `datos` en `formato JSON` o en `formato x-www-form-urlencoded` podemos intentar `bypassear` el `login` usando los `payloads` de `PayloadsAllTheThings` y `acceder` a la `cuenta` del `usuario administrador` o `enumerar usuarios y dumpear sus respectivas contraseñas usando los scripts NoSQLI-Password-Dumper.py y NoSQLI-User-Enumerator.py de NoSQLI Attack Suite`. Con las extensiones `NoSQLI Scanner` y `Content Type Converter` podemos `cambiar el formato mediante el cual se mandan los archivos` y desde `Burpsuite` haciendo `click derecho > Change request method`, podemos `cambiar` el `método` a `POST` o a `GET`. `Es necesario probar todas las combinaciones posibles`
 
-6. Abrimos el `Repeater` y nos `dirigimos` a la `pestaña GraphQL`. El siguiente paso es `realizar una consulta de introspección`, para ello hacemos `click derecho > GraphQL > Set introspection query`
+6. `En el caso en el que nos haga falta algún token para poder resetear la contraseña podemos aprovecharnos del operador $where para obtener ese campo del documento`. Para hacer esto podemos usar el script `NoSQLI-Field-Dumper-Post-Method.py` de `NoSQLI Attack Suite` para `obtener` el `token`
 
-7. En el caso de que la `consulta de introspección` esté siendo `bloqueada` o no `pueda realizarse`, vamos a intentar `enviar` el `payload` mediante un `método de solicitud alternativo`, ya que la `introspección` solo se puede `desactivar` para el `método POST`. Podríamos probar una `solicitud por GET`, una `solicitud por POST` con el `Content-Type: application/x-www-form-urlencoded` o también una `solicitud por GET` pero `mandando` la `data` en el `body`, ya sea como `JSON` o como `form-url encoded`. Esto se hace porque `GraphQL solo puede ser deshabilitado para el método POST`
+7. `Si el escaneo no identifica nada y tampoco podemos realizar inyecciones en el login`, vamos a `buscar las inyecciones de forma manual`, para ello cuando veamos una `URL` de este estilo `https://example.com/user/lookup?user=`, vamos a `testear los caracteres que se mencionan en la sección NoSQL syntax injectión > Detectar una syntax injection en MongoDB uno por uno y ver si la web nos arroja algún error`
 
-8. `En el caso en el sigamos sin poder realizar la consulta de introspección`, vamos a probar a `añadir caracteres` como `espacios`, `saltos de línea` y `comas`, ya que `GraphQL` los `ignora`, pero las `expresiones regulares que puede haber implementado los desarolladores no`
+8. Una vez `detectada` la `inyección`, vamos a intentar `escapar el carácter que provoca el error con una barra invertida \`. Si esto `soluciona` el `error` es `probable` que estemos ante una `NoSQLI`
 
-9. `Una vez consigamos realizar la consulta de introspección`, vamos a `guardar los resultados en el Site map`, para ello, pulsamos `click derecho en la respuesta > GraphQL > Save GraphQL queries to site map`. `Esto lo hacemos para ver si hay consultas interesantes`
-
-10. Vamos ahora a utilizar `InQL`, podemos simplemente `hacer click derecho > Extensions > InQL - GraphQL Scanner > Generate queries` o `importar` en `formato JSON` el `schema de GraphQL`  que hemos `obtenido` al `realizar` la `introspección`. `Es recomendable utilizar esta herramienta porque puede permitirnos obtener información adicional`
-
-11. Para `visualizar` los `resultados` de la `introspección` hacemos `click derecho la respuesta > Extensions > InQL - GraphQL Scanner > Open in GraphQL Voyager`
-
-12. Ya sea desde la `extensión InQL` o desde el `Site map`, las `consultas` que consideremos `interesantes`, las `enviaremos` al `Repeater` y desde allí llevaremos a cabo la `extracción de información`. En caso de ser `necesario`, también podemos `enviar` la `petición` al `Intruder` y `ejecutar un ataque de tipo Sniper` para `iterar sobre un valor numérico`, por ejemplo
-
-13. `Si no encontramos nada interesante`, vamos a intentar `realizar` un `ataque de fuerza bruta` al `login` usando `alias`. Para ello, nos `dirigimos` al `cuarto laboratorio` y `seguimos los pasos que se comparten`
-
-14. En el caso de poder `cambiar nuestro email` o `asociar nuestra cuenta con un email`, `podemos ver si se realiza mediante GraphQL` y `checkear si tiene o no un token CSRF`. `Si no tiene token CSRF, podemos intentar llevar a cabo un ataque CSRF mediante GraphQL`. Si nos `surge` alguna `duda`, es recomendable `seguir las instrucciones del quinto laboratorio`
+9. Una vez `detectada` la `NoSQLI`, vamos a `usar` el script `NoSQLI-Field-Dumper-Get-Method.py` de `NoSQLI Attack Suite` para `obtener` la `contraseña` del `usuario` que `deseemos`
 
 ## ¿Cómo prevenir una NoSQLI?
 
