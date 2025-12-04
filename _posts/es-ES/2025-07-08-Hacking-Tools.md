@@ -636,6 +636,12 @@ GraphQL Path Enum [https://gitlab.com/dee-see/graphql-path-enum.git](https://git
 
 Graphinder [https://github.com/Escape-Technologies/graphinder.git](https://github.com/Escape-Technologies/graphinder.git)
 
+#### NoSQLI
+
+NoSQLI Scanner [https://github.com/PortSwigger/nosqli-scanner.git](https://github.com/PortSwigger/nosqli-scanner.git)
+
+NoSQLI Attack Suite [https://github.com/Justice-Reaper/NoSQLI-Attack-Suite.git](https://github.com/Justice-Reaper/NoSQLI-Attack-Suite.git)
+
 ## Exploits
 
 0day Archive [https://0day-archive.fullhunt.io/](https://0day-archive.fullhunt.io/)
