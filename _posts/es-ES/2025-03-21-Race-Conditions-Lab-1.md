@@ -60,32 +60,32 @@ Si pulsamos sobre `Place order` compraremos el producto y se nos descontará el 
 
 Para `comprobar` si `existe` una `race condition` en este `laboratorio`, vamos a hacerlo a la hora de `aplicar` el `cupón` de `descuento`. Debemos añadir el artículo `Lightweight "l33t" Leather Jacket` a la cesta y aplicar el cupón `PROMO20`
 
-![](/assets/img/Race-Conditions-Lab-1/image_11.png)
+![](/assets/img/Race-Conditions-Lab-1/image_7.png)
 
 Si nos dirigimos a la extensión `Logger ++` de `Burpsuite` podemos ver la `petición` gracias a la cual se `aplica` el `cupón`
 
-![](/assets/img/Race-Conditions-Lab-1/image_12.png)
+![](/assets/img/Race-Conditions-Lab-1/image_8.png)
 
 `Mandamos` la `petición` al `Repeater` y nos `abrimos 30 pestañas` por ejemplo
 
-![](/assets/img/Race-Conditions-Lab-1/image_13.png)
+![](/assets/img/Race-Conditions-Lab-1/image_9.png)
 
 Lo siguiente que debemos hacer es hacer `click derecho` sobre cualquier pestaña o sobre los tres puntos y pulsar `Add tab to group > Create tab group`
 
-![](/assets/img/Race-Conditions-Lab-1/image_14.png)
+![](/assets/img/Race-Conditions-Lab-1/image_10.png)
 
 `Señalamos todas las casillas` y `creamos` un `nuevo grupo`
 
-![](/assets/img/Race-Conditions-Lab-1/image_15.png)
+![](/assets/img/Race-Conditions-Lab-1/image_11.png)
 
 Debemos `pinchar` sobre el `desplegable` que aparece en `Send`, seleccionar la opción `Send group in parallel (single-packet attack)` y posteriormente pulsar en `Send` para que se `efectúe` el `ataque`. Para que `funcione` el `ataque` debemos `eliminar` el `cupón`, si lo tenemos aplicado no funcionará porque la web detectará que ya está aplicado. Esto se debe a la naturaleza de la `Race condition`, esta `vulnerabilidad` se explota enviando varias `peticiones` y haciendo que lleguen al mismo tiempo y esto no puede ocurrir si la web detecta que ya está aplicado el `cupón`
 
-![](/assets/img/Race-Conditions-Lab-1/image_16.png)
+![](/assets/img/Race-Conditions-Lab-1/image_12.png)
 
 Una vez hecho esto, si nos dirigimos a la web podemos ver como ha funcionado
 
-![](/assets/img/Race-Conditions-Lab-1/image_17.png)
+![](/assets/img/Race-Conditions-Lab-1/image_13.png)
 
 Si pulsamos en `Place order` compraremos el producto y `resolveremos` el `laboratorio`
 
-![](/assets/img/Race-Conditions-Lab-1/image_18.png)
+![](/assets/img/Race-Conditions-Lab-1/image_14.png)
