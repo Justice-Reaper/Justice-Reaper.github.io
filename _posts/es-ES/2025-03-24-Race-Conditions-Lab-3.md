@@ -117,4 +117,3 @@ Si `renderizamos` la `respuesta` vemos que la `orden de compra` se ha llevado a 
 Aunque funciona correctamente de esta forma, he obtenido `mayor porcentaje de éxito` si `añado` otra `Gift Card` en la `race condition`. Es decir, `Añadimos` una `Gift Card` a la `cesta`, ya sea `desde el Repeater pero fuera del grupo` o `de forma manual desde la web` y posteriormente `añadimos otra` mediante la `race condition`
 
 ![](/assets/img/Race-Conditions-Lab-3/image_23.png)
-
