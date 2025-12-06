@@ -60,19 +60,19 @@ En nuestro caso, nos podemos`loguear` con las credenciales `wiener:peter`
 
 Si `capturamos` la `petición` que se hace a la `hora` de `iniciar sesión` vemos esto
 
-![](/assets/img/Race-Conditions-Lab-2/image_8.png)
+![](/assets/img/Race-Conditions-Lab-2/image_4.png)
 
 Para `mandar` esta `petición` al `Turbo Intruder` debemos pulsar `click derecho > Extension > Turbo Intruder > Send to turbo intruder`
 
-![](/assets/img/Race-Conditions-Lab-2/image_9.png)
+![](/assets/img/Race-Conditions-Lab-2/image_5.png)
 
 Seleccionamos como script el `race-single-packet-attack`
 
-![](/assets/img/Race-Conditions-Lab-2/image_10.png)
+![](/assets/img/Race-Conditions-Lab-2/image_6.png)
 
 El siguiente paso es `crearnos` un `archivo` que contenga todas las `contraseñas` del diccionario [https://portswigger.net/web-security/authentication/auth-lab-passwords](https://portswigger.net/web-security/authentication/auth-lab-passwords). Posteriormente debemos `marcar` donde queremos que ejerza la `fuerza bruta` usando `%s`
 
-![](/assets/img/Race-Conditions-Lab-2/image_11.png)
+![](/assets/img/Race-Conditions-Lab-2/image_7.png)
 
 Por último, `modificamos` el `script` por defecto para `cargar` un `diccionario` e `iniciamos` el `ataque`
 
@@ -111,14 +111,14 @@ def handleResponse(req, interesting):
 
 Si `filtramos` por `Length` vemos que nos hace un `redirect`, lo cual significa que la `contraseña` es `válida`
 
-![](/assets/img/Race-Conditions-Lab-2/image_12.png)
+![](/assets/img/Race-Conditions-Lab-2/image_8.png)
 
 Nos `logueamos` con las credenciales `carlos:letmein`
 
-![](/assets/img/Race-Conditions-Lab-2/image_13.png)
+![](/assets/img/Race-Conditions-Lab-2/image_9.png)
 
-![](/assets/img/Race-Conditions-Lab-2/image_14.png)
+![](/assets/img/Race-Conditions-Lab-2/image_10.png)
 
 Pulsamos sobre `Admin panel` y `eliminamos` al usuario `carlos`
 
-![](/assets/img/Race-Conditions-Lab-2/image_15.png)
+![](/assets/img/Race-Conditions-Lab-2/image_11.png)
