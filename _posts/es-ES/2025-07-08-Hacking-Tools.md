@@ -642,6 +642,10 @@ NoSQLI Scanner [https://github.com/PortSwigger/nosqli-scanner.git](https://githu
 
 NoSQLI Attack Suite [https://github.com/Justice-Reaper/NoSQLI-Attack-Suite.git](https://github.com/Justice-Reaper/NoSQLI-Attack-Suite.git)
 
+#### Race conditions
+
+Raceocat [https://github.com/JavanXD/Raceocat.git](https://github.com/JavanXD/Raceocat.git)
+
 ## Exploits
 
 0day Archive [https://0day-archive.fullhunt.io/](https://0day-archive.fullhunt.io/)
