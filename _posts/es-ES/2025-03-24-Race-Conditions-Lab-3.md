@@ -64,57 +64,57 @@ Si en el apartado de `Gift cards` canjeamos el código obtendremos `10 dólares`
 
 A continuación, vamos a `capturar varias peticiones` y `mandarlas` al `Repeater`, la `primera` va ser la de `añadir el artículo Lightweight "l33t" Leather Jacket a la cesta` y la `segunda` va a ser la de `Place order`
 
-![](/assets/img/Race-Conditions-Lab-3/image_14.png)
+![](/assets/img/Race-Conditions-Lab-3/image_8.png)
 
 `Pinchamos` sobre los `tres puntos` y `creamos` un `grupo` pulsando en `Create tab group`
 
-![](/assets/img/Race-Conditions-Lab-3/image_15.png)
+![](/assets/img/Race-Conditions-Lab-3/image_9.png)
 
-![](/assets/img/Race-Conditions-Lab-3/image_16.png)
+![](/assets/img/Race-Conditions-Lab-3/image_10.png)
 
 El `orden` de las `peticiones` tiene que ser este. `Primero` tenemos que `añadir` el artículo `Gift Card` a la `cesta`, lo cual `lo tenemos que hacer desde fuera del grupo`, podemos hacerlo desde el `Repeater` o `manualmente` desde la `web`. `Posteriormente` tenemos que `comprarlo` y `mientras que se procesa la orden de compra` debemos `añadir` el artículo `Lightweight "l33t" Leather Jacket` a la `cesta` para que no se nos cobre este último artículo
 
-![](/assets/img/Race-Conditions-Lab-3/image_17.png)
+![](/assets/img/Race-Conditions-Lab-3/image_11.png)
 
 Vamos a `enviar todas las peticiones en grupo` usando la opción `Send group in sequence (single connection)`, usamos esta opción porque la posible `race condition` se va a dar en una `misma sesión` debido a que estamos `logueados`. Esto se hace para saber si hay algún `delay entre las peticiones`
 
-![](/assets/img/Race-Conditions-Lab-3/image_18.png)
+![](/assets/img/Race-Conditions-Lab-3/image_12.png)
 
 En la `parte inferior derecha` podemos ver el `delay` de las `peticiones`. Vemos que hay `bastante diferencia` entre los `delays` de las diferentes `peticiones`
 
-![](/assets/img/Race-Conditions-Lab-3/image_19.png)
+![](/assets/img/Race-Conditions-Lab-3/image_13.png)
 
-![](/assets/img/Race-Conditions-Lab-3/image_20.png)
+![](/assets/img/Race-Conditions-Lab-3/image_14.png)
 
 Para `solucionar` este `problema` vamos emplear una la técnica `connection warming`, así que para ello vamos a `añadir` al grupo una petición al directorio raíz `/` de la `web`. Es `importante` que esta `petición` este al `principio` del `grupo`
 
-![](/assets/img/Race-Conditions-Lab-3/image_21.png)
+![](/assets/img/Race-Conditions-Lab-3/image_15.png)
 
 `Testeamos` la `race condicion` nuevamente con `Send group in sequence (single connection)`
 
-![](/assets/img/Race-Conditions-Lab-3/image_22.png)
+![](/assets/img/Race-Conditions-Lab-3/image_16.png)
 
 En este caso, la `diferencia de delay` es `menor` que en el caso anterior
 
-![](/assets/img/Race-Conditions-Lab-3/image_23.png)
+![](/assets/img/Race-Conditions-Lab-3/image_17.png)
 
-![](/assets/img/Race-Conditions-Lab-3/image_24.png)
+![](/assets/img/Race-Conditions-Lab-3/image_18.png)
 
-![](/assets/img/Race-Conditions-Lab-3/image_25.png)
+![](/assets/img/Race-Conditions-Lab-3/image_19.png)
 
 `Añadimos` la `Gift Card` a la `cesta`, ya sea `desde el Repeater pero fuera del grupo` o `de forma manual desde la web`
 
-![](/assets/img/Race-Conditions-Lab-3/image_26.png)
+![](/assets/img/Race-Conditions-Lab-3/image_20.png)
 
 Una vez hecho esto, seleccionamos la opción `Send group in parallel (single-packet attack)` y efectuamos un `single-packet attack`. Aunque las `condiciones` sean aparentemente `idóneas` puede ser que tengamos que `ejecutar` el `ataque` varias veces para que funcione
 
-![](/assets/img/Race-Conditions-Lab-3/image_27.png)
+![](/assets/img/Race-Conditions-Lab-3/image_21.png)
 
 Si `renderizamos` la `respuesta` vemos que la `orden de compra` se ha llevado a cabo con éxito
 
-![](/assets/img/Race-Conditions-Lab-3/image_28.png)
+![](/assets/img/Race-Conditions-Lab-3/image_22.png)
 
 Aunque funciona correctamente de esta forma, he obtenido `mayor porcentaje de éxito` si `añado` otra `Gift Card` en la `race condition`. Es decir, `Añadimos` una `Gift Card` a la `cesta`, ya sea `desde el Repeater pero fuera del grupo` o `de forma manual desde la web` y posteriormente `añadimos otra` mediante la `race condition`
 
-![](/assets/img/Race-Conditions-Lab-3/image_29.png)
+![](/assets/img/Race-Conditions-Lab-3/image_23.png)
 
