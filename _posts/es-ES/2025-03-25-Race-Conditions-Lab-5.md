@@ -40,6 +40,10 @@ Podemos `iniciar sesión` en nuestra cuenta con las credenciales `wiener:peter`
 
 ---
 
+## Guía de race conditions
+
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de race conditions` [https://justice-reaper.github.io/posts/Race-Conditions-Guide/](https://justice-reaper.github.io/posts/Race-Conditions-Guide/)
+
 ## Resolución
 
 Al `acceder` a la `web` vemos esto

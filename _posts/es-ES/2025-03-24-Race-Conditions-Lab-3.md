@@ -28,6 +28,10 @@ Este `laboratorio` tiene una `race condition` en el `flujo de compra`, lo que no
 
 ---
 
+## Guía de race conditions
+
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de race conditions` [https://justice-reaper.github.io/posts/Race-Conditions-Guide/](https://justice-reaper.github.io/posts/Race-Conditions-Guide/)
+
 ## Resolución
 
 Al `acceder` a la `web` vemos esto
