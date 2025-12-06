@@ -646,6 +646,8 @@ NoSQLI Attack Suite [https://github.com/Justice-Reaper/NoSQLI-Attack-Suite.git](
 
 Raceocat [https://github.com/JavanXD/Raceocat.git](https://github.com/JavanXD/Raceocat.git)
 
+H2SpaceX [https://github.com/nxenon/h2spacex.git](https://github.com/nxenon/h2spacex.git)
+
 ## Exploits
 
 0day Archive [https://0day-archive.fullhunt.io/](https://0day-archive.fullhunt.io/)
