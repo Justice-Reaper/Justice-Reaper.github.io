@@ -414,6 +414,8 @@ Collabfiltrator [https://github.com/PortSwigger/collabfiltrator.git](https://git
 
 Sign Saboteur [https://github.com/PortSwigger/sign-saboteur.git](https://github.com/PortSwigger/sign-saboteur.git)
 
+Turbo Intruder [https://github.com/PortSwigger/turbo-intruder.git](https://github.com/PortSwigger/turbo-intruder.git)
+
 ### Vulnerabilidades
 
 #### XXE
