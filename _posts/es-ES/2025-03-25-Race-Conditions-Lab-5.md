@@ -152,7 +152,7 @@ La otra petición `no la modificamos`
 
 ![](/assets/img/Race-Conditions-Lab-5/image_29.png)
 
-El ejecutamos un `single-pack attack` con la opción `Send group in parallel (single-packet attack)`. Si nos dirigimos al `Email clien`t, solo nos llega `una petición` en este caso y eso es porque la otra petición le está llegando al `Email client` de `carlos`
+El ejecutamos un `single-pack attack` con la opción `Send group in parallel (single-packet attack)`. Si nos dirigimos al `Email client`, solo nos llega `una petición` en este caso y eso es porque la otra petición le está llegando al `Email client` de `carlos`
 
 ![](/assets/img/Race-Conditions-Lab-5/image_30.png)
 
