@@ -1,7 +1,7 @@
 ---
 title: Race conditions guide
 description: Guía sobre Race Condition
-date: 2025-11-21 12:30:00 +0800
+date: 2025-12-08 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
@@ -29,7 +29,7 @@ image:
 
 Las `race conditions` son un tipo común de `vulnerabilidad` estrechamente relacionada con los `fallos de lógica de negocio`. Ocurren cuando los `sitios web` procesan `solicitudes` de forma concurrente sin los `mecanismos de protección` adecuados. Esto puede hacer que `múltiples hilos distintos interactúen con los mismos datos al mismo tiempo`, lo que `resulta` en una `colisión` que `provoca` un `comportamiento` no deseado en la `aplicación`. `Un ataque de race condition utiliza solicitudes enviadas con una sincronización precisa para causar colisiones intencionadas y explotar este comportamiento no deseado con fines maliciosos`
 
-![[image_1.png]]
+![](/assets/img/Race-Conditions-Guide/image_1.png)
 
 El `período de tiempo` durante el cual una `colisión` es `posible` se conoce como `race window`. Esto podría ser la `fracción de segundo` entre dos `interacciones` con la `base de datos`, por ejemplo
 
@@ -49,11 +49,11 @@ Por ejemplo, consideremos una `tienda en línea` que nos permite `ingresar` un
 
 Si más tarde intentamos `reutilizar` este `código`, `las verificaciones iniciales realizadas al inicio del proceso deberían evitar hagamos esto`:
 
-![[image_2.png]]
+![](/assets/img/Race-Conditions-Guide/image_2.png)
 
 Ahora consideremos `qué sucedería si un usuario que nunca ha aplicado este código de descuento antes intenta aplicarlo dos veces casi al mismo tiempo`
 
-![[image_3.png]]
+![](/assets/img/Race-Conditions-Guide/image_3.png)
 
 Como podemos ver, la `aplicación` pasa por un `subestado temporal`, es decir, `un estado al que entra y sale antes de que finalice el procesamiento de la solicitud`. En este caso, `el subestado comienza cuando el servidor empieza a procesar la primera solicitud` y `finaliza cuando actualiza la base de datos para indicar que ya hemos utilizado este código`. `Esto introduce una pequeña race window durante la cual podemos reclamar el descuento tantas veces como queramos`
 
@@ -79,7 +79,7 @@ El `principal desafío` es `sincronizar` las `solicitudes` para que `al me
 
 `Aunque enviemos todas las solicitudes exactamente al mismo tiempo, existen diversos factores externos incontrolables e impredecibles que afectan el momento en que el servidor procesa cada solicitud y en qué orden`
 
-![[image_4.png]]
+![](/assets/img/Race-Conditions-Guide/image_4.png)
 
 Desde el `Repeater` de `Burpsuite` podemos `enviar` fácilmente un `grupo de solicitudes en paralelo` de una manera que `se reduce significativamente el impacto de uno de estos factores`, específicamente el del `network jitter (variabilidad de latencia en la red)`. `Burpsuite` ajusta `automáticamente` la `técnica` que utiliza según la versión de `HTTP` soportada por el `servidor`
 
@@ -89,7 +89,7 @@ Desde el `Repeater` de `Burpsuite` podemos `enviar` fácilmente un `grupo de
 
 `El single-packet attack permite neutralizar completamente la interferencia del network jitter utilizando un único paquete TCP para completar de 20 a 30 solicitudes simultáneamente`. Aunque a menudo, podemos usar solo `dos solicitudes` para `activar` un `exploit`, `enviar` un `gran número` de `solicitudes` de esta manera `ayuda` a `mitigar` la `latencia interna`, también conocida como `server-side jitter`. Esto es especialmente útil durante la `fase inicial de descubrimiento`
 
-![[image_5.png]]
+![](/assets/img/Race-Conditions-Guide/image_5.png)
 
 En este `laboratorio` vemos como `aplicar` esta `técnica`:
 
@@ -156,7 +156,7 @@ Como estas `vulnerabilidades` son bastante `específicas de cada aplicación`
 
 Para `detectar` y `explotar` estas `secuencias ocultas de múltiples pasos`, `es recomendable seguir la metodología que se va a explicar a continuación`. Esta `metodología` es un `resumen` de este `artículo` [https://portswigger.net/research/smashing-the-state-machine](https://portswigger.net/research/smashing-the-state-machine)
 
-![[image_6.png]]
+![](/assets/img/Race-Conditions-Guide/image_6.png)
 
 ### 1 - Predecir colisiones potenciales
 
@@ -168,7 +168,7 @@ Testear `cada endpoint` no es `práctico`. Después de `mapear` el `sitio 
 
 Por ejemplo, consideremos las siguientes `variaciones` de una `implementación` de `restablecimiento de contraseña`. Con el primer `ejemplo`, `solicitar` un `restablecimiento de contraseña` en `paralelo` para `dos usuarios diferentes` es `poco probable` que cause una `colisión`, ya que `son cambios en dos registros diferentes`. Sin embargo, `la segunda implementación permite editar el mismo registro con solicitudes para dos usuarios diferentes`
 
-![[image_7.png]]
+![](/assets/img/Race-Conditions-Guide/image_7.png)
 
 ### 2 - Buscar pistas
 
@@ -226,13 +226,13 @@ Quizá la forma más `intuitiva` de `race conditions` son aquellas que impli
 
 Una variación de esta `vulnerabilidad` puede `ocurrir` cuando la `validación de pago` y la `confirmación del pedido` se realizan `durante` el `procesamiento` de una `única petición`. El `diagrama de estado` para el `estado del pedido` podría ser similar a este, en este caso, podemos `añadir más artículos` a nuestro `carrito` durante la `race window`, es decir, el momento entre que se `valida` el `pago` y cuando el `pedido` se `confirma`
 
-![[image_8.png]]
+![](/assets/img/Race-Conditions-Guide/image_8.png)
 
 ### Alineando las multi-endpoint race windows
 
 Al probar las `multi-endpoint race conditions`, `podríamos encontrar problemas al intentar alinear las race window para cada solicitud`, incluso si `las enviamos todas al mismo tiempo utilizando un single-packet attack`
 
-![[image_9.png]]
+![](/assets/img/Race-Conditions-Guide/image_9.png)
 
 Este `problema común` es causado principalmente por los siguientes `dos factores`:
 
@@ -259,7 +259,7 @@ En este `laboratorio` vemos como `aplicar` esta `técnica`:
 
  Si el `connection warming` no funciona, existen `varias soluciones` a este `problema`. Podemos usar el `Turbo Intruder` para `provocar` un `delay` en el `front-end`, sin embargo, como esto implica `dividir` las `solicitudes` del `ataque` en varios `paquetes TCP`, `no podremos usar la técnica del single-packet attack`. Como `resultado`, `es poco probable que el ataque funcione correctamente en los objetivos que tengan un delay altamente variable (jitter), sin importar el delay que le configuremos al front-end`
  
-![[image_10.png]]
+![](/assets/img/Race-Conditions-Guide/image_10.png)
 
 En su lugar, podemos `solucionar` este `problema` si nos aprovechamos de una `característica de seguridad común`. Para ello, debemos saber `primero` que es el `rate limit` y el `resource limit`:
 
@@ -269,7 +269,7 @@ En su lugar, podemos `solucionar` este `problema` si nos aprovechamos de una
 
 Los `servidores web` a menudo `retrasan` el `procesamiento` de `solicitudes` si `se envían demasiadas demasiado rápido`. Al `enviar` una `gran cantidad` de `solicitudes` para `activar` intencionalmente el `rate limit` o el `resource limit`, podemos ser capaces de `causar` la `cantidad de delay necesario en el back-end`. Esto hace que el `single-packet attack` sea `viable` incluso cuando se `requiere` que se `ejecute` con `delay`
 
-![[image_11.png]]
+![](/assets/img/Race-Conditions-Guide/image_11.png)
 
 ## Single-endpoint race conditions
 
@@ -277,7 +277,7 @@ Enviar `peticiones` en `paralelo` con diferentes `valores` a un `mismo en
 
 Por ejemplo, consideremos un `mecanismo` de `restablecimiento de contraseña` que almacena el `ID de usuario` y el `token de restablecimiento` en la `sesión` del `usuario`. En este escenario, `enviar dos solicitudes de restablecimiento de contraseña en paralelo desde la misma sesión`, pero con `dos nombres de usuario diferentes`, podría causar esta `colisión`
 
-![[image_13.png]]
+![](/assets/img/Race-Conditions-Guide/image_13.png)
 
 Este sería el `estado final` cuando todas las `operaciones` se han `completado`:
 
