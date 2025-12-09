@@ -21,7 +21,7 @@ image:
   
 ## Descripción
 
-`Explicación técnica de vulnerabilidades de los LLMs`. Detallamos cómo `identificar` y `explotar` estas `vulnerabilidad`. Además, exploramos `estrategias clave para prevenirlas`
+`Explicación técnica de vulnerabilidades de los LLMs`. Detallamos cómo `identificar` y `explotar` estas `vulnerabilidades`. Además, exploramos `estrategias clave para prevenirlas`
 
 ---
 
