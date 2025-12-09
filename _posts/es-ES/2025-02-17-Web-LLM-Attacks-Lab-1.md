@@ -28,6 +28,10 @@ Para `resolver` el laboratorio, usemos el `LLM` para `eliminar` al usuario `carl
 
 ---
 
+## Guía de web LLM attacks
+
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de web LLM attacks` [https://justice-reaper.github.io/posts/Web-LLM-Attacks-Guide/](https://justice-reaper.github.io/posts/Web-LLM-Attacks-Guide/)
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto
