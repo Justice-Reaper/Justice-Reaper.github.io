@@ -28,6 +28,10 @@ Este `laboratorio` es vulnerable a `inyección indirecta de prompts`. El usuario
 
 ---
 
+## Guía de web LLM attacks
+
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de web LLM attacks` [https://justice-reaper.github.io/posts/Web-LLM-Attacks-Guide/](https://justice-reaper.github.io/posts/Web-LLM-Attacks-Guide/)
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto
