@@ -570,9 +570,19 @@ PHPGCC [https://github.com/ambionics/phpggc.git](https://github.com/ambionics/ph
 
 ##### Java
 
-Ysoserial [https://github.com/frohoff/ysoserial.git](https://github.com/frohoff/ysoserial.git)
+YSoSerial [https://github.com/frohoff/ysoserial.git](https://github.com/frohoff/ysoserial.git)
 
 SerializationDumper [https://github.com/NickstaDB/SerializationDumper.git](https://github.com/NickstaDB/SerializationDumper.git)
+
+Marshalsec [https://github.com/frohoff/marshalsec.git](https://github.com/frohoff/marshalsec.git)
+
+Freddy Deserialization Bug Finder [https://github.com/PortSwigger/freddy-deserialization-bug-finder.git](https://github.com/PortSwigger/freddy-deserialization-bug-finder.git)
+
+##### .NET
+
+YSoSerial.Net [https://github.com/pwntester/ysoserial.net.git](https://github.com/pwntester/ysoserial.net.git)
+
+Freddy Deserialization Bug Finder [https://github.com/PortSwigger/freddy-deserialization-bug-finder.git](https://github.com/PortSwigger/freddy-deserialization-bug-finder.git)
 
 #### Information disclosure
 
