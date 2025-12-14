@@ -164,6 +164,8 @@ Subfinder [https://github.com/projectdiscovery/subfinder.git](https://github.com
 
 PhoneInfoga [https://github.com/sundowndev/phoneinfoga.git](https://github.com/sundowndev/phoneinfoga.git)
 
+Holehe [https://github.com/megadose/holehe.git](https://github.com/megadose/holehe.git)
+
 ### Verificar correos electrónicos
 
 Emailrep.io [https://emailrep.io/](https://emailrep.io/)
