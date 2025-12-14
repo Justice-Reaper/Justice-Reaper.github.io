@@ -730,6 +730,10 @@ Exploit Database's Binary Exploits [https://gitlab.com/exploit-database/exploitd
 
 Vulners [https://vulners.com](https://vulners.com)
 
+## Exfiltrar datos
+
+ICMP Exfil [https://github.com/Frib1t/ICMP-Exfil.git](https://github.com/Frib1t/ICMP-Exfil.git)
+
 ## Shells
 
 Reverse shell generator [https://github.com/0dayCTF/reverse-shell-generator.git](https://github.com/0dayCTF/reverse-shell-generator.git)
