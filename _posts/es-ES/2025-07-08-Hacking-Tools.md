@@ -92,6 +92,14 @@ HouseHole [https://github.com/TheCyberpunker/houseHole.git](https://github.com/T
 
 Internxt [https://internxt.com/es/temporary-email](https://internxt.com/es/temporary-email)
 
+## Números de teléfono temporales
+
+Hushed [https://hushed.com/](https://hushed.com/)
+
+Crypton.sh [https://crypton.sh/](https://crypton.sh/)
+
+Silent.link [https://silent.link/](https://silent.link/)
+
 ## Wifi
 
 NetworkManager [https://gitlab.freedesktop.org/NetworkManager/NetworkManager.git](https://gitlab.freedesktop.org/NetworkManager/NetworkManager.git)
@@ -154,6 +162,8 @@ Phonebook [https://phonebook.cz/](https://phonebook.cz/)
 
 Subfinder [https://github.com/projectdiscovery/subfinder.git](https://github.com/projectdiscovery/subfinder.git)
 
+PhoneInfoga [https://github.com/sundowndev/phoneinfoga.git](https://github.com/sundowndev/phoneinfoga.git)
+
 ### Verificar correos electrónicos
 
 Emailrep.io [https://emailrep.io/](https://emailrep.io/)
@@ -204,6 +214,10 @@ PimEyes [https://pimeyes.com/](https://pimeyes.com/)
 
 Bug Bounty Search Engine [https://nitinyadav00.github.io/Bug-Bounty-Search-Engine/](https://nitinyadav00.github.io/Bug-Bounty-Search-Engine/)
 
+Dork Search [https://dorksearch.com/](https://dorksearch.com/)
+
+Dork Query [https://sproffes.github.io/DorkQuery/](https://sproffes.github.io/DorkQuery/)
+
 ## Subnetting
 
 IPv4 Subnet Calculator [https://www.site24x7.com/tools/ipv4-subnetcalculator.html](https://www.site24x7.com/tools/ipv4-subnetcalculator.html)
@@ -217,6 +231,8 @@ Masscan [https://github.com/robertdavidgraham/masscan.git](https://github.com/ro
 Arp Scan [https://github.com/royhills/arp-scan.git](https://github.com/royhills/arp-scan.git)
 
 Nmap [https://github.com/nmap/nmap.git](https://github.com/nmap/nmap.git)
+
+RustScan [https://github.com/bee-san/RustScan.git](https://github.com/bee-san/RustScan.git)
 
 Censys [https://search.censys.io/](https://search.censys.io/)
 
