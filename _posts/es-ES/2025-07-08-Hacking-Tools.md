@@ -242,6 +242,8 @@ GetTopPorts [https://github.com/Justice-Reaper/getTopPorts.git](https://github.c
 
 ## Escáneres de vulnerabilidades
 
+Xray [https://github.com/chaitin/xray.git](https://github.com/chaitin/xray.git)
+
 Nuclei [https://github.com/projectdiscovery/nuclei.git](https://github.com/projectdiscovery/nuclei.git)
 
 Nuclei Templates [https://github.com/projectdiscovery/nuclei-templates.git](https://github.com/projectdiscovery/nuclei-templates.git)
