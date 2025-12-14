@@ -204,6 +204,8 @@ WayBackLister [https://github.com/anmolksachan/wayBackLister.git](https://github
 
 Waybackurls [https://github.com/tomnomnom/waybackurls.git](https://github.com/tomnomnom/waybackurls.git)
 
+OSINT Wayback Collector [https://github.com/Frib1t/osint-wayback-collector.git](https://github.com/Frib1t/osint-wayback-collector.git)
+
 Wayback Machine [https://web.archive.org](https://web.archive.org)
 
 ### Redes sociales
