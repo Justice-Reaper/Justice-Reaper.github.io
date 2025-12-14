@@ -168,6 +168,8 @@ PhoneInfoga [https://github.com/sundowndev/phoneinfoga.git](https://github.com/s
 
 Holehe [https://github.com/megadose/holehe.git](https://github.com/megadose/holehe.git)
 
+TrufflePiggie [https://github.com/W4RRR/trufflepiggie.git](https://github.com/W4RRR/trufflepiggie.git)
+
 ### Verificar correos electrónicos
 
 Emailrep.io [https://emailrep.io](https://emailrep.io)
