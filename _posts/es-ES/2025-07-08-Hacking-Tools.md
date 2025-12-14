@@ -94,8 +94,6 @@ Internxt [https://internxt.com/es/temporary-email](https://internxt.com/es/tempo
 
 ## Números de teléfono temporales
 
-Hushed [https://hushed.com/](https://hushed.com/)
-
 Crypton.sh [https://crypton.sh/](https://crypton.sh/)
 
 Silent.link [https://silent.link/](https://silent.link/)
@@ -151,6 +149,8 @@ Hunter.io [https://hunter.io/](https://hunter.io/)
 SnusBase [https://snusbase.com/](https://snusbase.com/)
 
 Leak Lookup [https://leak-lookup.com/](https://leak-lookup.com/)
+
+Leakpeek [https://leakpeek.com/](https://leakpeek.com/)
 
 Breach Directory [https://breachdirectory.org/](https://breachdirectory.org/)
 
