@@ -202,6 +202,8 @@ Wayback Machine [https://web.archive.org/](https://web.archive.org/)
 
 ### Redes sociales
 
+Social Analyzer [https://github.com/qeeqbox/social-analyzer.git](https://github.com/qeeqbox/social-analyzer.git)
+
 Sherlock [https://github.com/sherlock-project/sherlock.git](https://github.com/sherlock-project/sherlock.git)
 
 Maigret [https://github.com/soxoj/maigret.git](https://github.com/soxoj/maigret.git)
