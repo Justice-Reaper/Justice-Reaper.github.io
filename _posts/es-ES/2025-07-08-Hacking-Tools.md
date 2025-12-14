@@ -262,6 +262,12 @@ Burpsuite professional [https://github.com/xiv3r/Burpsuite-Professional.git](htt
 
 FoxyProxy [https://chromewebstore.google.com/detail/foxyproxy-b%C3%A1sico/dookpfaalaaappcdneeahomimbllocnb?hl=es](https://chromewebstore.google.com/detail/foxyproxy-b%C3%A1sico/dookpfaalaaappcdneeahomimbllocnb?hl=es)
 
+### Gestión y aislamiento de sesiones
+
+PwnFox [https://addons.mozilla.org/es-ES/firefox/addon/pwnfox/](https://addons.mozilla.org/es-ES/firefox/addon/pwnfox/)
+
+PwnFox For Chromium [https://github.com/PortSwigger/pwnfox-for-chromium.git](https://github.com/PortSwigger/pwnfox-for-chromium.git)
+
 ## Diccionarios
 
 Auto Wordlists [https://github.com/carlospolop/Auto_Wordlists.git](https://github.com/carlospolop/Auto_Wordlists.git)
