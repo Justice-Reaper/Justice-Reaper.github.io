@@ -14,21 +14,21 @@ image:
 
 ## Plataformas de bug bounty
 
-HackerOne [https://hackerone.com/](https://hackerone.com/)
+HackerOne [https://hackerone.com](https://hackerone.com)
 
-Intigriti [https://www.intigriti.com/](https://www.intigriti.com/)
+Intigriti [https://www.intigriti.com](https://www.intigriti.com)
 
-Bugcrowd [https://www.bugcrowd.com/](https://www.bugcrowd.com/)
+Bugcrowd [https://www.bugcrowd.com](https://www.bugcrowd.com)
 
-YesWeHack [https://www.yeswehack.com/](https://www.yeswehack.com/)
+YesWeHack [https://www.yeswehack.com](https://www.yeswehack.com)
 
 ## Cheatsheets
 
-Exploit notes [https://exploit-notes.hdks.org/](https://exploit-notes.hdks.org/)
+Exploit notes [https://exploit-notes.hdks.org](https://exploit-notes.hdks.org)
 
-Hideandsec [https://hideandsec.sh/](https://hideandsec.sh/)
+Hideandsec [https://hideandsec.sh](https://hideandsec.sh)
 
-Deep Hacking [https://deephacking.tech/](https://deephacking.tech/)
+Deep Hacking [https://deephacking.tech](https://deephacking.tech)
 
 Hacktricks [https://book.hacktricks.wiki/en/index.html](https://book.hacktricks.wiki/en/index.html)
 
@@ -38,7 +38,7 @@ InternalAllTheThings [https://github.com/swisskyrepo/InternalAllTheThings.git](h
 
 HardwareAllTheThings [https://github.com/swisskyrepo/HardwareAllTheThings.git](https://github.com/swisskyrepo/HardwareAllTheThings.git)
 
-Advanced Bug Hunting Toolkit [https://lostsec.xyz/](https://lostsec.xyz/)
+Advanced Bug Hunting Toolkit [https://lostsec.xyz](https://lostsec.xyz)
 
 Awesome Bug Bounty Tools [https://github.com/vavkamil/awesome-bugbounty-tools.git](https://github.com/vavkamil/awesome-bugbounty-tools.git)
 
@@ -46,45 +46,45 @@ Awesome Burp Extensions [https://github.com/snoopysecurity/awesome-burp-extensio
 
 ## Ordenadores
 
-System76 [https://system76.com/](https://system76.com/)
+System76 [https://system76.com](https://system76.com)
 
-Star Labs [https://starlabs.systems/](https://starlabs.systems/)
+Star Labs [https://starlabs.systems](https://starlabs.systems)
 
-Slimbook [https://slimbook.com/](https://slimbook.com/)
+Slimbook [https://slimbook.com](https://slimbook.com)
 
 Tuxedo computers [https://www.tuxedocomputers.com/index.php](https://www.tuxedocomputers.com/index.php)
 
 ## Sistemas operativos
 
-Kali Linux [https://www.kali.org/](https://www.kali.org/)
+Kali Linux [https://www.kali.org](https://www.kali.org)
 
 AutoBSPWM [https://github.com/Justice-Reaper/AutoBspwmKali.git](https://github.com/Justice-Reaper/AutoBspwmKali.git)
 
 ## Navegadores
 
-Chrome [https://www.google.com/intl/es/chrome/](https://www.google.com/intl/es/chrome/)
+Chrome [https://www.google.com/intl/es/chrome](https://www.google.com/intl/es/chrome)
 
-Firefox [https://www.firefox.com/es-ES/](https://www.firefox.com/es-ES/)
+Firefox [https://www.firefox.com/es-ES](https://www.firefox.com/es-ES)
 
-Tor [https://www.torproject.org/es/download/](https://www.torproject.org/es/download/)
+Tor [https://www.torproject.org/es/download](https://www.torproject.org/es/download)
 
 ## IA
 
 CAI [https://github.com/aliasrobotics/cai.git](https://github.com/aliasrobotics/cai.git)
 
-Claude [https://claude.ai/](https://claude.ai/)
+Claude [https://claude.ai](https://claude.ai)
 
-DeepSeek [https://chat.deepseek.com/](https://chat.deepseek.com/)
+DeepSeek [https://chat.deepseek.com](https://chat.deepseek.com)
 
-ChatGPT [https://chatgpt.com/](https://chatgpt.com/)
+ChatGPT [https://chatgpt.com](https://chatgpt.com)
 
 ## VPNs
 
-TorGuard [https://torguard.net/](https://torguard.net/)
+TorGuard [https://torguard.net](https://torguard.net)
 
 Mullvad [https://mullvad.net/es](https://mullvad.net/es)
 
-Ivpn [https://www.ivpn.net/es/](https://www.ivpn.net/es/)
+Ivpn [https://www.ivpn.net/es](https://www.ivpn.net/es)
 
 ## Correos electrónicos temporales
 
@@ -94,9 +94,9 @@ Internxt [https://internxt.com/es/temporary-email](https://internxt.com/es/tempo
 
 ## Números de teléfono temporales
 
-Crypton.sh [https://crypton.sh/](https://crypton.sh/)
+Crypton.sh [https://crypton.sh](https://crypton.sh)
 
-Silent.link [https://silent.link/](https://silent.link/)
+Silent.link [https://silent.link](https://silent.link)
 
 ## Wifi
 
@@ -122,7 +122,7 @@ MobSF [https://github.com/MobSF/Mobile-Security-Framework-MobSF.git](https://git
 
 ### Custom roms
 
-GrapheneOS [https://grapheneos.org/](https://grapheneos.org/)
+GrapheneOS [https://grapheneos.org](https://grapheneos.org)
 
 ## Cloud
 
@@ -142,23 +142,25 @@ Recon-ng [https://github.com/lanmaster53/recon-ng.git](https://github.com/lanmas
 
 TheHarvester [https://github.com/laramies/theHarvester.git](https://github.com/laramies/theHarvester.git)
 
-IntelligenceX [https://intelx.io/](https://intelx.io/)
+IntelligenceX [https://intelx.io](https://intelx.io)
 
-Hunter.io [https://hunter.io/](https://hunter.io/)
+UserSearch [https://usersearch.ai](https://usersearch.ai)
 
-SnusBase [https://snusbase.com/](https://snusbase.com/)
+Hunter.io [https://hunter.io](https://hunter.io)
 
-Leak Lookup [https://leak-lookup.com/](https://leak-lookup.com/)
+SnusBase [https://snusbase.com](https://snusbase.com)
 
-Leakpeek [https://leakpeek.com/](https://leakpeek.com/)
+Leak Lookup [https://leak-lookup.com](https://leak-lookup.com)
 
-Breach Directory [https://breachdirectory.org/](https://breachdirectory.org/)
+Leakpeek [https://leakpeek.com](https://leakpeek.com)
 
-DeHashed [https://dehashed.com/](https://dehashed.com/)
+Breach Directory [https://breachdirectory.org](https://breachdirectory.org)
+
+DeHashed [https://dehashed.com](https://dehashed.com)
 
 Amass [https://github.com/owasp-amass/amass.git](https://github.com/owasp-amass/amass.git)
 
-Phonebook [https://phonebook.cz/](https://phonebook.cz/)
+Phonebook [https://phonebook.cz](https://phonebook.cz)
 
 Subfinder [https://github.com/projectdiscovery/subfinder.git](https://github.com/projectdiscovery/subfinder.git)
 
@@ -168,27 +170,27 @@ Holehe [https://github.com/megadose/holehe.git](https://github.com/megadose/hole
 
 ### Verificar correos electrónicos
 
-Emailrep.io [https://emailrep.io/](https://emailrep.io/)
+Emailrep.io [https://emailrep.io](https://emailrep.io)
 
-Verify Email Address [https://www.verifyemailaddress.org/](https://www.verifyemailaddress.org/)
+Verify Email Address [https://www.verifyemailaddress.org](https://www.verifyemailaddress.org)
 
-Email Checker [https://email-checker.net/](https://email-checker.net/)
+Email Checker [https://email-checker.net](https://email-checker.net)
 
 ### Foros
 
-Dark Forums [https://darkforums.st/](https://darkforums.st/)
+Dark Forums [https://darkforums.st](https://darkforums.st)
 
-Hack Forums [https://hackforums.net/](https://hackforums.net/)
+Hack Forums [https://hackforums.net](https://hackforums.net)
 
-BreachStars [https://breachstars.io/](https://breachstars.io/)
+BreachStars [https://breachstars.io](https://breachstars.io)
 
 ### Infraestructuras
 
-Shodan [https://www.shodan.io/](https://www.shodan.io/)
+Shodan [https://www.shodan.io](https://www.shodan.io)
 
-Fofa [https://fofa.so/](https://fofa.so/)
+Fofa [https://fofa.so](https://fofa.so)
 
-ZoomEye [https://www.zoomeye.ai/](https://www.zoomeye.ai/)
+ZoomEye [https://www.zoomeye.ai](https://www.zoomeye.ai)
 
 ### Internet archive
 
@@ -200,7 +202,7 @@ WayBackLister [https://github.com/anmolksachan/wayBackLister.git](https://github
 
 Waybackurls [https://github.com/tomnomnom/waybackurls.git](https://github.com/tomnomnom/waybackurls.git)
 
-Wayback Machine [https://web.archive.org/](https://web.archive.org/)
+Wayback Machine [https://web.archive.org](https://web.archive.org)
 
 ### Redes sociales
 
@@ -212,15 +214,15 @@ Maigret [https://github.com/soxoj/maigret.git](https://github.com/soxoj/maigret.
 
 ### Identificación facial
 
-PimEyes [https://pimeyes.com/](https://pimeyes.com/)
+PimEyes [https://pimeyes.com](https://pimeyes.com)
 
 ### Google dorking
 
-Bug Bounty Search Engine [https://nitinyadav00.github.io/Bug-Bounty-Search-Engine/](https://nitinyadav00.github.io/Bug-Bounty-Search-Engine/)
+Bug Bounty Search Engine [https://nitinyadav00.github.io/Bug-Bounty-Search-Engine](https://nitinyadav00.github.io/Bug-Bounty-Search-Engine)
 
-Dork Search [https://dorksearch.com/](https://dorksearch.com/)
+Dork Search [https://dorksearch.com](https://dorksearch.com)
 
-Dork Query [https://sproffes.github.io/DorkQuery/](https://sproffes.github.io/DorkQuery/)
+Dork Query [https://sproffes.github.io/DorkQuery](https://sproffes.github.io/DorkQuery)
 
 ## Subnetting
 
@@ -238,7 +240,7 @@ Nmap [https://github.com/nmap/nmap.git](https://github.com/nmap/nmap.git)
 
 RustScan [https://github.com/bee-san/RustScan.git](https://github.com/bee-san/RustScan.git)
 
-Censys [https://search.censys.io/](https://search.censys.io/)
+Censys [https://search.censys.io](https://search.censys.io)
 
 GetTopPorts [https://github.com/Justice-Reaper/getTopPorts.git](https://github.com/Justice-Reaper/getTopPorts.git)
 
@@ -254,7 +256,7 @@ Nikto [https://github.com/sullo/nikto.git](https://github.com/sullo/nikto.git)
 
 ## Proxies
 
-Caido [https://caido.io/](https://caido.io/)
+Caido [https://caido.io](https://caido.io)
 
 Burpsuite professional [https://github.com/xiv3r/Burpsuite-Professional.git](https://github.com/xiv3r/Burpsuite-Professional.git)
 
@@ -264,7 +266,7 @@ FoxyProxy [https://chromewebstore.google.com/detail/foxyproxy-b%C3%A1sico/dookpf
 
 ### Gestión y aislamiento de sesiones
 
-PwnFox [https://addons.mozilla.org/es-ES/firefox/addon/pwnfox/](https://addons.mozilla.org/es-ES/firefox/addon/pwnfox/)
+PwnFox [https://addons.mozilla.org/es-ES/firefox/addon/pwnfox](https://addons.mozilla.org/es-ES/firefox/addon/pwnfox)
 
 PwnFox For Chromium [https://github.com/PortSwigger/pwnfox-for-chromium.git](https://github.com/PortSwigger/pwnfox-for-chromium.git)
 
@@ -276,13 +278,13 @@ SecLists [https://github.com/danielmiessler/SecLists.git](https://github.com/da
     
 Payloadbox [https://github.com/orgs/payloadbox/repositories](https://github.com/orgs/payloadbox/repositories)
 
-Assetnote [https://wordlists.assetnote.io/](https://wordlists.assetnote.io/)
+Assetnote [https://wordlists.assetnote.io](https://wordlists.assetnote.io)
 
 OneListForAll [https://github.com/six2dez/OneListForAll.git](https://github.com/six2dez/OneListForAll.git)
 
 Kaonashi [https://github.com/kaonashi-passwords/Kaonashi.git](https://github.com/kaonashi-passwords/Kaonashi.git)
 
-Weakpass [https://weakpass.com/](https://weakpass.com/)
+Weakpass [https://weakpass.com](https://weakpass.com)
 
 JWT Secrets [https://github.com/wallarm/jwt-secrets.git](https://github.com/wallarm/jwt-secrets.git)
 
@@ -320,7 +322,7 @@ Dcode [https://www.dcode.fr/cipher-identifier](https://www.dcode.fr/cipher-ident
 
 Hackvertor [https://github.com/portswigger/hackvertor](https://github.com/portswigger/hackvertor)
 
-CyberChef [https://gchq.github.io/CyberChef/](https://gchq.github.io/CyberChef/)
+CyberChef [https://gchq.github.io/CyberChef](https://gchq.github.io/CyberChef)
 
 Chepy [https://github.com/securisec/chepy.git](https://github.com/securisec/chepy.git)
 
@@ -328,7 +330,7 @@ Ciphey [https://github.com/bee-san/Ciphey.git](https://github.com/bee-san/Ciphey
 
 ## Regex
 
-Regex Generator [https://regex-generator.olafneumann.org/](https://regex-generator.olafneumann.org/)
+Regex Generator [https://regex-generator.olafneumann.org](https://regex-generator.olafneumann.org)
 
 ## Web
 
@@ -355,6 +357,16 @@ Ffuf [https://github.com/ffuf/ffuf.git](https://github.com/ffuf/ffuf.git)
 Gobuster [https://github.com/OJ/gobuster.git](https://github.com/OJ/gobuster.git)
 
 Fuzzuli [https://github.com/musana/fuzzuli.git](https://github.com/musana/fuzzuli.git)
+
+### Análisis de código JavaScript
+
+JS Miner [https://github.com/PortSwigger/js-miner.git](https://github.com/PortSwigger/js-miner.git)
+
+JS Link Finder [https://github.com/PortSwigger/js-link-finder.git](https://github.com/PortSwigger/js-link-finder.git)
+
+### Enumeración de parámetros
+
+GAP (Get All Parameters, Links, and Words) [https://github.com/PortSwigger/get-all-parameters.git](https://github.com/PortSwigger/get-all-parameters.git)
 
 ### Bypasses
 
@@ -388,7 +400,7 @@ GoNMF [https://github.com/akinerkisa/GoNMF.git](https://github.com/akinerkisa/Go
 
 ### CMS
 
-WhatCMS [https://whatcms.org/](https://whatcms.org/)
+WhatCMS [https://whatcms.org](https://whatcms.org)
 
 CMSmap [https://github.com/dionach/CMSmap.git](https://github.com/dionach/CMSmap.git)
 
@@ -428,11 +440,15 @@ Backslash Powered Scanner [https://github.com/PortSwigger/backslash-powered-scan
 
 Software Vulnerability Scanner [https://github.com/PortSwigger/software-vulnerability-scanner.git](https://github.com/PortSwigger/software-vulnerability-scanner.git)
 
+Retire.js [https://github.com/PortSwigger/retire-js.git](https://github.com/PortSwigger/retire-js.git)
+
 ### Utilidades adicionales para Burpsuite
 
 Copy As Python Requests [https://github.com/PortSwigger/copy-as-python-requests.git](https://github.com/PortSwigger/copy-as-python-requests.git)
 
 Content Type Converter [https://github.com/PortSwigger/content-type-converter.git](https://github.com/PortSwigger/content-type-converter.git)
+
+PDF Render [https://github.com/PortSwigger/pdf-render.git](https://github.com/PortSwigger/pdf-render.git)
 
 ### Herramientas de propósito general
 
@@ -458,7 +474,7 @@ Docem [https://github.com/whitel1st/docem.git](https://github.com/whitel1st/doc
 
 #### Clickjacking
 
-Security Headers [https://securityheaders.com/](https://securityheaders.com/)
+Security Headers [https://securityheaders.com](https://securityheaders.com)
     
 Shcheck [https://github.com/santoru/shcheck.git](https://github.com/santoru/shcheck.git)
     
@@ -524,11 +540,11 @@ XSStrike [https://github.com/s0md3v/XSStrike.git](https://github.com/s0md3v/XSS
     
 XSSHunter Express [https://github.com/mandatoryprogrammer/xsshunter-express.git](https://github.com/mandatoryprogrammer/xsshunter-express.git)
     
-XXHunter [https://xsshunter.trufflesecurity.com/app/#/](https://xsshunter.trufflesecurity.com/app/#/)
+XXHunter [https://xsshunter.trufflesecurity.com/app/#](https://xsshunter.trufflesecurity.com/app/#)
     
-BXSSHunter [https://bxsshunter.com/](https://bxsshunter.com/)
+BXSSHunter [https://bxsshunter.com](https://bxsshunter.com)
     
-XSSReport [https://xss.report/](https://xss.report/)
+XSSReport [https://xss.report](https://xss.report)
     
 DOM Invader [https://portswigger.net/burp/documentation/desktop/tools/dom-invader](https://portswigger.net/burp/documentation/desktop/tools/dom-invader)
 
@@ -558,7 +574,7 @@ Tplmap [https://github.com/epinna/tplmap.git](https://github.com/epinna/tplmap.g
 
 SSTImap [https://github.com/vladko312/SSTImap.git](https://github.com/vladko312/SSTImap.git)
 
-Template Injection Table [https://cheatsheet.hackmanit.de/template-injection-table/](https://cheatsheet.hackmanit.de/template-injection-table/)
+Template Injection Table [https://cheatsheet.hackmanit.de/template-injection-table](https://cheatsheet.hackmanit.de/template-injection-table)
 
 #### Path traversal
 
@@ -614,6 +630,10 @@ Freddy Deserialization Bug Finder [https://github.com/PortSwigger/freddy-deseria
 
 #### Information disclosure
 
+TruffleHog [https://github.com/trufflesecurity/trufflehog.git](https://github.com/trufflesecurity/trufflehog.git)
+
+TruffleHog Integration [https://github.com/PortSwigger/trufflehog-integration.git](https://github.com/PortSwigger/trufflehog-integration.git)
+
 ##### Carpeta .git expuesta
 
 Git Dumper [https://github.com/arthaud/git-dumper.git](https://github.com/arthaud/git-dumper.git)
@@ -650,11 +670,11 @@ JWT Tool [https://github.com/ticarpi/jwt_tool.git](https://github.com/ticarpi/jw
 
 JWT Cracker [https://github.com/brendan-rius/c-jwt-cracker.git](https://github.com/brendan-rius/c-jwt-cracker.git)
 
-Jwt.io [https://www.jwt.io/](https://www.jwt.io/)
+Jwt.io [https://www.jwt.io](https://www.jwt.io)
 
 #### GraphQL
 
-GraphQL Voyager [https://apis.guru/graphql-voyager/](https://apis.guru/graphql-voyager/)
+GraphQL Voyager [https://apis.guru/graphql-voyager](https://apis.guru/graphql-voyager)
 
 InQL [https://github.com/PortSwigger/inql.git](https://github.com/PortSwigger/inql.git)
 
@@ -688,17 +708,23 @@ Raceocat [https://github.com/JavanXD/Raceocat.git](https://github.com/JavanXD/Ra
 
 H2SpaceX [https://github.com/nxenon/h2spacex.git](https://github.com/nxenon/h2spacex.git)
 
+#### APIs
+
+OpenAPI Parser [https://github.com/PortSwigger/openapi-parser.git](https://github.com/PortSwigger/openapi-parser.git)
+
+API Exporter [https://github.com/PortSwigger/api-exporter.git](https://github.com/PortSwigger/api-exporter.git)
+
 ## Exploits
 
-0day Archive [https://0day-archive.fullhunt.io/](https://0day-archive.fullhunt.io/)
+0day Archive [https://0day-archive.fullhunt.io](https://0day-archive.fullhunt.io)
 
-Sploitify [https://sploitify.haxx.it/](https://sploitify.haxx.it/)
+Sploitify [https://sploitify.haxx.it](https://sploitify.haxx.it)
 
-Exploit Database [https://www.exploit-db.com/](https://www.exploit-db.com/)
+Exploit Database [https://www.exploit-db.com](https://www.exploit-db.com)
 
 Exploit Database's Binary Exploits [https://gitlab.com/exploit-database/exploitdb-bin-sploits](https://gitlab.com/exploit-database/exploitdb-bin-sploits)
 
-Vulners [https://vulners.com/](https://vulners.com/)
+Vulners [https://vulners.com](https://vulners.com)
 
 ## Shells
 
@@ -708,7 +734,7 @@ Villain [https://github.com/t3l3machus/Villain.git](https://github.com/t3l3machu
 
 Penelope [https://github.com/brightio/penelope.git](https://github.com/brightio/penelope.git)
 
-Obtener una TTY interactiva en linux [https://ironhackers.es/tutoriales/como-conseguir-tty-totalmente-interactiva/](https://ironhackers.es/tutoriales/como-conseguir-tty-totalmente-interactiva/)
+Obtener una TTY interactiva en linux [https://ironhackers.es/tutoriales/como-conseguir-tty-totalmente-interactiva](https://ironhackers.es/tutoriales/como-conseguir-tty-totalmente-interactiva)
 
 ConPtyShell [https://github.com/antonioCoco/ConPtyShell.git](https://github.com/antonioCoco/ConPtyShell.git)
 
@@ -724,7 +750,7 @@ LinPeas [https://github.com/peass-ng/PEASS-ng/tree/master/linPEAS](https://githu
 
 Grype [https://github.com/anchore/grype.git](https://github.com/anchore/grype.git)
 
-GTFOBins [https://gtfobins.github.io/](https://gtfobins.github.io/)
+GTFOBins [https://gtfobins.github.io](https://gtfobins.github.io)
 
 SuCrack [https://github.com/hemp3l/sucrack.git](https://github.com/hemp3l/sucrack.git)
 
@@ -732,9 +758,9 @@ SuCrack [https://github.com/hemp3l/sucrack.git](https://github.com/hemp3l/sucrac
 
 WinPeas [https://github.com/peass-ng/PEASS-ng/tree/master/winPEAS](https://github.com/peass-ng/PEASS-ng/tree/master/winPEAS)
 
-Lolbas [https://lolbas-project.github.io/](https://lolbas-project.github.io/)
+Lolbas [https://lolbas-project.github.io](https://lolbas-project.github.io)
 
-WADComs [https://wadcoms.github.io/](https://wadcoms.github.io/)
+WADComs [https://wadcoms.github.io](https://wadcoms.github.io)
 
 AdPeas [https://github.com/61106960/adPEAS.git](https://github.com/61106960/adPEAS.git)
 
@@ -766,6 +792,8 @@ Haiti [https://github.com/noraj/haiti.git](https://github.com/noraj/haiti.git)
 
 ### Crackear
 
+KrakenHashes [https://github.com/ZerkerEOD/krakenhashes.git](https://github.com/ZerkerEOD/krakenhashes.git)
+
 Hashcat [https://github.com/hashcat/hashcat.git](https://github.com/hashcat/hashcat.git)
 
 John the Ripper [https://github.com/openwall/john.git](https://github.com/openwall/john.git)
@@ -782,7 +810,7 @@ OneRuleToRuleThemStill [https://github.com/stealthsploit/OneRuleToRuleThemStill.
 
 Hashes [https://hashes.com/en/decrypt/hash](https://hashes.com/en/decrypt/hash)
 
-CrackStation [https://crackstation.net/](https://crackstation.net/)
+CrackStation [https://crackstation.net](https://crackstation.net)
 
 Weakpass [https://weakpass.com/tools/lookup](https://weakpass.com/tools/lookup)
 
