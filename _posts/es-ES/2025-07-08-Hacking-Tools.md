@@ -519,6 +519,8 @@ Sqlmap [https://github.com/sqlmapproject/sqlmap.git](https://github.com/sqlmapp
 SQLMap DNS Collaborator [https://github.com/portswigger/sqlmap-dns-collaborator](https://github.com/portswigger/sqlmap-dns-collaborator)
 
 Agartha [https://github.com/PortSwigger/agartha.git](https://github.com/PortSwigger/agartha.git)
+
+HBSQLI [https://github.com/SAPT01/HBSQLI.git](https://github.com/SAPT01/HBSQLI.git)
     
 Loxs [https://github.com/coffinxp/loxs.git](https://github.com/coffinxp/loxs.git)
 
