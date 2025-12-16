@@ -62,6 +62,8 @@ Awesome Bug Bounty Tools [https://github.com/vavkamil/awesome-bugbounty-tools.gi
 
 Awesome Burp Extensions [https://github.com/snoopysecurity/awesome-burp-extensions.git](https://github.com/snoopysecurity/awesome-burp-extensions.git)
 
+Reddit Hacking Wiki [https://www.reddit.com/r/hacking/wiki/index/](https://www.reddit.com/r/hacking/wiki/index/)
+
 ## Ordenadores
 
 System76 [https://system76.com](https://system76.com)
