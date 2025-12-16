@@ -22,9 +22,7 @@ Bugcrowd [https://www.bugcrowd.com](https://www.bugcrowd.com)
 
 YesWeHack [https://www.yeswehack.com](https://www.yeswehack.com)
 
-## Información
-
-### Blogs
+## Blogs
 
 Deep Hacking [https://deephacking.tech](https://deephacking.tech)
 
@@ -36,7 +34,7 @@ The Hacker News [https://thehackernews.com/](https://thehackernews.com/)
 
 El Lado Del Mal [https://www.elladodelmal.com/](https://www.elladodelmal.com/)
 
-### Foros
+## Foros
 
 Dark Forums [https://darkforums.st](https://darkforums.st)
 
@@ -44,7 +42,7 @@ Hack Forums [https://hackforums.net](https://hackforums.net)
 
 BreachStars [https://breachstars.io](https://breachstars.io)
 
-### Cheatsheets
+## Cheatsheets
 
 Exploit notes [https://exploit-notes.hdks.org](https://exploit-notes.hdks.org)
 
