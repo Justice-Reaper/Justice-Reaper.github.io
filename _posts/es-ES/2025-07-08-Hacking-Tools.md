@@ -22,13 +22,33 @@ Bugcrowd [https://www.bugcrowd.com](https://www.bugcrowd.com)
 
 YesWeHack [https://www.yeswehack.com](https://www.yeswehack.com)
 
-## Cheatsheets
+## Información
+
+### Blogs
+
+Deep Hacking [https://deephacking.tech](https://deephacking.tech)
+
+SocRadar [https://socradar.io/blog](https://socradar.io/blog)
+
+Hackaday [https://hackaday.com/](https://hackaday.com/)
+
+The Hacker News [https://thehackernews.com/](https://thehackernews.com/)
+
+El Lado Del Mal [https://www.elladodelmal.com/](https://www.elladodelmal.com/)
+
+### Foros
+
+Dark Forums [https://darkforums.st](https://darkforums.st)
+
+Hack Forums [https://hackforums.net](https://hackforums.net)
+
+BreachStars [https://breachstars.io](https://breachstars.io)
+
+### Cheatsheets
 
 Exploit notes [https://exploit-notes.hdks.org](https://exploit-notes.hdks.org)
 
 Hideandsec [https://hideandsec.sh](https://hideandsec.sh)
-
-Deep Hacking [https://deephacking.tech](https://deephacking.tech)
 
 Hacktricks [https://book.hacktricks.wiki/en/index.html](https://book.hacktricks.wiki/en/index.html)
 
@@ -177,14 +197,6 @@ Emailrep.io [https://emailrep.io](https://emailrep.io)
 Verify Email Address [https://www.verifyemailaddress.org](https://www.verifyemailaddress.org)
 
 Email Checker [https://email-checker.net](https://email-checker.net)
-
-### Foros
-
-Dark Forums [https://darkforums.st](https://darkforums.st)
-
-Hack Forums [https://hackforums.net](https://hackforums.net)
-
-BreachStars [https://breachstars.io](https://breachstars.io)
 
 ### Infraestructuras
 
