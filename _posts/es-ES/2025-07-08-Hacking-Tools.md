@@ -42,6 +42,12 @@ Hack Forums [https://hackforums.net](https://hackforums.net)
 
 BreachStars [https://breachstars.io](https://breachstars.io)
 
+Cracking.org [https://cracking.org/](https://cracking.org/)
+
+CraxPro [https://craxpro.io/](https://craxpro.io/)
+
+Leakbase [https://leakbase.la/](https://leakbase.la/)
+
 ## Cheatsheets
 
 Exploit notes [https://exploit-notes.hdks.org](https://exploit-notes.hdks.org)
