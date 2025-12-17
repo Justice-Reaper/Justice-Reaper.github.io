@@ -48,6 +48,8 @@ CraxPro [https://craxpro.io/](https://craxpro.io/)
 
 Leakbase [https://leakbase.la/](https://leakbase.la/)
 
+Valid Market [https://validmarket.io](https://validmarket.io)
+
 ## Cheatsheets
 
 Exploit notes [https://exploit-notes.hdks.org](https://exploit-notes.hdks.org)
