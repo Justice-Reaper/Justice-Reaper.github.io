@@ -28,13 +28,15 @@ Deep Hacking [https://deephacking.tech](https://deephacking.tech)
 
 SocRadar [https://socradar.io/blog](https://socradar.io/blog)
 
-Hackaday [https://hackaday.com/](https://hackaday.com/)
+Hackaday [https://hackaday.com](https://hackaday.com)
 
-The Hacker News [https://thehackernews.com/](https://thehackernews.com/)
+The Hacker News [https://thehackernews.com](https://thehackernews.com)
 
-El Lado Del Mal [https://www.elladodelmal.com/](https://www.elladodelmal.com/)
+El Lado Del Mal [https://www.elladodelmal.com](https://www.elladodelmal.com)
 
 ## Foros
+
+Hack Forums [https://hackforums.net](https://hackforums.net)
 
 Dark Forums [https://darkforums.st](https://darkforums.st)
 
@@ -42,11 +44,11 @@ Hack Forums [https://hackforums.net](https://hackforums.net)
 
 BreachStars [https://breachstars.io](https://breachstars.io)
 
-Cracking.org [https://cracking.org/](https://cracking.org/)
+Cracking.org [https://cracking.org](https://cracking.org)
 
-CraxPro [https://craxpro.io/](https://craxpro.io/)
+CraxPro [https://craxpro.io](https://craxpro.io)
 
-Leakbase [https://leakbase.la/](https://leakbase.la/)
+Leakbase [https://leakbase.la](https://leakbase.la)
 
 Valid Market [https://validmarket.io](https://validmarket.io)
 
@@ -70,7 +72,7 @@ Awesome Bug Bounty Tools [https://github.com/vavkamil/awesome-bugbounty-tools.gi
 
 Awesome Burp Extensions [https://github.com/snoopysecurity/awesome-burp-extensions.git](https://github.com/snoopysecurity/awesome-burp-extensions.git)
 
-Reddit Hacking Wiki [https://www.reddit.com/r/hacking/wiki/index/](https://www.reddit.com/r/hacking/wiki/index/)
+Reddit Hacking Wiki [https://www.reddit.com/r/hacking/wiki/index](https://www.reddit.com/r/hacking/wiki/index)
 
 ## Ordenadores
 
