@@ -102,6 +102,8 @@ Tor [https://www.torproject.org/es/download](https://www.torproject.org/es/downl
 
 CAI [https://github.com/aliasrobotics/cai.git](https://github.com/aliasrobotics/cai.git)
 
+Hacktricks AI [https://www.hacktricks.ai/](https://www.hacktricks.ai/)
+
 Claude [https://claude.ai](https://claude.ai)
 
 DeepSeek [https://chat.deepseek.com](https://chat.deepseek.com)
