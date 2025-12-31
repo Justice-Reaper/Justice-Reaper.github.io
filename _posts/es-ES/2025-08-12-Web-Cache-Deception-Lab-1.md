@@ -50,7 +50,7 @@ Si `enviamos` la `petición` de `nuevo` vemos que la `cabecera X-Cache` tiene el
 
 ![](/assets/img/Web-Cache-Deception-Lab-1/image_6.png)
 
-Podemos `aprovecharnos` de esta `vulnerabilidad` para `obtener` la `API KEY` del `usuario carlos`. Para ello, nos vamos al `Exploit Server` y `creamos` un `payload` que `redirija` al `usuario` a la `ruta /my-account/foo.css` para que se `cachee` su `API KEY`. `Es recomendable elegir una nueva extensión de archivo o mantener la extensión de archivo pero cambiarle el nombre para que se vuelva a cachear la información y no tener que esperar`
+Podemos `aprovecharnos` de esta `vulnerabilidad` para `obtener` la `API KEY` del `usuario carlos`. Para ello, nos vamos al `Exploit Server` y `creamos` un `payload` que `redirija` al `usuario` a la `ruta /my-account/foo.css` para que se `cachee` su `API KEY`. Debemos `asegurarnos` de que cada `petición` que `enviemos` tenga una `clave caché diferente`, para ello, es recomendable `usar` un `cache buster`, aunque también podemos `usar` una `nueva extensión de archivo` o `mantener la extensión de archivo pero cambiarle el nombre`. En este caso voy a `usar` una `nueva extensión de archivo`
 
 ```
 <script>
