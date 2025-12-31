@@ -7,6 +7,7 @@ author: Justice-Reaper
 categories:
   - Web Cache Deception
 tags:
+  - Web Cache Deception
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
@@ -59,6 +60,13 @@ Podemos `aprovecharnos` de esta `vulnerabilidad` para `obtener` la `API KEY` del
 ```
 
 ![](/assets/img/Web-Cache-Deception-Lab-1/image_7.png)
+
+Otra `alternativa` es `inyectar` el `payload` en el `Head` del `Exploit Server` 
+
+```
+HTTP/1.1 301 Moved Permanently
+Location: https://0a3300d9041795e38019ee7a00d800a9.web-security-academy.net/my-account/foo.css
+```
 
 Antes de `enviarle` el `payload` a la `víctima`, vamos a `probar` si `funciona` en `nuestra cuenta`. Para ello, pulsamos sobre `View exploit`, nos `redirige` a `/my-account/foo.css` y vemos que `nos carga /my-account correctamente`
 
