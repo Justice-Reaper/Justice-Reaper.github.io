@@ -307,7 +307,7 @@ Dado que las `solicitudes POST` generalmente se utilizan para realizar `acciones
 
 #### None
 
-Si una `cookie` se establece con el atributo `SameSite=None`, esto `deshabilita por completo` las `restricciones SameSite`, independientemente del `navegador`. Como resultado, los `navegadores` enviarán esta `cookie` en todas las `solicitudes` al `sitio web` que la emitió, incluso aquellas que fueron iniciadas por `sitios de terceros` totalmente `no relacionados`. Con la excepción de `Chrome`, este es el `comportamiento predeterminado` utilizado por los `principales navegadores` si no se proporciona ningún `atributo SameSite` al establecer la `cookie`.
+Si una `cookie` se establece con el atributo `SameSite=None`, esto `deshabilita por completo` las `restricciones SameSite`, independientemente del `navegador`. Como resultado, los `navegadores` enviarán esta `cookie` en todas las `solicitudes` al `sitio web` que la emitió, incluso aquellas que fueron iniciadas por `sitios de terceros` totalmente `no relacionados`. Con la excepción de `Chrome`, este es el `comportamiento predeterminado` utilizado por los `principales navegadores` si no se proporciona ningún `atributo SameSite` al establecer la `cookie`
 
 Existen `razones legítimas` para deshabilitar `SameSite`, como cuando la `cookie` está destinada a usarse en un `contexto de terceros` y no otorga al `portador` acceso a `datos sensibles` ni a `funcionalidades críticas`. Un ejemplo típico de esto son las `tracking cookies`
 
