@@ -5,9 +5,12 @@ date: 2025-08-12 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
+  - Portswigger Labs
   - Web Cache Deception
 tags:
+  - Portswigger Labs
   - Web Cache Deception
+  - Exploiting path mapping for web cache deception
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
