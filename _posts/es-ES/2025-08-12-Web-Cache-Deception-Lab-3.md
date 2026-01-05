@@ -119,4 +119,4 @@ Ahora, vamos a `conseguir` la `API KEY` del `usuario carlos`, para ello, `cambia
 
 Ahora, nos `dirigimos` a `Burpsuite` y `rápidamente`, `hacemos una petición a /resources/..%2fmy-account?cachebuster=2` para `obtener` la `API KEY` del `usuario carlos`
 
-![](/assets/img/Web-Cache-Deception-Lab-3/image_19.png)`
+![](/assets/img/Web-Cache-Deception-Lab-3/image_19.png)
