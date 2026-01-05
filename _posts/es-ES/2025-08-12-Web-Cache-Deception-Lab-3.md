@@ -1,6 +1,6 @@
 ---
 title: Web cache deception lab 3
-description: Exploiting path delimiters for web cache deception
+description: Exploiting origin server normalization for web cache deception
 date: 2025-08-12 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper
@@ -10,7 +10,7 @@ categories:
 tags:
   - Portswigger Labs
   - Web Cache Deception
-  - Exploiting path delimiters for web cache deception
+  - Exploiting origin server normalization for web cache deception
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
