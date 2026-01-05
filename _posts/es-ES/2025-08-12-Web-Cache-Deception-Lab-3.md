@@ -68,7 +68,7 @@ Al testear la `normalización`, debemos comenzar `codificando únicamente la seg
 
 ![](/assets/img/Web-Cache-Deception-Lab-3/image_9.png)
 
-Como la `petición` nos `resuelve` a `/my-account`, esto significa que `el servidor de origen decodifica la barra y resuelve el dot-segment`. El `siguiente paso` es `detectar la normalización por parte del servidor de caché`, para ello `debemos buscar solicitudes con prefijos comunes de directorios estáticos y respuestas cacheadas` en el `HTTP History` de `Burpsuite`
+Como ya hemos `comprobado` que `no hay normalización por parte del servidor de origen`, vamos a `testear si hay normalización por parte del servidor de caché`. Para ello `debemos buscar solicitudes con prefijos comunes de directorios estáticos y respuestas cacheadas` en el `HTTP History` o en el `Site map` de `Burpsuite`. `Conviene revisar en ambos sitios porque hay veces que Burpsuite no muestra bien la información en el HTTP History`
 
 ![](/assets/img/Web-Cache-Deception-Lab-3/image_10.png)
 
