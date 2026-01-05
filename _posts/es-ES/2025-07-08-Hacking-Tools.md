@@ -42,6 +42,10 @@ Distributed Denial of Secrets [https://ddosecrets.com/](https://ddosecrets.com/)
 
 WikiLeaks [https://wikileaks.org/](https://wikileaks.org/)
 
+Security Cipher [https://securitycipher.com/](https://securitycipher.com/)
+
+Bug Bounty Daily [https://bugbountydaily.com/](https://bugbountydaily.com/)
+
 ## Foros
 
 Hack Forums [https://hackforums.net](https://hackforums.net)
