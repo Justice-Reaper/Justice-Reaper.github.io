@@ -22,6 +22,8 @@ Bugcrowd [https://www.bugcrowd.com](https://www.bugcrowd.com)
 
 YesWeHack [https://www.yeswehack.com](https://www.yeswehack.com)
 
+Github Advisories [https://github.com/advisories](https://github.com/advisories)
+
 ## Blogs
 
 Deep Hacking [https://deephacking.tech](https://deephacking.tech)
@@ -33,6 +35,12 @@ Hackaday [https://hackaday.com](https://hackaday.com)
 The Hacker News [https://thehackernews.com](https://thehackernews.com)
 
 El Lado Del Mal [https://www.elladodelmal.com](https://www.elladodelmal.com)
+
+Siunam321 [https://siunam321.github.io/](https://siunam321.github.io/)
+
+Distributed Denial of Secrets [https://ddosecrets.com/](https://ddosecrets.com/)
+
+WikiLeaks [https://wikileaks.org/](https://wikileaks.org/)
 
 ## Foros
 
@@ -51,6 +59,10 @@ CraxPro [https://craxpro.io](https://craxpro.io)
 Leakbase [https://leakbase.la](https://leakbase.la)
 
 Valid Market [https://validmarket.io](https://validmarket.io)
+
+9ghz [https://9ghz.com/breach_list/](https://9ghz.com/breach_list/)
+
+B1nd [https://b1nd.net/datasets](https://b1nd.net/datasets)
 
 ## Cheatsheets
 
@@ -97,6 +109,12 @@ Chrome [https://www.google.com/intl/es/chrome](https://www.google.com/intl/es/ch
 Firefox [https://www.firefox.com/es-ES](https://www.firefox.com/es-ES)
 
 Tor [https://www.torproject.org/es/download](https://www.torproject.org/es/download)
+
+## Buscadores de torrents (DHT)
+
+BTDigg [https://btdig.com/](https://btdig.com/)
+
+DaMagNet [https://damag.net/](https://damag.net/)
 
 ## IA
 
@@ -165,6 +183,14 @@ Prowler [https://github.com/prowler-cloud/prowler.git](https://github.com/prowle
 BlackStone [https://github.com/micro-joan/BlackStone.git](https://github.com/micro-joan/BlackStone.git)
 
 SysReptor [https://github.com/Syslifters/sysreptor.git](https://github.com/Syslifters/sysreptor.git)
+
+## Monitorización de ransomware
+
+Ransomware Live [https://www.ransomware.live/](https://www.ransomware.live/)
+
+Ransomware Posts [https://ransom.privtools.eu/](https://ransom.privtools.eu/)
+
+RansomLook [https://www.ransomlook.io/](https://www.ransomlook.io/)
 
 ## OSINT
 
