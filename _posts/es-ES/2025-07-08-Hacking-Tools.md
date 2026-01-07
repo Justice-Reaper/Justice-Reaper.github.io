@@ -422,6 +422,10 @@ JS Miner [https://github.com/PortSwigger/js-miner.git](https://github.com/PortSw
 
 JS Link Finder [https://github.com/PortSwigger/js-link-finder.git](https://github.com/PortSwigger/js-link-finder.git)
 
+Retire.js [https://github.com/PortSwigger/retire-js.git](https://github.com/PortSwigger/retire-js.git)
+
+JSAnalyzer [https://github.com/jenish-sojitra/JSAnalyzer.git](https://github.com/jenish-sojitra/JSAnalyzer.git)
+
 ### Enumeración de parámetros
 
 GAP (Get All Parameters, Links, and Words) [https://github.com/PortSwigger/get-all-parameters.git](https://github.com/PortSwigger/get-all-parameters.git)
@@ -497,8 +501,6 @@ Collaborator Everywhere [https://github.com/PortSwigger/collaborator-everywhere
 Backslash Powered Scanner [https://github.com/PortSwigger/backslash-powered-scanner.git](https://github.com/PortSwigger/backslash-powered-scanner.git)
 
 Software Vulnerability Scanner [https://github.com/PortSwigger/software-vulnerability-scanner.git](https://github.com/PortSwigger/software-vulnerability-scanner.git)
-
-Retire.js [https://github.com/PortSwigger/retire-js.git](https://github.com/PortSwigger/retire-js.git)
 
 ### Utilidades adicionales para Burpsuite
 
