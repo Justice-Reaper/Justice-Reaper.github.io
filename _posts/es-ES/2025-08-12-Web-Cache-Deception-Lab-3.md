@@ -44,13 +44,25 @@ Vemos que `/my-account` es un `endpoint` que `expone información sensible`
 
 `Capturamos` la `petición` a este `endpoint` mediante `Burpsuite` y `testeamos si la web utiliza mapeo tradicional de URL o mapeo REST`. Esto lo podemos hacer `añadiendo una ruta aleatoria después de una ruta que si sabemos que existe`, por ejemplo, `/my-account/foo`. En este caso, no nos `resuelve` a `/my-account`, por lo tanto, `podemos estar seguros de que estamos ante un mapeo tradicional de URL`. Como el `servidor de origen` usa `mapeo tradicional de URL`, podemos `descartar` la `posiblidad` de que `exista alguna discrepancia en el mapeo de rutas`, debido a que `el servidor de caché siempre usa mapeo tradicional de URL` 
 
+```
+/my-account/foo
+```
+
 ![](/assets/img/Web-Cache-Deception-Lab-3/image_4.png)
 
 El `siguiente paso` es `comprobar que delimitadores usa`, para ello, el `primer paso` que debemos hacer es `añadir una cadena aleatoria después de la ruta`, por ejemplo `/my-accountfoo` y `ver como responde el servidor`. Esto lo hacemos porque `si la respuesta es idéntica a la respuesta original, esto indica que la solicitud está siendo redirigida y deberemos de elegir un endpoint diferente para realizar las pruebas`. En este caso nos `devuelve` un `404`, por lo tanto, `podemos continuar usando este endpoint para los testeos`
 
+```
+/my-accountfoo
+```
+
 ![](/assets/img/Web-Cache-Deception-Lab-3/image_5.png)
 
 A continuación, `añadimos un posible carácter delimitador entre la ruta original y la cadena arbitraria, por ejemplo /my-account;foo`. En nuestro caso, vamos a `enviar` la `petición` al `Intruder` y a `usar` esta `lista de caracteres que actúan como delimitadores` [https://portswigger.net/web-security/web-cache-deception/wcd-lab-delimiter-list](https://portswigger.net/web-security/web-cache-deception/wcd-lab-delimiter-list)
+
+```
+/my-accountFUZZfoo
+```
 
 ![](/assets/img/Web-Cache-Deception-Lab-3/image_6.png)
 
@@ -65,6 +77,10 @@ Es `importante` que `desactivemos` el `Payload encoding`
 `Como no encontramos nada útil, vamos a ver si existe normalización por parte del servidor de origen`. Esto lo podemos hacer, `enviando` una `solicitud` a un `recurso no cacheable` con una `secuencia de path traversal` y un `directorio arbitrario` al `inicio` de la `ruta`. Además debemos usar un `método no idempotente`, como `POST`
 
 Al testear la `normalización`, debemos comenzar `codificando únicamente la segunda barra` dentro del `dot-segment`, esto es `importante` porque `algunas CDN toman la barra posterior al prefijo del directorio estático como referencia para aplicar sus reglas`. También podemos probar a `codificar la secuencia completa de path traversal` o a `codificar el punto` en lugar de la `barra`. En algunos casos, `esto puede influir en si el parser decodifica o no la secuencia`. Un ejemplo de esto, sería esta `petición`
+
+```
+/algo/..%2fmy-account
+```
 
 ![](/assets/img/Web-Cache-Deception-Lab-3/image_9.png)
 
@@ -82,13 +98,25 @@ Podemos ver que `todos los archivos que hay en el directorio /resources se cache
 
 El `siguiente paso` es `elegir` una `solicitud` con una `respuesta cacheada` y `reenviarla añadiendo una secuencia de path traversal y un directorio arbitrario al inicio de la ruta estática`. Como vemos, `ya no está actuando la caché`, lo que significa que `la caché no está normalizando la ruta antes de asignarla al endpoint`. Esto demuestra que `existe` una `regla de caché basada en el prefijo /resources/`
 
+```
+/algo/..%2fresources/js/tracking.js
+```
+
 ![](/assets/img/Web-Cache-Deception-Lab-3/image_13.png)
 
 Para estar totalmente seguros, podemos `añadir una cadena arbitraria después de la ruta que creemos que está siendo cacheada`. En este caso, podemos `confirmar` que `la ruta /resources/ está siendo cacheada`
 
+```
+/resources/aaa
+```
+
 ![](/assets/img/Web-Cache-Deception-Lab-3/image_14.png)
 
 Una vez hemos `identificado` que `existe una discrepancia entre el servidor de origen y el servidor de caché`, vamos a intentar `explotarla` haciendo un `path traversal` y `haciendo que se cachee el contenido que hay en la ruta /my-account`
+
+```
+/resources/..%2fmy-account
+```
 
 ![](/assets/img/Web-Cache-Deception-Lab-3/image_15.png)
 
