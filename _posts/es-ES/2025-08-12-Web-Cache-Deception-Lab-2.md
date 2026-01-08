@@ -44,13 +44,25 @@ Vemos que `/my-account` es un `endpoint` que `expone información sensible`
 
 `Capturamos` la `petición` a este `endpoint` mediante `Burpsuite` y `testeamos si la web utiliza mapeo tradicional de URL o mapeo REST`. Esto lo podemos hacer `añadiendo una ruta aleatoria después de una ruta que si sabemos que existe`, por ejemplo, `/my-account/foo`. En este caso, no nos `resuelve` a `/my-account`, por lo tanto, `podemos estar seguros de que estamos ante un mapeo tradicional de URL`. Como el `servidor de origen` usa `mapeo tradicional de URL`, podemos `descartar` la `posiblidad` de que `exista alguna discrepancia en el mapeo de rutas`, debido a que `el servidor de caché siempre usa mapeo tradicional de URL` 
 
+```
+/my-account/foo
+```
+
 ![](/assets/img/Web-Cache-Deception-Lab-2/image_4.png)
 
 El `siguiente paso` es `comprobar que delimitadores usa`, para ello, el `primer paso` que debemos hacer es `añadir una cadena aleatoria después de la ruta`, por ejemplo `/my-accountfoo` y `ver como responde el servidor`. Esto lo hacemos porque `si la respuesta es idéntica a la respuesta original, esto indica que la solicitud está siendo redirigida y deberemos de elegir un endpoint diferente para realizar las pruebas`. En este caso nos `devuelve` un `404`, por lo tanto, `podemos continuar usando este endpoint para los testeos`
 
+```
+/my-accountfoo
+```
+
 ![](/assets/img/Web-Cache-Deception-Lab-2/image_5.png)
 
 A continuación, `añadimos un posible carácter delimitador entre la ruta original y la cadena arbitraria, por ejemplo /my-account;foo`. En nuestro caso, vamos a `enviar` la `petición` al `Intruder` y a `usar` esta `lista de caracteres que actúan como delimitadores` [https://portswigger.net/web-security/web-cache-deception/wcd-lab-delimiter-list](https://portswigger.net/web-security/web-cache-deception/wcd-lab-delimiter-list)
+
+```
+/my-accountFUZZfoo
+```
 
 ![](/assets/img/Web-Cache-Deception-Lab-2/image_6.png)
 
@@ -75,6 +87,10 @@ Y aquí vemos como se está `cacheando` un `archivo` con `extensión .js`
 ![](/assets/img/Web-Cache-Deception-Lab-2/image_11.png)
 
 `Añadimos` la `extensión .js` a nuestro `payload`, `enviamos la petición y vemos que se nos cachea`
+
+```
+/my-account;foo.js
+```
 
 ![](/assets/img/Web-Cache-Deception-Lab-2/image_12.png)
 
