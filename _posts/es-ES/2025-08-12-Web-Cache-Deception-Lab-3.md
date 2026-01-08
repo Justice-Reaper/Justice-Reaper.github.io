@@ -58,7 +58,7 @@ Es `importante` que `desactivemos` el `Payload encoding`
 
 ![](/assets/img/Web-Cache-Deception-Lab-3/image_7.png)
 
-`Efectuamos` el `ataque` y vemos que el `único caracter que actúa como delimitador es ?`. Sin embargo, dado que `?` es la `sintaxis de consulta de URL`, podemos `ignorarlo`
+`Efectuamos` el `ataque` y `comprobamos` que el `único carácter` que `actúa` como `delimitador` es `?`. No obstante, `al tratarse de un carácter reservado para la cadena de consulta de la URL, podemos descartarlo`
 
 ![](/assets/img/Web-Cache-Deception-Lab-3/image_8.png)
 
