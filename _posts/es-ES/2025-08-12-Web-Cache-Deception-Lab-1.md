@@ -44,9 +44,17 @@ Vemos que `/my-account` es un `endpoint` que `expone información sensible`
 
 `Capturamos` la `petición` a este `endpoint` mediante `Burpsuite` y `testeamos si la web utiliza mapeo tradicional de URL o mapeo REST`. Esto lo podemos hacer `añadiendo una ruta aleatoria después de una ruta que si sabemos que existe`, por ejemplo, `/my-account/foo`. En este caso, nos `resuelve` a `/my-account`, por lo tanto, `podemos estar seguros de que estamos ante un mapeo REST de URL`
 
+```
+/my-account/foo
+```
+
 ![](/assets/img/Web-Cache-Deception-Lab-1/image_4.png)
 
 El `siguiente paso` es `comprobar` si `la caché mapea la ruta de la URL a los recursos`, es decir, tenemos que  `comprobar ` si  `la caché toma toda la ruta como válida, aunque incluya subrutas o extensiones que no existen realmente en el backend `. Si  `añadimos ` alguna de las extensiones `.js`, `.css` o `.svg`, el  `recurso /my-account` se `almacena` en la `caché`. Esto lo podemos saber gracias a las `cabeceras X-Cache: miss, Cache-Control: max-age=30 y Age: 1`
+
+```
+/my-account/foo.js
+```
 
 ![](/assets/img/Web-Cache-Deception-Lab-1/image_5.png)
 
