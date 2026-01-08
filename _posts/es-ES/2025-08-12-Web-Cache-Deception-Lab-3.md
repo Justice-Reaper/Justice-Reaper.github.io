@@ -42,7 +42,7 @@ Vemos que `/my-account` es un `endpoint` que `expone información sensible`
 
 ![](/assets/img/Web-Cache-Deception-Lab-3/image_3.png)
 
-`Capturamos` la `petición` a este `endpoint` mediante `Burpsuite` y `testeamos si la web utiliza mapeo tradicional de URL o mapeo REST`. Esto lo podemos hacer `añadiendo una ruta aleatoria después de una ruta que si sabemos que existe`, por ejemplo, `/my-account/foo`. En este caso, no nos `resuelve` a `/my-account`, por lo tanto, `podemos estar seguros de que estamos ante un mapeo tradicional de URL`
+`Capturamos` la `petición` a este `endpoint` mediante `Burpsuite` y `testeamos si la web utiliza mapeo tradicional de URL o mapeo REST`. Esto lo podemos hacer `añadiendo una ruta aleatoria después de una ruta que si sabemos que existe`, por ejemplo, `/my-account/foo`. En este caso, no nos `resuelve` a `/my-account`, por lo tanto, `podemos estar seguros de que estamos ante un mapeo tradicional de URL`. Como el `servidor de origen` usa `mapeo tradicional de URL`, podemos `descartar` la `posiblidad` de que `exista alguna discrepancia en el mapeo de rutas`, debido a que `el servidor de caché siempre usa mapeo tradicional de URL` 
 
 ![](/assets/img/Web-Cache-Deception-Lab-3/image_4.png)
 
