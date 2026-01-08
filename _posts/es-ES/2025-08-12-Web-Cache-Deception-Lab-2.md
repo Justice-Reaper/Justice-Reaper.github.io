@@ -62,7 +62,7 @@ Es `importante` que `desactivemos` el `Payload encoding`
 
 ![](/assets/img/Web-Cache-Deception-Lab-2/image_8.png)
 
-Dado que `?` es la `sintaxis de consulta de URL`, podemos `ignorarlo`. Por lo tanto, el carácter `;` es el `delimitador` que `interpreta` el `servidor de origen`. El `siguiente paso`, es ver que `extensiones de archivo` son `cacheadas`. Esto se puede ver fácilmente mediante un `ataque de fuerza bruta` o podemos dirigimos a `Target > Site map` y `ver que elementos se están almacenando en la caché`. En este caso sabemos que los `archivos` con `extensiones .js y .svg se almacenan en la caché`
+Dado que `?` es un `carácter reservado para la cadena de consulta de la URL, podemos descartarlo`, podemos `ignorarlo`. Por lo tanto, el carácter `;` es el `delimitador` que `interpreta` el `servidor de origen`. El `siguiente paso`, es ver que `extensiones de archivo` son `cacheadas`. Esto se puede ver fácilmente mediante un `ataque de fuerza bruta` o podemos dirigimos a `Target > Site map` y `ver que elementos se están almacenando en la caché`. En este caso sabemos que los `archivos` con `extensiones .js y .svg se almacenan en la caché`
 
 ![](/assets/img/Web-Cache-Deception-Lab-2/image_9.png)
 
