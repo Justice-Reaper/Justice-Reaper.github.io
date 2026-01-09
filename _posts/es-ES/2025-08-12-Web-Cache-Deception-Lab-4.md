@@ -29,7 +29,7 @@ Para `resolver` el `laboratorio`, debemos `encontrar` la `API key` del usuario `
 ---
 
 ## Resolución
-
+d
 Al `acceder` a la `web` vemos `esto`
 
 ![](/assets/img/Web-Cache-Deception-Lab-4/image_1.png)
