@@ -605,6 +605,8 @@ XXHunter [https://xsshunter.trufflesecurity.com/app/#](https://xsshunter.truffl
 BXSSHunter [https://bxsshunter.com](https://bxsshunter.com)
     
 XSSReport [https://xss.report](https://xss.report)
+
+XSS Scanner [https://github.com/HackUnderway/xss_scanner.git](https://github.com/HackUnderway/xss_scanner.git)
     
 DOM Invader [https://portswigger.net/burp/documentation/desktop/tools/dom-invader](https://portswigger.net/burp/documentation/desktop/tools/dom-invader)
 
