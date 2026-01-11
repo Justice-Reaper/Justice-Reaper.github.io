@@ -1,6 +1,6 @@
 ---
-title: Web cache deception lab 2
-description: Exploiting path delimiters for web cache deception
+title: Exploiting path delimiters for web cache deception
+description: Laboratorio de Portswigger sobre Web Cache Deception
 date: 2025-08-12 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper
