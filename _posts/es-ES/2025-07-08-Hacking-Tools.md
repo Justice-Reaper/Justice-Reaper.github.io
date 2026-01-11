@@ -780,6 +780,14 @@ OpenAPI Parser [https://github.com/PortSwigger/openapi-parser.git](https://githu
 
 API Exporter [https://github.com/PortSwigger/api-exporter.git](https://github.com/PortSwigger/api-exporter.git)
 
+#### Web cache deception
+
+Lista de delimitadores [https://portswigger.net/web-security/web-cache-deception/wcd-lab-delimiter-list](https://portswigger.net/web-security/web-cache-deception/wcd-lab-delimiter-list)
+
+WcDetect [https://github.com/c0dejump/wcDetect.git](https://github.com/c0dejump/wcDetect.git)
+
+Cache Deception Scanner [https://github.com/Nowafen/cache-deception-scanner.git](https://github.com/Nowafen/cache-deception-scanner.git)
+
 ## Exfiltrar datos
 
 ICMP Exfil [https://github.com/Frib1t/ICMP-Exfil.git](https://github.com/Frib1t/ICMP-Exfil.git)
