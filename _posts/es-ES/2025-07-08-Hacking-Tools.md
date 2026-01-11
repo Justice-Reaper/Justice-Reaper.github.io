@@ -52,7 +52,11 @@ Hack Forums [https://hackforums.net](https://hackforums.net)
 
 Dark Forums [https://darkforums.st](https://darkforums.st)
 
+Breach Forums [https://breachforums.bf/](https://breachforums.bf/)
+
 Hack Forums [https://hackforums.net](https://hackforums.net)
+
+Cracked.sh [https://cracked.sh/](https://cracked.sh/)
 
 BreachStars [https://breachstars.io](https://breachstars.io)
 
