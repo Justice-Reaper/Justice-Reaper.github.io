@@ -1,6 +1,6 @@
 ---
-title: Web cache deception lab 4
-description: Exploiting cache server normalization for web cache deception
+title: Exploiting cache server normalization for web cache deception
+description: Laboratorio de Portswigger sobre Web Cache Deception
 date: 2025-08-12 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper
