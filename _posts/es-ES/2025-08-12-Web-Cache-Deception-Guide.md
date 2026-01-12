@@ -21,7 +21,7 @@ image:
   
 ## Descripción
 
-`Explicación técnica de la vulnerabilidad web cache deception`. Detallamos cómo `identificar` y `explotar` esta `vulnerabilidad`. Además, exploramos `estrategias clave para prevenirlas`
+`Explicación técnica de la vulnerabilidad web cache deception`. Detallamos cómo `identificar` y `explotar` esta `vulnerabilidad`. Además, exploramos `estrategias clave para prevenirla`
 
 ---
 
