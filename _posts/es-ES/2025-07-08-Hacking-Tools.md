@@ -182,6 +182,14 @@ MobSF [https://github.com/MobSF/Mobile-Security-Framework-MobSF.git](https://git
 
 GrapheneOS [https://grapheneos.org](https://grapheneos.org)
 
+### Tweaks
+
+Magisk [https://github.com/topjohnwu/Magisk.git](https://github.com/topjohnwu/Magisk.git)
+
+Cert Fixer [https://github.com/pwnlogs/cert-fixer.git](https://github.com/pwnlogs/cert-fixer.git)
+
+FlagSecurePatcher [https://github.com/j-hc/FlagSecurePatcher.git](https://github.com/j-hc/FlagSecurePatcher.git)
+
 ## Cloud
 
 Prowler [https://github.com/prowler-cloud/prowler.git](https://github.com/prowler-cloud/prowler.git)
