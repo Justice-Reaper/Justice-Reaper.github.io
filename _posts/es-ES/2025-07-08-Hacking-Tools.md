@@ -136,6 +136,12 @@ DeepSeek [https://chat.deepseek.com](https://chat.deepseek.com)
 
 ChatGPT [https://chatgpt.com](https://chatgpt.com)
 
+Ollama [https://ollama.com/](https://ollama.com/)
+
+OpenCode [https://opencode.ai/](https://opencode.ai/)
+
+OpenRouter [https://openrouter.ai/](https://openrouter.ai/)
+
 ## VPNs
 
 TorGuard [https://torguard.net](https://torguard.net)
