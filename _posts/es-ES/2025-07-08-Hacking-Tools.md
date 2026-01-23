@@ -94,7 +94,7 @@ Awesome Burp Extensions [https://github.com/snoopysecurity/awesome-burp-extensio
 
 Reddit Hacking Wiki [https://www.reddit.com/r/hacking/wiki/index](https://www.reddit.com/r/hacking/wiki/index)
 
-## Ordenadores
+## Hardware
 
 System76 [https://system76.com](https://system76.com)
 
@@ -104,9 +104,13 @@ Slimbook [https://slimbook.com](https://slimbook.com)
 
 Tuxedo computers [https://www.tuxedocomputers.com/index.php](https://www.tuxedocomputers.com/index.php)
 
+NovaCustom [https://novacustom.com/](https://novacustom.com/)
+
 ## Sistemas operativos
 
 Kali Linux [https://www.kali.org](https://www.kali.org)
+
+### Entornos de escritorios
 
 AutoBSPWM [https://github.com/Justice-Reaper/AutoBspwmKali.git](https://github.com/Justice-Reaper/AutoBspwmKali.git)
 
