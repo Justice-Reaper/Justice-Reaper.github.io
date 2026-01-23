@@ -106,6 +106,8 @@ Tuxedo computers [https://www.tuxedocomputers.com/index.php](https://www.tuxedoc
 
 NovaCustom [https://novacustom.com/](https://novacustom.com/)
 
+Purism [https://puri.sm/](https://puri.sm/)
+
 ## Sistemas operativos
 
 Kali Linux [https://www.kali.org](https://www.kali.org)
