@@ -112,6 +112,12 @@ Purism [https://puri.sm/](https://puri.sm/)
 
 Kali Linux [https://www.kali.org](https://www.kali.org)
 
+Whonix [https://www.whonix.org/](https://www.whonix.org/)
+
+Qubes OS [https://www.qubes-os.org/](https://www.qubes-os.org/)
+
+Tails [https://tails.net/](https://tails.net/)
+
 ### Entornos de escritorios
 
 AutoBSPWM [https://github.com/Justice-Reaper/AutoBspwmKali.git](https://github.com/Justice-Reaper/AutoBspwmKali.git)
@@ -148,7 +154,11 @@ OpenCode [https://opencode.ai/](https://opencode.ai/)
 
 OpenRouter [https://openrouter.ai/](https://openrouter.ai/)
 
-## VPNs
+## DNS
+
+Quad9 [https://quad9.net/](https://quad9.net/)
+
+## VPN
 
 TorGuard [https://torguard.net](https://torguard.net)
 
