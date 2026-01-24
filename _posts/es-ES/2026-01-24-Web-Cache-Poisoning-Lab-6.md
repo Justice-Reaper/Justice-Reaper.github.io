@@ -1,7 +1,7 @@
 ---
 title: Web cache poisoning via an unkeyed query parameter
 description: Laboratorio de Portswigger sobre Web Cache Poisoning
-date: 2026-24-01 12:30:00 +0800
+date: 2026-01-24 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
