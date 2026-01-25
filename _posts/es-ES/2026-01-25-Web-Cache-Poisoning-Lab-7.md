@@ -1,7 +1,7 @@
 ---
 title: Parameter cloaking
 description: Laboratorio de Portswigger sobre Web Cache Poisoning
-date: 2026-24-01 12:30:00 +0800
+date: 2026-01-25 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
