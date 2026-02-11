@@ -548,6 +548,8 @@ PDF Render [https://github.com/PortSwigger/pdf-render.git](https://github.com/Po
 
 ### Herramientas de propósito general
 
+Diff Hunter [https://github.com/Justice-Reaper/Diff-Hunter.git](https://github.com/Justice-Reaper/Diff-Hunter.git)
+
 Param Miner [https://github.com/PortSwigger/param-miner.git](https://github.com/PortSwigger/param-miner.git)
 
 Sign Saboteur [https://github.com/PortSwigger/sign-saboteur.git](https://github.com/PortSwigger/sign-saboteur.git)
@@ -819,6 +821,10 @@ Lista de delimitadores [https://portswigger.net/web-security/web-cache-deception
 WcDetect [https://github.com/c0dejump/wcDetect.git](https://github.com/c0dejump/wcDetect.git)
 
 Cache Deception Scanner [https://github.com/Nowafen/cache-deception-scanner.git](https://github.com/Nowafen/cache-deception-scanner.git)
+
+#### Web cache deception
+
+Web Cache Vulnerability Scanner [https://github.com/Hackmanit/Web-Cache-Vulnerability-Scanner.git](https://github.com/Hackmanit/Web-Cache-Vulnerability-Scanner.git)
 
 ## Exfiltrar datos
 
