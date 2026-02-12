@@ -44,7 +44,7 @@ Para `comprender` cómo `surgen` las `vulnerabilidades` de `web cache poisoning`
 
 `La caché se sitúa entre el servidor y el usuario, donde guarda (almacena en caché) las respuestas a determinadas solicitudes, normalmente durante un período de tiempo fijo`. `Si otro usuario envía una solicitud equivalente, la caché simplemente sirve una copia de la respuesta almacenada directamente al usuario, sin que el backend intervenga`. `Esto reduce considerablemente la carga del servidor al disminuir el número de solicitudes duplicadas que debe procesar`
 
-![[Web-Cache-Poisoning-Guide/image_1.png]]
+![](/assets/img/Web-Cache-Poisoning-Guide/image_1.png)
 
 ## ¿Qué son las claves de caché?
 
@@ -86,7 +86,7 @@ Afortunadamente, `es posible automatizar el proceso de identificación de entrad
 
 Por ejemplo, `en la siguiente captura de pantalla, Param Miner detectó la cabecera X-Forwarded-Host unkeyed en la página principal del sitio web`
 
-![[Web-Cache-Poisoning-Guide/image_2.png]]
+![](/assets/img/Web-Cache-Poisoning-Guide/image_2.png)
 
 `Al testear entradas unkeyed en un sitio web en producción, existe el riesgo de provocar inadvertidamente que la caché sirva las respuestas que generes a usuarios reales`. Por lo tanto, `es importante asegurarse de que todas tus solicitudes tengan una clave caché única, de modo que solo se nos sirvan a nosotros`. Para lograrlo, `podemos añadir manualmente un cache buster (como un parámetro único) a la línea de la solicitud (método + URL + versión HTTP) cada vez que realicemos una petición`. Alternativamente, `si usamos Param Miner, existen opciones para añadir automáticamente un cache buster a cada solicitud`
 
@@ -100,7 +100,7 @@ Una vez que hayamos `identificado` una `entrada unkeyed`, el `siguiente paso` es
 
 `El hecho de que una respuesta se almacene o no en caché puede depender de numerosos factores, como la extensión del archivo, el tipo de contenido, la ruta, el código de estado y las cabeceras de la respuesta`. Probablemente `necesitaremos dedicar tiempo a experimentar con solicitudes en distintas páginas y a estudiar cómo se comporta la caché`. Una vez que `determinemos cómo conseguir que se almacene en caché una respuesta que contenga nuestra entrada maliciosa, estaremos listos para enviar el exploit a las posibles víctimas`
 
-![[Web-Cache-Poisoning-Guide/image_3.png]]
+![](/assets/img/Web-Cache-Poisoning-Guide/image_3.png)
 
 ## Explotar fallos de diseño de la caché
 
