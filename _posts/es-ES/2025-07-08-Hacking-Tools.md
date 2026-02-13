@@ -42,6 +42,8 @@ Distributed Denial of Secrets [https://ddosecrets.com/](https://ddosecrets.com/)
 
 Size Of Cat [https://sizeof.cat/](https://sizeof.cat/)
 
+Defsec [https://defsec.noblogs.org/](https://defsec.noblogs.org/)
+
 WikiLeaks [https://wikileaks.org/](https://wikileaks.org/)
 
 Security Cipher [https://securitycipher.com/](https://securitycipher.com/)
