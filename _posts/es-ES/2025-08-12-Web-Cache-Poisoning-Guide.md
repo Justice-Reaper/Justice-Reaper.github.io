@@ -5,12 +5,9 @@ date: 2025-08-12 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger Labs
-  - Web Cache Poisoning
+  - Portswigger Guides
 tags:
-  - Portswigger Labs
-  - Web Cache Deception
-  - Exploiting origin server normalization for web cache deception
+  - Portswigger Guides
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
