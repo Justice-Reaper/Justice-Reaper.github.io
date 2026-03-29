@@ -6,11 +6,11 @@ lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger Labs
-  - Web Cache Poisoning
+  - HTTP Host Header Attacks
 tags:
   - Portswigger Labs
-  - Web Cache Poisoning
-  - Web cache poisoning with an unkeyed header
+  - HTTP Host Header Attacks
+  - Basic password reset poisoning
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
@@ -34,52 +34,52 @@ Puedes `iniciar sesión` en nuestra `propia cuenta` usando las `credenciales wie
 
 Al `acceder` a la `web` vemos `esto`
 
-![[image_1.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-1/image_1.png)
 
 Si `pinchamos` sobre `My account` vemos esto
 
-![[image_2.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-1/image_2.png)
 
 Nos podemos `loguearnos` las `credenciales wiener:peter`
 
-![[image_3.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-1/image_3.png)
 
-![[image_4.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-1/image_4.png)
 
 `Pulsamos` sobre `Forgot password?`, `introducimos` nuestro `email` y hacemos `click` en `Submit`
 
-![[image_5.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-1/image_5.png)
 
 `Si hacemos lo anterior nos llegará este email a nuestro correo`. Para `acceder` a nuestro `email` debemos `pulsar` en `Exploit server > Email client`
 
-![[image_6.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-1/image_6.png)
 
 Si nos fijamos bien, `el token para resetear la contraseña viaja en la URL`, por lo tanto, si conseguimos `cambiar` el `valor de la cabecera Host por el dominio de nuestro Exploit server`, podríamos `obtener` el `token de reseteo de contraseña` del `usuario carlos`. Para esto, lo `primero` es `pulsar` en `Forgot password?` nuevamente y `capturar la petición`
 
-![[image_7.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-1/image_7.png)
 
 El `siguiente paso` es `cambiar el valor de la cabecera Host por el dominio de nuestro Exploit server` y `enviar` la `petición`
 
-![[image_8.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-1/image_8.png)
 
 Si nos `dirigimos` a `Exploit server > Email client`, vemos como el `Host` ha `cambiado` y `ahora apunta al dominio de nuestro Exploit Server`
 
-![[image_9.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-1/image_9.png)
 
 Una vez hemos `comprobado` esto, `cambiamos el valor de la cabecera Host por el dominio de nuestro Exploit server` y el `username` por `carlos`
 
-![[image_10.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-1/image_10.png)
 
 Una vez hecho esto, nos `dirigimos` a `Exploit server > Access log` y vemos que `hemos recibido el token temporal de reseteo de contraseña del usuario carlos`. Esto se debe a que `carlos ha entrado a su bandeja de correo y ha pinchado sobre el enlace`
 
-![[image_11.png|687]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-1/image_11.png|687)
 
 Una vez hemos `obtenido` el `token`, `accedemos` a esta `URL https://0aa1009603f8bb0b83920af3003400c4.web-security-academy.net/forgot-password?temp-forgot-password-token=2x83ziujwa4mhu8btlfjupliu178b3se` y le `cambiamos` la `contraseña` al `usuario carlos`
 
-![[image_12.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-1/image_12.png)
 
 `Iniciamos sesión` en la `cuenta` del `usuario carlos`
 
-![[image_13.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-1/image_13.png)
 
-![[image_14.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-1/image_14.png)
