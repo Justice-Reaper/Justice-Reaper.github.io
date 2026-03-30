@@ -6,11 +6,11 @@ lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger Labs
-  - Web Cache Poisoning
+  - HTTP Host Header Attacks
 tags:
   - Portswigger Labs
-  - Web Cache Poisoning
-  - Web cache poisoning with an unkeyed header
+  - HTTP Host Header Attacks
+  - Web cache poisoning via ambiguous requests
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
@@ -32,19 +32,19 @@ Este `laboratorio` es `vulnerable` a `web cache poisoning` debido a `discrepanci
 
 Al `acceder` a la `web` vemos `esto`
 
-![[image_1.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-3/image_1.png)
 
 En este `laboratorio` he `crawleado` la `web` mediante `Burpsuite`. Para hacer esto, he `añadido` el `dominio` al `scope`, posteriormente me he `dirigido` a `Target > Site map`, he hecho `click derecho sobre el dominio > Scan y he seleccionado la opción Crawl`
 
-![[image_2.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-3/image_2.png)
 
-![[image_3.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-3/image_3.png)
 
 `Me ha llamado la atención este archivo porque a parte de almacenarse en caché, luce así en el código fuente`. Por lo tanto, `si hubiera alguna forma de manipular el Host y proporcionar nosotros uno, podríamos llevar a cabo un web cache poisoning`
 
-![[image_4.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-3/image_4.png)
 
-![[image_5.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-3/image_5.png)
 
 Para `identificar` si `existe` un `web cache poisoning`, he `usado` la `herramienta Web-Cache-Vulnerability-Scanner` [https://github.com/Hackmanit/Web-Cache-Vulnerability-Scanner.git](https://github.com/Hackmanit/Web-Cache-Vulnerability-Scanner.git). Como podemos ver aquí, me ha `identificado` que `al modificar el valor de la cabecera Host, este nuevo valor se refleja en la respuesta`
 
@@ -143,15 +143,15 @@ hOsT: p163962381483' -H 'User-Agent: WebCacheVulnerabilityScanner v2.0.0' 'https
 
 `He intentado modificar el valor directamente pero no ha dado resultado`
 
-![[image_6.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-3/image_6.png)
 
 Sin embargo, `he añadido una nueva cabecera Host` y en este caso, `sí que ha funcionado`. Además, `la cabecera X-Cache: hit nos está diciendo que la respuesta está siendo almacenada en caché`
 
-![[image_7.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-3/image_7.png)
 
 Una vez sabemos esto, vamos a `crear` un `payload`. Para ello, lo `primero` es `modificar` el `content-type` y la `ruta del payload`
 
-![[image_8.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-3/image_8.png)
 
 Lo siguiente es `pegar` este `payload` en el `body` y `pulsar` en `Store`
 
@@ -159,12 +159,12 @@ Lo siguiente es `pegar` este `payload` en el `body` y `pulsar` en `Store`
 alert(document.cookie)
 ```
 
-![[image_9.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-3/image_9.png)
 
 Una vez hemos hecho esto, el `último paso` es `envenenar la caché nuevamente pero haciendo que apunte a nuestro Exploit server`
 
-![[image_10.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-3/image_10.png)
 
 `Para comprobar si funciona, debemos de acceder a la página principal y ver si nos salta esta alerta`
 
-![[image_11.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-3/image_11.png)
