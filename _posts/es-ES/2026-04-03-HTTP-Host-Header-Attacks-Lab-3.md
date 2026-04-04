@@ -1,7 +1,7 @@
 ---
 title: Web cache poisoning via ambiguous requests
 description: Laboratorio de Portswigger sobre HTTP Host Header Attacks
-date: 2026-24-01 12:30:00 +0800
+date: 2026-04-03 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
