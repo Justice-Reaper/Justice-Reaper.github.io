@@ -6,11 +6,11 @@ lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger Labs
-  - Web Cache Poisoning
+  - HTTP Host Header Attacks
 tags:
   - Portswigger Labs
-  - Web Cache Poisoning
-  - Web cache poisoning with an unkeyed header
+  - HTTP Host Header Attacks
+  - Host validation bypass via connection state attack
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
@@ -32,43 +32,43 @@ Este `laboratorio` es `vulnerable` a `Routing-based SSRF` a `través` de la `cab
 
 Al `acceder` a la `web` vemos `esto`
 
-![[image_1.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-6/image_1.png)
 
 He `capturado` la `petición` a la `raíz` de la `web` y he `lanzado` la `herramienta HTTP Request Smuggler` [https://github.com/PortSwigger/http-request-smuggler.git](https://github.com/PortSwigger/http-request-smuggler.git) porque he visto que la `web` usa `HTTP 1.1`. `He ido lanzando ataque por ataque y cuando he lanzado Connection-state me ha reportado algo interesante`, esto lo podemos ver `accediendo` a `Target > Site map > Issues`
 
-![[image_2.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-6/image_2.png)
 
-![[image_3.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-6/image_3.png)
 
-![[image_4.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-6/image_4.png)
 
 `Enviamos` la `Request 1` y la `Request 2` al `Repeater` para `testear` su `comportamiento`. Esta es la `primera petición`
 
-![[image_5.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-6/image_5.png)
 
 Esta es la `segunda petición`
 
-![[image_6.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-6/image_6.png)
 
 Ahora vamos a `crear` un `grupo` con estas `dos peticiones` y `las vamos a enviar mediante una misma conexión`. `La primera petición nos devuelve la misma respuesta que si la enviásemos de forma individual`
 
-![[image_7.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-6/image_7.png)
 
 Sin embargo, `la segunda respuesta cambia al enviarse en una misma conexión`
 
-![[image_8.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-6/image_8.png)
 
 `El error de la segunda petición se produce porque el dominio no existe`. Para `verificar` que `esta` es la `causa`, he `usado` un `dominio` de `Burpsuite Collaborator`. Lo que al parecer ha pasado aquí es que `el servidor analiza la cabecera Host`, `comprueba` si su `valor` es un `dominio confiable` o `whitelisteado` y `si no es así, hace un redirect al dominio principal`. Sin embargo, `el servidor asume que solo se va a enviar una petición por conexión, y por lo tanto, solo está verificando que el valor de la cabecera Host que emite la primera petición pertenece al dominio whitelisteado`
 
-![[image_9.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-6/image_9.png)
 
 Una vez hemos conseguido `bypassear` esto, `usamos` la extensión `Host Header Inchecktion` [https://github.com/portswigger/host-header-inchecktion](https://github.com/portswigger/host-header-inchecktion) para `enumerar vulnerabilidades de la cabecera Host`. Para hacerlo debemos pulsar `click derecho > Host Header Inchecktion > Collaborator payload`
 
-![[image_10.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-6/image_10.png)
 
 Una vez haya `terminado`, si nos `vamos` a `Target > Site map > Issues` veremos que nos ha `detectado` un posible `SSRF`
 
-![[image_11.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-6/image_11.png)
 
 Una vez hemos `confirmado` que existe un `SSRF`, vamos a `enumerar direcciones IP internas`. Para hacer esto, `necesitamos generarlas primero`, y para ello vamos a `usar` la herramienta `ipRangeGenerator` [https://github.com/Justice-Reaper/ipRangeGenerator.git](https://github.com/Justice-Reaper/ipRangeGenerator.git). El `enunciado` nos dice que el `CIDR` es `192.168.0.0/24` 
 
@@ -138,18 +138,18 @@ def handleResponse(req, interesting):
     table.add(req)
 ```
 
-![[image_12.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-6/image_12.png)
 
 `Si filtramos por la columna status podemos ver que si la IP existe nos hace un redirect a /admin`. En este caso la `IP` es `192.168.0.1`
 
-![[image_13.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-6/image_13.png)
 
 Una vez sabemos esto, `vamos` al `Repeater` y en la `segunda petición`, `cambiamos` el `valor de la cabecera Host` por `192.168.0.1` y `realizamos` la `petición` a `/admin`
 
-![[image_14.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-6/image_14.png)
 
 Para `ver` la `respuesta` en el `navegador`, hacemos `click derecho > Open response in browser`. `Ponemos como usuario carlos, pulsamos sobre el botón Delete user, capturamos la petición con Burpsuite, la metemos como segunda petición del grupo que tenemos creado en el Repeater y cambiamos el valor de la cabecera Host por 192.168.0.1`. Cuando `enviemos` la `petición` ya habremos `borrado` al `usuario carlos`
 
-![[image_15.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-6/image_15.png)
 
-![[image_16.png]]
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-6/image_16.png)
