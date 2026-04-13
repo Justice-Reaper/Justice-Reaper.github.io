@@ -554,11 +554,17 @@ PDF Render [https://github.com/PortSwigger/pdf-render.git](https://github.com/Po
 
 Diff Hunter [https://github.com/Justice-Reaper/Diff-Hunter.git](https://github.com/Justice-Reaper/Diff-Hunter.git)
 
+Sequencial Replacer [https://github.com/Justice-Reaper/Sequencial-Replacer.git](https://github.com/Justice-Reaper/Sequencial-Replacer.git)
+
 Param Miner [https://github.com/PortSwigger/param-miner.git](https://github.com/PortSwigger/param-miner.git)
 
 Sign Saboteur [https://github.com/PortSwigger/sign-saboteur.git](https://github.com/PortSwigger/sign-saboteur.git)
 
 Turbo Intruder [https://github.com/PortSwigger/turbo-intruder.git](https://github.com/PortSwigger/turbo-intruder.git)
+
+Cachebuster Generator [https://github.com/Justice-Reaper/cachebusterGenerator.git](https://github.com/Justice-Reaper/cachebusterGenerator.git)
+
+IP Range Generator [https://github.com/Justice-Reaper/ipRangeGenerator.git](https://github.com/Justice-Reaper/ipRangeGenerator.git)
 
 ### Vulnerabilidades
 
@@ -826,9 +832,13 @@ WcDetect [https://github.com/c0dejump/wcDetect.git](https://github.com/c0dejump/
 
 Cache Deception Scanner [https://github.com/Nowafen/cache-deception-scanner.git](https://github.com/Nowafen/cache-deception-scanner.git)
 
-#### Web cache deception
+#### Web cache poisoning
 
 Web Cache Vulnerability Scanner [https://github.com/Hackmanit/Web-Cache-Vulnerability-Scanner.git](https://github.com/Hackmanit/Web-Cache-Vulnerability-Scanner.git)
+
+#### Host header attack
+
+Host Header Inchecktion [https://github.com/PortSwigger/host-header-inchecktion.git](https://github.com/PortSwigger/host-header-inchecktion.git)
 
 ## Exfiltrar datos
 
