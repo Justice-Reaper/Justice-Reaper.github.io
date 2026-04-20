@@ -20,7 +20,7 @@ image:
 - BSCP
   
 ## Descripción
-CAMBIAR ESTO
+
 `Explicación técnica de vulnerabilidades la cabecera Host`. Detallamos cómo `identificar` y `explotar` esta `vulnerabilidades`. Además, exploramos `estrategias clave para prevenirlas`
 
 ---
