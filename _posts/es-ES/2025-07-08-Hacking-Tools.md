@@ -864,7 +864,8 @@ Host Header Inchecktion [https://github.com/PortSwigger/host-header-inchecktion.
 - [BlackFan/client-side-prototype-pollution](https://github.com/BlackFan/client-side-prototype-pollution)
 - [yuske/server-side-prototype-pollution](https://github.com/yuske/server-side-prototype-pollution)
 - [yuske/silent-spring](https://github.com/yuske/silent-spring)
-- 
+- [prototype-pollution-gadgets-finder](https://github.com/portswigger/prototype-pollution-gadgets-finder)
+
 ##### Explotación
 
 - [yeswehack/pp-finder](https://github.com/yeswehack/pp-finder)
