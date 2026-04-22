@@ -548,6 +548,8 @@ Software Vulnerability Scanner [https://github.com/PortSwigger/software-vulnerab
 
 ### Utilidades adicionales para Burpsuite
 
+Autovader [https://github.com/PortSwigger/autovader.git](https://github.com/PortSwigger/autovader.git)
+
 Copy As Python Requests [https://github.com/PortSwigger/copy-as-python-requests.git](https://github.com/PortSwigger/copy-as-python-requests.git)
 
 Content Type Converter [https://github.com/PortSwigger/content-type-converter.git](https://github.com/PortSwigger/content-type-converter.git)
