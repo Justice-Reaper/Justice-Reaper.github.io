@@ -844,6 +844,29 @@ Web Cache Vulnerability Scanner [https://github.com/Hackmanit/Web-Cache-Vulnerab
 
 Host Header Inchecktion [https://github.com/PortSwigger/host-header-inchecktion.git](https://github.com/PortSwigger/host-header-inchecktion.git)
 
+#### Prototype pollution
+
+##### Scanners Client-Side
+
+- [msrkp/PPScan](https://github.com/msrkp/PPScan)
+- [kosmosec/proto-find](https://github.com/kosmosec/proto-find)
+- [dwisiswant0/ppfuzz](https://github.com/dwisiswant0/ppfuzz)
+- [kleiton0x00/ppmap](https://github.com/kleiton0x00/ppmap)
+
+##### Detección Server-Side
+
+- [portswigger/server-side-prototype-pollution](https://github.com/portswigger/server-side-prototype-pollution)
+
+##### Gadgets / Investigación
+
+- [BlackFan/client-side-prototype-pollution](https://github.com/BlackFan/client-side-prototype-pollution)
+- [yuske/server-side-prototype-pollution](https://github.com/yuske/server-side-prototype-pollution)
+- [yuske/silent-spring](https://github.com/yuske/silent-spring)
+- 
+##### Explotación
+
+- [yeswehack/pp-finder](https://github.com/yeswehack/pp-finder)
+
 ## Exfiltrar datos
 
 ICMP Exfil [https://github.com/Frib1t/ICMP-Exfil.git](https://github.com/Frib1t/ICMP-Exfil.git)
