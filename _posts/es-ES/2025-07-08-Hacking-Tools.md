@@ -220,6 +220,10 @@ Cert Fixer [https://github.com/pwnlogs/cert-fixer.git](https://github.com/pwnlog
 
 FlagSecurePatcher [https://github.com/j-hc/FlagSecurePatcher.git](https://github.com/j-hc/FlagSecurePatcher.git)
 
+Frida [https://github.com/frida/frida.git](https://github.com/frida/frida.git)
+
+MagiskFrida [https://github.com/ViRb3/magisk-frida.git](https://github.com/ViRb3/magisk-frida.git)
+
 ## Cloud
 
 Prowler [https://github.com/prowler-cloud/prowler.git](https://github.com/prowler-cloud/prowler.git)
