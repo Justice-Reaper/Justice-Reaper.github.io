@@ -869,6 +869,7 @@ Host Header Inchecktion [https://github.com/PortSwigger/host-header-inchecktion.
 - [yuske/server-side-prototype-pollution](https://github.com/yuske/server-side-prototype-pollution)
 - [yuske/silent-spring](https://github.com/yuske/silent-spring)
 - [prototype-pollution-gadgets-finder](https://github.com/portswigger/prototype-pollution-gadgets-finder)
+- [https://github.com/BlackFan/cspp-tools.git](https://github.com/BlackFan/cspp-tools.git)
 
 ##### Explotación
 
