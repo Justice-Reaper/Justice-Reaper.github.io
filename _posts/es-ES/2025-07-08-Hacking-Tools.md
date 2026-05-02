@@ -472,6 +472,10 @@ Retire.js [https://github.com/PortSwigger/retire-js.git](https://github.com/Port
 
 JSAnalyzer [https://github.com/jenish-sojitra/JSAnalyzer.git](https://github.com/jenish-sojitra/JSAnalyzer.git)
 
+### Manipulación y transformación de código JavaScript
+
+Terser [https://github.com/terser/terser.git](https://github.com/terser/terser.git)
+
 ### Enumeración de parámetros
 
 GAP (Get All Parameters, Links, and Words) [https://github.com/PortSwigger/get-all-parameters.git](https://github.com/PortSwigger/get-all-parameters.git)
