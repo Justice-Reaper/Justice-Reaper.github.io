@@ -18,6 +18,91 @@ Todos los `términos` mencionados en las `diferentes categorías` se `encuentran
 
 - Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
 
+## Prototype pollution
+
+1 - Ejecutar la herramienta fileWatcher, interactuar con todas las funciones de la página, abrir la consola de del navegador y filtrar por archivo js en la pestaña Network. Una vez hecho esto, añadir las URLs en las que hay un archivo js a fileWatcher. Una vez hecho esto, interactuar nuevamente con todas las funciones de la web y cada vez que hacemos una acción que consideremos importante checkear si ha cambiado algún archivo js
+
+2 - Eliminamos los comentarios de los archivos js y usamos pp-finder sobre ellos. Es importante que PPF_WRAPPER_NAME no coincida con el nombre de ninguna variable`, de lo contrario, `obtendremos un error`
+
+```
+PPF_WRAPPER_NAME="searchLoggerAlternative_js_file" pp-finder compile --agent browser searchLoggerAlternative.js -o searchLoggerAlternative_compiled.js
+```
+
+3 - El `siguiente paso` es `modificar los archivos js compilados para que cuando nos muestre los gadgets que ha encontrado, sepamos a que archivo js pertenece cada uno`. Antes de ejecutar este comando es importante asegurarse de que los archivos no tenga en el nombre caracteres que no se puedan usar en nombres de variables o de lo contrario nos dará un error cuando abramos la consola del navegador
+
+```
+for f in *_compiled.js; do NAME=$(basename "$f" _compiled.js); sed -i "s|\`\[%cPP%c\]\[%c\${op}%c\] %c\${JSON.stringify(key \|\| \"_\")}%cat \${path} \${loc}\`|\`\[$NAME\]\[%cPP%c\]\[%c\${op}%c\] %c\${JSON.stringify(key \|\| \"_\")}%cat \${path} \${loc}\`|g" "$f"; done
+```
+
+4 - También tenemos que volver a modificar los archivos para que además de mostrarse en la consola del navegador los gadgets encontrados, nos los guarde en un archivo
+
+```
+sed -i 's/console\.log(\.\.\.format(arg));/const formatted = format(arg); console.log(...formatted); fetch("http:\/\/localhost:9090\/log", {method:"POST",headers:{"Content-Type":"text\/plain"},body:formatted[0].replace(\/%c\/g,"")}).catch(()=>{});/' *_compiled.js
+```
+
+5 - Una vez hecho lo anterior vamos a crearnos un archivo con este contenido que se llame server.py y lo ejecutamos con python3 server.py. Esto lo hacemos porque la consola del navegador tiene un límite de contenido a mostrar, además, de esta forma también obtenemos un diccionario con todos los posibles gadgets detectados
+
+```
+#!/usr/bin/python3
+
+from http.server import HTTPServer, BaseHTTPRequestHandler
+import re
+
+LOG_FILE = "logs.txt"
+GADGETS_FILE = "gadgets.txt"
+
+def extract_gadget(line):
+    match = re.search(r'"([^"]+)"', line)
+    return match.group(1) if match else None
+
+class Handler(BaseHTTPRequestHandler):
+    def do_POST(self):
+        length = int(self.headers["Content-Length"])
+        line = self.rfile.read(length).decode()
+
+        with open(LOG_FILE, "a") as f:
+            f.write(line + "\n")
+
+        gadget = extract_gadget(line)
+        if gadget:
+            with open(GADGETS_FILE, "a+") as f:
+                f.seek(0)
+                if gadget not in f.read().splitlines():
+                    f.write(gadget + "\n")
+
+        print(line)
+
+        self.send_response(200)
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.end_headers()
+
+    def do_OPTIONS(self):
+        self.send_response(200)
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.send_header("Access-Control-Allow-Methods", "POST, OPTIONS")
+        self.end_headers()
+
+    def log_message(self, *args):
+        pass
+
+HTTPServer(("localhost", 9090), Handler).serve_forever()
+```
+
+5 - Tenemos que ver en el Logger de Burspuite o en el HTTP history la forma en la que se cargan los archivos js, ya que en el siguiente paso vamos a tener que crear una regex para sustituir esos archivos por los nuestros modificados
+
+6 - Una vez tenemos estos archivos tenemos que `dirigirnos` a `Burpsuite > Proxy settings` y `habilitar` la `checkbox` que dice `Intercept responses based on the following rules`
+
+7 - Lo `siguiente` que vamos a hacer es dirigirnos al Match and replace de Burpsuite y `crear una regex para aplicar estas sustituciones`. En nuestro caso `los archivos js están en el body de la response, por lo que en Type debemos de seleccionar la opción Response body`. En Match lo normal es que debamos de sustituir la carga de scripts de esta manera
+
+```
+<script src='/resources/js/jquery_3-0-0.js'></script>
+```
+
+```
+<script>Pegar el contenido de jquery_3-0-0_compiled.js aquí dentro</script>
+```
+
 ## XXE
 
 1. `Instalar` las `extensiones básicas` de `Burpsuite`
