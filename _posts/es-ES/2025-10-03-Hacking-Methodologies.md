@@ -22,7 +22,7 @@ Todos los `términos` mencionados en las `diferentes categorías` se `encuentran
 
 1 - `Ejecutar` la herramienta `fileWatcher`, `interactuar con todas las funciones de la página`, `abrir la consola de del navegador` y `filtrar por archivos js en la pestaña Network`. Una vez hecho esto, `añadir las URLs en las que hay un archivo js a fileWatcher`. El siguiente paso es `interactuar nuevamente con todas las funciones de la web y cada vez que hacemos una acción que consideremos importante checkeamos si ha cambiado algún archivo js`
 
-![[image_1.png]]
+![](/assets/img/Prototype-Pollution-Methodology/image_1.png)
 
 2 - `Eliminamos los comentarios de los archivos js y usamos pp-finder sobre ellos`. Es importante que `PPF_WRAPPER_NAME no coincida con el nombre de ninguna variable, de lo contrario, nos devolverá un error cuando abramos la consola del navegador`
 
@@ -36,7 +36,7 @@ PPF_WRAPPER_NAME="searchLoggerAlternative_js_file" pp-finder compile --agent bro
 for f in *_compiled.js; do NAME=$(basename "$f" _compiled.js); sed -i "s|\`\[%cPP%c\]\[%c\${op}%c\] %c\${JSON.stringify(key \|\| \"_\")}%cat \${path} \${loc}\`|\`\[$NAME\]\[%cPP%c\]\[%c\${op}%c\] %c\${JSON.stringify(key \|\| \"_\")}%cat \${path} \${loc}\`|g" "$f"; done
 ```
 
-4 - También tenemos que `volver a modificar los archivos para que además de mostrarse en la consola del navegador los gadgets encontrados, nos los guarde en un archivo
+4 - También tenemos que `volver a modificar los archivos para que además de mostrarse en la consola del navegador los gadgets encontrados, nos los guarde en un archivo`
 
 ```
 sed -i 's/console\.log(\.\.\.format(arg));/const formatted = format(arg); console.log(...formatted); fetch("http:\/\/localhost:9090\/log", {method:"POST",headers:{"Content-Type":"text\/plain"},body:formatted[0].replace(\/%c\/g,"")}).catch(()=>{});/' *_compiled.js
@@ -95,7 +95,7 @@ HTTPServer(("localhost", 9090), Handler).serve_forever()
 
 6 - Una vez hecho esto, nos `dirigimos` a `Burpsuite > Proxy settings` y `habilitamos` la `checkbox` que dice `Intercept responses based on the following rules`
 
-![[image_2.png]]
+![](/assets/img/Prototype-Pollution-Methodology/image_2.png)
 
 7 - Lo `siguiente` que vamos a hacer es `dirigirnos` al `Match and replace` de `Burpsuite` y `crear una regex para aplicar estas sustituciones`. En nuestro caso `los archivos js están en el body de la response, por lo que en Type debemos de seleccionar la opción Response body`. En `Match` lo `normal` es que `debamos de sustituir la carga de los scripts de esta manera`
 
@@ -107,23 +107,23 @@ HTTPServer(("localhost", 9090), Handler).serve_forever()
 <script>Pegar el contenido de searchLoggerAlternative_compiled.js aquí dentro</script>
 ```
 
-![[image_3.png]]
+![](/assets/img/Prototype-Pollution-Methodology/image_3.png)
 
 8 - A continuación tenemos que `tunelizar el tráfico a través de Burpsuite para que se lleven a cabo las sustituciones que hemos configurado anteriormente`, `abrir la consola del navegador`, `recargar la web usando Ctrl + Shift + R e interactuar con todas las funciones de la web nuevamente`. `Si detectamos algún gadget nos aparecerá algo así por consola`. Todos estos `gadgets` se están `registrando` gracias a `server.py` en el archivo `logs.txt` y en el archivo `gadgets.txt`. `Al final de la línea pone el número de fila y el número de columna en la que se ha detectado el gadget`, por ejemplo `1:563`
 
-![[image_4.png]]
+![](/assets/img/Prototype-Pollution-Methodology/image_4.png)
 
 9 - Una vez tenemos este `listado de posibles gadgets` vamos a usar la herramienta `Prototype-Pollution-Hunter` para `validar cuales de estos gadgets podemos usar para la explotación`
 
 10 - `Una vez descubramos que gadgets son válidos, tenemos que ir testeándolos a mano uno a uno porque no sabemos el tipo de payload que necesitan para explotarse`. `Como estamos testeando podemos usar cualquier cadena de texto como valor, por ejemplo foo`. Para hacer esto, debemos `desactivar` el `Match and replace` de `Burpsuite`, `abrir la web en una nueva pestaña`, `abrir la consola de desarrollador`, `pulsar Ctrl + Shift + R` y `dirigirnos al archivo js en el que se encuentra el gadget que vamos a investigar`. Para `ir` a la `línea` y `columna` en la que `encontramos` el `gadget` debemos de `pulsar Ctrl + G` y `escribir númeroDeFila:númeroDeColumna`
 
-![[Pasted image 20260506121921.png]]
+![](/assets/img/Prototype-Pollution-Methodology/image_5.png)
 
-![[Pasted image 20260506122112.png]]
+![](/assets/img/Prototype-Pollution-Methodology/image_6.png)
 
 10 - El `siguiente paso` es `poner un breakpoint en la fila y columna en la que hemos detectado el gadget` y `recargar la web con Ctrl + Shift + R`. `Debemos interactuar con todas las features de la web y ver a donde llega el valor que hemos inyectado mediante el prototype pollution`. `Hacemos esto para ver en todo momento donde acaba el valor que acabamos de inyectar, ya que dependiendo de donde acabe ese valor podemos llevar a cabo diferentes tipo de explotaciones`. Es decir, `no necesariamente necesitamos que llegue a un sink para que tenga un impacto`. Hay que tener en cuenta que `es posible que nos lance una excepción debido al payload que hemos usamos para envenenar el prototipo`, para estos casos, las opciones `Pause on uncaught exception` y `Pause on caught exceptions` nos harán el trabajo más fácil. `Podemos usar estas opciones para ver por qué y donde nos devuelve el error y así ajustar el payload enviado`. Para movernos debemos `usar los elementos que aparecen encima de Paused on breakpoint`
 
-![[Pasted image 20260506124729.png]]
+![](/assets/img/Prototype-Pollution-Methodology/image_7.png)
 
 ## XXE
 
