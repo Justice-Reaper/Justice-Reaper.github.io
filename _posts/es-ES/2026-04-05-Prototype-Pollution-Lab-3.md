@@ -63,15 +63,15 @@ A continuación, nos `abrimos` el `Logger` de `Burspuite` y vemos como se `carga
 El `siguiente paso` que debemos hacer es `descargar estos archivos js` y usar `pp-finder` [https://github.com/yeswehack/pp-finder.git](https://github.com/yeswehack/pp-finder.git) para `detectar posibles gadgets`. Es importante que `los archivos js no contengan comentarios` y que `PPF_WRAPPER_NAME no coincida con el nombre de ninguna variable`, de lo contrario, `obtendremos un error`
 
 ```
-PPF_WRAPPER_NAME="searchLoggerAlternative_js_file" pp-finder compile --agent browser searchLoggerAlternative.js -o searchLoggerAlternative_compiled.js
+PPF_WRAPPER_NAME="searchLoggerAlternative_js_file" npx pp-finder compile --agent browser searchLoggerAlternative.js -o searchLoggerAlternative_compiled.js
 ```
 
 ```
-PPF_WRAPPER_NAME="jquery_parseparams_js_file" pp-finder compile --agent browser jquery_parseparams.js -o jquery_parseparams_compiled.js
+PPF_WRAPPER_NAME="jquery_parseparams_js_file" npx pp-finder compile --agent browser jquery_parseparams.js -o jquery_parseparams_compiled.js
 ```
 
 ```
-PPF_WRAPPER_NAME="jquery_3-0-0_js_file" pp-finder compile --agent browser jquery_3-0-0.js -o jquery_3-0-0_compiled.js
+PPF_WRAPPER_NAME="jquery_3-0-0_js_file" npx pp-finder compile --agent browser jquery_3-0-0.js -o jquery_3-0-0_compiled.js
 ```
 
 El `siguiente paso` es `usar este comando sobre todos los archivos js compilados para que cuando nos muestre los gadgets que ha encontrado, sepamos a que archivo js pertenecen`. `Antes de ejecutar este comando es importante que los archivos no tengan en el nombre caracteres que no se puedan usar en nombres de variables, de lo contrario nos dará un error cuando abramos la consola del navegador`
