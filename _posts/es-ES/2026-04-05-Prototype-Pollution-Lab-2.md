@@ -40,7 +40,7 @@ Lo `primero` que vamos a hacer es `intentar inyectar una propiedad arbitraria a 
 https://0ac800000412a2a68499b387006d0082.web-security-academy.net/?__proto__[foo]=bar
 ```
 
-Lo siguiente que vamos a hacer es `abrirnos la consola del navegador` e `inspeccionar el Object.prototype para ver si lo hemos contaminado correctamente con la propiedad arbitraria`. Como podemos ver, `no hemos conseguido contaminar la propiedad`
+Lo siguiente que vamos a hacer es `abrirnos la consola del navegador` e `inspeccionar el Object.prototype para ver si lo hemos contaminado correctamente con la propiedad arbitraria`. Como podemos ver, `hemos conseguido contaminar la propiedad`
 
 ![](/assets/img/Prototype-Pollution-Lab-2/image_2.png)
 
