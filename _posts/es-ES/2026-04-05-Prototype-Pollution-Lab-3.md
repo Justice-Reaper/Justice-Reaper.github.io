@@ -6,11 +6,11 @@ lang: es-ES
 author: Justice-Reaper
 categories:
   - Portswigger Labs
-  - Web Cache Poisoning
+  - Prototype Pollution
 tags:
   - Portswigger Labs
-  - Web Cache Poisoning
-  - Web cache poisoning with an unkeyed header
+  - Prototype Pollution
+  - DOM XSS via an alternative prototype pollution vector
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
