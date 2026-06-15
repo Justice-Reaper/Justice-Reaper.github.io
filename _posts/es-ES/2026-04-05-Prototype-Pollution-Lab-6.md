@@ -10,7 +10,7 @@ categories:
 tags:
   - Portswigger Labs
   - Prototype Pollution
-  - DOM XSS via an alternative prototype pollution vector
+  - Privilege escalation via server-side prototype pollution
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
@@ -32,30 +32,30 @@ Este `laboratorio` está `construido` sobre `Node.js` y el `framework Express`. 
 
 Al `acceder` a la `web` vemos `esto`
 
-![[image_1.png]]
+![](/assets/img/Prototype-Pollution-Lab-6/image_1.png)
 
 Si `pulsamos` en `My account` y nos `logueamos` con las `credenciales wiener:peter` vemos esto
 
-![[image_2.png]]
+![](/assets/img/Prototype-Pollution-Lab-6/image_2.png)
 
-![[image_3.png]]
+![](/assets/img/Prototype-Pollution-Lab-6/image_3.png)
 
-![[image_4.png]]
+![](/assets/img/Prototype-Pollution-Lab-6/image_4.png)
 
 Si `pulsamos` sobre el `botón Submit` y `miramos` el `Logger` de `Burpsuite` vemos que se `realiza` esta `petición`
 
-![[image_5.png]]
+![](/assets/img/Prototype-Pollution-Lab-6/image_5.png)
 
 Lo primero que vamos a hacer es `ver si podemos envenenar el prototipo`. Para ello, vamos a `usar` este `payload "__proto__":{"foo":"bar"}`. Como podemos ver, `hemos conseguido envenenar el prototipo`
 
-![[image_6.png]]
+![](/assets/img/Prototype-Pollution-Lab-6/image_6.png)
 
 Lo que vamos a hacer ahora es `intentar cambiar la propiedad isAdmin a True`. Es importante recalcar que `esto funcionará siempre y cuando el objeto que estamos viendo en la respuesta esté heredando la propiedad isAdmin del prototipo`. `En caso de que el objeto tenga esa propiedad definida, el ataque no funcionará porque las propiedades propias del objeto tienen prioridad sobre las del prototipo`. Como vemos, `el ataque ha funcionado`, por lo que `podemos confirmar que el objeto está heredando esa propiedad del prototipo`
 
-![[image_7.png]]
+![](/assets/img/Prototype-Pollution-Lab-6/image_7.png)
 
 Si nos dirigimos al `sitio web` vemos que `aparece` un `Admin panel`. Para `completar` el `laboratorio` debemos `pulsar sobre él` y `eliminar al usuario carlos`
 
-![[image_8.png]]
+![](/assets/img/Prototype-Pollution-Lab-6/image_8.png)
 
-![[image_9.png]]
+![](/assets/img/Prototype-Pollution-Lab-6/image_9.png)
