@@ -10,7 +10,7 @@ categories:
 tags:
   - Portswigger Labs
   - Prototype Pollution
-  - DOM XSS via an alternative prototype pollution vector
+  - Remote code execution via server-side prototype pollution
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
@@ -32,35 +32,35 @@ Este `laboratorio` está `construido` sobre `Node.js` y el `framework Express`. 
 
 Al `acceder` a la `web` vemos `esto`
 
-![[image_1.png]]
+![](/assets/img/Prototype-Pollution-Lab-9/image_1.png)
 
 `Pulsamos` en `My account` y nos `logueamos` con las `credenciales wiener:peter`
 
-![[image_2.png]]
+![](/assets/img/Prototype-Pollution-Lab-9/image_2.png)
 
 Vemos que podemos `acceder` al `admin panel`
 
-![[image_3.png]]
+![](/assets/img/Prototype-Pollution-Lab-9/image_3.png)
 
 Si `pulsamos` sobre el `botón Submit` y `miramos` el `Logger` de `Burpsuite` vemos que se `realiza` esta `petición`
 
-![[image_4.png]]
+![](/assets/img/Prototype-Pollution-Lab-9/image_4.png)
 
 Lo primero que vamos a hacer es `ver si podemos envenenar el prototipo`. Para ello, vamos a `usar` este `payload "__proto__":{"json spaces":10}`. Como podemos ver, `hemos conseguido envenenar el prototipo`
 
-![[image_5.png]]
+![](/assets/img/Prototype-Pollution-Lab-9/image_5.png)
 
 Si `pulsamos` sobre `admin panel`, vemos que nos sale esto
 
-![[image_6.png]]
+![](/assets/img/Prototype-Pollution-Lab-9/image_6.png)
 
 Si `pulsamos` sobre `Run maintenance jobs` nos `devuelve` este `mensaje`
 
-![[image_7.png]]
+![](/assets/img/Prototype-Pollution-Lab-9/image_7.png)
 
 Si `capturamos` la `petición` con `Burpsuite` vemos esto
 
-![[image_8.png]]
+![](/assets/img/Prototype-Pollution-Lab-9/image_8.png)
 
 Al tener que `borrar` un `archivo`, vamos a necesitar `ejecutar comandos`. Como he visto el `campo tasks`, he pensado que `puede estar corriendo un proceso hijos de node para cada tarea` . Para `verificar` esto podemos `usar` cualquiera de estos `payloads`:
 
@@ -79,17 +79,17 @@ Al tener que `borrar` un `archivo`, vamos a necesitar `ejecutar comandos`. Como 
 }
 ```
 
-![[image_9.png]]
+![](/assets/img/Prototype-Pollution-Lab-9/image_9.png)
 
 Una vez hemos `envenenado` el `prototipo`, lo que tenemos que hacer es `hacer que se ejecuten los procesos hijos de node`. Para ello `pulsamos` en `Run maintenance jobs`
 
-![[image_10.png]]
+![](/assets/img/Prototype-Pollution-Lab-9/image_10.png)
 
-![[image_11.png]]
+![](/assets/img/Prototype-Pollution-Lab-9/image_11.png)
 
 Una vez hecho esto, si nos `dirigimos` a `Burpsuite Collaborator` vemos que `nos han llegado 4 peticiones`
 
-![[image_12.png]]
+![](/assets/img/Prototype-Pollution-Lab-9/image_12.png)
 
 El `siguiente paso` que vamos a hacer es `ejecutar comandos` y `eliminar el archivo morale.txt`
 
@@ -101,10 +101,10 @@ El `siguiente paso` que vamos a hacer es `ejecutar comandos` y `eliminar el arch
 }
 ```
 
-![[image_13.png]]
+![](/assets/img/Prototype-Pollution-Lab-9/image_13.png)
 
 `Para que se ejecute el comando debemos de pulsar de nuevo sobre Run maintenance jobs`
 
-![[image_14.png]]
+![](/assets/img/Prototype-Pollution-Lab-9/image_14.png)
 
-![[image_15.png]]
+![](/assets/img/Prototype-Pollution-Lab-9/image_15.png)
