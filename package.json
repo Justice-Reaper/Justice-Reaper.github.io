@@ -29,9 +29,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.27.1",
-    "@babel/plugin-transform-class-properties": "^8.0.0",
-    "@babel/plugin-transform-private-methods": "^8.0.0",
-    "@babel/preset-env": "^8.0.0",
+    "@babel/plugin-transform-class-properties": "^7.27.1",
+    "@babel/plugin-transform-private-methods": "^7.27.1",
+    "@babel/preset-env": "^7.27.1",
     "@commitlint/cli": "^21.0.2",
     "@commitlint/config-conventional": "^21.0.2",
     "@rollup/plugin-babel": "^7.1.0",
