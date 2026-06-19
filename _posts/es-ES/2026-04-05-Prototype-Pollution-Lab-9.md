@@ -34,7 +34,7 @@ Al `acceder` a la `web` vemos `esto`
 
 ![](/assets/img/Prototype-Pollution-Lab-9/image_1.png)
 
-`Pulsamos` en `My account` y nos `logueamos` con las `credenciales wiener:peter` adfasdf
+`Pulsamos` en `My account` y nos `logueamos` con las `credenciales wiener:peter`
 
 ![](/assets/img/Prototype-Pollution-Lab-9/image_2.png)
 
