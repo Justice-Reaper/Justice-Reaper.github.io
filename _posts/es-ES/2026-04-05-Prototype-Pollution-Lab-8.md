@@ -46,7 +46,7 @@ Si `pulsamos` sobre el `botón Submit` y `miramos` el `Logger` de `Burpsuite` ve
 
 ![](/assets/img/Prototype-Pollution-Lab-8/image_5.png)
 
-Lo primero que vamos a hacer es `ver si podemos envenenar el prototipo`. Para ello, vamos a `usar` este `payload "__proto__":{"foo":"bar"}`. Como podemos ver, `no hemos conseguido envenenar el prototipo`, o también puede ser que `hayamos conseguido envenenarlo pero que no se refleje en la respuesta`
+Lo primero que vamos a hacer es `ver si podemos envenenar el prototipo`. Para ello, vamos a `usar` este `payload "\_\_proto\_\_":{"foo":"bar"}`. Como podemos ver, `no hemos conseguido envenenar el prototipo`, o también puede ser que `hayamos conseguido envenenarlo pero que no se refleje en la respuesta`
 
 ![](/assets/img/Prototype-Pollution-Lab-8/image_6.png)
 
@@ -62,7 +62,7 @@ Ahora tenemos que `volver a provocar el error para ver si cambiar el status a 41
 
 ![](/assets/img/Prototype-Pollution-Lab-8/image_9.png)
 
-En vez de usar `__proto__` vamos a usar `constructor`. `Ahora si que funciona, vemos que el valor se refleja en la respuesta, por lo tanto el problema no era que la propiedad modificada no se reflejara en la respuesta, si no que __proto__ debe de estar blacklisteado`
+En vez de usar `\_\_proto\_\_` vamos a usar `constructor`. `Ahora si que funciona, vemos que el valor se refleja en la respuesta, por lo tanto el problema no era que la propiedad modificada no se reflejara en la respuesta, si no que __proto__ debe de estar blacklisteado`
 
 ![](/assets/img/Prototype-Pollution-Lab-8/image_10.png)
 
