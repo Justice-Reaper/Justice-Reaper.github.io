@@ -24,58 +24,58 @@ image:
   
 ## Descripción
 
-Este `laboratorio` utiliza un mecanismo basado en `JWT` para manejar las `sesiones`. El `servidor` admite el parámetro `jwk` en el `header` del `JWT`. Esto se utiliza a veces para `incrustar` directamente en el `token` la clave correcta de `verificación`. Sin embargo, no verifica si la clave proporcionada proviene de una `fuente confiable`. Para `resolver` el laboratorio, debemos modificar y `firmar` un `JWT` que nos dé acceso al `panel de administración` en `/admin` y eliminar al `usuario` `carlos`. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`
+Este laboratorio utiliza un mecanismo basado en JWT para manejar las sesiones. El servidor admite el parámetro jwk en el header del JWT. Esto se utiliza a veces para incrustar directamente en el token la clave correcta de `verificación`. Sin embargo, no verifica si la clave proporcionada proviene de una fuente confiable. Para resolver el laboratorio, debemos modificar y firmar un JWT que nos dé acceso al `panel de administración en /admin y eliminar al usuario carlos`. Podemos `iniciar sesión en nuestra propia cuenta utilizando las credenciales wiener:peter`
 
 ---
 
 ## Guía de JWT Attacks
 
-`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de JWT attacks` [https://justice-reaper.github.io/posts/JWT-Attacks-Guide/](https://justice-reaper.github.io/posts/JWT-Attacks-Guide/)
+Antes de completar este laboratorio es recomendable leerse esta `guía de JWT attacks` [https://justice-reaper.github.io/posts/JWT-Attacks-Guide/](https://justice-reaper.github.io/posts/JWT-Attacks-Guide/)
 
 ## Resolución
 
-Al `acceder` a la `web` nos sale esto
+Al acceder a la web nos sale esto
 
 ![](/assets/img/JWT-Attacks-Lab-4/image_1.png)
 
-Pulsamos sobre `My account` y nos `logueamos` con credenciales `wiener:peter`
+Pulsamos sobre My account y nos logueamos con credenciales `wiener:peter`
 
 ![](/assets/img/JWT-Attacks-Lab-4/image_2.png)
 
-`Recargamos` la `página` y `capturamos` la `petición` mediante `Burpsuite`
+Recargamos la `página y capturamos la petición mediante Burpsuite`
 
 ![](/assets/img/JWT-Attacks-Lab-4/image_3.png)
 
-Debemos tener instalado la extensión `JWT Editor`, esta `extensión` nos avisará si `detecta` un `token`
+Debemos tener instalado la extensión JWT Editor, esta `extensión` nos avisará si detecta un token
 
 ![](/assets/img/JWT-Attacks-Lab-4/image_4.png)
 
-Si `pulsamos` sobre la `pestaña` llamada `JSON Web Token` veremos `todas las partes` que `componen` al `JWT`
+Si pulsamos sobre la `pestaña llamada JSON Web Token veremos todas las partes que componen al JWT`
 
 ![](/assets/img/JWT-Attacks-Lab-4/image_5.png)
 
-De acuerdo con la `especificación` de `JWS`, solo el parámetro `alg` del `header` es `obligatorio`. Sin embargo, en la práctica, las `cabeceras` del `JWT` a menudo `contienen` otros `parámetros`
+De acuerdo con la `especificación de JWS`, solo el parámetro alg del header es obligatorio. Sin embargo, en la práctica, las cabeceras del JWT a menudo contienen otros `parámetros`
 
-El `jwk (JSON Web Key)` proporciona un `objeto JSON incrustado` que `representa` la `clave`, el `jku (JSON Web Key Set URL)` proporciona una `URL` desde la cual los `servidores` pueden `obtener` un `conjunto de claves` que `contiene` la `clave correcta` y el `kid (Key ID)` que `proporciona` un `ID` que los `servidores` pueden `usar` para `identificar` la `clave correcta` en `casos` donde `hay varias claves para elegir`. Dependiendo del `formato` de la `clave`, esto puede tener un `parámetro kid correspondiente`
+El `jwk (JSON Web Key) proporciona un objeto JSON incrustado que representa la clave`, el `jku (JSON Web Key Set URL) proporciona una URL desde la cual los servidores pueden obtener un conjunto de claves que contiene la clave correcta y el kid (Key ID) que proporciona un ID que los servidores pueden usar para identificar la clave correcta en casos donde hay varias claves para elegir`. Dependiendo del formato de la clave, esto puede tener un `parámetro kid correspondiente`
 
-La `especificación` de `JWS (JSON Web Signature)` describe un `parámetro opcional` en el `header` llamado `jwk`, que los `servidores` pueden usar para `incrustar` su `clave pública` directamente dentro del `token` en formato `JWK`. Idealmente, los `servidores` deberían utilizar solo una `lista limitada` de `claves públicas autorizadas` para `verificar` las `firmas` de los `JWT`
+La `especificación de JWS (JSON Web Signature) describe un parámetro opcional en el header llamado jwk`, que los servidores pueden usar para incrustar su clave pública directamente dentro del token en formato JWK. Idealmente, los servidores deberían utilizar solo una lista limitada de claves públicas autorizadas para verificar las firmas de los JWT
 
-Sin embargo, los `servidores mal configurados` a veces `aceptan cualquier clave incrustada en el parámetro jwk`. Podemos `explotar` este comportamiento `firmando un JWT modificado utilizando nuestra propia clave privada RSA y luego incrustando la clave pública correspondiente en la cabecera jwk`. Para hacer esto, nos dirigimos al `Burpsuite`, hacemos `click` sobre `JWT Editor` y pulsamos sobre `New RSA Key` para `generar` una `nueva clave RSA`
+Sin embargo, los servidores mal configurados a veces `aceptan cualquier clave incrustada en el parámetro jwk`. Podemos explotar este comportamiento firmando un JWT modificado utilizando nuestra propia clave privada RSA y luego incrustando la clave pública correspondiente en la cabecera jwk. Para hacer esto, nos dirigimos al Burpsuite, hacemos click sobre JWT Editor y pulsamos sobre New RSA Key para generar una nueva clave RSA
 
 ![](/assets/img/JWT-Attacks-Lab-4/image_6.png)
 
-Nos dirigimos al `repeater` pulsamos en `Attack` y pulsamos sobre `Embedded JWK`, de esta forma `Burpsuite` extrae la `clave pública` de la `clave RSA` y la `inyecta` en el `parámetro jwk`
+Nos dirigimos al repeater pulsamos en Attack y pulsamos sobre Embedded JWK, de esta forma Burpsuite extrae la clave pública de la clave RSA y la inyecta en el `parámetro jwk`
 
 ![](/assets/img/JWT-Attacks-Lab-4/image_7.png)
 
-`Cambiamos` el `nombre` de `usuario` a `administrador` y `firmamos` el `JWT` con la `clave privada`. En este caso la extensión `JWT Editor` de `Burpsuite` nos `actualiza` el parámetro `kid`, pero si realizamos este `ataque` de forma `manual` deberemos `actualizarlo` nosotros para que `funcione`
+Cambiamos el nombre de usuario a administrador y firmamos el JWT con la clave privada. En este caso la extensión JWT Editor de Burpsuite nos actualiza el parámetro kid, pero si realizamos este ataque de forma manual deberemos actualizarlo nosotros para que funcione
 
 ![](/assets/img/JWT-Attacks-Lab-4/image_8.png)
 
-Pulsamos `Ctrl + Shift + i` y `pegamos` el nuevo `JWT`
+Pulsamos `Ctrl + Shift + i y pegamos el nuevo JWT`
 
 ![](/assets/img/JWT-Attacks-Lab-4/image_9.png)
 
-`Refrescamos` la `web` con `F5`, `accedemos` al `panel` de `administrador` y `borramos` al usuario `carlos`
+Refrescamos la web con F5, accedemos al panel de administrador y borramos al usuario carlos
 
 ![](/assets/img/JWT-Attacks-Lab-4/image_10.png)

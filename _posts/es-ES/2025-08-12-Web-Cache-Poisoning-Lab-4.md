@@ -24,25 +24,25 @@ image:
   
 ## Descripción
 
-`Este laboratorio contiene una vulnerabilidad de web cache poisoning`. `Un usuario visita la sección de comentarios cada vez que publicamos uno`. Para `resolver` este `laboratorio`, tenemos que `envenenar la caché con una respuesta que ejecute alert(document.cookie) en el navegador de la víctima`. También tenemos que `asegurarnos` de que `la respuesta se sirve al subconjunto específico de usuarios al que pertenece la víctima`
+Este laboratorio contiene una vulnerabilidad de web cache poisoning. `Un usuario visita la sección de comentarios cada vez que publicamos uno`. Para resolver este laboratorio, tenemos que `envenenar la caché con una respuesta que ejecute alert(document.cookie) en el navegador de la víctima`. También tenemos que asegurarnos de que `la respuesta se sirve al subconjunto específico de usuarios al que pertenece la víctima`
 
 ---
 
 ## Resolución
 
-Al `acceder` a la `web` vemos `esto`
+Al acceder a la web vemos esto
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-4/image_1.png)
 
-El `primer paso` es `añadir` el `dominio` al `scope`, para ello `pulsamos` en `Target > Scope > Add y añadimos el dominio`
+El primer paso es `añadir el dominio al scope`, para ello pulsamos en `Target > Scope > Add y añadimos el dominio`
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-4/image_2.png)
 
-El `segundo paso` es `identificar y evaluar entradas unkeyed`, para ello vamos `primero` a `crawlear` la `web` con `Burpsuite` y a `navegar manualmente por ella`. Para hacer esto nos dirigimos a `Target > Site map > Click derecho sobre el dominio > Scan`
+El segundo paso es identificar y evaluar entradas unkeyed, para ello vamos primero a crawlear la web con Burpsuite y a navegar manualmente por ella. Para hacer esto nos dirigimos a `Target > Site map > Click derecho sobre el dominio > Scan`
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-4/image_3.png)
 
-`Seleccionamos` la `opción` de `Crawl` y `pulsamos` sobre `Scan`. `Mientras Burpsuite crawlea la web, vamos a navegar por ella de forma manual`
+Seleccionamos la `opción de Crawl y pulsamos sobre Scan`. `Mientras Burpsuite crawlea la web, vamos a navegar por ella de forma manual`
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-4/image_4.png)
 
@@ -50,7 +50,7 @@ El `segundo paso` es `identificar y evaluar entradas unkeyed`, para ello vamos `
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-4/image_5.png)
 
-Vemos que `Param Miner` ha `descubierto` que las cabeceras `X-Host`, `Origin` y `Via` son `unkeyed`
+Vemos que Param Miner ha descubierto que las cabeceras `X-Host`, Origin y Via son unkeyed
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-4/image_6.png)
 
@@ -62,21 +62,21 @@ También vemos que `en todas las respuestas del servidor está la cabecera Vary`
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-4/image_9.png)
 
-`Si buscamos en google que es lo que hace esta cabecera obtenemos esta respuesta`
+Si buscamos en google que es lo que hace esta cabecera obtenemos esta respuesta
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-4/image_10.png)
 
-En nuestro caso, `la cabecera Vary tiene el valor User-agent`, lo cual `significa` que `dependiendo del User-agent que tengamos vamos a tener una clave caché diferente`. Esto se debe a que `el User-agent se está usando para generar la clave caché`, por lo tanto, `el ataque de web cache poisoning solo funcionará para los usuarios que tengan el mismo User-agent que nosotros`
+En nuestro caso, `la cabecera Vary tiene el valor User-agent`, lo cual significa que `dependiendo del User-agent que tengamos vamos a tener una clave caché diferente`. Esto se debe a que `el User-agent se está usando para generar la clave caché`, por lo tanto, `el ataque de web cache poisoning solo funcionará para los usuarios que tengan el mismo User-agent que nosotros`
 
-`Teniendo lo anteriormente mencionado en cuenta`, vamos a `comprobar` si `algún valor de las cabeceras unkeyed descubiertas se refleja en la respuesta`. Cuando `enviamos` la `petición` vemos que `el valor de la cabecera X-Host se refleja en la respuesta`
+Teniendo lo anteriormente mencionado en cuenta, vamos a comprobar si algún valor de las cabeceras unkeyed descubiertas se refleja en la respuesta. Cuando enviamos la `petición vemos que el valor de la cabecera X-Host se refleja en la respuesta`
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-4/image_11.png)
 
-Una vez sabemos esto, nos `dirigimos` al `Exploit server` y `cambiamos la ruta de nuestro exploit y el content type`
+Una vez sabemos esto, nos dirigimos al Exploit server y cambiamos la ruta de nuestro exploit y el content type
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-4/image_12.png)
 
-`En el body pegamos este payload` y `pulsamos` en `Store`
+En el body pegamos este payload y pulsamos en Store
 
 ```
 alert(document.cookie)
@@ -92,7 +92,7 @@ alert(document.cookie)
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-4/image_15.png)
 
-Ahora, si `accedemos` al `directorio raíz de la página web` nos `saltará` un `alert`
+Ahora, si accedemos al `directorio raíz de la página web nos saltará un alert`
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-4/image_16.png)
 
@@ -104,7 +104,7 @@ Sin embargo, como hemos mencionado antes, `debido a que se tiene en cuenta el Us
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-4/image_17.png)
 
-Si nos `dirigimos` al `Access log` de nuestro `Exploit server` veremos que `hemos obtenido el User-agent del usuario víctima`
+Si nos dirigimos al Access log de nuestro Exploit server veremos que `hemos obtenido el User-agent del usuario víctima`
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-4/image_18.png)
 
@@ -116,11 +116,11 @@ Ahora tenemos que `esperar a que la víctima acceda al directorio raíz /`. `S
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-4/image_20.png)
 
-`Si no queremos mandar la petición manualmente cada 30 segundos`, podemos `enviar` la `petición` al `Intruder`, `seleccionar Sniper como tipo de ataque`, `marcar un lugar aleatorio en el que inyectar los payloads`, `seleccionar null payloads como tipo de payload`, `en Payloads configuration marcar la opción Continue indefinitely` y `desactivar el URL encoding`
+`Si no queremos mandar la petición manualmente cada 30 segundos`, podemos enviar la `petición al Intruder`, seleccionar Sniper como tipo de ataque, marcar un lugar aleatorio en el que inyectar los payloads, seleccionar null payloads como tipo de payload, `en Payloads configuration marcar la opción Continue indefinitely y desactivar el URL encoding`
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-4/image_21.png)
 
-En la parte de `Resource pool`, tenemos que `crear` una `pool` que `tenga un delay de 30 segundos entre peticiones y que se mande solamente 1 petición a la vez`. `Si queremos asegurarnos de que siempre está activo podemos poner un valor más bajo, 20 o 25 segundos por ejemplo`
+En la parte de Resource pool, tenemos que crear una pool que `tenga un delay de 30 segundos entre peticiones y que se mande solamente 1 petición a la vez`. `Si queremos asegurarnos de que siempre está activo podemos poner un valor más bajo, 20 o 25 segundos por ejemplo`
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-4/image_22.png)
 

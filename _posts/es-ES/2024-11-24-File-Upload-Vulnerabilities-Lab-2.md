@@ -24,33 +24,33 @@ image:
   
 ## Descripción
 
-Este `laboratorio` contiene una `función` de carga de imágenes `vulnerable` que intenta `evitar` que los usuarios `suban` tipos de `archivos inesperados`, pero se basa en verificar una entrada controlada por el usuario para hacerlo. Para `resolver` el `laboratorio`, debemos `subir` una `web shell` básica en `PHP`, usarla para `extraer` el `contenido` del archivo `/home/carlos/secret` y luego usar este `secreto` utilizando el botón proporcionado en la barra del laboratorio. Podemos `iniciar sesión` en nuestra `cuenta` usando las siguientes credenciales: `wiener:peter`
+Este laboratorio contiene una `función` de carga de imágenes vulnerable que intenta evitar que los usuarios suban tipos de archivos inesperados, pero se basa en verificar una entrada controlada por el usuario para hacerlo. Para resolver el laboratorio, debemos subir una web shell básica en PHP, usarla para extraer el contenido del archivo `/home/carlos/secret y luego usar este secreto` utilizando el botón proporcionado en la barra del laboratorio. Podemos `iniciar sesión en nuestra cuenta` usando las siguientes credenciales: `wiener:peter`
 
 ---
 
 ## Guía de file upload vulnerabilities
 
-`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de file upload vulnerabilities` [https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Guide/](https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Guide/)
+Antes de completar este laboratorio es recomendable leerse esta `guía de file upload vulnerabilities` [https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Guide/](https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Guide/)
 
 ## Resolución
 
-Al `acceder` a la `web` nos sale esto
+Al acceder a la web nos sale esto
 
 ![](/assets/img/File-Upload-Vulnerabilities-Lab-2/image_1.png)
 
-Pulsamos en `My account` e `iniciamos sesión` con las credenciales `wiener:peter`
+Pulsamos en My account e `iniciamos sesión con las credenciales wiener:peter`
 
 ![](/assets/img/File-Upload-Vulnerabilities-Lab-2/image_2.png)
 
-Vemos que existe un `campo` de `subida` de `archivos`
+Vemos que existe un campo de subida de archivos
 
 ![](/assets/img/File-Upload-Vulnerabilities-Lab-2/image_3.png)
 
-Si `inspeccionamos` con donde se `aloja` la `imagen` vemos que es en la ruta `/resources/images`
+Si inspeccionamos con donde se aloja la imagen vemos que es en la ruta `/resources/images`
 
 ![](/assets/img/File-Upload-Vulnerabilities-Lab-2/image_4.png)
 
-Nos `creamos` un `archivo` llamado `shell.php` y lo `subimos`
+Nos creamos un archivo llamado `shell.php y lo subimos`
 
 ```
 <?php
@@ -58,23 +58,23 @@ Nos `creamos` un `archivo` llamado `shell.php` y lo `subimos`
 ?>
 ```
 
-Al intentar subirlo vemos que nos da este `error`
+Al intentar subirlo vemos que nos da este error
 
 ![](/assets/img/File-Upload-Vulnerabilities-Lab-2/image_5.png)
 
-`Subimos` el `archivo` nuevamente y `capturamos` la `petición` con `Burpsuite`
+Subimos el archivo nuevamente y capturamos la `petición con Burpsuite`
 
 ![](/assets/img/File-Upload-Vulnerabilities-Lab-2/image_6.png)
 
-Cambiamos el `Content-Type` a `image/png` y `subimos` el `archivo`, posteriormente abrimos nuevamente el `inspector` de `chrome` y vemos que el `archivo` subido se `aloja` en `/files/avatars`
+Cambiamos el `Content-Type a image/png y subimos el archivo`, posteriormente abrimos nuevamente el inspector de chrome y vemos que el archivo subido se aloja en `/files/avatars`
 
 ![](/assets/img/File-Upload-Vulnerabilities-Lab-2/image_7.png)
 
-Si accedemos a `https://0aa000d704efa5eb8202c09f005a0081.web-security-academy.net/files/avatars/shell.php?cmd=whoami` veremos que tenemos un `RCE (Remote Code Execution)`
+Si accedemos a `https://0aa000d704efa5eb8202c09f005a0081.web-security-academy.net/files/avatars/shell.php?cmd=whoami veremos que tenemos un RCE (Remote Code Execution)`
 
 ![](/assets/img/File-Upload-Vulnerabilities-Lab-2/image_8.png)
 
-Si accedemos a `https://0aa000d704efa5eb8202c09f005a0081.web-security-academy.net/files/avatars/shell.php?cmd=ls%20/home/carlos` vemos un `archivo` llamado `secret`
+Si accedemos a `https://0aa000d704efa5eb8202c09f005a0081.web-security-academy.net/files/avatars/shell.php?cmd=ls%20/home/carlos vemos un archivo llamado secret`
 
 ![](/assets/img/File-Upload-Vulnerabilities-Lab-2/image_9.png)
 
@@ -82,6 +82,6 @@ Leemos la información de ese archivo con `https://0aa000d704efa5eb8202c09f005a0
 
 ![](/assets/img/File-Upload-Vulnerabilities-Lab-2/image_10.png)
 
-Pulsamos en `Submit solution` y `mandamos` nuestra `solución`
+Pulsamos en Submit solution y mandamos nuestra `solución`
 
 ![](/assets/img/File-Upload-Vulnerabilities-Lab-2/image_11.png)

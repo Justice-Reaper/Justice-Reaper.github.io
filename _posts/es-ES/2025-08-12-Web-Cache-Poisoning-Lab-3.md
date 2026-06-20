@@ -24,25 +24,25 @@ image:
   
 ## Descripción
 
-`Este laboratorio contiene una vulnerabilidad de web cache poisoning` que `solo es explotable cuando se utilizan múltiples cabeceras para construir una petición maliciosa`. `Un usuario desprevenido visita regularmente la página principal del sitio web`. Para `resolver` este `laboratorio`, tenemos que `envenenar la caché con una respuesta que ejecute alert(document.cookie) en el navegador de la víctima`
+Este laboratorio contiene una vulnerabilidad de web cache poisoning que `solo es explotable cuando se utilizan múltiples cabeceras para construir una petición maliciosa`. `Un usuario desprevenido visita regularmente la página principal del sitio web`. Para resolver este laboratorio, tenemos que `envenenar la caché con una respuesta que ejecute alert(document.cookie) en el navegador de la víctima`
 
 ---
 
 ## Resolución
 
-Al `acceder` a la `web` vemos `esto`
+Al acceder a la web vemos esto
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-3/image_1.png)
 
-El `primer paso` es `añadir` el `dominio` al `scope`, para ello `pulsamos` en `Target > Scope > Add y añadimos el dominio`
+El primer paso es `añadir el dominio al scope`, para ello pulsamos en `Target > Scope > Add y añadimos el dominio`
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-3/image_2.png)
 
-El `segundo paso` es `identificar y evaluar entradas unkeyed`, para ello vamos `primero` a `crawlear` la `web` con `Burpsuite` y a `navegar manualmente por ella`. Para hacer esto nos dirigimos a `Target > Site map > Click derecho sobre el dominio > Scan`
+El segundo paso es identificar y evaluar entradas unkeyed, para ello vamos primero a crawlear la web con Burpsuite y a navegar manualmente por ella. Para hacer esto nos dirigimos a `Target > Site map > Click derecho sobre el dominio > Scan`
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-3/image_3.png)
 
-`Seleccionamos` la `opción` de `Crawl` y `pulsamos` sobre `Scan`. `Mientras Burpsuite crawlea la web, vamos a navegar por ella de forma manual`
+Seleccionamos la `opción de Crawl y pulsamos sobre Scan`. `Mientras Burpsuite crawlea la web, vamos a navegar por ella de forma manual`
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-3/image_4.png)
 
@@ -50,7 +50,7 @@ El `segundo paso` es `identificar y evaluar entradas unkeyed`, para ello vamos `
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-3/image_5.png)
 
-Vemos que `Param Miner` ha `descubierto` que la `cabecera X-Forwarded-Scheme` es `unkeyed`
+Vemos que Param Miner ha descubierto que la `cabecera X-Forwarded-Scheme es unkeyed`
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-3/image_6.png)
 
@@ -62,11 +62,11 @@ Vemos que `Param Miner` ha `descubierto` que la `cabecera X-Forwarded-Scheme` es
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-3/image_8.png)
 
-Podemos `comprobar` que `no hay ningún cambio en la respuesta si realizamos dos peticiones al servidor`, `una con la cabecera X-Fowarded-Scheme` y `otra sin ella`, y las `respuestas` las `enviamos` al `Comparer`. Para `enviar` las `respuestas` al `Comparer` tenemos que `hacer click derecho sobre la respuesta > Send to Comparer`
+Podemos comprobar que no hay ningún cambio en la respuesta si realizamos dos peticiones al servidor, `una con la cabecera X-Fowarded-Scheme y otra sin ella`, y las respuestas las enviamos al Comparer. Para enviar las respuestas al Comparer tenemos que `hacer click derecho sobre la respuesta > Send to Comparer`
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-3/image_9.png)
 
-Ahora tenemos que `pulsar` en `Compare ... Words`, y como podemos ver, `no hay ninguna diferencia extraña o no esperada`
+Ahora tenemos que pulsar en `Compare ... Words`, y como podemos ver, `no hay ninguna diferencia extraña o no esperada`
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-3/image_10.png)
 
@@ -74,19 +74,19 @@ Ahora vamos a ver que pasa si `enviamos la petición con la cabecera X-Forwarded
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-3/image_11.png)
 
-`Vemos que nos ha hecho un redirect`, pero `esto por si solo no nos sirve para hacer anda relevante`. Por lo tanto, `vamos a ejecutar Param Miner nuevamente, pero esta vez vamos a hacer que solo analice este endpoint y la petición analizada debe de tener la cabecera X-Forwarded-Scheme: http`
+Vemos que nos ha hecho un redirect, pero esto por si solo no nos sirve para hacer anda relevante. Por lo tanto, `vamos a ejecutar Param Miner nuevamente, pero esta vez vamos a hacer que solo analice este endpoint y la petición analizada debe de tener la cabecera X-Forwarded-Scheme: http`
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-3/image_12.png)
 
-En `Issues` vemos que la `cabecera X-Forwarded-Host` también es `unkeyed`
+En Issues vemos que la `cabecera X-Forwarded-Host` también es unkeyed
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-3/image_13.png)
 
-Si `añadimos` la `cabecera X-Forwarded-Host` y le `proporcionamos` un `valor aleatorio`, vemos que `podemos controlar la URL completa a la que se hace el redirect`
+Si `añadimos la cabecera X-Forwarded-Host y le proporcionamos un valor aleatorio`, vemos que podemos controlar la URL completa a la que se hace el redirect
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-3/image_14.png)
 
-Nos `dirigimos` al `Exploit server` y e `insertamos` este `payload` en el `body`
+Nos dirigimos al Exploit server y e insertamos este payload en el body
 
 ```
 <script>alert(document.cookie)</script>
@@ -102,7 +102,7 @@ Nos `dirigimos` al `Exploit server` y e `insertamos` este `payload` en el `body`
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-3/image_17.png)
 
-Sin embargo, cuando `accedemos` al `directorio raíz /` de la `página web`, nos `redirige` a `https://exploit-0ae000d6049229e280fc6ba901b900b5.exploit-server.net/exploit/` pero `no interpreta el código JavaScript`
+Sin embargo, cuando accedemos al `directorio raíz / de la página web`, nos redirige a `https://exploit-0ae000d6049229e280fc6ba901b900b5.exploit-server.net/exploit/ pero no interpreta el código JavaScript`
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-3/image_18.png)
 
@@ -115,19 +115,19 @@ Sec-Fetch-Dest: document
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-3/image_19.png)
 
-`Para que el código JavaScript sea interpretado necesitamos ejecutar el ataque sobre un recurso que cargue la página principal pero que sea un documento JavaScript`. Si `inspeccionamos` el `código fuente`, podemos ver que `se cargan dos archivo .js`. En este `laboratorio`, `como la web carga tracking.js y labHeader.js, no podemos usar un cachebuster, así que los testeos que realicemos los podrá ver cualquier usuario que acceda al directorio raíz /`
+`Para que el código JavaScript sea interpretado necesitamos ejecutar el ataque sobre un recurso que cargue la página principal pero que sea un documento JavaScript`. Si inspeccionamos el `código fuente`, podemos ver que `se cargan dos archivo .js`. En este laboratorio, `como la web carga tracking.js y labHeader.js, no podemos usar un cachebuster, así que los testeos que realicemos los podrá ver cualquier usuario que acceda al directorio raíz /`
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-3/image_20.png)
 
-`Antes de efectuar el ataque debemos modificar varias cosas sobre nuestro payload`. Lo `primero` es `cambiar la ruta donde vamos a alojar el payload y el content type`
+Antes de efectuar el ataque debemos modificar varias cosas sobre nuestro payload. Lo primero es cambiar la ruta donde vamos a alojar el payload y el content type
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-3/image_21.png)
 
-Lo `siguiente` que debemos hacer, es `eliminar las etiquetas <script></script> de nuestro payload porque al estar dentro de un archivo .js ya no son necesarias`
+Lo siguiente que debemos hacer, es `eliminar las etiquetas <script></script> de nuestro payload porque al estar dentro de un archivo .js ya no son necesarias`
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-3/image_22.png)
 
-Ahora, `si realizamos una petición con la cabecera X-Forwarded-Scheme con http como valor y con la cabecera X-Forwarded-Host con nuestro Exploit server como valor`, el `exploit` si que `funcionará`
+Ahora, `si realizamos una petición con la cabecera X-Forwarded-Scheme con http como valor y con la cabecera X-Forwarded-Host con nuestro Exploit server como valor`, el exploit si que `funcionará`
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-3/image_23.png)
 
@@ -135,7 +135,7 @@ Ahora, `si realizamos una petición con la cabecera X-Forwarded-Scheme con http 
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-3/image_24.png)
 
-`Enviamos la petición nuevamente para comprobar que está siendo cacheada correctamente`, y vemos que sí, porque nos `responde` con un `X-Cache: hit`
+`Enviamos la petición nuevamente para comprobar que está siendo cacheada correctamente`, y vemos que sí, porque nos responde con un `X-Cache: hit`
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-3/image_25.png)
 
@@ -147,10 +147,10 @@ Ahora tenemos que `esperar a que la víctima acceda al directorio raíz /`. `Si 
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-3/image_27.png)
 
-`Si no queremos mandar la petición manualmente cada 30 segundos`, podemos `enviar` la `petición` al `Intruder`, `seleccionar Sniper como tipo de ataque`, `marcar un lugar aleatorio en el que inyectar los payloads`, `seleccionar null payloads como tipo de payload`, `en Payloads configuration marcar la opción Continue indefinitely` y `desactivar el URL encoding`
+`Si no queremos mandar la petición manualmente cada 30 segundos`, podemos enviar la `petición al Intruder`, seleccionar Sniper como tipo de ataque, marcar un lugar aleatorio en el que inyectar los payloads, seleccionar null payloads como tipo de payload, `en Payloads configuration marcar la opción Continue indefinitely y desactivar el URL encoding`
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-3/image_28.png)
 
-En la parte de `Resource pool`, tenemos que `crear` una `pool` que `tenga un delay de 30 segundos entre peticiones y que se mande solamente 1 petición a la vez`. `Si queremos asegurarnos de que siempre está activo podemos poner un valor más bajo, 20 o 25 segundos por ejemplo`
+En la parte de Resource pool, tenemos que crear una pool que `tenga un delay de 30 segundos entre peticiones y que se mande solamente 1 petición a la vez`. `Si queremos asegurarnos de que siempre está activo podemos poner un valor más bajo, 20 o 25 segundos por ejemplo`
 
 ![](/assets/img/Web-Cache-Poisoning-Lab-3/image_29.png)

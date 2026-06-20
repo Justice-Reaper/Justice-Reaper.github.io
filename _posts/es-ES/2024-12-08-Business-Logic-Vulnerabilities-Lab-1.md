@@ -24,46 +24,46 @@ image:
   
 ## Descripción
 
-Este `laboratorio` no valida adecuadamente las entradas del `usuario`. Podemos `explotar` un `fallo` de `lógica` en el `flujo` de trabajo de `compra` para adquirir artículos a un `precio no intencionado`. Para `resolver` el laboratorio, debemos comprar la chaqueta `Lightweight l33t leather jacket`. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter` 
+Este laboratorio no valida adecuadamente las entradas del usuario. Podemos explotar un fallo de `lógica en el flujo de trabajo de compra` para adquirir artículos a un precio no intencionado. Para resolver el laboratorio, debemos comprar la chaqueta Lightweight l33t leather jacket. Podemos `iniciar sesión en nuestra propia cuenta utilizando las credenciales wiener:peter` 
 
 ---
 
 ## Guía de business logic vulnerabilities
 
-`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de business logic vulnerabilities` [https://justice-reaper.github.io/posts/Business-Logic-Vulnerabilities-Guide/](https://justice-reaper.github.io/posts/Business-Logic-Vulnerabilities-Guide/)
+Antes de completar este laboratorio es recomendable leerse esta `guía de business logic vulnerabilities` [https://justice-reaper.github.io/posts/Business-Logic-Vulnerabilities-Guide/](https://justice-reaper.github.io/posts/Business-Logic-Vulnerabilities-Guide/)
 
 ## Resolución
 
-Al `acceder` a la `web` nos sale esto
+Al acceder a la web nos sale esto
 
 ![](/assets/img/Business-Logic-Vulnerabilities-Lab-1/image_1.png)
 
-`Pulsamos` en `My account` y nos `logueamos` con las credenciales `wiener:peter` 
+Pulsamos en My account y nos logueamos con las credenciales `wiener:peter` 
 
 ![](/assets/img/Business-Logic-Vulnerabilities-Lab-1/image_2.png)
 
-Pinchamos en `View details` sobre el artículo `Lightweight "l33t" Leather Jacket`, añadimos el `artículo` al `carrito` y `capturamos` la `petición` con `Burpsuite`
+Pinchamos en View details sobre el artículo `Lightweight "l33t" Leather Jacket`, añadimos el `artículo al carrito y capturamos la petición con Burpsuite`
 
 ![](/assets/img/Business-Logic-Vulnerabilities-Lab-1/image_3.png)
 
-Vemos que el `precio` se `tramita` el `precio` de `artículo` en la `petición`
+Vemos que el precio se tramita el precio de `artículo en la petición`
 
 ![](/assets/img/Business-Logic-Vulnerabilities-Lab-1/image_4.png)
 
-Si `pulsamos` sobre la `cesta` vemos el `precio` del `artículo`
+Si pulsamos sobre la cesta vemos el precio del `artículo`
 
 ![](/assets/img/Business-Logic-Vulnerabilities-Lab-1/image_5.png)
 
-`Enviamos` este `payload` para `rebajar` el `precio` de los `artículos`
+Enviamos este payload para rebajar el precio de los `artículos`
 
 ```
 productId=1&redir=PRODUCT&quantity=1&price=1
 ```
 
-`Bajamos` el precio a `1 céntimo`
+Bajamos el precio a `1 céntimo`
 
 ![](/assets/img/Business-Logic-Vulnerabilities-Lab-1/image_6.png)
 
-`Pulsamos` en `Place order` y `compramos` el `producto`
+Pulsamos en Place order y compramos el producto
 
 ![](/assets/img/Business-Logic-Vulnerabilities-Lab-1/image_7.png)

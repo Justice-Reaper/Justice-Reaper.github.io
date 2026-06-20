@@ -24,28 +24,28 @@ image:
   
 ## Descripción
 
-Este `laboratorio` contiene una `página de depuración` que `revela` información `sensible` sobre la `aplicación`. Para `resolver` el laboratorio, `obtén` y `envía` la `variable` de `entorno` `SECRET_KEY`
+Este laboratorio contiene una `página de depuración que revela` información sensible sobre la `aplicación`. Para resolver el laboratorio, `obtén y envía la variable de entorno SECRET_KEY`
 
 ---
 
 ## Guía de information disclosure
 
-`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de information disclosure` [https://justice-reaper.github.io/posts/Information-Disclosure-Guide/](https://justice-reaper.github.io/posts/Information-Disclosure-Guide/)
+Antes de completar este laboratorio es recomendable leerse esta `guía de information disclosure` [https://justice-reaper.github.io/posts/Information-Disclosure-Guide/](https://justice-reaper.github.io/posts/Information-Disclosure-Guide/)
 
 ## Resolución
 
-Al `acceder` a la `web` nos sale esto
+Al acceder a la web nos sale esto
 
 ![](/assets/img/Information-Disclosure-Lab-2/image_1.png)
 
-Nos dirigimos a `Burpsuite`, pulsamos en `Target > Site map`, señalamos el `dominio` a `analizar` y hacemos `click izquierdo > Engagement tools > Find comments` para `analizar` los `comentarios` del sitio web
+Nos dirigimos a Burpsuite, pulsamos en `Target > Site map`, señalamos el dominio a analizar y hacemos `click izquierdo > Engagement tools > Find comments para analizar los comentarios` del sitio web
 
 ![](/assets/img/Information-Disclosure-Lab-2/image_2.png)
 
-Si ahora accedemos a `https://0a2800c704ee6a18815dc1a500c3003e.web-security-academy.net/cgi-bin/phpinfo.php` nos mostrará un `phpinfo` en el cual se encuentra la variable de entorno `SECRET_KEY`
+Si ahora accedemos a `https://0a2800c704ee6a18815dc1a500c3003e.web-security-academy.net/cgi-bin/phpinfo.php` nos mostrará un phpinfo en el cual se encuentra la variable de entorno `SECRET_KEY`
 
 ![](/assets/img/Information-Disclosure-Lab-2/image_3.png)
 
-`Submiteamos` la `SECRET_KEY`
+Submiteamos la `SECRET_KEY`
 
 ![](/assets/img/Information-Disclosure-Lab-2/image_4.png)

@@ -24,17 +24,17 @@ image:
   
 ## Descripción
 
-Este `laboratorio` es `vulnerable` a `web cache poisoning` debido a `discrepancias en cómo la caché y la aplicación del back-end manejan solicitudes ambiguas`. Un `usuario` desprevenido `visita` regularmente la `página principal del sitio web`. Para `resolver` el `laboratorio`, tenemos que `envenenar` la `caché` para que `la página principal ejecute alert(document.cookie) en el navegador de la víctima`
+Este laboratorio es vulnerable a web cache poisoning debido a `discrepancias en cómo la caché y la aplicación del back-end manejan solicitudes ambiguas`. Un usuario desprevenido visita regularmente la `página principal del sitio web`. Para resolver el laboratorio, tenemos que envenenar la `caché para que la página principal ejecute alert(document.cookie) en el navegador de la víctima`
 
 ---
 
 ## Resolución
 
-Al `acceder` a la `web` vemos `esto`
+Al acceder a la web vemos esto
 
 ![](/assets/img/HTTP-Host-Header-Attacks-Lab-3/image_1.png)
 
-En este `laboratorio` he `crawleado` la `web` mediante `Burpsuite`. Para hacer esto, he `añadido` el `dominio` al `scope`, posteriormente me he `dirigido` a `Target > Site map`, he hecho `click derecho sobre el dominio > Scan y he seleccionado la opción Crawl`
+En este laboratorio he crawleado la web mediante Burpsuite. Para hacer esto, he `añadido el dominio al scope`, posteriormente me he dirigido a `Target > Site map`, he hecho `click derecho sobre el dominio > Scan y he seleccionado la opción Crawl`
 
 ![](/assets/img/HTTP-Host-Header-Attacks-Lab-3/image_2.png)
 
@@ -46,7 +46,7 @@ En este `laboratorio` he `crawleado` la `web` mediante `Burpsuite`. Para hacer e
 
 ![](/assets/img/HTTP-Host-Header-Attacks-Lab-3/image_5.png)
 
-Para `identificar` si `existe` un `web cache poisoning`, he `usado` la `herramienta Web-Cache-Vulnerability-Scanner` [https://github.com/Hackmanit/Web-Cache-Vulnerability-Scanner.git](https://github.com/Hackmanit/Web-Cache-Vulnerability-Scanner.git). Como podemos ver aquí, me ha `identificado` que `al modificar el valor de la cabecera Host, este nuevo valor se refleja en la respuesta`
+Para identificar si existe un web cache poisoning, he usado la `herramienta Web-Cache-Vulnerability-Scanner` [https://github.com/Hackmanit/Web-Cache-Vulnerability-Scanner.git](https://github.com/Hackmanit/Web-Cache-Vulnerability-Scanner.git). Como podemos ver aquí, me ha identificado que `al modificar el valor de la cabecera Host, este nuevo valor se refleja en la respuesta`
 
 ```
 Web-Cache-Vulnerability-Scanner -u https://0ac4003404ea099480e21c57002800ab.h1-web-security-academy.net/
@@ -141,7 +141,7 @@ hOsT: p163962381483' -H 'User-Agent: WebCacheVulnerabilityScanner v2.0.0' 'https
 [+] Curl 2nd Request: curl -X 'GET' -H 'Cookie: session=JwBa1NEeRs4xFqaia3mOalguahpuodS1; _lab=47%7cMC0CFCJq1XehM0MgRjiQm6zwTeb0ExM5AhUAjkXUmMVqjBFdfjJeNgNFmSWI2FFJSCxaiAm4BcKqEdKsP8CFOIZzElT%2fv5FuWkWlmJj4XXdW5KyeMWonownCKuRL%2bDtZPjk40j89C9tYJeQfNe3AkSFUfXjmcmgz%2fmQsTcO8n6oUSxwNKYq%2b' -H 'Host: 0ac4003404ea099480e21c57002800ab.h1-web-security-academy.net' -H 'User-Agent: WebCacheVulnerabilityScanner v2.0.0' 'https://0ac4003404ea099480e21c57002800ab.h1-web-security-academy.net/?cbwcvs=cb621752324352'
 ```
 
-`He intentado modificar el valor directamente pero no ha dado resultado`
+He intentado modificar el valor directamente pero no ha dado resultado
 
 ![](/assets/img/HTTP-Host-Header-Attacks-Lab-3/image_6.png)
 
@@ -149,11 +149,11 @@ Sin embargo, `he añadido una nueva cabecera Host` y en este caso, `sí que ha f
 
 ![](/assets/img/HTTP-Host-Header-Attacks-Lab-3/image_7.png)
 
-Una vez sabemos esto, vamos a `crear` un `payload`. Para ello, lo `primero` es `modificar` el `content-type` y la `ruta del payload`
+Una vez sabemos esto, vamos a crear un payload. Para ello, lo primero es modificar el `content-type y la ruta del payload`
 
 ![](/assets/img/HTTP-Host-Header-Attacks-Lab-3/image_8.png)
 
-Lo siguiente es `pegar` este `payload` en el `body` y `pulsar` en `Store`
+Lo siguiente es pegar este payload en el body y pulsar en Store
 
 ```
 alert(document.cookie)
@@ -161,7 +161,7 @@ alert(document.cookie)
 
 ![](/assets/img/HTTP-Host-Header-Attacks-Lab-3/image_9.png)
 
-Una vez hemos hecho esto, el `último paso` es `envenenar la caché nuevamente pero haciendo que apunte a nuestro Exploit server`
+Una vez hemos hecho esto, el último paso es `envenenar la caché nuevamente pero haciendo que apunte a nuestro Exploit server`
 
 ![](/assets/img/HTTP-Host-Header-Attacks-Lab-3/image_10.png)
 
