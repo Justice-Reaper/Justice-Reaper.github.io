@@ -24,25 +24,25 @@ image:
   
 ## Descripción
 
-Este laboratorio tiene un panel de administración en /admin, que identifica a los administradores utilizando una cookie falsificable. Para resolver el laboratorio, hay que acceder al panel de administración y eliminar al usuario carlos. Podemos iniciar sesión en nuestra cuenta con las credenciales wiener:peter
+Este `laboratorio` tiene un `panel de administración` en `/admin`, que identifica a los `administradores` utilizando una `cookie falsificable`. Para `resolver` el laboratorio, hay que `acceder` al `panel de administración` y `eliminar` al `usuario carlos`. Podemos `iniciar sesión` en nuestra cuenta con las credenciales `wiener:peter`
 
 ---
 
 ## Guía de broken access control
 
-Antes de completar este laboratorio es recomendable leerse esta guía de broken access control [https://justice-reaper.github.io/posts/Broken-Access-Control-Guide/](https://justice-reaper.github.io/posts/Broken-Access-Control-Guide/)
+`Antes `de `completar` este `laboratorio` es recomendable `leerse` esta `guía de broken access control` [https://justice-reaper.github.io/posts/Broken-Access-Control-Guide/](https://justice-reaper.github.io/posts/Broken-Access-Control-Guide/)
 
 ## Resolución
 
-Al acceder a la web nos sale esto
+Al `acceder` a la `web` nos sale esto
 
 ![](/assets/img/Broken-Access-Control-Lab-3/image_1.png)
 
-Pulsamos en My account y nos logueamos con las credenciales wiener:peter
+Pulsamos en `My account` y nos logueamos con las credenciales `wiener:peter`
 
 ![](/assets/img/Broken-Access-Control-Lab-3/image_2.png)
 
-Fuzzeamos rutas y encontramos una llamada /admin
+`Fuzzeamos` rutas y encontramos una llamada `/admin`
 
 ```
 # ffuf -c -t 20 -w /usr/share/seclists/Discovery/Web-Content/common.txt -u https://0a050019046d30238088b7a600ee00f4.web-security-academy.net/FUZZ  
@@ -79,22 +79,22 @@ logout                  [Status: 302, Size: 0, Words: 1, Lines: 1, Duration: 54m
 my-account              [Status: 302, Size: 0, Words: 1, Lines: 1, Duration: 55ms]
 ```
 
-Si accedemos a /admin nos muestra este mensaje
+Si accedemos a `/admin` nos `muestra` este `mensaje`
 
 ![](/assets/img/Broken-Access-Control-Lab-3/image_3.png)
 
-Si interceptamos la petición mediante Burpsuite vemos que hay un parámetro Admin=False
+Si `interceptamos` la `petición` mediante `Burpsuite` vemos que hay un parámetro `Admin=False`
 
 ![](/assets/img/Broken-Access-Control-Lab-3/image_4.png)
 
-Cambiamos el parámetro a Admin=true, hacemos click izquierdo y seleccionamos la opción Show response in browser. Al acceder se nos muestra el panel administrativo
+Cambiamos el parámetro a `Admin=true`, hacemos `click izquierdo` y seleccionamos la opción `Show response in browser`. Al acceder se nos muestra el `panel administrativo`
 
 ![](/assets/img/Broken-Access-Control-Lab-3/image_5.png)
 
-Si pulsamos sobre Delete nos llevará a https://0a050019046d30238088b7a600ee00f4.web-security-academy.net/admin/delete?username=carlos pero no se eliminará el usuario. Para que el usuario se elimine debemos hacer la petición desde Burpsuite con el parámetro Admin=True
+Si pulsamos sobre `Delete` nos llevará a `https://0a050019046d30238088b7a600ee00f4.web-security-academy.net/admin/delete?username=carlos` pero no se `eliminará` el `usuario`. Para que el `usuario` se `elimine` debemos hacer la petición desde `Burpsuite` con el parámetro `Admin=True`
 
 ![](/assets/img/Broken-Access-Control-Lab-3/image_6.png)
 
-Otra opción sería cambiar el parámetro directamente en el navegador
+Otra opción sería `cambiar` el `parámetro` directamente en el `navegador`
 
 ![](/assets/img/Broken-Access-Control-Lab-3/image_7.png)

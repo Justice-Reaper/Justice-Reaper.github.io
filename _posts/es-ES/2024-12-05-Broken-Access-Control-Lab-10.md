@@ -24,21 +24,21 @@ image:
   
 ## Descripción
 
-Este sitio web tiene un panel de administración no autenticado en /admin, pero se ha configurado un sistema de front-end para bloquear el acceso externo a esa ruta. Sin embargo, la aplicación de back-end está construida sobre un framework que soporta el encabezado X-Original-URL. Para resolver el laboratorio, debemos acceder al panel de administración y eliminar al usuario carlos
+Este `sitio web` tiene un `panel de administración` no autenticado en `/admin`, pero se ha configurado un sistema de `front-end` para bloquear el acceso externo a esa ruta. Sin embargo, la `aplicación de back-end` está construida sobre un `framework` que soporta el encabezado `X-Original-URL`. Para `resolver` el laboratorio, debemos `acceder` al `panel de administración` y `eliminar` al `usuario carlos`
 
 ---
 
 ## Guía de broken access control
 
-Antes de completar este laboratorio es recomendable leerse esta guía de broken access control [https://justice-reaper.github.io/posts/Broken-Access-Control-Guide/](https://justice-reaper.github.io/posts/Broken-Access-Control-Guide/)
+`Antes `de `completar` este `laboratorio` es recomendable `leerse` esta `guía de broken access control` [https://justice-reaper.github.io/posts/Broken-Access-Control-Guide/](https://justice-reaper.github.io/posts/Broken-Access-Control-Guide/)
 
 ## Resolución
 
-Al acceder a la web nos sale esto
+Al `acceder` a la `web` nos sale esto
 
 ![](/assets/img/Broken-Access-Control-Lab-10/image_1.png)
 
-Si pulsamos en Admin panel no nos deja acceder y nos muestra un código de estado 403 Access Denied. Existe una herramienta llamada bypas-403 [https://github.com/v0rl0x/bypass-403-updated.git](https://github.com/v0rl0x/bypass-403-updated.git), la cual mediante diferentes headers intenta bypassear este código de estado. Podemos encontrar payloads y otras herramientas en Hacktricks [https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/403-and-401-bypasses](https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/403-and-401-bypasses). Es importante probar con /admin y con admin debido a que hay varias cabeceras que necesitan una ruta
+Si pulsamos en `Admin panel` no nos deja acceder y nos muestra un código de estado `403 Access Denied`. Existe una herramienta llamada `bypas-403` [https://github.com/v0rl0x/bypass-403-updated.git](https://github.com/v0rl0x/bypass-403-updated.git), la cual mediante diferentes `headers` intenta `bypassear` este código de estado. Podemos encontrar `payloads` y otras herramientas en `Hacktricks` [https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/403-and-401-bypasses](https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/403-and-401-bypasses). Es importante probar con `/admin` y con `admin` debido a que hay varias cabeceras que necesitan una ruta
 
 ```
 # ./bypass-403.sh https://0a2a003604de8f1180f0ade5008900ae.web-security-academy.net /admin
@@ -85,14 +85,14 @@ Way back machine:
 }
 ```
 
-Si capturamos la petición y aplicamos la cabecera X-Original-Url: /admin
+Si `capturamos` la `petición` y aplicamos la cabecera `X-Original-Url: /admin`
 
 ![](/assets/img/Broken-Access-Control-Lab-10/image_2.png)
 
-Hacemos click derecho, pulsamos sobre Show response in browser y accedemos a un panel administrativo
+Hacemos click derecho, pulsamos sobre `Show response in browser` y accedemos a un panel administrativo
 
 ![](/assets/img/Broken-Access-Control-Lab-10/image_3.png)
 
-Si intentamos eliminar a un usuario no nos dejará y nos redirigirá a https://0a2a003604de8f1180f0ade5008900ae.web-security-academy.net/admin/delete?username=carlos. Debemos realizar la petición de esta forma para poder eliminar al usuario carlos
+Si intentamos `eliminar` a un `usuario` no nos dejará y nos `redirigirá` a `https://0a2a003604de8f1180f0ade5008900ae.web-security-academy.net/admin/delete?username=carlos`. Debemos realizar la `petición` de esta forma para poder `eliminar` al usuario `carlos`
 
 ![](/assets/img/Broken-Access-Control-Lab-10/image_4.png)

