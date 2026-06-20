@@ -25,7 +25,7 @@ bundle install
 bundle exec jekyll serve
 ```
 
-Then, open `http://localhost:4000` in your browser.
+Then, open http://localhost:4000 in your browser.
 
 ## Contributing
 

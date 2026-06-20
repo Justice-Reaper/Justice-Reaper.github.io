@@ -24,41 +24,41 @@ image:
   
 ## Descripción
 
-Este `laboratorio` utiliza un `mecanismo` basado en `JWT` para `manejar` las `sesiones`. `El servidor admite el parámetro jku en el header del JWT`. Sin embargo, `no verifica` si la `URL` proporcionada `pertenece` a un `dominio de confianza` antes de `obtener` la `clave`. Para `resolver` el `laboratorio`, debemos `forjar` un `JWT` utilizando una `URL maliciosa` en el `parámetro jku`. `Esta URL debe apuntar a un servidor bajo nuestro control`, donde `alojaremos` una `clave pública` diseñada para `verificar` nuestro `JWT modificado`. Una vez que `el servidor acepte nuestro JWT`, `obtendremos acceso al panel de administración` en `/admin` y `eliminaremos` al usuario `carlos`. Podemos `iniciar sesión` en nuestra `cuenta` utilizando las credenciales `wiener:peter`
+Este laboratorio utiliza un mecanismo basado en JWT para manejar las sesiones. El servidor admite el parámetro jku en el header del JWT. Sin embargo, no verifica si la URL proporcionada pertenece a un dominio de confianza antes de obtener la clave. Para resolver el laboratorio, debemos forjar un JWT utilizando una URL maliciosa en el parámetro jku. Esta URL debe apuntar a un servidor bajo nuestro control, donde alojaremos una clave pública diseñada para verificar nuestro JWT modificado. Una vez que el servidor acepte nuestro JWT, obtendremos acceso al panel de administración en /admin y eliminaremos al usuario carlos. Podemos iniciar sesión en nuestra cuenta utilizando las credenciales wiener:peter
 
 ---
 
 ## Guía de JWT Attacks
 
-`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de JWT attacks` [https://justice-reaper.github.io/posts/JWT-Attacks-Guide/](https://justice-reaper.github.io/posts/JWT-Attacks-Guide/)
+Antes de completar este laboratorio es recomendable leerse esta guía de JWT attacks [https://justice-reaper.github.io/posts/JWT-Attacks-Guide/](https://justice-reaper.github.io/posts/JWT-Attacks-Guide/)
 
 ## Resolución
 
-Al `acceder` a la `web` nos sale esto
+Al acceder a la web nos sale esto
 
 ![](/assets/img/JWT-Attacks-Lab-5/image_1.png)
 
-Pulsamos en `My account` y nos `logueamos` con las credenciales `wiener:peter`
+Pulsamos en My account y nos logueamos con las credenciales wiener:peter
 
 ![](/assets/img/JWT-Attacks-Lab-5/image_2.png)
 
-`Recargamos` con `F5` y `capturamos` la `petición` con `Burpsuite`
+Recargamos con F5 y capturamos la petición con Burpsuite
 
 ![](/assets/img/JWT-Attacks-Lab-5/image_3.png)
 
-Este es el `JWT`, lo vemos así gracias a la extensión `JWT Editor`
+Este es el JWT, lo vemos así gracias a la extensión JWT Editor
 
 ![](/assets/img/JWT-Attacks-Lab-5/image_4.png)
 
-Vemos que el `algoritmo` usado en un `RS256`, nos dirigimos a la ventana `JWT Editor` y nos `creamos` una `clave RSA` pulsando en `New RSA Key`
+Vemos que el algoritmo usado en un RS256, nos dirigimos a la ventana JWT Editor y nos creamos una clave RSA pulsando en New RSA Key
 
 ![](/assets/img/JWT-Attacks-Lab-5/image_5.png)
 
-Hacemos `click derecho` sobre la `clave generada` y `pulsamos` sobre `Copy Public Key as JWK`
+Hacemos click derecho sobre la clave generada y pulsamos sobre Copy Public Key as JWK
 
 ![](/assets/img/JWT-Attacks-Lab-5/image_6.png)
 
-El `contenido copiado` debería tener esta `estructura`
+El contenido copiado debería tener esta estructura
 
 ```
 {
@@ -69,7 +69,7 @@ El `contenido copiado` debería tener esta `estructura`
 }
 ```
 
-Nos dirigimos al `Exploit server` y pegamos este `JSON`, que es la `clave pública` en el `body`
+Nos dirigimos al Exploit server y pegamos este JSON, que es la clave pública en el body
 
 ```
 {
@@ -84,37 +84,37 @@ Nos dirigimos al `Exploit server` y pegamos este `JSON`, que es la `clave públi
 }
 ```
 
-Debido a que estamos `tramitando` un `JSON`, debemos `cambiar` el `Content-Type` a `application/json`
+Debido a que estamos tramitando un JSON, debemos cambiar el Content-Type a application/json
 
 ```
 Content-Type: application/json
 ```
 
-`Cambiamos` el `nombre` de `usuario` a `administrator`
+Cambiamos el nombre de usuario a administrator
 
 ![](/assets/img/JWT-Attacks-Lab-5/image_7.png)
 
-`Actualizamos` el `kid`, el cual `debe ser el mismo que el de la clave  que hemos generado` y `añadimos` el parámetro `jku` que apunta al `servidor` desde donde `cargaremos` la `clave RSA`
+Actualizamos el kid, el cual debe ser el mismo que el de la clave  que hemos generado y añadimos el parámetro jku que apunta al servidor desde donde cargaremos la clave RSA
 
 ![](/assets/img/JWT-Attacks-Lab-5/image_8.png)
 
-`Firmamos` el `JSON` con la `clave privada`
+Firmamos el JSON con la clave privada
 
 ![](/assets/img/JWT-Attacks-Lab-5/image_9.png)
 
-Hacemos una `petición` a `/admin` para `comprobar` que nos hemos `convertido` en `administrador`
+Hacemos una petición a /admin para comprobar que nos hemos convertido en administrador
 
 ![](/assets/img/JWT-Attacks-Lab-5/image_10.png)
 
-En el navegador pulsamos `Ctrl + Shift+ i` y pegamos la cookie
+En el navegador pulsamos Ctrl + Shift+ i y pegamos la cookie
 
 ![](/assets/img/JWT-Attacks-Lab-5/image_11.png)
 
-`Refrescamos` la `web` con `F5` y ya podemos `eliminar` al usuario `carlos`
+Refrescamos la web con F5 y ya podemos eliminar al usuario carlos
 
 ![](/assets/img/JWT-Attacks-Lab-5/image_12.png)
 
-Hemos podido `vulnerar` este `laboratorio` debido a que, en lugar de `incorporar claves públicas` directamente mediante el `parámetro jwt` del `header`, algunos `servidores` permiten `utilizar` el `parámetro jku (URL del conjunto JWK)` para `hacer referencia` a un `conjunto JWK` que `contiene` la `clave`. Durante el proceso de `verificación de la firma`, el `servidor` obtiene la clave relevante desde esta `URL`. Este es un `ejemplo` de un `conjunto de claves JWK` al cual podemos `acceder` mediante el `parámetro jku`
+Hemos podido vulnerar este laboratorio debido a que, en lugar de incorporar claves públicas directamente mediante el parámetro jwt del header, algunos servidores permiten utilizar el parámetro jku (URL del conjunto JWK) para hacer referencia a un conjunto JWK que contiene la clave. Durante el proceso de verificación de la firma, el servidor obtiene la clave relevante desde esta URL. Este es un ejemplo de un conjunto de claves JWK al cual podemos acceder mediante el parámetro jku
 
 ```
 {
@@ -135,4 +135,4 @@ Hemos podido `vulnerar` este `laboratorio` debido a que, en lugar de `incorporar
 }
 ```
 
-`Conjuntos JWK` como este a veces se `exponen públicamente` a través de un `endpoint estándar`, como `/.well-known/jwks.json`. Los `sitios web` más `seguros` solo `obtienen claves` de `dominios confiables`, pero a veces puedes `aprovechar` las `discrepancias` en el `análisis` de la `URL` para `evitar` este `tipo` de `filtrado`. En este `laboratorio` se está `confiando` en `dominios externos`, esto se solucionaría teniendo una `whitelist` de `dominios confiables`. Hay algunos `ejemplos` de esto en la `guía de SSRF` [https://justice-reaper.github.io/posts/SSRF-Guide/](https://justice-reaper.github.io/posts/SSRF-Guide/) 
+Conjuntos JWK como este a veces se exponen públicamente a través de un endpoint estándar, como /.well-known/jwks.json. Los sitios web más seguros solo obtienen claves de dominios confiables, pero a veces puedes aprovechar las discrepancias en el análisis de la URL para evitar este tipo de filtrado. En este laboratorio se está confiando en dominios externos, esto se solucionaría teniendo una whitelist de dominios confiables. Hay algunos ejemplos de esto en la guía de SSRF [https://justice-reaper.github.io/posts/SSRF-Guide/](https://justice-reaper.github.io/posts/SSRF-Guide/) 

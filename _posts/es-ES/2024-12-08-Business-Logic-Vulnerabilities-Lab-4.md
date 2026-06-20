@@ -24,40 +24,40 @@ image:
   
 ## Descripción
 
-Este `laboratorio` presenta un `fallo de lógica` en su flujo de trabajo de `compra`. Para `resolver` el laboratorio, debemos explotar este fallo para comprar la `Lightweight l33t leather jacket`. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`
+Este laboratorio presenta un fallo de lógica en su flujo de trabajo de compra. Para resolver el laboratorio, debemos explotar este fallo para comprar la Lightweight l33t leather jacket. Podemos iniciar sesión en nuestra propia cuenta utilizando las credenciales wiener:peter
 
 ---
 
 ## Guía de business logic vulnerabilities
 
-`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de business logic vulnerabilities` [https://justice-reaper.github.io/posts/Business-Logic-Vulnerabilities-Guide/](https://justice-reaper.github.io/posts/Business-Logic-Vulnerabilities-Guide/)
+Antes de completar este laboratorio es recomendable leerse esta guía de business logic vulnerabilities [https://justice-reaper.github.io/posts/Business-Logic-Vulnerabilities-Guide/](https://justice-reaper.github.io/posts/Business-Logic-Vulnerabilities-Guide/)
 
 ## Resolución
 
-Al `acceder` a la `web` nos sale esto, vemos que hay un `cupón` llamado `NEWCUST5`
+Al acceder a la web nos sale esto, vemos que hay un cupón llamado NEWCUST5
 
 ![](/assets/img/Business-Logic-Vulnerabilities-Lab-4/image_1.png)
 
-Pulsamos sobre `My account` y nos `logueamos` utilizando las credenciales `wiener:peter`
+Pulsamos sobre My account y nos logueamos utilizando las credenciales wiener:peter
 
 ![](/assets/img/Business-Logic-Vulnerabilities-Lab-4/image_2.png)
 
-Pulsamos sobre `View details` sobre el artículo `Lightweight l33t leather jacket` y pulsamos en `Add to cart`
+Pulsamos sobre View details sobre el artículo Lightweight l33t leather jacket y pulsamos en Add to cart
 
 ![](/assets/img/Business-Logic-Vulnerabilities-Lab-4/image_3.png)
 
-En la `parte inferior` de la `web` nos podemos `suscribir` a la `newsletter`
+En la parte inferior de la web nos podemos suscribir a la newsletter
 
 ![](/assets/img/Business-Logic-Vulnerabilities-Lab-4/image_4.png)
 
-Una vez `suscritos` nos sale un `cupón`
+Una vez suscritos nos sale un cupón
 
 ![](/assets/img/Business-Logic-Vulnerabilities-Lab-4/image_5.png)
 
-Si nos dirigimos para la `cesta` y `añadimos` el cupón `NEWCUST5` y luego el `SIGNUP30` y vamos alternándolos podemos aplicarlos de forma `infinita`
+Si nos dirigimos para la cesta y añadimos el cupón NEWCUST5 y luego el SIGNUP30 y vamos alternándolos podemos aplicarlos de forma infinita
 
 ![](/assets/img/Business-Logic-Vulnerabilities-Lab-4/image_6.png)
 
-Pulsamos sobre `Place order` y conseguimos `comprar` un `artículo` de forma `gratuita`
+Pulsamos sobre Place order y conseguimos comprar un artículo de forma gratuita
 
 ![](/assets/img/Business-Logic-Vulnerabilities-Lab-4/image_6.png)

