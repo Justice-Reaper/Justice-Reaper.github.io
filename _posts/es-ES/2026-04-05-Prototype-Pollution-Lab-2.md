@@ -189,7 +189,7 @@ Esto nos lleva a esta `línea`
 
 ![](/assets/img/Prototype-Pollution-Lab-2/image_14.png)
 
-Si `añadimos` un `breakpoint` en la `línea 12`, `hacemos` una `petición` a esta URL `https://0ac800000412a2a68499b387006d0082.web-security-academy.net/?\_\_proto\_\_[transport_url]=bar` y `hacemos hover sobre transport_url`, `vemos que el valor que hemos inyectado ha llegado correctamente a la propiedad transport_url` 
+Si `añadimos` un `breakpoint` en la `línea 12`, `hacemos` una `petición` a esta URL `https://0ac800000412a2a68499b387006d0082.web-security-academy.net/?__proto__[transport_url]=bar` y `hacemos hover sobre transport_url`, `vemos que el valor que hemos inyectado ha llegado correctamente a la propiedad transport_url` 
 
 ![](/assets/img/Prototype-Pollution-Lab-2/image_15.png)
 
@@ -197,6 +197,6 @@ Si `quitamos` el `breakpoint` y `recargamos la web`, vemos que `el script nos de
 
 ![](/assets/img/Prototype-Pollution-Lab-2/image_16.png)
 
-En nuestro caso es mejor `usar` una `data URL` porque `no tenemos Exploit server en este laboratorio`. Para `ejecutar` nuestro `payload malicioso` vamos a `realizar` una `petición` a `https://0ac800000412a2a68499b387006d0082.web-security-academy.net/?\_\_proto\_\_[transport_url]=data:text/javascript,alert(1)`
+En nuestro caso es mejor `usar` una `data URL` porque `no tenemos Exploit server en este laboratorio`. Para `ejecutar` nuestro `payload malicioso` vamos a `realizar` una `petición` a `https://0ac800000412a2a68499b387006d0082.web-security-academy.net/?__proto__[transport_url]=data:text/javascript,alert(1)`
 
 ![](/assets/img/Prototype-Pollution-Lab-2/image_17.png)
