@@ -46,7 +46,7 @@ Si `pulsamos` sobre el `botón Submit` y `miramos` el `Logger` de `Burpsuite` ve
 
 ![](/assets/img/Prototype-Pollution-Lab-9/image_4.png)
 
-Lo primero que vamos a hacer es `ver si podemos envenenar el prototipo`. Para ello, vamos a `usar` este `payload "\_\_proto\_\_":{"json spaces":10}`. Como podemos ver, `hemos conseguido envenenar el prototipo`
+Lo primero que vamos a hacer es `ver si podemos envenenar el prototipo`. Para ello, vamos a `usar` este `payload "__proto__":{"json spaces":10}`. Como podemos ver, `hemos conseguido envenenar el prototipo`
 
 ![](/assets/img/Prototype-Pollution-Lab-9/image_5.png)
 
