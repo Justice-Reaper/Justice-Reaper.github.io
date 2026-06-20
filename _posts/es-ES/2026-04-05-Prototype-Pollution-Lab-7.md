@@ -48,7 +48,7 @@ Si `pulsamos` sobre el `botón Submit` y `miramos` el `Logger` de `Burpsuite` ve
 
 ![](/assets/img/Prototype-Pollution-Lab-7/image_5.png)
 
-Lo primero que vamos a hacer es `ver si podemos envenenar el prototipo`. Para ello, vamos a `usar` este `payload "__proto__":{"foo":"bar"}`. Como podemos ver, `no hemos conseguido envenenar el prototipo`, o también puede ser que `hayamos conseguido envenenarlo pero que no se refleje en la respuesta`
+Lo primero que vamos a hacer es `ver si podemos envenenar el prototipo`. Para ello, vamos a `usar` este `payload "\_\_proto\_\_":{"foo":"bar"}`. Como podemos ver, `no hemos conseguido envenenar el prototipo`, o también puede ser que `hayamos conseguido envenenarlo pero que no se refleje en la respuesta`
 
 ![](/assets/img/Prototype-Pollution-Lab-7/image_6.png)
 
@@ -59,13 +59,13 @@ El `primero método` que vamos a `probar` se llama `JSON spaces override` y cons
 Como podemos ver, estamos `envenenando el prototipo correctamente`
 
 ```
-"__proto__":{"json spaces":0}}
+"\_\_proto\_\_":{"json spaces":0}}
 ```
 
 ![](/assets/img/Prototype-Pollution-Lab-7/image_7.png)
 
 ```
-"__proto__":{"json spaces":10}}
+"\_\_proto\_\_":{"json spaces":10}}
 ```
 
 ![](/assets/img/Prototype-Pollution-Lab-7/image_8.png)
