@@ -118,18 +118,18 @@ Debemos tener en cuenta que `el prototipo de un objeto es simplemente otro objet
 
 Es importante destacar que `los objetos no solo heredan propiedades de su prototipo inmediato, sino de todos los objetos que están por encima en la cadena de prototipos`. En el ejemplo anterior, esto significa que `el objeto username tiene acceso a las propiedades y métodos tanto de String.prototype como de Object.prototype`
 
-### Acceder al prototipo de un objeto usando \_\_proto\_\_
+### Acceder al prototipo de un objeto usando __proto__
 
-`Cada objeto tiene una propiedad especial que se puede usar para acceder a su prototipo`. `Aunque no tiene un nombre formalmente estandarizado, \_\_proto\_\_ es el estándar usado por la mayoría de los navegadores`. `Para quienes dominan los lenguajes orientados a objetos, les resultará sencillo entender como funciona esta propiedad`, ya que `actúa` como un `getter` y como un `setter`. Esto significa que `podemos usarla para leer el prototipo y sus propiedades, e incluso reasignarlas si es necesario`
+`Cada objeto tiene una propiedad especial que se puede usar para acceder a su prototipo`. `Aunque no tiene un nombre formalmente estandarizado, __proto__ es el estándar usado por la mayoría de los navegadores`. `Para quienes dominan los lenguajes orientados a objetos, les resultará sencillo entender como funciona esta propiedad`, ya que `actúa` como un `getter` y como un `setter`. Esto significa que `podemos usarla para leer el prototipo y sus propiedades, e incluso reasignarlas si es necesario`
 
-Como con cualquier propiedad, `podemos acceder a \_\_proto\_\_ usando la notación de punto o de corchetes`:
+Como con cualquier propiedad, `podemos acceder a __proto__ usando la notación de punto o de corchetes`:
 
 ```
 username.__proto__
 username['__proto__']
 ```
 
-Incluso podemos `encadenar referencias a \_\_proto\_\_ para recorrer la cadena de prototipos`:
+Incluso podemos `encadenar referencias a __proto__ para recorrer la cadena de prototipos`:
 
 ```
 username.__proto__                        // String.prototype
@@ -160,9 +160,9 @@ searchTerm.removeWhitespace();    // "example"
 
 Un `prototype pollution` suele `surgir` cuando `una función de JavaScript mergea de forma recursiva un objeto que contiene propiedades controlables por el usuario con un objeto existente, sin antes sanitizar las claves (nombres de las propiedades de un objeto)`
 
-Esto puede `permitir` que `un atacante inyecte una propiedad (clave + valor) que tenga \_\_proto\_\_ como clave, junto con propiedades anidadas arbitrarias`
+Esto puede `permitir` que `un atacante inyecte una propiedad (clave + valor) que tenga __proto__ como clave, junto con propiedades anidadas arbitrarias`
 
-`Debido al significado especial de \_\_proto\_\_ en el contexto de JavaScript, la operación de merge puede asignar las propiedades anidadas al prototipo del objeto en lugar de al propio objeto objetivo`. Como `resultado`, `el atacante puede contaminar el prototipo con propiedades que contienen valores maliciosos, los cuales posteriormente pueden ser utilizados por la aplicación de forma peligrosa`
+`Debido al significado especial de __proto__ en el contexto de JavaScript, la operación de merge puede asignar las propiedades anidadas al prototipo del objeto en lugar de al propio objeto objetivo`. Como `resultado`, `el atacante puede contaminar el prototipo con propiedades que contienen valores maliciosos, los cuales posteriormente pueden ser utilizados por la aplicación de forma peligrosa`
 
 Es posible `contaminar` el `prototipo` de `cualquier objeto`, pero `esto ocurre más comúnmente con el objeto global integrado Object.prototype`
 
@@ -192,9 +192,9 @@ La siguiente `URL` que `contiene una cadena de consulta construida por un atacan
 https://vulnerable-website.com/?__proto__[evilProperty]=payload
 ```
 
-Al `descomponer` la `cadena de consulta` en `pares clave:valor`, `un parser de URL puede interpretar \_\_proto\_\_ como una cadena arbitraria`. Pero `veamos qué ocurre si estas claves y valores se combinan posteriormente con un objeto existente como propiedades`
+Al `descomponer` la `cadena de consulta` en `pares clave:valor`, `un parser de URL puede interpretar __proto__ como una cadena arbitraria`. Pero `veamos qué ocurre si estas claves y valores se combinan posteriormente con un objeto existente como propiedades`
 
-Podríamos pensar que `la propiedad \_\_proto\_\_ junto con su propiedad anidada evilProperty simplemente se añadirán al objeto objetivo de la siguiente forma`:
+Podríamos pensar que `la propiedad __proto__ junto con su propiedad anidada evilProperty simplemente se añadirán al objeto objetivo de la siguiente forma`:
 
 ```
 {
@@ -212,13 +212,13 @@ Sin embargo, `esto no es lo que ocurre`. En algún punto, `la operación recursi
 targetObject.__proto__.evilProperty = 'payload';
 ```
 
-`Durante esta asignación, el motor de JavaScript trata \_\_proto\_\_ como un getter del prototipo`. `Como resultado, evilProperty se asigna al objeto prototipo devuelto en lugar de al propio objeto objetivo`. Asumiendo que `el objeto objetivo usa Object.prototype por defecto, todos los objetos en el entorno de JavaScript heredarán ahora evilProperty, a menos que ya tengan una propiedad propia con la misma clave`
+`Durante esta asignación, el motor de JavaScript trata __proto__ como un getter del prototipo`. `Como resultado, evilProperty se asigna al objeto prototipo devuelto en lugar de al propio objeto objetivo`. Asumiendo que `el objeto objetivo usa Object.prototype por defecto, todos los objetos en el entorno de JavaScript heredarán ahora evilProperty, a menos que ya tengan una propiedad propia con la misma clave`
 
 En la práctica, `inyectar una propiedad llamada evilProperty probablemente no tenga ningún efecto`. Sin embargo, `un atacante puede usar la misma técnica para contaminar el prototipo con propiedades que sí sean utilizadas por la aplicación o por una librería importada`
 
 #### Prototype pollution a través de un JSON
 
-`Los objetos controlables por el usuario a menudo se obtienen a partir de un string de JSON usando el método JSON.parse()`. Curiosamente, `JSON.parse() también trata cualquier clave del objeto JSON como una cadena arbitraria, incluyendo cosas como \_\_proto\_\_`. Esto proporciona otro `posible vector` de `prototype pollution`
+`Los objetos controlables por el usuario a menudo se obtienen a partir de un string de JSON usando el método JSON.parse()`. Curiosamente, `JSON.parse() también trata cualquier clave del objeto JSON como una cadena arbitraria, incluyendo cosas como __proto__`. Esto proporciona otro `posible vector` de `prototype pollution`
 
 Supongamos que `un atacante inyecta el siguiente JSON malicioso`, por ejemplo, `a través de un web message`:
 
@@ -230,7 +230,7 @@ Supongamos que `un atacante inyecta el siguiente JSON malicioso`, por ejemplo, `
 }
 ```
 
-`Si esto se convierte en un objeto de JavaScript usando JSON.parse(), el objeto resultante sí tendrá una propiedad con la clave \_\_proto\_\_`:
+`Si esto se convierte en un objeto de JavaScript usando JSON.parse(), el objeto resultante sí tendrá una propiedad con la clave __proto__`:
 
 ```
 const objectLiteral = {__proto__: {evilProperty: 'payload'}};
@@ -375,7 +375,7 @@ En estos `laboratorios` vemos como `aplicar` esta `técnica`:
 
 ### Prototype pollution mediante el constructor
 
-`Hasta ahora, hemos visto exclusivamente cómo obtener una referencia a objetos prototipo mediante la propiedad especial de acceso \_\_proto\_\_`. Como esta es la `técnica clásica de prototype pollution`, `una defensa habitual consiste en eliminar cualquier propiedad cuya clave sea \_\_proto\_\_ de los objetos controlados por el usuario antes de mergearos`. Sin embargo, este `enfoque` es `erróneo`, ya que `existen formas alternativas de referenciar Object.prototype sin depender en absoluto de la cadena \_\_proto\_\_`
+`Hasta ahora, hemos visto exclusivamente cómo obtener una referencia a objetos prototipo mediante la propiedad especial de acceso __proto__`. Como esta es la `técnica clásica de prototype pollution`, `una defensa habitual consiste en eliminar cualquier propiedad cuya clave sea __proto__ de los objetos controlados por el usuario antes de mergearos`. Sin embargo, este `enfoque` es `erróneo`, ya que `existen formas alternativas de referenciar Object.prototype sin depender en absoluto de la cadena __proto__`
 
 `A menos que hayan seteado su prototipo en null, todos los objetos en JavaScript tienen la propiedad constructor, la cual contiene una referencia a la función constructor que se utilizó para crearlo`. Por ejemplo, `podemos crear un nuevo objeto usando sintaxis literal o invocando el constructor Object() de la siguiente manera`:
 
@@ -409,7 +409,7 @@ myArray.constructor.prototype // Array.prototype
 vulnerable-website.com/?__pro__proto__to__.gadget=payload
 ```
 
-`Si el proceso de sanitización simplemente elimina la cadena \_\_proto\_\_ sin repetir este proceso más de una vez, esto daría como resultado la siguiente URL`:
+`Si el proceso de sanitización simplemente elimina la cadena __proto__ sin repetir este proceso más de una vez, esto daría como resultado la siguiente URL`:
 
 ```
 vulnerable-website.com/?__proto__.gadget=payload
@@ -769,13 +769,13 @@ Aunque es útil intentar testear manualmente las fuentes para afianzar la compre
 
 #### Bypassear filtros de entrada para prototype pollution del lado del servidor
 
-Los sitios web frecuentemente intentan prevenir o parchear las vulnerabilidades de prototype pollution filtrando claves sospechosas como `\_\_proto\_\_`. Este enfoque de saneamiento de claves no es una solución robusta a largo plazo, ya que existen diversas formas de evadirlo. Por ejemplo, un atacante puede:
+Los sitios web frecuentemente intentan prevenir o parchear las vulnerabilidades de prototype pollution filtrando claves sospechosas como `__proto__`. Este enfoque de saneamiento de claves no es una solución robusta a largo plazo, ya que existen diversas formas de evadirlo. Por ejemplo, un atacante puede:
 
 - Ofuscar las palabras clave prohibidas para que pasen desapercibidas durante el saneamiento
 
-- Acceder al prototipo mediante la propiedad `constructor` en lugar de `\_\_proto\_\_`
+- Acceder al prototipo mediante la propiedad `constructor` en lugar de `__proto__`
 
-Las aplicaciones Node también pueden eliminar o deshabilitar `\_\_proto\_\_` por completo usando los indicadores de línea de comandos `--disable-proto=delete` o `--disable-proto=throw` respectivamente. Sin embargo, esto también puede eludirse utilizando la técnica del constructor
+Las aplicaciones Node también pueden eliminar o deshabilitar `__proto__` por completo usando los indicadores de línea de comandos `--disable-proto=delete` o `--disable-proto=throw` respectivamente. Sin embargo, esto también puede eludirse utilizando la técnica del constructor
 
 En este `laboratorio` vemos como `aplicar` esta `técnica`:
 
@@ -834,7 +834,7 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuació
 
 3 - Para los prototype pollution del lado del servidor prefiero hacer todo el proceso de forma manual para evitar romper nada. Lo primero que tenemos que hacer es identificar si existe un prototype pollution con alguno de los métodos que aparecen en este laboratorio [https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-7/](https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-7/)
 
-4 - Si no funciona usando estos métodos puede ser porque se esté bloqueando \_\_proto\_\_ u otra cadena que estamos usando. Para estos casos, vamos a usar las formas alternativas que se ven en los laboratorios [https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-8/](https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-8/) y [https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-3/](https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-3/)
+4 - Si no funciona usando estos métodos puede ser porque se esté bloqueando __proto__ u otra cadena que estamos usando. Para estos casos, vamos a usar las formas alternativas que se ven en los laboratorios [https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-8/](https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-8/) y [https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-3/](https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-3/)
 
 5 - Una vez ya funcione todo, nos tenemos que intentar convertir en usuario administrador
 
@@ -848,7 +848,7 @@ En esta `sección`, `ofreceremos algunos consejos generales sobre las medidas qu
 
 ### Sanitizar las claves de las propiedades
 
-`Una de las formas más evidentes de prevenir un prototype pollution es sanitizar las claves de las propiedades antes de fusionarlas con objetos existentes`. Así podemos `evitar` que `un atacante inyecte claves como \_\_proto\_\_, que hacen referencia al prototipo del objeto`
+`Una de las formas más evidentes de prevenir un prototype pollution es sanitizar las claves de las propiedades antes de fusionarlas con objetos existentes`. Así podemos `evitar` que `un atacante inyecte claves como __proto__, que hacen referencia al prototipo del objeto`
 
 `Usar una lista de claves permitidas es la forma más eficaz de lograrlo`. Sin embargo, `como esto no es viable en muchos casos, es habitual recurrir a una lista de claves no permitidas`. De esta forma, `se eliminaría de la entrada del usuario cualquier cadena potencialmente peligrosa`
 
