@@ -56,7 +56,7 @@ Esto puede ser debido a que `se esté implementando algún tipo de sanitización
 
 ![](/assets/img/Prototype-Pollution-Lab-4/image_4.png)
 
-Vamos a `acceder` a `deparamSanitised`, `vamos` a `setear` un `breakpoint`  y posteriormente a `acceder` a esta `URL` https://0abe00e403ed570780d2031b00b60045.web-security-academy.net/?\_\_proto\_\_[foo]=bar
+Vamos a `acceder` a `deparamSanitised`, `vamos` a `setear` un `breakpoint`  y posteriormente a `acceder` a esta `URL` https://0abe00e403ed570780d2031b00b60045.web-security-academy.net/?__proto__[foo]=bar
 
 ![](/assets/img/Prototype-Pollution-Lab-4/image_5.png)
 
@@ -68,19 +68,19 @@ Una vez llegamos aquí, `si pulsamos F9 nos llevará al archivo searchLoggerFilt
 
 ![](/assets/img/Prototype-Pollution-Lab-4/image_7.png)
 
-`Lo que hace esta función es recorrer la variable key una sola vez y reemplazar las cadenas constructor, \_\_proto\_\_ y prototype por una cadena vacía`
+`Lo que hace esta función es recorrer la variable key una sola vez y reemplazar las cadenas constructor, __proto__ y prototype por una cadena vacía`
 
 ![](/assets/img/Prototype-Pollution-Lab-4/image_8.png)
 
 ![](/assets/img/Prototype-Pollution-Lab-4/image_9.png)
 
-`Como solo hace una pasada podríamos usar este payload \_\_pro\_\_proto\_\_to\_\_[foo]=bar para bypassear la sanitización`. `En la primera pasada busca constructor y como no lo encuentra pasa a \_\_proto\_\_, en este caso si que lo encuentra y lo elimina`. `Posteriormente busca prototype, no encuentra nada y finaliza`. `Como solamente hace una pasada, el payload final que queda es \_\_proto\_\_[foo]=bar`
+`Como solo hace una pasada podríamos usar este payload __pro__proto__to__[foo]=bar para bypassear la sanitización`. `En la primera pasada busca constructor y como no lo encuentra pasa a __proto__, en este caso si que lo encuentra y lo elimina`. `Posteriormente busca prototype, no encuentra nada y finaliza`. `Como solamente hace una pasada, el payload final que queda es __proto__[foo]=bar`
 
 ![](/assets/img/Prototype-Pollution-Lab-4/image_10.png)
 
 ![](/assets/img/Prototype-Pollution-Lab-4/image_11.png)
 
-Para `comprobar` que `estamos envenenando el prototipo correctamente`, `quitamos` el `breakpoint`, `accedemos` a `https://0abe00e403ed570780d2031b00b60045.web-security-academy.net/?\_\_pro\_\_proto\_\_to\_\_[foo]=bar` y `lo comprobamos mediante la consola`
+Para `comprobar` que `estamos envenenando el prototipo correctamente`, `quitamos` el `breakpoint`, `accedemos` a `https://0abe00e403ed570780d2031b00b60045.web-security-academy.net/?__pro__proto__to__[foo]=bar` y `lo comprobamos mediante la consola`
 
 ![](/assets/img/Prototype-Pollution-Lab-4/image_12.png)
 
@@ -209,7 +209,7 @@ Esto nos lleva a esta `línea`
 
 ![](/assets/img/Prototype-Pollution-Lab-4/image_21.png)
 
-Si `añadimos` un `breakpoint` en la `línea 11`, `hacemos` una `petición` a esta URL `https://0abe00e403ed570780d2031b00b60045.web-security-academy.net/?\_\_pro\_\_proto\_\_to\_\_[transport_url]=bar` y `hacemos hover sobre transport_url`, `vemos que el valor que hemos inyectado ha llegado correctamente a la propiedad transport_url` 
+Si `añadimos` un `breakpoint` en la `línea 11`, `hacemos` una `petición` a esta URL `https://0abe00e403ed570780d2031b00b60045.web-security-academy.net/?__pro__proto__to__[transport_url]=bar` y `hacemos hover sobre transport_url`, `vemos que el valor que hemos inyectado ha llegado correctamente a la propiedad transport_url` 
 
 ![](/assets/img/Prototype-Pollution-Lab-4/image_22.png)
 
@@ -217,6 +217,6 @@ Si `quitamos` el `breakpoint` y `recargamos la web`, vemos que `el script nos de
 
 ![](/assets/img/Prototype-Pollution-Lab-4/image_23.png)
 
-En nuestro caso es mejor `usar` una `data URL` porque `no tenemos Exploit server en este laboratorio`. Para `ejecutar` nuestro `payload malicioso` vamos a `realizar` una `petición` a `https://0abe00e403ed570780d2031b00b60045.web-security-academy.net/?\_\_pro\_\_proto\_\_to\_\_[transport_url]=data:text/javascript,alert(1)`
+En nuestro caso es mejor `usar` una `data URL` porque `no tenemos Exploit server en este laboratorio`. Para `ejecutar` nuestro `payload malicioso` vamos a `realizar` una `petición` a `https://0abe00e403ed570780d2031b00b60045.web-security-academy.net/?__pro__proto__to__[transport_url]=data:text/javascript,alert(1)`
 
 ![](/assets/img/Prototype-Pollution-Lab-4/image_24.png)
