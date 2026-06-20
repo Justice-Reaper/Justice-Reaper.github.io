@@ -183,24 +183,40 @@ Una vez hecho esto, `tunelizamos el tráfico del navegador a través del proxy p
 
 Lo `siguiente` que debemos de hacer es `desactivar` el `Match and replace` de `Burpsuite`, `abrir la web en una nueva pestaña`, `abrir la consola de desarrollador` y `dirigirnos a aquí`
 
-![](/assets/img/Prototype-Pollution-Lab-3/image_11.png)
+![[image_11.png]]
 
-Una vez estamos aquí, `pulsamos Ctrl + G y ponemos esto 12:15, para ir a la línea 12 y a la columna 15`
+Una vez estamos aquí, `pulsamos Ctrl + G y ponemos esto 15:21, para ir a la línea 15 y a la columna 21`
 
-![](/assets/img/Prototype-Pollution-Lab-3/image_12.png)
+![[image_12.png]]
 
 Esto nos lleva a esta `línea`
 
-![](/assets/img/Prototype-Pollution-Lab-3/image_13.png)
+![[image_13.png]]
 
-Si `añadimos` un `breakpoint` en la `línea 12`, `hacemos` una `petición` a esta URL `https://0a3600eb0307235780e90d3000870074.web-security-academy.net/?__proto__[transport_url]=bar` y `hacemos hover sobre transport_url`, `vemos que el valor que hemos inyectado ha llegado correctamente a la propiedad transport_url` 
+Si `añadimos` un `breakpoint` en la `línea 15`, `hacemos` una `petición` a esta URL `https://0a3600eb0307235780e90d3000870074.web-security-academy.net/?__proto__.sequence=bar` y `hacemos hover sobre sequence`, `vemos que el valor que hemos inyectado ha llegado correctamente a la propiedad sequence 
 
-![](/assets/img/Prototype-Pollution-Lab-3/image_14.png)
+![[image_14.png]]
 
-Si `quitamos` el `breakpoint` y `recargamos la web`, vemos que `el script nos devuelve un error en esta parte`. Esto se debe a que `script.src espera recibir una URL`, `podríamos proporcionar un archivo javascript malicioso mediante una url https://attacker.com/exploit.js` o `embeber los datos usando una data URL data:text/javascript,alert(1)`
+Si `quitamos` el `breakpoint` y `recargamos la web`, vemos que nos reporta un error en la consola
 
-![](/assets/img/Prototype-Pollution-Lab-3/image_15.png)
+![[image_15.png]]
+
+Si hacemos click sobre el link nos llevará e![[Pasted image 20260620200925.png]]xactamente a la línea en la que se produce el error. Para ver que valor llega hasta esa línea vamos a setear un breakpoint y a recargar la página
+
+![[image_16.png]]
+
+Si hacemos hover sobre sequence vemos que el valor que llega es bar1
+
+![[image_17.png]]
+
+Esto se debe a lo que está pasando aquí. Es decir, se le está intentado sumar 1 al valor de manager.sequence
+
+![[image_18.png|381]]
+
+Una vez sabemos esto ya podemos ejecutar un XSS, Para ello vamos a usar este payload `alert(1)-`. Ahora al acceder a `https://0a3600eb0307235780e90d3000870074.web-security-academy.net/?__proto__.sequence=alert(1)-` sí que se va a ejecutar el XSS, porque primero se produce el eval y luego posteriormente intentar hacer la resta
+
+![[image_19.png]]
 
 En nuestro caso es mejor `usar` una `data URL` porque `no tenemos Exploit server en este laboratorio`. Para `ejecutar` nuestro `payload malicioso` vamos a `realizar` una `petición` a `https://0a3600eb0307235780e90d3000870074.web-security-academy.net/?__proto__[transport_url]=data:text/javascript,alert(1)`
 
-![](/assets/img/Prototype-Pollution-Lab-3/image_16.png)
+![[image_20.png]]
