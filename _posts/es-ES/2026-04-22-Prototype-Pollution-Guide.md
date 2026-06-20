@@ -5,12 +5,9 @@ date: 2026-04-22 12:30:00 +0800
 lang: es-ES
 author: Justice-Reaper
 categories:
-  - Portswigger Labs
-  - Web Cache Poisoning
+  - Portswigger Guides
 tags:
-  - Portswigger Labs
-  - Web Cache Deception
-  - Exploiting origin server normalization for web cache deception
+  - Portswigger Guides
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
@@ -99,7 +96,7 @@ Object.getPrototypeOf(myNumber);    // Number.prototype
 
 Dado los siguientes `objetos`, esto nos permite, por ejemplo, hacer `referencia` a `myObject.propertyA`:
 
-![[Pasted image 20260420195552.png]]
+![](/assets/img/Prototype-Pollution-Guide/image_1.png)
 
 Podemos `usar` la `consola del navegador` para `ver` este `comportamiento` en `acción`. Primero, `creamos un objeto completamente vacío`:
 
@@ -109,7 +106,7 @@ let myObject = {};
 
 Después, `escribimos myObject seguido de un punto`. Vemos que la `consola` nos `sugiere` una `lista de propiedades` y `métodos disponibles`
 
-![[Pasted image 20260420195738.png]]
+![](/assets/img/Prototype-Pollution-Guide/image_2.png)
 
 Aunque `no hay propiedades ni métodos definidos directamente en el objeto`, este `ha heredado algunos de Object.prototype`
 
@@ -117,7 +114,7 @@ Aunque `no hay propiedades ni métodos definidos directamente en el objeto`, est
 
 Debemos tener en cuenta que `el prototipo de un objeto es simplemente otro objeto, el cual también tiene su propio prototipo, y así sucesivamente`. Como `prácticamente todo en JavaScript es un objeto internamente, esta cadena finalmente termina en el prototipo de nivel superior Object.prototype`, cuyo `prototipo` es simplemente `null`
 
-![[Pasted image 20260420195842.png]]
+![](/assets/img/Prototype-Pollution-Guide/image_3.png)
 
 Es importante destacar que `los objetos no solo heredan propiedades de su prototipo inmediato, sino de todos los objetos que están por encima en la cadena de prototipos`. En el ejemplo anterior, esto significa que `el objeto username tiene acceso a las propiedades y métodos tanto de String.prototype como de Object.prototype`
 
