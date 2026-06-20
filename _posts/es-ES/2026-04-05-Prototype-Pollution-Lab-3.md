@@ -193,7 +193,7 @@ Esto nos lleva a esta `línea`
 
 ![](/assets/img/Prototype-Pollution-Lab-3/image_13.png)
 
-Si `añadimos` un `breakpoint` en la `línea 15`, `hacemos` una `petición` a esta URL `https://0a3600eb0307235780e90d3000870074.web-security-academy.net/?\_\_proto\_\_.sequence=bar` y `hacemos hover sobre sequence`, `vemos que el valor que hemos inyectado ha llegado correctamente a la propiedad sequence 
+Si `añadimos` un `breakpoint` en la `línea 15`, `hacemos` una `petición` a esta URL `https://0a3600eb0307235780e90d3000870074.web-security-academy.net/?__proto__.sequence=bar` y `hacemos hover sobre sequence`, `vemos que el valor que hemos inyectado ha llegado correctamente a la propiedad sequence 
 
 ![](/assets/img/Prototype-Pollution-Lab-3/image_14.png)
 
@@ -213,10 +213,10 @@ Esto se debe a lo que está pasando aquí. Es decir, se le está intentado sumar
 
 ![](/assets/img/Prototype-Pollution-Lab-3/image_18.png)
 
-Una vez sabemos esto ya podemos ejecutar un XSS, Para ello vamos a usar este payload `alert(1)-`. Ahora al acceder a `https://0a3600eb0307235780e90d3000870074.web-security-academy.net/?\_\_proto\_\_.sequence=alert(1)-` sí que se va a ejecutar el XSS, porque primero se produce el eval y luego posteriormente intentar hacer la resta
+Una vez sabemos esto ya podemos ejecutar un XSS, Para ello vamos a usar este payload `alert(1)-`. Ahora al acceder a `https://0a3600eb0307235780e90d3000870074.web-security-academy.net/?__proto__.sequence=alert(1)-` sí que se va a ejecutar el XSS, porque primero se produce el eval y luego posteriormente intentar hacer la resta
 
 ![](/assets/img/Prototype-Pollution-Lab-3/image_19.png)
 
-En nuestro caso es mejor `usar` una `data URL` porque `no tenemos Exploit server en este laboratorio`. Para `ejecutar` nuestro `payload malicioso` vamos a `realizar` una `petición` a `https://0a3600eb0307235780e90d3000870074.web-security-academy.net/?\_\_proto\_\_[transport_url]=data:text/javascript,alert(1)`
+En nuestro caso es mejor `usar` una `data URL` porque `no tenemos Exploit server en este laboratorio`. Para `ejecutar` nuestro `payload malicioso` vamos a `realizar` una `petición` a `https://0a3600eb0307235780e90d3000870074.web-security-academy.net/?__proto__[transport_url]=data:text/javascript,alert(1)`
 
 ![](/assets/img/Prototype-Pollution-Lab-3/image_20.png)
