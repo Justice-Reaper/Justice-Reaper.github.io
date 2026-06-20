@@ -24,31 +24,31 @@ image:
   
 ## Descripción
 
-Las `funciones de gestión de usuarios de este laboratorio usa un endpoint GraphQL`. Este endpoint acepta solicitudes con un `content-type de x-www-form-urlencoded` y, por lo tanto, es vulnerable a `ataques de falsificación de petición en sitios cruzados (CSRF)`. Para resolver el laboratorio, debemos crear un HTML que utilice un ataque CSRF para cambiar el `correo electrónico del usuario víctima`. Podemos `iniciar sesión en nuestra propia cuenta utilizando las credenciales wiener:peter`
+Las `funciones de gestión de usuarios` de este `laboratorio` usa un `endpoint GraphQL`. Este `endpoint` acepta solicitudes con un `content-type` de `x-www-form-urlencoded` y, por lo tanto, es vulnerable a `ataques de falsificación de petición en sitios cruzados (CSRF)`. Para `resolver` el `laboratorio`, debemos crear un `HTML` que utilice un `ataque CSRF` para `cambiar` el `correo electrónico` del `usuario víctima`. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`
 
 ---
 
 ## Resolución
 
-Al acceder a la web vemos esto
+Al `acceder` a la `web` vemos esto
 
 ![](/assets/img/GraphQL-API-Vulnerabilities-Lab-5/image_1.png)
 
-Si hacemos click sobre My account, nos podemos loguear con las credenciales `wiener:peter`
+Si hacemos click sobre `My account`, nos podemos `loguear` con las credenciales `wiener:peter`
 
 ![](/assets/img/GraphQL-API-Vulnerabilities-Lab-5/image_2.png)
 
-Vemos que podemos cambiar nuestra `dirección de correo electrónico`
+Vemos que podemos `cambiar` nuestra `dirección` de `correo electrónico`
 
 ![](/assets/img/GraphQL-API-Vulnerabilities-Lab-5/image_3.png)
 
-Las vulnerabilidades CSRF pueden surgir cuando un endpoint GraphQL no valida el tipo de contenido de las solicitudes que recibe y no se implementan tokens CSRF
+Las `vulnerabilidades CSRF` pueden surgir cuando un `endpoint GraphQL` no valida el `tipo de contenido` de las `solicitudes` que recibe y no se implementan `tokens CSRF`
 
-Las solicitudes POST que usan `application/json como content-type son seguras contra falsificación siempre que el tipo de contenido sea validado`. En este caso, `un atacante no podría hacer que el navegador de la víctima enviara esta solicitud`, incluso si la víctima visitara un sitio malicioso
+Las `solicitudes POST` que usan `application/json` como `content-type` son `seguras contra falsificación` siempre que `el tipo de contenido sea validado`. En este caso, `un atacante no podría hacer que el navegador de la víctima enviara esta solicitud`, incluso si la víctima visitara un `sitio malicioso`
 
-Sin embargo, `métodos alternativos como GET`, o cualquier solicitud que use `x-www-form-urlencoded como content-type` , pueden ser enviadas por un navegador, lo que podría dejar a los usuarios vulnerables si el endpoint acepta estas solicitudes. En estos casos, los atacantes podrían crear exploits para enviar solicitudes maliciosas a la API
+Sin embargo, `métodos alternativos` como `GET`, o cualquier `solicitud` que use `x-www-form-urlencoded` como `content-type` , pueden ser `enviadas por un navegador`, lo que podría `dejar a los usuarios vulnerables` si el `endpoint` acepta estas `solicitudes`. En estos casos, los `atacantes` podrían `crear exploits` para `enviar solicitudes maliciosas` a la `API`
 
-Si inspeccionamos el formulario de cambio de email vemos como funciona
+Si `inspeccionamos` el `formulario` de `cambio` de `email` vemos como funciona
 
 ![](/assets/img/GraphQL-API-Vulnerabilities-Lab-5/image_4.png)
 
@@ -170,11 +170,11 @@ const displayContent = (path, queryParam) => {
 }
 ```
 
-En Burpsuite con la extensión `Logger ++ vemos que se tramita esta petición a GraphQL cuando se cambia el email`
+En `Burpsuite` con la extensión `Logger ++` vemos que se `tramita` esta `petición` a `GraphQL` cuando se `cambia` el `email`
 
 ![](/assets/img/GraphQL-API-Vulnerabilities-Lab-5/image_2.png)
 
-Podemos probar a cambiar el `content-type de application/json a application/x-www-form-urlencoded y el formato de la query de JSON a urlencoded y si el servidor lo acepta`, podríamos aprovecharnos de esto para explotar un CSRF. Para hacer esto lo podemos hacer de forma manual o podemos usar mi herramienta graphQLConverter [https://github.com/Justice-Reaper/graphQLConverter.git](https://github.com/Justice-Reaper/graphQLConverter.git). Le tenemos que pasar por parámetro la query que tenemos en Burpsuite
+Podemos probar a cambiar el `content-type` de `application/json` a `application/x-www-form-urlencoded` y el `formato` de la `query` de `JSON` a `urlencoded` y si el `servidor` lo `acepta`, podríamos aprovecharnos de esto para `explotar` un `CSRF`. Para hacer esto lo podemos hacer de `forma manual` o podemos usar mi herramienta `graphQLConverter` [https://github.com/Justice-Reaper/graphQLConverter.git](https://github.com/Justice-Reaper/graphQLConverter.git). Le tenemos que pasar por parámetro la `query` que tenemos en `Burpsuite`
 
 ```
 # python graphQLConverter.py '{"query":"\n    mutation changeEmail($input: ChangeEmailInput!) {\n        changeEmail(input: $input) {\n            email\n        }\n    }\n","operationName":"changeEmail","variables":{"input":{"email":"test@gmail.com"}}}'
@@ -182,29 +182,29 @@ URL Encoded Data:
 query=mutation+changeEmail%28%24input%3A+ChangeEmailInput%21%29+%7BchangeEmail%28input%3A+%24input%29+%7Bemail%7D%7D&operationName=changeEmail&variables=%7B%22input%22%3A+%7B%22email%22%3A+%22test%40gmail.com%22%7D%7D
 ```
 
-Cambiamos el `content-type de application/json a application/x-www-form-urlencoded e insertamos el nuevo payload en el body`. Al enviar la `petición vemos que funciona correctamente`. `Hay casos en los que al añadirle Content-Type: application/x-www-form-urlencoded manualmente, Burpsuite no identifica correctamente el payload`, esto lo sabemos porque la data en el body está toda de color blanco. Para que funcione correctamente debemos pulsar `click derecho > Change request method`, posteriormente hacemos lo mismo, `click derecho > Change request method y ahora al pegar el payload aparecerá de un color verde`, lo cual significa que Burpsuite lo identifica correctamente. Si no hacemos esto, no podremos generar el PoC de CSRF desde Burpsuite
+Cambiamos el `content-type` de `application/json` a `application/x-www-form-urlencoded` e `insertamos` el nuevo `payload` en el `body`. Al `enviar` la `petición` vemos que `funciona correctamente`. `Hay casos en los que al añadirle Content-Type: application/x-www-form-urlencoded manualmente, Burpsuite no identifica correctamente el payload`, esto lo sabemos porque la `data` en el `body` está toda de `color blanco`. Para que funcione correctamente debemos pulsar `click derecho > Change request method`, posteriormente `hacemos lo mismo`, `click derecho > Change request method` y ahora `al pegar el payload aparecerá de un color verde`, lo cual `significa` que `Burpsuite lo identifica correctamente`. Si no hacemos esto, `no podremos generar el PoC de CSRF desde Burpsuite`
 
 ![](/assets/img/GraphQL-API-Vulnerabilities-Lab-5/image_6.png)
 
-Nos generamos un PoC de CSRF, para ello pulsamos `click derecho > Engagements tools > Generate CSRF PoC`
+Nos `generamos` un `PoC` de `CSRF`, para ello pulsamos `click derecho > Engagements tools > Generate CSRF PoC`
 
 ![](/assets/img/GraphQL-API-Vulnerabilities-Lab-5/image_7.png)
 
 ![](/assets/img/GraphQL-API-Vulnerabilities-Lab-5/image_8.png)
 
-Nos dirigimos a nuestro Exploit server y lo pegamos. Se ve así el payload porque hay valores que están HTML encodeados
+Nos `dirigimos` a nuestro `Exploit server` y lo `pegamos`. Se ve así el `payload` porque hay valores que están `HTML encodeados`
 
 ![](/assets/img/GraphQL-API-Vulnerabilities-Lab-5/image_9.png)
 
-Si hacemos click en View exploit vemos como nos redirige a `/graphql/v1`
+Si hacemos click en `View exploit` vemos como nos redirige a `/graphql/v1`
 
 ![](/assets/img/GraphQL-API-Vulnerabilities-Lab-5/image_10.png)
 
-Comprobamos que se nos haya cambiado el `correo electrónico` y efectivamente ha funcionado
+`Comprobamos` que se nos haya `cambiado` el `correo electrónico` y efectivamente ha funcionado
 
 ![](/assets/img/GraphQL-API-Vulnerabilities-Lab-5/image_11.png)
 
-He modificado el payload manualmente para que tenga un `mejor desempeño`. Lo siguiente que debemos hacer es dirigirnos al Exploit server, pegamos el payload y pulsamos sobre Deliver exploit to victim. Debemos tener en cuenta que, para que funcione el exploit, debemos usar un correo diferente al nuestro en el payload porque, de lo contrario, no funcionará. Esto se debe a que `dos usuarios no pueden tener el mismo correo electrónico`
+He modificado el `payload` manualmente para que tenga un `mejor desempeño`. Lo siguiente que debemos hacer es dirigirnos al `Exploit server`, pegamos el `payload` y pulsamos sobre `Deliver exploit to victim`. Debemos tener en cuenta que, para que funcione el `exploit`, debemos usar un `correo diferente al nuestro` en el `payload` porque, de lo contrario, no funcionará. Esto se debe a que `dos usuarios no pueden tener el mismo correo electrónico`
 
 ```
 <html>

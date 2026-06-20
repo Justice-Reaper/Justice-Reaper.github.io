@@ -24,50 +24,50 @@ image:
   
 ## Descripción
 
-Este laboratorio utiliza un mecanismo basado en JWT para manejar las sesiones. El servidor está mal configurado para aceptar JWTs sin firma. Para resolver el laboratorio, debemos modificar nuestro `token de sesión para obtener acceso al panel de administración en /admin y eliminar al usuario carlos`. Podemos `iniciar sesión en nuestra propia cuenta utilizando las credenciales wiener:peter`
+Este `laboratorio` utiliza un mecanismo basado en `JWT` para manejar las `sesiones`. El `servidor` está `mal configurado` para aceptar `JWTs` sin `firma`. Para `resolver` el laboratorio, debemos modificar nuestro `token de sesión` para `obtener acceso` al `panel` de `administración` en `/admin` y eliminar al `usuario` `carlos`. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`
 
 ---
 
 ## Guía de JWT Attacks
 
-Antes de completar este laboratorio es recomendable leerse esta `guía de JWT attacks` [https://justice-reaper.github.io/posts/JWT-Attacks-Guide/](https://justice-reaper.github.io/posts/JWT-Attacks-Guide/)
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de JWT attacks` [https://justice-reaper.github.io/posts/JWT-Attacks-Guide/](https://justice-reaper.github.io/posts/JWT-Attacks-Guide/)
 
 ## Resolución
 
-Al acceder a la web nos sale esto
+Al `acceder` a la `web` nos sale esto
 
 ![](/assets/img/JWT-Attacks-Lab-2/image_1.png)
 
-Pulsamos sobre My account y nos logueamos con credenciales `wiener:peter`
+Pulsamos sobre `My account` y nos `logueamos` con credenciales `wiener:peter`
 
 ![](/assets/img/JWT-Attacks-Lab-2/image_2.png)
 
-Recargamos la `página y capturamos la petición mediante Burpsuite`
+`Recargamos` la `página` y `capturamos` la `petición` mediante `Burpsuite`
 
 ![](/assets/img/JWT-Attacks-Lab-2/image_3.png)
 
-Debemos tener instalado la extensión JWT Editor, esta `extensión` nos avisará si detecta un token
+Debemos tener instalado la extensión `JWT Editor`, esta `extensión` nos avisará si `detecta` un `token`
 
 ![](/assets/img/JWT-Attacks-Lab-2/image_4.png)
 
-Si pulsamos sobre la `pestaña llamada JSON Web Token veremos todas las partes que componen al JWT`
+Si `pulsamos` sobre la `pestaña` llamada `JSON Web Token` veremos `todas las partes` que `componen` al `JWT`
 
 ![](/assets/img/JWT-Attacks-Lab-2/image_5.png)
 
-Modificamos el nombre de usuario en el payload
+`Modificamos` el `nombre` de `usuario` en el `payload`
 
 ![](/assets/img/JWT-Attacks-Lab-2/image_6.png)
 
-Ejecutamos el ataque none Signing Algorithm y usamos el primer payload, si no funcionara, deberíamos probar con los demás
+Ejecutamos el ataque `none Signing Algorithm` y usamos el primer payload, si no funcionara, deberíamos probar con los demás
 
 ![](/assets/img/JWT-Attacks-Lab-2/image_7.png)
 
-Hacemos `Ctrl + Shift + i y pegamos el nuevo valor` en el parámetro session
+Hacemos `Ctrl + Shift + i` y pegamos el nuevo `valor` en el parámetro `session`
 
 ![](/assets/img/JWT-Attacks-Lab-2/image_8.png)
 
-Recargamos la web con F5 y nos aparece el panel de administrador, lo que quiere decir que nos hemos convertidos en ese usuario
+`Recargamos` la `web` con `F5` y nos aparece el `panel` de `administrador`, lo que quiere decir que nos hemos `convertidos` en ese `usuario`
 
 ![](/assets/img/JWT-Attacks-Lab-2/image_9.png)
 
-Esto ha sido posible debido a que Los JWTs pueden ser firmados utilizando una variedad de algoritmos diferentes, pero también pueden ser dejados sin firma. En este caso, el parámetro alg se establece en none, lo que indica un JWT denominado unsecured JWT. Debido a los obvios peligros de esto, los servidores generalmente rechazan los tokens sin firma. Sin embargo, dado que este tipo de filtrado depende del `análisis de strings`, en ocasiones podemos eludir estos filtros utilizando técnicas clásicas de `ofuscación`, como la `capitalización mixta y codificaciones` inesperadas
+Esto ha sido posible debido a que Los `JWTs` pueden ser `firmados` utilizando una variedad de `algoritmos` diferentes, pero también pueden ser dejados sin `firma`. En este caso, el parámetro `alg` se establece en `none`, lo que indica un `JWT` denominado `unsecured JWT`. Debido a los obvios peligros de esto, los `servidores` generalmente rechazan los `tokens` sin `firma`. Sin embargo, dado que este tipo de filtrado depende del `análisis de strings`, en ocasiones podemos `eludir` estos filtros utilizando técnicas clásicas de `ofuscación`, como la `capitalización mixta` y `codificaciones` inesperadas

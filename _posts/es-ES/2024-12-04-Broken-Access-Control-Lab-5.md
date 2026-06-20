@@ -24,32 +24,32 @@ image:
   
 ## Descripción
 
-Este laboratorio tiene una horizontal privilege escalation vulnerability en la `página de la cuenta de usuario`. Para resolver el laboratorio, debemos obtener la clave API del usuario carlos y enviarla como solución. Podemos `iniciar sesión en tu propia cuenta con las credenciales wiener:peter`
+Este `laboratorio` tiene una `horizontal privilege escalation vulnerability` en la `página de la cuenta de usuario`. Para `resolver` el laboratorio, debemos `obtener` la `clave API` del `usuario carlos` y `enviarla` como solución. Podemos `iniciar sesión` en tu propia cuenta con las credenciales `wiener:peter`
 
 ---
 
 ## Guía de broken access control
 
-Antes de completar este laboratorio es recomendable leerse esta `guía de broken access control` [https://justice-reaper.github.io/posts/Broken-Access-Control-Guide/](https://justice-reaper.github.io/posts/Broken-Access-Control-Guide/)
+`Antes `de `completar` este `laboratorio` es recomendable `leerse` esta `guía de broken access control` [https://justice-reaper.github.io/posts/Broken-Access-Control-Guide/](https://justice-reaper.github.io/posts/Broken-Access-Control-Guide/)
 
 ## Resolución
 
-Al acceder a la web nos sale esto
+Al `acceder` a la `web` nos sale esto
 
 ![](/assets/img/Broken-Access-Control-Lab-5/image_1.png)
 
-Pulsamos en My account y nos logueamos con las credenciales `wiener:peter`
+Pulsamos en `My account` y nos logueamos con las credenciales `wiener:peter`
 
 ![](/assets/img/Broken-Access-Control-Lab-5/image_2.png)
 
-En la parte de My account vemos que al loguearnos la url ha cambiado a `https://0a5200ae03fea138837c1eaf007f00f6.web-security-academy.net/my-account?id=wiener y que ahora se nos muestra nuestro nombre de usuario y nuestra API Key`
+En la parte de `My account` vemos que al `loguearnos` la url ha cambiado a `https://0a5200ae03fea138837c1eaf007f00f6.web-security-academy.net/my-account?id=wiener` y que ahora se nos muestra nuestro `nombre` de `usuario` y nuestra `API Key`
 
 ![](/assets/img/Broken-Access-Control-Lab-5/image_3.png)
 
-Si accedemos a `https://0a5200ae03fea138837c1eaf007f00f6.web-security-academy.net/my-account?id=carlos podemos ver su API Key` porque no está bien sanitizado
+Si accedemos a `https://0a5200ae03fea138837c1eaf007f00f6.web-security-academy.net/my-account?id=carlos` podemos ver su `API Key` porque no está bien sanitizado
 
 ![](/assets/img/Broken-Access-Control-Lab-5/image_4.png)
 
-Submiteamos la  API Key y completamos el laboratorio
+`Submiteamos` la  `API Key` y `completamos` el `laboratorio`
 
 ![](/assets/img/Broken-Access-Control-Lab-5/image_5.png)

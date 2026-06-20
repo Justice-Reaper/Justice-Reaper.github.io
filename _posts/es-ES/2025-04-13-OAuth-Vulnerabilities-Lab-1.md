@@ -24,58 +24,58 @@ image:
   
 ## Descripción
 
-Este laboratorio utiliza un servicio OAuth para permitir que `los usuarios inicien sesión con sus cuentas de redes sociales`. Una `validación defectuosa por parte del cliente hace posible que un atacante inicie sesión en las cuentas de otros usuarios sin conocer sus contraseñas`
+Este `laboratorio` utiliza un servicio `OAuth` para permitir que `los usuarios inicien sesión con sus cuentas de redes sociales`. Una `validación defectuosa` por parte del `cliente` hace posible que un `atacante inicie sesión en las cuentas de otros usuarios` sin conocer sus `contraseñas`
 
-Para resolver el laboratorio, debemos `iniciar sesión en la cuenta de Carlos`, su `dirección de correo electrónico es carlos@carlos-montoya.net`. Podemos `iniciar sesión en nuestra cuenta usando las credenciales wiener:peter`
+Para `resolver` el `laboratorio`, debemos `iniciar sesión` en la cuenta de `Carlos`, su `dirección de correo electrónico` es `carlos@carlos-montoya.net`. Podemos `iniciar sesión` en nuestra cuenta usando las credenciales `wiener:peter`
 
 ---
 
 ## Guía de vulnerabilidades de OAuth
 
-Antes de completar este laboratorio es recomendable leerse esta `guía de vulnerabilidades de OAuth` [https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Guide/](https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Guide/)
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de vulnerabilidades de OAuth` [https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Guide/](https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Guide/)
 
 ## Resolución
 
-Al acceder a la web vemos esto
+Al `acceder` a la `web` vemos esto
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-1/image_1.png)
 
-Cuando pulsamos sobre My account accedemos a `/my-account y nos hace un redirect a /social-login donde nos muestra` esto
+Cuando `pulsamos` sobre `My account` accedemos a `/my-account` y nos hace un `redirect` a `/social-login` donde nos `muestra` esto
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-1/image_2.png)
 
-Posteriormente nos redirige a este panel de login, donde nos podemos loguear con las credenciales `wiener:peter`
+Posteriormente nos redirige a este `panel de login`, donde nos podemos `loguear` con las credenciales `wiener:peter`
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-1/image_3.png)
 
-Posteriormente nos redirige a esta otra ventana donde nos solicita permiso para acceder a nuestro perfil e email
+Posteriormente nos `redirige` a esta otra ventana donde nos `solicita permiso` para `acceder` a nuestro `perfil` e `email`
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-1/image_4.png)
 
-Si nos dirigimos a la extensión `Logger ++ de Burpsuite vemos todo el flujo de peticiones`
+Si nos dirigimos a la extensión `Logger ++` de `Burpsuite` vemos todo el `flujo de peticiones`
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-1/image_5.png)
 
-Podemos determinar el grant type observando la petición a `/auth`. En este caso el parámetro `response_type tiene el valor token lo cual quiere decir que estamos ante un implicit grant type`. Además de esto también podemos ver el nombre de host del `servidor de autorización`, en este caso es `oauth-0a97004f04bdd3a98266d60502d800fe.oauth-server.net`
+Podemos determinar el `grant type` observando la petición a `/auth`. En este caso el parámetro `response_type` tiene el valor `token` lo cual quiere decir que estamos ante un `implicit grant type`. Además de esto también podemos ver el `nombre de host` del `servidor de autorización`, en este caso es `oauth-0a97004f04bdd3a98266d60502d800fe.oauth-server.net`
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-1/image_6.png)
 
-Si tenemos el nombre de host del `servidor de autorización podemos enumerar estos endpoints para obtener información que puede resultarnos útil`, es recomendable hacer esto porque puede revelar una superficie de ataque más amplia o `características admitidas que no se mencionan en la documentación`. En este caso es la única opción debido a que Portswigger no cuenta con una API pública y por lo tanto, `tampoco cuenta con documentación de la que obtener información interesante`
+Si tenemos el `nombre de host` del `servidor de autorización` podemos `enumerar` estos `endpoints` para `obtener información que puede resultarnos útil`, es recomendable hacer esto porque puede `revelar` una `superficie de ataque` más amplia o `características admitidas` que no se mencionan en la `documentación`. En este caso es la única opción debido a que `Portswigger` no cuenta con una `API pública` y por lo tanto, `tampoco cuenta con documentación de la que obtener información interesante`
 
 ```
 /.well-known/oauth-authorization-server  
 /.well-known/openid-configuration  
 ```
 
-Si hacemos una petición GET a `/.well-known/oauth-authorization-server` vemos que no existe
+Si hacemos una petición `GET` a `/.well-known/oauth-authorization-server` vemos que no existe
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-1/image_7.png)
 
-Sin embargo, si hacemos una petición GET a `/.well-known/openid-configuration obtenemos información valiosa`
+Sin embargo, si hacemos una petición `GET` a `/.well-known/openid-configuration` obtenemos `información valiosa`
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-1/image_8.png)
 
-Si nos fijamos en la `petición hecha a /authenticate` vemos que se están enviando tres campos
+Si nos fijamos en la `petición` hecha a `/authenticate` vemos que se están enviando `tres campos`
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-1/image_9.png)
 
@@ -87,6 +87,6 @@ Pulsamos `click dererecho > Request in browser > In original session`
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-1/image_11.png)
 
-Si accedemos a My account vemos que hemos accedido a la cuenta del usuario carlos
+Si accedemos a `My account` vemos que hemos accedido a la `cuenta` del usuario `carlos`
 
 ![](/assets/img/OAuth-Vulnerabilities-Lab-1/image_12.png)

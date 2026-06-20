@@ -24,25 +24,25 @@ image:
   
 ## Descripción
 
-Este laboratorio tiene un `panel de administración en /admin`. Solo es accesible para usuarios autenticados con un roleid de 2. Para resolver el laboratorio, debemos acceder al `panel de administración y eliminar al usuario carlos`. Podemos `iniciar sesión en tu nuestra cuenta con las siguientes credenciales wiener:peter`
+Este `laboratorio` tiene un `panel de administración` en `/admin`. Solo es accesible para `usuarios autenticados` con un `roleid` de `2`. Para `resolver` el laboratorio, debemos `acceder` al `panel de administración` y `eliminar` al `usuario carlos`. Podemos `iniciar sesión` en tu nuestra cuenta con las siguientes credenciales `wiener:peter`
 
 ---
 
 ## Guía de broken access control
 
-Antes de completar este laboratorio es recomendable leerse esta `guía de broken access control` [https://justice-reaper.github.io/posts/Broken-Access-Control-Guide/](https://justice-reaper.github.io/posts/Broken-Access-Control-Guide/)
+`Antes `de `completar` este `laboratorio` es recomendable `leerse` esta `guía de broken access control` [https://justice-reaper.github.io/posts/Broken-Access-Control-Guide/](https://justice-reaper.github.io/posts/Broken-Access-Control-Guide/)
 
 ## Resolución
 
-Al acceder a la web nos sale esto
+Al `acceder` a la `web` nos sale esto
 
 ![](/assets/img/Broken-Access-Control-Lab-4/image_1.png)
 
-Pulsamos en My account y nos logueamos con las credenciales `wiener:peter`
+Pulsamos en `My account` y nos logueamos con las credenciales `wiener:peter`
 
 ![](/assets/img/Broken-Access-Control-Lab-4/image_2.png)
 
-Fuzzeamos rutas y encontramos una llamada `/admin`
+`Fuzzeamos` rutas y encontramos una llamada `/admin`
 
 ```
 # ffuf -c -t 20 -w /usr/share/seclists/Discovery/Web-Content/common.txt -u https://0a0600100345e4df8263e5a700810033.web-security-academy.net/FUZZ
@@ -79,23 +79,23 @@ logout                  [Status: 302, Size: 0, Words: 1, Lines: 1, Duration: 60m
 my-account              [Status: 302, Size: 0, Words: 1, Lines: 1, Duration: 59ms]
 ```
 
-Si accedemos a `/admin nos muestra este mensaje`
+Si accedemos a `/admin` nos `muestra` este `mensaje`
 
 ![](/assets/img/Broken-Access-Control-Lab-4/image_3.png)
 
-En la parte de My account vemos que podemos actualizar nuestro email
+En la parte de `My account` vemos que podemos `actualizar` nuestro `email`
 
 ![](/assets/img/Broken-Access-Control-Lab-4/image_4.png)
 
-Si interceptamos la `petición mediante Burpsuite` vemos esto
+Si `interceptamos` la `petición` mediante `Burpsuite` vemos esto
 
 ![](/assets/img/Broken-Access-Control-Lab-4/image_5.png)
 
-Si enviamos la `petición`, esta es la repuesta que recibimos
+Si `enviamos` la `petición`, esta es la `repuesta` que `recibimos`
 
 ![](/assets/img/Broken-Access-Control-Lab-4/image_6.png)
 
-Podemos enviar este payload en el cual cambiamos nuestro roleid a 2 con el fin de escalar privilegios
+Podemos `enviar` este `payload` en el cual cambiamos nuestro `roleid` a `2` con el fin de `escalar privilegios`
 
 ```
 {
@@ -104,6 +104,6 @@ Podemos enviar este payload en el cual cambiamos nuestro roleid a 2 con el fin d
 }
 ```
 
-Una vez ascendido nuestro privilegio ya podemos acceder a `/admin`, borrar al usuario carlos y ascender nuestro privilegio
+Una vez `ascendido` nuestro `privilegio` ya podemos `acceder` a `/admin`, `borrar` al usuario `carlos` y `ascender` nuestro `privilegio`
 
 ![](/assets/img/Broken-Access-Control-Lab-4/image_7.png)

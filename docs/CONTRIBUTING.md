@@ -25,7 +25,7 @@ respect the time of the project's developers and
 maintainers and to save their energy for other problems that really need to be resolved.
 
 - Use the [latest release version][latest-ver]. If your contribution involves code/documentation changes, update to the
-latest version of the default (master) branch.
+latest version of the default (`master`) branch.
 
 - Avoid making duplicate contributions by searching for existing [issues][issues] / [discussions][discus] /
 [pull requests][pr], but don't leave any unhelpful comments such as "I have the same problem". Prefer using
@@ -80,7 +80,7 @@ See also: "[Suggesting a New Feature](#suggesting-a-new-feature)". Other than th
 
 1. Fork this project on GitHub and clone your repository locally.
 2. Setting up the [development & test environments][dev-env].
-3. Creating a new branch from the default branch and give it a descriptive name (e.g. `add-a-new-feat or fix-a-bug`).
+3. Creating a new branch from the default branch and give it a descriptive name (e.g. `add-a-new-feat` or `fix-a-bug`).
 When development is complete, create a [Conventional Commit][cc] with Git.
 4. Submitting a [Pull Request][gh-pr].
 

