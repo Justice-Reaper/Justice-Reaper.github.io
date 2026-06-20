@@ -118,7 +118,7 @@ Debemos tener en cuenta que `el prototipo de un objeto es simplemente otro objet
 
 Es importante destacar que `los objetos no solo heredan propiedades de su prototipo inmediato, sino de todos los objetos que están por encima en la cadena de prototipos`. En el ejemplo anterior, esto significa que `el objeto username tiene acceso a las propiedades y métodos tanto de String.prototype como de Object.prototype`
 
-### Acceder al prototipo de un objeto usando __proto__
+### Acceder al prototipo de un objeto usando \_\_proto\_\_
 
 `Cada objeto tiene una propiedad especial que se puede usar para acceder a su prototipo`. `Aunque no tiene un nombre formalmente estandarizado, __proto__ es el estándar usado por la mayoría de los navegadores`. `Para quienes dominan los lenguajes orientados a objetos, les resultará sencillo entender como funciona esta propiedad`, ya que `actúa` como un `getter` y como un `setter`. Esto significa que `podemos usarla para leer el prototipo y sus propiedades, e incluso reasignarlas si es necesario`
 
