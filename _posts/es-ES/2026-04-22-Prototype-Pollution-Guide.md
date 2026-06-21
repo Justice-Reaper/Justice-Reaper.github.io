@@ -599,9 +599,9 @@ HTTP/1.1 200 OK
 }
 ```
 
-En casos excepcionales, el sitio web incluso puede usar estas propiedades para generar HTML dinámicamente, lo que provoca que la propiedad inyectada se renderice en nuestro navegador
+En `casos excepcionales`, el `sitio web` incluso puede `usar` estas `propiedades` para `generar HTML dinámicamente`, lo que `provoca` que `la propiedad inyectada se renderice en nuestro navegador`
 
-Una vez que hayamos identificado que es posible que haya un prototype pollution en el servidor, podemos buscar gadgets potenciales para usar en un exploit. Cualquier funcionalidad que implique actualizar datos de usuario merece ser investigada, ya que a menudo implica fusionar los datos entrantes en un objeto existente que representa al usuario dentro de la aplicación. Si podemos añadir propiedades arbitrarias a tu propio usuario, esto puede derivar en diversas vulnerabilidades, incluyendo la escalada de privilegios
+Una vez que hayamos `identificado` que es `posible` que `haya un prototype pollution en el servidor`, podemos `buscar gadgets potenciales para usar en un exploit`. `Cualquier funcionalidad que implique actualizar datos de usuario merece ser investigada, ya que a menudo implica fusionar los datos entrantes en un objeto existente que representa al usuario dentro de la aplicación`. `Si podemos añadir propiedades arbitrarias a nuestro propio usuario, esto puede derivar en diversas vulnerabilidades, incluyendo la escalada de privilegios`
 
 En este `laboratorio` vemos como `aplicar` esta `técnica`:
 
@@ -609,25 +609,25 @@ En este `laboratorio` vemos como `aplicar` esta `técnica`:
 
 ### Detectar un prototype pollution del lado del servidor que no refleja la propiedad envenenada
 
-En la mayoría de los casos, incluso cuando logramos envenenar con éxito el prototipo de un objeto del lado del servidor, no podremos ver la propiedad afectada reflejada en una respuesta. Dado que tampoco podemos inspeccionar el objeto en una consola, esto representa un desafío a la hora de determinar si la inyección funcionó
+`En la mayoría de los casos, incluso cuando logramos envenenar con éxito el prototipo de un objeto del lado del servidor, no podremos ver la propiedad afectada reflejada en una respuesta`. Dado que `tampoco podemos inspeccionar el objeto en una consola, esto representa un desafío a la hora de determinar si la inyección funcionó`
 
-Un enfoque consiste en intentar inyectar propiedades que coincidan con posibles opciones de configuración del servidor. Luego podemos comparar el comportamiento del servidor antes y después de la inyección para ver si este cambio de configuración parece haber surtido efecto. Si es así, esto es una fuerte indicación de que hemos encontrado un prototype pollution del lado del servidor
+`Existe un enfoque que consiste en intentar inyectar propiedades que coincidan con posibles opciones de configuración del servidor y luego comparar el comportamiento del servidor antes y después de la inyección para ver si este cambio de configuración parece haber surtido efecto`. Si es así, `esto es una fuerte indicación de que hemos encontrado un prototype pollution del lado del servidor`
 
 En esta sección, veremos las siguientes técnicas:
 
-- Status code override
+- `Status code override`
 
-- JSON spaces override
+- `JSON spaces override`
 
-- Charset override
+- `Charset override`
 
-Estas inyecciones no son destructivas pero aun así producen un cambio consistente y distintivo en el comportamiento del servidor cuando tienen éxito. Esta es solo una pequeña selección de técnicas potenciales para hacernos una idea de lo que es posible. Para más detalles técnicos y una visión de como se pudieron desarrollar estas técnicas, es recomendable leer este artículo [https://portswigger.net/research/server-side-prototype-pollution](https://portswigger.net/research/server-side-prototype-pollution)
+`Estas inyecciones no son destructivas pero aun así producen un cambio consistente y distintivo en el comportamiento del servidor cuando tienen éxito`. `Esta es solo una pequeña selección de técnicas potenciales para hacernos una idea de lo que es posible`. `Para más detalles técnicos y una visión de como se pudieron desarrollar estas técnicas, es recomendable leer este artículo` [https://portswigger.net/research/server-side-prototype-pollution](https://portswigger.net/research/server-side-prototype-pollution)
 
 #### Status code override
 
-Los frameworks de JavaScript del lado del servidor, como Express, permiten a los desarrolladores establecer códigos de estado HTTP personalizados en las respuestas. En el caso de errores, un servidor JavaScript puede emitir una respuesta HTTP genérica, pero también incluir un objeto de error en formato JSON en el body de la respuesta. Esta es una forma de proporcionar detalles adicionales sobre por qué ocurrió un error, el cual puede no ser evidente a partir del estado HTTP predeterminado
+`Los frameworks de JavaScript del lado del servidor, como Express, permiten a los desarrolladores establecer códigos de estado HTTP personalizados en las respuestas`. `En caso de errores, un servidor JavaScript puede emitir una respuesta HTTP genérica, pero también incluir un objeto de error en formato JSON en el body de la respuesta`. `Esta es una forma de proporcionar detalles adicionales sobre por qué ocurrió un error, el cual puede no ser evidente a partir del estado HTTP predeterminado`
 
-Aunque resulta algo engañoso, es bastante común recibir una respuesta `200 OK` y que el cuerpo de la respuesta contenga un objeto de error con un estado diferente:
+Aunque `resulta` algo `engañoso`, `es bastante común recibir una respuesta 200 OK y que el cuerpo de la respuesta contenga un objeto de error con un estado diferente`:
 
 ```
 HTTP/1.1 200 OK
@@ -641,7 +641,7 @@ HTTP/1.1 200 OK
 }
 ```
 
-El módulo `http-errors` de Node contiene la siguiente función para generar este tipo de respuestas de error:
+`El módulo http-errors de Node contiene la siguiente función para generar este tipo de respuestas de error`:
 
 ```
 function createError () {
@@ -658,33 +658,33 @@ function createError () {
     //...
 ```
 
-La primera línea destacada intenta asignar la variable `status` leyendo la propiedad `status` o `statusCode` del objeto pasado a la función. Si los desarrolladores del sitio web no han establecido explícitamente una propiedad `status` para el error, podemos usar esto para detectar el prototype pollution de la siguiente manera:
+`La primera línea destacada intenta asignar la variable status leyendo la propiedad status o statusCode del objeto pasado a la función`. `Si los desarrolladores del sitio web no han establecido explícitamente una propiedad status para el error, podemos usar esto para detectar el prototype pollution de la siguiente manera`:
 
-1 - Encontrar una forma de desencadenar una respuesta de error y tomar nota del código de estado predeterminado
+1 - `Encontrar` una `forma` de `desencadenar` una `respuesta de error` y `tomar nota del código de estado predeterminado`
 
-2 - Intentar llevar a cabo un prototype pollution con nuestra propia propiedad `status`. Debemos de asegurarnos de usar un código de estado poco común que sea improbable que se emita por cualquier otra razón
+2 - `Intentar llevar a cabo un prototype pollution con nuestra propia propiedad status`. Debemos de `asegurarnos` de `usar` un `código de estado poco común que sea improbable que se emita por cualquier otra razón`
 
-3 - Desencadenar la respuesta de error de nuevo y comprobar si hemos podido sobrescribir el código de estado con éxito
+3 - `Desencadenar la respuesta de error de nuevo` y `comprobar si hemos podido sobrescribir el código de estado con éxito`
 
-Es muy importante que elijamos un código de estado en el rango `400`-`599`. De lo contrario, Node utilizará el código de estado `500` por defecto, por lo que no sabremos si hemos podido envenenar el prototipo
+Es `muy importante` que `elijamos` un `código de estado en el rango 400-599`. De lo contrario, `Node utilizará el código de estado 500 por defecto`, por lo que `no sabremos si hemos podido envenenar el prototipo`
 
 #### JSON spaces override
 
-El framework Express proporciona una opción llamada `json spaces`, que permite configurar el número de espacios usados para indentar los datos del JSON en la respuesta. En muchos casos, los desarrolladores dejan esta propiedad sin definir al estar conformes con el valor predeterminado, lo que la hace susceptible de poder sufrir un prototype pollution a través de la cadena de prototipos
+`El framework Express proporciona una opción llamada json spaces, que permite configurar el número de espacios usados para indentar los datos del JSON en la respuesta`. En muchos casos, `los desarrolladores dejan esta propiedad sin definir al estar conformes con el valor predeterminado, lo que la hace susceptible de poder sufrir un prototype pollution a través de la cadena de prototipos`
 
-Si tenemos acceso a cualquier tipo de respuesta JSON, podemos intentar realizar el prototype pollution con nuestra propia propiedad `json spaces` y luego reenviar la petición correspondiente para ver si la indentación del JSON aumenta en consecuencia. Podemos seguir los mismos pasos para eliminar la indentación y así confirmar la vulnerabilidad
+Si tenemos `acceso` a `cualquier tipo de respuesta JSON`, podemos intentar `realizar el prototype pollution con la propiedad json spaces` y luego `reenviar la petición correspondiente para ver si la indentación del JSON aumenta en consecuencia`. `Podemos seguir los mismos pasos para eliminar la indentación y así confirmar la vulnerabilidad`
 
-Esta es una técnica especialmente útil porque no depende de que una propiedad específica se vea reflejada en la respuesta. Además, es extremadamente segura, ya que podemos activar y desactivar el prototype pollution simplemente restableciendo la propiedad al mismo valor que el predeterminado
+Esta es una `técnica` especialmente `útil` porque `no depende de que una propiedad específica se vea reflejada en la respuesta`. Además, es `extremadamente segura`, ya que `podemos activar y desactivar el prototype pollution simplemente restableciendo la propiedad al mismo valor que el predeterminado`
 
-Al intentar usar esta técnica desde Burpsuite, es importante usar el formato Raw del editor de mensajes. De lo contrario, no podremos apreciar el cambio en la identación, ya que la vista Pretty lo normaliza
+`Al intentar usar esta técnica desde Burpsuite, es importante usar el formato Raw del editor de mensajes`. De lo contrario, `no podremos apreciar el cambio en la identación, ya que la vista Pretty lo normaliza`
 
-Aunque el prototype pollution ha sido corregido en Express 4.17.4, los sitios web que no hayan actualizado pueden seguir siendo vulnerables
+`Aunque el prototype pollution ha sido corregido en Express 4.17.4, los sitios web que no hayan actualizado pueden seguir siendo vulnerables`
 
 #### Charset override
 
-Los servidores Express suelen implementar módulos denominados middleware que permiten el preprocesamiento de las peticiones antes de que sean pasadas a la función que las maneja. Por ejemplo, el módulo `body-parser` se usa habitualmente para parsear el cuerpo de las peticiones entrantes y generar un objeto `req.body`. Este contiene otro gadget que se puede usar para detectar el prototype pollution del lado del servidor
+`Los servidores Express suelen implementar módulos denominados middleware que permiten el preprocesamiento de las peticiones antes de que sean pasadas a la función que las maneja`. Por ejemplo, `el módulo body-parser se usa habitualmente para parsear el cuerpo de las peticiones entrantes y generar un objeto req.body`. `Este contiene otro gadget que se puede usar para detectar el prototype pollution del lado del servidor`
 
-El siguiente código pasa un options object a la función `read()`, que se encarga de leer el body de la petición para parsearlo. Una de estas opciones es `encoding`, la cual determina qué codificación de caracteres se va a usar. Esta se obtiene bien de la propia petición mediante la llamada a la función `getCharset(req)`, o bien toma UTF-8 como valor predeterminado
+`El siguiente código pasa un options object a la función read(), que se encarga de leer el body de la petición para parsearlo`. Una de estas `opciones` es `encoding`, la cual `determina qué codificación de caracteres se va a usar`. `Esta se obtiene bien de la propia petición mediante la llamada a la función getCharset(req) o bien toma UTF-8 como valor predeterminado`
 
 ```
 var charset = getCharset(req) or 'utf-8'
@@ -705,11 +705,11 @@ read(req, res, next, parse, debug, {
 })
 ```
 
-Si observamos la función `getCharset()`, parece que los desarrolladores anticiparon que la cabecera `Content-Type` podría no contener un atributo `charset` explícito, por lo que implementaron una lógica que recurre a una cadena vacía en ese caso. Y esto es clave, ya que significa que podría ser controlable mediante prototype pollution
+Si observamos la función `getCharset()`, parece que `los desarrolladores anticiparon que la cabecera Content-Type podría no contener un atributo charset explícito`, por lo que `implementaron una lógica que recurre a una cadena vacía en ese caso`. Y esto es `clave`, ya que `significa que podría ser controlable mediante prototype pollution`
 
-Si encontramos un objeto cuyas propiedades sean visibles en una respuesta, podemos usarlo para detectar fuentes. En el siguiente ejemplo, usaremos la codificación UTF-7 y una fuente JSON
+`Si encontramos un objeto cuyas propiedades sean visibles en una respuesta, podemos usarlo para detectar fuentes`. En el siguiente ejemplo, `usaremos la codificación UTF-7 y una fuente JSON`
 
-1 - Añadir una cadena arbitraria codificada en UTF-7 a una propiedad que se refleje en una respuesta. Por ejemplo, `foo` en UTF-7 es `+AGYAbwBv-`
+1 - `Añadir una cadena arbitraria codificada en UTF-7 a una propiedad que se refleje en una respuesta`. Por ejemplo, `foo` en `UTF-7` es `+AGYAbwBv-`
 
 ```
 {
@@ -719,9 +719,9 @@ Si encontramos un objeto cuyas propiedades sean visibles en una respuesta, podem
 }
 ```
 
-2 - Enviar la petición. Los servidores no usarán la codificación UTF-7 por defecto, por lo que esta cadena debería aparecer en la respuesta en su forma codificada
+2 - `Enviar la petición`. `Los servidores no usarán la codificación UTF-7 por defecto, por lo que esta cadena debería aparecer en la respuesta en su forma codificada`
 
-3 - Intentar realizar el prototype pollution con una propiedad `content-type` que especifique explícitamente el conjunto de caracteres UTF-7:
+3 - `Intentar llevar a cabo el prototype pollution con una propiedad content-type` que especifique explícitamente el conjunto de caracteres UTF-7`:
 
 ```
 {
@@ -734,7 +734,7 @@ Si encontramos un objeto cuyas propiedades sean visibles en una respuesta, podem
 }
 ```
 
-4 - Repitir la primera petición. Si hemos realizado el prototype pollution con éxito, la cadena UTF-7 debería aparecer ahora decodificada en la respuesta:
+4 - `Repitir la primera petición`. `Si hemos realizado el prototype pollution con éxito, la cadena UTF-7 debería aparecer ahora decodificada en la respuesta`:
 
 ```
 {
@@ -744,7 +744,7 @@ Si encontramos un objeto cuyas propiedades sean visibles en una respuesta, podem
 }
 ```
 
-Debido a un bug en el módulo `_http_incoming` de Node, esto funciona incluso cuando la cabecera `Content-Type` real de la petición incluye su propio atributo `charset`. Para evitar sobreescribir propiedades cuando una petición contiene cabeceras duplicadas, la función `_addHeaderLine()` comprueba que no exista ya ninguna propiedad con la misma clave antes de transferir las propiedades a un objeto `IncomingMessage`:
+Debido a un `bug` en el `módulo http_incoming` de `Node`, `esto funciona incluso cuando la cabecera Content-Type real de la petición incluye su propio atributo charset`. `Para evitar sobreescribir propiedades cuando una petición contiene cabeceras duplicadas, la función addHeaderLine() comprueba que no exista ya ninguna propiedad con la misma clave antes de transferir las propiedades a un objeto IncomingMessage`:
 
 ```
 IncomingMessage.prototype._addHeaderLine = _addHeaderLine;
@@ -757,7 +757,7 @@ function _addHeaderLine(field, value, dest) {
 }
 ```
 
-Si ya existe, la cabecera que se está procesando se descarta. Debido a la forma en que está implementado, esta comprobación (presumiblemente de forma no intencionada) incluye las propiedades heredadas a través de la cadena de prototipos. Esto significa que si realizamos el prototype pollution con nuestra propia propiedad `content-type`, la propiedad que representa la cabecera `Content-Type` real de la petición se descarta en este punto, junto con el valor previsto derivado de dicha cabecera
+`Si ya existe, la cabecera que se está procesando se descarta`. `Debido a la forma en que está implementado, esta comprobación (presumiblemente de forma no intencionada) incluye las propiedades heredadas a través de la cadena de prototipos`. Esto significa que `si llevamos a cabo el prototype pollution con nuestra propia propiedad content-type, la propiedad que representa la cabecera Content-Type real de la petición se descarta en este punto, junto con el valor previsto derivado de dicha cabecera`
 
 En este `laboratorio` vemos como `aplicar` esta `técnica`:
 
@@ -765,17 +765,17 @@ En este `laboratorio` vemos como `aplicar` esta `técnica`:
 
 ### Escanear en busca de fuentes de prototype pollution del lado del servidor
 
-Aunque es útil intentar testear manualmente las fuentes para afianzar la comprensión de la vulnerabilidad, en la práctica esto puede resultar repetitivo y llevar mucho tiempo. Por esta razón, es recomendable usar la extensión Server-Side Prototype Pollution Scanner[https://portswigger.net/bappstore/c1d4bd60626d4178a54d36ee802cf7e8](https://portswigger.net/bappstore/c1d4bd60626d4178a54d36ee802cf7e8) de Burpsuite
+`Aunque es útil intentar testear manualmente las fuentes para afianzar la comprensión de la vulnerabilidad, en la práctica esto puede resultar repetitivo y llevar mucho tiempo`. Por esta razón, `es recomendable usar la extensión Server-Side Prototype Pollution Scanner`[https://portswigger.net/bappstore/c1d4bd60626d4178a54d36ee802cf7e8](https://portswigger.net/bappstore/c1d4bd60626d4178a54d36ee802cf7e8) de `Burpsuite`
 
 #### Bypassear filtros de entrada para prototype pollution del lado del servidor
 
-Los sitios web frecuentemente intentan prevenir o parchear las vulnerabilidades de prototype pollution filtrando claves sospechosas como `__proto__`. Este enfoque de saneamiento de claves no es una solución robusta a largo plazo, ya que existen diversas formas de evadirlo. Por ejemplo, un atacante puede:
+`Los sitios web frecuentemente intentan prevenir o parchear los prototype pollution filtrando claves sospechosas como __proto__`. E`ste enfoque de saneamiento de claves no es una solución robusta a largo plazo, ya que existen diversas formas de evadirlo`. Por ejemplo, un `atacante` puede:
 
-- Ofuscar las palabras clave prohibidas para que pasen desapercibidas durante el saneamiento
+- `Ofuscar las palabras clave prohibidas para que pasen desapercibidas durante el saneamiento`
 
-- Acceder al prototipo mediante la propiedad `constructor` en lugar de `__proto__`
+- `Acceder al prototipo mediante la propiedad constructor en lugar de __proto__`
 
-Las aplicaciones Node también pueden eliminar o deshabilitar `__proto__` por completo usando los indicadores de línea de comandos `--disable-proto=delete` o `--disable-proto=throw` respectivamente. Sin embargo, esto también puede eludirse utilizando la técnica del constructor
+Las `aplicaciones Node` también pueden `eliminar o deshabilitar __proto__ por completo usando los indicadores de línea de comandos --disable-proto=delete o --disable-proto=throw respectivamente`. Sin embargo, `esto también puede eludirse utilizando la técnica del constructor`
 
 En este `laboratorio` vemos como `aplicar` esta `técnica`:
 
@@ -783,15 +783,15 @@ En este `laboratorio` vemos como `aplicar` esta `técnica`:
 
 ### Remote code execution mediante un prototype pollution del lado del servidor
 
-Mientras que el prototype pollution del lado del cliente suele exponer el sitio web vulnerable a DOM XSS, el del lado del servidor puede llegar a derivarse en un remote code execution
+`Mientras que el prototype pollution del lado del cliente suele exponer el sitio web vulnerable a DOM XSS, el del lado del servidor puede llegar a derivarse en un remote code execution`
 
 #### Identificar una petición vulnerable
 
-Existen varios sinks de ejecución de comandos en Node, muchos de ellos en el módulo `child_process`. Estos suelen invocarse mediante una petición que ocurre de forma asíncrona respecto a la petición con la que podemos contaminar el prototipo. Por eso, la mejor forma de identificarlos es envenenar el prototipo con un payload que dispare una interacción con Burpsuite Collaborator al ser ejecutado
+`Existen varios sinks de ejecución de comandos en Node`, muchos de ellos en el `módulo child_process`. `Estos suelen invocarse mediante una petición que ocurre de forma asíncrona respecto a la petición con la que podemos contaminar el prototipo`. Por eso, `la mejor forma de identificarlos es envenenar el prototipo con un payload que dispare una interacción con Burpsuite Collaborator al ser ejecutado`
 
-La variable de entorno `NODE_OPTIONS` permite definir una cadena de argumentos de línea de comandos que se usarán por defecto cada vez que se inicie un nuevo proceso Node. Como también es una propiedad del objeto `env`, podemos controlarla mediante prototype pollution si está sin definir
+`La variable de entorno NODE_OPTIONS permite definir una cadena de argumentos de línea de comandos que se usarán por defecto cada vez que se inicie un nuevo proceso Node`. `Como también es una propiedad del objeto env, podemos controlarla mediante prototype pollution si está sin definir`
 
-Algunas funciones de Node para crear procesos hijo aceptan la propiedad opcional `shell`, que permite a los desarrolladores especificar una shell concreto (como bash) en la que ejecutar comandos. Combinando esto con una propiedad `NODE_OPTIONS` maliciosa, podemos envenenar el prototipo de forma que se genere una interacción con Burpsuite Collaborator cada vez que se crea un nuevo proceso Node. Así podemos identificar fácilmente cuándo una petición crea un proceso hijo con argumentos de línea de comandos controlables vía prototype pollution
+`Algunas funciones de Node para crear procesos hijo aceptan la propiedad opcional shell`, que `permite a los desarrolladores especificar una shell concreto (como bash) en la que ejecutar comandos`. `Combinando esto con una propiedad NODE_OPTIONS maliciosa, podemos envenenar el prototipo de forma que se genere una interacción con Burpsuite Collaborator cada vez que se crea un nuevo proceso Node`. `Así podemos identificar fácilmente cuándo una petición crea un proceso hijo con argumentos de línea de comandos controlables vía prototype pollution`
 
 ```
 "__proto__": {
@@ -802,9 +802,9 @@ Algunas funciones de Node para crear procesos hijo aceptan la propiedad opcional
 
 #### Remote code execution mediante child_process.fork()
 
-Métodos como `child_process.spawn()` y `child_process.fork()` permiten a los desarrolladores crear nuevos subprocesos Node. El método `fork()` acepta un options object en el que una de las propiedades posibles es `execArgv`. Esta propiedad es un array de strings con argumentos de línea de comandos que se usarán al lanzar el proceso hijo. Si los desarrolladores lo dejan sin definir, también puede controlarse mediante prototype pollution
+`Métodos como child_process.spawn() y child_process.fork() permiten a los desarrolladores crear nuevos subprocesos Node`. `El método fork() acepta un options object en el que una de las propiedades posibles es execArgv`. Esta `propiedad` es `un array de strings con argumentos de línea de comandos que se usarán al lanzar el proceso hijo`. `Si los desarrolladores lo dejan sin definir, también puede controlarse mediante prototype pollution`
 
-Como este gadget nos permite controlar directamente los argumentos de línea de comandos, da acceso a vectores de ataque que no serían posibles con `NODE_OPTIONS`. En particular, el argumento `--eval` permite inyectar código JavaScript que será ejecutado por el proceso hijo, pudiendo incluso cargar módulos adicionales:
+`Como este gadget nos permite controlar directamente los argumentos de línea de comandos, da acceso a vectores de ataque que no serían posibles con NODE_OPTIONS`. En particular, `el argumento --eval permite inyectar código JavaScript que será ejecutado por el proceso hijo, pudiendo incluso cargar módulos adicionales`:
 
 ```
 "execArgv": [
@@ -812,7 +812,7 @@ Como este gadget nos permite controlar directamente los argumentos de línea de 
 ]
 ```
 
-Además de `fork()`, el módulo `child_process` contiene el método `execSync()`, que ejecuta una cadena arbitraria como comando del sistema. Encadenando estos sinks de inyección de ćodigo JavaScript y de comandos, podemos escalar el prototype pollution a un remote code execution
+`Además de fork(), el módulo child_process contiene el método execSync(), que ejecuta una cadena arbitraria como comando del sistema`. `Encadenando` estos `sinks de inyección de ćodigo JavaScript y de comandos`, podemos `escalar el prototype pollution a un remote code execution`
 
 En este `laboratorio` vemos como `aplicar` esta `técnica`:
 
@@ -828,17 +828,17 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1 - Primero nos vamos a centrar en buscar los prototype pollution del lado del cliente. Para ello, vamos a usar el DOM Invader. Para ver como se usa lo podemos hacer en este laboratorio [https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-5/](https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-5/)
+1 - `Primero` nos vamos a `centrar` en `buscar` los `prototype pollution del lado del cliente`. Para ello, vamos a usar `DOM Invader`. `Podemos ver como se usa en este laboratorio` [https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-5/](https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-5/)
 
-2 - Puede darse el caso de que pulsemos sobre Exploit en Dom Invader y que el exploit no funcione. Esto puede deberse a algo como lo que pasa en este laboratorio [https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-3/](https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-3/). Si se da algo así, tendremos que inspeccionar el código JavaScript y ver que está pasando
+2 - `Puede darse el caso de que pulsemos sobre Exploit en Dom Invader y que el exploit no funcione`. `Esto puede deberse a algo como lo que pasa en este laboratorio` [https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-3/](https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-3/). `Si se da algo así, tendremos que inspeccionar el código JavaScript y ver que está pasando`
 
-3 - Para los prototype pollution del lado del servidor prefiero hacer todo el proceso de forma manual para evitar romper nada. Lo primero que tenemos que hacer es identificar si existe un prototype pollution con alguno de los métodos que aparecen en este laboratorio [https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-7/](https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-7/)
+3 - `Para los prototype pollution del lado del servidor prefiero hacer todo el proceso de forma manual para evitar romper algo`. Lo primero que tenemos que hacer es `identificar si existe un prototype pollution con alguno de los métodos que aparecen en este laboratorio` [https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-7/](https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-7/)
 
-4 - Si no funciona usando estos métodos puede ser porque se esté bloqueando __proto__ u otra cadena que estamos usando. Para estos casos, vamos a usar las formas alternativas que se ven en los laboratorios [https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-8/](https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-8/) y [https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-3/](https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-3/)
+4 - `Si no funciona usando estos métodos puede ser porque se esté bloqueando __proto__ u otra cadena que estemos usando`. Para estos casos, `vamos a usar las formas alternativas que se ven en los laboratorios` [https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-8/](https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-8/) y [https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-3/](https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-3/)
 
-5 - Una vez ya funcione todo, nos tenemos que intentar convertir en usuario administrador
+5 - `Una vez ya funcione todo, nos tenemos que intentar convertir en usuario administrador`
 
-6 - Una vez lo hayamos hecho, vamos a seguir los pasos que se realizan en este laboratorio y vamos a ejecutar comandos en el servidor víctima [https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-9/](https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-9/)
+6 - `Una vez lo hayamos hecho, vamos a seguir los pasos que se realizan en este laboratorio y vamos a ejecutar comandos en el servidor víctima` [https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-9/](https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-9/)
 
 ## Prevenir un prototype pollution
 
