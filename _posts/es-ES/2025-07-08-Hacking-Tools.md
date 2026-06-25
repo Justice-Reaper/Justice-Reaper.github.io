@@ -730,7 +730,7 @@ WebSocket Turbo Intruder [https://github.com/PortSwigger/websocket-turbo-intrude
 
 Socket Sleuth [https://github.com/PortSwigger/socket-sleuth.git](https://github.com/PortSwigger/socket-sleuth.git)
 
-#### Insecure Deserealization
+#### Insecure deserealization
 
 ##### PHP
 
@@ -768,7 +768,7 @@ Git Cola [https://github.com/git-cola/git-cola.git](https://github.com/git-cola/
 
 Funciones PHP peligrosas [https://gist.github.com/mccabe615/b0907514d34b2de088c4996933ea1720](https://gist.github.com/mccabe615/b0907514d34b2de088c4996933ea1720)
 
-#### Insecure File upload
+#### Insecure file upload
 
 Upload Bypass [https://github.com/sAjibuu/Upload_Bypass.git](https://github.com/sAjibuu/Upload_Bypass.git)
 
@@ -856,28 +856,13 @@ Host Header Inchecktion [https://github.com/PortSwigger/host-header-inchecktion.
 
 #### Prototype pollution
 
-##### Scanners Client-Side
+PP-Finder [https://github.com/yeswehack/pp-finder.git](https://github.com/yeswehack/pp-finder.git)
 
-- [msrkp/PPScan](https://github.com/msrkp/PPScan)
-- [kosmosec/proto-find](https://github.com/kosmosec/proto-find)
-- [dwisiswant0/ppfuzz](https://github.com/dwisiswant0/ppfuzz)
-- [kleiton0x00/ppmap](https://github.com/kleiton0x00/ppmap)
+Server Side Prototype Pollution Scanner [https://github.com/PortSwigger/server-side-prototype-pollution.git](https://github.com/PortSwigger/server-side-prototype-pollution.git)
 
-##### Detección Server-Side
+#### HTTP request smuggling
 
-- [portswigger/server-side-prototype-pollution](https://github.com/portswigger/server-side-prototype-pollution)
-
-##### Gadgets / Investigación
-
-- [BlackFan/client-side-prototype-pollution](https://github.com/BlackFan/client-side-prototype-pollution)
-- [yuske/server-side-prototype-pollution](https://github.com/yuske/server-side-prototype-pollution)
-- [yuske/silent-spring](https://github.com/yuske/silent-spring)
-- [prototype-pollution-gadgets-finder](https://github.com/portswigger/prototype-pollution-gadgets-finder)
-- [https://github.com/BlackFan/cspp-tools.git](https://github.com/BlackFan/cspp-tools.git)
-
-##### Explotación
-
-- [yeswehack/pp-finder](https://github.com/yeswehack/pp-finder)
+HTTP Request Smuggler [https://github.com/PortSwigger/http-request-smuggler.git](https://github.com/PortSwigger/http-request-smuggler.git)
 
 ## Exfiltrar datos
 
