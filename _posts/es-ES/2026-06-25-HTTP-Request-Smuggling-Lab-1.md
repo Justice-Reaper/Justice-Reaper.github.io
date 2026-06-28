@@ -66,7 +66,7 @@ Tenemos que `asegurarnos` de que `el valor del Content-Length sea el mismo que l
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-1/image_8.png)
 
-Una vez hemos hecho esto, podemos `afirmar` que `estamos ante un HTTP request smuggling CL.TE`. Una vez ya `confirmada` la `vulnerabilidad`, vamos a `explotarla`. Para ello, vamos a `realizar esta solicitud de prueba`. `Es importante volver a ajustar el Content-Length`
+Una vez hemos hecho esto, podemos `afirmar` que `estamos ante un HTTP request smuggling CL.TE`. Una vez ya `confirmada` la `vulnerabilidad`, vamos a `explotarla`. Para ello, vamos a `realizar esta solicitud de prueba`. `Es importante volver a ajustar el Content-Length`. Respecto a la `cabecera obligatoria`, en este `laboratorio` en concreto, `el servidor back-end requiere que la petición smuggleada contenga al menos una cabecera para considerarla válida`
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-1/image_9.png)
 
