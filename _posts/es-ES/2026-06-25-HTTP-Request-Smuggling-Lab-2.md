@@ -82,6 +82,6 @@ Una vez hayamos hecho esto, tenemos que `enviar dos peticiones`. `Cuando enviemo
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-2/image_11.png)
 
-Sin embargo, `al efectuar la segunda petición, veremos esto`. `Lo cual significa que hemos completado el laboratorio correctamente, ya que hemos hecho una petición utilizando el método GPOST`
+`Al efectuar la segunda petición, veremos esto`. `Lo cual significa que hemos completado el laboratorio correctamente, ya que hemos hecho una petición utilizando el método GPOST`
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-2/image_12.png)
