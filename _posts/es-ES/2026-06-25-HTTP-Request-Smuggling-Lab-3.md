@@ -90,11 +90,27 @@ Transfer-Encoding
 : chunked
 ```
 
-`El orden de las cabeceras puede variar, es decir, tenemos que probar a poner la cabecera ofuscada primero y luego la cabecera normal y viceversa`. Normalmente, `la cabecera ofuscada debe de ir después de la cabecera sin alterar`. `Realizamos esta primera petición y vemos que todo funciona normal`
+`El orden de las cabeceras puede variar, es decir, tenemos que probar a poner la cabecera ofuscada primero y luego la cabecera normal y viceversa`. `Este comportamiento depende del la tecnología que se use`, por lo tanto, `es necesario probar todos los payloads mencionados anteriormente si no sabemos que se está usando`. Por ejemplo, `esta tabla muestra lo que ocurre cuando en una petición hay dos cabeceras duplicadas dependiendo de la tecnología que se esté usando`
+
+| Servidor / Framework | Comportamiento con duplicados |
+| -------------------- | ----------------------------- |
+| Nginx                | Se queda con la última        |
+| Apache               | Se queda con la primera       |
+| IIS                  | Las concatena con coma        |
+| Node.js (http)       | Las concatena con coma        |
+| Flask/Python         | Se queda con la última        |
+| Django               | Las concatena con coma        |
+| Tomcat               | Varía según la cabecera       |
+| HAProxy (proxy)      | Reenvía ambas al backend      |
+| Varnish              | Reenvía ambas                 |
+
+`Realizamos esta primera petición y vemos que todo funciona normal`
 
 ![[image_10.png]]
 
-`Hacemos una segunda petición y vemos que ahora funciona`. Esto significa que `hemos conseguido ofuscar la cabecera correctamente y crear una discrepancia`
+`Hacemos una segunda petición y vemos que ahora funciona`. Esto significa que `hemos conseguido ofuscar la cabecera correctamente y crear una discrepancia`. `La discrepancia la hemos provocado nosotros al ofuscar una cabecera Transfer-Encoding, esto hace que bien el servidor backend o el servidor frontend use Content-Lenght en vez de Transfer-Encoding`
+
+Lo que pasaba antes es que `tanto el servidor frontend como el backend interpretaban la cabecera Transfer-Encoding` y `según el RFC 7230 , si ambas cabeceras están presentes, la cabecera Transfer-Encoding tiene prioridad y Content-Length se ignora` [https://datatracker.ietf.org/doc/html/rfc7230](https://datatracker.ietf.org/doc/html/rfc7230)
 
 ![[image_11.png]]
 
