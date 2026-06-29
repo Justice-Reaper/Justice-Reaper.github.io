@@ -54,7 +54,9 @@ Ahora vamos a `cambiar` el `método` a `POST`, para ello hacemos `click derecho 
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-2/image_5.png)
 
-Vamos a `explicar` la `petición`, `el Content-Length debe de ser al menos un byte mayor al contenido de la solicitud que incrustamos`, por eso, `aunque el valor sea 19, tenemso que poner 20`. En este caso `smuggled=yes` se podría `quitar` y `el número de bytes sería 5 en vez de 19`, de forma que `usando un Content-Length de 6 también funcionaría`.  Si hacemos esto tendríamos que `cambiar` también el `3f` por su `valor correspondiente`
+Vamos a `explicar` la `petición`. `El Content-Length debe indicar un tamaño superior al del body que realmente enviamos`. `Como el body ocupa 19 bytes, utilizamos un Content-Length de 20`. Esto hace que `el back-end no dé por finalizada la petición tras leer esos 19 bytes, sino que espere un byte adicional, el cual pertenecerá a la siguiente petición HTTP`. Este `comportamiento` es el que `permite` que `la siguiente petición quede parcialmente absorbida por la petición smuggleada y se produzca la desincronización`
+
+En este caso `smuggled=yes` se podría `quitar` y `el número de bytes sería 5 en vez de 19`, de forma que `usando un Content-Length de 6 también funcionaría`. Si hacemos esto tendríamos que `cambiar` también el `3f` por su `valor correspondiente`
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-2/image_6.png)
 
