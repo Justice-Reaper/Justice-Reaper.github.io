@@ -50,7 +50,7 @@ Ahora vamos a `cambiar` el `método` a `POST`, para ello hacemos `click derecho 
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-1/image_4.png)
 
-`Ahora vamos a proceder a testear`. `He añadido la cabecera Transfer-Encoding con el valor chunked, esto quiere decir que vamos a enviar los datos que se proporcionan en el body en este formato`. En este caso, `nuestro body seria abc`, `el 3 sería el número de bytes que tiene el body` y `el 0 es para indicar que ahí termina el body`. Como vemos, `la solicitud funciona`
+`Ahora vamos a proceder a testear`. `He añadido la cabecera Transfer-Encoding con el valor chunked, esto quiere decir que vamos a enviar los datos que se proporcionan en el body en este formato`. En este caso, `nuestro body seria abc`, `el 3 sería el número de bytes que tiene el body` y `el 0 es para indicar que ahí termina el body`. `Son 3 bytes y no 5 porque cuando especificamos un body chunked el \r\n de la última línea no se cuenta`. Como vemos, `la solicitud funciona`
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-1/image_5.png)
 
