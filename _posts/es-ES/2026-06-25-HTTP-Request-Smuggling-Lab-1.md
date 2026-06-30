@@ -24,7 +24,7 @@ image:
   
 ## Descripción
 
-Este `laboratorio` tiene un `servidor front-end` y un `servidor back-end` y el `servidor front-end no soporta codificación fragmentada (chunked)`
+Este `laboratorio` tiene un `servidor front-end` y un `servidor back-end`.`El servidor front-end no soporta codificación fragmentada (chunked)`
 
 Para `resolver` el `laboratorio`, debemos `enviar` una `solicitud smuggleada` al `servidor back-end`, de forma que `la siguiente solicitud a la raíz / devuelva un 404 Not Found`
 
