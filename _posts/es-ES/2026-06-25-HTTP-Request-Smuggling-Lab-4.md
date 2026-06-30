@@ -64,7 +64,7 @@ Luego, `el valor 3f es 63 en hexadecimal` e `indica el tamaño del chunk que va 
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-4/image_7.png)
 
-Y por último, `el Content-Length es 4 porque es el número de bytes que ocupa la primera línea`. `Esto se hace para que el backend lea solo hasta ahí`
+Y por último, `el Content-Length es 4 porque es el número de bytes que ocupa la primera línea del body chunked`. `Esto se hace para que el backend lea solo hasta ahí`
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-4/image_8.png)
 
