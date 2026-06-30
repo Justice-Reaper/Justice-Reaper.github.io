@@ -38,7 +38,7 @@ Al `acceder` a la `web` vemos esto
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-3/image_1.png)
 
-`Capturamos` la `petición` con `Burpsuite`, la `enviamos` al `Repeater`, `eliminamos las cabeceras innecesarias`, `pulsamos sobre Show non-printable chars` y `en el apartado Request atributes del Inspector cambiamos el protocolo de HTTP/2 a HTTP/1`. `Una vez tengamos todo esto hecho, vemos a realizar la petición, si todo funciona bien significa que la petición se puede realizar con las cabeceras que estamos usando`
+`Capturamos` la `petición` con `Burpsuite`, la `enviamos` al `Repeater`, `eliminamos las cabeceras innecesarias`, `pulsamos sobre Show non-printable chars` y `en el apartado Request atributes del Inspector cambiamos el protocolo de HTTP/2 a HTTP/1`. `Una vez tengamos todo esto hecho, vamos a realizar la petición, si todo funciona bien significa que la petición se puede realizar con las cabeceras que estamos usando`
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-3/image_2.png)
 
@@ -66,7 +66,7 @@ Tenemos que `asegurarnos` de que `el valor del Content-Length sea el mismo que l
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-3/image_8.png)
 
-Una vez hemos hecho esto, podemos `afirmar` que `estamos ante un HTTP request smuggling CL.TE`. Una vez ya `confirmada` la `vulnerabilidad`, vamos a `explotarla`. Para ello, vamos a `realizar esta solicitud de prueba`. `Es importante volver a ajustar el Content-Length`. Respecto a la `cabecera obligatoria`, en este `laboratorio` en concreto, `el servidor back-end requiere que la petición smuggleada contenga al menos una cabecera para considerarla válida`
+Una vez hemos hecho esto, podemos `afirmar` que `estamos ante un HTTP request smuggling CL.TE`. Una vez ya `confirmada` la `vulnerabilidad`, vamos a `explotarla`. Para ello, vamos a `realizar esta solicitud de prueba`. `Es importante volver a ajustar el Content-Length`. Respecto a la `cabecera obligatoria`, `la petición smuggleada no termina con \r\n\r\n intencionalmente`. Esto hace que `cuando la víctima envíe su petición, el backend la interprete como continuación de la petición smuggleada`. `La cabecera Cabecera-Obligatorio: test absorbe la primera línea de la víctima en su valor y el Host de la víctima completa la petición smuggleada, haciendo que sea válida en HTTP/1.1`. `Dependiendo del laboratorio, puede que el backend requiera cabeceras específicas adicionales para considerar la petición válida`
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-3/image_9.png)
 
