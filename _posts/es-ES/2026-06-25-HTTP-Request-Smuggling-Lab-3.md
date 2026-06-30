@@ -74,9 +74,9 @@ Una vez hemos hecho esto, podemos `afirmar` que `estamos ante un HTTP request sm
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-3/image_10.png)
 
-`La segunda petición me gusta hacerla desde el navegador, simplemente con recargar la página es suficiente`. Como vemos, `nos devuelve el contenido de /post?postId=8 en la respuesta`, esto se debe a que `estamos realizando 1 petición que hace que el frontend reciba los 68 bytes de información y esto provoca que la segunda petición que hacemos a /post?postId=8 se quede en espera de ser procesada`. `Esto provoca que cuando cualquier usuario haga una petición a la web, la petición que se va a realizar es la que está en espera y no la suya`
+`La segunda petición me gusta hacerla desde el navegador, simplemente con recargar la página es suficiente`. Como vemos, `nos devuelve el contenido de /post?postId=8 en la respuesta`. Esto ocurre porque `el frontend usa Content-Length: 68 y envía los 68 bytes al backend a través de una conexión persistente (keep-alive)`. `El backend interpreta Transfer-Encoding: chunked, procesa solo el body chunked (los 3 bytes "abc") y da por finalizada la petición`
 
-Esto `ocurre` porque `la conexión entre el frontend y el backend se queda en un estado de keep alive debido a que el frontend ha enviado toda la información pero aunque el backend reciba toda la información, solo interpreta la que le hemos proporcionamos mediante el body chunked, es decir, los 3 bytes de información que son las letras abc`
+`Los bytes restantes (la petición smuggleada a /post?postId=8) quedan en el buffer de la conexión como el inicio de una nueva petición, pero con las cabeceras sin cerrar (Cabecera-Obligatoria: test sin \r\n\r\n)`. Cuando `recargamos` la `página` desde el `navegador`, `nuestra petición se absorbe como continuación de la petición smuggleada, por lo que el backend procesa la petición smuggleada en lugar de la nuestra, devolviendo el contenido de /post?postId=8`
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-3/image_11.png)
 
