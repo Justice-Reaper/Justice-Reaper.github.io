@@ -56,7 +56,7 @@ Ahora vamos a `cambiar` el `método` a `POST`, para ello hacemos `click derecho 
 
 Vamos a `explicar` la `petición`. `El Content-Length debe indicar un tamaño superior al del body que realmente enviamos, por eso le ponemos 6, porque es un byte mayor que el tamaño del body, el cual es 5`
 
-`Si estuviéramos ante un TE.CL, el frontend procesaría el Transfer-Encoding y cortaría el body en el terminador del chunk antes de la x, reenviando solo el body chunked al backend`. El `backend`, usando `Content-Length: 6`, `esperaría 6 bytes pero recibiría menos`, lo que `provocaría` un `timeout`
+`Si estuviéramos ante un TE.CL, el frontend procesaría el Transfer-Encoding y cortaría el body chunked después del 0\r\n\r\n (antes de la x)`. El `backend`, usando `Content-Length: 6`, `esperaría 6 bytes pero recibiría menos`, lo que `provocaría` un `timeout`
 
 `Respecto a la letra x, se pone ahí para detectar si el front-end ha interpretado Transfer-Encoding y ha cortado el body antes de esa x`. `Si el frontend no interpreta Transfer-Encoding, la x se reenviará al backend junto con el resto del body`
 
