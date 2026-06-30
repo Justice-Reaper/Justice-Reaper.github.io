@@ -38,7 +38,7 @@ Al `acceder` a la `web` vemos esto
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-5/image_1.png)
 
-`Capturamos` la `petición` con `Burpsuite`, la `enviamos` al `Repeater`, `eliminamos las cabeceras innecesarias`, `pulsamos sobre Show non-printable chars` y `en el apartado Request atributes del Inspector cambiamos el protocolo de HTTP/2 a HTTP/1`. `Una vez tengamos todo esto hecho, vemos a realizar la petición, si todo funciona bien significa que la petición se puede realizar con las cabeceras que estamos usando`
+`Capturamos` la `petición` con `Burpsuite`, la `enviamos` al `Repeater`, `eliminamos las cabeceras innecesarias`, `pulsamos sobre Show non-printable chars` y `en el apartado Request atributes del Inspector cambiamos el protocolo de HTTP/2 a HTTP/1`. `Una vez tengamos todo esto hecho, vamos a realizar la petición, si todo funciona bien significa que la petición se puede realizar con las cabeceras que estamos usando`
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-5/image_2.png)
 
@@ -108,7 +108,7 @@ Transfer-Encoding
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-5/image_10.png)
 
-`Hacemos una segunda petición y vemos que ahora funciona`. Esto significa que `hemos conseguido ofuscar la cabecera correctamente y crear una discrepancia`. `La discrepancia la hemos provocado nosotros al ofuscar una cabecera Transfer-Encoding, esto hace que bien el servidor backend o el servidor frontend use Content-Lenght en vez de Transfer-Encoding`
+`Hacemos una segunda petición y vemos que ahora funciona`. Esto significa que `hemos conseguido ofuscar la cabecera correctamente y crear una discrepancia`. `La discrepancia la hemos provocado nosotros al ofuscar una cabecera Transfer-Encoding, esto hace que bien el servidor backend o el servidor frontend use Content-Length en vez de Transfer-Encoding`
 
 Lo que pasaba antes es que `tanto el servidor frontend como el backend interpretaban la cabecera Transfer-Encoding` y `según el RFC 7230 , si ambas cabeceras están presentes, la cabecera Transfer-Encoding tiene prioridad y Content-Length se ignora` [https://datatracker.ietf.org/doc/html/rfc7230](https://datatracker.ietf.org/doc/html/rfc7230)
 
