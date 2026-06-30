@@ -38,7 +38,7 @@ Al `acceder` a la `web` vemos esto
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-4/image_1.png)
 
-`Capturamos` la `petición` con `Burpsuite`, la `enviamos` al `Repeater`, `eliminamos las cabeceras innecesarias`, `pulsamos sobre Show non-printable chars` y `en el apartado Request atributes del Inspector cambiamos el protocolo de HTTP/2 a HTTP/1`. `Una vez tengamos todo esto hecho, vemos a realizar la petición, si todo funciona bien significa que la petición se puede realizar con las cabeceras que estamos usando`
+`Capturamos` la `petición` con `Burpsuite`, la `enviamos` al `Repeater`, `eliminamos las cabeceras innecesarias`, `pulsamos sobre Show non-printable chars` y `en el apartado Request atributes del Inspector cambiamos el protocolo de HTTP/2 a HTTP/1`. `Una vez tengamos todo esto hecho, vamos a realizar la petición, si todo funciona bien significa que la petición se puede realizar con las cabeceras que estamos usando`
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-4/image_2.png)
 
