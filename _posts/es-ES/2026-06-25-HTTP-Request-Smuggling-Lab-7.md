@@ -90,7 +90,7 @@ Al `enviar` la `segunda petición` vemos un `404 Not Found`, por lo tanto, podem
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-7/image_13.png)
 
-Una vez ya `confirmad![[Pasted image 20260702130834.png)a` la `vulnerabilidad`, vamos a `fuzzear` a ver si hay `paths interesantes` a los que podamos `acceder`. `He encontrado bastantes así que hay que ir probando uno a uno hasta dar con uno que nos sirva para ejecutar acciones como usuario administrador`. `Es interesante fuzzear debido a que mediante el HTTP request smuggling podemos saltarnos validaciones que se hagan en el frontend y esto puede darnos acceso a rutas interesantes`
+Una vez ya `confirmada` la `vulnerabilidad`, vamos a `fuzzear` a ver si hay `paths interesantes` a los que podamos `acceder`. `He encontrado bastantes así que hay que ir probando uno a uno hasta dar con uno que nos sirva para ejecutar acciones como usuario administrador`. `Es interesante fuzzear debido a que mediante el HTTP request smuggling podemos saltarnos validaciones que se hagan en el frontend y esto puede darnos acceso a rutas interesantes`
 
 ```
 ffuf -t 10 -w /usr/share/seclists/Discovery/Web-Content/common.txt -u https://0ad4000903798ad98082588e00e60031.web-security-academy.net/FUZZ
