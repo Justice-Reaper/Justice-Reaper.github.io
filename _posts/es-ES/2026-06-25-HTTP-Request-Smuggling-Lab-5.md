@@ -10,7 +10,7 @@ categories:
 tags:
   - Portswigger Labs
   - HTTP request smuggling
-  - HTTP request smuggling, confirming a TE.CL vulnerability via differential responses
+  - HTTP request smuggling, obfuscating the TE header
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
@@ -36,23 +36,23 @@ Para `resolver` el `laboratorio`, debemos `enviar` una `solicitud smugglea
 
 Al `acceder` a la `web` vemos esto
 
-![[image_1.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-5/image_1.png)
 
 `Capturamos` la `petición` con `Burpsuite`, la `enviamos` al `Repeater`, `eliminamos las cabeceras innecesarias`, `pulsamos sobre Show non-printable chars` y `en el apartado Request atributes del Inspector cambiamos el protocolo de HTTP/2 a HTTP/1`. `Una vez tengamos todo esto hecho, vamos a realizar la petición, si todo funciona bien significa que la petición se puede realizar con las cabeceras que estamos usando`
 
-![[image_2.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-5/image_2.png)
 
 Lo `siguiente` que debemos de hacer es `pulsar` sobre el `engranaje` y `descheckear la opción Update Content-Length para que no se actualice el Content-Length`
 
-![[image_3.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-5/image_3.png)
 
 Ahora vamos a `cambiar` el `método` a `POST`, para ello hacemos `click derecho > Change request method`
 
-![[image_4.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-5/image_4.png)
 
 `Ahora vamos a proceder a testear si nos encontramos ante un TE.CL o ante un CL.TE`. `He añadido la cabecera Transfer-Encoding con el valor chunked, esto quiere decir que vamos a enviar los datos que se proporcionan en el body en este formato`. También he `añadido` la `cabecera Content-Length` porque también es `necesaria`
 
-![[image_5.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-5/image_5.png)
 
 Vamos a `explicar` la `petición`. `El Content-Length debe indicar un tamaño superior al del body que realmente enviamos, por eso le ponemos 6, porque es un byte mayor que el tamaño del body, el cual es 5`
 
@@ -60,43 +60,43 @@ Vamos a `explicar` la `petición`. `El Content-Length debe indicar un tamaño su
 
 `Respecto a la letra x, se pone ahí para detectar si el front-end ha interpretado Transfer-Encoding y ha cortado el body antes de esa x`. `Si el frontend no interpreta Transfer-Encoding, la x se reenviará al backend junto con el resto del body`
 
-![[image_6.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-5/image_6.png)
 
 `En este caso al enviar la petición, vemos que no hay ningún error`. Por lo tanto `podemos descartar que se trate de un TE.CL`
 
-![[image_7.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-5/image_7.png)
 
 `Puede que estemos ante un CL.TE, así que vamos a detectarlo con esta petición`
 
-![[image_8.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-5/image_8.png)
 
 `Si estamos ante un CL.TE, el frontend enviará esos 6 primeros bytes al backend y al no indicar donde finaliza el body chunked con el 0 pues el backend se quedará a la espera de ese 0 y por lo tanto, provocará un timeout`. Con el `6` en el `Content-LPasted image 20260702013000ength` le `indicamos` al `frontend` que `mande solo esos 6 primeros bytes al backend`. `En principio valdría cualquier valor que nos permita enviar al backend un body chunked malformado, los de portswigger recomiendan 4 por ejemplo`
 
 `Respecto a la x, pues es igual que en el caso anterior, la usamos para detectar si el front-end ha interpretado el Transfer-Encoding y ha cortado el body antes de la x`
 
-![[image_9.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-5/image_9.png)
 
 Al `enviar` la `petición` pasa lo que `hemos mencionado anteriormente` y el `servidor backend` nos `devuelve` un `error`. `No podemos confirmar que sea un CL.TE porque no sabemos si el error proviene del servidor frontend o del servidor backend`
 
-![[image_10.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-5/image_10.png)
 
 Si `enviamos` una `petición bien formada`, `no da ningún error`. Esto significa que `el servidor backend o el servidor frontend o ambos soportan transfer encoding`
 
-![[image_11.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-5/image_11.png)
 
 Para aclarar las dudas, vamos a `ejecutar` un `HTTP request smuggling CL.TE y TE.CL completo`. Primero vamos a `probar` con un `CL.TE`
 
-![[image_12.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-5/image_12.png)
 
 Vamos a `explicar los valores que se usan en la petición`. `El Content-Length es 49 porque el body de la petición ocupa 49 bytes`
 
-![[image_13.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-5/image_13.png)
 
 `Luego, el body chunked ocupa 14 bytes pero como hay que ponerlo en hexadecimal ponemos la letra e`. `La e indica lo que ocupa el body chunked y el 0 especifica donde termina el body chunked`
 
 `Respecto a la cabecera Foo: x, la petición smuggleada no termina con \r\n\r\n intencionalmente y esto hace que cuando la víctima envíe su petición, el backend la interprete como continuación de la petición smuggleada`. `La cabecera Foo: x absorbe la primera línea de la víctima en su valor y el Host de la víctima completa la petición smuggleada, haciendo que sea válida en HTTP/1.1`. `Dependiendo` del `laboratorio`, puede que `el backend requiera cabeceras específicas adicionales para considerar la petición válida`
 
-![[image_14.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-5/image_14.png)
 
 Cuando nosotros `hacemos` la `segunda petición` o `cuando algún usuario accede a la web`, `la petición que se realiza es esta`
 
@@ -112,27 +112,27 @@ Como vemos, `al no añadir \r\n\r\n al final de nuestra petición smuggleada, l
 
 Una vez hemos explicado esto, `debemos enviar la petición 2 veces, la primera vez obtenemos una respuesta normal y la segunda vez también`
 
-![[image_15.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-5/image_15.png)
 
 Ahora vamos a `realizar` un `HTTP request smuggling TE.CL`
 
-![[image_16.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-5/image_16.png)
 
 Vamos a `explicar` la `petición`. `El Content-Length debe indicar un tamaño superior al del body que realmente enviamos`. `Como el body ocupa 10 bytes, utilizamos un Content-Length de 11`. Esto hace que `el back-end no dé por finalizada la petición tras leer esos 10 bytes, sino que espere un byte adicional, el cual pertenecerá a la siguiente petición HTTP`. Este `comportamiento` es el que `permite` que `la siguiente petición quede parcialmente absorbida por la petición smuggleada y se produzca la desincronización`
 
-![[image_17.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-5/image_17.png)
 
 Luego, `el valor 9e es 158 en hexadecimal` e `indica el tamaño del chunk que va a recibir el frontend` y `el 0 indica la que ahí es donde termina el body chunked`
 
-![[image_18.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-5/image_18.png)
 
 Y por último, `el Content-Length es 4 porque es el número de bytes que ocupa la primera línea del body chunked`. `Esto se hace para que el backend lea solo hasta ahí`
 
-![[image_19.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-5/image_19.png)
 
 Una vez hemos explicado esto, `debemos enviar la petición 2 veces, la primera vez obtenemos una respuesta normal y la segunda vez también`
 
-![[image_20.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-5/image_20.png)
 
 Como antes hemos visto que `bien el servidor backend o el frontend soportan Transfer-Encoding y que ahora no obtenemos ningún error al realizar los ataques completos`, puede ser que `estemos ante un TE.TE`. Si esto último es cierto, `como ambos servidores interpretan la cabecera pues no puede haber desincronización` y por lo tanto, `no podemos confirmar la vulnerabilidad de forma clara`
 
@@ -172,28 +172,28 @@ Transfer-Encoding
 
 `Si intentamos provocar un timeout y verificar si es un CL.TE, seguimos obteniendo la misma respuesta de antes`
 
-![[image_21.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-5/image_21.png)
 
 Sin embargo, `si intentamos provocar un timeout y verificar si es un TE.CL, obtenemos un timeout`
 
-![[image_22.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-5/image_22.png)
 
 Para `confirmar` esto, vamos a `ejecutar` un `HTTP request smuggling TE.CL completo`. Al `realizar` la `primera petición` vemos que `todo se ve normal`
 
-![[image_23.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-5/image_23.png)
 
 `Y al hacer la segunda petición vemos que ha funcionado el ataque`. Esto significa que `hemos conseguido ofuscar la cabecera correctamente y crear una discrepancia`. `La discrepancia la hemos provocado nosotros al ofuscar una cabecera Transfer-Encoding, esto hace que bien el servidor backend o el servidor frontend use Content-Length en vez de Transfer-Encoding`
 
 Lo que pasaba antes es que `tanto el servidor frontend como el backend interpretaban la cabecera Transfer-Encoding` y `según el RFC 7230 , si ambas cabeceras están presentes, la cabecera Transfer-Encoding tiene prioridad y Content-Length se ignora` [https://datatracker.ietf.org/doc/html/rfc7230](https://datatracker.ietf.org/doc/html/rfc7230)
 
-![[image_24.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-5/image_24.png)
 
 Una vez hemos hecho esto, podemos `afirmar` que `estamos ante un HTTP request smuggling TE.CL`. Una vez ya `confirmada` la `vulnerabilidad`, vamos a `resolver` el `laboratorio`. `Para ello, debemos de hacer una petición utilizando el método GPOST`. Así que `necesitamos ajustar el valor del Content-Length nuevamente`
 
 Una vez hayamos hecho esto, tenemos que `enviar dos peticiones`. `Cuando enviemos la primera veremos que todo se ha ejecutado correctamente`
 
-![[image_25.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-5/image_25.png)
 
 `Al efectuar la segunda petición, veremos esto`. `Lo cual significa que hemos completado el laboratorio correctamente, ya que hemos hecho una petición utilizando el método GPOST`
 
-![[image_26.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-5/image_26.png)
