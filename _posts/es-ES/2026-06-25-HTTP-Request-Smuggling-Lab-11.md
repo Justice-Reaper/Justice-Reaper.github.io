@@ -116,7 +116,7 @@ Vamos a `proceder` a `enviar la petición dos veces`, esto es lo que vemos despu
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-11/image_16.png)
 
-Y esto es lo que vemos después de `enviar` la `segunda solicitud`. Como vemos, `se ha hecho una solicitud a un endpoint que no existe y hemos recibido un 404`
+Y esto es lo que vemos después de `enviar` la `segunda solicitud`. Como vemos, `se ha hecho una solicitud a un endpoint que no existe y hemos recibido un 404`. Por lo tanto, `podemos confirmar que estamos ante un HTTP request smuggling H2.TE`
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-11/image_17.png)
 
