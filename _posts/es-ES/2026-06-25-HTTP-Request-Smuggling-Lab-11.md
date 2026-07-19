@@ -110,7 +110,7 @@ Para ello tenemos que `construir` esta `solicitud`
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-11/image_15.png)
 
-Ahora vamos a `explicar` la `solicitud`, `la cabecera Content-Length: 0 es la que le dice al servidor frontend que usa HTTP/2 que la solicitud no tiene body, así que no lee nada`. `Una vez la solicitud llega el servidor backend, como usa HTTP/1.1 pues ocurre lo mismo, interpreta que el body está vacío`
+Ahora vamos a `explicar` la `solicitud`, `la cabecera Content-Length: 0 es la que le dice al servidor frontend que usa HTTP/2 que la solicitud no tiene body, así que no lee nada`. `Una vez la solicitud llega el servidor backend, como usa HTTP/1.1 pues ocurre lo mismo, interpreta que el body está vacío siempre y cuando interprete la cabecera Content-Lenght` 
 
 Vamos a `proceder` a `enviar la petición dos veces`, esto es lo que vemos después de `enviar` la `primera solicitud`
 
