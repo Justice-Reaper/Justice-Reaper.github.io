@@ -24,7 +24,7 @@ image:
   
 ## Descripción
 
-Este `laboratorio` es `vulnerable` a `request smuggling` porque `el servidor front-end realiza HTTP/2 downgrading de las solicitudes HTTP/2 incluso cuando tienen una longitud ambigua`1
+Este `laboratorio` es `vulnerable` a `request smuggling` porque `el servidor front-end realiza HTTP/2 downgrading de las solicitudes HTTP/2 incluso cuando tienen una longitud ambigua`
 
 Para `resolver` el `laboratorio`, tenemos que `eliminar al usuario carlos utilizando la ténica response queue poisoning para acceder al panel de administración que se encuentra en /admin`. Para llevar a cabo el ataque, debemos `aprovecharnos` de que `un usuario administrador iniciará sesión aproximadamente cada 15 segundos`
 
