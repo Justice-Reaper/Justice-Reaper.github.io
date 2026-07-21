@@ -94,7 +94,7 @@ Vamos a `explicar los valores que se usan en la petición`. `El Content-Length
 
 `Luego, el body chunked ocupa 14 bytes pero como hay que ponerlo en hexadecimal ponemos la letra e`. `La e indica lo que ocupa el body chunked y el 0 especifica donde termina el body chunked`
 
-`Respecto a la cabecera Foo: x, la petición smuggleada no termina con \r\n\r\n intencionalmente y esto hace que cuando la víctima envíe su petición, el backend la interprete como continuación de la petición smuggleada`. `La cabecera Foo: x absorbe la primera línea de la víctima en su valor y el Host de la víctima completa la petición smuggleada, haciendo que sea válida en HTTP/1.1`. `Dependiendo` del `laboratorio`, puede que `el backend requiera cabeceras específicas adicionales para considerar la petición válida`
+`Respecto a la cabecera Foo: x, la petición smuggleada no termina con \r\n\r\n intencionalmente y esto hace que cuando la víctima envíe su petición, el backend la interprete como continuación de la petición smuggleada`. `La cabecera Foo: x absorbe la request line de la petición de la víctima y la cabecera Host proveniente de la petición de la víctima completa la petición smuggleada, haciendo que sea válida en HTTP/1.1`. `Dependiendo` del `laboratorio`, puede que `el backend requiera cabeceras específicas adicionales para considerar la petición válida`
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-8/image_14.png)
 
@@ -118,7 +118,7 @@ Una vez hemos explicado esto, `debemos enviar la petición 2 veces, la primera v
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-8/image_16.png)
 
-Vamos a `fuzzear` a ver si hay `paths interesantes` a los que podamos `acceder`. `He encontrado bastantes así que hay que ir probando uno a uno hasta dar con uno que nos sirva para ejecutar acciones como usuario administrador`. `Es interesante fuzzear debido a que mediante el HTTP request smuggling podemos saltarnos validaciones que se hagan en el frontend y esto puede darnos acceso a rutas interesantes`
+Vamos a `fuzzear` a ver si hay `rutas interesantes` a los que podamos `acceder`. `He encontrado bastantes así que hay que ir probando uno a uno hasta dar con uno que nos sirva para ejecutar acciones como usuario administrador`. `Es interesante fuzzear debido a que mediante el HTTP request smuggling podemos saltarnos validaciones que se hagan en el frontend y esto puede darnos acceso a rutas interesantes`
 
 ```
 ffuf -t 10 -w /usr/share/seclists/Discovery/Web-Content/common.txt -u https://0a1c00d603f9b9268033e91b006100cb.web-security-academy.net/FUZZº
@@ -162,11 +162,17 @@ Pero al `hacer` la `segunda petición`, vemos que el `Content-Length` ha `cambia
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-8/image_22.png)
 
+`Podemos ver esto claramente en la segunda petición que acabamos de hacer`. Lo que pasa aquí es que` la solicitud ha sido reescrita por el servidor front-end para incluir los bytes que le hemos indicado`. En este caso, `está incluyendo 12 bytes porque hemos indicado que el Content-Length es 12, sin embargo, el Content-Length real de esa cadena es de 11`. Por lo tanto, `el texto que vemos en la respuesta como testP, esa P es el primer byte de la segunda petición que realizamos`
+
+El `resultado` de esto será que el `servidor back-end procesará la solicitud smuggleada y tratará la solicitud reescrita como si fuera el valor del parámetro search`
+
+![](/assets/img/HTTP-Request-Smuggling-Lab-8/image_23.png)
+
 A `diferencia` de la `forma anterior`, cuando nosotros `inflamos` el `Content-Length` lo que pasa es esto
 
 ```
-POST / HTTP/1.1                     ← la 'P' es el byte 10 → absorbido como body
-                                    ← backend: "ya tengo 10, proceso GET /admin" → respuesta /admin
+POST / HTTP/1.1                     ← la 'P' es el byte 12 → absorbido como body
+                                    ← backend: "ya tengo 12, proceso GET /" → respuesta /
 
 OST / HTTP/1.1\r\n                  ← lo que queda: método "OST" → inválido
 Host: ...\r\n                       ← estos headers ya no importan
@@ -177,12 +183,6 @@ Cookie: session=abc123\r\n          ← porque la petición ya está rota
                                     ← el 404 se pierde con la conexión
                                     ← frontend abre conexión nueva para futuras peticiones
 ```
-
-`Podemos ver esto claramente en la segunda petición que acabamos de hacer`. Lo que pasa aquí es que` la solicitud ha sido reescrita por el servidor front-end para incluir los bytes que le hemos indicado`. En este caso, `está incluyendo 12 bytes porque hemos indicado que el Content-Length es 12, sin embargo, el Content-Length real de esa cadena es de 11`. Por lo tanto, `el texto que vemos en la respuesta como testP, esa P es el primer byte de la segunda petición que realizamos`
-
-El `resultado` de esto será que el `servidor back-end procesará la solicitud smuggleada y tratará la solicitud reescrita como si fuera el valor del parámetro search`
-
-![](/assets/img/HTTP-Request-Smuggling-Lab-8/image_23.png)
 
 `Dado que la solicitud final está siendo reescrita, no sabemos cuál será su longitud final`. `El valor de la cabecera Content-Length en la solicitud smuggleada determinará cuál será la longitud que el servidor back-end creerá que tiene la solicitud`
 
