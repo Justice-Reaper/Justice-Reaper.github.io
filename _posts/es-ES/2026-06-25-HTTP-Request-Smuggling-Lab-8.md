@@ -172,7 +172,7 @@ A `diferencia` de la `forma anterior`, cuando nosotros `inflamos` el `Cont
 
 ```
 POST / HTTP/1.1                     ← la 'P' es el byte 12 → absorbido como body
-                                    ← backend: "ya tengo 12, proceso GET /" → respuesta /
+                                    ← backend: "ya tengo 12, proceso POST /" → respuesta /
 
 OST / HTTP/1.1\r\n                  ← lo que queda: método "OST" → inválido
 Host: ...\r\n                       ← estos headers ya no importan
