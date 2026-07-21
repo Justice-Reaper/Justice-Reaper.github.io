@@ -130,7 +130,7 @@ Si `capturamos` la `petición` con `Burpsuite` vemos lo siguiente
 
 En este caso, `podríamos ser capaces de obtener las cookies de sesión del usuario víctima`, para ello tenemos que `hacer que la petición smuggleada sea interpretada como una petición completa` y para ello, `vamos a usar la misma técnica que hemos usado anteriormente en los laboratorios donde explotamos un HTTP request smuggling TE.CL`
 
-`Esta técnica consiste en inflar el Content-Length, indicando un tamaño superior al del body que realmente enviamos en la peticion smuggleada`. `Como el body ocupa 11 bytes, utilizamos un Content-Length de 12`. Esto hace que `el back-end no dé por finalizada la petición tras leer esos 11 bytes, sino que espere un byte adicional, el cual pertenecerá a la siguiente petición HTTP`. Este `comportamiento` es el que `permite` que `la siguiente petición quede parcialmente absorbida por la petición smuggleada y se produzca la desincronización`
+`Esta técnica consiste en inflar el Content-Length, indicando un tamaño superior al del body que realmente enviamos en la peticion smuggleada`. `Como el body ocupa 123 bytes, habría que utiliza un Content-Length de 124 al menos`. Esto hace que `el back-end no dé por finalizada la petición tras leer esos 123 bytes, sino que espere un byte adicional, el cual pertenecerá a la siguiente petición HTTP`. Este `comportamiento` es el que `permite` que `la siguiente petición quede parcialmente absorbida por la petición smuggleada y se produzca la desincronización`
 
 `Tenemos un apartado My account que el usuario víctima puede haber usado para loguearse y además tenemos la capacidad de almacenar la petición que hace el usuario víctima en la sección de comentarios`. Todo esto nos indica que `siempre y cuando el usuario esté logueado y haga una petición después de nosotros, podemos ser capaces de obtener sus cookies de sesión`
 
@@ -144,7 +144,7 @@ Para `obtener` el `token CSRF` hacemos `CTRL + U` y `filtramos` por `CSRF`
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-9/image_21.png)
 
-Una vez tenemos esto, vamos a `crear` la `petición`
+Una vez tenemos esto, vamos a `crear` la `petición`. `En este caso el tamaño del body es de 139 bytes, por lo tanto, el Content-Length que tenemos que especificar debe ser como mínimo de 140`
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-9/image_22.png)
 
@@ -165,10 +165,10 @@ Sin embargo, `no vemos que hayamos absorbido ningún byte de la siguiente solici
 A `diferencia` de la `forma anterior`, cuando nosotros `inflamos` el `Content-Length` lo que pasa es esto
 
 ```
-POST / HTTP/1.1                     ← la 'P' es el byte 10 → absorbido como body
-                                    ← backend: "ya tengo 10, proceso GET /admin" → respuesta /admin
+GET / HTTP/1.1                      ← la 'G' es el byte 140 → absorbido como body
+                                    ← backend: "ya tengo 140, proceso GET /" → respuesta /
 
-OST / HTTP/1.1\r\n                  ← lo que queda: método "OST" → inválido
+ET / HTTP/1.1\r\n                   ← lo que queda: método "ET" → inválido
 Host: ...\r\n                       ← estos headers ya no importan
 Cookie: session=abc123\r\n          ← porque la petición ya está rota
 \r\n
