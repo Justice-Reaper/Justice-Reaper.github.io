@@ -62,11 +62,9 @@ Vamos a `explicar` la `petición`. `El Content-Length debe indicar un tamaño su
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-12/image_6.png)
 
-`En este caso al enviar la petición, vemos un error`. `Ssegún el RFC 7230 , si la cabecera Transfer-Encoding y Content-Length están presentes, la cabecera Transfer-Encoding tiene prioridad y Content-Length se ignora` [https://datatracker.ietf.org/doc/html/rfc7230](https://datatracker.ietf.org/doc/html/rfc7230)
+`En este caso al enviar la petición, vemos un error`. Según el `RFC 7230`, `si las cabecera Transfer-Encoding y Content-Length están presentes, la cabecera Transfer-Encoding tiene prioridad y Content-Length se ignora`. Además de este caso, también puede ser que `el servidor backend o frontend o ambos, rechazen la petición porque la interpretan como un intento de ataque de HTTP request smuggling al tener estas dos cabeceras en la petición`. Aquí podemos `leer` más `información` acerca del `RFC 7230` [https://datatracker.ietf.org/doc/html/rfc7230](https://datatracker.ietf.org/doc/html/rfc7230)
 
-Sin embargo, en este `laboratorio` no está pasando esto, lo que parece ser que pasa es que `se están implementado directivas más restrictivas que las indicadas en el RFC 7230`. `He llegado a esta conclusión porque en este caso no se prioriza una de las cabeceras y se ignora la otra, si no que nos arroja un error directamente`
-
-Debido a estas medidas podemos `descartar` la `explotación` de un `TE.TE`, `TE.CL` y `CL.TE`
+`También podríamos intentar usar una inyección CRLF u ofuscar la cabecera Transfer-Encoding para crear una discrepancia pero en este caso ninguna de estas cosas funciona`. Teniendo todo esto en cuenta, podemos `descartar` la `explotación` de un `TE.TE`, `TE.CL` y `CL.TE`
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-12/image_7.png)
 
