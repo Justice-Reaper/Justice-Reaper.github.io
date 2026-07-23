@@ -203,10 +203,10 @@ Una vez hemos hecho esto, `filtramos por Status code o Length`. Como vemos, `hay
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-12/image_24.png)
 
-`Una vez tenemos las cookies de sesión, paramos el ataque y hacemos peticiones a un endpoint cualquiera hasta que ya no recibamos respuestas extrañas`. Una vez hecho esto, `nos dirigimos al navegador, nos abrimos las herramientas de desarrollador de Chrome y pegamos las cookies de sesión obtenida`
+`Una vez tenemos las cookies de sesión, paramos el ataque y hacemos peticiones a un endpoint cualquiera hasta que ya no recibamos respuestas extrañas`. Una vez hecho esto, `nos dirigimos al navegador, nos abrimos las herramientas de desarrollador de Chrome y pegamos las cookies de sesión obtenidas`
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-12/image_25.png)
 
-Una vez hecho esto, `ya podemos ver el panel administrativo y borrar al usuario carlos`
+Una vez hecho esto, `recargamos la web con F5 y ya deberíamos ver el panel administrativo y poder borrar al usuario carlos`
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-12/image_26.png)
