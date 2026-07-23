@@ -60,7 +60,7 @@ Vamos a `explicar` la `petición`. `El Content-Length debe indicar un tamaño su
 
 ![](/assets/img/HTTP-Request-Smuggling-Lab-13/image_6.png)
 
-`En este caso al enviar la petición, vemos un error`. `Ssegún el RFC 7230 , si la cabecera Transfer-Encoding y Content-Length están presentes, la cabecera Transfer-Encoding tiene prioridad y Content-Length se ignora` [https://datatracker.ietf.org/doc/html/rfc7230](https://datatracker.ietf.org/doc/html/rfc7230)
+`En este caso al enviar la petición, vemos un error`. `Según el RFC 7230, si la cabecera Transfer-Encoding y Content-Length están presentes, la cabecera Transfer-Encoding tiene prioridad y Content-Length se ignora` [https://datatracker.ietf.org/doc/html/rfc7230](https://datatracker.ietf.org/doc/html/rfc7230)
 
 Sin embargo, en este `laboratorio` no está pasando esto, lo que parece ser que pasa es que `se están implementado directivas más restrictivas que las indicadas en el RFC 7230`. `He llegado a esta conclusión porque en este caso no se prioriza una de las cabeceras y se ignora la otra, si no que nos arroja un error directamente`
 
