@@ -65,7 +65,7 @@ Vamos a `explicar` la `petición`. `El Content-Length debe indicar un tamaño su
 
 `También podríamos intentar usar una inyección CRLF u ofuscar la cabecera Transfer-Encoding para crear una discrepancia pero en este caso ninguna de estas cosas funciona`. Teniendo todo esto en cuenta, podemos `descartar` la `explotación` de un `TE.TE`, `TE.CL` y `CL.TE`
 
-![[HTTP-Request-Smuggling-Lab-13/image_7.png)
+![](/assets/img/HTTP-Request-Smuggling-Lab-14/image_7.png)
 
 `Aunque las técnicas anteriores no funcionen, todavía puede ser posible explotar un HTTP request smuggling si el servidor front-end realiza HTTP/2 downgrading de las solicitudes HTTP/2 `
 
