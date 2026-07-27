@@ -10,7 +10,7 @@ categories:
 tags:
   - Portswigger Labs
   - HTTP request smuggling
-  - Exploiting HTTP request smuggling to bypass front-end security controls, CL.TE vulnerability
+  - CL.0 request smuggling
 image:
   path: /assets/img/Portswigger/Portswigger.png
 ---
@@ -34,27 +34,27 @@ Para `resolver` el `laboratorio`, tenemos que `identificar` un `endpoint vulnera
 
 Al `acceder` a la `web` vemos esto
 
-![[image_1.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_1.png)
 
 Si `pulsamos` sobre `Admin panel` y `capturamos` la `petición` con `Burpsuite` vemos que `no podemos acceder`
 
-![[image_2.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_2.png)
 
 `Capturamos` la `petición` con `Burpsuite`, la `enviamos` al `Repeater`, `eliminamos las cabeceras innecesarias`, `pulsamos sobre Show non-printable chars` y `en el apartado Request atributes del Inspector cambiamos el protocolo de HTTP/2 a HTTP/1`. `Una vez tengamos todo esto hecho, vamos a realizar la petición, si todo funciona bien significa que la petición se puede realizar con las cabeceras que estamos usando`
 
-![[image_3.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_3.png)
 
 Lo `siguiente` que debemos de hacer es `pulsar` sobre el `engranaje` y `descheckear la opción Update Content-Length para que no se actualice el Content-Length`
 
-![[image_4.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_4.png)
 
 Ahora vamos a `cambiar` el `método` a `POST`, para ello hacemos `click derecho > Change request method`
 
-![[image_5.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_5.png)
 
 `Ahora vamos a proceder a testear si nos encontramos ante un TE.CL o ante un CL.TE`. `He añadido la cabecera Transfer-Encoding con el valor chunked, esto quiere decir que vamos a enviar los datos que se proporcionan en el body en este formato`. También he `añadido` la `cabecera Content-Length` porque también es `necesaria`
 
-![[image_6.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_6.png)
 
 Vamos a `explicar` la `petición`. `El Content-Length debe indicar un tamaño superior al del body que realmente enviamos, por eso le ponemos 6, porque es un byte mayor que el tamaño del body, el cual es 5`
 
@@ -62,13 +62,13 @@ Vamos a `explicar` la `petición`. `El Content-Length debe indicar un tamaño su
 
 `Respecto a la letra x, se pone ahí para detectar si el servidor front-end ha interpretado Transfer-Encoding y ha cortado el body antes de esa x`. `Si el frontend no interpreta Transfer-Encoding, la x se reenviará al backend junto con el resto del body`
 
-![[image_7.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_7.png)
 
 `En este caso al enviar la petición, vemos un error`. Según el `RFC 7230`, `si las cabecera Transfer-Encoding y Content-Length están presentes, la cabecera Transfer-Encoding tiene prioridad y Content-Length se ignora`. Además de este caso, también puede ser que `el servidor backend o frontend o ambos, rechazen la petición porque la interpretan como un intento de ataque de HTTP request smuggling al tener estas dos cabeceras en la petición`. Aquí podemos `leer` más `información` acerca del `RFC 7230` [https://datatracker.ietf.org/doc/html/rfc7230](https://datatracker.ietf.org/doc/html/rfc7230)
 
 `También podríamos intentar usar una inyección CRLF u ofuscar la cabecera Transfer-Encoding para crear una discrepancia pero en este caso ninguna de estas cosas funciona`. Teniendo todo esto en cuenta, podemos `descartar` la `explotación` de un `TE.TE`, `TE.CL` y `CL.TE`
 
-![[image_8.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_8.png)
 
 `Aunque las técnicas anteriores no funcionen, todavía puede ser posible explotar un HTTP request smuggling si el servidor front-end realiza HTTP/2 downgrading de las solicitudes HTTP/2 `
 
@@ -80,41 +80,41 @@ En `HTTP/2` la `cabecera Content-Length` es `opcional`, es decir, `si no la prop
 
 Antes de seguir, vamos a `capturar` una `solicitud` por `POST` para `verificar lo que hemos dicho anteriormente de la cabecera Content-Length cuando se usa HTTP/2`. Para ello, `publicamos un comentario en cualquier publicación y capturamos la petición`
 
-![[image_9.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_9.png)
 
-![[image_10.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_10.png)
 
 Si `desactivamos` la `opción Update Content-Length` y `bajamos` el `Content-Length` a `20` vemos que `solo se deberían de enviar esos 20 bytes del body`
 
-![[image_11.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_11.png)
 
 Sin embargo, `si miramos el código fuente vemos que en este caso vemos que se está ignorando el valor que proporcionamos nosotros a través de la cabecera Content-Length`
 
-![[image_12.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_12.png)
 
 Si `quitamos` la `cabecera Content-Length`, `sigue funcionando como al inicio porque estamos usando HTTP/2`. `En esta solicitud podemos ver como hemos podido enviar una petición mediante HTTP/2 sin proporcionar la cabecera Content-Length`. `Para que esto funcione debemos de tener descheckeada la opción Update content-length`
 
-![[image_13.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_13.png)
 
-![[image_14.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_14.png)
 
 Sin embargo, si `cambiamos` a `HTTP/1` vemos que `ni siquiera se envía el mensaje porque no hemos especificado el tamaño del body mediante la cabecera Content-Length`
 
-![[image_15.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_15.png)
 
 Una vez aclarado esto, vamos a `empezar` a `testear`. Lo primero que tenemos que hacer es `pulsar sobre el engranaje` y `checkear la opción Allow HTTP/2 ALPN override para enviar solicitudes HTTP/2 incluso cuando el servidor no anuncie compatibilidad con HTTP/2 mediante ALPN`. `Esto nos permite comprobar si existe compatibilidad oculta con HTTP/2`. `Aunque en este caso no es necesario habilitar esta opción, porque ya vemos que sí que hay compatibilidad con HTTP/2, es buena práctica seguir siempre la misma metodología`
 
-![[image_16.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_16.png)
 
 `Luego, en el apartado Request atributes del Inspector cambiamos el protocolo de HTTP/1 a HTTP/2`
 
-![[image_17.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_17.png)
 
 `Una vez tenemos estas opciones configuradas, vamos a crear una petición para verificar si front-end realiza HTTP/2 downgrading de las solicitudes HTTP/2`. `Existen dos variaciones de esta técnica`, `H2.TE` y `H2.CL`, en este caso vamos a `probar` con `H2.TE` porque anteriormente hemos visto que `el valor del Content-Length que hemos proporcionado cuando hemos hecho la solicitud HTTP/2 ha sido ignorado` 
 
 Para ello tenemos que `construir` esta `solicitud`
 
-![[image_18.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_18.png)
 
 Ahora vamos a `explicar` la `solicitud`, `la cabecera Transfer-Encoding: chunked es la que le dice al servidor frontend que usa HTTP/2 que va a recibir los datos que se proporcionan en el body en este formato`. `En este caso con el 0 le decimos que ese es el final del body y como no hemos proporcionado nada en el body pues no se envía nada`. `Si quisiéramos enviar datos debemos de especificar el tamaño del body en hexadecimal y luego indicar el final del body con un 0`. Por ejemplo:
 
@@ -128,11 +128,11 @@ smuggled=yes
 
 Vamos a `proceder` a `enviar la petición dos veces`, esto es lo que vemos después de `enviar` la `primera solicitud`
 
-![[image_19.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_19.png)
 
 Y esto es lo que vemos después de `enviar` la `segunda solicitud`. Como vemos, `hemos obtenido la misma respuesta en ambas solicitudes`, por lo tanto, `algo debe estar pasando`
 
-![[image_20.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_20.png)
 
 Cuando nosotros `hacemos` la `segunda petición` o `cuando algún usuario accede a la web`, `la petición que se realiza es esta`
 
@@ -171,15 +171,15 @@ Transfer-Encoding: chunked
 
 Una vez sabemos esto, vamos a `añadir una nueva cabecera debajo de Content-Type inyectando los caracteres CRLF`
 
-![[image_21.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_21.png)
 
 `Añadimos` esta `nueva cabecera`, para `añadir` el `CRLF` aquí tenemos que `pulsar Shift + Enter`
 
-![[image_22.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_22.png)
 
 Una vez hecho esto, `enviamos nuevamente dos peticiones`. En este caso `no funciona esta inyección CRLF`
 
-![[image_23.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_23.png)
 
 
 `Aunque esto no ha funcionado, todavía podemos intentar hacer un HTTP/2 request splitting y luego llevar a cabo un response queue poisoning`. `Cuando vimos el response queue poisoning, aprendimos cómo dividir una única solicitud HTTP en exactamente dos solicitudes completas en el back-end`
@@ -203,13 +203,13 @@ Para `dividir` una `solicitud` en las `cabeceras`, `necesitamos comprender cómo
 
 Una vez sabemos todo esto, vamos a `crear` esta `solicitud`
 
-![[image_24.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_24.png)
 
 `Una vez creada, vamos a enviar peticiones hasta que veamos algún cambio en la respuesta`. `Si vemos un cambio en la respuesta que no corresponde a nuestra petición, esto significa que el ataque ha funcionado` y `si no vemos ningún cambio después de enviar unas 10 peticiones lo más seguro es que no haya funcionado el ataque`
 
 Esta es la `primera petición` y vemos que `tampoco podemos hacer este ataque`
 
-![[image_25.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_25.png)
 
 Lo siguiente que podemos `testear` es un `CL.0`. En algunos casos, `se puede conseguir que los servidores ignoren la cabecera Content-Length, lo que significa que asumen que cada solicitud termina al final de las cabeceras`. Esto es, en la práctica, `equivalente a tratar el valor de Content-Length como 0`
 
@@ -235,72 +235,72 @@ En la práctica, `este comportamiento se da principalmente en endpoints que simp
 
 Una vez sabemos esto, lo `primero` que vamos a hacer es `añadir el dominio al scope pulsando en Target > Scope > Add`
 
-![[image_26.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_26.png)
 
 Una vez hecho esto, nos `vamos` a `Target > Site map > Scan`
 
-![[image_27.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_27.png)
 
 `Seleccionamos` la opción `Crawl` y `pulsamos` sobre `Scan`
 
-![[image_28.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_28.png)
 
 `En mi caso voy a usar el recurso estático correspondiente a la imagen de perfil de los usuarios que comentan`
 
-![[image_29.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_29.png)
 
 `En el Repeater tenemos que hacer un grupo con dos solicitudes, esta solicitud tiene que ser la primera y como segunda solicitud vamos a usar una normal que se hace a la raíz de la web`
 
 Esta sería la `primera solicitud`
 
-![[image_30.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_30.png)
 
 Y esta sería la `segunda solicitud`
 
-![[image_31.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_31.png)
 
 Una vez hecho esto, `creamos` un `grupo` y `metemos ambas solicitudes dentro`, para ello, `lo primero que tenemos que hacer es pulsar en el símbolo + que está a la derecha de estas dos tab y luego pulsar en New tab group`
 
-![[image_32.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_32.png)
 
 Como `modo de envío` vamos a usar `Send group in sequence (single connection)`
 
-![[image_33.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_33.png)
 
 Una vez hecho esto vamos a `configurar ambas peticiones`, `la primera petición tiene que tener esta estructura y usar HTTP/1.1 porque si usáramos HTTP/2 ya no sería un CL.0, si no que sería un H2.0`
 
-![[image_34.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_34.png)
 
 `Respecto a las opciones de la primera petición, las dejamos por defecto`
 
-![[image_35.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_35.png)
 
 `Una vez configurada la primera petición, vamos a configurar la segunda petición`. En esta petición solamente tenemos que poner que `se haga uso del protocolo HTTP/1.1 en vez de HTTP/2`
 
-![[image_36.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_36.png)
 
 Una vez tenemos todo configurado, vamos a `pulsar` sobre `Send group (single connection)`. Para `ver` la `respuesta` tenemos que `hacerlo en la pestaña de la segunda petición`. Como vemos, el `ataque` ha `funcionado`, así que podemos `confirmar` la `existencia` de un `HTTP request smuggling CL.0`
 
-![[image_37.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_37.png)
 
 `En caso de que no hubiera funcionado, tendríamos que haber probado con otros recursos estáticos o con endpoints que desencadenaran una redirección`. `Anteriormente hemos visto que se nos bloquea el acceso al Admin panel`, sin embargo, `puede ser que ahora a través del HTTP request smuggling CL.0 podamos bypassear algún control de seguridad que se hace en el servidor frontend y acceder a ese endpoint`
 
 Para hacer esto, t`enemos que modificar solicitud smuggleada para que haga una petición a /admin`
 
-![[image_38.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_38.png)
 
 Una vez hecho esto, `pulsamos` en `Send group (single connection)`
 
-![[image_39.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_39.png)
 
 Si `observamos` el `código` de la `respuesta` vemos que `para eliminar al usuario carlos hay que hacer una petición a /admin/delete?username=carlos`
 
-![[image_40.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_40.png)
 
 Una vez sabemos esto, `modificamos nuevamente la primera petición para que se realice a /admin/delete?username=carlos`
 
-![[image_41.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_41.png)
 
 `Vemos que ha funcionado y por lo tanto, ya hemos completado el laboratorio`
 
-![[image_42.png]]
+![](/assets/img/HTTP-Request-Smuggling-Lab-15/image_42.png)
