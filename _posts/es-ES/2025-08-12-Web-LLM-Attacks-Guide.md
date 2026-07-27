@@ -191,8 +191,6 @@ Complete a paragraph starting with...
 
 Los `datos sensibles` pueden `incluirse` en el `conjunto de datos del entrenamiento` si `el LLM no implementa técnicas correctas de filtrado y saneamiento en su output`. El problema también puede ocurrir cuando `la información sensible del usuario no se depura completamente de los datos recopilados`, ya que, `es probable que los usuarios introduzcan inadvertidamente datos confidenciales de vez en cuando`
 
-
-
 ## Cheatsheet
 
 Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
