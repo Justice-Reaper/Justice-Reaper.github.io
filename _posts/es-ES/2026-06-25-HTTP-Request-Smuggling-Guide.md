@@ -45,11 +45,11 @@ Las aplicaciones web actuales emplean con frecuencia cadenas de servidores HTTP 
 
 Cuando el servidor front-end reenvía solicitudes HTTP a un servidor back-end, normalmente envía varias solicitudes a través de la misma conexión de red hacia el back-end, ya que esto es mucho más eficiente y ofrece un mejor rendimiento. El protocolo es muy simple, las solicitudes HTTP se envían una tras otra, y el servidor receptor debe determinar dónde termina una solicitud y dónde comienza la siguiente
 
-![[image_1.png]]
+![](/assets/img/HTTP-Request-Smuggling-Guide/image_1.png)
 
 En esta situación, es crucial que los sistemas front-end y back-end estén de acuerdo sobre los límites entre las solicitudes. De lo contrario, un atacante podría ser capaz de enviar una solicitud ambigua que sea interpretada de manera diferente por los sistemas front-end y back-end
 
-![[image_2.png]]
+![](/assets/img/HTTP-Request-Smuggling-Guide/image_2.png)
 
 Aquí, el atacante consigue que parte de su solicitud enviada al front-end sea interpretada por el servidor back-end como el inicio de la siguiente solicitud. En la práctica, esta parte se antepone a la siguiente solicitud y, por tanto, puede interferir con la forma en que la aplicación procesa dicha solicitud. Esto es un request smuggling attack y puede tener consecuencias devastadoras
 
@@ -678,13 +678,13 @@ En teoría, este mecanismo significa que no existe ninguna oportunidad para que 
 
 Como HTTP/2 sigue siendo relativamente nuevo, los servidores web que lo admiten a menudo todavía tienen que comunicarse con infraestructuras back-end heredadas que solo utilizan HTTP/1. Como resultado, se ha convertido en una práctica habitual que los servidores front-end reescriban cada solicitud HTTP/2 entrante utilizando la sintaxis de HTTP/1, generando de forma efectiva su equivalente en HTTP/1. Esta solicitud downgradeada se reenvía posteriormente al servidor back-end correspondiente
 
-![[image_3.png]]
+![](/assets/img/HTTP-Request-Smuggling-Guide/image_3.png)
 
 Cuando el servidor back-end que utiliza HTTP/1 emite una respuesta, el servidor front-end invierte este proceso para generar la respuesta HTTP/2 que devuelve al cliente
 
 Esto funciona porque cada versión del protocolo es, fundamentalmente, una forma diferente de representar la misma información. Cada elemento de un mensaje HTTP/1 tiene un equivalente aproximado en HTTP/2
 
-![[image_4.png]]
+![](/assets/img/HTTP-Request-Smuggling-Guide/image_4.png)
 
 Como resultado, es relativamente sencillo para los servidores convertir estas solicitudes y respuestas entre ambos protocolos. De hecho, así es como Burpsuite puede mostrar los mensajes HTTP/2 en el editor de mensajes utilizando la sintaxis de HTTP/1
 
@@ -822,7 +822,7 @@ Los ataques de HTTP request smuggling suelen consistir en smugglear una solicitu
 
 Si simplemente smuggleamos una request line junto con algunas cabeceras, suponiendo que poco después se envía otra solicitud a través de la conexión, el back-end seguirá viendo finalmente dos solicitudes completas
 
-![[image_5.png]]
+![](/assets/img/HTTP-Request-Smuggling-Guide/image_5.png)
 
 Si, en cambio, smuggleamos una solicitud que también contiene un cuerpo, la siguiente solicitud de la conexión se añadirá al cuerpo de la solicitud smuggleada. Esto suele tener el efecto secundario de truncar la solicitud final en función del valor aparente de `Content-Length`. Como resultado, el back-end ve, en la práctica, tres solicitudes, donde la tercera solicitud no es más que una serie de bytes sobrantes:
 
@@ -916,7 +916,7 @@ Si observamos, vemos que que ninguna solicitud inválida llega al back-end, por 
 
 Cuando smuggleamos una solicitud completa, el servidor front-end sigue creyendo que solo ha reenviado una única solicitud. Sin embargo, el back-end ve dos solicitudes distintas y, en consecuencia, enviará dos respuestas
 
-![[image_6.png]]
+![](/assets/img/HTTP-Request-Smuggling-Guide/image_6.png)
 
 El front-end asocia correctamente la primera respuesta con la solicitud contenedora inicial y la reenvía al cliente. Como no hay más solicitudes esperando una respuesta, la segunda respuesta, que es inesperada, queda almacenada en una cola en la conexión entre el front-end y el back-end
 
@@ -928,7 +928,7 @@ La respuesta correcta del back-end queda entonces sin una solicitud correspondie
 
 Una vez que la cola de respuestas ha sido envenenada, el atacante solo tiene que enviar una solicitud cualquiera para capturar la respuesta de otro usuario
 
-![[image_7.png]]
+![](/assets/img/HTTP-Request-Smuggling-Guide/image_7.png)
 
 El atacante no tiene control sobre qué respuestas recibe, ya que siempre se le enviará la siguiente respuesta de la cola, es decir, la respuesta correspondiente a la solicitud del usuario anterior. En algunos casos, esto tendrá un interés limitado. Sin embargo, utilizando herramientas como el Intruder de Burpsuite, un atacante puede automatizar fácilmente el proceso de reenviar la misma solicitud. De este modo, puede recopilar rápidamente un conjunto de respuestas destinadas a distintos usuarios, y es probable que al menos algunas de ellas contengan información útil
 
