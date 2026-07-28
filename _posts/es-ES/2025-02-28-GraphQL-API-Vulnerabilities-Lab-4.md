@@ -29,6 +29,10 @@ Utilizaremos un `diccionario` de `contraseñas` [https://portswigger.net/web-sec
 
 ---
 
+## Guía de GraphQL API vulnerabilities
+
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de GraphQL API vulnerabilities` [https://justice-reaper.github.io/posts/GraphQL-Api-Vulnerabilities-Guide/](https://justice-reaper.github.io/posts/GraphQL-Api-Vulnerabilities-Guide/)
+
 ## Resolución
 
 Al `acceder` a la `web` vemos esto

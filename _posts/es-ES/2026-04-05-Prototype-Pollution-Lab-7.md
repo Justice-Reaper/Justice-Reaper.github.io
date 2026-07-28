@@ -30,6 +30,10 @@ Para `resolver` el `laboratorio`, tenemos que `confirmar la vulnerabilidad lleva
 
 ---
 
+## Guía de prototype pollution
+
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de prototype pollution` [https://justice-reaper.github.io/posts/Prototype-Pollution-Guide/](https://justice-reaper.github.io/posts/Prototype-Pollution-Guide/)
+
 ## Resolución
 
 Al `acceder` a la `web` vemos `esto`

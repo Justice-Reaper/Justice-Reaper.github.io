@@ -31,6 +31,10 @@ Para `resolver` el `laboratorio`, tenemos que `utilizar un vector de request smu
 
 ---
 
+## Guía de HTTP request smuggling
+
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de HTTP request smuggling` [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Guide/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Guide/)
+
 ## Resolución
 
 Al `acceder` a la `web` vemos esto

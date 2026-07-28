@@ -32,6 +32,10 @@ Para `resolver` el `laboratorio`, debemos `enviar` una `solicitud smugglea
 
 ---
 
+## Guía de HTTP request smuggling
+
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de HTTP request smuggling` [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Guide/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Guide/)
+
 ## Resolución
 
 Al `acceder` a la `web` vemos esto

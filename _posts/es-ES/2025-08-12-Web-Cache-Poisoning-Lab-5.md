@@ -28,6 +28,10 @@ Este `laboratorio` es `vulnerable` a `web cache poisoning` porque la `cadena de 
 
 ---
 
+## Guía de web cache poisoning
+
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de web cache poisoning` [https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Guide/](https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Guide/)
+
 ## Resolución
 
 Al `acceder` a la `web` vemos `esto`

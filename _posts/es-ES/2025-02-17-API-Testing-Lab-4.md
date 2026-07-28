@@ -28,6 +28,10 @@ Para `resolver` el laboratorio, debemos `encontrar` y `explotar` una `vulnerabil
 
 ---
 
+## Guía de API Testing
+
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de API Testing` [https://justice-reaper.github.io/posts/Api-Testing-Guide/](https://justice-reaper.github.io/posts/Api-Testing-Guide/)
+
 ## Resolución
 
 Al `acceder` a la `web` nos sale esto

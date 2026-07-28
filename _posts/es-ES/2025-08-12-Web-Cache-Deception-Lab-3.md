@@ -28,6 +28,10 @@ Para `resolver` el `laboratorio`, debemos `encontrar` la `API key` del usuario `
 
 ---
 
+## Guía de web cache deception
+
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de web cache deception` [https://justice-reaper.github.io/posts/Web-Cache-Deception-Guide/](https://justice-reaper.github.io/posts/Web-Cache-Deception-Guide/)
+
 ## Resolución
 
 Al `acceder` a la `web` vemos `esto`

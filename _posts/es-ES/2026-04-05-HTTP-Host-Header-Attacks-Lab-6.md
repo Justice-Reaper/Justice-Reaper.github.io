@@ -28,6 +28,10 @@ Este `laboratorio` es `vulnerable` a `Routing-based SSRF` a `través` de la `cab
 
 ---
 
+## Guía de HTTP Host header attacks
+
+`Antes` de `completar` este `laboratorio` es recomendable `leerse` esta `guía de HTTP Host header attacks` [https://justice-reaper.github.io/posts/HTTP-Host-Header-Attacks-Guide/](https://justice-reaper.github.io/posts/HTTP-Host-Header-Attacks-Guide/)
+
 ## Resolución
 
 Al `acceder` a la `web` vemos `esto`
