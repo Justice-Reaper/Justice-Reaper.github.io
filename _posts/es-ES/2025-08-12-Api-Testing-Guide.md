@@ -48,7 +48,7 @@ Una vez `identificados` los `endpoints`, debemos `determinar` cómo `interactuar
 
 - Los `datos de entrada` que `procesa` la `API`, incluidos `parámetros obligatorios y opcionales`
 
-- Los `tipos de solicitudes` que `acepta` la `API`, incluidos `métodos HTTP y media types compatibles (image/jpeg, image/png, video/mp4, application/pdf)
+- Los `tipos de solicitudes` que `acepta` la `API`, incluidos `métodos HTTP y media types compatibles (image/jpeg, image/png, video/mp4, application/pdf)`
 
 - Los `rate limits` y `mecanismos de autenticación`
 
@@ -58,7 +58,7 @@ La `documentación de API` suele existir para que `los desarrolladores sepan có
 
 - `Documentación legible por humanos` - Está `documentación` incluye `explicaciones detalladas`, `ejemplos` y `escenarios de uso`
 
-- `Documentación legible por máquinas` - Esta `documentación` está pensada para ser `procesada` por `software` y se `escribe` en `formatos estructurados como JSON o XML (por ejemplo, OpenAPI o Swagger)
+- `Documentación legible por máquinas` - Esta `documentación` está pensada para ser `procesada` por `software` y se `escribe` en `formatos estructurados como JSON o XML (por ejemplo, OpenAPI o Swagger)`
 
 `Muchas APIs públicas tienen su documentación disponible, particularmente cuando la API es de acceso público o tiene un propósito comercial`. Si es así, `debemos comenzar el reconocimiento revisando esa documentación`
 
@@ -498,22 +498,22 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 ## ¿Cómo detectar y explotar vulnerabilidades en APIs?
 
-1. `Instalar` las extensiones `GAP (Get All Parameters, Links, and Words)`, `Param Miner`, `Error Message Checks`, `Backslash Powered Scanner` y `Content Type Converter` de `Burpsuite`
+1 - `Instalar` las extensiones `GAP (Get All Parameters, Links, and Words)`, `Param Miner`, `Error Message Checks`, `Backslash Powered Scanner` y `Content Type Converter` de `Burpsuite`
 
-2. `Añadir` el `dominio` y sus `subdominios` al `scope`
+2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-3. `Analizar` la `web` con el `escáner de Burpsuite`. Para ello, `marcaremos Crawl and audit` como `tipo de escaneo`  y como `configuración de escaneo` usaremos `Deep`. Mientras tanto, vamos a `interactuar` con `todas` las `funcionalidades` de la `web` de `forma manual` y `ver` las `peticiones` que se `realizan` desde el `Logger`
+3 - `Analizar` la `web` con el `escáner de Burpsuite`. Para ello, `marcaremos Crawl and audit` como `tipo de escaneo`  y como `configuración de escaneo` usaremos `Deep`. Mientras tanto, vamos a `interactuar` con `todas` las `funcionalidades` de la `web` de `forma manual` y `ver` las `peticiones` que se `realizan` desde el `Logger`
 
-4. Si encontramos un `endpoint` de la `api`, `/api/swagger/v1/users/123` por ejemplo, `vamos` a `enviar` una `petición` por `GET` y por `POST` a las `rutas base`, para ver si `encontramos` la `documentación` de la `API`. Las `rutas base` para este `endpoint` en concreto son `/api/swagger/v1`, `/api/swagger` y `/api`
+4 - Si encontramos un `endpoint` de la `api`, `/api/swagger/v1/users/123` por ejemplo, `vamos` a `enviar` una `petición` por `GET` y por `POST` a las `rutas base`, para ver si `encontramos` la `documentación` de la `API`. Las `rutas base` para este `endpoint` en concreto son `/api/swagger/v1`, `/api/swagger` y `/api`
 
-5. `En el caso de que no encontremos ningún endpoint de la api o no encontremos la documentación, vamos a aplicar fuzzing con la herramienta Content discovery de Burpsuite`. `Como diccionario, vamos a usar el que nos viene por defecto y si no encuentra nada, usaremos primero uno de uso general y luego otro que sea específico para APIs`. El `objetivo` de esto es `encontrar` las `rutas base` de las `APIs` y su `documentación`
+5 - `En el caso de que no encontremos ningún endpoint de la api o no encontremos la documentación, vamos a aplicar fuzzing con la herramienta Content discovery de Burpsuite`. `Como diccionario, vamos a usar el que nos viene por defecto y si no encuentra nada, usaremos primero uno de uso general y luego otro que sea específico para APIs`. El `objetivo` de esto es `encontrar` las `rutas base` de las `APIs` y su `documentación`
 
-6. Es `posible` que en los `siguiente pasos` tengamos que `cambiar` el `Content-Type` y el `formato` en el que se `envían` los `datos` para que `la petición se envíe correctamente`. Para `facilitar` esto, podemos `usar` la `extensión Content Type Converter de Burpsuite`
+6 - Es `posible` que en los `siguiente pasos` tengamos que `cambiar` el `Content-Type` y el `formato` en el que se `envían` los `datos` para que `la petición se envíe correctamente`. Para `facilitar` esto, podemos `usar` la `extensión Content Type Converter de Burpsuite`
 
-7. Si `encontramos` la `documentación`, debemos `analizar que peticiones podemos realizar` y `ver si hay alguna que nos permita realizar alguna acción interesante`
+7 - Si `encontramos` la `documentación`, debemos `analizar que peticiones podemos realizar` y `ver si hay alguna que nos permita realizar alguna acción interesante`
 
-8. Hay ocasiones en las que hay `funcionalidades` de los `endpoints` que `no están en la documentación`. `Por lo que, tanto si hemos encontrado documentación como si no`, tenemos que `identificar que endpoints de los que hemos encontrado son interesantes` y desde el `Intruder` procedemos a `efectuar` un `ataque de tipo Sniper` para `descubrir que métodos soportan estos endpoints`, como `diccionario` podemos usar `HTTP verbs`, el cual viene con `Burpsuite` por defecto u `otro diccionario que tenga más métodos HTTP`. `Tenemos que fijarnos bien si existe algún endpoint que podamos usar para realizar alguna acción interesante`
+8 - Hay ocasiones en las que hay `funcionalidades` de los `endpoints` que `no están en la documentación`. `Por lo que, tanto si hemos encontrado documentación como si no`, tenemos que `identificar que endpoints de los que hemos encontrado son interesantes` y desde el `Intruder` procedemos a `efectuar` un `ataque de tipo Sniper` para `descubrir que métodos soportan estos endpoints`, como `diccionario` podemos usar `HTTP verbs`, el cual viene con `Burpsuite` por defecto u `otro diccionario que tenga más métodos HTTP`. `Tenemos que fijarnos bien si existe algún endpoint que podamos usar para realizar alguna acción interesante`
 
-9. `En el caso de que no podamos realizar ninguna acción interesante`, vamos a `probar` a `efectuar` un `mass assignment attack`. Para esto, `nos vamos a fijar en los campos que se ven en las respuestas que devuelve el servidor al enviarle peticiones a los diferentes endpoints, ya que es posible que podamos añadir uno de esos campos a una petición y así modificar campos del objeto que no debería de ser modificables`. También podemos `usar` la `extensión Param Miner de Burpsuite` para `descubrir nuevos parámetros`. `Para ver si ha encontrado algún parámetro nuevo, lo podemos hacer desde Extensions > Param Miner > Output` o `analizar` nosotros mismos las `peticiones` desde el `Logger`. Al `usar` esta `extensión`, hay veces que `el servidor no identifica correctamente la URL porque se le añade esto ?adfer32xa`. Para `solucionar` esto, `debemos desactivar la opción include query-param in cachebusters antes de lanzar el ataque`. También es recomendable `activar` la opción `learn observed words`
+9 - `En el caso de que no podamos realizar ninguna acción interesante`, vamos a `probar` a `efectuar` un `mass assignment attack`. Para esto, `nos vamos a fijar en los campos que se ven en las respuestas que devuelve el servidor al enviarle peticiones a los diferentes endpoints, ya que es posible que podamos añadir uno de esos campos a una petición y así modificar campos del objeto que no debería de ser modificables`. También podemos `usar` la `extensión Param Miner de Burpsuite` para `descubrir nuevos parámetros`. `Para ver si ha encontrado algún parámetro nuevo, lo podemos hacer desde Extensions > Param Miner > Output` o `analizar` nosotros mismos las `peticiones` desde el `Logger`. Al `usar` esta `extensión`, hay veces que `el servidor no identifica correctamente la URL porque se le añade esto ?adfer32xa`. Para `solucionar` esto, `debemos desactivar la opción include query-param in cachebusters antes de lanzar el ataque`. También es recomendable `activar` la opción `learn observed words`
 
-10. `Si el mass assignment attack no da resultado`, vamos a `intentar llevar a cabo un parameter pollution`. `Si la extensión Backslash Powered Scanner nos ha reportado que existe algún tipo de inyección`, es `probable` que la `web` sea `vulnerable` a `parameter pollution`. Lo siguiente que debemos hacer es `seguir los pasos que se explican en esta guía sobre como identificar un parameter pollution` y `cuando lleguemos a la parte en la que necesitamos especificar un campo o parámetro, podemos usar la extensión GAP (Get All Parameters, Links, and Words) para obtener un lista`. `Si no queremos introducirlos manulamente, podemos hacerlo desde el Intruder`. `Si la extensión GAP no da resultado`, podemos `usar` el `diccionario Server-side variable names` que viene `por defecto` en `Burpsuite` y `efectuar` una `ataque de fuerza bruta` desde el `Intruder`
+10 - `Si el mass assignment attack no da resultado`, vamos a `intentar llevar a cabo un parameter pollution`. `Si la extensión Backslash Powered Scanner nos ha reportado que existe algún tipo de inyección`, es `probable` que la `web` sea `vulnerable` a `parameter pollution`. Lo siguiente que debemos hacer es `seguir los pasos que se explican en esta guía sobre como identificar un parameter pollution` y `cuando lleguemos a la parte en la que necesitamos especificar un campo o parámetro, podemos usar la extensión GAP (Get All Parameters, Links, and Words) para obtener un lista`. `Si no queremos introducirlos manulamente, podemos hacerlo desde el Intruder`. `Si la extensión GAP no da resultado`, podemos `usar` el `diccionario Server-side variable names` que viene `por defecto` en `Burpsuite` y `efectuar` una `ataque de fuerza bruta` desde el `Intruder`

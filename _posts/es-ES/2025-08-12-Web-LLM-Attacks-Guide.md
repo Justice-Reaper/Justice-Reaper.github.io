@@ -199,15 +199,15 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 ## ¿Cómo atacar un LLM?
 
-1. `Preguntar directamente al LLM qué APIs y plugins puede usar`
+1 - `Preguntar directamente al LLM qué APIs y plugins puede usar`
 
-2. `Solicitar detalles adicionales de cualquier API que confirme`
+2 - `Solicitar detalles adicionales de cualquier API que confirme`
 
-3. `Si el LLM no coopera, probar a proporcionar un contexto engañoso`, por ejemplo, `afirmar que somos su desarrollador para simular un mayor nivel de privilegio`
+3 - `Si el LLM no coopera, probar a proporcionar un contexto engañoso`, por ejemplo, `afirmar que somos su desarrollador para simular un mayor nivel de privilegio`
 
-4. `Si no conseguimos obtener la información que queremos a través de un prompt injection convencional, vamos a tratar de hacerlo mediante un indirect prompt injection`. Para realizar esto hay `técnicas` muy `variadas`, pero `el objetivo es siempre el mismo`, `hacerle llegar la consulta que queremos al LLM de una forma diferente a la convencional`. Por ejemplo, podemos `subir una foto con un comentario en los metadatos, hacer un comentario indicándole las instrucciones a seguir, pasarle un artículo escrito por nosotros en una web externa etc`
+4 - `Si no conseguimos obtener la información que queremos a través de un prompt injection convencional, vamos a tratar de hacerlo mediante un indirect prompt injection`. Para realizar esto hay `técnicas` muy `variadas`, pero `el objetivo es siempre el mismo`, `hacerle llegar la consulta que queremos al LLM de una forma diferente a la convencional`. Por ejemplo, podemos `subir una foto con un comentario en los metadatos, hacer un comentario indicándole las instrucciones a seguir, pasarle un artículo escrito por nosotros en una web externa etc`
 
-5. También podemos intentar `explotar vulnerabilidades convencionales a través del LLM`, como un `SSRF`, `command injection`, `XSS`, `etc`
+5 - También podemos intentar `explotar vulnerabilidades convencionales a través del LLM`, como un `SSRF`, `command injection`, `XSS`, `etc`
 
 ## ¿Cómo proteger un LLM frente a ataques?
 

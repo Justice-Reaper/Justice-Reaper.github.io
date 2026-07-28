@@ -313,17 +313,17 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1. `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Additional Scanner Checks`, `Collaborator Everywhere` y `Backslash Powered Scanner` de `Burpsuite`
+1 - `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Additional Scanner Checks`, `Collaborator Everywhere` y `Backslash Powered Scanner` de `Burpsuite`
 
-2. `Añadir` el `dominio` y sus `subdominios` al `scope`
+2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-3. Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+3 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
 
-4. Si el `escaneo` no ha descubierto ninguna `ruta interesante`, es hora de intentar `buscar vulnerabilidades` de forma `manual`. Para ello, cada vez que demos con una `feature interesante` debemos probar a `cambiar el método` mediante el que se hace la `petición`. Esto lo podemos hacer haciendo `click derecho > Change request method`. Si probamos con `otro usuario diferente al nuestro` y `no funciona`, `debemos` probar también con `nuestro usuario` para asegurarnos si funciona realmente
+4 - Si el `escaneo` no ha descubierto ninguna `ruta interesante`, es hora de intentar `buscar vulnerabilidades` de forma `manual`. Para ello, cada vez que demos con una `feature interesante` debemos probar a `cambiar el método` mediante el que se hace la `petición`. Esto lo podemos hacer haciendo `click derecho > Change request method`. Si probamos con `otro usuario diferente al nuestro` y `no funciona`, `debemos` probar también con `nuestro usuario` para asegurarnos si funciona realmente
 
-5. Si tenemos `dos cuentas` y `una` tiene `más privilegios` que la `otra`, `usaremos dos navegadores` e `iniciaremos sesión` con `una cuenta en uno` y con `la otra en otro`. Podemos usar las extensiones `Auth Analyzer` y `Autorize` de `Burpsuite` para ayudarnos a encontrar `vulnerabilidades` de `access control`
+5 - Si tenemos `dos cuentas` y `una` tiene `más privilegios` que la `otra`, `usaremos dos navegadores` e `iniciaremos sesión` con `una cuenta en uno` y con `la otra en otro`. Podemos usar las extensiones `Auth Analyzer` y `Autorize` de `Burpsuite` para ayudarnos a encontrar `vulnerabilidades` de `access control`
 
-6. Si tenemos alguna duda debemos mirar los diferentes ejemplos de `vulnerabilidades` que hay en este `post`
+6 - Si tenemos alguna duda debemos mirar los diferentes ejemplos de `vulnerabilidades` que hay en este `post`
 
 ## Prevenir vulnerabilidades de access control
 

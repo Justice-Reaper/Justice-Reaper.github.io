@@ -68,7 +68,7 @@ Content-Length: 11
 q=smuggling
 ```
 
-La cabecera `Transfer-Encoding` puede utilizarse para `indicar que el body del mensaje usa codificación fragmentada` (`chunked encoding`). Esto significa que el `body del mensaje` contiene `uno o más fragmentos de datos`. Cada `fragmento` consiste en el `tamaño del fragmento en bytes` (expresado en `hexadecimal`), seguido de una `nueva línea` y, a continuación, el `contenido del fragmento`. El `mensaje` termina con un `fragmento de tamaño cero`. Por ejemplo:
+La cabecera `Transfer-Encoding` puede utilizarse para `indicar que el body del mensaje usa codificación fragmentada (chunked encoding)`. Esto significa que el `body del mensaje` contiene `uno o más fragmentos de datos`. Cada `fragmento` consiste en el `tamaño del fragmento en bytes` (expresado en `hexadecimal`), seguido de una `nueva línea` y, a continuación, el `contenido del fragmento`. El `mensaje` termina con un `fragmento de tamaño cero`. Por ejemplo:
 
 ```
 POST /search HTTP/1.1
@@ -81,7 +81,7 @@ q=smuggling
 0
 ```
 
-Muchos `testers de seguridad` desconocen que la `codificación fragmentada` (`chunked encoding`) puede utilizarse en `solicitudes HTTP` por `dos razones`:
+Muchos `testers de seguridad` desconocen que la `codificación fragmentada (chunked encoding)` puede utilizarse en `solicitudes HTTP` por `dos razones`:
 
 - `Burpsuite` desempaqueta automáticamente la `codificación fragmentada` para que los `mensajes` sean `más fáciles de visualizar y editar`
 
@@ -285,7 +285,7 @@ Transfer-Encoding: chunked
 SMUGGLED
 ```
 
-El `servidor front-end` procesa la cabecera `Content-Length` y determina que el `cuerpo de la solicitud` tiene una `longitud de 13 bytes`, hasta el final de `SMUGGLED`. Esta `solicitud se reenvía al servidor back-end`. El `servidor back-end` procesa la cabecera `Transfer-Encoding` y, por tanto, interpreta que el `cuerpo del mensaje` utiliza `codificación fragmentada` (`chunked encoding`). Procesa el `primer fragmento`, que indica una `longitud de cero`, por lo que se considera que la `solicitud termina en ese punto`. Los bytes siguientes, `SMUGGLED`, quedan sin procesar y el `servidor back-end` los tratará como el `comienzo de la siguiente solicitud de la secuencia`
+El `servidor front-end` procesa la cabecera `Content-Length` y determina que el `cuerpo de la solicitud` tiene una `longitud de 13 bytes`, hasta el final de `SMUGGLED`. Esta `solicitud se reenvía al servidor back-end`. El `servidor back-end` procesa la cabecera `Transfer-Encoding` y, por tanto, interpreta que el `cuerpo del mensaje` utiliza `codificación fragmentada (chunked encoding)`. Procesa el `primer fragmento`, que indica una `longitud de cero`, por lo que se considera que la `solicitud termina en ese punto`. Los bytes siguientes, `SMUGGLED`, quedan sin procesar y el `servidor back-end` los tratará como el `comienzo de la siguiente solicitud de la secuencia`
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
@@ -308,7 +308,7 @@ SMUGGLED
 
 Para `enviar esta solicitud` usando el `Repeater`, primero debemos ir al `menú de Repeater` y `asegurarnos` de que la opción `Update Content-Length` está `desmarcada`. También debemos incluir la secuencia final `\r\n\r\n` después del `0` final
 
-El `servidor front-end` procesa la cabecera `Transfer-Encoding` y, por tanto, interpreta el `cuerpo del mensaje` como `codificación fragmentada` (`chunked encoding`). Procesa el `primer fragmento`, que se indica que tiene `8 bytes de longitud`, hasta el inicio de la línea que sigue a `SMUGGLED`. Procesa el `segundo fragmento`, que se indica que tiene `longitud cero`, y por tanto se considera que `termina la solicitud`. Esta `solicitud se reenvía al servidor back-end`
+El `servidor front-end` procesa la cabecera `Transfer-Encoding` y, por tanto, interpreta el `cuerpo del mensaje` como `codificación fragmentada (chunked encoding)`. Procesa el `primer fragmento`, que se indica que tiene `8 bytes de longitud`, hasta el inicio de la línea que sigue a `SMUGGLED`. Procesa el `segundo fragmento`, que se indica que tiene `longitud cero`, y por tanto se considera que `termina la solicitud`. Esta `solicitud se reenvía al servidor back-end`
 
 El `servidor back-end` procesa la cabecera `Content-Length` y determina que el `cuerpo de la solicitud` tiene una `longitud de 3 bytes`, hasta el inicio de la línea que sigue a `8`. Los bytes siguientes, comenzando por `SMUGGLED`, se dejan sin procesar, y el `servidor back-end` los tratará como el `inicio de la siguiente solicitud en la secuencia`
 
@@ -387,7 +387,7 @@ En estos `laboratorios` podemos ver como `aplicar` esta `técnica`:
 
 En muchas `aplicaciones`, el `servidor front-end` realiza `cierta reescritura de las solicitudes` antes de que sean reenviadas al `servidor back-end`, normalmente `añadiendo algunas cabeceras adicionales`. 
 
-Esto se produce porque el `front-end` (`proxy`, `load balancer`, `WAF`, `CDN`...) tiene una `configuración propia`, y parte de su trabajo es `enriquecer la petición con info que el back-end necesita pero que el cliente no puede o no debe proporcionar directamente`
+Esto se produce porque el `front-end (proxy, load balancer, WAF, CDN...)` tiene una `configuración propia`, y parte de su trabajo es `enriquecer la petición con info que el back-end necesita pero que el cliente no puede o no debe proporcionar directamente`
 
 Por ejemplo, el `servidor front-end` podría:
 
@@ -946,13 +946,13 @@ En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
 Aunque los `sitios web tomen medidas para evitar ataques básicos H2.CL o H2.TE`, como `validar la cabecera content-length` o `eliminar cualquier cabecera transfer-encoding`, el `formato binario de HTTP/2` permite `nuevas formas de eludir este tipo de medidas implementadas en el servidor front-end`
 
-En `HTTP/1`, en ocasiones podemos `explotar discrepancias entre la forma en que los servidores manejan los caracteres de nueva línea independientes` (`\n`) para `introducir cabeceras prohibidas mediante request smuggling`. Si el `servidor back-end lo interpreta como un delimitador`, pero el `servidor front-end no`, algunos `servidores front-end no detectarán en absoluto la segunda cabecera`
+En `HTTP/1`, en ocasiones podemos `explotar discrepancias entre la forma en que los servidores manejan los caracteres de nueva línea independientes (\n)` para `introducir cabeceras prohibidas mediante request smuggling`. Si el `servidor back-end lo interpreta como un delimitador`, pero el `servidor front-end no`, algunos `servidores front-end no detectarán en absoluto la segunda cabecera`
 
 ```
 Foo: bar\nTransfer-Encoding: chunked
 ```
 
-Esta `discrepancia no existe con el manejo de una secuencia CRLF` (`\r\n`) completa, porque `todos los servidores HTTP/1 coinciden en que esta termina la cabecera`
+Esta `discrepancia no existe con el manejo de una secuencia CRLF (\r\n)` completa, porque `todos los servidores HTTP/1 coinciden en que esta termina la cabecera`
 
 Por otro lado, como los `mensajes HTTP/2 son binarios en lugar de estar basados en texto`, los `límites de cada cabecera se basan en desplazamientos explícitos y predeterminados`, en lugar de `caracteres delimitadores`. Esto significa que `\r\n` deja de tener un `significado especial dentro del valor de una cabecera` y, por tanto, puede `incluirse dentro del propio valor sin provocar que la cabecera se divida`:
 
@@ -981,7 +981,7 @@ Solo es posible `realizar estos ataques` utilizando las `funciones especializada
 
 ### Inyección mediante los nombres de las cabeceras
 
-En `HTTP/1`, `no es posible que el nombre de una cabecera contenga dos puntos` (`:`) porque este `carácter se utiliza para indicar el final del nombre a los analizadores`. Este `no es el caso en HTTP/2`.
+En `HTTP/1`, `no es posible que el nombre de una cabecera contenga dos puntos (:)` porque este `carácter se utiliza para indicar el final del nombre a los analizadores`. Este `no es el caso en HTTP/2`.
 
 Combinando dos puntos (`:`) con caracteres `\r\n`, es posible que podamos `utilizar el campo del nombre de una cabecera HTTP/2 para introducir de forma encubierta otras cabeceras` y `hacer que pasen los filtros del front-end`. Estas se `interpretarán como cabeceras independientes en el back-end una vez que la solicitud se reescriba utilizando la sintaxis de HTTP/1`:
 
@@ -1113,7 +1113,7 @@ Host: vulnerable-website.com\r\n
 \r\n
 ```
 
-En este caso, también hemos `añadido una cabecera arbitraria al final` (`X: x`) para `absorber el espacio y el protocolo` (`HTTP/1.1`) que se `añadieron automáticamente durante la reescritura`
+En este caso, también hemos `añadido una cabecera arbitraria al final (X: x)` para `absorber el espacio y el protocolo (HTTP/1.1)` que se `añadieron automáticamente durante la reescritura`
 
 ## HTTP/2 request splitting
 
@@ -1196,7 +1196,7 @@ Si el `servidor back-end presenta este comportamiento`, pero el `servidor front-
 
 Para comprobar si existen `vulnerabilidades CL.0`, primero debemos `enviar una solicitud que contenga otra solicitud parcial en su body` y a continuación, `enviar una segunda solicitud normal`. Después, debemos `comprobar si la respuesta a esta segunda solicitud se ha visto afectada por la solicitud parcial introducida mediante request smuggling`
 
-En el siguiente ejemplo, la `segunda solicitud para la página de inicio` ha recibido una `respuesta 404`. Esto sugiere claramente que el `servidor back-end interpretó el cuerpo de la solicitud POST` (`GET /hopefully404...`) como el `inicio de otra solicitud`
+En el siguiente ejemplo, la `segunda solicitud para la página de inicio` ha recibido una `respuesta 404`. Esto sugiere claramente que el `servidor back-end interpretó el cuerpo de la solicitud POST (GET /hopefully404...)` como el `inicio de otra solicitud`
 
 Solicitud
 
@@ -1273,23 +1273,23 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1. `Instalar` la extensión `HTTP Request Smuggler`
+1 - `Instalar` la extensión `HTTP Request Smuggler`
 
-2. `Añadir` el `dominio` y sus `subdominios` al `scope`
+2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-3. Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+3 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
 
-4. Vamos a `lanzar la extensión HTTP Request Smuggler` sobre un `recurso estático` y sobre la `raíz de la web` para ver si nos encuentra algo y así `ahorrarnos tiempo`
+4 - Vamos a `lanzar la extensión HTTP Request Smuggler` sobre un `recurso estático` y sobre la `raíz de la web` para ver si nos encuentra algo y así `ahorrarnos tiempo`
 
-5. Lo más recomendable para esta `vulnerabilidad` es `ver todos los posts de HTTP request smuggling` y `replicarlos a la hora del examen uno a uno`
+5 - Lo más recomendable para esta `vulnerabilidad` es `ver todos los posts de HTTP request smuggling` y `replicarlos a la hora del examen uno a uno`
 
-6. Las `vulnerabilidades que se dan puramente mediante el protocolo HTTP/1.1` son `TE.CL, CL.TE, TE.TE` 
+6 - Las `vulnerabilidades que se dan puramente mediante el protocolo HTTP/1.1` son `TE.CL, CL.TE, TE.TE` 
 
-7. La `vulnerabilidad CL.0` también usa el `protocolo HTTP/1.1` pero la `metodología para encontrarla es diferente` así que la `pongo a parte`
+7 - La `vulnerabilidad CL.0` también usa el `protocolo HTTP/1.1` pero la `metodología para encontrarla es diferente` así que la `pongo a parte`
 
-8. Las `vulnerabilidades que utilizan el protocolo HTTP/2 y que realizan downgrading` son `H2.TE` y `H2.CL`
+8 - Las `vulnerabilidades que utilizan el protocolo HTTP/2 y que realizan downgrading` son `H2.TE` y `H2.CL`
 
-9. Puede que necesitemos `realizar una inyección CLRF`, un `rewriting de la solicitud para obtener la cookie de la víctima` o una cabecera que queramos obtener que añada el `servidor frontend` y necesitemos para realizar una solicitud a `/admin`, `ofuscar la cabecera Transfer-Encoding para convertir un TE.TE en un TE.CL o en un CL.TE`, `llevar a cabo un response queue poisoning` o `usar el HTTP request smuggling para ejecutar un XSS en el navegador de la víctima`
+9 - Puede que necesitemos `realizar una inyección CLRF`, un `rewriting de la solicitud para obtener la cookie de la víctima` o una cabecera que queramos obtener que añada el `servidor frontend` y necesitemos para realizar una solicitud a `/admin`, `ofuscar la cabecera Transfer-Encoding para convertir un TE.TE en un TE.CL o en un CL.TE`, `llevar a cabo un response queue poisoning` o `usar el HTTP request smuggling para ejecutar un XSS en el navegador de la víctima`
 
 ## Prevenir vulnerabilidades de HTTP request smuggling
 

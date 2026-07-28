@@ -107,7 +107,7 @@ Algunas `cabeceras de respuesta` pueden `indicar` que la `respuesta` está `cach
 
 Si `observamos` una `gran diferencia en el tiempo de respuesta para la misma solicitud`, esto también puede `indicar` que `la respuesta más rápida se está sirviendo desde la caché`
 
-## Explotar las reglas de caché basadas en extensiones estáticas`
+## Explotar las reglas de caché basadas en extensiones estáticas
 
 Las `reglas de caché` suelen `apuntar` a `recursos estáticos` coincidiendo con `extensiones de archivo comunes` como `.css` o `.js`. Este es el `comportamiento por defecto` en la mayoría de las `CDNs`
 
@@ -245,7 +245,7 @@ Además, algunos `servidores de caché` pueden `decodificar la URL` y luego `ree
 
 `Debemos utilizar la misma metodología de pruebas empleada para identificar y explotar discrepancias en delimitadores`, pero `probando un conjunto de caracteres codificados`. `Es importante asegurarse de probar también caracteres no imprimibles codificados`, en particular `%00`, `%0A` y `%09`. Si estos `caracteres` se `decodifican`, también pueden `truncar la ruta de la URL`
 
-## Explotar reglas de caché basadas en directorios estáticos`
+## Explotar reglas de caché basadas en directorios estáticos
 
 Es una `práctica común` que `los servidores web almacenen los recursos estáticos en directorios específicos`. Las `reglas de caché` suelen `apuntar a estos directorios coincidiendo con prefijos concretos de la ruta de la URL, como /static, /assets, /scripts o /images`. Estas `reglas` también pueden ser `vulnerables` a un `web cache deception`
 
@@ -293,7 +293,7 @@ También podemos `añadir una secuencia de path traversal después del prefijo d
 
 Es `posible` que `no podamos determinar de forma definitiva si la caché decodifica los dot-segments y la ruta de la URL sin intentar explotar la vulnerabilidad`
 
-### Explotar la normalización por parte del servidor de origen`
+### Explotar la normalización por parte del servidor de origen
 
 `Si el servidor de origen resuelve dot-segments codificados pero la caché no lo hace`, podemos `intentar explotar la discrepancia construyendo un payload con la siguiente estructura`:
 
@@ -313,7 +313,7 @@ En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
 - Exploiting origin server normalization for web cache deception - [https://justice-reaper.github.io/posts/Web-Cache-Deception-Lab-3/](https://justice-reaper.github.io/posts/Web-Cache-Deception-Lab-3/)
 
-### Explotar la normalización por parte del servidor de caché`
+### Explotar la normalización por parte del servidor de caché
 
 `Si el servidor de caché resuelve dot-segments codificados pero el servidor de origen no lo hace`, podemos `intentar explotar la discrepancia construyendo un payload con la siguiente estructura`:
 
@@ -357,13 +357,13 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 ## ¿Cómo detectar y explotar un web cache deception?
 
-1. `Instalar` la extensión `Param Miner` de `Burpsuite`
+1 - `Instalar` la extensión `Param Miner` de `Burpsuite`
 
-2. `Identificar` un `endpoint` con `información relevante`
+2 - `Identificar` un `endpoint` con `información relevante`
 
-3. Podemos `activar` la `opción Add dynamic cachebuster` pulsando en `Param Miner > Settings > Add dynamic cacheubster`. Esto lo hacemos para que `cuando enviemos una petición nos añada un parámetro de consulta aleatorio y de esta forma, se cree una nueva clave caché con cada petición que enviemos`. `También podemos hacer este proceso manualmente añadiendo un cachebusgter a la petición que realicemos, por ejemplo http://example.com/?cachebuster=1`. Esto se hace para `asegurarnos de que no se carguen de la caché datos antiguos`. Para `comprobar` que `cargamos` los `datos` de la `caché`, `es importante desactivar la opción Add dynamic cachebuster en Param Miner`
+3 - Podemos `activar` la `opción Add dynamic cachebuster` pulsando en `Param Miner > Settings > Add dynamic cacheubster`. Esto lo hacemos para que `cuando enviemos una petición nos añada un parámetro de consulta aleatorio y de esta forma, se cree una nueva clave caché con cada petición que enviemos`. `También podemos hacer este proceso manualmente añadiendo un cachebusgter a la petición que realicemos, por ejemplo http://example.com/?cachebuster=1`. Esto se hace para `asegurarnos de que no se carguen de la caché datos antiguos`. Para `comprobar` que `cargamos` los `datos` de la `caché`, `es importante desactivar la opción Add dynamic cachebuster en Param Miner`
 
-4. Una vez hayamos hecho lo anterior, `debemos revisar las técnicas vistas en los 4 laboratorios resueltos que se comparten en este post  y probarlas`. En mi caso me gusta `realizar` estos `ataques` de forma `manual`, sin embargo, podemos `usar las herramientas Cache Deception Scanner y wcDetect para agilizar el descubrimiento de estas vulnerabilidades`. Sin embargo, `debemos de tener en cuenta que Cache Deception Scanner y wcDetect solo detectan las 3 primeras vulnerabilidades vistas`. Por lo tanto, `es conveniente hacer los ataques manualmente`
+4 - Una vez hayamos hecho lo anterior, `debemos revisar las técnicas vistas en los 4 laboratorios resueltos que se comparten en este post  y probarlas`. En mi caso me gusta `realizar` estos `ataques` de forma `manual`, sin embargo, podemos `usar las herramientas Cache Deception Scanner y wcDetect para agilizar el descubrimiento de estas vulnerabilidades`. Sin embargo, `debemos de tener en cuenta que Cache Deception Scanner y wcDetect solo detectan las 3 primeras vulnerabilidades vistas`. Por lo tanto, `es conveniente hacer los ataques manualmente`
 
 ## Prevenir un web cache deception
 

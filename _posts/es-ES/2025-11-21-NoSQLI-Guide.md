@@ -491,25 +491,25 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1. `Instalar` las extensiones `Hackvertor`, `NoSQLI Scanner` y `Content Type Converter` de `Burpsuite`
+1 - `Instalar` las extensiones `Hackvertor`, `NoSQLI Scanner` y `Content Type Converter` de `Burpsuite`
 
-2. `Añadir` el `dominio` y sus `subdominios` al `scope`
+2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-3. Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+3 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
 
-4. `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
+4 - `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
 
-5. Si nos encontramos un `login` en el que se `envían` los `datos` en `formato JSON` o en `formato x-www-form-urlencoded` podemos intentar `bypassear` el `login` usando los `payloads` de `PayloadsAllTheThings` y `acceder` a la `cuenta` del `usuario administrador` o `enumerar usuarios y dumpear sus respectivas contraseñas usando los scripts NoSQLI-Password-Dumper.py y NoSQLI-User-Enumerator.py de NoSQLI Attack Suite`. Con las extensiones `NoSQLI Scanner` y `Content Type Converter` podemos `cambiar el formato mediante el cual se mandan los archivos` y desde `Burpsuite` haciendo `click derecho > Change request method`, podemos `cambiar` el `método` a `POST` o a `GET`. `Es necesario probar todas las combinaciones posibles`
+5 - Si nos encontramos un `login` en el que se `envían` los `datos` en `formato JSON` o en `formato x-www-form-urlencoded` podemos intentar `bypassear` el `login` usando los `payloads` de `PayloadsAllTheThings` y `acceder` a la `cuenta` del `usuario administrador` o `enumerar usuarios y dumpear sus respectivas contraseñas usando los scripts NoSQLI-Password-Dumper.py y NoSQLI-User-Enumerator.py de NoSQLI Attack Suite`. Con las extensiones `NoSQLI Scanner` y `Content Type Converter` podemos `cambiar el formato mediante el cual se mandan los archivos` y desde `Burpsuite` haciendo `click derecho > Change request method`, podemos `cambiar` el `método` a `POST` o a `GET`. `Es necesario probar todas las combinaciones posibles`
 
-6. `En el caso en el que nos haga falta algún token para poder resetear la contraseña podemos aprovecharnos del operador $where para obtener ese campo del documento`. Para hacer esto podemos usar el script `NoSQLI-Field-Dumper-Post-Method.py` de `NoSQLI Attack Suite` para `obtener` el `token`
+6 - `En el caso en el que nos haga falta algún token para poder resetear la contraseña podemos aprovecharnos del operador $where para obtener ese campo del documento`. Para hacer esto podemos usar el script `NoSQLI-Field-Dumper-Post-Method.py` de `NoSQLI Attack Suite` para `obtener` el `token`
 
-7. `Si el escaneo no identifica nada y tampoco podemos realizar inyecciones en el login`, vamos a `buscar las inyecciones de forma manual`, para ello cuando veamos una `URL` de este estilo `https://example.com/user/lookup?user=`, vamos a `testear los caracteres que se mencionan en la sección` [https://justice-reaper.github.io/posts/NoSQLI-Guide/#detectar-una-syntax-injection-en-mongodb](https://justice-reaper.github.io/posts/NoSQLI-Guide/#detectar-una-syntax-injection-en-mongodb) `uno por uno y ver si la web nos arroja algún error`
+7 - `Si el escaneo no identifica nada y tampoco podemos realizar inyecciones en el login`, vamos a `buscar las inyecciones de forma manual`, para ello cuando veamos una `URL` de este estilo `https://example.com/user/lookup?user=`, vamos a `testear los caracteres que se mencionan en la sección` [https://justice-reaper.github.io/posts/NoSQLI-Guide/#detectar-una-syntax-injection-en-mongodb](https://justice-reaper.github.io/posts/NoSQLI-Guide/#detectar-una-syntax-injection-en-mongodb) `uno por uno y ver si la web nos arroja algún error`
 
-8. Una vez `detectada` la `inyección`, vamos a intentar `escapar el carácter que provoca el error con una barra invertida \`. Si esto `soluciona` el `error` es `probable` que estemos ante una `NoSQLI`
+8 - Una vez `detectada` la `inyección`, vamos a intentar `escapar el carácter que provoca el error con una barra invertida \`. Si esto `soluciona` el `error` es `probable` que estemos ante una `NoSQLI`
 
-9. Posteriomente, vamos a `consultar` esta `sección` [https://justice-reaper.github.io/posts/NoSQLI-Guide/#operadores-l%C3%B3gicos-en-javascript](https://justice-reaper.github.io/posts/NoSQLI-Guide/#operadores-l%C3%B3gicos-en-javascript) para `confirmar si podemos manipular el comportamiento condicional de la NoSQLI`
+9 - Posteriomente, vamos a `consultar` esta `sección` [https://justice-reaper.github.io/posts/NoSQLI-Guide/#operadores-l%C3%B3gicos-en-javascript](https://justice-reaper.github.io/posts/NoSQLI-Guide/#operadores-l%C3%B3gicos-en-javascript) para `confirmar si podemos manipular el comportamiento condicional de la NoSQLI`
 
-10. Una vez `detectada` la `NoSQLI`, vamos a `usar` el script `NoSQLI-Field-Dumper-Get-Method.py` de `NoSQLI Attack Suite` para `obtener` la `contraseña` del `usuario` que `deseemos`
+10 - Una vez `detectada` la `NoSQLI`, vamos a `usar` el script `NoSQLI-Field-Dumper-Get-Method.py` de `NoSQLI Attack Suite` para `obtener` la `contraseña` del `usuario` que `deseemos`
 
 ## ¿Cómo prevenir una NoSQLI?
 

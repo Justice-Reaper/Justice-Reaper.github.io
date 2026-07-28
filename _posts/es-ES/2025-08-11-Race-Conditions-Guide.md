@@ -325,27 +325,27 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1. `Instalar` la extensión `Turbo Intruder`
+1 - `Instalar` la extensión `Turbo Intruder`
 
-2. `Identificar` un `endpoint crítico` para la `seguridad` que pueda `presentar` un `riesgo potencial de colisión`
+2 - `Identificar` un `endpoint crítico` para la `seguridad` que pueda `presentar` un `riesgo potencial de colisión`
 
-3. Desde el `Repeater`, `creamos` un `grupo` con las `peticiones` que vamos a `usar` para `causar` la `race condition`. Normalmente, las `race conditions` son más `fáciles` de `explotar` si `enviamos entre 20 y 30 peticiones a la vez`, sin embargo, `hay ocasiones en las que es mejor utilizar solamente 2 peticiones`. La `única diferencia` es que es `probable` que `tengamos realizar más intentos hasta que obtengamos un colisión si solo utilizamos 2 peticiones`
+3 - Desde el `Repeater`, `creamos` un `grupo` con las `peticiones` que vamos a `usar` para `causar` la `race condition`. Normalmente, las `race conditions` son más `fáciles` de `explotar` si `enviamos entre 20 y 30 peticiones a la vez`, sin embargo, `hay ocasiones en las que es mejor utilizar solamente 2 peticiones`. La `única diferencia` es que es `probable` que `tengamos realizar más intentos hasta que obtengamos un colisión si solo utilizamos 2 peticiones`
 
-4. `Dependiendo de la funcionalidad`, tendremos que `usar` la opción `Send group in sequence (single connection)` o `Send group in sequence (separate connections)` 
+4 - `Dependiendo de la funcionalidad`, tendremos que `usar` la opción `Send group in sequence (single connection)` o `Send group in sequence (separate connections)` 
 
-5. `Una vez enviadas las peticiones usando alguno de los dos formas`, tenemos que `fijarnos` en el `delay` de las `peticiones`, si vemos que la `diferencia` es `muy grande` vamos a tener que usar la `técnica` de `connection warming` o la de `abusing rate or resource limits` para hacer que `el delay entre peticiones sea de unos 10 milisegundos o de máximo 50 milisegundos`. A `menor delay`, `mayor es la probabilidad de que se produzca una race window y por lo tanto, también hay mayor probabilidad de que podamos explotar la race condition con éxito`
+5 - `Una vez enviadas las peticiones usando alguno de los dos formas`, tenemos que `fijarnos` en el `delay` de las `peticiones`, si vemos que la `diferencia` es `muy grande` vamos a tener que usar la `técnica` de `connection warming` o la de `abusing rate or resource limits` para hacer que `el delay entre peticiones sea de unos 10 milisegundos o de máximo 50 milisegundos`. A `menor delay`, `mayor es la probabilidad de que se produzca una race window y por lo tanto, también hay mayor probabilidad de que podamos explotar la race condition con éxito`
 
-6. `Una vez hayamos logrado que el delay entre peticiones se encuentre entre 0 milisegundos y 50 milisegundos`, tenemos que `enviar` las `peticiones` usando `Send group (parallel)`
+6 - `Una vez hayamos logrado que el delay entre peticiones se encuentre entre 0 milisegundos y 50 milisegundos`, tenemos que `enviar` las `peticiones` usando `Send group (parallel)`
 
-7. `Hay ocasiones en las que se implementan mecanismos de bloqueo basados en la sesión`. Esto puede `provocar` que `para la misma sesión sola podamos mandar una petición a la vez para ejecutar una acción`. Sin embargo, es posible `bypassear` esta `restricción` si `enviamos` una `petición` desde `dos sesiones diferentes`
+7 - `Hay ocasiones en las que se implementan mecanismos de bloqueo basados en la sesión`. Esto puede `provocar` que `para la misma sesión sola podamos mandar una petición a la vez para ejecutar una acción`. Sin embargo, es posible `bypassear` esta `restricción` si `enviamos` una `petición` desde `dos sesiones diferentes`
 
-8. Si `tenemos` un `código de descuento`, `podemos intentar aplicarlo varias veces` mediante una `race condition`
+8 - Si `tenemos` un `código de descuento`, `podemos intentar aplicarlo varias veces` mediante una `race condition`
 
-9. A la `hora` de `comprar` un `producto` podemos `añadir` un `producto muy barato` a la `cesta`. Si hay una `race condition`, podría ser posible `añadir un producto a la cesta cuyo costo supere el monto de dinero que tenemos antes de que se realice el checkout`. De esta forma, `obtendríamos 2 productos por el precio de 1`, ya que `el segundo producto no se nos cobraría`
+9 - A la `hora` de `comprar` un `producto` podemos `añadir` un `producto muy barato` a la `cesta`. Si hay una `race condition`, podría ser posible `añadir un producto a la cesta cuyo costo supere el monto de dinero que tenemos antes de que se realice el checkout`. De esta forma, `obtendríamos 2 productos por el precio de 1`, ya que `el segundo producto no se nos cobraría`
 
-10. Si nos `encontramos` con un `panel de login`, el cual `nos impide ejecutar un ataque de fuerza bruta`, podemos `utilizar` la `extensión Turbo Intruder de Burpsuite` para `saltarnos` este `rate limit` mediante una `race condition`
+10 - Si nos `encontramos` con un `panel de login`, el cual `nos impide ejecutar un ataque de fuerza bruta`, podemos `utilizar` la `extensión Turbo Intruder de Burpsuite` para `saltarnos` este `rate limit` mediante una `race condition`
 
-11. Si tenemos la `opción` de `proporcionar un email` a la `hora` de `cambiar la contraseña`, `pedir un desbloqueo de cuenta`, `cambiar nuestro email` o `cualquier otra información de valor`, podemos hacer que `nos llegue a nuestro email la información de otro usuario a través de una race condition`
+11 - Si tenemos la `opción` de `proporcionar un email` a la `hora` de `cambiar la contraseña`, `pedir un desbloqueo de cuenta`, `cambiar nuestro email` o `cualquier otra información de valor`, podemos hacer que `nos llegue a nuestro email la información de otro usuario a través de una race condition`
 
 ## ¿Cómo prevenir las vulnerabilidades provocadas por una race condition? 
 

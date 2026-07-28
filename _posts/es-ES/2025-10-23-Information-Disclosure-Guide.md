@@ -266,19 +266,19 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1. `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Additional Scanner Checks` y `Backslash Powered Scanner` de `Burpsuite`
+1 - `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Additional Scanner Checks` y `Backslash Powered Scanner` de `Burpsuite`
 
-2. `Añadir` el `dominio` y sus `subdominios` al `scope`
+2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-3. Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+3 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
 
-4. Pulsaremos en `Site map > click derecho sobre el dominio > Engagement tools > Discover content` o usaremos `ffuf` para encontrar `rutas`. Utilizaremos el diccionario `common.txt` de `seclists` para `encontrar` archivos como `phpinfo.php` o archivos de `backup`. En el caso del `phpinfo.php` deberemos buscar el `valor` de `secret_key` y si encontramos un `.git` deberemos usar `git-dumper` para descargarlo, posteriormente deberemos acceder al directorio `.git`, usar `git log` para `listar` los `commits` y luego usar `git show nombreDelCommit` para `ver` los `cambios realizados`. Si encontramos un directorio `/admin` al cual no podemos acceder porque nos `devuelve` un `401` usaremos la herramientas `Byp4xx` intentar `bypassear` la `restricción`
+4 - Pulsaremos en `Site map > click derecho sobre el dominio > Engagement tools > Discover content` o usaremos `ffuf` para encontrar `rutas`. Utilizaremos el diccionario `common.txt` de `seclists` para `encontrar` archivos como `phpinfo.php` o archivos de `backup`. En el caso del `phpinfo.php` deberemos buscar el `valor` de `secret_key` y si encontramos un `.git` deberemos usar `git-dumper` para descargarlo, posteriormente deberemos acceder al directorio `.git`, usar `git log` para `listar` los `commits` y luego usar `git show nombreDelCommit` para `ver` los `cambios realizados`. Si encontramos un directorio `/admin` al cual no podemos acceder porque nos `devuelve` un `401` usaremos la herramientas `Byp4xx` intentar `bypassear` la `restricción`
 
-5. En el caso de `encontrar` un `archivo` y `no poder ver su código` porque el `sitio web` lo `interpreta` podemos buscar `backups` de ese `archivo`, para ello usaremos el `diccionario raft-large-extensions-lowercase.txt` de `seclists` y `fuzzearemos` por `extensiones`
+5 - En el caso de `encontrar` un `archivo` y `no poder ver su código` porque el `sitio web` lo `interpreta` podemos buscar `backups` de ese `archivo`, para ello usaremos el `diccionario raft-large-extensions-lowercase.txt` de `seclists` y `fuzzearemos` por `extensiones`
 
-6. `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`. También podemos hacerlo de `forma manual`, `cambiando el tipo de dato esperado por un parámetro`, es decir, si vemos un `parámetro que necesita un número, como ?productId=1`, podemos `pasarle texto o caracteres especiales para ver si produce algún error`
+6 - `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`. También podemos hacerlo de `forma manual`, `cambiando el tipo de dato esperado por un parámetro`, es decir, si vemos un `parámetro que necesita un número, como ?productId=1`, podemos `pasarle texto o caracteres especiales para ver si produce algún error`
 
-7. Lo siguiente es `buscar comentarios`, para ello pulsamos sobre `Site map > click derecho sobre el dominio > Engagement tools > Find comments` y si no encontramos nada, `buscaremos comentarios manualmente`
+7 - Lo siguiente es `buscar comentarios`, para ello pulsamos sobre `Site map > click derecho sobre el dominio > Engagement tools > Find comments` y si no encontramos nada, `buscaremos comentarios manualmente`
 
 ## ¿Cómo prevenir un information disclosure?
 

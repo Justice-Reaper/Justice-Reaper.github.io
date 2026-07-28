@@ -268,21 +268,21 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1. `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Backslash Powered Scanner` y `Upload Scanner` de `Burpsuite`
+1 - `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Backslash Powered Scanner` y `Upload Scanner` de `Burpsuite`
     
-2. `Añadir` el `dominio` y sus `subdominios` al `scope`
+2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
     
-3. Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+3 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
     
-4. `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
+4 - `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
 
-5. Si el `escaneo general` ha `identificado` un `XXE` en la `subida de archivos`, debemos ir a la `guía de XXE` [https://justice-reaper.github.io/posts/XXE-Guide/](https://justice-reaper.github.io/posts/XXE-Guide) para saber como `explotarlo`
+5 - Si el `escaneo general` ha `identificado` un `XXE` en la `subida de archivos`, debemos ir a la `guía de XXE` [https://justice-reaper.github.io/posts/XXE-Guide/](https://justice-reaper.github.io/posts/XXE-Guide) para saber como `explotarlo`
 
-6. Si `no hay` ningún `XXE` usaremos `Upload Bypass` para intentar `subir` una `web shell` con la cual poder `ejecutar comandos`
+6 - Si `no hay` ningún `XXE` usaremos `Upload Bypass` para intentar `subir` una `web shell` con la cual poder `ejecutar comandos`
 
-7. `Si la herramienta anterior no detecta nada`, puede ser porque necesitemos hacer un `path traversal` para `subir el archivo`. Para ello, `buscamos un path traversal siguiendo los pasos de esta guía` [https://justice-reaper.github.io/posts/Path-Traversal-Guide/](https://justice-reaper.github.io/posts/Path-Traversal-Guide) 
+7 - `Si la herramienta anterior no detecta nada`, puede ser porque necesitemos hacer un `path traversal` para `subir el archivo`. Para ello, `buscamos un path traversal siguiendo los pasos de esta guía` [https://justice-reaper.github.io/posts/Path-Traversal-Guide/](https://justice-reaper.github.io/posts/Path-Traversal-Guide) 
 
-8. Si no ha funcionado lo anterior, seguiremos la `metodología` de `PayloadsAllTheThings` y `Hacktricks`
+8 - Si no ha funcionado lo anterior, seguiremos la `metodología` de `PayloadsAllTheThings` y `Hacktricks`
 
 ## ¿Cómo prevenir vulnerabilidades de subida de archivos?
 

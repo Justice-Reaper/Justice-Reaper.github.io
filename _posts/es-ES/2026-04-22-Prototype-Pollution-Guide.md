@@ -721,7 +721,7 @@ Si observamos la función `getCharset()`, parece que `los desarrolladores antici
 
 2 - `Enviar la petición`. `Los servidores no usarán la codificación UTF-7 por defecto, por lo que esta cadena debería aparecer en la respuesta en su forma codificada`
 
-3 - `Intentar llevar a cabo el prototype pollution con una propiedad content-type` que especifique explícitamente el conjunto de caracteres UTF-7`:
+3 - `Intentar llevar a cabo el prototype pollution con una propiedad content-type que especifique explícitamente el conjunto de caracteres UTF-7`:
 
 ```
 {

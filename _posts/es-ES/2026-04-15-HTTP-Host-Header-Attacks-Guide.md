@@ -378,19 +378,19 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1. `Añadir` el `dominio` y sus `subdominios` al `scope`
+1 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-2. `Crawleamos` el `dominio` con `Burpsuite` y `mientras termina el crawleo, exploramos todas las funciones de la web de forma manual`
+2 - `Crawleamos` el `dominio` con `Burpsuite` y `mientras termina el crawleo, exploramos todas las funciones de la web de forma manual`
 
-3. `Revisamos` el `código fuente` de la `web`, si vemos que `se refleja el dominio de la web en el código fuente podemos intentar llevar a cabo un web cache poisoning`. Para agilizar el proceso vamos a `lanzar la herramienta Web-Cache-Vulnerability-Scanner sobre los endpoints cuya respuesta se almacena en caché`
+3 - `Revisamos` el `código fuente` de la `web`, si vemos que `se refleja el dominio de la web en el código fuente podemos intentar llevar a cabo un web cache poisoning`. Para agilizar el proceso vamos a `lanzar la herramienta Web-Cache-Vulnerability-Scanner sobre los endpoints cuya respuesta se almacena en caché`
 
-4. Si en el `Exploit server` tenemos un `cliente de correo` y en el `login` de la `web` existe la opción `Forgot password?`, vamos a `pulsar sobre Forgot password?`, posteriormente `proporcionamos el nombre de usuario o email de la víctima` y `cambiamos el valor de la cabecera Host por el de nuestro Exploit server o por un dominio de Burpsuite Collaborator`. Esto lo hacemos para `obtener` el `token de reseteo de contraseña` que `viaja` en la `URL` y `es recomendable testear si funciona con nuestro usuario antes de ejecutarlo contra el usuario víctima`
+4 - Si en el `Exploit server` tenemos un `cliente de correo` y en el `login` de la `web` existe la opción `Forgot password?`, vamos a `pulsar sobre Forgot password?`, posteriormente `proporcionamos el nombre de usuario o email de la víctima` y `cambiamos el valor de la cabecera Host por el de nuestro Exploit server o por un dominio de Burpsuite Collaborator`. Esto lo hacemos para `obtener` el `token de reseteo de contraseña` que `viaja` en la `URL` y `es recomendable testear si funciona con nuestro usuario antes de ejecutarlo contra el usuario víctima`
 
-5. `Fuzzeamos rutas con la herramienta ffuf y usamos common.txt de seclists como diccionario`. Si `encontramos` alguna `ruta interesante`, como `/admin`, vamos a `capturar` la `petición` a esa `ruta` y a `lanzar` la `extensión Host Header Inchecktion` de `Burpsuite`. Para esto último, haremos `click derecho > Extensions > Host Header Inchecktion > Collaborator payload`
+5 - `Fuzzeamos rutas con la herramienta ffuf y usamos common.txt de seclists como diccionario`. Si `encontramos` alguna `ruta interesante`, como `/admin`, vamos a `capturar` la `petición` a esa `ruta` y a `lanzar` la `extensión Host Header Inchecktion` de `Burpsuite`. Para esto último, haremos `click derecho > Extensions > Host Header Inchecktion > Collaborator payload`
 
-6. `Lanzamos la extensión Host Header Inchecktion de Burpsuite sobre la raíz de la web`. Para ello, `pulsamos click derecho > Extensions > Host Header Inchecktion > Collaborator payload`. Si la `extensión` nos `detecta` un `SSRF` debemos de `testear todas las variantes que descubra y posteriormente de confirmar cuales son válidas`, vamos a `usar la herramienta ipRangeGenerator para generar un rango de IPs` y a `fuzzear desde el Intruder hasta dar con una IP interna que nos haga un redirect a /admin`
+6 - `Lanzamos la extensión Host Header Inchecktion de Burpsuite sobre la raíz de la web`. Para ello, `pulsamos click derecho > Extensions > Host Header Inchecktion > Collaborator payload`. Si la `extensión` nos `detecta` un `SSRF` debemos de `testear todas las variantes que descubra y posteriormente de confirmar cuales son válidas`, vamos a `usar la herramienta ipRangeGenerator para generar un rango de IPs` y a `fuzzear desde el Intruder hasta dar con una IP interna que nos haga un redirect a /admin`
 
-7. `Si en el paso anterior la extensión no ha detectado nada, vamos a lanzar la extensión HTTP Request Smuggler haciendo click derecho > Extensions > HTTP Request Smuggler > Launch all scans`. Si nos `descubre` un `Connection state - input reflection`, lo que tenemos que hacer es `seguir los pasos que se ven en este post` [https://justice-reaper.github.io/posts/HTTP-Host-Header-Attacks-Lab-6/](https://justice-reaper.github.io/posts/HTTP-Host-Header-Attacks-Lab-6/)
+7 - `Si en el paso anterior la extensión no ha detectado nada, vamos a lanzar la extensión HTTP Request Smuggler haciendo click derecho > Extensions > HTTP Request Smuggler > Launch all scans`. Si nos `descubre` un `Connection state - input reflection`, lo que tenemos que hacer es `seguir los pasos que se ven en este post` [https://justice-reaper.github.io/posts/HTTP-Host-Header-Attacks-Lab-6/](https://justice-reaper.github.io/posts/HTTP-Host-Header-Attacks-Lab-6/)
 
 ## ¿Cómo prevenir un HTTP Host header attack?
 

@@ -436,23 +436,23 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1. `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Additional Scanner Checks`, `Collaborator Everywhere`, `Backslash Powered Scanner`, `CORS* - Additional CORS Checks` y `Trusted Domain CORS Scanner` de `Burpsuite` 
+1 - `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Additional Scanner Checks`, `Collaborator Everywhere`, `Backslash Powered Scanner`, `CORS* - Additional CORS Checks` y `Trusted Domain CORS Scanner` de `Burpsuite` 
 
-2. `Añadir` el `dominio` y sus `subdominios` al `scope`
+2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-3. Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+3 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
 
-4. `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
+4 - `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
 
-4. Si preferimos usar herramientas por consola podemos usar `CORScanner`, `CorsOne` o `CorsMe`. La que más gustan son `CORScanner` y `CorsOne`, ya que `CorsMe` tienen el problema de que para detectar si el `Origin` acepta como valor `null`, solo prueban con el valor `Null` y no con `NULL` o `null`, y esto puede provocar que `no detecten la vulnerabilidad en ciertas ocasiones`
+5 - Si preferimos usar herramientas por consola podemos usar `CORScanner`, `CorsOne` o `CorsMe`. La que más gustan son `CORScanner` y `CorsOne`, ya que `CorsMe` tienen el problema de que para detectar si el `Origin` acepta como valor `null`, solo prueban con el valor `Null` y no con `NULL` o `null`, y esto puede provocar que `no detecten la vulnerabilidad en ciertas ocasiones`
 
-5. Si tenemos dudas de cómo explotar el ataque, `Corsy` nos da pistas sobre ello
+6 - Si tenemos dudas de cómo explotar el ataque, `Corsy` nos da pistas sobre ello
 
-6. Si en este punto `no podemos explotar CORS`, tenemos que buscar un `dominio de confianza` que sea `vulnerable` a `XSS`. Para ello, debemos revisar la `guía de XSS` para saber como `identificarlos`
+7 - Si en este punto `no podemos explotar CORS`, tenemos que buscar un `dominio de confianza` que sea `vulnerable` a `XSS`. Para ello, debemos revisar la `guía de XSS` para saber como `identificarlos`
 
-7. Si no encontramos nada, procedemos a buscar de `forma manual` siguiendo los pasos de `PayloadsAllTheThings` y `Hacktricks`
+8 - Si no encontramos nada, procedemos a buscar de `forma manual` siguiendo los pasos de `PayloadsAllTheThings` y `Hacktricks`
 
-8. Para crear un `PoC` usaremos `C0rsPwn3r` o lo haremos de forma `manual`
+9 - Para crear un `PoC` usaremos `C0rsPwn3r` o lo haremos de forma `manual`
 
 ## Prevenir ataques CORS-based
 

@@ -315,7 +315,7 @@ query getProductDetails {
 }
 ```
 
-Usar `alias` con `mutations` permite `enviar múltiples operaciones GraphQL en una sola solicitud HTTP`. Esto puede `utilizarse` para `saltarnos ciertos controles de rate limiting
+Usar `alias` con `mutations` permite `enviar múltiples operaciones GraphQL en una sola solicitud HTTP`. Esto puede `utilizarse` para `saltarnos ciertos controles de rate limiting`
 
 ### Fragments
 
@@ -773,33 +773,33 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1. `Instalar` las extensiones `InQL` y `Content Type Converter` de `Burpsuite`
+1 - `Instalar` las extensiones `InQL` y `Content Type Converter` de `Burpsuite`
 
-2. `Añadir` el `dominio` y sus `subdominios` al `scope`
+2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-3. Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+3 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
 
-4. `Si Burpsuite no encuentra el endpoint de GraphQL`, vamos a `fuzzear` usando los `payloads` que nos proporciona `Hacktricks` [https://book.hacktricks.wiki/en/network-services-pentesting/pentesting-web/graphql.html#directory-brute-force-attacks-and-graphql](https://book.hacktricks.wiki/en/network-services-pentesting/pentesting-web/graphql.html#directory-brute-force-attacks-and-graphql) y si no encontramos nada, usaremos los `diccionarios` de `SecLists`. Como `fuzzer` podemos usar `Burpsuite` o `ffuf`
+4 - `Si Burpsuite no encuentra el endpoint de GraphQL`, vamos a `fuzzear` usando los `payloads` que nos proporciona `Hacktricks` [https://book.hacktricks.wiki/en/network-services-pentesting/pentesting-web/graphql.html#directory-brute-force-attacks-and-graphql](https://book.hacktricks.wiki/en/network-services-pentesting/pentesting-web/graphql.html#directory-brute-force-attacks-and-graphql) y si no encontramos nada, usaremos los `diccionarios` de `SecLists`. Como `fuzzer` podemos usar `Burpsuite` o `ffuf`
 
-5. Una vez `encontramos` el `endpoint` de `GraphQL`, vamos a `identificar` el `punto de inyección` mediante este `payload query=query{__typename}`, ya sea en `formato JSON {"query":"query{__typename}"}` o en `formato form-url encoded query=query%7b__typename%7d`. El `formato JSON se puede enviar solo en el body` y el `formato form-url encoded se puede enviar tanto en la URL como en el body` 
+5 - Una vez `encontramos` el `endpoint` de `GraphQL`, vamos a `identificar` el `punto de inyección` mediante este `payload query=query{__typename}`, ya sea en `formato JSON {"query":"query{__typename}"}` o en `formato form-url encoded query=query%7b__typename%7d`. El `formato JSON se puede enviar solo en el body` y el `formato form-url encoded se puede enviar tanto en la URL como en el body` 
 
-6. Abrimos el `Repeater` y nos `dirigimos` a la `pestaña GraphQL`. El siguiente paso es `realizar una consulta de introspección`, para ello hacemos `click derecho > GraphQL > Set introspection query`
+6 - Abrimos el `Repeater` y nos `dirigimos` a la `pestaña GraphQL`. El siguiente paso es `realizar una consulta de introspección`, para ello hacemos `click derecho > GraphQL > Set introspection query`
 
-7. En el caso de que la `consulta de introspección` esté siendo `bloqueada` o no `pueda realizarse`, vamos a intentar `enviar` el `payload` mediante un `método de solicitud alternativo`, ya que la `introspección` solo se puede `desactivar` para el `método POST`. Podríamos probar una `solicitud por GET`, una `solicitud por POST` con el `Content-Type: application/x-www-form-urlencoded` o también una `solicitud por GET` pero `mandando` la `data` en el `body`, ya sea como `JSON` o como `form-url encoded`. Esto se hace porque `GraphQL solo puede ser deshabilitado para el método POST`
+7 - En el caso de que la `consulta de introspección` esté siendo `bloqueada` o no `pueda realizarse`, vamos a intentar `enviar` el `payload` mediante un `método de solicitud alternativo`, ya que la `introspección` solo se puede `desactivar` para el `método POST`. Podríamos probar una `solicitud por GET`, una `solicitud por POST` con el `Content-Type: application/x-www-form-urlencoded` o también una `solicitud por GET` pero `mandando` la `data` en el `body`, ya sea como `JSON` o como `form-url encoded`. Esto se hace porque `GraphQL solo puede ser deshabilitado para el método POST`
 
-8. `En el caso en el sigamos sin poder realizar la consulta de introspección`, vamos a probar a `añadir caracteres` como `espacios`, `saltos de línea` y `comas`, ya que `GraphQL` los `ignora`, pero las `expresiones regulares que puede haber implementado los desarolladores no`
+8 - `En el caso en el sigamos sin poder realizar la consulta de introspección`, vamos a probar a `añadir caracteres` como `espacios`, `saltos de línea` y `comas`, ya que `GraphQL` los `ignora`, pero las `expresiones regulares que puede haber implementado los desarolladores no`
 
-9. `Una vez consigamos realizar la consulta de introspección`, vamos a `guardar los resultados en el Site map`, para ello, pulsamos `click derecho en la respuesta > GraphQL > Save GraphQL queries to site map`. `Esto lo hacemos para ver si hay consultas interesantes`
+9 - `Una vez consigamos realizar la consulta de introspección`, vamos a `guardar los resultados en el Site map`, para ello, pulsamos `click derecho en la respuesta > GraphQL > Save GraphQL queries to site map`. `Esto lo hacemos para ver si hay consultas interesantes`
 
-10. Vamos ahora a utilizar `InQL`, podemos simplemente `hacer click derecho > Extensions > InQL - GraphQL Scanner > Generate queries` o `importar` en `formato JSON` el `schema de GraphQL` que hemos `obtenido` al `realizar` la `introspección`. `Es recomendable utilizar esta herramienta porque puede permitirnos obtener información adicional`
+10 - Vamos ahora a utilizar `InQL`, podemos simplemente `hacer click derecho > Extensions > InQL - GraphQL Scanner > Generate queries` o `importar` en `formato JSON` el `schema de GraphQL` que hemos `obtenido` al `realizar` la `introspección`. `Es recomendable utilizar esta herramienta porque puede permitirnos obtener información adicional`
 
-11. Para `visualizar` los `resultados` de la `introspección` hacemos `click derecho la respuesta > Extensions > InQL - GraphQL Scanner > Open in GraphQL Voyager`
+11 - Para `visualizar` los `resultados` de la `introspección` hacemos `click derecho la respuesta > Extensions > InQL - GraphQL Scanner > Open in GraphQL Voyager`
 
-12. Ya sea desde la `extensión InQL` o desde el `Site map`, las `consultas` que consideremos `interesantes`, las `enviaremos` al `Repeater` y desde allí llevaremos a cabo la `extracción de información`. En caso de ser `necesario`, también podemos `enviar` la `petición` al `Intruder` y `ejecutar un ataque de tipo Sniper` para `iterar sobre un valor numérico`, por ejemplo
+12 - Ya sea desde la `extensión InQL` o desde el `Site map`, las `consultas` que consideremos `interesantes`, las `enviaremos` al `Repeater` y desde allí llevaremos a cabo la `extracción de información`. En caso de ser `necesario`, también podemos `enviar` la `petición` al `Intruder` y `ejecutar un ataque de tipo Sniper` para `iterar sobre un valor numérico`, por ejemplo
 
-13. `Si no encontramos nada interesante`, vamos a intentar `realizar` un `ataque de fuerza bruta` al `login` usando `alias`. Para ello, nos `dirigimos` al `cuarto laboratorio` y `seguimos los pasos que se comparten`
+13 - `Si no encontramos nada interesante`, vamos a intentar `realizar` un `ataque de fuerza bruta` al `login` usando `alias`. Para ello, nos `dirigimos` al `cuarto laboratorio` y `seguimos los pasos que se comparten`
 
-14. En el caso de poder `cambiar nuestro email` o `asociar nuestra cuenta con un email`, `podemos ver si se realiza mediante GraphQL` y `checkear si tiene o no un token CSRF`. `Si no tiene token CSRF, podemos intentar llevar a cabo un ataque CSRF mediante GraphQL`. Si nos `surge` alguna `duda`, es recomendable `seguir las instrucciones del quinto laboratorio`
+14 - En el caso de poder `cambiar nuestro email` o `asociar nuestra cuenta con un email`, `podemos ver si se realiza mediante GraphQL` y `checkear si tiene o no un token CSRF`. `Si no tiene token CSRF, podemos intentar llevar a cabo un ataque CSRF mediante GraphQL`. Si nos `surge` alguna `duda`, es recomendable `seguir las instrucciones del quinto laboratorio`
 
 ## ¿Cómo prevenir ataques en GraphQL?
 

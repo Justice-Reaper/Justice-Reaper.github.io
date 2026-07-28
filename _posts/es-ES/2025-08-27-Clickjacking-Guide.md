@@ -152,9 +152,9 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 Es posible `detectar` una web `vulnerable` a `clickjacking` de varias formas, en mi caso sigo estos pasos:
 
-1. Usaremos herramientas como `Security Headers` o `Shcheck` para `identificar` las `cabeceras de seguridad` de una `web` y ver si es `vulnerable`
+1 - Usaremos herramientas como `Security Headers` o `Shcheck` para `identificar` las `cabeceras de seguridad` de una `web` y ver si es `vulnerable`
 
-2. `Creamos` un `PoC` usando `Clickbandit` 
+2 - `Creamos` un `PoC` usando `Clickbandit` 
 
 ## Prevenir ataques de clickjacking
 

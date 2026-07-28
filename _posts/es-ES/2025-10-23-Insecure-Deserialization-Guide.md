@@ -259,7 +259,7 @@ En la práctica, muchas vulnerabilidades de `insecure deserealization` solo ser�
 
 `Identificar manualmente las gadget chains puede ser un proceso arduo y casi imposible sin acceso al código fuente`. Afortunadamente, tenemos algunas opciones para trabajar primero con `gadget chains` ya descubiertas
 
-Existen varias `herramientas` que proporcionan una gama de `cadenas pre-descubiertas` que han sido `explotadas con éxito` en otros `sitios web`. Incluso `si no tenemos acceso al código fuente, podemos usar estas herramientas para identificar y explotar un insecure deserealization con relativamente poco esfuerzo`. Este enfoque es posible gracias al uso generalizado de `librerías` que contienen `gadget chains explotables`. Por ejemplo, si una `gadget chain` en la `librería de Java Apache Commons Collections` puede `explotarse` en un `sitio web`, cualquier otro `sitio web` que `implemente esa librería` también `puede ser explotable usando la misma cadena
+Existen varias `herramientas` que proporcionan una gama de `cadenas pre-descubiertas` que han sido `explotadas con éxito` en otros `sitios web`. Incluso `si no tenemos acceso al código fuente, podemos usar estas herramientas para identificar y explotar un insecure deserealization con relativamente poco esfuerzo`. Este enfoque es posible gracias al uso generalizado de `librerías` que contienen `gadget chains explotables`. Por ejemplo, si una `gadget chain` en la `librería de Java Apache Commons Collections` puede `explotarse` en un `sitio web`, cualquier otro `sitio web` que `implemente esa librería` también `puede ser explotable usando la misma cadena`
 
 #### Ysoserial
 
@@ -324,13 +324,13 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1. `Seguir los pasos de la guía de information disclosure` [https://justice-reaper.github.io/posts/Information-Disclosure-Guide/](https://justice-reaper.github.io/posts/Information-Disclosure-Guide/) para `recopilar` la `máxima información posible` y luego intentar `explotar` el `insecure deserialization` con la `información obtenida`
+1 - `Seguir los pasos de la guía de information disclosure` [https://justice-reaper.github.io/posts/Information-Disclosure-Guide/](https://justice-reaper.github.io/posts/Information-Disclosure-Guide/) para `recopilar` la `máxima información posible` y luego intentar `explotar` el `insecure deserialization` con la `información obtenida`
 
-2. Debemos `inspeccionar` la `cookie` de `nuestro usuario` desde `Burpsuite`. Para `identificar` la `tecnología` que se está usando podemos `borrar parte de la cookie para provocar un error`. En el que caso en que se use `Java` para la `serialización` del `objeto` podemos usar `ysoserial` y si se usa `PHP` usaremos `phpggc`. Si el `lenguaje` es `distinto` a `PHP` o `Java` tendremos que `buscar herramientas alternativas` o `exploits documentados`
+2 - Debemos `inspeccionar` la `cookie` de `nuestro usuario` desde `Burpsuite`. Para `identificar` la `tecnología` que se está usando podemos `borrar parte de la cookie para provocar un error`. En el que caso en que se use `Java` para la `serialización` del `objeto` podemos usar `ysoserial` y si se usa `PHP` usaremos `phpggc`. Si el `lenguaje` es `distinto` a `PHP` o `Java` tendremos que `buscar herramientas alternativas` o `exploits documentados`
 
-3. Cuando `desconozcamos` el `access_token` u otro `parámetro` de `otro usuario` podemos intentar `sustituirlo` por un `booleano b:1` o por un `integer i:0` y de esta forma `bypassear la validación`
+3 - Cuando `desconozcamos` el `access_token` u otro `parámetro` de `otro usuario` podemos intentar `sustituirlo` por un `booleano b:1` o por un `integer i:0` y de esta forma `bypassear la validación`
 
-4. Puede darse el caso de que `encontremos` una `funcionalidad` de la `aplicación` que `nos permita borrar nuestra cuenta de usuario`. Si se `transmite` un `objeto` con `nuestra información` y ahí se encuentra nuestra `foto de perfil` por ejemplo, podríamos `modificar esa ruta dentro del objeto` para que `se borre el archivo que nosotros queremos`
+4 - Puede darse el caso de que `encontremos` una `funcionalidad` de la `aplicación` que `nos permita borrar nuestra cuenta de usuario`. Si se `transmite` un `objeto` con `nuestra información` y ahí se encuentra nuestra `foto de perfil` por ejemplo, podríamos `modificar esa ruta dentro del objeto` para que `se borre el archivo que nosotros queremos`
 
 ## ¿Cómo prevenir un insecure deserealization?
 

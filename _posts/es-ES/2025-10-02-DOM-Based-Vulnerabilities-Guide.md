@@ -112,7 +112,7 @@ Aunque hay una amplia variedad de `vulnerabilidades DOM based`, para el `examen 
 
 #### DOM XSS
 
-Los siguientes son algunos de los `principales sinks` que pueden `conducir` a un `DOM XSS`: `
+Los siguientes son algunos de los `principales sinks` que pueden `conducir` a un `DOM XSS`:
 
 ```
 document.write()
