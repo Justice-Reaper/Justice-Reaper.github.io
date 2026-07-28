@@ -318,6 +318,7 @@ En este `laboratorio` podemos ver como se `aplica` esta `técnica`:
 El impacto potencial de esta vulnerabilidad `depende del papel que desempeñe la cookie dentro del sitio web`. Si la `cookie` se usa para `controlar el comportamiento que resulta de ciertas acciones del usuario (por ejemplo, una configuración de production vs demo)`, entonces el atacante puede `causar que el usuario realice acciones no deseadas manipulando el valor de la cookie`
 
 Si la `cookie` se usa para `rastrear la sesión del usuario`, entonces el atacante puede llevar a cabo un `session fixation attack`, en el que `establece como valor de la cookie`, un `token válido` que ha `obtenido` del `sitio web` y luego `secuestra la sesión de la víctima` cuando ella `interactúa con el sitio web`. Una `vulnerabilidad` de `cookie manipulation` como esta puede usarse para `atacar no solo el sitio vulnerable, sino cualquier otro sitio bajo el mismo parent domain`
+
 ##### ¿Cuáles son los sinks que pueden dar lugar a un DOM based cookie manipulation?
 
 ```
