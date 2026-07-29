@@ -27,6 +27,7 @@ Respecto a los idiomas, considero que son fundamentales en este campo, por lo cu
 Certificaciones obtenidas:
 
 - BSCP (Burp Suite Certified Practitioner)
+- FCE (B2 First Certificate in English)
 
 Actualmente estoy preparándome para las siguientes certificaciones:
 
@@ -35,12 +36,12 @@ Actualmente estoy preparándome para las siguientes certificaciones:
 
 ## Titulaciones 📜
 
-- Desarrollo de Aplicaciones Multiplataforma (DAM) - CIFP Carlos III, 2021-2024
+- DAM (Desarrollo de Aplicaciones Multiplataforma) - CIFP Carlos III
 
 ## Idiomas 🌍
 
 - Español - Nativo
-- Inglés - B2 First de Cambridge
+- Inglés - B2
 
 ## Proyectos Destacados 🌟
 
