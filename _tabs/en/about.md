@@ -6,13 +6,15 @@ lang: en
 order: 4
 ---
 
-Let me introduce myself, I'm Sergio, I'm 24 years old, and I've always been passionate about computers. However, it wasn't until five years ago that I decided to pursue this field professionally. To get started, I completed an associate's degree in Multiplatform Application Development, where I built desktop and mobile applications with Java
+Let me introduce myself. I'm Sergio, 24 years old, and I've always been passionate about computers. However, it wasn't until five years ago that I decided to pursue this field professionally. As a first step, I completed an associate's degree in Multiplatform Application Development, where I built desktop and mobile applications with Java
 
-Later, I leaned toward offensive cybersecurity because it's the area I find most fulfilling. I created a personal blog where I share write-ups and articles about PortSwigger labs, HackTheBox machines, and my exam prep. Currently, I have over 300 published articles and post regularly. This year, I plan to earn my CPTS and OSCP certifications
+Later, I leaned toward offensive cybersecurity because it's the area I find most fulfilling. I created a personal blog where I share write-ups and articles about PortSwigger labs, HackTheBox, and my exam prep. Currently, I have over 300 published articles and post regularly. I've also completed 90 HackTheBox machines. This year, I plan to earn my CPTS and OSCP certifications
 
-Throughout my journey in this field, I've encountered tasks I found tedious or repetitive. To address this, I've developed several tools using Bash, Python, and Java to automate these processes, allowing me to focus on what matters most
+Throughout my journey in this field, I've encountered tasks that I find tedious or repetitive. To address this, I've developed several tools using Bash, Python, and Java to automate them, allowing me to focus on what matters most
 
-When it comes to languages, I believe they're essential in this field. That's why I earned my Cambridge B2 certificate last year, and I'll start preparing for a French B1 certificate next year
+Beyond that, I contribute to the [Arch User Repository (AUR)](https://aur.archlinux.org/packages?K=justice-reaper&SeB=m) by uploading my own packages, something I started doing after compiling a kernel module to fix a microphone bug on my laptop
+
+When it comes to languages, I believe they're essential in this field. That's why I earned my English B2 certificate last year, and I'll start preparing for a French B1 certificate next year
 
 ## About Me 🚀
 
@@ -36,7 +38,7 @@ I'm currently preparing for the following certifications:
 
 ## Education 📜
 
-- Multiplatform Application Development - CIFP Carlos III
+- Associate Degree in Multiplatform Application Development - CIFP Carlos III
 
 ## Languages 🌍
 
@@ -50,7 +52,7 @@ Here are some of my key projects:
 - [Justice-Reaper.github.io](https://github.com/Justice-Reaper/Justice-Reaper.github.io) - My personal blog with PortSwigger and HackTheBox write-ups
 - [AutoBspwmKali](https://github.com/Justice-Reaper/AutoBspwmKali) - Script to automate the installation and configuration of a BSPWM environment on Kali Linux
 - [Diff-Hunter](https://github.com/Justice-Reaper/Diff-Hunter) - Burp Suite extension for comparing HTTP requests and responses to identify differences between them
-- [Sequencial-Replacer](https://github.com/Justice-Reaper/Sequencial-Replacer) - Burp Suite extension for sequentially replacing content in HTTP requests using regex patterns and wordlists
+- [Sequential-Replacer](https://github.com/Justice-Reaper/Sequential-Replacer) - Burp Suite extension for sequentially replacing content in HTTP requests using regex patterns and wordlists
 - [File-Watcher](https://github.com/Justice-Reaper/File-Watcher) - Detects JavaScript file mutations triggered by browser interactions and shows unified diffs, built for prototype pollution research
 - [NoSQLI-Attack-Suite](https://github.com/Justice-Reaper/NoSQLI-Attack-Suite) - Scripts to enumerate usernames and passwords from web applications vulnerable to NoSQL injection in MongoDB
 - [rpcEnum](https://github.com/Justice-Reaper/rpcEnum) - Tool for Active Directory enumeration via the RPC service
