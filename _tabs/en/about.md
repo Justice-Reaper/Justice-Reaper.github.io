@@ -48,6 +48,7 @@ I'm currently preparing for the following certifications:
 Here are some of my key projects:
 
 - [Justice-Reaper.github.io](https://github.com/Justice-Reaper/Justice-Reaper.github.io) - My personal blog with PortSwigger and HackTheBox write-ups
+- [AutoBspwmKali](https://github.com/Justice-Reaper/AutoBspwmKali) - Script to automate the installation and configuration of a BSPWM environment on Kali Linux
 - [Diff-Hunter](https://github.com/Justice-Reaper/Diff-Hunter) - Burp Suite extension for comparing HTTP requests and responses to identify differences between them
 - [Sequencial-Replacer](https://github.com/Justice-Reaper/Sequencial-Replacer) - Burp Suite extension for sequentially replacing content in HTTP requests using regex patterns and wordlists
 - [File-Watcher](https://github.com/Justice-Reaper/File-Watcher) - Detects JavaScript file mutations triggered by browser interactions and shows unified diffs, built for prototype pollution research
