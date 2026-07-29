@@ -27,6 +27,7 @@ When it comes to languages, I believe they're essential in this field. That's wh
 Certifications earned:
 
 - BSCP (Burp Suite Certified Practitioner)
+- FCE (B2 First Certificate in English)
 
 I'm currently preparing for the following certifications:
 
@@ -40,7 +41,7 @@ I'm currently preparing for the following certifications:
 ## Languages 🌍
 
 - Spanish - Native
-- English - Cambridge B2 First
+- English - B2
 
 ## Featured Projects 🌟
 
