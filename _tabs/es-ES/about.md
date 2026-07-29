@@ -6,13 +6,15 @@ lang: es-ES
 order: 4
 ---
 
-Me presento, soy Sergio, tengo 24 años y desde siempre me ha gustado la informática pero no fue hasta hace 5 años que decidí dedicarme a este campo profesionalmente. Para iniciarme en este mundillo realicé el grado superior de Desarrollo de Aplicaciones Multiplataforma (DAM) en el cual construí aplicaciones para escritorio y para móviles con Java
+Me presento, soy Sergio, tengo 24 años y desde siempre me ha gustado la informática, pero no fue hasta hace 5 años cuando decidí dedicarme a este campo profesionalmente. Para iniciarme en este mundillo realicé el grado superior de Desarrollo de Aplicaciones Multiplataforma (DAM), en el que construí aplicaciones para escritorio y para móviles con Java
 
-Posteriormente me decanté por la rama de ciberseguridad ofensiva, porque es la que más me llena. Me creé un blog personal donde comparto writeups y artículos sobre los laboratorios de PortSwigger, las máquinas de HackTheBox y mi preparación para las certificaciones. Actualmente cuento con más de 300 artículos publicados y subo contenido constantemente. Este año espero conseguir el CPTS y el OSCP
+Posteriormente me decanté por la rama de ciberseguridad ofensiva, porque es la que más me llena. Me creé un blog personal donde comparto writeups y artículos sobre los laboratorios de PortSwigger, HackTheBox y mi preparación para las certificaciones. Actualmente cuento con más de 300 artículos publicados, subo contenido constantemente y llevo 90 máquinas completadas en HackTheBox. Este año espero conseguir el CPTS y el OSCP
 
-Durante mi camino por este campo he ido encontrándome tareas que consideraba tediosas o repetitivas y por ello he creado varias herramientas empleando Bash, Python y Java que automatizan estos procesos, permitiéndome enfocarme en lo importante
+Durante mi camino por este campo he ido encontrándome tareas que considero tediosas o repetitivas, y por ello he creado varias herramientas empleando Bash, Python y Java que las automatizan, permitiéndome enfocarme en lo importante
 
-Respecto a los idiomas, considero que son fundamentales en este campo, por lo cual, el año pasado obtuve el B2 de Cambridge y el año que viene empezaré a prepararme para el B1 de francés
+También contribuyo al [Arch User Repository (AUR)](https://aur.archlinux.org/packages?K=justice-reaper&SeB=m) subiendo mis propios paquetes, algo que empecé a hacer tras compilar un módulo del kernel para arreglar un fallo de micrófono en mi portátil
+
+Respecto a los idiomas, considero que son fundamentales en este campo, por lo que el año pasado obtuve el B2 de inglés y el año que viene empezaré a prepararme para el B1 de francés
 
 ## Sobre mí 🚀
 
@@ -36,7 +38,7 @@ Actualmente estoy preparándome para las siguientes certificaciones:
 
 ## Titulaciones 📜
 
-- DAM (Desarrollo de Aplicaciones Multiplataforma) - CIFP Carlos III
+- DAM (Técnico Superior en Desarrollo de Aplicaciones Multiplataforma) - CIFP Carlos III
 
 ## Idiomas 🌍
 
@@ -50,7 +52,7 @@ Aquí tienes algunos de los proyectos en los que he estado trabajando
 - [Justice-Reaper.github.io](https://github.com/Justice-Reaper/Justice-Reaper.github.io) - Mi blog personal donde subo writeups de PortSwigger y HackTheBox
 - [AutoBspwmKali](https://github.com/Justice-Reaper/AutoBspwmKali) - Script para automatizar la instalación y configuración de un entorno BSPWM en Kali Linux
 - [Diff-Hunter](https://github.com/Justice-Reaper/Diff-Hunter) - Extensión de Burp Suite para comparar peticiones y respuestas HTTP e identificar las diferencias entre ellas
-- [Sequencial-Replacer](https://github.com/Justice-Reaper/Sequencial-Replacer) - Extensión de Burp Suite para reemplazar contenido en peticiones HTTP de forma secuencial mediante expresiones regulares y diccionarios
+- [Sequential-Replacer](https://github.com/Justice-Reaper/Sequential-Replacer) - Extensión de Burp Suite para reemplazar contenido en peticiones HTTP de forma secuencial mediante expresiones regulares y diccionarios
 - [File-Watcher](https://github.com/Justice-Reaper/File-Watcher) - Detecta mutaciones en ficheros JavaScript provocadas por la interacción con el navegador y muestra las diferencias, pensado para investigar prototype pollution
 - [NoSQLI-Attack-Suite](https://github.com/Justice-Reaper/NoSQLI-Attack-Suite) - Scripts para enumerar usuarios y contraseñas en aplicaciones web vulnerables a inyección NoSQL en MongoDB
 - [rpcEnum](https://github.com/Justice-Reaper/rpcEnum) - Herramienta para enumerar el Active Directory a través del servicio RPC
