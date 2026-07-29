@@ -65,4 +65,4 @@ Here are some of my key projects:
 - [TFG-DAM](https://github.com/Justice-Reaper/TFG-DAM) - Final project for my associate's degree in Multiplatform Application Development
 - [Hyprland-Artix-Linux-Dotfiles](https://github.com/Justice-Reaper/Hyprland-Artix-Linux-Dotfiles) - My Hyprland setup on Artix Linux
 - [hyprland-minimizer](https://github.com/Justice-Reaper/hyprland-minimizer) - System tray daemon that lets you minimize applications to the tray on Hyprland
-- [qylock](https://github.com/Justice-Reaper/qylock) - Personal fork of qylock, trimmed down to a single custom theme: Pixel Aquarium
+- [qylock](https://github.com/Justice-Reaper/qylock) - Personal fork of qylock, trimmed down to a single custom theme, Pixel Aquarium
