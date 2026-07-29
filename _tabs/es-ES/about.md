@@ -48,6 +48,7 @@ Actualmente estoy preparándome para las siguientes certificaciones:
 Aquí tienes algunos de los proyectos en los que he estado trabajando
 
 - [Justice-Reaper.github.io](https://github.com/Justice-Reaper/Justice-Reaper.github.io) - Mi blog personal donde subo writeups de PortSwigger y HackTheBox
+- [AutoBspwmKali](https://github.com/Justice-Reaper/AutoBspwmKali) - Script para automatizar la instalación y configuración de un entorno BSPWM en Kali Linux
 - [Diff-Hunter](https://github.com/Justice-Reaper/Diff-Hunter) - Extensión de Burp Suite para comparar peticiones y respuestas HTTP e identificar las diferencias entre ellas
 - [Sequencial-Replacer](https://github.com/Justice-Reaper/Sequencial-Replacer) - Extensión de Burp Suite para reemplazar contenido en peticiones HTTP de forma secuencial mediante expresiones regulares y diccionarios
 - [File-Watcher](https://github.com/Justice-Reaper/File-Watcher) - Detecta mutaciones en ficheros JavaScript provocadas por la interacción con el navegador y muestra las diferencias, pensado para investigar prototype pollution
