@@ -47,13 +47,13 @@ Actualmente estoy preparándome para las siguientes certificaciones:
 
 ## Proyectos Destacados 🌟
 
-Aquí tienes algunos de los proyectos en los que he estado trabajando
+Aquí tienes algunos de los proyectos en los que he estado trabajando:
 
 - [Justice-Reaper.github.io](https://github.com/Justice-Reaper/Justice-Reaper.github.io) - Mi blog personal donde subo writeups de PortSwigger y HackTheBox
 - [AutoBspwmKali](https://github.com/Justice-Reaper/AutoBspwmKali) - Script para automatizar la instalación y configuración de un entorno BSPWM en Kali Linux
 - [Diff-Hunter](https://github.com/Justice-Reaper/Diff-Hunter) - Extensión de Burp Suite para comparar peticiones y respuestas HTTP e identificar las diferencias entre ellas
 - [Sequential-Replacer](https://github.com/Justice-Reaper/Sequential-Replacer) - Extensión de Burp Suite para reemplazar contenido en peticiones HTTP de forma secuencial mediante expresiones regulares y diccionarios
-- [File-Watcher](https://github.com/Justice-Reaper/File-Watcher) - Detecta mutaciones en ficheros JavaScript provocadas por la interacción con el navegador y muestra las diferencias, pensado para investigar prototype pollution
+- [File-Watcher](https://github.com/Justice-Reaper/File-Watcher) - Detecta mutaciones en ficheros JavaScript provocadas por la interacción con el navegador y muestra las diferencias en formato unified diff, pensado para investigar prototype pollution
 - [NoSQLI-Attack-Suite](https://github.com/Justice-Reaper/NoSQLI-Attack-Suite) - Scripts para enumerar usuarios y contraseñas en aplicaciones web vulnerables a inyección NoSQL en MongoDB
 - [rpcEnum](https://github.com/Justice-Reaper/rpcEnum) - Herramienta para enumerar el Active Directory a través del servicio RPC
 - [getTopPorts](https://github.com/Justice-Reaper/getTopPorts) - Extrae los puertos más comunes de Nmap y los copia al portapapeles
@@ -65,4 +65,4 @@ Aquí tienes algunos de los proyectos en los que he estado trabajando
 - [TFG-DAM](https://github.com/Justice-Reaper/TFG-DAM) - Proyecto de fin de grado de Desarrollo de Aplicaciones Multiplataforma (DAM)
 - [Hyprland-Artix-Linux-Dotfiles](https://github.com/Justice-Reaper/Hyprland-Artix-Linux-Dotfiles) - Mi configuración de Hyprland en Artix Linux
 - [hyprland-minimizer](https://github.com/Justice-Reaper/hyprland-minimizer) - Demonio de bandeja del sistema que permite minimizar aplicaciones en Hyprland
-- [qylock](https://github.com/Justice-Reaper/qylock) - Fork personal de qylock, reducido a un único tema propio: Pixel Aquarium
+- [qylock](https://github.com/Justice-Reaper/qylock) - Fork personal de qylock, reducido a un único tema propio, Pixel Aquarium
