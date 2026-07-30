@@ -30,7 +30,7 @@ timezone: Europe/Madrid
 title: Justice-Reaper # the main title
 
 # it will display as the subtitle
-tagline: "• Pentester<br>• CTF Player<br>• BSCP<br>"
+tagline: ""
 
 description: >- # used by seo meta and the atom feed
   "Blog sobre ciberseguridad, Hacking ético y CTF's"
