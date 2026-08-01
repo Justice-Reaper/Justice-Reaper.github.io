@@ -1277,7 +1277,7 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuació
 
 2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-3 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+3 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`. En esta parte si `encontramos` un `XSS`, lo que debemos hacer es `usar el HTTP request smuggling para que la víctima ejecute el payload`
 
 4 - `Para todos los ataques que vamos a ver a continuación a la hora que ejecutar las veririficaciones o los ataques es muy importante que enviemos muy rápido la segunda solicitud`. Además, `debemos de hacer esto varias veces para estar seguros`
 
