@@ -26,6 +26,8 @@ Github Advisories [https://github.com/advisories](https://github.com/advisories)
 
 ## Blogs
 
+Beafn28 [https://beafn28.es/](https://beafn28.es/)
+
 Deep Hacking [https://deephacking.tech](https://deephacking.tech)
 
 SocRadar [https://socradar.io/blog](https://socradar.io/blog)
