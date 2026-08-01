@@ -1279,7 +1279,7 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuació
 
 3 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
 
-4 - Vamos a `lanzar la extensión HTTP Request Smuggler` sobre un `recurso estático` y sobre la `raíz de la web` para ver si nos encuentra algo y así `ahorrarnos tiempo`
+4 - `Para todos los ataques que vamos a ver a continuación a la hora que ejecutar las veririficaciones o los ataques es muy importante que enviemos muy rápido la segunda solicitud`. Además, `debemos de hacer esto varias veces para estar seguros`
 
 5 - Lo más recomendable para esta `vulnerabilidad` es `ver todos los posts de HTTP request smuggling` y `replicarlos a la hora del examen uno a uno`
 
