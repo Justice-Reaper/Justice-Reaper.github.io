@@ -82,7 +82,7 @@ Vemos que nos hace un `redirect` a `/admin` cuando es `Host` es `192.168.0.228`.
 
 ![](/assets/img/HTTP-Host-Header-Attacks-Lab-5/image_10.png)
 
-Si `pulsamos` en `Follow redirection nos devuelve el mismo error que antes porque no estamos usando una URL absoluta
+Si `pulsamos` en `Follow redirection nos devuelve el mismo error que antes porque no estamos usando una URL absoluta`
 
 ![](/assets/img/HTTP-Host-Header-Attacks-Lab-5/image_11.png)
 
