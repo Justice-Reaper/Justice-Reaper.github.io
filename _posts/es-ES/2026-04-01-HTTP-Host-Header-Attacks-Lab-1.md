@@ -76,7 +76,7 @@ Una vez hemos `comprobado` esto, `cambiamos el valor de la cabecera Host por el 
 
 Una vez hecho esto, nos `dirigimos` a `Exploit server > Access log` y vemos que `hemos recibido el token temporal de reseteo de contraseña del usuario carlos`. Esto se debe a que `carlos ha entrado a su bandeja de correo y ha pinchado sobre el enlace`
 
-![](/assets/img/HTTP-Host-Header-Attacks-Lab-1/image_11.png|687)
+![](/assets/img/HTTP-Host-Header-Attacks-Lab-1/image_11.png)
 
 Una vez hemos `obtenido` el `token`, `accedemos` a esta `URL https://0aa1009603f8bb0b83920af3003400c4.web-security-academy.net/forgot-password?temp-forgot-password-token=2x83ziujwa4mhu8btlfjupliu178b3se` y le `cambiamos` la `contraseña` al `usuario carlos`
 
