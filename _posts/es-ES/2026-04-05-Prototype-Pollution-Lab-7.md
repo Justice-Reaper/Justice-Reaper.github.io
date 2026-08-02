@@ -63,13 +63,13 @@ El `primero método` que vamos a `probar` se llama `JSON spaces override` y cons
 Como podemos ver, estamos `envenenando el prototipo correctamente`
 
 ```
-"__proto__":{"json spaces":0}}
+"__proto__":{"json spaces":0}
 ```
 
 ![](/assets/img/Prototype-Pollution-Lab-7/image_7.png)
 
 ```
-"__proto__":{"json spaces":10}}
+"__proto__":{"json spaces":10}
 ```
 
 ![](/assets/img/Prototype-Pollution-Lab-7/image_8.png)
