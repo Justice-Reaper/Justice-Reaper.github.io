@@ -317,17 +317,17 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 8 - Dependiendo de la `vulnerabilidad` que `identifique` deberemos `seguir los pasos de un laboratorio u otro para lograr llevar a cabo el ataque correspondiente de forma exitosa`
 
-9 - Si nos identifica `Invalid JWT Signature` o `JWT Signature not required` iremos al `primer laboratorio`
+9 - Si nos identifica `Invalid JWT Signature` o `JWT Signature not required` iremos al `primer laboratorio` [https://justice-reaper.github.io/posts/JWT-Attacks-Lab-1/](https://justice-reaper.github.io/posts/JWT-Attacks-Lab-1/)
 
-10 - Si nos identifica `JWT algorithm none attack` iremos al `segundo laboratorio`
+10 - Si nos identifica `JWT algorithm none attack` iremos al `segundo laboratorio` [https://justice-reaper.github.io/posts/JWT-Attacks-Lab-2/](https://justice-reaper.github.io/posts/JWT-Attacks-Lab-2/)
 
-11 - Si nos identifica `JWT is signed symmetrically` o `JWT weak HMAC secret` iremos al `tercer laboratorio`
+11 - Si nos identifica `JWT is signed symmetrically` o `JWT weak HMAC secret` iremos al `tercer laboratorio` [https://justice-reaper.github.io/posts/JWT-Attacks-Lab-3/](https://justice-reaper.github.io/posts/JWT-Attacks-Lab-3/)
 
-12 - Si nos identifica `JWT jwk header injection` iremos al `cuarto laboratorio`
+12 - Si nos identifica `JWT jwk header injection` iremos al `cuarto laboratorio` [https://justice-reaper.github.io/posts/JWT-Attacks-Lab-4/](https://justice-reaper.github.io/posts/JWT-Attacks-Lab-4/)
 
-13 - Si nos identifica `JWT jku pingback` iremos al `quinto laboratorio`
+13 - Si nos identifica `JWT jku pingback` iremos al `quinto laboratorio` [https://justice-reaper.github.io/posts/JWT-Attacks-Lab-5/](https://justice-reaper.github.io/posts/JWT-Attacks-Lab-5/)
 
-14 - Si nos identifica `JWT kid header path traversal` iremos al `sexto laboratorio`
+14 - Si nos identifica `JWT kid header path traversal` iremos al `sexto laboratorio` [https://justice-reaper.github.io/posts/JWT-Attacks-Lab-6/](https://justice-reaper.github.io/posts/JWT-Attacks-Lab-6/)
 
 ## ¿Cómo prevenir vulnerabilidades de subida de archivos?
 
