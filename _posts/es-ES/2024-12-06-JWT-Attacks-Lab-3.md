@@ -81,7 +81,7 @@ También podemos usar `hashcat` para `bruteforcear` el `JWT`
 # hashcat -a 0 -m 16500 jwtx jwt.secrets.list 
 ```
 
-Con la contraseña obtenida `secret1`, no dirigimos a `JWT Editor` en `Burpsuite` y pulsamos sobre `New Symmetric Key`
+Con la contraseña obtenida `secret1`, no dirigimos a `JWT Editor` en `Burpsuite` y pulsamos sobre `New Symmetric Key`. Una vez hecho esto, `introducimos secret1`, `pulsamos en Generate` y `creamos la nueva clave`
 
 ![](/assets/img/JWT-Attacks-Lab-3/image_6.png)
 
