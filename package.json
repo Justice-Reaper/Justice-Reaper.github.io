@@ -27,6 +27,9 @@
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.8"
   },
+  "overrides": {            
+  "flat-cache": "6.1.23"  
+  },                        
   "devDependencies": {
     "@babel/core": "^7.27.1",
     "@babel/plugin-transform-class-properties": "^7.27.1",
