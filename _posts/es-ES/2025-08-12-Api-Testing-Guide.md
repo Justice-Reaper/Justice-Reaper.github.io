@@ -506,7 +506,7 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 4 - Si encontramos un `endpoint` de la `api`, `/api/swagger/v1/users/123` por ejemplo, `vamos` a `enviar` una `petición` por `GET` y por `POST` a las `rutas base`, para ver si `encontramos` la `documentación` de la `API`. Las `rutas base` para este `endpoint` en concreto son `/api/swagger/v1`, `/api/swagger` y `/api`
 
-5 - `En el caso de que no encontremos ningún endpoint de la api o no encontremos la documentación, vamos a aplicar fuzzing con la herramienta Content discovery de Burpsuite`. `Como diccionario, vamos a usar el que nos viene por defecto y si no encuentra nada, usaremos primero uno de uso general y luego otro que sea específico para APIs`. El `objetivo` de esto es `encontrar` las `rutas base` de las `APIs` y su `documentación`
+5 - `En el caso de que no encontremos ningún endpoint de la api o no encontremos la documentación, vamos a aplicar fuzzing con la herramienta Content discovery de Burpsuite`. `Como diccionario, vamos a usar el que nos viene por defecto`. `Antes de lanzar el ataque pulsamos en la pestaña config` y ponemos el `Numer of discovery threads` en `1` y el `Number of spider threads` a `1` también. El `objetivo` de esto es `encontrar` las `rutas base` de las `APIs` y su `documentación`
 
 6 - Es `posible` que en los `siguiente pasos` tengamos que `cambiar` el `Content-Type` y el `formato` en el que se `envían` los `datos` para que `la petición se envíe correctamente`. Para `facilitar` esto, podemos `usar` la `extensión Content Type Converter de Burpsuite`
 
