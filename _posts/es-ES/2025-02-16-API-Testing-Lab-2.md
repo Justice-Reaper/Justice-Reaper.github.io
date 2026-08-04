@@ -196,6 +196,6 @@ Nos `logueamos` como el usuario `administrador`
 
 Pulsamos sobre `Admin panel` y `eliminamos` al usuario `carlos`
 
-![[image_17.png]]
+![](/assets/img/API-Testing-Lab-2/image_17.png)
 
-![[image_18.png]]
+![](/assets/img/API-Testing-Lab-2/image_18.png)
