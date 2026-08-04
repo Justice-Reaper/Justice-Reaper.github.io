@@ -270,7 +270,7 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-3 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+3 - `Iniciamos sesión si podemos` y `hacemos` un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
 
 4 - Es `muy importante` que `miremos todo lo que detecta el escáner de Burpsuite`, ya que nos puede `detectar` el `archivo robots.txt`, `rutas o archivos de backups`, `errores que se produzcan y desvelen información`, `archivos phpinfo`, el `método TRACE`. Respecto al `método TRACE`, `el servidor web responderá a las peticiones que usen el método TRACE repitiendo en la respuesta la petición exacta que recibió`. Esto puede hacer que `veamos cabeceras interesantes que nos permitan acceder a rutas como /admin`
 
