@@ -148,7 +148,7 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuació
 
 2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
     
-3 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+3 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`. Mientras se hace esto, `navegamos manualmente por toda la web` e `intereactuamos con todo el contenido`
     
 4 - `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
     
