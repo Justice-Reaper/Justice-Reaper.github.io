@@ -502,7 +502,7 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-3 - `Analizar` la `web` con el `escáner de Burpsuite`. Para ello, `marcaremos Crawl and audit` como `tipo de escaneo`  y como `configuración de escaneo` usaremos `Deep`. Mientras tanto, vamos a `interactuar` con `todas` las `funcionalidades` de la `web` de `forma manual` y `ver` las `peticiones` que se `realizan` desde el `Logger`
+3 - `Analizar` la `web` con el `escáner de Burpsuite`. Para ello, `marcaremos Crawl and audit` como `tipo de escaneo`  y como `configuración de escaneo` usaremos `Deep`. Mientras tanto, vamos a `loguearnos` si podemos y a `interactuar` con `todas` las `funcionalidades` de la `web` de `forma manual` y `ver` las `peticiones` que se `realizan` desde el `Logger`
 
 4 - Si encontramos un `endpoint` de la `api`, `/api/swagger/v1/users/123` por ejemplo, `vamos` a `enviar` una `petición` por `GET` y por `POST` a las `rutas base`, para ver si `encontramos` la `documentación` de la `API`. Las `rutas base` para este `endpoint` en concreto son `/api/swagger/v1`, `/api/swagger` y `/api`
 
