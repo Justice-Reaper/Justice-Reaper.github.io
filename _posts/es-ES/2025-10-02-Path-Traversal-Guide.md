@@ -150,9 +150,9 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuació
 katana -u https://0ab7005203fcd9e4803a94dc00a200cd.web-security-academy.net -H "Cookie: session=NUESTRAS_COOKIES" -jc -jsl -fx -kf all -xhr -d 3 -silent -f qurl | sort -u > params.txt
 ```
 
-2 - Una vez tenemos esto vamos a hacer una petición a las rutas que nos interesaen y vamos a efectuar un ataque con el Intruder de Burpsuite. Como diccionario vamos a usar este [https://raw.githubusercontent.com/coffinxp/loxs/refs/heads/main/payloads/lfi.txt](https://raw.githubusercontent.com/coffinxp/loxs/refs/heads/main/payloads/lfi.txt). Es muy importante quue desactivemos el Payload encoding porque de los contrario, no funciará correctamente el ataque y támbien debemos modificar la configuración un poco para no mandar demasiadas solicitudes y tirar la web
+2 - Una vez tenemos esto vamos a hacer una petición a las rutas que nos interesaen y vamos a efectuar un ataque con el Intruder de Burpsuite. Como diccionario vamos a usar este [https://raw.githubusercontent.com/coffinxp/loxs/refs/heads/main/payloads/lfi.txt](https://raw.githubusercontent.com/coffinxp/loxs/refs/heads/main/payloads/lfi.txt). Es muy importante quue desactivemos el Payload encoding porque de los contrario, no funciará correctamente el ataque y támbien debemos modificar la configuración un poco para no mandar demasiadas solicitudes y tirar la web. Otra cosa también importante es que el payload siempre se inyecta donde está el archivo, es decir, si tenemos esto ?filename=/var/www/images/1.jpg, nuestro payload va donde está el 1.jpg, es decir, la ruta /var/www/images/ se deja intacta
 
-3 - Una vez terminado el ataque, vamos a filtrar por la palabra root porque ese usuario siempre se encuentra en el /etc/passwd. La cadena completa que deberíamos ver, va a ser esta root:x:0:0:root:/root:/bin/bash o una muy parecida
+3 - Una vez terminado el ataque, vamos a filtrar por root: porque ese usuario siempre se encuentra en el /etc/passwd. La cadena completa que deberíamos ver, va a ser esta root:x:0:0:root:/root:/bin/bash o una muy parecida
 
 ## Prevenir un path traversal
 
