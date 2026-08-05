@@ -14,7 +14,7 @@ Throughout my journey in this field, I've encountered tasks that I find tedious 
 
 Beyond that, I contribute to the [Arch User Repository (AUR)](https://aur.archlinux.org/packages?K=justice-reaper&SeB=m) by uploading my own packages, something I started doing after compiling a kernel module to fix a microphone bug on my laptop
 
-When it comes to languages, I believe they're essential in this field. That's why I earned my English B2 certificate last year, and I'll start preparing for a French B1 certificate next year
+When it comes to languages, I believe they're essential in this field. That's why I earned my English B2 certificate last year, and I'll start preparing for the C1 next year
 
 ## About Me 🚀
 
