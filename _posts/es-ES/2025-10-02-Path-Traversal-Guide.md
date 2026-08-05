@@ -150,9 +150,9 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuació
 katana -u https://0ab7005203fcd9e4803a94dc00a200cd.web-security-academy.net -H "Cookie: session=NUESTRAS_COOKIES" -jc -jsl -fx -kf all -xhr -d 3 -silent -f qurl | sort -u > params.txt
 ```
 
-2 - Una vez tenemos esto vamos a hacer una petición a las rutas que nos interesaen y vamos a efectuar un ataque con el Intruder de Burpsuite. Como diccionario vamos a usar este [https://raw.githubusercontent.com/coffinxp/loxs/refs/heads/main/payloads/lfi.txt](https://raw.githubusercontent.com/coffinxp/loxs/refs/heads/main/payloads/lfi.txt) y sabremos que el ataque ha funcionado por el Content-Length, ya que si funciona el LFI el Content-Length va a ser mayor que el de una petición normal
+2 - Una vez tenemos esto vamos a hacer una petición a las rutas que nos interesaen y vamos a efectuar un ataque con el Intruder de Burpsuite. Como diccionario vamos a usar este [https://raw.githubusercontent.com/coffinxp/loxs/refs/heads/main/payloads/lfi.txt](https://raw.githubusercontent.com/coffinxp/loxs/refs/heads/main/payloads/lfi.txt). Es muy importante quue desactivemos el Payload encoding porque de los contrario, no funciará correctamente el ataque y támbien debemos modificar la configuración un poco para no mandar demasiadas solicitudes y tirar la web
 
-3 - Si queremos estar más seguros del resultado, podemos usar la extensión Diff Hunter para ver las diferencias con mayor detalle. El primer paso sería marcar una petición base a la ruta normal como Target en Diff Hunter, aplicar una regex para eliminar ruido y ver los resultados
+3 - Una vez terminado el ataque, vamos a filtrar por la palabra root porque ese usuario siempre se encuentra en el /etc/passwd. La cadena completa que deberíamos ver, va a ser esta root:x:0:0:root:/root:/bin/bash o una muy parecida
 
 ## Prevenir un path traversal
 
