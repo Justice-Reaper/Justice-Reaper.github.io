@@ -144,23 +144,15 @@ En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1 - `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Additional Scanner Checks`, `Collaborator Everywhere`, `Backslash Powered Scanner` y `Agartha` de `Burpsuite`
+1 - Lanzaremos katana para crawlear toda la web y obtener así todas las rutas de la web. Es importante que nos fijemos en rutas como ?filename=1.jpg, o si llevan una ruta inicial como en este caso ?filename=/var/www/images/1.jpg
 
-2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
-    
-3 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`. Mientras se hace esto, `navegamos manualmente por toda la web` e `intereactuamos con todo el contenido`
-    
-4 - `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
-    
-5 - Efectuamos un `ataque de fuerza bruta` utilizando los `payloads` de `Agartha`
+```
+katana -u https://0ab7005203fcd9e4803a94dc00a200cd.web-security-academy.net -H "Cookie: session=NUESTRAS_COOKIES" -jc -jsl -fx -kf all -xhr -d 3 -silent -f qurl | sort -u > params.txt
+```
 
-6 - Haremos otro `ataque de fuerza bruta` utilizando el `diccionario` que trae `Burpsuite` llamado `Fuzzing - path traversal (single file)`. En la parte de `payload processing` agregamos la regla `Match/replace`. Seguidamente, en el apartado `Match regex` debemos `escapar los caracteres especiales`, así que se quedaría tal que así `\{file\}`. Finalmente, en el apartado `Replace with` pondremos el `nombre del fichero` que queramos `fuzzear`
+2 - Una vez tenemos esto vamos a hacer una petición a las rutas que nos interesaen y vamos a efectuar un ataque con el Intruder de Burpsuite. Como diccionario vamos a usar este [https://raw.githubusercontent.com/coffinxp/loxs/refs/heads/main/payloads/lfi.txt](https://raw.githubusercontent.com/coffinxp/loxs/refs/heads/main/payloads/lfi.txt) y sabremos que el ataque ha funcionado por el Content-Length, ya que si funciona el LFI el Content-Length va a ser mayor que el de una petición normal
 
-7 - Hacemos lo mismo con el `diccionario integrado de Burpsuite` llamado `Fuzzing - path traversal`. Deberemos hacer lo mismo que en el apartado anterior en la parte de `payload processing`, pero en este caso agregaremos `\{base\}` en el primer apartado
-
-8 - Si aún seguimos sin encontrar nada, usaremos el `diccionario` de `Loxs` para realizar un `ataque de fuerza bruta` con `Burpsuite`
-
-9 - Si no encontramos nada, `checkearemos` las `cheatsheets` de `PayloadsAllTheThings` y `Hacktricks` e iremos `testeando de forma manual`. Si vemos `payloads` o `diccionarios` para aplicar `fuerza bruta` debemos probarlos
+3 - Si queremos estar más seguros del resultado, podemos usar la extensión Diff Hunter para ver las diferencias con mayor detalle. El primer paso sería marcar una petición base a la ruta normal como Target en Diff Hunter, aplicar una regex para eliminar ruido y ver los resultados
 
 ## Prevenir un path traversal
 
