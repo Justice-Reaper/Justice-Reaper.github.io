@@ -144,7 +144,7 @@ En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1 - Lanzaremos katana para crawlear toda la web y obtener así todas las rutas de la web. Es importante que nos fijemos en rutas como ?filename=1.jpg, o si llevan una ruta inicial como en este caso ?filename=/var/www/images/1.jpg
+1 - Lanzaremos katana para crawlear toda la web y obtener así todas las rutas de la web. Es importante que nos fijemos en rutas como ?filename=1.jpg, o si llevan una ruta inicial como en este caso ?filename=/var/www/images/1.jpg. Si las cookies no hacen falta, eliminamos ese parámetro
 
 ```
 katana -u https://0ab7005203fcd9e4803a94dc00a200cd.web-security-academy.net -H "Cookie: session=NUESTRAS_COOKIES" -jc -jsl -fx -kf all -xhr -d 3 -silent -f qurl | sort -u > params.txt
