@@ -214,6 +214,35 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 6 - Si no encontramos nada con los `escáneres` podemos `checkear` las `cheatsheets` de `PayloadsAllTheThings` y `Hacktricks`
 
+
+
+## ¿Cómo detectar y explotar un command injection?
+
+Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
+
+1 - `Instalar` las extensión `Agartha` de `Burpsuite`
+
+2 - `Lo primero que tenemos que hacer es detectar el command injection`, para ello vamos a `generar payloads` usando el `comando sleep 5` con la `extensión Agartha` y `mediante el Intruder vamos a efectuar un Battering ram attack`. `Vamos a introducir los payloads generados en todas las posiciones posibles`, por ejemplo, `en un formulario pues enviamos datos random, capturamos la petición con Burspuite y sustituimos esos datos random`. `Antes de iniciar el ataque debemos tener en cuenta que puede ser que hayan posiciones en las que no podamos introducir un payload porque provocaríamos un error, por ejemplo, si reemplazamos un token csrf lo más seguro es que provoquemos un error`. Otra cosa importante, `tenemos que usar un solo hilo, poner un tiempo fijo entre peticiones (200 milisegundos por ejemplo) y desactivar el payload encoding`. Si queremos `payload encoding` lo hacemos desde la `extensión Agartha`, `no desde el Intruder`
+
+3 - `Si no encontramos nada puede ser porque estemos ante un blind command injection with out-of-band interaction`, para estos casos tenemos que `copiarnos un dominio de Burpsuite Collaborator` y `usarlo en este comando nslookup npg6x2n5ukokq7409k2zmzwl8ce32tqi.oastify.com para generar un diccionario de payloads`. Este `diccionario` lo vamos a `guardar` en una `ruta de nuestro sistema` y posteriormente vamos a `ejecutar estos comandos para así añadirle un identificador único a cada payload y así saber que payload corresponde cada petición que recibamos en Burpsuite Collaborator`. Una vez tengamos el `diccionario creado`, `efectuamos un Battering ram attack e introducimos los payloads en todas las posiciones posibles`
+
+```
+d="npg6x2n5ukokq7409k2zmzwl8ce32tqi.oastify.com"
+awk -v d="$d" 'index($0,d){ n++; sub(d, n"."d) } 1' payloads.txt | sponge payloads.txt
+```
+
+4 - `En caso de que los pasos anteriores no funcionen, podemos intentar hacer los pasos que se mencionan a continuación, sin embargo, lo más probable es que no exista un command injection en este laboratorio`. `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Additional Scanner Checks`, `Collaborator Everywhere`, `Backslash Powered Scanner` y `Command injection attacker` de `Burpsuite`
+
+5 - `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Additional Scanner Checks`, `Collaborator Everywhere`, `Backslash Powered Scanner` y `Command injection attacker` de `Burpsuite`
+
+6 - `Añadir` el `dominio` y sus `subdominios` al `scope`
+
+7 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+
+8 - `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos `seleccionar` en `tipo de escaneo` la opción `Audit selected items`
+
+9 - Una vez hayamos `detectado` el `command injection`, ya podremos `ejecutar comandos` en la `máquina víctima`. Para `completar` los `laboratorios` vamos a tener que `leer` un `archivo`, `existen diferentes formas de lograrlo`, por ejemplo`, puede ser que podamos ver el output del comando en la respuesta` [https://justice-reaper.github.io/posts/Command-Injection-Lab-1/](https://justice-reaper.github.io/posts/Command-Injection-Lab-1/), `puede ser que tengamos que copiar el contenido del archivo que queramos leer en una ruta a la que tengamos acceso` [https://justice-reaper.github.io/posts/Command-Injection-Lab-3/](https://justice-reaper.github.io/posts/Command-Injection-Lab-3/) o `puede ser que tengamos que exfiltrar el contenido del archivo` [https://justice-reaper.github.io/posts/Command-Injection-Lab-5/](https://justice-reaper.github.io/posts/Command-Injection-Lab-5/)
+
 ## Prevenir ataques de command injection
 
 La forma más efectiva de prevenir vulnerabilidades de `command injection` es `nunca llamar a comandos del sistema operativo desde el código de la capa de aplicación`. En casi todos los casos, existen `formas alternativas` de implementar la funcionalidad requerida usando `APIs`
