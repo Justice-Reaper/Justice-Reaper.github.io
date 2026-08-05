@@ -202,24 +202,6 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1 - `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Additional Scanner Checks`, `Collaborator Everywhere`, `Backslash Powered Scanner` y `Command injection attacker` de `Burpsuite`
-
-2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
-
-3 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
-
-4 - `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
-
-5 - Realizar un `ataque de fuerza bruta` con el `Intruder` y los diccionarios mencionados en `hacking tools`. Si no encontramos nada, usar los `payloads` de la extensión `Agartha` de `Burpsuite` y si tampoco encontramos nada, usar la extensión `Command injection attacker` de `Burpsuite`. Es recomendable `setear` la opción `Delay between requests` en `1` y desactivar el `Automatic throttling` para que `el tiempo de respuesta del servidor varíe lo menos posible`, esto es importante para poder `identificar` si hay un `blind command injection`. También debemos `disminuir` el `número de hilos` para `no colapsar` el `servidor`
-
-6 - Si no encontramos nada con los `escáneres` podemos `checkear` las `cheatsheets` de `PayloadsAllTheThings` y `Hacktricks`
-
-
-
-## ¿Cómo detectar y explotar un command injection?
-
-Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
-
 1 - `Instalar` las extensión `Agartha` de `Burpsuite`
 
 2 - `Lo primero que tenemos que hacer es detectar el command injection`, para ello vamos a `generar payloads` usando el `comando sleep 5` con la `extensión Agartha` y `mediante el Intruder vamos a efectuar un Battering ram attack`. `Vamos a introducir los payloads generados en todas las posiciones posibles`, por ejemplo, `en un formulario pues enviamos datos random, capturamos la petición con Burspuite y sustituimos esos datos random`. `Antes de iniciar el ataque debemos tener en cuenta que puede ser que hayan posiciones en las que no podamos introducir un payload porque provocaríamos un error, por ejemplo, si reemplazamos un token csrf lo más seguro es que provoquemos un error`. Otra cosa importante, `tenemos que usar un solo hilo, poner un tiempo fijo entre peticiones (200 milisegundos por ejemplo) y desactivar el payload encoding`. Si queremos `payload encoding` lo hacemos desde la `extensión Agartha`, `no desde el Intruder`
