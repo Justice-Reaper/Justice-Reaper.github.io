@@ -452,6 +452,10 @@ WhatWaf [https://github.com/Ekultek/WhatWaf.git](https://github.com/Ekultek/What
 
 Wafw00f [https://github.com/EnableSecurity/wafw00f.git](https://github.com/EnableSecurity/wafw00f.git)
 
+### Crawling                                                                                            
+                                                                                                        
+Katana [https://github.com/projectdiscovery/katana.git](https://github.com/projectdiscovery/katana.git) 
+
 ### Fuzzing
 
 Feroxbuster [https://github.com/epi052/feroxbuster.git](https://github.com/epi052/feroxbuster.git)
