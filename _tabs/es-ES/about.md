@@ -14,7 +14,7 @@ Durante mi camino por este campo he ido encontrándome tareas que considero tedi
 
 También contribuyo al [Arch User Repository (AUR)](https://aur.archlinux.org/packages?K=justice-reaper&SeB=m) subiendo mis propios paquetes, algo que empecé a hacer tras compilar un módulo del kernel para arreglar un fallo de micrófono en mi portátil
 
-Respecto a los idiomas, considero que son fundamentales en este campo, por lo que el año pasado obtuve el B2 de inglés y el año que viene empezaré a prepararme para el B1 de francés
+Respecto a los idiomas, considero que son fundamentales en este campo, por lo que el año pasado obtuve el B2 de inglés y el año que viene empezaré a prepararme para el C1
 
 ## Sobre mí 🚀
 
