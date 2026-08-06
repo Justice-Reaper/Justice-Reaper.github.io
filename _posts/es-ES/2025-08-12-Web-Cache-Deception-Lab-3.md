@@ -88,7 +88,7 @@ Al testear la `normalización`, debemos comenzar `codificando únicamente la seg
 
 ![](/assets/img/Web-Cache-Deception-Lab-3/image_9.png)
 
-Como ya hemos `comprobado` que `no hay normalización por parte del servidor de origen`, vamos a `testear si hay normalización por parte del servidor de caché`. Para ello `debemos buscar solicitudes con prefijos comunes de directorios estáticos y respuestas cacheadas` en el `HTTP History` o en el `Site map` de `Burpsuite`. `Conviene revisar en ambos sitios porque hay veces que Burpsuite no muestra bien la información en el HTTP History`
+Como hemso visto, la `respuesta` nos `devuelve` el `contenido` de `/my-account`, lo que `confirma` que `el servidor de origen normaliza la ruta (decodifica %2f y resuelve el ../)`. Lo siguiente que vamos a hacer es `testear si hay normalización por parte del servidor de caché`. Para ello `debemos buscar solicitudes con prefijos comunes de directorios estáticos y respuestas cacheadas` en el `HTTP History` o en el `Site map` de `Burpsuite`. `Conviene revisar en ambos sitios porque hay veces que Burpsuite no muestra bien la información en el HTTP History`
 
 ![](/assets/img/Web-Cache-Deception-Lab-3/image_10.png)
 
