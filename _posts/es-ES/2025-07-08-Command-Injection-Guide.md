@@ -221,7 +221,7 @@ awk -v d="$d" 'index($0,d){ n++; sub(d, n"."d) } 1' payloads.txt | sponge payloa
 
 7 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-8 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+8 - `Interactuar con toda la web manualmente` y `hacer` un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
 
 9 - `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos `seleccionar` en `tipo de escaneo` la opción `Audit selected items`
 
