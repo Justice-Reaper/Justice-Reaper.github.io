@@ -440,7 +440,7 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-3 - `Interactuar con todas las funciones del sitio web` y `hacer` un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+3 - `Iniciamos sesión, interactuamos con todas las funciones del sitio web` y `hacer` un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
 
 4 - Antes de empezar, `para poder explotar esta vulnerabilidad necesitamos encontrar un endpoint que contenga información sensible y que al hacerle una petición veamos la cabecera Access-Control-Allow-Credentials: true en la respuesta`. Una vez tenemos esto, `debemos comprobar si podemos proporcionar un origen nulo Origin: null o un origen random Origin: https://vulnerable.com`. Estos `dos laboratorios` son `ejemplo` de esto:
 
