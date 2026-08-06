@@ -440,19 +440,19 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-3 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+3 - `Interactuar con todas las funciones del sitio web` y `hacer` un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
 
-4 - `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
+4 - Antes de empezar, `para poder explotar esta vulnerabilidad necesitamos encontrar un endpoint que contenga información sensible y que al hacerle una petición veamos la cabecera Access-Control-Allow-Credentials: true en la respuesta`. Una vez tenemos esto, `debemos comprobar si podemos proporcionar un origen nulo Origin: null o un origen random Origin: https://vulnerable.com`. Estos `dos laboratorios` son `ejemplo` de esto:
 
-5 - Si preferimos usar herramientas por consola podemos usar `CORScanner`, `CorsOne` o `CorsMe`. La que más gustan son `CORScanner` y `CorsOne`, ya que `CorsMe` tienen el problema de que para detectar si el `Origin` acepta como valor `null`, solo prueban con el valor `Null` y no con `NULL` o `null`, y esto puede provocar que `no detecten la vulnerabilidad en ciertas ocasiones`
+Laboratorio 1: [https://justice-reaper.github.io/posts/CORS-Lab-1/](https://justice-reaper.github.io/posts/CORS-Lab-1/)
 
-6 - Si tenemos dudas de cómo explotar el ataque, `Corsy` nos da pistas sobre ello
+Laboratorio 2: [https://justice-reaper.github.io/posts/CORS-Lab-2/](https://justice-reaper.github.io/posts/CORS-Lab-2/)
 
-7 - Si en este punto `no podemos explotar CORS`, tenemos que buscar un `dominio de confianza` que sea `vulnerable` a `XSS`. Para ello, debemos revisar la `guía de XSS` para saber como `identificarlos`
+5 - `Si esto no da resultado`, lo que debemos de hacer es `buscar` un `dominio de confianza` que sea `vulnerable` a `XSS`. Para `identifcar` los `XSS`, debemos `revisar` la `guía de XSS` [https://justice-reaper.github.io/posts/XSS-Guide/](https://justice-reaper.github.io/posts/XSS-Guide/). En este `laboratorio` podemos ver como llevar a cabo ese proceso:
 
-8 - Si no encontramos nada, procedemos a buscar de `forma manual` siguiendo los pasos de `PayloadsAllTheThings` y `Hacktricks`
+Laboratorio 3: [https://justice-reaper.github.io/posts/CORS-Lab-3/](https://justice-reaper.github.io/posts/CORS-Lab-3/)
 
-9 - Para crear un `PoC` usaremos `C0rsPwn3r` o lo haremos de forma `manual`
+6 - `Una vez hayamos confirmado que la web es tiene CORS mal configurado`, lo que tenemos que hacer `crear` una `Poc`. Para hacer esto `podemos crear la PoC con la herramienta C0rsPwn3r` o `usar las mismas que en los laboratorios mencionados`
 
 ## Prevenir ataques CORS-based
 
