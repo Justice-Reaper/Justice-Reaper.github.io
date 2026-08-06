@@ -365,6 +365,14 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 4 - Una vez hayamos hecho lo anterior, `debemos revisar las técnicas vistas en los 4 laboratorios resueltos que se comparten en este post  y probarlas`. En mi caso me gusta `realizar` estos `ataques` de forma `manual`, sin embargo, podemos `usar las herramientas Cache Deception Scanner y wcDetect para agilizar el descubrimiento de estas vulnerabilidades`. Sin embargo, `debemos de tener en cuenta que Cache Deception Scanner y wcDetect solo detectan las 3 primeras vulnerabilidades vistas`. Por lo tanto, `es conveniente hacer los ataques manualmente`
 
+Laboratorio 1: [https://justice-reaper.github.io/posts/Web-Cache-Deception-Lab-1/](https://justice-reaper.github.io/posts/Web-Cache-Deception-Lab-1/)
+
+Laboratorio 2: [https://justice-reaper.github.io/posts/Web-Cache-Deception-Lab-2/](https://justice-reaper.github.io/posts/Web-Cache-Deception-Lab-2/)
+
+Laboratorio 3: [https://justice-reaper.github.io/posts/Web-Cache-Deception-Lab-3/](https://justice-reaper.github.io/posts/Web-Cache-Deception-Lab-3/)
+
+Laboratorio 4: [https://justice-reaper.github.io/posts/Web-Cache-Deception-Lab-4/](https://justice-reaper.github.io/posts/Web-Cache-Deception-Lab-4/)
+
 ## Prevenir un web cache deception
 
 `Se pueden tomar varias medidas para prevenir un web cache deception`:
