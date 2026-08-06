@@ -213,17 +213,19 @@ d="npg6x2n5ukokq7409k2zmzwl8ce32tqi.oastify.com"
 awk -v d="$d" 'index($0,d){ n++; sub(d, n"."d) } 1' payloads.txt | sponge payloads.txt
 ```
 
-4 - `En caso de que los pasos anteriores no funcionen, podemos intentar hacer los pasos que se mencionan a continuación, sin embargo, lo más probable es que no exista un command injection en este laboratorio`. `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Additional Scanner Checks`, `Collaborator Everywhere`, `Backslash Powered Scanner` y `Command injection attacker` de `Burpsuite`
+4 - `En caso de que los pasos anteriores no funcionen`, vamos a `repetirlos` pero `seleccionando` la `opción` de `URL encoding` en `Agartha`
 
-5 - `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Additional Scanner Checks`, `Collaborator Everywhere`, `Backslash Powered Scanner` y `Command injection attacker` de `Burpsuite`
+5 - `En caso de que esto tampoco funcione, podemos intentar hacer los pasos que se mencionan a continuación, sin embargo, lo más probable es que no exista un command injection en este laboratorio`. `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Additional Scanner Checks`, `Collaborator Everywhere`, `Backslash Powered Scanner` y `Command injection attacker` de `Burpsuite`
 
-6 - `Añadir` el `dominio` y sus `subdominios` al `scope`
+6 - `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Additional Scanner Checks`, `Collaborator Everywhere`, `Backslash Powered Scanner` y `Command injection attacker` de `Burpsuite`
 
-7 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+7 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-8 - `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos `seleccionar` en `tipo de escaneo` la opción `Audit selected items`
+8 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
 
-9 - Una vez hayamos `detectado` el `command injection`, ya podremos `ejecutar comandos` en la `máquina víctima`. Para `completar` los `laboratorios` vamos a tener que `leer` un `archivo`, `existen diferentes formas de lograrlo`, por ejemplo`, puede ser que podamos ver el output del comando en la respuesta` [https://justice-reaper.github.io/posts/Command-Injection-Lab-1/](https://justice-reaper.github.io/posts/Command-Injection-Lab-1/), `puede ser que tengamos que copiar el contenido del archivo que queramos leer en una ruta a la que tengamos acceso` [https://justice-reaper.github.io/posts/Command-Injection-Lab-3/](https://justice-reaper.github.io/posts/Command-Injection-Lab-3/) o `puede ser que tengamos que exfiltrar el contenido del archivo` [https://justice-reaper.github.io/posts/Command-Injection-Lab-5/](https://justice-reaper.github.io/posts/Command-Injection-Lab-5/)
+9 - `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos `seleccionar` en `tipo de escaneo` la opción `Audit selected items`
+
+10 - Una vez hayamos `detectado` el `command injection`, ya podremos `ejecutar comandos` en la `máquina víctima`. Para `completar` los `laboratorios` vamos a tener que `leer` un `archivo`, `existen diferentes formas de lograrlo`, por ejemplo`, puede ser que podamos ver el output del comando en la respuesta` [https://justice-reaper.github.io/posts/Command-Injection-Lab-1/](https://justice-reaper.github.io/posts/Command-Injection-Lab-1/), `puede ser que tengamos que copiar el contenido del archivo que queramos leer en una ruta a la que tengamos acceso` [https://justice-reaper.github.io/posts/Command-Injection-Lab-3/](https://justice-reaper.github.io/posts/Command-Injection-Lab-3/) o `puede ser que tengamos que exfiltrar el contenido del archivo` [https://justice-reaper.github.io/posts/Command-Injection-Lab-5/](https://justice-reaper.github.io/posts/Command-Injection-Lab-5/)
 
 ## Prevenir ataques de command injection
 
