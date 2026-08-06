@@ -26,7 +26,7 @@ image:
 ---
 
 ## ¿Qué es el cross-origin resource sharing (CORS)?
-
+asdfasdfasdf
 El `Cross-Origin Resource Sharing (CORS)` es un `mecanismo` del `navegador` que permite el `acceso controlado` a `recursos` ubicados fuera de un `dominio` determinado. Amplía y flexibiliza la `SOP`. Sin embargo, también puede generar `ataques cross-domain` si la `política de CORS` de un `sitio web` está `mal configurada` o `mal implementada`. Debemos tener en cuenta que `CORS` no protegerá contra ataques `cross-origin`, como el `CSRF`
 
 ![](/assets/img/CORS-Guide/image_1.png)
