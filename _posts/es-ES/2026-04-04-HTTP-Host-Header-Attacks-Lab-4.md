@@ -48,10 +48,10 @@ Si nos vamos a `Target > Site map` vemos que `la extensión ha detectado un SSRF
 
 ![](/assets/img/HTTP-Host-Header-Attacks-Lab-4/image_4.png)
 
-Una vez sabemos esto, `como el laboratorio nos dice que debemos buscar una dirección IP en este rango 192.168.0.0/24`. `Podemos usar la herramienta ipRangeGenerator para generarlo` [https://github.com/Justice-Reaper/ipRangeGenerator.git](https://github.com/Justice-Reaper/ipRangeGenerator.git)
+Una vez sabemos esto, `como el laboratorio nos dice que debemos buscar una dirección IP en este rango 192.168.0.0/24`. `Podemos usar la herramienta ip-range-generator para generarlo` [https://github.com/Justice-Reaper/ip-range-generator.git](https://github.com/Justice-Reaper/ip-range-generator.git)
 
 ```
-python ipRangeGenerator.py -cidr "192.168.0.0/24" -o ips.txt    
+python ip-range-generator.py -cidr "192.168.0.0/24" -o ips.txt    
 [+] Generating IPs for network 192.168.0.0/24
 [+] Output file: ips.txt
 [+] Generating IPs: Completed! 254 IPs generated in ips.txt

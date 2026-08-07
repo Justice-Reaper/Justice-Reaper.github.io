@@ -229,7 +229,7 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 5 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
 
-6 - Una vez `detectada` la `vulnerabilidad`, si tiene este aspecto `http://192.168.0.1:8080/product/stock/check?productId=1&storeId=1` vamos a ver si tiene algo `corriendo` en el localhost `http://127.0.0.1:FUZZ`, para ello podemos usar el `Intruder` u otro `fuzzer`. Podemos escanear los `65535` puertos existentes o usar la herramienta `getTopPorts` para `obtener` los `puertos más comunes` y efectuar el `escaneo` más `rápido`
+6 - Una vez `detectada` la `vulnerabilidad`, si tiene este aspecto `http://192.168.0.1:8080/product/stock/check?productId=1&storeId=1` vamos a ver si tiene algo `corriendo` en el localhost `http://127.0.0.1:FUZZ`, para ello podemos usar el `Intruder` u otro `fuzzer`. Podemos escanear los `65535` puertos existentes o usar la herramienta `get-top-ports` para `obtener` los `puertos más comunes` y efectuar el `escaneo` más `rápido`
 
 7 - Si no encontramos nada en el `localhost`, `escanearemos` posibles rutas `http://192.168.0.1:8080/FUZZ` para ver si hay algo interesante. En mi caso uso los `diccionarios` de `SecLists`
 

@@ -74,10 +74,10 @@ Una vez haya `terminado`, si nos `vamos` a `Target > Site map > Issues` veremos 
 
 ![](/assets/img/HTTP-Host-Header-Attacks-Lab-6/image_11.png)
 
-Una vez hemos `confirmado` que existe un `SSRF`, vamos a `enumerar direcciones IP internas`. Para hacer esto, `necesitamos generarlas primero`, y para ello vamos a `usar` la herramienta `ipRangeGenerator` [https://github.com/Justice-Reaper/ipRangeGenerator.git](https://github.com/Justice-Reaper/ipRangeGenerator.git). El `enunciado` nos dice que el `CIDR` es `192.168.0.0/24` 
+Una vez hemos `confirmado` que existe un `SSRF`, vamos a `enumerar direcciones IP internas`. Para hacer esto, `necesitamos generarlas primero`, y para ello vamos a `usar` la herramienta `ip-range-generator` [https://github.com/Justice-Reaper/ip-range-generator.git](https://github.com/Justice-Reaper/ip-range-generator.git). El `enunciado` nos dice que el `CIDR` es `192.168.0.0/24` 
 
 ```
-python ipRangeGenerator.py -cidr "192.168.0.0/24" -o ips.txt
+python ip-range-generator.py -cidr "192.168.0.0/24" -o ips.txt
 [+] Generating IPs for network 192.168.0.0/24
 [+] Output file: ips.txt
 [+] Generating IPs: Completed! 254 IPs generated in ips.txt
@@ -95,7 +95,7 @@ def queueRequests(target, wordlists):
         pipeline=False
     )
 
-    for word in open('/home/justice-reaper/Downloads/ipRangeGenerator/ips.txt'):
+    for word in open('/home/justice-reaper/Downloads/ip-range-generator/ips.txt'):
         word = word.strip()
 
         engine.queue(

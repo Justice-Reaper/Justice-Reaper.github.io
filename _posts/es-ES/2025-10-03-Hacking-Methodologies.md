@@ -225,7 +225,7 @@ HTTPServer(("localhost", 9090), Handler).serve_forever()
 
 10. Si `Loxs` y `XSSuccessor` no encuentran nada, usaremos `Dalfox`, el cual tiene soporte para `DOM XSS`, `Reflected XSS` y `Stored XSS`. Como dije anteriormente, `Dalfox` cuenta con los `payloads` de `Portswigger` para descubrir `XSS` y con los `diccionarios` de `Burpsuite` y `Assetnote` para descubrir `parámetros` en la `URL` que sean `vulnerables`
 
-11. Si sospechamos de un `stored XSS`, podemos usar los `payloads` de `Loxs`, `XSSuccessor`, los de `Portswigger` que se obtienen mediante `Dalfox`, los de los `diccionarios` de `hacking tools` o los de `PayloadsAllTheThings` con el `Intruder` de `Burpsuite`. Si necesitamos `inyectar payloads` en `varias posiciones` seleccionaremos `Pitchfork` como `tipo de ataque`. `Puede ser complicado encontrar el payload correcto si mandamos muchos a la vez`, por eso, recomiendo usar la herramienta `payloadSplitter` para `dividir` una `gran lista de payloads` en `listas mucho más pequeñas y manejables`
+11. Si sospechamos de un `stored XSS`, podemos usar los `payloads` de `Loxs`, `XSSuccessor`, los de `Portswigger` que se obtienen mediante `Dalfox`, los de los `diccionarios` de `hacking tools` o los de `PayloadsAllTheThings` con el `Intruder` de `Burpsuite`. Si necesitamos `inyectar payloads` en `varias posiciones` seleccionaremos `Pitchfork` como `tipo de ataque`. `Puede ser complicado encontrar el payload correcto si mandamos muchos a la vez`, por eso, recomiendo usar la herramienta `payload-splitter` para `dividir` una `gran lista de payloads` en `listas mucho más pequeñas y manejables`
 
 12. En el caso en que haya algunos `tags` o `atributos` blacklisteados, podemos usar `XSSDynaGen` o el `fuzzer de XSStrike` para ver que `caracteres` podemos usar. Sin embargo, yo prefiero usar el `Intruder` de `Burpsuite` junto con la `cheatsheet de Portswigger` para averiguarlo, debido a que esta forma es más `precisa`
 
@@ -267,7 +267,7 @@ HTTPServer(("localhost", 9090), Handler).serve_forever()
 
 5. Si el `escáner` de `Burpsuite` no encuentra nada, procedemos a buscar de `forma manual` siguiendo los pasos de `PayloadsAllTheThings` y `Hacktricks`. Si vemos `payloads` o `diccionarios` para aplicar `fuerza bruta` debemos probarlos
 
-6. Una vez detectada la vulnerabilidad, si tiene este aspecto `http://192.168.0.1:8080/product/stock/check?productId=1&storeId=1` vamos a ver si tiene algo corriendo en el localhost `http://127.0.0.1:FUZZ`, para ello podemos usar el `Intruder` u otro `fuzzer`. Podemos escanear los `65535` puertos existentes o usar la herramienta `getTopPorts` para `obtener` los `puertos más comunes` y efectuar el `escaneo` más `rápido`
+6. Una vez detectada la vulnerabilidad, si tiene este aspecto `http://192.168.0.1:8080/product/stock/check?productId=1&storeId=1` vamos a ver si tiene algo corriendo en el localhost `http://127.0.0.1:FUZZ`, para ello podemos usar el `Intruder` u otro `fuzzer`. Podemos escanear los `65535` puertos existentes o usar la herramienta `get-top-ports` para `obtener` los `puertos más comunes` y efectuar el `escaneo` más `rápido`
 
 7. Si no encontramos nada en el `localhost`, `escanearemos` posibles rutas `http://192.168.0.1:8080/FUZZ` para ver si hay algo interesante. En mi caso uso los `diccionarios` de `SecLists`
 

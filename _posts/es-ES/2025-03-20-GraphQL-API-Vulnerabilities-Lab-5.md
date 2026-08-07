@@ -178,10 +178,10 @@ En `Burpsuite` con la extensión `Logger ++` vemos que se `tramita` esta `petici
 
 ![](/assets/img/GraphQL-API-Vulnerabilities-Lab-5/image_2.png)
 
-Podemos probar a cambiar el `content-type` de `application/json` a `application/x-www-form-urlencoded` y el `formato` de la `query` de `JSON` a `urlencoded` y si el `servidor` lo `acepta`, podríamos aprovecharnos de esto para `explotar` un `CSRF`. Para hacer esto lo podemos hacer de `forma manual` o podemos usar mi herramienta `graphQLConverter` [https://github.com/Justice-Reaper/graphQLConverter.git](https://github.com/Justice-Reaper/graphQLConverter.git). Le tenemos que pasar por parámetro la `query` que tenemos en `Burpsuite`
+Podemos probar a cambiar el `content-type` de `application/json` a `application/x-www-form-urlencoded` y el `formato` de la `query` de `JSON` a `urlencoded` y si el `servidor` lo `acepta`, podríamos aprovecharnos de esto para `explotar` un `CSRF`. Para hacer esto lo podemos hacer de `forma manual` o podemos usar mi herramienta `graphql-converter` [https://github.com/Justice-Reaper/graphql-converter.git](https://github.com/Justice-Reaper/graphql-converter.git). Le tenemos que pasar por parámetro la `query` que tenemos en `Burpsuite`
 
 ```
-# python graphQLConverter.py '{"query":"\n    mutation changeEmail($input: ChangeEmailInput!) {\n        changeEmail(input: $input) {\n            email\n        }\n    }\n","operationName":"changeEmail","variables":{"input":{"email":"test@gmail.com"}}}'
+# python graphql-converter.py '{"query":"\n    mutation changeEmail($input: ChangeEmailInput!) {\n        changeEmail(input: $input) {\n            email\n        }\n    }\n","operationName":"changeEmail","variables":{"input":{"email":"test@gmail.com"}}}'
 URL Encoded Data:
 query=mutation+changeEmail%28%24input%3A+ChangeEmailInput%21%29+%7BchangeEmail%28input%3A+%24input%29+%7Bemail%7D%7D&operationName=changeEmail&variables=%7B%22input%22%3A+%7B%22email%22%3A+%22test%40gmail.com%22%7D%7D
 ```

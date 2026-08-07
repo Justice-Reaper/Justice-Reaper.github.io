@@ -348,7 +348,7 @@ RustScan [https://github.com/bee-san/RustScan.git](https://github.com/bee-san/Ru
 
 Censys [https://search.censys.io](https://search.censys.io)
 
-GetTopPorts [https://github.com/Justice-Reaper/getTopPorts.git](https://github.com/Justice-Reaper/getTopPorts.git)
+get-top-ports [https://github.com/Justice-Reaper/get-top-ports.git](https://github.com/Justice-Reaper/get-top-ports.git)
 
 ## Escáneres de vulnerabilidades
 
@@ -410,7 +410,7 @@ Cupp [https://github.com/Mebus/cupp.git](https://github.com/Mebus/cupp.git)
 
 ### Dividir diccionarios
 
-payloadSplitter [https://github.com/Justice-Reaper/payloadSplitter.git](https://github.com/Justice-Reaper/payloadSplitter.git)
+payload-splitter [https://github.com/Justice-Reaper/payload-splitter.git](https://github.com/Justice-Reaper/payload-splitter.git)
 
 ### Fuerza bruta
 
@@ -488,7 +488,7 @@ GAP (Get All Parameters, Links, and Words) [https://github.com/PortSwigger/get-a
 
 ### Bypasses
 
-IpRangeGenerator [https://github.com/Justice-Reaper/ipRangeGenerator.git](https://github.com/Justice-Reaper/ipRangeGenerator.git)
+ip-range-generator [https://github.com/Justice-Reaper/ip-range-generator.git](https://github.com/Justice-Reaper/ip-range-generator.git)
 
 Random IP Address Header [https://github.com/PortSwigger/random-ip-address-header.git](https://github.com/PortSwigger/random-ip-address-header.git)
 
@@ -582,9 +582,9 @@ Sign Saboteur [https://github.com/PortSwigger/sign-saboteur.git](https://github.
 
 Turbo Intruder [https://github.com/PortSwigger/turbo-intruder.git](https://github.com/PortSwigger/turbo-intruder.git)
 
-Cachebuster Generator [https://github.com/Justice-Reaper/cachebusterGenerator.git](https://github.com/Justice-Reaper/cachebusterGenerator.git)
+Cachebuster Generator [https://github.com/Justice-Reaper/cachebuster-generator.git](https://github.com/Justice-Reaper/cachebuster-generator.git)
 
-IP Range Generator [https://github.com/Justice-Reaper/ipRangeGenerator.git](https://github.com/Justice-Reaper/ipRangeGenerator.git)
+ip-range-generator [https://github.com/Justice-Reaper/ip-range-generator.git](https://github.com/Justice-Reaper/ip-range-generator.git)
 
 ### Vulnerabilidades
 

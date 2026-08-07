@@ -55,13 +55,13 @@ Aquí tienes algunos de los proyectos en los que he estado trabajando:
 - [Sequential-Replacer](https://github.com/Justice-Reaper/Sequential-Replacer) - Extensión de Burp Suite para reemplazar contenido en peticiones HTTP de forma secuencial mediante expresiones regulares y diccionarios
 - [File-Watcher](https://github.com/Justice-Reaper/File-Watcher) - Detecta mutaciones en ficheros JavaScript provocadas por la interacción con el navegador y muestra las diferencias en formato unified diff, pensado para investigar prototype pollution
 - [NoSQLI-Attack-Suite](https://github.com/Justice-Reaper/NoSQLI-Attack-Suite) - Scripts para enumerar usuarios y contraseñas en aplicaciones web vulnerables a inyección NoSQL en MongoDB
-- [rpcEnum](https://github.com/Justice-Reaper/rpcEnum) - Herramienta para enumerar el Active Directory a través del servicio RPC
-- [getTopPorts](https://github.com/Justice-Reaper/getTopPorts) - Extrae los puertos más comunes de Nmap y los copia al portapapeles
-- [graphQLConverter](https://github.com/Justice-Reaper/graphQLConverter) - Convierte un JSON de GraphQL a formato x-www-form-urlencoded, optimizado para peticiones HTTP
-- [cachebusterGenerator](https://github.com/Justice-Reaper/cachebusterGenerator) - Genera cadenas aleatorias únicas para usar como cache busters
-- [ipRangeGenerator](https://github.com/Justice-Reaper/ipRangeGenerator) - Genera rangos de direcciones IP
-- [payloadSplitter](https://github.com/Justice-Reaper/payloadSplitter) - Divide archivos grandes en fragmentos más pequeños con tamaños personalizables
-- [wallapopMessagesDownloader](https://github.com/Justice-Reaper/wallapopMessagesDownloader) - Descarga y guarda los mensajes de la bandeja de entrada de Wallapop usando su API
+- [rpc-enum](https://github.com/Justice-Reaper/rpc-enum) - Herramienta para enumerar el Active Directory a través del servicio RPC
+- [get-top-ports](https://github.com/Justice-Reaper/get-top-ports) - Extrae los puertos más comunes de Nmap y los copia al portapapeles
+- [graphql-converter](https://github.com/Justice-Reaper/graphql-converter) - Convierte un JSON de GraphQL a formato x-www-form-urlencoded, optimizado para peticiones HTTP
+- [cachebuster-generator](https://github.com/Justice-Reaper/cachebuster-generator) - Genera cadenas aleatorias únicas para usar como cache busters
+- [ip-range-generator](https://github.com/Justice-Reaper/ip-range-generator) - Genera rangos de direcciones IP
+- [payload-splitter](https://github.com/Justice-Reaper/payload-splitter) - Divide archivos grandes en fragmentos más pequeños con tamaños personalizables
+- [wallapop-messages-downloader](https://github.com/Justice-Reaper/wallapop-messages-downloader) - Descarga y guarda los mensajes de la bandeja de entrada de Wallapop usando su API
 - [TFG-DAM](https://github.com/Justice-Reaper/TFG-DAM) - Proyecto de fin de grado de Desarrollo de Aplicaciones Multiplataforma (DAM)
 - [Hyprland-Artix-Linux-Dotfiles](https://github.com/Justice-Reaper/Hyprland-Artix-Linux-Dotfiles) - Mi configuración de Hyprland en Artix Linux
 - [hyprland-minimizer](https://github.com/Justice-Reaper/hyprland-minimizer) - Demonio de bandeja del sistema que permite minimizar aplicaciones en Hyprland
