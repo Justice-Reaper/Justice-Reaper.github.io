@@ -227,30 +227,22 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 4 - `Buscamos peticiones interesantes en el HTTP history y en el Site map` y `escaneamos partes específicas de estas peticiones` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos `enviar` la `petición` al `Intruder`, `marcar las posiciones que queremos que sean escaneadas` y `seleccionar` en `tipo de escaneo` la opción `Audit selected items`
 
-5 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+5 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`. El `paso anterior` es el `encargado` de `encontrar` el `SSRF` y `este paso nos sirve para ver si hay un open redirect`
 
-6 - Una vez `detectada` la `vulnerabilidad`, si tiene este aspecto `http://192.168.0.1:8080/product/stock/check?productId=1&storeId=1` vamos a ver si tiene algo `corriendo` en el localhost `http://127.0.0.1:FUZZ`, para ello podemos usar el `Intruder` u otro `fuzzer`. Podemos escanear los `65535` puertos existentes o usar la herramienta `get-top-ports` para `obtener` los `puertos más comunes` y efectuar el `escaneo` más `rápido`
+6 - Una vez `identificada` la `vulnerabilidad`, debemos tener en cuenta que `en el examen, el servicio se encuentra en el localhost y puerto 6566 de la máquina víctima`. Para `acceder` a este `servicio` debemos `realizar` una `petición` a `http://localhost:6566`
 
-7 - Si no encontramos nada en el `localhost`, `escanearemos` posibles rutas `http://192.168.0.1:8080/FUZZ` para ver si hay algo interesante. En mi caso uso los `diccionarios` de `SecLists`
+7 - Puede ser que se nos `devuelva algún código de estado o error diferente` indicando que hay alguna `dirección IP blacklisteada`. Para estas situaciones usaremos la extensión `Encode IP` de `Burpsuite` y las herramientas `Ipfuscator` y `SSRF Payload Generator`, en ese orden. En el caso en el que esté la dirección `127.0.0.1` o el `localhost` blacklistado podemos usar la `cheatsheet de Portswigger` [https://portswigger.net/web-security/ssrf/url-validation-bypass-cheat-sheet](https://portswigger.net/web-security/ssrf/url-validation-bypass-cheat-sheet) o `SSRF PayloadMaker`
 
-8 - `En caso de no encontrar nada`, procederemos a `buscar si hay servicios en otros puertos http://192.168.0.1:FUZZ`
+8 - Si recibimos un `código de estado o error diferente` indicando que hay alguna `dirección ruta blacklisteada`, podemos usar `Recollapse` para efectuar un `bypass`. En el caso de no funcionar, deberemos echar un vistazo primeramente a esta `guía de ofuscación` [https://justice-reaper.github.io/posts/Ofuscation-Guide/](https://justice-reaper.github.io/posts/Ofuscation-Guide/)
 
-9 - Si no encontramos nada, vamos a `fuzzear` para ver si hay algún otro dispositivo que esté `corriendo` algún `servicio` por el mismo puerto `http://192.168.0.FUZZ:8080`
+9 - `Si tenemos alguna duda siguiendo los pasos anteriores, vamos a visitar estos laboratorios y a probar las técnicas que se muestran`:
 
-10 - `Si no hay nada`, procederemos a `buscar otros dispositivos conectados a la red`, para ello `fuzzearemos` de esta forma `http://192.168.0.FUZZ:FUZZ`. Para el `primer elemento` a `fuzzear` usaremos `números` desde el `0 al 255` y para el `segundo elemento` usaremos `puertos`
+Laboratorio 1: [https://justice-reaper.github.io/posts/SSRF-Lab-1/](https://justice-reaper.github.io/posts/SSRF-Lab-1/)
 
-11 - Si no encontramos nada, ampliamos la búsqueda `http://192.168.FUZZ.FUZZ:FUZZ`. Para los `dos primeros elementos` a `fuzzear` usaremos `números` desde el `0 al 255` y para el `tercer elemento` usaremos `puertos`
+Laboratorio 2: [https://justice-reaper.github.io/posts/SSRF-Lab-2/](https://justice-reaper.github.io/posts/SSRF-Lab-2/)
 
-12 - Si no encontramos nada, ampliamos la búsqueda `http://192.FUZZ.FUZZ.FUZZ:FUZZ`. Para los `tres primeros elementos` a `fuzzear` usaremos `números` desde el `0 al 255` y para el `cuarto elemento` usaremos `puertos`
+Laboratorio 3: [https://justice-reaper.github.io/posts/SSRF-Lab-3/](https://justice-reaper.github.io/posts/SSRF-Lab-3/)
 
-13 - Si no encontramos nada, ampliamos la búsqueda `http://FUZZ.FUZZ.FUZZ.FUZZ:FUZZ`. Para los `cuatro primeros elementos` a `fuzzear` usaremos `números` desde el `0 al 255` y para el `quinto elemento` usaremos `puertos`
+Laboratorio 4: [https://justice-reaper.github.io/posts/SSRF-Lab-4/](https://justice-reaper.github.io/posts/SSRF-Lab-4/)
 
-14 - Sabremos que hemos encontrado otro `dispositivo` porque nos `devolverá un código de estado o error diferente`, puede ser un `200, 404 etc`. Una vez hecho esto vamos a `fuzzear` por rutas `http://192.168.0.1:8080/FUZZ`
-
-15 - Puede ser que se nos `devuelva algún código de estado o error diferente` indicando que hay alguna `dirección IP blacklisteada`. Para estas situaciones usaremos la extensión `Encode IP` de `Burpsuite` y las herramientas `Ipfuscator` y `SSRF Payload Generator`, en ese orden. En el caso en el que esté la dirección `127.0.0.1` o el `localhost` blacklistado podemos usar la `cheatsheet de Portswigger` [https://portswigger.net/web-security/ssrf/url-validation-bypass-cheat-sheet](https://portswigger.net/web-security/ssrf/url-validation-bypass-cheat-sheet) o `SSRF PayloadMaker`
-
-16 - Si recibimos un `código de estado o error diferente` indicando que hay alguna `dirección ruta blacklisteada`, podemos usar `Recollapse` para efectuar un `bypass`. En el caso de no funcionar, deberemos echar un vistazo primeramente a esta `guía de ofuscación` [https://justice-reaper.github.io/posts/Ofuscation-Guide/](https://justice-reaper.github.io/posts/Ofuscation-Guide/)
-
-17 - Si estamos ante un `Blind SSRF` usaremos la `cheatsheet de Portswigger` o `SSRF PayloadMaker` para `detectarlo`. Esta `última herramienta` nos proporciona un `mayor número de payloads`
-
-18 - Si encontramos un `open redirect` debemos fijarnos en si podemos `derivarlo` a un `SSRF`. Un `ejemplo` de esto eseste `laboratorio` [https://justice-reaper.github.io/posts/SSRF-Lab-5/](https://justice-reaper.github.io/posts/SSRF-Lab-5/)
+Laboratorio 5: [https://justice-reaper.github.io/posts/SSRF-Lab-5/](https://justice-reaper.github.io/posts/SSRF-Lab-5/)
