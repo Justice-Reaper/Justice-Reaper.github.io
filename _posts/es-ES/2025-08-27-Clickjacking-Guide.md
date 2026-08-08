@@ -153,11 +153,35 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 ## ¿Cómo detectar y explotar un clickjacking?
 
-Es posible `detectar` una web `vulnerable` a `clickjacking` de varias formas, en mi caso sigo estos pasos:
+Es posible `detectar` una web `vulnerable` a `clickjacking` de varias formas. En mi caso sigo estos pasos
 
-1 - Usaremos herramientas como `Security Headers` o `Shcheck` para `identificar` las `cabeceras de seguridad` de una `web` y ver si es `vulnerable`
+1 - Usaremos herramientas como `Security Headers` o `Shcheck` para `identificar` las `cabeceras de seguridad` de una `web` y comprobar si faltan `Content-Security-Policy (CSP)` y `X-Frame-Options`, lo que permitiría `cargar` la `web` dentro de un `iframe`
 
-2 - `Creamos` un `PoC` usando `Clickbandit` 
+2 - Abrimos las `herramientas de desarrollador` de `Chrome` (`DevTools`) para comprobar si la `acción` que vamos a `ejecutar` necesita la `cookie de sesión`
+
+3 - Si la `acción` necesita la `cookie de sesión`, revisamos el atributo `SameSite` de dicha `cookie`. El `ataque` solo será `viable` en alguno de estos casos
+
+- La `cookie` usa `SameSite=None`, por lo que el `navegador` la envía dentro del `iframe cross-site`
+
+- La `acción` no requiere `autenticación`, por lo que no necesita `cookie`
+
+- La aplicación es una `SPA` que guarda el `token de sesión` en `localStorage`/`sessionStorage`, donde `SameSite` no tiene efecto
+
+Por el contrario, si la `cookie` usa `SameSite=Lax` (el valor por `defecto` en `Chrome`) o `SameSite=Strict`, el `navegador` no la enviará dentro del `iframe` y el `ataque fallará`
+
+4 - `Creamos` un `PoC` usando `Clickbandit`
+
+5 - Si tenemos alguna `duda` sobre cómo llevar a cabo algún `paso`, podemos consultar estos `laboratorios`
+
+- `Laboratorio 1` - [https://justice-reaper.github.io/posts/Clickjacking-Lab-1/](https://justice-reaper.github.io/posts/Clickjacking-Lab-1/)
+
+- `Laboratorio 2` - [https://justice-reaper.github.io/posts/Clickjacking-Lab-2/](https://justice-reaper.github.io/posts/Clickjacking-Lab-2/)
+
+- `Laboratorio 3` - [https://justice-reaper.github.io/posts/Clickjacking-Lab-3/](https://justice-reaper.github.io/posts/Clickjacking-Lab-3/)
+
+- `Laboratorio 4` - [https://justice-reaper.github.io/posts/Clickjacking-Lab-4/](https://justice-reaper.github.io/posts/Clickjacking-Lab-4/)
+
+- `Laboratorio 5` - [https://justice-reaper.github.io/posts/Clickjacking-Lab-5/](https://justice-reaper.github.io/posts/Clickjacking-Lab-5/)
 
 ## Prevenir ataques de clickjacking
 
