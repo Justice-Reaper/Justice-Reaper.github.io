@@ -173,15 +173,15 @@ Por el contrario, si la `cookie` usa `SameSite=Lax` (el valor por `defecto` en `
 
 5 - Si tenemos alguna `duda` sobre cómo llevar a cabo algún `paso`, podemos consultar estos `laboratorios`:
 
-- Laboratorio 1: [https://justice-reaper.github.io/posts/Clickjacking-Lab-1/](https://justice-reaper.github.io/posts/Clickjacking-Lab-1/)
+- Basic clickjacking with CSRF token protection: [https://justice-reaper.github.io/posts/Clickjacking-Lab-1/](https://justice-reaper.github.io/posts/Clickjacking-Lab-1/)
 
-- Laboratorio 2: [https://justice-reaper.github.io/posts/Clickjacking-Lab-2/](https://justice-reaper.github.io/posts/Clickjacking-Lab-2/)
+- Clickjacking with form input data prefilled from a URL parameter: [https://justice-reaper.github.io/posts/Clickjacking-Lab-2/](https://justice-reaper.github.io/posts/Clickjacking-Lab-2/)
 
-- Laboratorio 3: [https://justice-reaper.github.io/posts/Clickjacking-Lab-3/](https://justice-reaper.github.io/posts/Clickjacking-Lab-3/)
+- Clickjacking with a frame buster script: [https://justice-reaper.github.io/posts/Clickjacking-Lab-3/](https://justice-reaper.github.io/posts/Clickjacking-Lab-3/)
 
-- Laboratorio 4: [https://justice-reaper.github.io/posts/Clickjacking-Lab-4/](https://justice-reaper.github.io/posts/Clickjacking-Lab-4/)
+- Exploiting clickjacking vulnerability to trigger DOM based XSS: [https://justice-reaper.github.io/posts/Clickjacking-Lab-4/](https://justice-reaper.github.io/posts/Clickjacking-Lab-4/)
 
-- Laboratorio 5: [https://justice-reaper.github.io/posts/Clickjacking-Lab-5/](https://justice-reaper.github.io/posts/Clickjacking-Lab-5/)
+- Multistep clickjacking: [https://justice-reaper.github.io/posts/Clickjacking-Lab-5/](https://justice-reaper.github.io/posts/Clickjacking-Lab-5/)
 
 ## Prevenir ataques de clickjacking
 

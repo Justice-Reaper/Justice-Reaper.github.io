@@ -237,12 +237,12 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 9 - `Si tenemos alguna duda siguiendo los pasos anteriores, vamos a visitar estos laboratorios y a probar las técnicas que se muestran`:
 
-- Laboratorio 1: [https://justice-reaper.github.io/posts/SSRF-Lab-1/](https://justice-reaper.github.io/posts/SSRF-Lab-1/)
+- Basic SSRF against the local server: [https://justice-reaper.github.io/posts/SSRF-Lab-1/](https://justice-reaper.github.io/posts/SSRF-Lab-1/)
 
-- Laboratorio 2: [https://justice-reaper.github.io/posts/SSRF-Lab-2/](https://justice-reaper.github.io/posts/SSRF-Lab-2/)
+- Basic SSRF against another back-end system: [https://justice-reaper.github.io/posts/SSRF-Lab-2/](https://justice-reaper.github.io/posts/SSRF-Lab-2/)
 
-- Laboratorio 3: [https://justice-reaper.github.io/posts/SSRF-Lab-3/](https://justice-reaper.github.io/posts/SSRF-Lab-3/)
+- Blind SSRF with out-of-band detection: [https://justice-reaper.github.io/posts/SSRF-Lab-3/](https://justice-reaper.github.io/posts/SSRF-Lab-3/)
 
-- Laboratorio 4: [https://justice-reaper.github.io/posts/SSRF-Lab-4/](https://justice-reaper.github.io/posts/SSRF-Lab-4/)
+- SSRF with blacklist-based input filter: [https://justice-reaper.github.io/posts/SSRF-Lab-4/](https://justice-reaper.github.io/posts/SSRF-Lab-4/)
 
-- Laboratorio 5: [https://justice-reaper.github.io/posts/SSRF-Lab-5/](https://justice-reaper.github.io/posts/SSRF-Lab-5/)
+- SSRF with filter bypass via open redirection vulnerability: [https://justice-reaper.github.io/posts/SSRF-Lab-5/](https://justice-reaper.github.io/posts/SSRF-Lab-5/)

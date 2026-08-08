@@ -332,6 +332,22 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 4 - Puede darse el caso de que `encontremos` una `funcionalidad` de la `aplicación` que `nos permita borrar nuestra cuenta de usuario`. Si se `transmite` un `objeto` con `nuestra información` y ahí se encuentra nuestra `foto de perfil` por ejemplo, podríamos `modificar esa ruta dentro del objeto` para que `se borre el archivo que nosotros queremos`
 
+5 - Una vez `identificada` la `vulnerabilidad` vamos a `seguir los pasos de uno de estos laboratorios (dependiendo del caso tendremos que seguir los pasos de uno u otro)`:
+
+- Modifying serialized objects: [https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-1/](https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-1/)
+
+- Modifying serialized data types: [https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-2/](https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-2/)
+
+- Using application functionality to exploit insecure deserialization: [https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-3/](https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-3/)
+
+- Arbitrary object injection in PHP: [https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-4/](https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-4/)
+
+- Exploiting Java deserialization with Apache Commons: [https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-5/](https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-5/)
+
+- Exploiting PHP deserialization with a pre-built gadget chain: [https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-6/](https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-6/)
+
+- Exploiting Ruby deserialization using a documented gadget chain: [https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-7/](https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-7/)
+
 ## ¿Cómo prevenir un insecure deserealization?
 
 En términos generales, `debemos evitar la deserialización de datos de usuario salvo que sea absolutamente necesario`. La `alta gravedad` de los `exploits` que puede habilitar y la dificultad para protegerse frente a ellos suelen superar los beneficios en muchos casos.
