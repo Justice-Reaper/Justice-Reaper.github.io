@@ -450,13 +450,13 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 6 - En caso de que sí hayamos `encontrado` una `petición` con la cabecera `Access-Control-Allow-Credentials` en la `respuesta` podemos hacer `tests manuales`. Lo `primero` es `enviar` la `petición` al `Repeater` y desde ahí hacemos `click derecho > Extensions > CORS*, Additional CORS Checks > Add Requests to CORSA*`. Luego nos `dirigimos` a la `pestaña CORS*`, `seleccionamos la request que acabamos de enviar` y `pulsamos sobre Send CORS request for selected enty`. Una vez `identificada` la `vulnerabilidad` vamos a `seguir los pasos de uno de estos laboratorios (dependiendo del valor de la cabecera Origin tendremos que seguir los pasos de uno u otro)`:
 
-Laboratorio 1: [https://justice-reaper.github.io/posts/CORS-Lab-1/](https://justice-reaper.github.io/posts/CORS-Lab-1/)
+- Laboratorio 1: [https://justice-reaper.github.io/posts/CORS-Lab-1/](https://justice-reaper.github.io/posts/CORS-Lab-1/)
 
-Laboratorio 2: [https://justice-reaper.github.io/posts/CORS-Lab-2/](https://justice-reaper.github.io/posts/CORS-Lab-2/)
+- Laboratorio 2: [https://justice-reaper.github.io/posts/CORS-Lab-2/](https://justice-reaper.github.io/posts/CORS-Lab-2/)
 
 7 - `Si tenemos varios dominios/subdominios hacemos click derecho > Extensions > Trusted Domain CORS Scanner y cuando se nos abra una pestaña, añadimos ahí todos los dominios y subdominios conocidos`. `Si el escáner nos identifica que un dominio o subdominio que hemos encontrado es de confianza`, lo que debemos de hacer es `buscar` un `XSS` en `él`. Para `identifcar` los `XSS`, debemos `revisar` la `guía de XSS` [https://justice-reaper.github.io/posts/XSS-Guide/](https://justice-reaper.github.io/posts/XSS-Guide/). En este `laboratorio` podemos ver `como llevar a cabo ese proceso`:
 
-Laboratorio 3: [https://justice-reaper.github.io/posts/CORS-Lab-3/](https://justice-reaper.github.io/posts/CORS-Lab-3/)
+- Laboratorio 3: [https://justice-reaper.github.io/posts/CORS-Lab-3/](https://justice-reaper.github.io/posts/CORS-Lab-3/)
 
 8 - `Una vez hayamos confirmado que la web es tiene CORS mal configurado`, lo que tenemos que hacer `crear` una `Poc`. Para hacer esto `podemos crear la PoC con la herramienta C0rsPwn3r` o `usar las mismas que en los laboratorios mencionados`
 
