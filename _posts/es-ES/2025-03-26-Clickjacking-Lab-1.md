@@ -92,7 +92,13 @@ Si preferimos usar una herramienta `web` podemos usar `securityheaders` [https:/
 
 ![](/assets/img/Clickjacking-Lab-1/image_5.png)
 
-En este caso, vemos que la `web` no tiene ni `Content-Security-Policy (CSP)` ni `X-Frame-Options`, lo cual la hace vulnerable a `Clickjacking`. Nos dirigimos al `Exploit Server` y pegamos este `payload`
+En este caso, vemos que la `web` no tiene ni `Content-Security-Policy (CSP)` ni `X-Frame-Options`, lo cual la hace vulnerable a `Clickjacking`
+
+Además, existe una `tercera condición` para que el `ataque` funcione: la `cookie de sesión` no debe usar `SameSite=Lax` ni `SameSite=Strict`. Como el `clickjacking` ocurre dentro de un `iframe cross-site`, si la `cookie` fuese `SameSite=Lax` (el valor por `defecto` en `Chrome`) o `SameSite=Strict`, el `navegador` no la enviaría y la `acción` se ejecutaría `sin sesión`, haciendo `fallar el ataque`. En este `laboratorio` la `cookie` no usa `SameSite` restrictivo, por lo que el `ataque` sí funciona
+
+![](/assets/img/Clickjacking-Lab-1/image_6.png)
+
+Nos dirigimos al `Exploit Server` y pegamos este `payload`
 
 ```
 <style>
@@ -114,11 +120,11 @@ En este caso, vemos que la `web` no tiene ni `Content-Security-Policy (CSP)` ni 
 <iframe src="https://0a4a00f50345e77a8330fffc00bc001c.web-security-academy.net/my-account"></iframe>
 ```
 
-![](/assets/img/Clickjacking-Lab-1/image_6.png)
+![](/assets/img/Clickjacking-Lab-1/image_7.png)
 
 Pinchamos sobre `View exploit` para `comprobar` que está `bien centrado` el `div` que contiene el texto `Click me`
 
-![](/assets/img/Clickjacking-Lab-1/image_7.png)
+![](/assets/img/Clickjacking-Lab-1/image_8.png)
 
 Una vez comprobado `modificamos` la `opacidad` a `0`
 
@@ -142,44 +148,44 @@ Una vez comprobado `modificamos` la `opacidad` a `0`
 <iframe src="https://0a4a00f50345e77a8330fffc00bc001c.web-security-academy.net/my-account"></iframe>
 ```
 
-![](/assets/img/Clickjacking-Lab-1/image_8.png)
+![](/assets/img/Clickjacking-Lab-1/image_9.png)
 
 Otra forma alternativa sería usando la herramienta `Clickbandit` de `Burpsuite`, para usarla nos dirigimos a `Burpsuite` y pulsamos `Burp > Burp Clickbandit`
 
-![](/assets/img/Clickjacking-Lab-1/image_9.png)
+![](/assets/img/Clickjacking-Lab-1/image_10.png)
 
 Pulsamos sobre `Copy Clickbandit to clipboard`
 
-![](/assets/img/Clickjacking-Lab-1/image_10.png)
+![](/assets/img/Clickjacking-Lab-1/image_11.png)
 
 Nos dirigimos a `Chrome`, nos abrimos la `consola de desarrollador` y `pegamos` ahí todo el `código`
 
-![](/assets/img/Clickjacking-Lab-1/image_11.png)
+![](/assets/img/Clickjacking-Lab-1/image_12.png)
 
 Una vez hecho esto nos saldrá este menú
 
-![](/assets/img/Clickjacking-Lab-1/image_12.png)
+![](/assets/img/Clickjacking-Lab-1/image_13.png)
 
 Pulsamos en `Start` y `marcamos` la casilla `Disable click actions` para `desactivar` los `clicks`
 
-![](/assets/img/Clickjacking-Lab-1/image_13.png)
+![](/assets/img/Clickjacking-Lab-1/image_14.png)
 
 Lo siguiente sería `pulsar sobre el botón que queremos`, en este caso sobre `Delete account` que es el que queremos usar para el `ataque de Clickjacking`
 
-![](/assets/img/Clickjacking-Lab-1/image_14.png)
+![](/assets/img/Clickjacking-Lab-1/image_15.png)
 
 Una vez hecho esto, `pulsamos` sobre `Finish` y se nos `mostrará` como es nuestro `payload` actualmente
 
-![](/assets/img/Clickjacking-Lab-1/image_15.png)
+![](/assets/img/Clickjacking-Lab-1/image_16.png)
 
 Usando los símbolos `-` y `+`, podemos `subir` o `bajar` el `aumento`, y con `Toogle transparency` podemos `activar` o `desactivar` la `transparencia`. En mi caso, lo voy a dejar de esta forma. Cuando ya lo tengamos como queremos, pulsamos en `Save` y se nos `descargará` un `documento HTML`
 
-![](/assets/img/Clickjacking-Lab-1/image_16.png)
+![](/assets/img/Clickjacking-Lab-1/image_17.png)
 
 `Pegamos` el `código` en el `Exploit server`
 
-![](/assets/img/Clickjacking-Lab-1/image_17.png)
+![](/assets/img/Clickjacking-Lab-1/image_18.png)
 
 Pulsamos sobre `View exploit` para ver si se ve correctamente. Una vez comprobado que se `ve` y `funciona` correctamente, pulsamos sobre `Deliver exploit to victim` y completamos el `laboratorio`
 
-![](/assets/img/Clickjacking-Lab-1/image_18.png)
+![](/assets/img/Clickjacking-Lab-1/image_19.png)

@@ -92,17 +92,21 @@ Si preferimos usar una herramienta `web` podemos usar `securityheaders` [https:/
 
 En este caso, vemos que la `web` no tiene ni `Content-Security-Policy (CSP)` ni `X-Frame-Options`, lo cual la hace vulnerable a `Clickjacking`
 
+Además, existe una `tercera condición` para que el `ataque` funcione: la `cookie de sesión` no debe usar `SameSite=Lax` ni `SameSite=Strict`. Como el `clickjacking` ocurre dentro de un `iframe cross-site`, si la `cookie` fuese `SameSite=Lax` (el valor por `defecto` en `Chrome`) o `SameSite=Strict`, el `navegador` no la enviaría y la `acción` se ejecutaría `sin sesión`, haciendo `fallar el ataque`. En este `laboratorio` la `cookie` no usa `SameSite` restrictivo, por lo que el `ataque` sí funciona
+
+![](/assets/img/Clickjacking-Lab-2/image_6.png)
+
 Algunos `sitios web` que requieren completar y enviar `formularios` permiten `rellenar previamente` los datos del `formulario` mediante `parámetros GET` antes del `envío`. Dado que los `valores GET` forman parte de la `URL`, la `URL de destino` puede `modificarse` para incorporar `valores elegidos por el atacante`
 
 Hay otros `sitios web` que pueden requerir `interacción por parte del usuario`, como que el usuario `ingrese manualmente los datos`, complete `pasos previos` (como una `verificación CAPTCHA`) antes de `habilitar el envío`, etc
 
 Para `comprobar` si `el formulario permite rellenar previamente los datos mediante parámetros GET`, lo primero que necesitamos hacer es `identificar` los `nombres` de los `campos`. En este caso vemos que el valor del campo a `rellenar` es `email`
 
-![](/assets/img/Clickjacking-Lab-2/image_6.png)
+![](/assets/img/Clickjacking-Lab-2/image_7.png)
 
 El siguiente paso es `añadir` el `parámetro email` a la `URL` y ver si se `rellena` el `campo email del formulario`, para ello, accedemos a `https://0a1800bc042c20d98f01497400e5002b.web-security-academy.net/my-account?email=pwned@gmail.com` y vemos que sí que funciona
 
-![](/assets/img/Clickjacking-Lab-2/image_7.png)
+![](/assets/img/Clickjacking-Lab-2/image_8.png)
 
 Una vez comprobado esto, ya podemos `construir` un `payload`, para ello, nos dirigimos al `Exploit Server` y pegamos este `payload`
 
@@ -126,11 +130,11 @@ Una vez comprobado esto, ya podemos `construir` un `payload`, para ello, nos dir
 <iframe src="https://0a1800bc042c20d98f01497400e5002b.web-security-academy.net/my-account?email=pwned@gmail.com"></iframe>
 ```
 
-![](/assets/img/Clickjacking-Lab-2/image_8.png)
+![](/assets/img/Clickjacking-Lab-2/image_9.png)
 
 Pinchamos sobre `View exploit` para `comprobar` que está `bien centrado` el `div` que contiene el texto `Click me`
 
-![](/assets/img/Clickjacking-Lab-2/image_9.png)
+![](/assets/img/Clickjacking-Lab-2/image_10.png)
 
 Una vez comprobado `modificamos` la `opacidad` a `0`
 
@@ -154,52 +158,52 @@ Una vez comprobado `modificamos` la `opacidad` a `0`
 <iframe src="https://0a1800bc042c20d98f01497400e5002b.web-security-academy.net/my-account?email=pwned@gmail.com"></iframe>
 ```
 
-![](/assets/img/Clickjacking-Lab-2/image_10.png)
+![](/assets/img/Clickjacking-Lab-2/image_11.png)
 
 Otra forma alternativa sería usando la herramienta `Clickbandit` de `Burpsuite`, para usarla nos dirigimos a `Burpsuite` y pulsamos `Burp > Burp Clickbandit`
 
-![](/assets/img/Clickjacking-Lab-2/image_11.png)
+![](/assets/img/Clickjacking-Lab-2/image_12.png)
 
 Pulsamos sobre `Copy Clickbandit to clipboard`
 
-![](/assets/img/Clickjacking-Lab-2/image_12.png)
+![](/assets/img/Clickjacking-Lab-2/image_13.png)
 
 Nos dirigimos a `Chrome`, nos abrimos la `consola de desarrollador` y `pegamos` ahí todo el `código`
 
-![](/assets/img/Clickjacking-Lab-2/image_13.png)
+![](/assets/img/Clickjacking-Lab-2/image_14.png)
 
 Una vez hecho esto nos saldrá este `menú`
 
-![](/assets/img/Clickjacking-Lab-2/image_14.png)
+![](/assets/img/Clickjacking-Lab-2/image_15.png)
 
 Pulsamos en `Start` y `marcamos` la casilla `Disable click actions` para `desactivar` los `clicks`
 
-![](/assets/img/Clickjacking-Lab-2/image_15.png)
+![](/assets/img/Clickjacking-Lab-2/image_16.png)
 
 Lo siguiente sería `pulsar sobre el botón que queremos`, en este caso sobre `Update email` que es el que queremos usar para el `ataque de Clickjacking`
 
-![](/assets/img/Clickjacking-Lab-2/image_16.png)
+![](/assets/img/Clickjacking-Lab-2/image_17.png)
 
 Una vez hecho esto, `pulsamos` sobre `Finish` y se nos `mostrará` como es nuestro `payload` actualmente
 
-![](/assets/img/Clickjacking-Lab-2/image_17.png)
+![](/assets/img/Clickjacking-Lab-2/image_18.png)
 
 Usando los símbolos `-` y `+`, podemos `subir` o `bajar` el `aumento`, y con `Toogle transparency` podemos `activar` o `desactivar` la `transparencia`. En mi caso, lo voy a dejar de esta forma. Cuando ya lo tengamos como queremos, pulsamos en `Save` y se nos `descargará` un `documento HTML`
 
-![](/assets/img/Clickjacking-Lab-2/image_18.png)
+![](/assets/img/Clickjacking-Lab-2/image_19.png)
 
 `Pegamos` el `código` en el `Exploit server`
 
-![](/assets/img/Clickjacking-Lab-2/image_19.png)
+![](/assets/img/Clickjacking-Lab-2/image_20.png)
 
 Pulsamos sobre `View exploit` para ver si se ve correctamente
 
-![](/assets/img/Clickjacking-Lab-2/image_20.png)
+![](/assets/img/Clickjacking-Lab-2/image_21.png)
 
 Hacemos `click sobre el botón`
 
-![](/assets/img/Clickjacking-Lab-2/image_21.png)
+![](/assets/img/Clickjacking-Lab-2/image_22.png)
 
 Nos dirigimos a `My account` para ver `si ha funcionado el ataque`, y vemos que así es. Una vez comprobado que se `ve` y `funciona` correctamente, pulsamos sobre `Deliver exploit to victim` y completamos el `laboratorio`. Debemos tener en cuenta que `dos usuarios no pueden tener el mismo email`, por lo tanto deberemos `modificar el nuestro o el email que se usa en el payload`
 
-![](/assets/img/Clickjacking-Lab-2/image_22.png)
+![](/assets/img/Clickjacking-Lab-2/image_23.png)

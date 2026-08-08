@@ -92,31 +92,35 @@ Si preferimos usar una herramienta `web` podemos usar `securityheaders` [https:/
 
 En este caso, vemos que la `web` no tiene ni `Content-Security-Policy (CSP)` ni `X-Frame-Options`, lo cual la hace vulnerable a `Clickjacking`
 
+Además, existe una `tercera condición` para que el `ataque` funcione: la `cookie de sesión` no debe usar `SameSite=Lax` ni `SameSite=Strict`. Como el `clickjacking` ocurre dentro de un `iframe cross-site`, si la `cookie` fuese `SameSite=Lax` (el valor por `defecto` en `Chrome`) o `SameSite=Strict`, el `navegador` no la enviaría y la `acción` se ejecutaría `sin sesión`, haciendo `fallar el ataque`. En este `laboratorio` la `cookie` no usa `SameSite` restrictivo, por lo que el `ataque` sí funciona
+
+![](/assets/img/Clickjacking-Lab-4/image_6.png)
+
 Históricamente, el `Clickjacking` se ha utilizado para realizar acciones como `aumentar` los `"me gusta"` en una página de `Facebook`. Sin embargo, la verdadera potencia del `Clickjacking` se revela cuando se utiliza como un `vector para otro ataque`, como un `DOM XSS`. La implementación de este ataque combinado es relativamente sencilla, suponiendo que el atacante haya identificado primero la `vulnerabilidad` de `XSS`. Luego, el `exploit XSS` se combina con la `URL` del `iframe`, de modo que el usuario haga `click` en el `botón o enlace` y, en consecuencia, ejecute el ataque de `DOM XSS`
 
 Si nos fijamos en el `código fuente` de la `página desde la que se envía el formulario` vemos que se `carga` un `archivo .js`
 
-![](/assets/img/Clickjacking-Lab-4/image_6.png)
+![](/assets/img/Clickjacking-Lab-4/image_7.png)
 
 Si hacemos `click` sobre el `enlace` y accedemos a `/resources/js/submitFeedback.js` vemos este `código JavaScript`. Si nos fijamos bien se está usando `innerHTML`, esta propiedad es un `sink` que nos permite `inyectar código HTML y JavaScript`
 
-![](/assets/img/Clickjacking-Lab-4/image_7.png)
+![](/assets/img/Clickjacking-Lab-4/image_8.png)
 
 `Enviamos` este `payload`
 
-![](/assets/img/Clickjacking-Lab-4/image_8.png)
+![](/assets/img/Clickjacking-Lab-4/image_9.png)
 
 Al pulsar en `Submit feedback` vemos que podemos `inyectar código HTML`
 
-![](/assets/img/Clickjacking-Lab-4/image_9.png)
+![](/assets/img/Clickjacking-Lab-4/image_10.png)
 
 Ahora vamos a `comprobar` que podemos `ejecutar código JavaScript`
 
-![](/assets/img/Clickjacking-Lab-4/image_10.png)
+![](/assets/img/Clickjacking-Lab-4/image_11.png)
 
 Al pulsar sobre `Submit feedback` vemos que funciona
 
-![](/assets/img/Clickjacking-Lab-4/image_11.png)
+![](/assets/img/Clickjacking-Lab-4/image_12.png)
 
 Algunos `sitios web` que requieren completar y enviar `formularios` permiten `rellenar previamente` los datos del `formulario` mediante `parámetros GET` antes del `envío`. Dado que los `valores GET` forman parte de la `URL`, la `URL de destino` puede `modificarse` para incorporar `valores elegidos por el atacante`
 
@@ -124,11 +128,11 @@ Hay otros `sitios web` que pueden requerir `interacción por parte del usuari
 
 Para `comprobar` si `el formulario permite rellenar previamente los datos mediante parámetros GET`, lo primero que necesitamos hacer es `identificar` los `nombres` de los `campos`. En este caso vemos que el valor del campo a `rellenar` es `name`
 
-![](/assets/img/Clickjacking-Lab-4/image_12.png)
+![](/assets/img/Clickjacking-Lab-4/image_13.png)
 
 El siguiente paso es `añadir` el `parámetro name` a la `URL` y ver si se `rellena` el `campo name del formulario`, para ello, accedemos a `https://0abc00e1044662e9828fa7c9008500b8.web-security-academy.net/feedback?name=test` y vemos que sí que funciona
 
-![](/assets/img/Clickjacking-Lab-4/image_13.png)
+![](/assets/img/Clickjacking-Lab-4/image_14.png)
 
 Para `rellenar` los demás `campos` lo tenemos que hacer de esta manera. Lo que hace este `payload` es `rellenar` todos los `campos` del `formulario` y luego `desplazarnos` al id `feedbackResult`, el cual corresponde al `botón` del `envío`
 
@@ -136,7 +140,7 @@ Para `rellenar` los demás `campos` lo tenemos que hacer de esta manera. Lo que 
 /feedback?name=<img src=1 onerror=print()>&email=hacker@attacker-website.com&subject=test&message=test#feedbackResult
 ```
 
-![](/assets/img/Clickjacking-Lab-4/image_14.png)
+![](/assets/img/Clickjacking-Lab-4/image_15.png)
 
 Una vez comprobado esto vamos a `enlazar` ambas `vulnerabilidades` para causar un `mayor impacto`, para ello, nos dirigimos al `Exploit Server` y pegamos este `payload`
 
@@ -160,11 +164,11 @@ Una vez comprobado esto vamos a `enlazar` ambas `vulnerabilidades` para causar u
 <iframe src="https://0abc00e1044662e9828fa7c9008500b8.web-security-academy.net/feedback?name=<img src=1 onerror=print()>&email=hacker@attacker-website.com&subject=test&message=test#feedbackResult"></iframe>
 ```
 
-![](/assets/img/Clickjacking-Lab-4/image_15.png)
+![](/assets/img/Clickjacking-Lab-4/image_16.png)
 
 Pinchamos sobre `View exploit` y vemos que todo está bien centrado
 
-![](/assets/img/Clickjacking-Lab-4/image_16.png)
+![](/assets/img/Clickjacking-Lab-4/image_17.png)
 
 `Cambiamos` la `opacidad` a `0`
 
@@ -188,54 +192,54 @@ Pinchamos sobre `View exploit` y vemos que todo está bien centrado
 <iframe src="https://0abc00e1044662e9828fa7c9008500b8.web-security-academy.net/feedback?name=<img src=1 onerror=print()>&email=hacker@attacker-website.com&subject=test&message=test#feedbackResult"></iframe>
 ```
 
-![](/assets/img/Clickjacking-Lab-4/image_17.png)
+![](/assets/img/Clickjacking-Lab-4/image_18.png)
 
 Probamos que funciona pulsando sobre `View exploit > Click me` y posteriormente le `enviamos` el `exploit` a la víctima pulsando `Deliver exploit to victim`
 
-![](/assets/img/Clickjacking-Lab-4/image_18.png)
+![](/assets/img/Clickjacking-Lab-4/image_19.png)
 
 Otra forma alternativa sería usando la herramienta `Clickbandit` de `Burpsuite`, para usarla nos dirigimos a `Burpsuite` y pulsamos `Burp > Burp Clickbandit`
 
-![](/assets/img/Clickjacking-Lab-4/image_19.png)
+![](/assets/img/Clickjacking-Lab-4/image_20.png)
 
 Pulsamos sobre `Copy Clickbandit to clipboard`
 
-![](/assets/img/Clickjacking-Lab-4/image_20.png)
+![](/assets/img/Clickjacking-Lab-4/image_21.png)
 
 Nos dirigimos a `Chrome`, accedemos a `https://0abc00e1044662e9828fa7c9008500b8.web-security-academy.net/feedback?name=<img src=1 onerror=print()>&email=hacker@attacker-website.com&subject=test&message=test#feedbackResult`, nos abrimos la `consola de desarrollador` y `pegamos` ahí todo el `código`
 
-![](/assets/img/Clickjacking-Lab-4/image_21.png)
+![](/assets/img/Clickjacking-Lab-4/image_22.png)
 
 Una vez hecho esto nos saldrá este `menú`
 
-![](/assets/img/Clickjacking-Lab-4/image_22.png)
+![](/assets/img/Clickjacking-Lab-4/image_23.png)
 
 `Marcamos` la casilla `Disable click actions` para `desactivar` los `clicks`. Una vez hecho esto pulsamos en `Start`
 
-![](/assets/img/Clickjacking-Lab-4/image_23.png)
+![](/assets/img/Clickjacking-Lab-4/image_24.png)
 
 Lo siguiente sería `pulsar sobre el botón que queremos`, en este caso sobre `Submit feedback` que es el que queremos usar para el `ataque de Clickjacking`
 
-![](/assets/img/Clickjacking-Lab-4/image_24.png)
+![](/assets/img/Clickjacking-Lab-4/image_25.png)
 
 Una vez hecho esto, `pulsamos` sobre `Finish` y se nos `mostrará` como es nuestro `payload` actualmente
 
-![](/assets/img/Clickjacking-Lab-4/image_25.png)
+![](/assets/img/Clickjacking-Lab-4/image_26.png)
 
 Usando los símbolos `-` y `+`, podemos `subir` o `bajar` el `aumento`, y con `Toogle transparency` podemos `activar` o `desactivar` la `transparencia`. En mi caso, lo voy a dejar de esta forma. Cuando ya lo tengamos como queremos, pulsamos en `Save` y se nos `descargará` un `documento HTML`
 
-![](/assets/img/Clickjacking-Lab-4/image_26.png)
+![](/assets/img/Clickjacking-Lab-4/image_27.png)
 
 `Pegamos` el `código` en el `Exploit server`
 
-![](/assets/img/Clickjacking-Lab-4/image_27.png)
+![](/assets/img/Clickjacking-Lab-4/image_28.png)
 
 Pulsamos sobre `View exploit` para ver si se ve correctamente
 
-![](/assets/img/Clickjacking-Lab-4/image_28.png)
+![](/assets/img/Clickjacking-Lab-4/image_29.png)
 
 Hacemos `click sobre el botón` y vemos que podemos `explotar` el `XSS`
 
-![](/assets/img/Clickjacking-Lab-4/image_29.png)
-
 ![](/assets/img/Clickjacking-Lab-4/image_30.png)
+
+![](/assets/img/Clickjacking-Lab-4/image_31.png)

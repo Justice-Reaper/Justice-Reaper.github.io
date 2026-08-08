@@ -29,11 +29,14 @@ image:
 
 En un `ataque` de `clickjacking`, el atacante `superpone` u `oculta elementos maliciosos` en una `página web legítima`, por ejemplo, usando un `iframe`, de modo que cuando el `usuario` hace `click` en un `elemento aparentemente seguro` de una `página web`, en realidad, está haciendo `click` en un `elemento oculto` y ejecutando una `acción no deseada`
 
-Por ejemplo, un `usuario` accede a una `página web` (quizás mediante un `enlace` proporcionado por un `correo electrónico`) y hace `click` en un `botón` para ganar un `premio`. Sin saberlo, ha sido engañado por un `atacante` para presionar un `botón oculto`, lo que resulta la realización de una `compra` en otra `web`
+Por ejemplo, un `usuario` accede a una `página web` (quizás mediante un `enlace` proporcionado por un `correo electrónico`) y hace `click` en un `botón` para ganar un `premio`. Sin saberlo, ha sido engañado por un `atacante` para presionar un `botón oculto`, lo que resulta en la realización de una `compra` en otra `web`
 
 Este `ataque` se diferencia de un `ataque CSRF` en que el `usuario` debe realizar una `acción`, como hacer `click en un botón`, mientras que un `ataque CSRF` se basa en la `suplantación` de una `solicitud completa` sin el `conocimiento` o la `interacción` del `usuario`
 
-La `protección` contra los `ataques CSRF` suele proporcionarse mediante el uso de un `token CSRF` vinculado a una `cookie` de `sesión`. Los `tokens CSRF` no puede bloquear un `ataque de clickjacking` porque el `navegador` enviará `automáticamente` el `token CSRF`, esto es debido a que el `ataque` ocurre dentro de la `sesión del usuario` y dentro del `propio dominio`. Por lo tanto, la única diferencia con una `sesión normal`, sería que el `proceso` ocurre dentro de un `iframe oculto`
+La `protección` contra los `ataques CSRF` suele proporcionarse mediante el uso de un `token CSRF` vinculado a una `cookie` de `sesión`. Los `tokens CSRF` no pueden bloquear un `ataque de clickjacking` porque la `página legítima` se carga dentro del `iframe` con su `token CSRF válido ya incluido`, y la `cookie de sesión` se envía `automáticamente`. Esto es debido a que el `ataque` ocurre dentro de la `sesión del usuario` y dentro del `propio dominio`. Por lo tanto, la única diferencia con una `sesión normal`, sería que el `proceso` ocurre dentro de un `iframe oculto`
+
+> **Nota sobre navegadores modernos:** dado que el `ataque` ocurre dentro de un `iframe cross-site`, si la `cookie de sesión` usa `SameSite=Lax` (el valor por `defecto` en `Chrome` desde `2020`) o `SameSite=Strict`, el `navegador` no la enviará dentro del `iframe`, por lo que la `acción` se ejecutaría `sin sesión` y el `ataque fallaría`. El `clickjacking` sigue siendo `viable` cuando la `cookie` es `SameSite=None`, cuando la `acción` no requiere `autenticación`, o en `SPAs` que guardan el `token` en `localStorage`/`sessionStorage` (donde `SameSite` no aplica). En los `laboratorios de PortSwigger` las `cookies` no usan `SameSite` restrictivo, por eso los `ataques` funcionan.
+{: .prompt-warning }
 
 ## ¿Cómo construir un ataque de clickjacking?
 
@@ -164,7 +167,7 @@ Dos `mecanismos clave` para la `protección contra clickjacking` desde el `
 
 ### X-Frame-Options
 
-`X-Frame-Options` fue introducido originalmente como una `cabecera de respuesta no oficial` en `Internet Explorer 8` y fue `rápidamente adoptado` por otros `navegadores`. Esta `cabecera` permite al propietario del sitio web `controlar el uso de iframes u objetos`, de modo que no es posible `cargar una página web desde en un iframe` puede ser `prohibida` con la `directiva deny`
+`X-Frame-Options` fue introducido originalmente como una `cabecera de respuesta no oficial` en `Internet Explorer 8` y fue `rápidamente adoptado` por otros `navegadores`. Esta `cabecera` permite al propietario del sitio web `controlar el uso de iframes u objetos`, de modo que se puede `prohibir` que una `página web` se cargue en un `iframe` mediante la `directiva deny`
 
 ```
 X-Frame-Options: deny
@@ -176,7 +179,7 @@ Alternativamente, se puede `restringir` que un `iframe` cargue `contenido`�
 X-Frame-Options: sameorigin
 ```
 
-O también puede `permitirse` únicamente que se `cargue` un `sitio web específico` en un `iframe` mediante la `directiva allow-from`
+Existió también una `directiva allow-from` para `permitir` únicamente que se `cargue` un `sitio web específico` en un `iframe`. Sin embargo, esta `directiva` está `obsoleta` y ningún `navegador moderno` la soporta, por lo que **no debe utilizarse**. Para `permitir orígenes específicos` hay que usar la `directiva frame-ancestors` de `Content Security Policy (CSP)`
 
 ```
 X-Frame-Options: allow-from https://normal-website.com
@@ -210,4 +213,4 @@ Alternativamente, se puede `permitir` que solo se pueda `cargar la web` desd
 Content-Security-Policy: frame-ancestors normal-website.com;
 ```
 
-Hay que recalcar que `X-Frame-Options` no está `implementado de forma uniforme` en todos los `navegadores` (por ejemplo, la `directiva allow-from` no es `compatible` con `Chrome 76` ni con `Safari 12`). Sin embargo, cuando se `aplica correctamente` junto con `Content Security Policy (CSP)`, puede proporcionar una `protección efectiva` contra `ataques de clickjacking`
+Hay que recalcar que `X-Frame-Options` no está `implementado de forma uniforme` en todos los `navegadores` (por ejemplo, la `directiva allow-from` está `obsoleta` y ningún `navegador actual` la soporta). Por ello, la `protección recomendada` hoy en día es `frame-ancestors` de `Content Security Policy (CSP)`; `X-Frame-Options` (`deny` o `sameorigin`) se mantiene únicamente por `compatibilidad` con `navegadores antiguos`. Cuando ambas se `aplican correctamente`, proporcionan una `protección efectiva` contra `ataques de clickjacking`
