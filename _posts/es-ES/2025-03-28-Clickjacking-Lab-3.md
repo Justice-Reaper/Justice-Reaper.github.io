@@ -94,7 +94,7 @@ Si preferimos usar una herramienta `web` podemos usar `securityheaders` [https:/
 
 En este caso, vemos que la `web` no tiene ni `Content-Security-Policy (CSP)` ni `X-Frame-Options`, lo cual la hace vulnerable a `Clickjacking`
 
-Además, existe una `tercera condición` para que el `ataque` funcione: la `cookie de sesión` no debe usar `SameSite=Lax` ni `SameSite=Strict`. Como el `clickjacking` ocurre dentro de un `iframe cross-site`, si la `cookie` fuese `SameSite=Lax` (el valor por `defecto` en `Chrome`) o `SameSite=Strict`, el `navegador` no la enviaría y la `acción` se ejecutaría `sin sesión`, haciendo `fallar el ataque`. En este `laboratorio` la `cookie` no usa `SameSite` restrictivo, por lo que el `ataque` sí funciona
+Además, existe una `tercera condición` para que el `ataque` funcione, la `cookie de sesión` no debe usar `SameSite=Lax` ni `SameSite=Strict`. Como el `clickjacking` ocurre dentro de un `iframe cross-site`, si la `cookie` fuese `SameSite=Lax` (el valor por `defecto` en `Chrome`) o `SameSite=Strict`, el `navegador` no la enviaría y la `acción` se ejecutaría `sin sesión`, haciendo `fallar el ataque`. En este `laboratorio` la `cookie` no usa `SameSite` restrictivo, por lo que el `ataque` sí funciona
 
 ![](/assets/img/Clickjacking-Lab-3/image_6.png)
 
