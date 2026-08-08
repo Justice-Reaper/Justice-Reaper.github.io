@@ -1,5 +1,5 @@
 ---
-title: HTTP Host Header Attacks Guide
+title: HTTP Host header attacks guide
 description: Guía sobre Http Host Header Attacks
 date: 2026-04-15 12:30:00 +0800
 lang: es-ES

@@ -1,5 +1,5 @@
 ---
-title: HTTP Request Smuggling Guide
+title: HTTP request smuggling guide
 description: Guía sobre HTTP Request Smuggling
 date: 2026-04-22 12:30:00 +0800
 lang: es-ES

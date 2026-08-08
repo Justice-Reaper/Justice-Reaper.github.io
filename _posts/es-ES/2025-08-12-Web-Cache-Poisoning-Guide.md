@@ -1,5 +1,5 @@
 ---
-title: Web Cache Poisoning Guide
+title: Web cache poisoning guide
 description: Guía sobre Web Cache Poisoning
 date: 2025-08-12 12:30:00 +0800
 lang: es-ES
