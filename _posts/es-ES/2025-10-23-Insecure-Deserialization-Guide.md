@@ -332,7 +332,7 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 4 - Puede darse el caso de que `encontremos` una `funcionalidad` de la `aplicación` que `nos permita borrar nuestra cuenta de usuario`. Si se `transmite` un `objeto` con `nuestra información` y ahí se encuentra nuestra `foto de perfil` por ejemplo, podríamos `modificar esa ruta dentro del objeto` para que `se borre el archivo que nosotros queremos`
 
-5 - Una vez `identificada` la `vulnerabilidad` vamos a `seguir los pasos de uno de estos laboratorios (dependiendo del caso tendremos que seguir los pasos de uno u otro)`:
+5 - Si tenemos `dudas` con los `pasos anteriores` podemos `consultar` estos `posts`:
 
 - Modifying serialized objects: [https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-1/](https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-1/)
 
