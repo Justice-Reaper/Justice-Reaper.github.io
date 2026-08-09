@@ -276,19 +276,11 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 2 - `Crawleamos` el `dominio` con `Burpsuite` e `interactuamos manualmente con todas las funcionalidades del sitio web`
 
-3 - Usar la extensión `Param Miner` de `Burpsuite` para descubrir si podemos usar alguna `cabecera`. Para esta `vulnerabilidad` seguramente podamos usar `X-Forwarded-For` para `bypassear` los `bloqueos mayores a 1 minuto`. Una vez probado que podemos usar `X-Forwarded-For`, podemos usar la extensión `Random IP Address Header` para que nos `añada` esta `cabecera` a todas las `peticiones`
+3 - Observar a ver si podemos enviar algún `payload` mediante un `message WebSocket`. Normalmente las `peticiones` se dan a través de un `live chat`. Lo que tenemos que hacer es `enviar` un `payload` como `<h1>test</h1>` para ver si podemos `inyectar HTML` y luego pasar a `inyectar` un `payload de XSS` como `<img src=x onerror=alert()>`. Puede ser que `veamos pasar varias peticiones con nuestro payload`, en ese caso tenemos que `coger todas las que veamos` y `enviarlas al Repeater`. Si vemos alguna `encodeada` o con `ciertos caracteres escapados`, la `borramos` y `pegamos nuestro payload sin el encoding y sin los escapes que se le han hecho del lado del cliente`, y luego `vemos el chat en el navegador para comprobar si han funcionado`. Si tenemos `dudas` con esto, es recomendable leer este `post` [https://justice-reaper.github.io/posts/WebSocket-Attacks-Lab-1/](https://justice-reaper.github.io/posts/WebSocket-Attacks-Lab-1/) y este otro [https://justice-reaper.github.io/posts/WebSocket-Attacks-Lab-2/](https://justice-reaper.github.io/posts/WebSocket-Attacks-Lab-2/)
 
-4 - Observar a ver si podemos enviar algún `payload` mediante un `message WebSocket`. Revisar la `guía de ofuscación` [https://justice-reaper.github.io/posts/Ofuscation-Guide/](https://justice-reaper.github.io/posts/Ofuscation-Guide/) y la de `XSS` [https://justice-reaper.github.io/posts/XSS-Guide/](https://justice-reaper.github.io/posts/XSS-Guide/)
+4 - Si hemos `conseguido el XSS`, lo que tenemos que hacer ahora es `observar si el chat está vinculado a una cookie` y si `no existe token CSRF` podemos seguir los pasos que se siguen en este `laboratorio` [https://justice-reaper.github.io/posts/WebSocket-Attacks-Lab-2/](https://justice-reaper.github.io/posts/WebSocket-Attacks-Lab-2/) para conseguir `robarle la cookie al usuario víctima`
 
-5 - Si observamos que se nos asigna una `cookie` y `no existe token CSRF` podemos probar a `enviarle` un `payload` al `usuario víctima` y `obtener su chat`
-
-6 - Si tenemos `dudas` con los `pasos anteriores` podemos `consultar` estos `posts`:
-
-- Manipulating WebSocket messages to exploit vulnerabilities: [https://justice-reaper.github.io/posts/WebSocket-Attacks-Lab-1/](https://justice-reaper.github.io/posts/WebSocket-Attacks-Lab-1/)
-
-- Cross-site WebSocket hijacking: [https://justice-reaper.github.io/posts/WebSocket-Attacks-Lab-2/](https://justice-reaper.github.io/posts/WebSocket-Attacks-Lab-2/)
-
-- Manipulating the WebSocket handshake to exploit vulnerabilities: [https://justice-reaper.github.io/posts/WebSocket-Attacks-Lab-3/](https://justice-reaper.github.io/posts/WebSocket-Attacks-Lab-3/)
+5 - Usar la extensión `Param Miner` de `Burpsuite` para descubrir si podemos usar alguna `cabecera`. Para esta `vulnerabilidad` seguramente podamos usar `X-Forwarded-For` para `bypassear` los `bloqueos mayores a 1 minuto`. Una vez probado que podemos usar `X-Forwarded-For`, podemos usar la extensión `Random IP Address Header` para que nos `añada` esta `cabecera` a todas las `peticiones`. Si tenemos `dudas` con esto, es recomendable leer este `post` [https://justice-reaper.github.io/posts/WebSocket-Attacks-Lab-3/](https://justice-reaper.github.io/posts/WebSocket-Attacks-Lab-3/)
 
 ## ¿Cómo asegurar una conexión WebSocket?
 
