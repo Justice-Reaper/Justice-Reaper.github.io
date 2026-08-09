@@ -171,7 +171,7 @@ Por el contrario, si la `cookie` usa `SameSite=Lax` (el valor por `defecto` en `
 
 4 - `Creamos` un `PoC` usando `Clickbandit`
 
-5 - Si tenemos alguna `duda` sobre cómo llevar a cabo algún `paso`, podemos consultar estos `laboratorios`:
+5 - Si tenemos `dudas` con los `pasos anteriores` podemos `consultar` estos `posts`:
 
 - Basic clickjacking with CSRF token protection: [https://justice-reaper.github.io/posts/Clickjacking-Lab-1/](https://justice-reaper.github.io/posts/Clickjacking-Lab-1/)
 

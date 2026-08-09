@@ -347,7 +347,7 @@ Por ejemplo, `consideremos el payload /profile;%2f%2e%2e%2fstatic`. `El servidor
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Exploiting cache server normalization for web cache deception - [https://justice-reaper.github.io/posts/Web-Cache-Deception-Lab-4](https://justice-reaper.github.io/posts/Web-Cache-Deception-Lab-4)
+- Exploiting cache server normalization for web cache deception - [https://justice-reaper.github.io/posts/Web-Cache-Deception-Lab-4/](https://justice-reaper.github.io/posts/Web-Cache-Deception-Lab-4/)
 
 ## Cheatsheet
 
@@ -367,7 +367,7 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 5 - Podemos `activar` la `opción Add dynamic cachebuster` pulsando en `Param Miner > Settings > Add dynamic cacheubster`. Esto lo hacemos para que `cuando enviemos una petición nos añada un parámetro de consulta aleatorio y de esta forma, se cree una nueva clave caché con cada petición que enviemos`. `También podemos hacer este proceso manualmente añadiendo un cachebusgter a la petición que realicemos, por ejemplo http://example.com/?cachebuster=1`. Esto se hace para `asegurarnos de que no se carguen de la caché datos antiguos`. Para `comprobar` que `cargamos` los `datos` de la `caché`, `es importante desactivar la opción Add dynamic cachebuster en Param Miner`
 
-6 - Una vez hayamos hecho lo anterior, `debemos revisar las técnicas vistas en los 4 laboratorios resueltos que se comparten en este post  y probarlas`. En mi caso me gusta `realizar` estos `ataques` de forma `manual`, sin embargo, podemos `usar las herramientas Cache Deception Scanner y wcDetect para agilizar el descubrimiento de estas vulnerabilidades`. Sin embargo, `debemos de tener en cuenta que Cache Deception Scanner y wcDetect solo detectan las 3 primeras vulnerabilidades vistas`. Por lo tanto, `es conveniente hacer los ataques manualmente`
+6 - Una vez hayamos hecho lo anterior, `debemos revisar las técnicas vistas en los 4 laboratorios resueltos que se comparten en este post  y probarlas`. En mi caso me gusta `realizar` estos `ataques` de forma `manual`, sin embargo, podemos `usar las herramientas Cache Deception Scanner y wcDetect para agilizar el descubrimiento de estas vulnerabilidades`. Sin embargo, `debemos de tener en cuenta que Cache Deception Scanner y wcDetect solo detectan las 3 primeras vulnerabilidades vistas`. Por lo tanto, `es conveniente hacer los ataques manualmente`:
 
 - Exploiting path mapping for web cache deception: [https://justice-reaper.github.io/posts/Web-Cache-Deception-Lab-1/](https://justice-reaper.github.io/posts/Web-Cache-Deception-Lab-1/)
 

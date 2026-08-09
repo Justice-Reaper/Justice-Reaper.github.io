@@ -115,11 +115,11 @@ Al intentar `bruteforcear un login`, debemos prestar atención a `cualquier dife
 
 En estos `laboratorios` podemos ver como `aplicar` estas `técnicas`:
 
-- Username enumeration via different responses - [https://justice-reaper.github.io/posts/Authentication-Lab-1/](https://justice-reaper.github.io/posts/Authentication-Lab-1/)
+- Username enumeration via different responses - [https://justice-reaper.github.io/posts/Authentication-Vulnerabilities-Lab-1/](https://justice-reaper.github.io/posts/Authentication-Vulnerabilities-Lab-1/)
 
-- Username enumeration via subtly different responses - [https://justice-reaper.github.io/posts/Authentication-Lab-4/](https://justice-reaper.github.io/posts/Authentication-Lab-4/)
+- Username enumeration via subtly different responses - [https://justice-reaper.github.io/posts/Authentication-Vulnerabilities-Lab-4/](https://justice-reaper.github.io/posts/Authentication-Vulnerabilities-Lab-4/)
 
-- Username enumeration via response timing - [https://justice-reaper.github.io/posts/Authentication-Lab-5/](https://justice-reaper.github.io/posts/Authentication-Lab-5/)
+- Username enumeration via response timing - [https://justice-reaper.github.io/posts/Authentication-Vulnerabilities-Lab-5/](https://justice-reaper.github.io/posts/Authentication-Vulnerabilities-Lab-5/)
 
 ##### Protección contra fuerza bruta mal implementada
 
@@ -137,7 +137,7 @@ En ese caso, basta con incluir nuestras `credenciales válidas` periódicamente 
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Broken brute-force protection, IP block - [https://justice-reaper.github.io/posts/Authentication-Lab-6/](https://justice-reaper.github.io/posts/Authentication-Lab-6/)
+- Broken brute-force protection, IP block - [https://justice-reaper.github.io/posts/Authentication-Vulnerabilities-Lab-6/](https://justice-reaper.github.io/posts/Authentication-Vulnerabilities-Lab-6/)
 
 ##### Bloqueo de cuentas
 
@@ -145,7 +145,7 @@ Una forma en que los `sitios web` intentan prevenir los `ataques de fuerza bruta
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Username enumeration via account lock - [https://justice-reaper.github.io/posts/Authentication-Lab-7/](https://justice-reaper.github.io/posts/Authentication-Lab-7/)
+- Username enumeration via account lock - [https://justice-reaper.github.io/posts/Authentication-Vulnerabilities-Lab-7/](https://justice-reaper.github.io/posts/Authentication-Vulnerabilities-Lab-7/)
 
 El `bloqueo de cuenta` ofrece protección frente a la `fuerza bruta dirigida contra una cuenta específica`. Sin embargo, falla frente a ataques cuyo objetivo es `comprometer cualquier cuenta` que sea posible obtener
 
@@ -199,7 +199,7 @@ Si al usuario primero se le pide la `contraseña` y después, en una página sep
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- 2FA simple bypass - [https://justice-reaper.github.io/posts/Authentication-Lab-2/](https://justice-reaper.github.io/posts/Authentication-Lab-2/)
+- 2FA simple bypass - [https://justice-reaper.github.io/posts/Authentication-Vulnerabilities-Lab-2/](https://justice-reaper.github.io/posts/Authentication-Vulnerabilities-Lab-2/)
 
 ### Fallos en la lógica de verificación de dos factores  
 
@@ -248,7 +248,7 @@ Esto es `extremadamente peligroso` si el `atacante` puede posteriormente efectua
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- 2FA broken logic - [https://justice-reaper.github.io/posts/Authentication-Lab-8/](https://justice-reaper.github.io/posts/Authentication-Lab-8/)
+- 2FA broken logic - [https://justice-reaper.github.io/posts/Authentication-Vulnerabilities-Lab-8/](https://justice-reaper.github.io/posts/Authentication-Vulnerabilities-Lab-8/)
 
 ## Vulnerabilidades en otros mecanismos de autenticación
 
@@ -266,7 +266,7 @@ Algunos `sitios web` asumen que si la `cookie` está `encriptada` de alguna mane
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Brute-forcing a stay-logged-in cookie - [https://justice-reaper.github.io/posts/Authentication-Lab-9/](https://justice-reaper.github.io/posts/Authentication-Lab-9/)
+- Brute-forcing a stay-logged-in cookie - [https://justice-reaper.github.io/posts/Authentication-Vulnerabilities-Lab-9/](https://justice-reaper.github.io/posts/Authentication-Vulnerabilities-Lab-9/)
 
 Incluso si el atacante `no puede crear su propia cuenta`, aún podría `explotar` esta `vulnerabilidad`. Usando técnicas habituales como un `XSS`, un atacante podría `robar la cookie "remember me" de otro usuario` y `deducir cómo se construye la cookie` a partir de esa información. Si el sitio fue construido usando un `framework de código abierto`, los `detalles clave de la construcción de la cookie` pueden incluso estar `documentados públicamente`
 
@@ -274,7 +274,7 @@ En algunos casos raros, puede ser posible `obtener la contraseña real de un usu
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Offline password cracking - [https://justice-reaper.github.io/posts/Authentication-Lab-10/](https://justice-reaper.github.io/posts/Authentication-Lab-10/)
+- Offline password cracking - [https://justice-reaper.github.io/posts/Authentication-Vulnerabilities-Lab-10/](https://justice-reaper.github.io/posts/Authentication-Vulnerabilities-Lab-10/)
 
 ### Restablecer las contraseñas de los usuarios
 
@@ -312,13 +312,13 @@ Sin embargo, algunos sitios `no validan el token nuevamente` cuando `se envía e
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Password reset broken logic - [https://justice-reaper.github.io/posts/Authentication-Lab-3/](https://justice-reaper.github.io/posts/Authentication-Lab-3/)
+- Password reset broken logic - [https://justice-reaper.github.io/posts/Authentication-Vulnerabilities-Lab-3/](https://justice-reaper.github.io/posts/Authentication-Vulnerabilities-Lab-3/)
 
 `Si la URL en el correo de restablecimiento se genera dinámicamente`, esto también puede ser `vulnerable` a `password reset poisoning`. En este caso, un `atacante` podría `robar el token de otro usuario` y `usarlo` para `cambiar su contraseña`
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Password reset poisoning via middleware - [https://justice-reaper.github.io/posts/Authentication-Lab-11/](https://justice-reaper.github.io/posts/Authentication-Lab-11/)
+- Password reset poisoning via middleware - [https://justice-reaper.github.io/posts/Authentication-Vulnerabilities-Lab-11/](https://justice-reaper.github.io/posts/Authentication-Vulnerabilities-Lab-11/)
 
 Podemos `estudiar` este `ataque` más en `detalle` en el `apartado` de `Password reset poisoning` de la `guía de HTTP Host Header Attacks` [https://justice-reaper.github.io/posts/HTTP-Host-Header-Attacks-Guide/#password-reset-poisoning](https://justice-reaper.github.io/posts/HTTP-Host-Header-Attacks-Guide/#password-reset-poisoning)
 
@@ -330,11 +330,11 @@ La `funcionalidad para cambiar contraseñas` puede ser especialmente peligrosa s
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Password brute-force via password change - [https://justice-reaper.github.io/posts/Authentication-Lab-12/](https://justice-reaper.github.io/posts/Authentication-Lab-12/)
+- Password brute-force via password change - [https://justice-reaper.github.io/posts/Authentication-Vulnerabilities-Lab-12/](https://justice-reaper.github.io/posts/Authentication-Vulnerabilities-Lab-12/)
 
 ## Vulnerabilidades en mecanismos de autenticación de terceros
 
-Podemos `aprender` a `explotar vulnerabilidades` en `mecanismos de autenticación de terceros` en la `guía de OAuth` [https://justice-reaper.github.io/posts/OAuth-Authentication-Vulnerabilities-Guide/](https://justice-reaper.github.io/posts/OAuth-Authentication-Vulnerabilities-Guide/)
+Podemos `aprender` a `explotar vulnerabilidades` en `mecanismos de autenticación de terceros` en la `guía de OAuth` [https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Guide/](https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Guide/)
 
 ## Cheatsheet
 

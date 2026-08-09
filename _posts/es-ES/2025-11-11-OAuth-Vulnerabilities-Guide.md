@@ -308,7 +308,7 @@ En el `implicit grant type`, esta solicitud `POST` queda `expuesta` al `atacante
 
 En este `laboratorio` podemos ver un `ejemplo` de esto:
 
-- Authentication bypass via OAuth implicit flow - [https://justice-reaper.github.io/posts/OAuth-Lab-1/](https://justice-reaper.github.io/posts/OAuth-Lab-1/)
+- Authentication bypass via OAuth implicit flow - [https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Lab-1/](https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Lab-1/)
 
 #### Protección CSRF defectuosa
 
@@ -320,7 +320,7 @@ Por ejemplo, `un sitio web que permite a los usuarios iniciar sesión usando un 
 
 En este `laboratorio` podemos ver un `ejemplo` de esto:
 
-- Forced OAuth profile linking - [https://justice-reaper.github.io/posts/OAuth-Lab-3/](https://justice-reaper.github.io/posts/OAuth-Lab-3/)
+- Forced OAuth profile linking - [https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Lab-3/](https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Lab-3/)
 
 ### Vulnerabilidades en el servicio OAuth
 
@@ -340,7 +340,7 @@ Nótese que `usar la protección state o nonce no necesariamente previene est
 
 En este `laboratorio` podemos ver un `ejemplo` de esto:
 
-- OAuth account hijacking via redirect_uri - [https://justice-reaper.github.io/posts/OAuth-Lab-4/](https://justice-reaper.github.io/posts/OAuth-Lab-4/)
+- OAuth account hijacking via redirect_uri - [https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Lab-4/](https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Lab-4/)
 
 ##### Validación Defectuosa de redirect_uri
 
@@ -394,7 +394,7 @@ Tengamos en cuenta que `para el grant type implicit robar un token de acceso no 
 
 En este `laboratorio` podemos ver un `ejemplo` de esto:
 
-- Stealing OAuth access tokens via an open redirect - [https://justice-reaper.github.io/posts/OAuth-Lab-5/](https://justice-reaper.github.io/posts/OAuth-Lab-5/)
+- Stealing OAuth access tokens via an open redirect - [https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Lab-5/](https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Lab-5/)
 
 #### Validación defectuosa de scope
 
@@ -538,7 +538,7 @@ Por ejemplo, algunas de estas `propiedades pueden proporcionarse como URIs`. `Si
 
 En este `laboratorio` podemos ver un `ejemplo` de esto:
 
-- SSRF via OpenID dynamic client registration - [https://justice-reaper.github.io/posts/OAuth-Lab-2/](https://justice-reaper.github.io/posts/OAuth-Lab-2/)
+- SSRF via OpenID dynamic client registration - [https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Lab-2/](https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Lab-2/)
 
 ### Permitir solicitudes de autorización por referencia
 

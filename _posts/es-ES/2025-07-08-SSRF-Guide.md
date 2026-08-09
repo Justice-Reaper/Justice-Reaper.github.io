@@ -235,7 +235,7 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 8 - Si recibimos un `código de estado o error diferente` indicando que hay alguna `dirección ruta blacklisteada`, podemos usar `Recollapse` para efectuar un `bypass`. En el caso de no funcionar, deberemos echar un vistazo primeramente a esta `guía de ofuscación` [https://justice-reaper.github.io/posts/Ofuscation-Guide/](https://justice-reaper.github.io/posts/Ofuscation-Guide/)
 
-9 - `Si tenemos alguna duda siguiendo los pasos anteriores, vamos a visitar estos laboratorios y a probar las técnicas que se muestran`:
+9 - Si tenemos `dudas` con los `pasos anteriores` podemos `consultar` estos `posts`:
 
 - Basic SSRF against the local server: [https://justice-reaper.github.io/posts/SSRF-Lab-1/](https://justice-reaper.github.io/posts/SSRF-Lab-1/)
 

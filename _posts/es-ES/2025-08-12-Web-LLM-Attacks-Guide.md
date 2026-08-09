@@ -209,7 +209,7 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 5 - También podemos intentar `explotar vulnerabilidades convencionales a través del LLM`, como un `SSRF`, `command injection`, `XSS`, `etc`
 
-6 - `Si tenemos alguna duda sobre cómo llevar a cabo alguno de los pasos anteriores, vamos a visitar estos laboratorios y a probar las técnicas que se muestran`:
+6 - Si tenemos `dudas` con los `pasos anteriores` podemos `consultar` estos `posts`:
 
 - Exploiting LLM APIs with excessive agency: [https://justice-reaper.github.io/posts/Web-LLM-Attacks-Lab-1/](https://justice-reaper.github.io/posts/Web-LLM-Attacks-Lab-1/)
 

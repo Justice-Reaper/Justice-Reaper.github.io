@@ -143,7 +143,7 @@ En estos `laboratorios` podemos ver como `aplicar` esta `técnica`:
 
 - User role controlled by request parameter - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-3/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-3/)
 
-- User role can be modified in user profileble URL - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-4/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-4/)
+- User role can be modified in user profile - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-4/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-4/)
 
 ### Access control resultante de una mala configuración de la plataforma
 

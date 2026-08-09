@@ -159,7 +159,7 @@ HTTP/1.1 200 OK
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Web cache poisoning with an unkeyed header - [https://justice-reaper.github.io/posts/NoSQLI-Lab-1/](https://justice-reaper.github.io/posts/NoSQLI-Lab-1/)
+- Web cache poisoning with an unkeyed header - [https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-1/](https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-1/)
 
 ## Usar un web cache poisoning para explotar vulnerabilidades en el manejo de cookies
 
@@ -179,7 +179,7 @@ En este ejemplo, `se solicita la versión en polaco de una entrada del blog`. Ob
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Web cache poisoning with an unkeyed cookie - [https://justice-reaper.github.io/posts/NoSQLI-Lab-1/](https://justice-reaper.github.io/posts/NoSQLI-Lab-1/)
+- Web cache poisoning with an unkeyed cookie - [https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-2/](https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-2/)
 
 ### Usar múltiples cabeceras para explotar vulnerabilidades de web cache poisoning
 
@@ -202,7 +202,7 @@ Por sí solo, `este comportamiento no es necesariamente vulnerable`. Sin embargo
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Web cache poisoning with multiple headers - [https://justice-reaper.github.io/posts/NoSQLI-Lab-1/](https://justice-reaper.github.io/posts/NoSQLI-Lab-1/)
+- Web cache poisoning with multiple headers - [https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-3/](https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-3/)
 
 ### Explotar respuestas que exponen demasiada información
 
@@ -233,7 +233,7 @@ Esta `información` también `puede utilizarse para construir un ataque de vario
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Targeted web cache poisoning using an unknown header - [https://justice-reaper.github.io/posts/NoSQLI-Lab-1/](https://justice-reaper.github.io/posts/NoSQLI-Lab-1/)
+- Targeted web cache poisoning using an unknown header - [https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-4/](https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-4/)
 
 ## Explotar fallos en la implementación de la caché
 
@@ -419,7 +419,7 @@ Normalmente, `un ataque de este tipo se basaría en inducir a la víctima a visi
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Web cache poisoning via an unkeyed query string - [https://justice-reaper.github.io/posts/NoSQLI-Lab-1/](https://justice-reaper.github.io/posts/NoSQLI-Lab-1/)
+- Web cache poisoning via an unkeyed query string - [https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-5/](https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-5/)
 
 ### Parámetros de la cadena de consulta unkeyed
 
@@ -429,7 +429,7 @@ Hasta ahora hemos visto que, `en algunos sitios web, la cadena de consulta compl
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Web cache poisoning via an unkeyed query parameter - [https://justice-reaper.github.io/posts/NoSQLI-Lab-1/](https://justice-reaper.github.io/posts/NoSQLI-Lab-1/)
+- Web cache poisoning via an unkeyed query parameter - [https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-6/](https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-6/)
 
 ### Cloaking parámetros de caché
 
@@ -484,7 +484,7 @@ En este caso, `podemos utilizar estas técnicas para sobrescribir la función de
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Parameter cloaking - [https://justice-reaper.github.io/posts/NoSQLI-Lab-1/](https://justice-reaper.github.io/posts/NoSQLI-Lab-1/)
+- Parameter cloaking - [https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-7/](https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-7/)
 
 #### Explotar el soporte a peticiones fat GET
 
@@ -500,7 +500,7 @@ En este caso, `la clave de caché se basaría en la línea de la solicitud (mét
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Web cache poisoning via a fat GET request - [https://justice-reaper.github.io/posts/NoSQLI-Lab-1/](https://justice-reaper.github.io/posts/NoSQLI-Lab-1/)
+- Web cache poisoning via a fat GET request - [https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-8/](https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-8/)
 
 `Esto solo es posible si un sitio web acepta solicitudes GET que incluyen un body, pero existen posibles alternativas`. En algunos casos, `podemos fomentar el manejo de peticiones fat GET forzando el método HTTP`, por ejemplo:
 
@@ -560,7 +560,7 @@ Como resultado, `la caché servirá la respuesta envenenada y el payload se ejec
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- URL normalization - [https://justice-reaper.github.io/posts/NoSQLI-Lab-1/](https://justice-reaper.github.io/posts/NoSQLI-Lab-1/)
+- URL normalization - [https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-9/](https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-9/)
 
 ## Cheatsheet
 

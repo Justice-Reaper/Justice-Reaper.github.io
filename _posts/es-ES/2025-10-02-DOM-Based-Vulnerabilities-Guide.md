@@ -185,7 +185,7 @@ En estos `laboratorios` podemos ver como se `aplica` esta `técnica`:
 
 - DOM XSS using web messages - [https://justice-reaper.github.io/posts/DOM-Based-Vulnerabilities-Lab-1/](https://justice-reaper.github.io/posts/DOM-Based-Vulnerabilities-Lab-1/)
 
-- DOM based open redirection - [https://justice-reaper.github.io/posts/DOM-Based-Vulnerabilities-Lab-2/](https://justice-reaper.github.io/posts/DOM-Based-Vulnerabilities-Lab-2/)
+- DOM XSS using web messages and a JavaScript URL - [https://justice-reaper.github.io/posts/DOM-Based-Vulnerabilities-Lab-2/](https://justice-reaper.github.io/posts/DOM-Based-Vulnerabilities-Lab-2/)
 
 ##### Verificación del origin
 

@@ -140,6 +140,12 @@ En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
 - File path traversal, validation of file extension with null byte bypass - [https://justice-reaper.github.io/posts/Path-Traversal-Lab-6/](https://justice-reaper.github.io/posts/Path-Traversal-Lab-6/)
 
+## Cheatsheet
+
+Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
+
+- Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
+
 ## ¿Cómo detectar y explotar un path traversal?
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
