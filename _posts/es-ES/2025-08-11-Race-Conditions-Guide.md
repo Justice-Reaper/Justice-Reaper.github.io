@@ -347,6 +347,18 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 11 - Si tenemos la `opción` de `proporcionar un email` a la `hora` de `cambiar la contraseña`, `pedir un desbloqueo de cuenta`, `cambiar nuestro email` o `cualquier otra información de valor`, podemos hacer que `nos llegue a nuestro email la información de otro usuario a través de una race condition`
 
+12 - Si tenemos `dudas` con los `pasos anteriores` podemos `consultar` estos `posts`:
+
+- Limit overrun race conditions: [https://justice-reaper.github.io/posts/Race-Conditions-Lab-1/](https://justice-reaper.github.io/posts/Race-Conditions-Lab-1/)
+
+- Bypassing rate limits via race conditions: [https://justice-reaper.github.io/posts/Race-Conditions-Lab-2/](https://justice-reaper.github.io/posts/Race-Conditions-Lab-2/)
+
+- Multi-endpoint race conditions: [https://justice-reaper.github.io/posts/Race-Conditions-Lab-3/](https://justice-reaper.github.io/posts/Race-Conditions-Lab-3/)
+
+- Single-endpoint race conditions: [https://justice-reaper.github.io/posts/Race-Conditions-Lab-4/](https://justice-reaper.github.io/posts/Race-Conditions-Lab-4/)
+
+- Exploiting time-sensitive vulnerabilities: [https://justice-reaper.github.io/posts/Race-Conditions-Lab-5/](https://justice-reaper.github.io/posts/Race-Conditions-Lab-5/)
+
 ## ¿Cómo prevenir las vulnerabilidades provocadas por una race condition? 
 
 `Cuando una sola solicitud puede hacer que una aplicación transicione a través de sub-estados invisibles, entender y predecir su comportamiento es extremadamente difícil`. Esto hace que la `defensa` sea `poco práctica`. `Para asegurar correctamente una aplicación, debemos eliminar los sub-estados de todos los endpoints sensibles aplicando las siguientes estrategias`:
