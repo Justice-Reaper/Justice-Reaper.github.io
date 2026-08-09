@@ -327,37 +327,31 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 1 - `Instalar` la extensión `Turbo Intruder`
 
-2 - `Identificar` un `endpoint crítico` para la `seguridad` que pueda `presentar` un `riesgo potencial de colisión`
+2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-3 - Desde el `Repeater`, `creamos` un `grupo` con las `peticiones` que vamos a `usar` para `causar` la `race condition`. Normalmente, las `race conditions` son más `fáciles` de `explotar` si `enviamos entre 20 y 30 peticiones a la vez`, sin embargo, `hay ocasiones en las que es mejor utilizar solamente 2 peticiones`. La `única diferencia` es que es `probable` que `tengamos realizar más intentos hasta que obtengamos un colisión si solo utilizamos 2 peticiones`
+3 - `Nos logueamos`, `crawleamos` el `dominio` con `Burpsuite` e `interactuamos manualmente con todas las funcionalidades del sitio web`
 
-4 - `Dependiendo de la funcionalidad`, tendremos que `usar` la opción `Send group in sequence (single connection)` o `Send group in sequence (separate connections)` 
+4 - `Identificar` un `endpoint crítico` para la `seguridad` que pueda `presentar` un `riesgo potencial de colisión`
 
-5 - `Una vez enviadas las peticiones usando alguno de los dos formas`, tenemos que `fijarnos` en el `delay` de las `peticiones`, si vemos que la `diferencia` es `muy grande` vamos a tener que usar la `técnica` de `connection warming` o la de `abusing rate or resource limits` para hacer que `el delay entre peticiones sea de unos 10 milisegundos o de máximo 50 milisegundos`. A `menor delay`, `mayor es la probabilidad de que se produzca una race window y por lo tanto, también hay mayor probabilidad de que podamos explotar la race condition con éxito`
+5 - Desde el `Repeater`, `creamos` un `grupo` con las `peticiones` que vamos a `usar` para `causar` la `race condition`. Normalmente, las `race conditions` son más `fáciles` de `explotar` si `enviamos entre 20 y 30 peticiones a la vez`, sin embargo, `hay ocasiones en las que es mejor utilizar solamente 2 peticiones`. La `única diferencia` es que es `probable` que `tengamos realizar más intentos hasta que obtengamos un colisión si solo utilizamos 2 peticiones`
 
-6 - `Una vez hayamos logrado que el delay entre peticiones se encuentre entre 0 milisegundos y 50 milisegundos`, tenemos que `enviar` las `peticiones` usando `Send group (parallel)`
+6 - `Dependiendo de la funcionalidad`, tendremos que `usar` la opción `Send group in sequence (single connection)` o `Send group in sequence (separate connections)` 
 
-7 - `Hay ocasiones en las que se implementan mecanismos de bloqueo basados en la sesión`. Esto puede `provocar` que `para la misma sesión sola podamos mandar una petición a la vez para ejecutar una acción`. Sin embargo, es posible `bypassear` esta `restricción` si `enviamos` una `petición` desde `dos sesiones diferentes`
+7 - `Una vez enviadas las peticiones usando alguno de los dos formas`, tenemos que `fijarnos` en el `delay` de las `peticiones`, si vemos que la `diferencia` es `muy grande` vamos a tener que usar la `técnica` de `connection warming` o la de `abusing rate or resource limits` para hacer que `el delay entre peticiones sea de unos 10 milisegundos o de máximo 50 milisegundos`. A `menor delay`, `mayor es la probabilidad de que se produzca una race window y por lo tanto, también hay mayor probabilidad de que podamos explotar la race condition con éxito`. Podemos ver un `ejemplo` de `connection warming` en este `laboratorio` [https://justice-reaper.github.io/posts/Race-Conditions-Lab-3/](https://justice-reaper.github.io/posts/Race-Conditions-Lab-3/)
 
-8 - Si `tenemos` un `código de descuento`, `podemos intentar aplicarlo varias veces` mediante una `race condition`
+8 - `Una vez hayamos logrado que el delay entre peticiones se encuentre entre 0 milisegundos y 50 milisegundos`, tenemos que `enviar` las `peticiones` usando `Send group (parallel)`
 
-9 - A la `hora` de `comprar` un `producto` podemos `añadir` un `producto muy barato` a la `cesta`. Si hay una `race condition`, podría ser posible `añadir un producto a la cesta cuyo costo supere el monto de dinero que tenemos antes de que se realice el checkout`. De esta forma, `obtendríamos 2 productos por el precio de 1`, ya que `el segundo producto no se nos cobraría`
+9 - `Hay ocasiones en las que se implementan mecanismos de bloqueo basados en la sesión`. Esto puede `provocar` que `para la misma sesión sola podamos mandar una petición a la vez para ejecutar una acción`. Sin embargo, es posible `bypassear` esta `restricción` si `enviamos` una `petición` desde `dos sesiones diferentes`. Si tenemos `dudas` sobre cómo hacer esto, es recomendable leer este `post` [https://justice-reaper.github.io/posts/Race-Conditions-Lab-5/](https://justice-reaper.github.io/posts/Race-Conditions-Lab-5/)
 
-10 - Si nos `encontramos` con un `panel de login`, el cual `nos impide ejecutar un ataque de fuerza bruta`, podemos `utilizar` la `extensión Turbo Intruder de Burpsuite` para `saltarnos` este `rate limit` mediante una `race condition`
+10 - Si una `acción crítica` se `reparte entre varios endpoints diferentes`, podemos intentar `explotar` una `race condition` enviando `peticiones a esos distintos endpoints a la vez` para `aprovechar la race window que se produce entre ellos`. Si tenemos `dudas` sobre cómo hacer esto, es recomendable visitar este `laboratorio` [https://justice-reaper.github.io/posts/Race-Conditions-Lab-3/](https://justice-reaper.github.io/posts/Race-Conditions-Lab-3/)
 
-11 - Si tenemos la `opción` de `proporcionar un email` a la `hora` de `cambiar la contraseña`, `pedir un desbloqueo de cuenta`, `cambiar nuestro email` o `cualquier otra información de valor`, podemos hacer que `nos llegue a nuestro email la información de otro usuario a través de una race condition`
+11 - Si `tenemos` un `código de descuento`, `podemos intentar aplicarlo varias veces` mediante una `race condition`. Si tenemos `dudas` sobre cómo hacer esto, es recomendable visitar este `laboratorio` [https://justice-reaper.github.io/posts/Race-Conditions-Lab-1/](https://justice-reaper.github.io/posts/Race-Conditions-Lab-1/)
 
-12 - Si tenemos `dudas` con los `pasos anteriores` podemos `consultar` estos `posts`:
+12 - A la `hora` de `comprar` un `producto` podemos `añadir` un `producto muy barato` a la `cesta`. Si hay una `race condition`, podría ser posible `añadir un producto a la cesta cuyo costo supere el monto de dinero que tenemos antes de que se realice el checkout`. De esta forma, `obtendríamos 2 productos por el precio de 1`, ya que `el segundo producto no se nos cobraría`
 
-- Limit overrun race conditions: [https://justice-reaper.github.io/posts/Race-Conditions-Lab-1/](https://justice-reaper.github.io/posts/Race-Conditions-Lab-1/)
+13 - Si nos `encontramos` con un `panel de login`, el cual `nos impide ejecutar un ataque de fuerza bruta`, podemos `utilizar` la `extensión Turbo Intruder de Burpsuite` para `saltarnos` este `rate limit` mediante una `race condition`. Si tenemos `dudas` sobre cómo hacer esto, es recomendable visitar este `laboratorio` [https://justice-reaper.github.io/posts/Race-Conditions-Lab-2/](https://justice-reaper.github.io/posts/Race-Conditions-Lab-2/)
 
-- Bypassing rate limits via race conditions: [https://justice-reaper.github.io/posts/Race-Conditions-Lab-2/](https://justice-reaper.github.io/posts/Race-Conditions-Lab-2/)
-
-- Multi-endpoint race conditions: [https://justice-reaper.github.io/posts/Race-Conditions-Lab-3/](https://justice-reaper.github.io/posts/Race-Conditions-Lab-3/)
-
-- Single-endpoint race conditions: [https://justice-reaper.github.io/posts/Race-Conditions-Lab-4/](https://justice-reaper.github.io/posts/Race-Conditions-Lab-4/)
-
-- Exploiting time-sensitive vulnerabilities: [https://justice-reaper.github.io/posts/Race-Conditions-Lab-5/](https://justice-reaper.github.io/posts/Race-Conditions-Lab-5/)
+14 - Si tenemos la `opción` de `proporcionar un email` a la `hora` de `cambiar la contraseña`, `pedir un desbloqueo de cuenta`, `cambiar nuestro email` o `cualquier otra información de valor`, podemos hacer que `nos llegue a nuestro email la información de otro usuario a través de una race condition`. Si tenemos `dudas` sobre cómo `cambiar la contraseña`, es recomendable leer este `post` [https://justice-reaper.github.io/posts/Race-Conditions-Lab-5/](https://justice-reaper.github.io/posts/Race-Conditions-Lab-5/), y sobre cómo `cambiar el email`, este otro [https://justice-reaper.github.io/posts/Race-Conditions-Lab-4/](https://justice-reaper.github.io/posts/Race-Conditions-Lab-4/)
 
 ## ¿Cómo prevenir las vulnerabilidades provocadas por una race condition? 
 
