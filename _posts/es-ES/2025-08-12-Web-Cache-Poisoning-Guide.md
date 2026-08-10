@@ -578,17 +578,17 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuació
 
 3 - Hacerle `crawling` al `dominio` con `Burpsuite` y `explorar todas las funcionalidades de la web manualmente`
 
- 4. `Lanzamos la herramienta Web Cache Vulnerability Scanner sobre los endpoints que consideremos interesantes`. `No tenemos que esperar a que la herramienta termine`, tenemos que `ver la información mostrada y probar las cosas que descubre manualmente`
+4 - `Lanzamos la herramienta Web Cache Vulnerability Scanner sobre los endpoints que consideremos interesantes`. `No tenemos que esperar a que la herramienta termine`, tenemos que `ver la información mostrada y probar las cosas que descubre manualmente`
 
-4 - `Si no descubrimos nada con la herramienta anterior`, `ponemos` la `extensión Diff Hunter` en `ON`, `marcamos como targets los endpoints interesantes` y `dejamos marcada solo la opción Request And Response Differences Only` 
+5 - `Si no descubrimos nada con la herramienta anterior`, `ponemos` la `extensión Diff Hunter` en `ON`, `marcamos como targets los endpoints interesantes` y `dejamos marcada solo la opción Request And Response Differences Only` 
 
-5 - `Seleccionamos los endpoints interesantes` y `lanzamos Param Miner sobre ellos`. Tenemos que `lanzar las opciones Guess everything!, fat GET y normalised path`
+6 - `Seleccionamos los endpoints interesantes` y `lanzamos Param Miner sobre ellos`. Tenemos que `lanzar las opciones Guess everything!, fat GET y normalised path`
 
-6 - El `siguiente paso` es `comparar las diferencias de las peticiones en Diff Hunter`, si hay `coincidencias` que se `repiten` en las `respuestas` y que `no tienen importancia`, podemos `crear una regex para ignorarlas`
+7 - El `siguiente paso` es `comparar las diferencias de las peticiones en Diff Hunter`, si hay `coincidencias` que se `repiten` en las `respuestas` y que `no tienen importancia`, podemos `crear una regex para ignorarlas`
 
-7 - `Gracias a este último paso`, podemos `identificar las discrepancias` y `elaborar un ataque`
+8 - `Gracias a este último paso`, podemos `identificar las discrepancias` y `elaborar un ataque`
 
-8 - `Si tenemos alguna duda es conveniente leer los posts de los laboratorios resueltos`
+9 - `Si tenemos alguna duda es conveniente leer los posts de los laboratorios resueltos`
 
 ## Prevenir vulnerabilidades de web cache poisoning
 
