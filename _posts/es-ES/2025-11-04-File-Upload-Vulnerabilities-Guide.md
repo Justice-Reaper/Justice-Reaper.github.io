@@ -268,21 +268,57 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1 - `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Backslash Powered Scanner` y `Upload Scanner` de `Burpsuite`
-    
-2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
-    
-3 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
-    
-4 - `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
+1 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-5 - Si el `escaneo general` ha `identificado` un `XXE` en la `subida de archivos`, debemos ir a la `guía de XXE` [https://justice-reaper.github.io/posts/XXE-Guide/](https://justice-reaper.github.io/posts/XXE-Guide) para saber como `explotarlo`
+2 - `Iniciar sesión` e `interactuar manualmente` con `todas las funcionalidades de la web` para `crawlearla` por completo
 
-6 - Si `no hay` ningún `XXE` usaremos `Upload Bypass` para intentar `subir` una `web shell` con la cual poder `ejecutar comandos`
+3 - `Si encontramos un campo de subida de archivos`, usaremos la herramienta `Upload Bypass` para intentar `subir` una `web shell` con la cual poder `ejecutar comandos`
 
-7 - `Si la herramienta anterior no detecta nada`, puede ser porque necesitemos hacer un `path traversal` para `subir el archivo`. Para ello, `buscamos un path traversal siguiendo los pasos de esta guía` [https://justice-reaper.github.io/posts/Path-Traversal-Guide/](https://justice-reaper.github.io/posts/Path-Traversal-Guide) 
+### Cómo preparar la petición para Upload Bypass
 
-8 - Si no ha funcionado lo anterior, seguiremos la `metodología` de `PayloadsAllTheThings` y `Hacktricks`
+`Upload Bypass no interactúa con la web por sí sola`, sino que `necesita una petición de subida ya capturada`. Para obtenerla:
+
+- `Subimos un archivo normal` (por ejemplo una imagen) a través del formulario y `capturamos la petición con Burpsuite`
+
+- Con la petición seleccionada, hacemos `Ctrl + A` para `seleccionar todo el texto` y pulsamos en `Save selected text` para `guardarla en un archivo`
+
+- Una vez la `imagen se ha subido correctamente`, hacemos `click derecho sobre la imagen` y `copiamos la dirección de la imagen`. Esto nos da la `ruta remota donde se almacenan los archivos subidos`, que es el valor que le pasaremos a la herramienta con el parámetro `-D`
+
+- Debemos `quedarnos con una parte del mensaje de subida correcta que no sea variable`, para que `la herramienta sepa cuándo un archivo se ha subido con éxito`. Ese fragmento es el que indicamos con el parámetro `-s`
+
+### Cómo lanzar la herramienta
+
+`Primero` lanzamos la herramienta `únicamente con el módulo de path traversal`:
+
+```
+python upload_bypass.py -r /home/justice-reaper/Downloads/request.txt -s "has been uploaded" -E php -D /files/avatars -e -c -i path_traversal -o /home/justice-reaper/Downloads/results.txt
+```
+
+`Después` la lanzamos de `forma normal, con todos los módulos`:
+
+```
+python upload_bypass.py -r /home/justice-reaper/Downloads/request.txt -s "has been uploaded" -E php -D /files/avatars -e -c -o /home/justice-reaper/Downloads/results.txt
+```
+
+Si queremos `ver la petición válida`, es decir, `la que nos ha proporcionado una shell`, debemos `mirar la petición en el archivo results.txt`
+
+### Limitación del path traversal
+
+El `módulo de path traversal` de la herramienta `solo retrocede un nivel (../)`. `Si necesitamos retroceder más de una vez, tendremos que hacerlo manualmente`. Para ello es recomendable `leerse la guía de path traversal` [https://justice-reaper.github.io/posts/Path-Traversal-Guide/](https://justice-reaper.github.io/posts/Path-Traversal-Guide)
+
+4 - `Si tenemos dudas` con los `pasos anteriores`, podemos `consultar estos posts`:
+
+- Remote code execution via web shell upload - [https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Lab-1/](https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Lab-1/)
+
+- Web shell upload via Content-Type restriction bypass - [https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Lab-2/](https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Lab-2/)
+
+- Web shell upload via path traversal - [https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Lab-3/](https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Lab-3/)
+
+- Web shell upload via extension blacklist bypass - [https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Lab-4/](https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Lab-4/)
+
+- Web shell upload via obfuscated file extension - [https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Lab-5/](https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Lab-5/)
+
+- Remote code execution via polyglot web shell upload - [https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Lab-6/](https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Lab-6/)
 
 ## ¿Cómo prevenir vulnerabilidades de subida de archivos?
 
