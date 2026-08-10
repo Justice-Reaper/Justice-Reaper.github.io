@@ -274,9 +274,9 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 3 - `Si encontramos un campo de subida de archivos`, `subimos un archivo normal` (por ejemplo una imagen), `capturamos la petición con Burpsuite`, hacemos `Ctrl + A` para `seleccionar todo el texto` y pulsamos en `Save selected text` para `guardarla en un archivo`
 
-4 - Una vez la `imagen se ha subido correctamente`, hacemos `click derecho sobre la imagen` y `copiamos la dirección de la imagen`, que es la `ruta remota donde se almacenan los archivos subidos` y que le pasaremos a la herramienta con el parámetro `-D`. Además, debemos `quedarnos con una parte del mensaje de subida correcta que no sea variable`, para que `la herramienta sepa cuándo un archivo se ha subido con éxito`, y que le indicaremos con el parámetro `-s`
+4 - Una vez la `imagen se ha subido correctamente`, hacemos `click derecho sobre la imagen` y `copiamos la dirección de la imagen`, que es la `ruta remota donde se almacenan los archivos subidos` y que le pasaremos a la herramienta con el parámetro `-D`. `Esta ruta la usaremos posteriormente para indicar dónde se almacenan los archivos que subimos`. Además, debemos `quedarnos con una parte del mensaje de subida correcta que no sea variable`, para que `la herramienta sepa cuándo un archivo se ha subido con éxito` y que le indicaremos con el parámetro `-s`
 
-5 - `Lanzamos` la herramienta `Upload Bypass` primero `únicamente con el módulo de path traversal`:
+5 - `Lanzamos` la herramienta `Upload Bypass` primero `únicamente con el módulo de path traversal`
 
 ```
 python upload_bypass.py -r /home/justice-reaper/Downloads/request.txt -s "has been uploaded" -E php -D /files/avatars -e -c -i path_traversal -o /home/justice-reaper/Downloads/results.txt
@@ -288,9 +288,11 @@ python upload_bypass.py -r /home/justice-reaper/Downloads/request.txt -s "has be
 python upload_bypass.py -r /home/justice-reaper/Downloads/request.txt -s "has been uploaded" -E php -D /files/avatars -e -c -o /home/justice-reaper/Downloads/results.txt
 ```
 
-7 - `Si queremos ver la petición válida, es decir, la que nos ha proporcionado una shell, debemos mirar la petición en el archivo results.txt`. Hay que tener en cuenta que `el módulo de path traversal solo retrocede un nivel (../)`, por lo que `si necesitamos retroceder más de una vez, tendremos que hacerlo manualmente siguiendo la guía de path traversal` [https://justice-reaper.github.io/posts/Path-Traversal-Guide/](https://justice-reaper.github.io/posts/Path-Traversal-Guide)
+Hay que tener en cuenta que `el módulo de path traversal solo retrocede un nivel (../)`, por lo que `si necesitamos retroceder más de una vez, tendremos que hacerlo manualmente siguiendo la guía de path traversal` [https://justice-reaper.github.io/posts/Path-Traversal-Guide/](https://justice-reaper.github.io/posts/Path-Traversal-Guide)
 
-8 - Si tenemos dudas con los pasos anteriores podemos consultar estos posts:
+7 - `Si queremos ver la petición válida, es decir, la que nos ha proporcionado una shell, debemos mirar la petición en el archivo results.txt`
+
+8 - `Si tenemos dudas` con los `pasos anteriores` podemos `consultar estos posts`:
 
 Remote code execution via web shell upload: [https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Lab-1/](https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Lab-1/)
 
