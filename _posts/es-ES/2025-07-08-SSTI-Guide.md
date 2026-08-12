@@ -259,25 +259,15 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1 - `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Additional Scanner Checks`, `Collaborator Everywhere` y `Backslash Powered Scanner` de `Burpsuite`
+1 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
+2 - `Iniciar sesión` si es posible y `testear manualmente todas las características` del `sitio web`. Una vez hecho esto, revisaremos el `Site map` y todas las `peticiones` que se han realizado en busca de `indicios` de que se está utilizando una `plantilla`. Debemos `revisar manualmente` estas `peticiones` en busca de patrones como {% raw %}`${`, `{{` o `user.nickname`{% endraw %}, los cuales son solo `algunos ejemplos`, ya que este tipo de `sintaxis` o de `objetos` suele indicar que nuestro `input` está siendo `procesado` por un `motor de plantillas`
 
-3 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+3 - Si el `input` que introducimos se `muestra` en la `misma página` en la que lo `introducimos`, `enviaremos` la `petición` al `Intruder` de `Burpsuite` y usaremos estos `payloads` [https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/refs/heads/master/Server%20Side%20Template%20Injection/Intruder/ssti.fuzz](https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/refs/heads/master/Server%20Side%20Template%20Injection/Intruder/ssti.fuzz) para comprobar si podemos `ejecutar comandos`
 
-4 - `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
+4 - En caso de que lo anterior `falle` o de que tengamos que `inyectar` en un `sitio` y `visualizar` lo que hemos `inyectado` en `otro sitio` distinto, usaremos los `payloads` de esta `tabla` [https://cheatsheet.hackmanit.de/template-injection-table/](https://cheatsheet.hackmanit.de/template-injection-table/) para `detectar` el `motor de plantillas` que se está usando. Un ejemplo de este último caso lo podemos ver en este `laboratorio` [https://justice-reaper.github.io/posts/SSTI-Lab-2/](https://justice-reaper.github.io/posts/SSTI-Lab-2/)
 
-5 - Jugaremos con las opciones de `Tplmap` y de `SSTImap` para intentar `explotar` el `SSTI`
-
-6 - Si no podemos explotarlo de primeras, vamos a usar la herramienta `TInjA` para intentar `identificar` la `plantilla` que se está `usando`
-
-7 - Si esto no da resultado, usaremos `Template Injection Table`
-
-8 - Si no podemos explotarlo con estas herramientas, ejecutamos una `ataque de fuerza bruta` con el `Intruder` de `Burpsuite` empleando varios `diccionarios`. Primeramente vamos a usar el `diccionario integrado de Burpsuite` llamado `Fuzzing - template injection`, posteriormente usaremos los diccionarios que contengan `payloads` para esta `vulnerabilidad`
-
-9 - Si no encontramos nada, `checkearemos` las `cheatsheets` de `PayloadsAllTheThings` y `Hacktricks` e iremos `testeando de forma manual`. Si vemos `payloads` o `diccionarios` para aplicar `fuerza bruta` debemos probarlos
-
-10 - Si hemos logrado `identificar el motor de plantillas` pero `no llevar a cabo una explotación` debemos `buscar vulnerabilidades para esa plantilla`. Si no encontramos ninguna, `revisaremos su documentación` para ver si podemos `aprovecharnos de alguna característica para obtener información interesante`
+5 - Una vez `identificada` la `plantilla`, vamos a intentar `ejecutar comandos` usando los `payloads` de `Hacktricks` [https://hacktricks.wiki/es/pentesting-web/ssti-server-side-template-injection/index.html](https://hacktricks.wiki/es/pentesting-web/ssti-server-side-template-injection/index.html) y de `PayloadsAllTheThings` [https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection). Hay casos, como el de este `laboratorio` [https://justice-reaper.github.io/posts/SSTI-Lab-5/](https://justice-reaper.github.io/posts/SSTI-Lab-5/), en los que tenemos que `buscar información` que pueda resultar crítica en `otras páginas`, como esta [https://www.wallarm.com/what/server-side-template-injection-ssti-vulnerability](https://www.wallarm.com/what/server-side-template-injection-ssti-vulnerability) o en la `documentación` de la `plantilla` [https://docs.djangoproject.com/en/5.1/ref/settings/](https://docs.djangoproject.com/en/5.1/ref/settings/)
 
 ## Prevenir un SSTI
 
