@@ -236,25 +236,31 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1 - Intentar `añadir` una `cantidad negativa` de `productos` a la `cesta` y probar también a `hacerlo desde la cesta`
+1 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-2 - Intentar `cambiarle` el `precio` a los `productos` al `añadirlos` a la `cesta` y probar también a `hacerlo desde la cesta`
+2 - `Iniciar sesión` si es posible, `interactuar con todas las funcionalidades` del `sitio web` e `inspeccionar` las `peticiones` que hay en el `Site map`
 
-3 - Intentar `cambiar nuestro email a uno corporativo` para ver si `ganamos acceso` a `paneles administrativos` o a `funcionalidades avanzadas`
+3 - Intentar `añadir` una `cantidad negativa` de `productos` a la `cesta` y probar también a `hacerlo desde la cesta`. Si tenemos `dudas` sobre cómo hacer esto, es recomendable visitar este `laboratorio` [https://justice-reaper.github.io/posts/Business-Logic-Vulnerabilities-Lab-2/](https://justice-reaper.github.io/posts/Business-Logic-Vulnerabilities-Lab-2/)
 
-4 - `Intercalar cupones`, es decir, `canjear primero uno`, `luego otro` y `comprobar si podemos usar de nuevo el primero`
+4 - Intentar `cambiarle` el `precio` a los `productos` al `añadirlos` a la `cesta` y probar también a `hacerlo desde la cesta`. Si tenemos `dudas` sobre cómo hacer esto, es recomendable visitar este `laboratorio` [https://justice-reaper.github.io/posts/Business-Logic-Vulnerabilities-Lab-1/](https://justice-reaper.github.io/posts/Business-Logic-Vulnerabilities-Lab-1/)
 
-5 - `Encontrar el número máximo de productos que podemos añadir a la cesta a la vez`, 99 por ejemplo y ver si `el precio se vuelve negativo al llegar a cierta cantidad` 
+5 - Intentar `cambiar nuestro email a uno corporativo` para ver si `ganamos acceso` a `paneles administrativos` o a `funcionalidades avanzadas`. Si tenemos `dudas` sobre cómo hacer esto, es recomendable visitar este `laboratorio` [https://justice-reaper.github.io/posts/Business-Logic-Vulnerabilities-Lab-3/](https://justice-reaper.github.io/posts/Business-Logic-Vulnerabilities-Lab-3/)
 
-6 - `Escribir el número máximo de caracteres posible en los campos de texto` y `si desde el lado del cliente se nos establece un límite usaremos Burpsuite`
+6 - `Intercalar cupones`, es decir, `canjear primero uno`, `luego otro` y `comprobar si podemos usar de nuevo el primero`. Si tenemos `dudas` sobre cómo hacer esto, es recomendable visitar este `laboratorio` [https://justice-reaper.github.io/posts/Business-Logic-Vulnerabilities-Lab-4/](https://justice-reaper.github.io/posts/Business-Logic-Vulnerabilities-Lab-4/)
 
-7 - Probar a `eliminar campos a la hora de cambiar una contraseña` por ejemplo, y `si no podemos borrar el campo completo borraremos su valor solamente`
+7 - Si podemos `comprar una tarjeta regalo` aplicando un `código de descuento`, podremos `canjearla` después por su `valor completo`. Como la hemos `comprado más barata gracias al descuento` pero `recibimos su valor íntegro`, `ganamos más dinero del que gastamos`, y `repitiendo el proceso podemos aumentar nuestro saldo de forma ilimitada`. Este proceso se puede `automatizar` mediante las `macros de Burpsuite`. Si tenemos `dudas` sobre cómo hacer esto, es recomendable visitar este `laboratorio` [https://justice-reaper.github.io/posts/Business-Logic-Vulnerabilities-Lab-10/](https://justice-reaper.github.io/posts/Business-Logic-Vulnerabilities-Lab-10/)
 
-8 - `Intentar romper el workflow`, un ejemplo de esto sería `añadir un producto a la cesta y comprarlo`. En este caso `se nos descontaría el dinero`, pero para ello `se realizarían 2 peticiones`, `una para descontar el dinero y otra para comprar el producto`, `si dropeamos la primera y solo enviamos la segunda petición, obtendríamos el producto gratis`
+8 - `Encontrar el número máximo de productos que podemos añadir a la cesta a la vez`, 99 por ejemplo y ver si `el precio se vuelve negativo al llegar a cierta cantidad` 
 
-9 - Cuando tengamos la opción de `elegir el privilegio de nuestro usuario`, `podemos intentar evitarlo dropeando la petición que nos asigna el nivel de privilegio y de esta manera obtener uno por defecto`, el cual podría ser el `administrativo`
+9 - `Escribir el número máximo de caracteres posible en los campos de texto` y `si desde el lado del cliente se nos establece un límite usaremos Burpsuite`. También podemos `introducir el máximo número de caracteres posibles a la hora de registrarnos con un email`, ya que `si el límite de caracteres del input es mayor que el de la columna de la base de datos se produce un truncamiento`. De esta forma, un `email demasiado largo terminado en un dominio corporativo` puede `almacenarse recortado` y quedar como una `dirección válida de ese dominio`, lo que nos permitiría `acceder a funcionalidades restringidas` como un `panel de administración`. Si tenemos `dudas` sobre cómo hacer esto, es recomendable visitar este `laboratorio` [https://justice-reaper.github.io/posts/Business-Logic-Vulnerabilities-Lab-6/](https://justice-reaper.github.io/posts/Business-Logic-Vulnerabilities-Lab-6/)
 
-10 - Si `controlamos` una `cookie`, un `input` u `otra cosa` que esté siendo `cifrada y descifrada`, podemos ver si `alguna cookie emplea el mismo algoritmo` y así `construir la nuestra propia para acceder a la cuenta de otro usuario o escalar privilegios`
+10 - Probar a `eliminar campos a la hora de cambiar una contraseña` por ejemplo, y `si no podemos borrar el campo completo borraremos su valor solamente`
+
+11 - `Intentar romper el workflow`, un ejemplo de esto sería `añadir un producto a la cesta y comprarlo`. En este caso `se nos descontaría el dinero`, pero para ello `se realizarían 2 peticiones`, `una para descontar el dinero y otra para comprar el producto`, `si dropeamos la primera y solo enviamos la segunda petición, obtendríamos el producto gratis`
+
+12 - Cuando tengamos la opción de `elegir el privilegio de nuestro usuario`, `podemos intentar evitarlo dropeando la petición que nos asigna el nivel de privilegio y de esta manera obtener uno por defecto`, el cual podría ser el `administrativo`
+
+13 - Si `controlamos` una `cookie`, un `input` u `otra cosa` que esté siendo `cifrada y descifrada`, podemos ver si `alguna cookie emplea el mismo algoritmo` y así `construir la nuestra propia para acceder a la cuenta de otro usuario o escalar privilegios`. Esto ocurre porque la aplicación nos expone un `oracle de cifrado`, es decir, una `funcionalidad que cifra datos que nosotros controlamos` y `otra que los descifra`, de modo que `podemos reutilizar y manipular esos valores cifrados para forjar una cookie válida sin conocer la clave`. Como normalmente se emplea un `cifrado por bloques`, debemos `mantener los bloques alineados a su tamaño` (por ejemplo, `múltiplos de 16 bytes`) para que el `descifrado no se corrompa`. Si tenemos `dudas` sobre cómo hacer esto, es recomendable visitar este `laboratorio` [https://justice-reaper.github.io/posts/Business-Logic-Vulnerabilities-Lab-11/](https://justice-reaper.github.io/posts/Business-Logic-Vulnerabilities-Lab-11/)
 
 ## ¿Cómo prevenir las vulnerabilidades de lógica de negocio?
 
