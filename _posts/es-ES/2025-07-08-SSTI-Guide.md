@@ -261,13 +261,27 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 1 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-2 - `Iniciar sesión` si es posible y `testear manualmente todas las características` del `sitio web`. Una vez hecho esto, revisaremos el `Site map` y todas las `peticiones` que se han realizado en busca de `indicios` de que se está utilizando una `plantilla`. Debemos `revisar manualmente` estas `peticiones` en busca de patrones como {% raw %}`${`, `{{` o `user.nickname`{% endraw %}, los cuales son solo `algunos ejemplos`, ya que este tipo de `sintaxis` o de `objetos` suele indicar que nuestro `input` está siendo `procesado` por un `motor de plantillas`
+2 - `Iniciar sesión` si es posible y `testear manualmente todas las características` del `sitio web`. Una vez hecho esto, nos `dirigimos` al `Site map` y `revisamos todas las peticiones que se han realizado en busca de indicios de que se está utilizando una plantilla`. Debemos `revisar manualmente` estas `peticiones` en busca de patrones como {% raw %}`${`, `{{` o `user.nickname`{% endraw %}. Este tipo de `sintaxis` o de `objetos` suele `indicar` que nuestro `input` está siendo `procesado` por un `motor de plantillas`. Debemos `tener en cuenta que hay diferentes motores de plantillas y sus sintaxis son diferentes`
 
-3 - Si el `input` que introducimos se `muestra` en la `misma página` en la que lo `introducimos`, `enviaremos` la `petición` al `Intruder` de `Burpsuite` y usaremos estos `payloads` [https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/refs/heads/master/Server%20Side%20Template%20Injection/Intruder/ssti.fuzz](https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/refs/heads/master/Server%20Side%20Template%20Injection/Intruder/ssti.fuzz) para comprobar si podemos `ejecutar comandos`
+3 - Si el `input` que introducimos se `muestra` en la `misma página` en la que lo `introducimos`, `enviaremos` la `petición` al `Intruder` de `Burpsuite` y usaremos estos `payloads` [https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/refs/heads/master/Server%20Side%20Template%20Injection/Intruder/ssti.fuzz](https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/refs/heads/master/Server%20Side%20Template%20Injection/Intruder/ssti.fuzz) para `comprobar si podemos ejecutar comandos`
 
 4 - En caso de que lo anterior `falle` o de que tengamos que `inyectar` en un `sitio` y `visualizar` lo que hemos `inyectado` en `otro sitio` distinto, usaremos los `payloads` de esta `tabla` [https://cheatsheet.hackmanit.de/template-injection-table/](https://cheatsheet.hackmanit.de/template-injection-table/) para `detectar` el `motor de plantillas` que se está usando. Un ejemplo de este último caso lo podemos ver en este `laboratorio` [https://justice-reaper.github.io/posts/SSTI-Lab-2/](https://justice-reaper.github.io/posts/SSTI-Lab-2/)
 
 5 - Una vez `identificada` la `plantilla`, vamos a intentar `ejecutar comandos` usando los `payloads` de `Hacktricks` [https://hacktricks.wiki/es/pentesting-web/ssti-server-side-template-injection/index.html](https://hacktricks.wiki/es/pentesting-web/ssti-server-side-template-injection/index.html) y de `PayloadsAllTheThings` [https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection). Hay casos, como el de este `laboratorio` [https://justice-reaper.github.io/posts/SSTI-Lab-5/](https://justice-reaper.github.io/posts/SSTI-Lab-5/), en los que tenemos que `buscar información` que pueda resultar crítica en `otras páginas`, como esta [https://www.wallarm.com/what/server-side-template-injection-ssti-vulnerability](https://www.wallarm.com/what/server-side-template-injection-ssti-vulnerability) o en la `documentación` de la `plantilla` [https://docs.djangoproject.com/en/5.1/ref/settings/](https://docs.djangoproject.com/en/5.1/ref/settings/)
+
+6 - Si hemos logrado `identificar el motor de plantillas` pero `no conseguimos ejecutar comandos`, buscaremos `exploits documentados` o `vulnerabilidades conocidas` para esa `plantilla`, como ocurre en este `laboratorio` [https://justice-reaper.github.io/posts/SSTI-Lab-4/](https://justice-reaper.github.io/posts/SSTI-Lab-4/). Si no encontramos ninguno, `revisaremos su documentación` para ver si podemos `aprovecharnos de alguna característica` que nos permita `obtener información sensible`, como podemos ver en este `laboratorio` [https://justice-reaper.github.io/posts/SSTI-Lab-3/](https://justice-reaper.github.io/posts/SSTI-Lab-3/)
+
+7 - Si tenemos dudas con los pasos anteriores podemos consultar estos posts:
+
+Basic server-side template injection: [https://justice-reaper.github.io/posts/SSTI-Lab-1/](https://justice-reaper.github.io/posts/SSTI-Lab-1/)
+
+Basic server-side template injection (code context): [https://justice-reaper.github.io/posts/SSTI-Lab-2/](https://justice-reaper.github.io/posts/SSTI-Lab-2/)
+
+Server-side template injection using documentation: [https://justice-reaper.github.io/posts/SSTI-Lab-3/](https://justice-reaper.github.io/posts/SSTI-Lab-3/)
+
+Server-side template injection in an unknown language with a documented exploit: [https://justice-reaper.github.io/posts/SSTI-Lab-4/](https://justice-reaper.github.io/posts/SSTI-Lab-4/)
+
+Server-side template injection with information disclosure via user-supplied objects: [https://justice-reaper.github.io/posts/SSTI-Lab-5/](https://justice-reaper.github.io/posts/SSTI-Lab-5/)
 
 ## Prevenir un SSTI
 
