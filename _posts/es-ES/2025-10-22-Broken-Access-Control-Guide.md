@@ -313,17 +313,31 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1 - `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Additional Scanner Checks`, `Collaborator Everywhere` y `Backslash Powered Scanner` de `Burpsuite`
+1 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
+2 - `Crawleamos` el `dominio` con `Burpsuite`
 
-3 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+3 - Nos logueamos si podemos e interactuamos manualmente con todas las funcionalidades del sitio web
+
+4 - Al loguearnos se nos redirigirá a una ruta como esta /my-account?id=wiener. En estos casos, vamos a probar si podemos visualizar la información de otro usuario accediendo a /my-account?id=carlos
+
+5 - Puede ser que en vez de un usuario, vemamos un GUID así /my-account?id=bdb7ff58-939d-42a9-91d3-b44348df2eb6. Para estos casos lo primero que vamos a ver es si hay artículos publicados y si es así puede ser también haya comentarios y/o el autor del post. Una vez hayamos encontrado esto vamos a inspeccionar esa página para ver si podemos ver el GUID de esos usuarios. En caso de que sí podamos ver el GUID, vamos a intentar visualizar sus perfiles accediendo así /my-account?id=b7d5d6b3-89d4-4d9f-9ef2-6f4e9e34a8c1
+
+6 - Hay veces que al intentar visualizar el perfil de otro usuario no vamos a poder, porque al acceder a su perfil se va a realizar un redirect. Sin embargo, es posible evitar el redirect si hacemos la petición a /my-account?id=carlos mediante Burpsuite
+
+7 - Fuzzear rutas usando ffuf y el diccionario common.txt de seclists para ver si encontramos rutas interesantes, como /admin
+
+8 - Inspeccionar el código fuente de la web y los archivos .js en busca de rutas interesantes o contraseñas hardcodeadas. Para buscar rutas podemos usar la función find scripts que tiene Burpsuite, para usarla hacemos click derecho sobre el dominio > Engagements tools > Find scripts. Por ejemplo, una ruta de usuario administrador con un nombre aleatorio /admin-zxsf
+
+9 - Vamos a buscar valores como de este estilo roleid:1, admin: false tanto en el Site map como en el HTTP history. Una vez los tengamos vamos a probar a cambiarlos para ver si hacíendolo también podemos cambiar nuestros privilegios y así acceder a rutas a las que solo un usuario administrador podría acceder. Estos valores pueden aparecer tanto en las requests como en las responses en lugares como las cookies o en el body
+
+# SEGUIR POR AQUÍ
+
+
 
 4 - Si el `escaneo` no ha descubierto ninguna `ruta interesante`, es hora de intentar `buscar vulnerabilidades` de forma `manual`. Para ello, cada vez que demos con una `feature interesante` debemos probar a `cambiar el método` mediante el que se hace la `petición`. Esto lo podemos hacer haciendo `click derecho > Change request method`. Si probamos con `otro usuario diferente al nuestro` y `no funciona`, `debemos` probar también con `nuestro usuario` para asegurarnos si funciona realmente
 
 5 - Si tenemos `dos cuentas` y `una` tiene `más privilegios` que la `otra`, `usaremos dos navegadores` e `iniciaremos sesión` con `una cuenta en uno` y con `la otra en otro`. Podemos usar las extensiones `Auth Analyzer` y `Autorize` de `Burpsuite` para ayudarnos a encontrar `vulnerabilidades` de `access control`
-
-6 - Si tenemos alguna duda debemos mirar los diferentes ejemplos de `vulnerabilidades` que hay en este `post`
 
 ## Prevenir vulnerabilidades de access control
 
