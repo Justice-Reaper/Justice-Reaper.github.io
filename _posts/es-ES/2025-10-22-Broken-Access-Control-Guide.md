@@ -313,25 +313,55 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1 - `Añadir` el `dominio` y sus `subdominios` al `scope`
+Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
+
+1 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
 2 - `Crawleamos` el `dominio` con `Burpsuite`
 
-3 - Nos logueamos si podemos e interactuamos manualmente con todas las funcionalidades del sitio web
+3 - Nos `logueamos` si podemos e `interactuamos manualmente` con todas las `funcionalidades` del `sitio web`
 
-4 - Al loguearnos se nos redirigirá a una ruta como esta /my-account?id=wiener. En estos casos, vamos a probar si podemos visualizar la información de otro usuario accediendo a /my-account?id=carlos
+4 - Al `loguearnos` se nos `redirigirá` a una `ruta` como esta `/my-account?id=wiener`. En estos casos, vamos a probar si podemos `visualizar la información` de `otro usuario` accediendo a `/my-account?id=carlos`
 
-5 - Puede ser que en vez de un usuario, vemamos un GUID así /my-account?id=bdb7ff58-939d-42a9-91d3-b44348df2eb6. Para estos casos lo primero que vamos a ver es si hay artículos publicados y si es así puede ser también haya comentarios y/o el autor del post. Una vez hayamos encontrado esto vamos a inspeccionar esa página para ver si podemos ver el GUID de esos usuarios. En caso de que sí podamos ver el GUID, vamos a intentar visualizar sus perfiles accediendo así /my-account?id=b7d5d6b3-89d4-4d9f-9ef2-6f4e9e34a8c1
+5 - Puede ser que en vez de un `usuario`, vemamos un `GUID` así `/my-account?id=bdb7ff58-939d-42a9-91d3-b44348df2eb6`. Para estos casos lo primero que vamos a ver es si hay `artículos publicados` y si es así puede ser también haya `comentarios` y/o el `autor del post`. Una vez hayamos encontrado esto vamos a `inspeccionar esa página` para ver si podemos ver el `GUID` de esos `usuarios`. En caso de que sí podamos ver el `GUID`, vamos a intentar `visualizar sus perfiles` accediendo así `/my-account?id=b7d5d6b3-89d4-4d9f-9ef2-6f4e9e34a8c1`
 
-6 - Hay veces que al intentar visualizar el perfil de otro usuario no vamos a poder, porque al acceder a su perfil se va a realizar un redirect. Sin embargo, es posible evitar el redirect si hacemos la petición a /my-account?id=carlos mediante Burpsuite
+6 - Hay veces que al intentar `visualizar el perfil` de `otro usuario` no vamos a poder, porque al acceder a su perfil se va a realizar un `redirect`. Sin embargo, es posible `evitar el redirect` si hacemos la `petición` a `/my-account?id=carlos` mediante `Burpsuite`
 
-7 - Fuzzear rutas usando ffuf y el diccionario common.txt de seclists para ver si encontramos rutas interesantes, como /admin
+7 - `Fuzzear rutas` usando `ffuf` y el diccionario `common.txt` de `seclists` para ver si encontramos `rutas interesantes`, como `/admin`
 
-8 - Inspeccionar el código fuente de la web y los archivos .js en busca de rutas interesantes o contraseñas hardcodeadas. Para buscar rutas podemos usar la función find scripts que tiene Burpsuite, para usarla hacemos click derecho sobre el dominio > Engagements tools > Find scripts. Por ejemplo, una ruta de usuario administrador con un nombre aleatorio /admin-zxsf
+8 - `Inspeccionar el código fuente` de la web y los `archivos .js` en busca de `rutas interesantes` o `contraseñas hardcodeadas`. Para buscar `rutas` podemos usar la función `find scripts` que tiene `Burpsuite`, para usarla hacemos `click derecho` sobre el `dominio` > `Engagements tools` > `Find scripts`. Por ejemplo, una `ruta de usuario administrador` con un `nombre aleatorio` como `/admin-zxsf`
 
-9 - Vamos a buscar valores como de este estilo roleid:1, admin: false tanto en el Site map como en el HTTP history. Una vez los tengamos vamos a probar a cambiarlos para ver si hacíendolo también podemos cambiar nuestros privilegios y así acceder a rutas a las que solo un usuario administrador podría acceder. Estos valores pueden aparecer tanto en las requests como en las responses en lugares como las cookies o en el body
+9 - Vamos a buscar `valores` como de este estilo `roleid:1`, `admin: false` tanto en el `Site map` como en el `HTTP history`. Una vez los tengamos vamos a probar a `cambiarlos` para ver si hacíendolo también podemos `cambiar nuestros privilegios` y así acceder a `rutas` a las que solo un `usuario administrador` podría acceder. Estos `valores` pueden aparecer tanto en las `requests` como en las `responses` en lugares como las `cookies` o en el `body`
 
-10 - Si tenemos dos cuentas con diferente nivel de privilegio podemos intentar replicar las peticiones que se hacen en la cuenta de mayor privilegio en la cuenta con menores privilegios. Podemos cambiar el método de GET a POST o vicebersa para intentar bypassear ciertos controles que se estén haciendo y así poder ejecutar estas peticiones. En otras ocasiones, simplmente con cambiar la cookie del usuario con mayor privilegio por la del usuario con menor privilegio es suficiente para llevar a cabo la explotación
+10 - Si tenemos `dos cuentas` con diferente `nivel de privilegio` podemos intentar `replicar las peticiones` que se hacen en la `cuenta de mayor privilegio` en la `cuenta con menores privilegios`. Podemos cambiar el `método` de `GET` a `POST` o vicebersa para intentar `bypassear ciertos controles` que se estén haciendo y así poder `ejecutar estas peticiones`. En otras ocasiones, simplmente con cambiar la `cookie` del `usuario con mayor privilegio` por la del `usuario con menor privilegio` es suficiente para llevar a cabo la `explotación`
+
+Si tenemos dudas con los pasos anteriores podemos consultar estos posts:
+
+- Unprotected admin functionality - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-1/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-1/)
+
+- Unprotected admin functionality with unpredictable URL - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-2/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-2/)
+
+- User role controlled by request parameter - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-3/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-3/)
+
+- User role can be modified in user profile - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-4/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-4/)
+
+- User ID controlled by request parameter - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-5/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-5/)
+
+- User ID controlled by request parameter, with unpredictable user IDs - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-6/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-6/)
+
+- User ID controlled by request parameter with data leakage in redirect - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-7/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-7/)
+
+- User ID controlled by request parameter with password disclosure - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-8/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-8/)
+
+- Insecure direct object references - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-9/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-9/)
+
+- URL-based access control can be circumvented - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-10/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-10/)
+
+- Method-based access control can be circumvented - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-11/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-11/)
+
+- Multi-step process with no access control on one step - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-12/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-12/)
+
+- Referer-based access control - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-13/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-13/)
 
 ## Prevenir vulnerabilidades de access control
 
