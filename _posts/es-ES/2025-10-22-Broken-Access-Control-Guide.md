@@ -331,13 +331,7 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 9 - Vamos a buscar valores como de este estilo roleid:1, admin: false tanto en el Site map como en el HTTP history. Una vez los tengamos vamos a probar a cambiarlos para ver si hacíendolo también podemos cambiar nuestros privilegios y así acceder a rutas a las que solo un usuario administrador podría acceder. Estos valores pueden aparecer tanto en las requests como en las responses en lugares como las cookies o en el body
 
-# SEGUIR POR AQUÍ
-
-
-
-4 - Si el `escaneo` no ha descubierto ninguna `ruta interesante`, es hora de intentar `buscar vulnerabilidades` de forma `manual`. Para ello, cada vez que demos con una `feature interesante` debemos probar a `cambiar el método` mediante el que se hace la `petición`. Esto lo podemos hacer haciendo `click derecho > Change request method`. Si probamos con `otro usuario diferente al nuestro` y `no funciona`, `debemos` probar también con `nuestro usuario` para asegurarnos si funciona realmente
-
-5 - Si tenemos `dos cuentas` y `una` tiene `más privilegios` que la `otra`, `usaremos dos navegadores` e `iniciaremos sesión` con `una cuenta en uno` y con `la otra en otro`. Podemos usar las extensiones `Auth Analyzer` y `Autorize` de `Burpsuite` para ayudarnos a encontrar `vulnerabilidades` de `access control`
+10 - Si tenemos dos cuentas con diferente nivel de privilegio podemos intentar replicar las peticiones que se hacen en la cuenta de mayor privilegio en la cuenta con menores privilegios. Podemos cambiar el método de GET a POST o vicebersa para intentar bypassear ciertos controles que se estén haciendo y así poder ejecutar estas peticiones. En otras ocasiones, simplmente con cambiar la cookie del usuario con mayor privilegio por la del usuario con menor privilegio es suficiente para llevar a cabo la explotación
 
 ## Prevenir vulnerabilidades de access control
 
