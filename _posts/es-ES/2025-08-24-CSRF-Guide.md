@@ -463,9 +463,33 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 3 - `Iniciar sesión` e `interactuar manualmente con todas las funcionalidades del sitio web`
 
-4 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+4 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`. Esto nos puede `ayudar` a `detectar` un `CSRF` pero `puede fallar en ocasiones`, así que `conviene hacer también una inspección manual`
 
-5 - Por último, debemos `generar` un `PoC` usando `Project Forgery`, el `CSRF PoC Generator` de `Burpsuite`o `manualmente`
+4 - `Debido a que tantas variables que tiene esta vulnerabilidad, es preferible probar todas las técnicas vistas en vez de seguir una metodología concreta`
+
+- CSRF vulnerability with no defenses: https://justice-reaper.github.io/posts/CSRF-Lab-1/
+
+- CSRF where token validation depends on request method: https://justice-reaper.github.io/posts/CSRF-Lab-2/
+
+- CSRF where token validation depends on token being present: https://justice-reaper.github.io/posts/CSRF-Lab-3/
+
+- CSRF where token is not tied to user session: https://justice-reaper.github.io/posts/CSRF-Lab-4/
+
+- CSRF where token is tied to non-session cookie: https://justice-reaper.github.io/posts/CSRF-Lab-5/
+
+- CSRF where token is duplicated in cookie: https://justice-reaper.github.io/posts/CSRF-Lab-6/
+
+- SameSite Lax bypass via method override: https://justice-reaper.github.io/posts/CSRF-Lab-7/
+
+- SameSite Strict bypass via client-side redirect: https://justice-reaper.github.io/posts/CSRF-Lab-8/
+
+- SameSite Strict bypass via sibling domain: https://justice-reaper.github.io/posts/CSRF-Lab-9/
+
+- SameSite Lax bypass via cookie refresh: https://justice-reaper.github.io/posts/CSRF-Lab-10/
+
+- CSRF where Referer validation depends on header being present: https://justice-reaper.github.io/posts/CSRF-Lab-11/
+
+- CSRF with broken Referer validation: https://justice-reaper.github.io/posts/CSRF-Lab-12/
 
 ## Prevenir vulnerabilidades CSRF
 
