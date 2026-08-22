@@ -463,9 +463,11 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 3 - `Iniciar sesión` e `interactuar manualmente con todas las funcionalidades del sitio web`
 
-4 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`. Esto nos puede `ayudar` a `detectar` un `CSRF` pero `puede fallar en ocasiones`, así que `conviene hacer también una inspección manual`
+4 - `Buscar` en el `HTTP history`, `WebSockets history` y en el `Site map` todas las `peticiones` para ver si `encontramos alguna interesante`. Buscamos `sibling domains`, `archivos JavaScript que puedan dar luegar a open redirects o XSS` y `peticiones` que `ejecuten` una `acción importante` como `cambiar` el `correo electrónico`. `Una vez encontradas este tipo de peticiones tenemos que escanear sus insertion points`
 
-4 - `Debido a que tantas variables que tiene esta vulnerabilidad, es preferible probar todas las técnicas vistas en vez de seguir una metodología concreta`
+5 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`. Esto nos puede `ayudar` a `detectar` un `CSRF` pero `puede fallar en ocasiones`, así que `conviene hacer también una inspección manual`
+
+6 - `Debido a que tantas variables que tiene esta vulnerabilidad, es preferible probar todas las técnicas vistas en vez de seguir una metodología concreta`
 
 - CSRF vulnerability with no defenses: [https://justice-reaper.github.io/posts/CSRF-Lab-1/](https://justice-reaper.github.io/posts/CSRF-Lab-1/)
 
