@@ -461,11 +461,11 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-3 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
+3 - `Iniciar sesión` e `interactuar manualmente con todas las funcionalidades del sitio web`
 
-4 - Si no encontramos nada, podemos usar la `metodología` de `PayloadsAllTheThings` para `detectar si es posible llevar a cabo un ataque CSRF` y para una mayor variedad de ataques consultaremos `Hacktricks`
+4 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
 
-5 - Por último, debemos `generar` un `PoC` usando `Project Forgery` o el `CSRF PoC Generator` de `Burpsuite` 
+5 - Por último, debemos `generar` un `PoC` usando `Project Forgery`, el `CSRF PoC Generator` de `Burpsuite`o `manualmente`
 
 ## Prevenir vulnerabilidades CSRF
 
