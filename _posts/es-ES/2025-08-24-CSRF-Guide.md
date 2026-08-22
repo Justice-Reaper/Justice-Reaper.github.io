@@ -469,27 +469,27 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 - CSRF vulnerability with no defenses: [https://justice-reaper.github.io/posts/CSRF-Lab-1/](https://justice-reaper.github.io/posts/CSRF-Lab-1/)
 
-- CSRF where token validation depends on request method: [https://justice-reaper.github.io/posts/CSRF-Lab-1/](https://justice-reaper.github.io/posts/CSRF-Lab-2/)
+- CSRF where token validation depends on request method: [https://justice-reaper.github.io/posts/CSRF-Lab-2/](https://justice-reaper.github.io/posts/CSRF-Lab-2/)
 
-- CSRF where token validation depends on token being present: [https://justice-reaper.github.io/posts/CSRF-Lab-1/](https://justice-reaper.github.io/posts/CSRF-Lab-3/)
+- CSRF where token validation depends on token being present: [https://justice-reaper.github.io/posts/CSRF-Lab-3/](https://justice-reaper.github.io/posts/CSRF-Lab-3/)
 
-- CSRF where token is not tied to user session: [https://justice-reaper.github.io/posts/CSRF-Lab-1/](https://justice-reaper.github.io/posts/CSRF-Lab-4/)
+- CSRF where token is not tied to user session: [https://justice-reaper.github.io/posts/CSRF-Lab-4/](https://justice-reaper.github.io/posts/CSRF-Lab-4/)
 
-- CSRF where token is tied to non-session cookie: [https://justice-reaper.github.io/posts/CSRF-Lab-1/](https://justice-reaper.github.io/posts/CSRF-Lab-5/)
+- CSRF where token is tied to non-session cookie: [https://justice-reaper.github.io/posts/CSRF-Lab-5/](https://justice-reaper.github.io/posts/CSRF-Lab-5/)
 
-- CSRF where token is duplicated in cookie: [https://justice-reaper.github.io/posts/CSRF-Lab-1/](https://justice-reaper.github.io/posts/CSRF-Lab-6/)
+- CSRF where token is duplicated in cookie: [https://justice-reaper.github.io/posts/CSRF-Lab-6/](https://justice-reaper.github.io/posts/CSRF-Lab-6/)
 
-- SameSite Lax bypass via method override: [https://justice-reaper.github.io/posts/CSRF-Lab-1/](https://justice-reaper.github.io/posts/CSRF-Lab-7/)
+- SameSite Lax bypass via method override: [https://justice-reaper.github.io/posts/CSRF-Lab-7/](https://justice-reaper.github.io/posts/CSRF-Lab-7/)
 
-- SameSite Strict bypass via client-side redirect: [https://justice-reaper.github.io/posts/CSRF-Lab-1/](https://justice-reaper.github.io/posts/CSRF-Lab-8/)
+- SameSite Strict bypass via client-side redirect: [https://justice-reaper.github.io/posts/CSRF-Lab-8/](https://justice-reaper.github.io/posts/CSRF-Lab-8/)
 
-- SameSite Strict bypass via sibling domain: [https://justice-reaper.github.io/posts/CSRF-Lab-1/](https://justice-reaper.github.io/posts/CSRF-Lab-9/)
+- SameSite Strict bypass via sibling domain: [https://justice-reaper.github.io/posts/CSRF-Lab-9/](https://justice-reaper.github.io/posts/CSRF-Lab-9/)
 
-- SameSite Lax bypass via cookie refresh: [https://justice-reaper.github.io/posts/CSRF-Lab-1/](https://justice-reaper.github.io/posts/CSRF-Lab-10/)
+- SameSite Lax bypass via cookie refresh: [https://justice-reaper.github.io/posts/CSRF-Lab-10/](https://justice-reaper.github.io/posts/CSRF-Lab-10/)
 
-- CSRF where Referer validation depends on header being present: [https://justice-reaper.github.io/posts/CSRF-Lab-1/](https://justice-reaper.github.io/posts/CSRF-Lab-11/)
+- CSRF where Referer validation depends on header being present: [https://justice-reaper.github.io/posts/CSRF-Lab-11/](https://justice-reaper.github.io/posts/CSRF-Lab-11/)
 
-- CSRF with broken Referer validation: [https://justice-reaper.github.io/posts/CSRF-Lab-1/](https://justice-reaper.github.io/posts/CSRF-Lab-12/)
+- CSRF with broken Referer validation: [https://justice-reaper.github.io/posts/CSRF-Lab-12/](https://justice-reaper.github.io/posts/CSRF-Lab-12/)
 
 ## Prevenir vulnerabilidades CSRF
 
