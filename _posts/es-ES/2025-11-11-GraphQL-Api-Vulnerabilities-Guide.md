@@ -777,7 +777,7 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-3 - Nos logueamos si es posible e interactuamos manualmente con todas las funcionalidades del sitio web
+3 - Nos logueamos si es posible, interactuamos manualmente con todas las funcionalidades del sitio web y crawleamos el dominio con Burpsuite
 
 4 - Buscamos endpoints de GraphQL en el HTTP history y en el Site map
 
