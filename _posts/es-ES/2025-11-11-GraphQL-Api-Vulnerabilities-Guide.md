@@ -771,59 +771,59 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 ## ¿Cómo detectar y explotar vulnerabilidades de la api de GraphQL?
 
-Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
+Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los `siguientes pasos`:
 
-1 - `Instalar` las extensiones `InQL` y `Content Type Converter` de `Burpsuite`
+1 - `Instalar` las extensiones `InQL` y `Content Type Converter` de `Burpsuite`
 
-2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
+2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-3 - Nos logueamos si es posible, interactuamos manualmente con todas las funcionalidades del sitio web y crawleamos el dominio con Burpsuite
+3 - Nos `logueamos` si es posible, `interactuamos manualmente` con todas las `funcionalidades` del sitio web y `crawleamos` el `dominio` con `Burpsuite`
 
-4 - Buscamos endpoints de GraphQL en el HTTP history y en el Site map
+4 - `Buscamos` `endpoints de GraphQL` en el `HTTP history` y en el `Site map`
 
-5 - Si no hay endpoints vamos a fuzzear con el diccionario common.txt de seclists. Es importante fuzzear primero usando el método POST y luego usando el método GET
+5 - Si no hay `endpoints` vamos a `fuzzear` con el `diccionario` `common.txt` de `seclists`. Es importante `fuzzear` primero usando el `método POST` y luego usando el `método GET`
 
-6 - Una vez descubierto el endpoint de GraphQL, tenemos que ver si a ese endpoint hay que enviarle los datos por POST o por GET. Para confirmar esto, vamos a usar esta expresión si la petición va por GET
+6 - Una vez descubierto el `endpoint de GraphQL`, tenemos que ver si a ese `endpoint` hay que `enviarle los datos` por `POST` o por `GET`. Para confirmar esto, vamos a usar esta `expresión` si la `petición` va por `GET`
 
 ```
 https://api/?query={__typename}
 ```
 
-Y para enviar los datos por POST usamos esta cabecera Content-Type: application/json y enviamos esta data en el body
+Y para `enviar los datos` por `POST` usamos esta `cabecera` `Content-Type: application/json` y enviamos esta `data` en el `body`
 
 ```
 {"query":"{__typename}"}
 ```
 
-Además de JSON también debemos probar a enviar la query en formato urlencoded. Esta sería la versión urlencodeada que se usuaría para enviar datos tanto por GET como por POST
+Además de `JSON` también debemos probar a `enviar` la `query` en formato `urlencoded`. Esta sería la versión `urlencodeada` que se usuaría para `enviar datos` tanto por `GET` como por `POST`
 
 ```
 query=%7B__typename%7D
 ```
 
-Quedaría así al usarlo en una petición GET
+Quedaría así al usarlo en una `petición GET`
 
 ```
 https://api/?query=%7B__typename%7D
 ```
 
-Y así al usarlo en una petición POST
+Y así al usarlo en una `petición POST`
 
 ```
 query=%7B__typename%7D
 ```
 
-7 - Una vez hecho esto lo que vamos a hacer es en la pestaña de GraphQL que aparece en el Repeater hacer click derecho sobre la petición > GraphQL > Set introspection query. En caso de que el srvidor bloquee la petición y nos muestre un error de este estilo "GraphQL introspection is not allowed, but the query contained __schema or __type", vamos a añadir un salto de línea, comas o espacios después de __schema para bypassear la posible sanitización que se esté empleando. Es seguro usar estos caracteres porque `GraphQL` los `ignora`, pero las `expresiones regulares que puede haber implementado los desarolladores no`
+7 - Una vez hecho esto lo que vamos a hacer es en la `pestaña de GraphQL` que aparece en el `Repeater` hacer `click derecho sobre la petición > GraphQL > Set introspection query`. En caso de que el `servidor` `bloquee` la `petición` y nos muestre un `error` de este estilo `"GraphQL introspection is not allowed, but the query contained __schema or __type"`, vamos a añadir un `salto de línea`, `comas` o `espacios` después de `__schema` para `bypassear` la posible `sanitización` que se esté empleando. Es seguro usar estos `caracteres` porque `GraphQL` los `ignora`, pero las `expresiones regulares que puede haber implementado los desarolladores no`
 
-8 - Una vez hecha la consulta de introspección vamos a hacer click derecho sobre la respuesta > GraphQL > Save GraphQL queries to site map
+8 - Una vez hecha la `consulta de introspección` vamos a hacer `click derecho sobre la respuesta > GraphQL > Save GraphQL queries to site map`
 
-9 - Ahora lo que vamos a hacer es diriginos al Site map e inspeccionar todas las queries de GraphQL y vamos a listar informaicón privilegiada a través de estas queries. También puede ser que podamos realizar acciones a través de las mutations. Para visualizar de una mejor forma las queries vamos a hacer `click derecho la respuesta > Extensions > InQL - GraphQL Scanner > Open in GraphQL Voyager`
+9 - Ahora lo que vamos a hacer es `diriginos` al `Site map` e `inspeccionar` todas las `queries de GraphQL` y vamos a `listar informaicón privilegiada` a través de estas `queries`. También puede ser que podamos `realizar acciones` a través de las `mutations`. Para `visualizar` de una mejor forma las `queries` vamos a hacer `click derecho la respuesta > Extensions > InQL - GraphQL Scanner > Open in GraphQL Voyager`
 
-10 - Si queremos asegurarnos de recopilar toda la información posible podemos utilizar `InQL`. Lo que tenemos que hacer es `click derecho > Extensions > InQL - GraphQL Scanner > Generate queries` o `importar` en `formato JSON` el `schema de GraphQL` que hemos `obtenido` al `realizar` la `introspección`
+10 - Si queremos asegurarnos de `recopilar toda la información posible` podemos utilizar `InQL`. Lo que tenemos que hacer es `click derecho > Extensions > InQL - GraphQL Scanner > Generate queries` o `importar` en `formato JSON` el `schema de GraphQL` que hemos `obtenido` al `realizar` la `introspección`
 
-13 - `Si no encontramos nada interesante`, vamos a intentar `realizar` un `ataque de fuerza bruta` al `login` usando `alias`. Para ello, vamos a seguir los pasos que se hacen en este laboratorio [https://justice-reaper.github.io/posts/GraphQL-API-Vulnerabilities-Lab-4/](https://justice-reaper.github.io/posts/GraphQL-API-Vulnerabilities-Lab-4/)
+13 - `Si no encontramos nada interesante`, vamos a intentar `realizar` un `ataque de fuerza bruta` al `login` usando `alias`. Para ello, vamos a `seguir los pasos que se hacen en este laboratorio` [https://justice-reaper.github.io/posts/GraphQL-API-Vulnerabilities-Lab-4/](https://justice-reaper.github.io/posts/GraphQL-API-Vulnerabilities-Lab-4/)
 
-14 - En el caso de poder `cambiar nuestro email` o `asociar nuestra cuenta con un email`, `podemos ver si se realiza mediante GraphQL` y `checkear si tiene o no un token CSRF`. `Si no tiene token CSRF, podemos intentar llevar a cabo un ataque CSRF mediante GraphQL`. Si nos `surge` alguna `duda`, es recomendable seguir los pasos de este laboratorio [https://justice-reaper.github.io/posts/GraphQL-API-Vulnerabilities-Lab-5/](https://justice-reaper.github.io/posts/GraphQL-API-Vulnerabilities-Lab-5/)
+14 - En el caso de poder `cambiar nuestro email` o `asociar nuestra cuenta con un email`, `podemos ver si se realiza mediante GraphQL` y `checkear si tiene o no un token CSRF`. `Si no tiene token CSRF, podemos intentar llevar a cabo un ataque CSRF mediante GraphQL`. Si nos `surge` alguna `duda`, es recomendable `seguir los pasos que se hacen en este laboratorio` [https://justice-reaper.github.io/posts/GraphQL-API-Vulnerabilities-Lab-5/](https://justice-reaper.github.io/posts/GraphQL-API-Vulnerabilities-Lab-5/)
 
 ## ¿Cómo prevenir ataques en GraphQL?
 
