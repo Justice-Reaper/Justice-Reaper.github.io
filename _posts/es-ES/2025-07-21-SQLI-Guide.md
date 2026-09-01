@@ -161,7 +161,7 @@ Imaginemos una aplicación que permite a los usuarios `iniciar sesión` con un `
 SELECT * FROM users WHERE username = 'wiener' AND password = 'bluecheese'
 ```
 
-Si la consulta devuelve los `datos de un usuario`, el `inicio de sesión` tiene éxito. De lo contrario, se rechaza.
+Si la consulta devuelve los `datos de un usuario`, el `inicio de sesión` tiene éxito. De lo contrario, se rechaza
 
 En este caso, un atacante puede `iniciar sesión como cualquier usuario` sin necesidad de conocer su contraseña. Puede hacerlo utilizando la secuencia de comentario SQL `--` para eliminar la `comprobación de la contraseña` de la cláusula `WHERE`
 
@@ -179,9 +179,9 @@ En este `laboratorio` podemos ver un `ejemplo` de `esto`:
 
 ### Obtención de datos de otras tablas de la base de datos
 
-En los casos en los que la aplicación responde mostrando los `resultados de una consulta SQL`, un atacante puede aprovechar una `vulnerabilidad de SQL injection` para obtener `datos de otras tablas` dentro de la base de datos.
+En los casos en los que la aplicación responde mostrando los `resultados de una consulta SQL`, un atacante puede aprovechar una `vulnerabilidad de SQL injection` para obtener `datos de otras tablas` dentro de la base de datos
 
-Podemos utilizar la palabra clave `UNION` para ejecutar una consulta `SELECT` adicional y añadir sus resultados a los `resultados de la consulta original`.
+Podemos utilizar la palabra clave `UNION` para ejecutar una consulta `SELECT` adicional y añadir sus resultados a los `resultados de la consulta original`
 
 Por ejemplo, si una aplicación ejecuta la siguiente consulta que contiene la entrada proporcionada por el usuario `Gifts`:
 
@@ -360,7 +360,7 @@ Las siguientes técnicas pueden utilizarse para explotar `vulnerabilidades de bl
 
 - Modificar la `lógica de la consulta` para provocar una `diferencia detectable` en la respuesta de la aplicación dependiendo de si una determinada condición es `verdadera` o `falsa`. Esto puede implicar inyectar una `nueva condición` dentro de una `lógica booleana` o provocar condicionalmente un `error`, como una `división entre cero`
 
-- Provocar condicionalmente un `timeout` durante el `procesamiento de la consulta`. Esto permite determinar si una condición es `verdadera` basándose en el `tiempo que tarda la aplicación en responder`.
+- Provocar condicionalmente un `timeout` durante el `procesamiento de la consulta`. Esto permite determinar si una condición es `verdadera` basándose en el `tiempo que tarda la aplicación en responder`
 
 - Provocar una `interacción out-of-band`. Esta técnica es `extremadamente potente` y funciona en situaciones en las que las técnicas anteriores no funcionan. A menudo, es posible `extraer directamente los datos` a través del `canal out-of-band`. Por ejemplo, se pueden introducir los datos en una `consulta DNS` dirigida a un `dominio que esté bajo nuestro control`
 
@@ -445,7 +445,7 @@ La `SQL injection basada en errores` hace referencia a los casos en los que pued
 
 Algunas aplicaciones realizan `consultas SQL`, pero su comportamiento `no cambia`, independientemente de si la consulta devuelve algún dato. La técnica de la sección anterior no funcionará, porque inyectar `diferentes condiciones booleanas` no produce ninguna `diferencia en las respuestas de la aplicación`
 
-A menudo es posible hacer que la aplicación devuelva una `respuesta diferente` dependiendo de si se produce un `error SQL`. Podemos modificar la consulta para que provoque un `error de la base de datos` únicamente si la condición es `verdadera`. Muy a menudo, un `error no gestionado` provocado por la base de datos causa alguna `diferencia en la respuesta de la aplicación`, como un `mensaje de error`. Esto permite inferir si la `condición inyectada` es `verdadera`.
+A menudo es posible hacer que la aplicación devuelva una `respuesta diferente` dependiendo de si se produce un `error SQL`. Podemos modificar la consulta para que provoque un `error de la base de datos` únicamente si la condición es `verdadera`. Muy a menudo, un `error no gestionado` provocado por la base de datos causa alguna `diferencia en la respuesta de la aplicación`, como un `mensaje de error`. Esto permite inferir si la `condición inyectada` es `verdadera`
 
 Para ver cómo funciona esto, supongamos que se envían `dos solicitudes` que contienen, respectivamente, los siguientes valores de cookie `TrackingId`:
 
@@ -593,7 +593,7 @@ Por este motivo, la `SQL injection de segundo orden` también se conoce como `St
 
 La `SQL injection de segundo orden` suele producirse en situaciones en las que los `desarrolladores` son conscientes de las `vulnerabilidades de SQL injection` y, por tanto, gestionan de forma segura la `introducción inicial de los datos` en la base de datos
 
-Cuando los datos se procesan posteriormente, se consideran `seguros` porque anteriormente fueron almacenados en la base de datos de forma segura
+Cuando los datos se procesan posteriormente, se consideran `seguros` porque anteriormente fueron `almacenados en la base de datos de forma segura`
 
 Sin embargo, en ese momento los datos se manejan de forma `insegura`, ya que el `desarrollador` los considera erróneamente `de confianza`
 
@@ -644,11 +644,11 @@ Es posible identificar tanto el `tipo de base de datos` como su `versión` media
 
 Las siguientes son algunas consultas que permiten determinar la `versión` de algunos de los `tipos de bases de datos más populares`:
 
-| Tipo de base de datos       | Consulta                  |
-| --------------------------- | ------------------------- |
-| Microsoft SQL Server, MySQL | `SELECT @@version`        |
-| Oracle                      | `SELECT * FROM v$version` |
-| PostgreSQL                  | `SELECT version()`        |
+| Tipo de base de datos       | Consulta                |
+| --------------------------- | ----------------------- |
+| Microsoft SQL Server, MySQL | SELECT @@version        |
+| Oracle                      | SELECT * FROM v$version |
+| PostgreSQL                  | SELECT version()        |
 
 Por ejemplo, podríamos utilizar un ataque `UNION` con el siguiente `input`:
 
@@ -734,7 +734,7 @@ En este `laboratorio` podemos ver un `ejemplo` de `esto`:
 
 ## Cheatsheet
 
-Debido a que hay diferentes bases de datos y cada una tiene sus particularidades es recomendable que revisemos la `cheatsheet de portswigger` sobre SQL injection [https://portswigger.net/web-security/sql-injection/cheat-sheet](https://portswigger.net/web-security/sql-injection/cheat-sheet) para saber como se consulta el tipo, la versión y como se enumera contenido de cada una de las bases de datos
+Debido a que hay diferentes bases de datos y cada una tiene sus particularidades es recomendable que revisemos la `cheatsheet de portswigger` sobre SQL injection [https://portswigger.net/web-security/sql-injection/cheat-sheet](https://portswigger.net/web-security/sql-injection/cheat-sheet) para saber como se consulta el `tipo`, la `versión` y como se enumera `contenido` de cada una de las bases de datos
 
 ## Ejemplos de tipos de SQL injections
 
