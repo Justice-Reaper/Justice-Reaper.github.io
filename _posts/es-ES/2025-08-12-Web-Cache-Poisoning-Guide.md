@@ -564,13 +564,11 @@ En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
 ## Cheatsheet
 
-Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
+Usaremos esta `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
 
 - Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
 
 ## ¿Cómo detectar y explotar un web cache poisoning?
-
-Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
 1 - `Instalar` las extensiones `Diff Hunter` y `Param Miner` de `Burpsuite`
 
@@ -588,7 +586,7 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuació
 
 8 - `Gracias a este último paso`, podemos `identificar las discrepancias` y `elaborar un ataque`
 
-9 - Si tenemos dudas con los pasos anteriores podemos consultar estos posts:
+9 - Si tenemos `dudas` con los `pasos anteriores` podemos `consultar` estos `posts`:
 
 Web cache poisoning with an unkeyed header: [https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-1/](https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-1/)
 

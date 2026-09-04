@@ -550,19 +550,17 @@ Para `verificar` si esta `opción` es `compatible`, debemos `buscar la configura
 
 ## Cheatsheet
 
-Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
+Usaremos esta `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
 
 - Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
 
 ## ¿Cómo detectar y explotar vulnerabilidades de OAuth?
 
-Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
-
 1 - `Instalar` la extensión `OAUTH Scan` de `Burpsuite`
 
 2 - `Interactuar con todas las funcionalidades de OAuth del sitio web`
 
-3 - Agregar el `dominio` y `subdominios` de `OAuth` y del `dominio normal` 
+3 - Agregar al `scope` el `dominio` y `subdominios` de `OAuth` y del `dominio normal`
 
 4 - `Analizar las peticiones que se han producido`
 

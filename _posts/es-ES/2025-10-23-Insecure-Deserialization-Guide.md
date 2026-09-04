@@ -316,13 +316,11 @@ Los `métodos de deserialización`, como `unserialize()` en `PHP`, `rara vez est
 
 ## Cheatsheet
 
-Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
+Usaremos esta `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
 
 - Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
 
 ## ¿Cómo detectar y explotar un insecure deserealization?
-
-Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
 1 - `Seguir los pasos de la guía de information disclosure` [https://justice-reaper.github.io/posts/Information-Disclosure-Guide/](https://justice-reaper.github.io/posts/Information-Disclosure-Guide/) para `recopilar` la `máxima información posible` y luego intentar `explotar` el `insecure deserialization` con la `información obtenida`. Puede ser que en esta `parte` nos `encontremos` un `archivo de backup` (por ejemplo un `.php~`) que `filtre` el `código fuente` de la `aplicación`. Este `backup` nos `muestra` las `clases`, `métodos` y `propiedades` que podemos `llamar`, de manera que sabremos `qué objeto` tenemos que `construir` y `qué funciones` se `ejecutarán` al `deserializarlo`. También puede que nos `encontremos` un `phpinfo.php` que nos `filtre información` muy `útil`, como la `versión de PHP`, las `funciones deshabilitadas` o incluso una `secret key` que luego podamos usar para `firmar` la `cookie` con `nuestro objeto malicioso`
 

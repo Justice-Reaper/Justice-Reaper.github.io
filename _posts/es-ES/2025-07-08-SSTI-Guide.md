@@ -251,13 +251,11 @@ En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
 ## Cheatsheet
 
-Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
+Usaremos esta `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
 
 - Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
 
 ## ¿Cómo detectar y explotar un SSTI?
-
-Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
 1 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
@@ -271,7 +269,7 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 6 - Si hemos logrado `identificar el motor de plantillas` pero `no conseguimos ejecutar comandos`, buscaremos `exploits documentados` o `vulnerabilidades conocidas` para esa `plantilla`, como ocurre en este `laboratorio` [https://justice-reaper.github.io/posts/SSTI-Lab-4/](https://justice-reaper.github.io/posts/SSTI-Lab-4/). Si no encontramos ninguno, `revisaremos su documentación` para ver si podemos `aprovecharnos de alguna característica` que nos permita `obtener información sensible`, como podemos ver en este `laboratorio` [https://justice-reaper.github.io/posts/SSTI-Lab-3/](https://justice-reaper.github.io/posts/SSTI-Lab-3/)
 
-7 - Si tenemos dudas con los pasos anteriores podemos consultar estos posts:
+7 - Si tenemos `dudas` con los `pasos anteriores` podemos `consultar` estos `posts`:
 
 Basic server-side template injection: [https://justice-reaper.github.io/posts/SSTI-Lab-1/](https://justice-reaper.github.io/posts/SSTI-Lab-1/)
 

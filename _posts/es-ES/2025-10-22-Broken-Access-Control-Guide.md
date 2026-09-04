@@ -305,15 +305,11 @@ Algunos `sitios web` aplican `access control` basados en la `ubicación geográf
 
 ## Cheatsheet
 
-Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
+Usaremos esta `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
 
 - Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
 
 ## ¿Cómo detectar y explotar un broken access control?
-
-Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
-
-Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
 1 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
@@ -323,7 +319,7 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 4 - Al `loguearnos` se nos `redirigirá` a una `ruta` como esta `/my-account?id=wiener`. En estos casos, vamos a probar si podemos `visualizar la información` de `otro usuario` accediendo a `/my-account?id=carlos`
 
-5 - Puede ser que en vez de un `usuario`, vemamos un `GUID` así `/my-account?id=bdb7ff58-939d-42a9-91d3-b44348df2eb6`. Para estos casos lo primero que vamos a ver es si hay `artículos publicados` y si es así puede ser también haya `comentarios` y/o el `autor del post`. Una vez hayamos encontrado esto vamos a `inspeccionar esa página` para ver si podemos ver el `GUID` de esos `usuarios`. En caso de que sí podamos ver el `GUID`, vamos a intentar `visualizar sus perfiles` accediendo así `/my-account?id=b7d5d6b3-89d4-4d9f-9ef2-6f4e9e34a8c1`
+5 - Puede ser que en vez de un `usuario`, veamos un `GUID` así `/my-account?id=bdb7ff58-939d-42a9-91d3-b44348df2eb6`. Para estos casos lo primero que vamos a ver es si hay `artículos publicados` y si es así puede ser también haya `comentarios` y/o el `autor del post`. Una vez hayamos encontrado esto vamos a `inspeccionar esa página` para ver si podemos ver el `GUID` de esos `usuarios`. En caso de que sí podamos ver el `GUID`, vamos a intentar `visualizar sus perfiles` accediendo así `/my-account?id=b7d5d6b3-89d4-4d9f-9ef2-6f4e9e34a8c1`
 
 6 - Hay veces que al intentar `visualizar el perfil` de `otro usuario` no vamos a poder, porque al acceder a su perfil se va a realizar un `redirect`. Sin embargo, es posible `evitar el redirect` si hacemos la `petición` a `/my-account?id=carlos` mediante `Burpsuite`
 
@@ -335,7 +331,7 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 10 - Si tenemos `dos cuentas` con diferente `nivel de privilegio` podemos intentar `replicar las peticiones` que se hacen en la `cuenta de mayor privilegio` en la `cuenta con menores privilegios`. Podemos cambiar el `método` de `GET` a `POST` o vicebersa para intentar `bypassear ciertos controles` que se estén haciendo y así poder `ejecutar estas peticiones`. En otras ocasiones, simplmente con cambiar la `cookie` del `usuario con mayor privilegio` por la del `usuario con menor privilegio` es suficiente para llevar a cabo la `explotación`
 
-Si tenemos dudas con los pasos anteriores podemos consultar estos posts:
+11 - Si tenemos `dudas` con los `pasos anteriores` podemos `consultar` estos `posts`:
 
 - Unprotected admin functionality - [https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-1/](https://justice-reaper.github.io/posts/Broken-Access-Control-Lab-1/)
 

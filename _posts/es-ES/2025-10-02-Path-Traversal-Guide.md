@@ -142,13 +142,11 @@ En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
 ## Cheatsheet
 
-Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
+Usaremos esta `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
 
 - Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
 
 ## ¿Cómo detectar y explotar un path traversal?
-
-Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
 1 - `Lanzaremos katana para crawlear toda la web y obtener así todas las rutas`. Es `importante` que nos `fijemos` en `rutas` como `?filename=1.jpg`, o `si llevan una ruta inicial como en este caso ?filename=/var/www/images/1.jpg`. `Básicamente tenemos que tener en cuenta todas las URLs en las que vemos que se carga un archivo mediante un parámetro de consulta`. `Si las cookies no hacen falta, eliminamos ese parámetro`
 

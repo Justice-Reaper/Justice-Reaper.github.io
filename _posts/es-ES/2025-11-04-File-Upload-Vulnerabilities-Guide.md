@@ -260,13 +260,11 @@ Podemos intentar `enviar peticiones usando el método OPTIONS a distintos endpoi
 
 ## Cheatsheet
 
-Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
+Usaremos esta `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
 
 - Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
 
 ## ¿Cómo detectar y explotar vulnerabilidades de subida de archivos?
-
-Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
 1 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
@@ -290,7 +288,7 @@ python upload_bypass.py -r /home/justice-reaper/Downloads/request.txt -s "has be
 
 7 - `Si queremos ver la petición válida, es decir, la que nos ha proporcionado una shell, debemos mirar la petición en el archivo results.txt`
 
-8 - `Si tenemos dudas` con los `pasos anteriores` podemos `consultar estos posts`:
+8 - Si tenemos `dudas` con los `pasos anteriores` podemos `consultar` estos `posts`:
 
 Remote code execution via web shell upload: [https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Lab-1/](https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Lab-1/)
 

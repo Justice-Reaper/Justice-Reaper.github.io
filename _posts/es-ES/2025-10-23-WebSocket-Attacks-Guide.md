@@ -264,13 +264,11 @@ En este `laboratorio` podemos ver como se `aplica` esta `técnica`:
 
 ## Cheatsheet
 
-Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
+Usaremos esta `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
 
 - Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
 
 ## ¿Cómo llevar a cabo un ataque mediante WebSocket?
-
-Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
 1 - Instalar las extensiones `Param Miner` y `Random IP Address Header` de `Burpsuite`
 
@@ -278,7 +276,7 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 3 - `Crawleamos` el `dominio` con `Burpsuite` e `interactuamos manualmente con todas las funcionalidades del sitio web`
 
-4 - Observar a ver si podemos enviar algún `payload` mediante un `message WebSocket`. Normalmente las `peticiones` se dan a través de un `live chat`. Lo que tenemos que hacer es `enviar` un `payload` como `<h1>test</h1>` para ver si podemos `inyectar HTML` y luego pasar a `inyectar` un `payload de XSS` como `<img src=x onerror=alert()>` o ``<img src=x onError=alert`3`>``. Puede ser que `veamos pasar varias peticiones con nuestro payload`, en ese caso tenemos que `coger todas las que veamos` y `enviarlas al Repeater`. Si vemos alguna `encodeada` o con `ciertos caracteres escapados`, la `borramos` y `pegamos nuestro payload sin el encoding y sin los escapes que se le han hecho del lado del cliente`. Puede ser que nos `bloqueen los payloads` porque estamos usando `ciertos caracteres no permitidos`, en ese caso lo que tenemos que hacer es `averiguar qué caracteres se pueden usar y cuáles no` para poder `crear un payload que bypasse estos controles`. Por último, `vemos el chat en el navegador para comprobar si han funcionado`. Si tenemos `dudas` con esto, es recomendable leer este `post` [https://justice-reaper.github.io/posts/WebSocket-Attacks-Lab-1/](https://justice-reaper.github.io/posts/WebSocket-Attacks-Lab-1/) y este otro [https://justice-reaper.github.io/posts/WebSocket-Attacks-Lab-2/](https://justice-reaper.github.io/posts/WebSocket-Attacks-Lab-2/)
+4 - `Revisamos` las `peticiones` en el `WebSockets history`, `Site map` y `HTTP history` para ver si podemos `enviar` algún `payload` mediante un `message WebSocket`. Normalmente las `peticiones` se dan a través de un `live chat`. Lo que tenemos que hacer es `enviar` un `payload` como `<h1>test</h1>` para ver si podemos `inyectar HTML` y luego pasar a `inyectar` un `payload de XSS` como `<img src=x onerror=alert()>` o ``<img src=x onError=alert`3`>``. Puede ser que `veamos pasar varias peticiones con nuestro payload`, en ese caso tenemos que `coger todas las que veamos` y `enviarlas al Repeater`. Si vemos alguna `encodeada` o con `ciertos caracteres escapados`, la `borramos` y `pegamos nuestro payload sin el encoding y sin los escapes que se le han hecho del lado del cliente`. Puede ser que nos `bloqueen los payloads` porque estamos usando `ciertos caracteres no permitidos`, en ese caso lo que tenemos que hacer es `averiguar qué caracteres se pueden usar y cuáles no` para poder `crear un payload que bypasse estos controles`. Por último, `vemos el chat en el navegador para comprobar si han funcionado`. Si tenemos `dudas` con esto, es recomendable leer este `post` [https://justice-reaper.github.io/posts/WebSocket-Attacks-Lab-1/](https://justice-reaper.github.io/posts/WebSocket-Attacks-Lab-1/) y este otro [https://justice-reaper.github.io/posts/WebSocket-Attacks-Lab-2/](https://justice-reaper.github.io/posts/WebSocket-Attacks-Lab-2/)
 
 5 - Si hemos `conseguido el XSS`, lo que tenemos que hacer ahora es `observar si el chat está vinculado a una cookie` y si `no existe token CSRF` podemos seguir los pasos que se siguen en este `laboratorio` [https://justice-reaper.github.io/posts/WebSocket-Attacks-Lab-2/](https://justice-reaper.github.io/posts/WebSocket-Attacks-Lab-2/) para conseguir `robarle la cookie al usuario víctima`
 

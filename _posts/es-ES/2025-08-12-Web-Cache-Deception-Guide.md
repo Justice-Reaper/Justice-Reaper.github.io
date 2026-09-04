@@ -351,7 +351,7 @@ En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
 ## Cheatsheet
 
-Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
+Usaremos esta `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
 
 - Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
 
@@ -363,7 +363,7 @@ Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación
 
 3 - `Crawleamos` el `dominio` con `Burpsuite` y `mientras termina el crawleo, exploramos todas las funciones de la web de forma manual`
 
-4 - `Identificar` un `endpoint` con `información relevante`
+4 - `Identificar` un `endpoint` con `información relevante`, por ejemplo, `una API key que puede ver cada usuario en /my-account`
 
 5 - Podemos `activar` la `opción Add dynamic cachebuster` pulsando en `Param Miner > Settings > Add dynamic cacheubster`. Esto lo hacemos para que `cuando enviemos una petición nos añada un parámetro de consulta aleatorio y de esta forma, se cree una nueva clave caché con cada petición que enviemos`. `También podemos hacer este proceso manualmente añadiendo un cachebusgter a la petición que realicemos, por ejemplo http://example.com/?cachebuster=1`. Esto se hace para `asegurarnos de que no se carguen de la caché datos antiguos`. Para `comprobar` que `cargamos` los `datos` de la `caché`, `es importante desactivar la opción Add dynamic cachebuster en Param Miner`
 

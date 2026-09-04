@@ -820,13 +820,11 @@ En este `laboratorio` vemos como `aplicar` esta `técnica`:
 
 ## Cheatsheet
 
-Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
+Usaremos esta `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
 
 - Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
 
 ## ¿Cómo detectar y explotar un prototype pollution?
-
-Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
 1 - `Primero` nos vamos a `centrar` en `buscar` los `prototype pollution del lado del cliente`. Para ello, vamos a usar `DOM Invader`. `Podemos ver como se usa en este laboratorio` [https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-5/](https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-5/)
 

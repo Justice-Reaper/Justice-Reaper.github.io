@@ -1265,15 +1265,13 @@ Los `sitios web que realizan HTTP/2 downgrading de las solicitudes HTTP/2 a HTTP
 
 ## Cheatsheet
 
-Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
+Usaremos esta `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
 
 - Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
 
 ## ¿Cómo detectar y explotar vulnerabilidades de HTTP request smuggling
 
-Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
-
-1 - `Instalar` las extensiones `HTTP Request Smuggler` y `Turbo Intruder`
+1 - `Instalar` la extensión `Turbo Intruder`
 
 2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 

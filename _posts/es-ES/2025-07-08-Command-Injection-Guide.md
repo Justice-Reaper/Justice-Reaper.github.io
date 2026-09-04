@@ -194,38 +194,40 @@ A veces, el `input` que `controlamos` aparece dentro de `comillas` en el `comand
 
 ## Cheatsheet
 
-Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
+Usaremos esta `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
 
 - Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
 
 ## ¿Cómo detectar y explotar un command injection?
 
-Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
+1 - `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Additional Scanner Checks`, `Collaborator Everywhere`, `Backslash Powered Scanner`, `Agartha` y `Command injection attacker` de `Burpsuite`
 
-1 - `Instalar` las extensión `Agartha` de `Burpsuite`
+2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
 
-2 - `Lo primero que tenemos que hacer es detectar el command injection`, para ello vamos a `generar payloads` usando el `comando sleep 5` con la `extensión Agartha` y `mediante el Intruder vamos a efectuar un Battering ram attack`. `Vamos a introducir los payloads generados en todas las posiciones posibles`, por ejemplo, `en un formulario o cuando checkeamos el stock de un producto se envían cammpos con sus valores, pues nosotros capturamos este tipo de peticiones con Burspuite y sustituimos esos datos`. `Antes de iniciar el ataque debemos tener en cuenta que puede ser que hayan posiciones en las que no podamos introducir un payload porque provocaríamos un error, por ejemplo, si reemplazamos un token csrf lo más seguro es que provoquemos un error`. En estos casos, lo que tenemos que hacer es `quitar los payloads de las posiciones uno a uno para poder ver cual es la posición en la que no podemos inyectar payloads`. Otra cosa importante, `tenemos que usar un solo hilo, poner un tiempo fijo entre peticiones (200 milisegundos por ejemplo) y desactivar el payload encoding`. Si queremos `payload encoding` lo hacemos desde la `extensión Agartha`, `no desde el Intruder`
+3 - `Crawleamos` el `sitio web` con `Burpsuite` e `interactuamos manualmente con todas sus funcionalidades`
 
-3 - `Si no encontramos nada puede ser porque estemos ante un blind command injection with out-of-band interaction`, para estos casos tenemos que `copiarnos un dominio de Burpsuite Collaborator` y `usarlo en este comando nslookup npg6x2n5ukokq7409k2zmzwl8ce32tqi.oastify.com para generar un diccionario de payloads`. Este `diccionario` lo vamos a `guardar` en una `ruta de nuestro sistema` y posteriormente vamos a `ejecutar estos comandos para así añadirle un identificador único a cada payload y así saber que payload corresponde cada petición que recibamos en Burpsuite Collaborator`. Una vez tengamos el `diccionario creado`, `efectuamos un Battering ram attack e introducimos los payloads en todas las posiciones posibles`. `Para este tipo de payloads no necesitamos modificar el número de hilos, lo podemos dejar por defecto`
+4 - `Buscamos en el Site map y HTTP history peticiones interesantes en las que pueda existir esta vulnerabilidad`
+
+5 - `Escaneamos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos `seleccionar` en `tipo de escaneo` la opción `Audit selected items`
+
+6 - `Lo primero que tenemos que hacer es detectar el command injection`, para ello vamos a `generar payloads` usando el `comando sleep 5` con la `extensión Agartha` y `mediante el Intruder vamos a efectuar un Battering ram attack`
+
+`Vamos a introducir los payloads generados en todas las posiciones posibles`, por ejemplo, `en un formulario o cuando checkeamos el stock de un producto se envían cammpos con sus valores, pues nosotros capturamos este tipo de peticiones con Burspuite y sustituimos esos datos`
+
+`Antes de iniciar el ataque debemos tener en cuenta que puede ser que hayan posiciones en las que no podamos introducir un payload porque provocaríamos un error, por ejemplo, si reemplazamos un token csrf lo más seguro es que provoquemos un error`. En estos casos, lo que tenemos que hacer es `quitar los payloads de las posiciones uno a uno para poder ver cual es la posición en la que no podemos inyectar payloads`. Otra cosa importante, `tenemos que usar un solo hilo, poner un tiempo fijo entre peticiones (200 milisegundos por ejemplo) y desactivar el payload encoding`. Si queremos `payload encoding` lo hacemos desde la `extensión Agartha`, `no desde el Intruder`
+
+7 - `Si no encontramos nada puede ser porque estemos ante un blind command injection with out-of-band interaction`, para estos casos tenemos que `copiarnos un dominio de Burpsuite Collaborator` y `usarlo en este comando nslookup npg6x2n5ukokq7409k2zmzwl8ce32tqi.oastify.com para generar un diccionario de payloads`
+
+Este `diccionario` lo vamos a `guardar` en una `ruta de nuestro sistema` y posteriormente vamos a `ejecutar estos comandos para así añadirle un identificador único a cada payload y así saber que payload corresponde cada petición que recibamos en Burpsuite Collaborator`. Una vez tengamos el `diccionario creado`, `efectuamos un Battering ram attack e introducimos los payloads en todas las posiciones posibles`. `Para este tipo de payloads no necesitamos modificar el número de hilos, lo podemos dejar por defecto`
 
 ```
 d="npg6x2n5ukokq7409k2zmzwl8ce32tqi.oastify.com"
 awk -v d="$d" 'index($0,d){ n++; sub(d, n"."d) } 1' payloads.txt | sponge payloads.txt
 ```
 
-4 - `En caso de que los pasos anteriores no funcionen`, vamos a `repetirlos` pero `seleccionando` la `opción` de `URL encoding` en `Agartha`
+8 - `En caso de que los pasos anteriores no funcionen`, vamos a `repetirlos` pero `marcando` la `opción` de `URL encoding` en `Agartha`
 
-5 - `En caso de que esto tampoco funcione, podemos intentar hacer los pasos que se mencionan a continuación, sin embargo, lo más probable es que no exista un command injection en este laboratorio`. `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Additional Scanner Checks`, `Collaborator Everywhere`, `Backslash Powered Scanner` y `Command injection attacker` de `Burpsuite`
-
-6 - `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Additional Scanner Checks`, `Collaborator Everywhere`, `Backslash Powered Scanner` y `Command injection attacker` de `Burpsuite`
-
-7 - `Añadir` el `dominio` y sus `subdominios` al `scope`
-
-8 - `Interactuar con toda la web manualmente` y `hacer` un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
-
-9 - `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos `seleccionar` en `tipo de escaneo` la opción `Audit selected items`
-
-10 - Una vez hayamos `detectado` el `command injection`, ya podremos `ejecutar comandos` en la `máquina víctima`. Para `completar` los `laboratorios` vamos a tener que `leer` un `archivo`, `existen diferentes formas de lograrlo`, por ejemplo`, puede ser que podamos ver el output del comando en la respuesta` [https://justice-reaper.github.io/posts/Command-Injection-Lab-1/](https://justice-reaper.github.io/posts/Command-Injection-Lab-1/), `puede ser que tengamos que copiar el contenido del archivo que queramos leer en una ruta a la que tengamos acceso` [https://justice-reaper.github.io/posts/Command-Injection-Lab-3/](https://justice-reaper.github.io/posts/Command-Injection-Lab-3/) o `puede ser que tengamos que exfiltrar el contenido del archivo` [https://justice-reaper.github.io/posts/Command-Injection-Lab-5/](https://justice-reaper.github.io/posts/Command-Injection-Lab-5/)
+9 - Una vez hayamos `detectado` el `command injection`, ya podremos `ejecutar comandos` en la `máquina víctima`. Para `completar` los `laboratorios` vamos a tener que `leer` un `archivo`, `existen diferentes formas de lograrlo`, por ejemplo, `puede ser que podamos ver el output del comando en la respuesta` [https://justice-reaper.github.io/posts/Command-Injection-Lab-1/](https://justice-reaper.github.io/posts/Command-Injection-Lab-1/), `puede ser que tengamos que copiar el contenido del archivo que queramos leer en una ruta a la que tengamos acceso` [https://justice-reaper.github.io/posts/Command-Injection-Lab-3/](https://justice-reaper.github.io/posts/Command-Injection-Lab-3/) o `puede ser que tengamos que exfiltrar el contenido del archivo` [https://justice-reaper.github.io/posts/Command-Injection-Lab-5/](https://justice-reaper.github.io/posts/Command-Injection-Lab-5/)
 
 ## Prevenir ataques de command injection
 

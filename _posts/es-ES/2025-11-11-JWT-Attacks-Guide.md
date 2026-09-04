@@ -293,13 +293,11 @@ Los siguientes `parámetros` también pueden ser de `interés` para los `atacant
 
 ## Cheatsheet
 
-Usaremos estas `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
+Usaremos esta `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
 
 - Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
 
 ## ¿Cómo detectar y explotar vulnerabilidades de JWT?
-
-Teniendo en cuenta que `los términos y herramientas mencionados a continuación` se `encuentran` en la `cheatsheet mencionada anteriormente`, llevaremos a cabo los siguientes pasos:
 
 1 - `Instalar` las extensiones `JWT Scanner`, `JWT Editor` y `JWT4B` de `Burpsuite`
 
@@ -309,7 +307,7 @@ Teniendo en cuenta que `los términos y herramientas mencionados a continuación
 
 4 - Debemos tener la `sesión iniciada` con `algún usuario` para `capturar` su `JWT`
 
-5 - `Capturamos` con `Burpsuite` una `petición` a algún `endpoint` que `requiera autenticación con un JWT válido` y que `devuelva` un `código de estado 200 OK`. Un `ejemplo` de esto, sería `/myaccount`. Sabremos que `petición` es la que `contiene` un `JWT` porque se nos `marcará` en `verde` en el `Intercept` o en `amarillo` en el `Logger`
+5 - `Capturamos` con `Burpsuite` una `petición` a algún `endpoint` que `requiera autenticación con un JWT válido` y que `devuelva` un `código de estado 200 OK`. Un `ejemplo` de esto, sería `/my-account`. Sabremos que `petición` es la que `contiene` un `JWT` porque se nos `marcará` en `verde` en el `Intercept` o en `amarillo` en el `Logger`
 
 6 - Una vez `capturamos` la `petición` la `enviamos` al `Repeater` y `tenemos que pulsar sobre Send antes de ejecutar JWT Scanner` o de lo contrario `no podrá identificar la vulnerabilidad a la que nos enfretamos`
 
