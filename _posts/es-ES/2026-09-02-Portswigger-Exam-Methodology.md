@@ -132,15 +132,15 @@ Si `no hemos recibido los resultados tras 3-5 días laborables`, podemos `inicia
 
 Otras `cheatsheets` y `recursos` de otros autores útiles para preparar el examen:
 
-- KrakenEU - BSCP [https://github.com/KrakenEU/BSCP.git](https://github.com/KrakenEU/BSCP.git)
+- botesjuan [https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study.git](https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study.git)
 
-- botesjuan - Burp Suite Certified Practitioner Exam Study [https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study.git](https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study.git)
+- DingyShark [https://github.com/DingyShark/BurpSuiteCertifiedPractitioner.git](https://github.com/DingyShark/BurpSuiteCertifiedPractitioner.git)
 
-- DingyShark - BurpSuiteCertifiedPractitioner [https://github.com/DingyShark/BurpSuiteCertifiedPractitioner.git](https://github.com/DingyShark/BurpSuiteCertifiedPractitioner.git)
+- Hacking Notes Jordan [https://hacking-notes.jord4n.pro/web/bscp-certification-practical-guide](https://hacking-notes.jord4n.pro/web/bscp-certification-practical-guide)
 
-- D4mianWayne - BSCP [https://github.com/D4mianWayne/BSCP.git](https://github.com/D4mianWayne/BSCP.git)
+- D4mianWayne [https://github.com/D4mianWayne/BSCP.git](https://github.com/D4mianWayne/BSCP.git)
 
-- BSCP Cheatsheet (gitbook) [https://bscpcheatsheet.gitbook.io/exam](https://bscpcheatsheet.gitbook.io/exam)
+- BSCP Cheatsheet [https://bscpcheatsheet.gitbook.io/exam](https://bscpcheatsheet.gitbook.io/exam)
 
 ## Vulnerabilidades
 
