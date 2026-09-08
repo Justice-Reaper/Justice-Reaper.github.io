@@ -778,6 +778,8 @@ Funciones PHP peligrosas [https://gist.github.com/mccabe615/b0907514d34b2de088c4
 
 Upload Bypass [https://github.com/sAjibuu/Upload_Bypass.git](https://github.com/sAjibuu/Upload_Bypass.git)
 
+Upload Bypass [https://github.com/Justice-Reaper/Upload-Bypass.git](https://github.com/Justice-Reaper/Upload-Bypass.git)
+
 Fuxploider [https://github.com/almandin/fuxploider.git](https://github.com/almandin/fuxploider.git)
 
 Upload Scanner [https://github.com/PortSwigger/upload-scanner.git](https://github.com/PortSwigger/upload-scanner.git)
