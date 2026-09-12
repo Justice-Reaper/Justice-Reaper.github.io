@@ -258,50 +258,6 @@ Content-Length: 49
 
 Podemos intentar `enviar peticiones usando el método OPTIONS a distintos endpoints para probar si alguno anuncia soporte para el método PUT`
 
-## Cheatsheet
-
-Usaremos esta `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
-
-- Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
-
-## ¿Cómo detectar y explotar vulnerabilidades de subida de archivos?
-
-1 - `Añadir` el `dominio` y sus `subdominios` al `scope`
-
-2 - `Iniciamos sesión`, `interactuar manualmente` con `todas las funcionalidades de la web` y la `crawleamos` con `Burpsuite`
-
-3 - `Si encontramos un campo de subida de archivos`, `subimos un archivo normal`, `capturamos la petición con Burpsuite`, hacemos `Ctrl + A` para `seleccionar todo el texto` y pulsamos en `Save selected text` para `guardarla en un archivo`
-
-4 - Una vez la `imagen se ha subido correctamente`, hacemos `click derecho sobre ella` y `copiamos la dirección de la imagen`. `Esta ruta la usaremos posteriormente para indicar dónde se almacenan los archivos que subimos mediante el parámetro -D`. Además, debemos `quedarnos con una parte del mensaje de subida correcta que no sea variable`, para que `la herramienta sepa cuándo un archivo se ha subido con éxito`. `Esto último lo indicaremos mediante el parámetro -s`
-
-5 - `Lanzamos` la herramienta `Upload Bypass` primero `únicamente con el módulo de path traversal`. Esto lo `hacemos` para `ahorrar tiempo`, porque `path_traversal es uno de los últimos módulos y así no tenemos que esperar tanto`. Debemos tener en cuenta que `el módulo de path traversal solo retrocede un nivel (../)`, por lo que `si necesitamos retroceder más de una vez, tendremos que hacerlo manualmente siguiendo la guía de path traversal` [https://justice-reaper.github.io/posts/Path-Traversal-Guide/](https://justice-reaper.github.io/posts/Path-Traversal-Guide). `En los laboratorios no nos ha hecho falta pero no está de más tener esto en cuenta`
-
-```
-python upload_bypass.py -r /home/justice-reaper/Downloads/request.txt -s "has been uploaded" -E php -D /files/avatars -e -c -i path_traversal -o /home/justice-reaper/Downloads/results.txt
-```
-
-6 - `Después lanzamos la herrameinta de forma normal`
-
-```
-python upload_bypass.py -r /home/justice-reaper/Downloads/request.txt -s "has been uploaded" -E php -D /files/avatars -e -c -o /home/justice-reaper/Downloads/results.txt
-```
-
-7 - `Si queremos ver la petición válida, es decir, la que nos ha proporcionado una shell, debemos mirar la petición en el archivo results.txt`
-
-8 - Si tenemos `dudas` con los `pasos anteriores` podemos `consultar` estos `posts`:
-
-Remote code execution via web shell upload: [https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Lab-1/](https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Lab-1/)
-
-Web shell upload via Content-Type restriction bypass: [https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Lab-2/](https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Lab-2/)
-
-Web shell upload via path traversal: [https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Lab-3/](https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Lab-3/)
-
-Web shell upload via extension blacklist bypass: [https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Lab-4/](https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Lab-4/)
-
-Web shell upload via obfuscated file extension: [https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Lab-5/](https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Lab-5/)
-
-Remote code execution via polyglot web shell upload: [https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Lab-6/](https://justice-reaper.github.io/posts/File-Upload-Vulnerabilities-Lab-6/)
-
 ## ¿Cómo prevenir vulnerabilidades de subida de archivos?
 
 `Permitir que los usuarios suban archivos es algo común y no tiene por qué ser peligroso si tomamos las precauciones adecuadas`. En general, la forma más efectiva de `proteger` nuestros `sitios web` frente a estas `vulnerabilidades` es `implementar las siguientes prácticas`:

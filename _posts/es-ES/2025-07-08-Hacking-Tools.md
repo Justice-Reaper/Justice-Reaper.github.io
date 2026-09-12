@@ -666,6 +666,8 @@ Loxs [https://github.com/coffinxp/loxs.git](https://github.com/coffinxp/loxs.gi
     
 XSStrike [https://github.com/s0md3v/XSStrike.git](https://github.com/s0md3v/XSStrike.git)
     
+XSS-Hunter [https://github.com/Justice-Reaper/XSS-Hunter.git](https://github.com/Justice-Reaper/XSS-Hunter.git)
+
 XSSHunter Express [https://github.com/mandatoryprogrammer/xsshunter-express.git](https://github.com/mandatoryprogrammer/xsshunter-express.git)
     
 XXHunter [https://xsshunter.trufflesecurity.com/app/#](https://xsshunter.trufflesecurity.com/app/#)

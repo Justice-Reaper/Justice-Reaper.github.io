@@ -256,26 +256,6 @@ En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
 - Information disclosure in version control history - [https://justice-reaper.github.io/posts/Information-Disclosure-Lab-5/](https://justice-reaper.github.io/posts/Information-Disclosure-Lab-5/)
 
-## Cheatsheet
-
-Usaremos esta `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
-
-- Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
-
-## ¿Cómo detectar y explotar un information disclosure?
-
-1 - `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Additional Scanner Checks` y `Backslash Powered Scanner` de `Burpsuite`
-
-2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
-
-3 - `Iniciamos sesión si podemos`, `interactuamos con todas las características del sitio web manulamente` y `hacemos` un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
-
-4 - Es `muy importante` que `miremos todo lo que detecta el escáner de Burpsuite`, ya que nos puede `detectar` el `archivo robots.txt`, `rutas o archivos de backups`, `errores que se produzcan y desvelen información`, `archivos phpinfo`, el `método TRACE`. Respecto al `método TRACE`, `el servidor web responderá a las peticiones que usen el método TRACE repitiendo en la respuesta la petición exacta que recibió`. Esto puede hacer que `veamos cabeceras interesantes que nos permitan acceder a rutas como /admin`
-
-5 - Usaremos `ffuf` para encontrar `rutas` junto con el diccionario `common.txt` de `seclists` para `encontrar` archivos como `phpinfo.php` o archivos de `backup`. En el caso del `phpinfo.php` deberemos buscar el `valor` de `secret_key`, en el `backup` puede que `encontremos` una `contraseña` de `base de datos` y si `encontramos` un `.git` deberemos usar `git-dumper` para descargarlo, posteriormente deberemos acceder al directorio `.git`, usar `git log` para `listar` los `commits` y luego usar `git show nombreDelCommit` para `ver` los `cambios realizados`. Si encontramos un directorio `/admin` al cual no podemos acceder porque nos `devuelve` un `401` usaremos la herramientas `Byp4xx` intentar `bypassear` la `restricción`
-
-6 - `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`. También podemos hacerlo de `forma manual`, `cambiando el tipo de dato esperado por un parámetro`, es decir, si vemos un `parámetro que necesita un número, como ?productId=1`, podemos `pasarle texto o caracteres especiales para ver si produce algún error`
-
 ## ¿Cómo prevenir un information disclosure?
 
 Prevenir completamente un `information disclosure` es complicado debido a la gran variedad de formas en que pueden ocurrir. Sin embargo, existen algunas `buenas prácticas generales` que podemos seguir para `minimizar el riesgo`. Por ejemplo:

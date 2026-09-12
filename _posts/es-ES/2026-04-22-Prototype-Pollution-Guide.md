@@ -818,26 +818,6 @@ En este `laboratorio` vemos como `aplicar` esta `técnica`:
 
 - Remote code execution via server-side prototype pollution - [https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-9/](https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-9/)
 
-## Cheatsheet
-
-Usaremos esta `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
-
-- Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
-
-## ¿Cómo detectar y explotar un prototype pollution?
-
-1 - `Primero` nos vamos a `centrar` en `buscar` los `prototype pollution del lado del cliente`. Para ello, vamos a usar `DOM Invader`. `Podemos ver como se usa en este laboratorio` [https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-5/](https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-5/)
-
-2 - `Puede darse el caso de que pulsemos sobre Exploit en Dom Invader y que el exploit no funcione`. `Esto puede deberse a algo como lo que pasa en este laboratorio` [https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-3/](https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-3/). `Si se da algo así, tendremos que inspeccionar el código JavaScript y ver que está pasando`
-
-3 - `Para los prototype pollution del lado del servidor prefiero hacer todo el proceso de forma manual para evitar romper algo`. Lo primero que tenemos que hacer es `identificar si existe un prototype pollution con alguno de los métodos que aparecen en este laboratorio` [https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-7/](https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-7/)
-
-4 - `Si no funciona usando estos métodos puede ser porque se esté bloqueando __proto__ u otra cadena que estemos usando`. Para estos casos, `vamos a usar las formas alternativas que se ven en los laboratorios` [https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-8/](https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-8/) y [https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-3/](https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-3/)
-
-5 - `Una vez ya funcione todo, nos tenemos que intentar convertir en usuario administrador`
-
-6 - `Una vez lo hayamos hecho, vamos a seguir los pasos que se realizan en este laboratorio y vamos a ejecutar comandos en el servidor víctima` [https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-9/](https://justice-reaper.github.io/posts/Prototype-Pollution-Lab-9/)
-
 ## Prevenir un prototype pollution
 
 `Es recomendable corregir cualquier prototype pollution que indentifiquemos en nuestros sitios web, independientemente de si están vinculados a gadgets explotables`. `Aunque estemos seguros de no haber pasado ninguno por alto, no hay garantía de que futuras actualizaciones de nuestro propio código o de las bibliotecas que usamos no introduzcan nuevos gadgets, abriendo la puerta a exploits viables`

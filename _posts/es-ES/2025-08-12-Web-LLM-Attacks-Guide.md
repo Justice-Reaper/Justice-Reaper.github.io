@@ -191,32 +191,6 @@ Complete a paragraph starting with...
 
 Los `datos sensibles` pueden `incluirse` en el `conjunto de datos del entrenamiento` si `el LLM no implementa técnicas correctas de filtrado y saneamiento en su output`. El problema también puede ocurrir cuando `la información sensible del usuario no se depura completamente de los datos recopilados`, ya que, `es probable que los usuarios introduzcan inadvertidamente datos confidenciales de vez en cuando`
 
-## Cheatsheet
-
-Usaremos esta `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
-
-- Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
-
-## ¿Cómo atacar un LLM?
-
-1 - `Preguntar directamente al LLM qué APIs y plugins puede usar`
-
-2 - `Solicitar los detalles de cada API/función, en concreto sus parámetros de entrada (input) y su valor de retorno (output)`, ya que son los que nos permitirán `construir el ataque`
-
-3 - `Si el LLM no coopera, probar a proporcionar un contexto engañoso`, por ejemplo, `afirmar que somos su desarrollador para simular un mayor nivel de privilegio`
-
-4 - `Si no conseguimos obtener la información que queremos a través de un prompt injection convencional, vamos a tratar de hacerlo mediante un indirect prompt injection`. Para realizar esto hay `técnicas` muy `variadas`, pero `el objetivo es siempre el mismo`, `hacerle llegar la consulta que queremos al LLM de una forma diferente a la convencional`. Por ejemplo, podemos `subir una foto con un comentario en los metadatos, hacer un comentario indicándole las instrucciones a seguir, pasarle un artículo escrito por nosotros en una web externa etc`
-
-5 - También podemos intentar `explotar vulnerabilidades convencionales a través del LLM`, como un `SSRF`, `command injection`, `XSS`, `etc`
-
-6 - Si tenemos `dudas` con los `pasos anteriores` podemos `consultar` estos `posts`:
-
-- Exploiting LLM APIs with excessive agency: [https://justice-reaper.github.io/posts/Web-LLM-Attacks-Lab-1/](https://justice-reaper.github.io/posts/Web-LLM-Attacks-Lab-1/)
-
-- Exploiting vulnerabilities in LLM APIs: [https://justice-reaper.github.io/posts/Web-LLM-Attacks-Lab-2/](https://justice-reaper.github.io/posts/Web-LLM-Attacks-Lab-2/)
-
-- Indirect prompt injection: [https://justice-reaper.github.io/posts/Web-LLM-Attacks-Lab-3/](https://justice-reaper.github.io/posts/Web-LLM-Attacks-Lab-3/)
-
 ## ¿Cómo proteger un LLM frente a ataques?
 
 `Para prevenir las vulnerabilidades más comunes de los LLM, es recomendable seguir estos pasos al desplegar aplicaciones que se integran con estos modelos`

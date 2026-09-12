@@ -140,24 +140,6 @@ En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
 - File path traversal, validation of file extension with null byte bypass - [https://justice-reaper.github.io/posts/Path-Traversal-Lab-6/](https://justice-reaper.github.io/posts/Path-Traversal-Lab-6/)
 
-## Cheatsheet
-
-Usaremos esta `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
-
-- Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
-
-## ¿Cómo detectar y explotar un path traversal?
-
-1 - `Lanzaremos katana para crawlear toda la web y obtener así todas las rutas`. Es `importante` que nos `fijemos` en `rutas` como `?filename=1.jpg`, o `si llevan una ruta inicial como en este caso ?filename=/var/www/images/1.jpg`. `Básicamente tenemos que tener en cuenta todas las URLs en las que vemos que se carga un archivo mediante un parámetro de consulta`. `Si las cookies no hacen falta, eliminamos ese parámetro`
-
-```
-katana -u https://0ab7005203fcd9e4803a94dc00a200cd.web-security-academy.net -H "Cookie: session=NUESTRAS_COOKIES" -jc -jsl -fx -kf all -xhr -d 3 -silent -f qurl | sort -u > params.txt
-```
-
-2 - Una vez tenemos esto, `vamos a hacer una petición a las rutas que nos interesaen y a efectuar un ataque con el Intruder de Burpsuite`. Como `diccionario` vamos a usar este [https://raw.githubusercontent.com/coffinxp/loxs/refs/heads/main/payloads/lfi.txt](https://raw.githubusercontent.com/coffinxp/loxs/refs/heads/main/payloads/lfi.txt). Es `muy importante` que `desactivemos el Payload encoding porque de los contrario, no funciará correctamente el ataque` y `támbien debemos modificar la configuración un poco para no mandar demasiadas solicitudes y tirar la web`. Otra cosa también importante es que `el payload siempre se inyecta en la posición en la que se encuentra el archivo que se carga`, es decir, `si tenemos esto ?filename=/var/www/images/1.jpg, nuestro payload va donde está el 1.jpg y la ruta /var/www/images/ se deja intacta`. Y por último, `respecto al ataque que usa el null byte %00`, `el diccionario solo contempla una serie de extensiones, por lo que puede que necesitemos cambiar una de las extensiones por la que necesitemos`. `Esto se puede hacer fácilmente con una regex o manualmente, yo recomiendo sustituir la extensión .jpg`
-
-3 - `Mientras se hace el ataque, vamos a filtrar por root: porque ese usuario siempre se encuentra en el /etc/passwd`. La `cadena completa` que deberíamos `ver` es esta `root:x:0:0:root:/root:/bin/bash` o `una muy parecida`. `También podemos filtrar por el Content-Length pero el resultado es menos fiable`
-
 ## Prevenir un path traversal
 
 La forma más efectiva de prevenir un `path traversal` es `evitar pasar el input proporcionado por el usuario a las APIs del sistema de ficheros por completo`. Muchas funciones de la aplicación que hacen esto pueden `reescribirse` para ofrecer el mismo comportamiento de forma más segura

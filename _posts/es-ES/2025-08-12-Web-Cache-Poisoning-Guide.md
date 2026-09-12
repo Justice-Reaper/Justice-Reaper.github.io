@@ -562,50 +562,6 @@ En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
 - URL normalization - [https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-9/](https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-9/)
 
-## Cheatsheet
-
-Usaremos esta `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
-
-- Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
-
-## ¿Cómo detectar y explotar un web cache poisoning?
-
-1 - `Instalar` las extensiones `Diff Hunter` y `Param Miner` de `Burpsuite`
-
-2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
-
-3 - Hacerle `crawling` al `dominio` con `Burpsuite` y `explorar todas las funcionalidades de la web manualmente`
-
-4 - `Lanzamos la herramienta Web Cache Vulnerability Scanner sobre los endpoints que consideremos interesantes`. `No tenemos que esperar a que la herramienta termine`, tenemos que `ver la información mostrada y probar las cosas que descubre manualmente`
-
-5 - `Si no descubrimos nada con la herramienta anterior`, `ponemos` la `extensión Diff Hunter` en `ON`, `marcamos como targets los endpoints interesantes` y `dejamos marcada solo la opción Request And Response Differences Only` 
-
-6 - `Seleccionamos los endpoints interesantes` y `lanzamos Param Miner sobre ellos`. Tenemos que `lanzar las opciones Guess everything!, fat GET, normalised path y normalised param`
-
-7 - El `siguiente paso` es `comparar las diferencias de las peticiones en Diff Hunter`, si hay `coincidencias` que se `repiten` en las `respuestas` y que `no tienen importancia`, podemos `crear una regex para ignorarlas`
-
-8 - `Gracias a este último paso`, podemos `identificar las discrepancias` y `elaborar un ataque`
-
-9 - Si tenemos `dudas` con los `pasos anteriores` podemos `consultar` estos `posts`:
-
-Web cache poisoning with an unkeyed header: [https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-1/](https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-1/)
-
-Web cache poisoning with an unkeyed cookie: [https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-2/](https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-2/)
-
-Web cache poisoning with multiple headers: [https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-3/](https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-3/)
-
-Targeted web cache poisoning using an unknown header: [https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-4/](https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-4/)
-
-Web cache poisoning via an unkeyed query string: [https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-5/](https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-5/)
-
-Web cache poisoning via an unkeyed query parameter: [https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-6/](https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-6/)
-
-Parameter cloaking: [https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-7/](https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-7/)
-
-Web cache poisoning via a fat GET request: [https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-8/](https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-8/)
-
-URL normalization: [https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-9/](https://justice-reaper.github.io/posts/Web-Cache-Poisoning-Lab-9/)
-
 ## Prevenir vulnerabilidades de web cache poisoning
 
 `La forma definitiva de prevenir el web cache poisoning sería desactivar la caché por completo`. Aunque `para muchos sitios web esto puede no ser una opción realista, en otros casos sí puede serlo`. Por ejemplo, `si solo usamos caché porque se activó por defecto cuando adoptamos una CDN, puede valer la pena evaluar si las opciones de caché predeterminadas reflejan realmente nuestras necesidades`

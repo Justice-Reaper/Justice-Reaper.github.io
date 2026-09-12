@@ -208,39 +208,3 @@ Respecto a los `enlaces entrantes`, supongamos que tenemos un `sitio web` de rec
 El enlace `<a href="https://www.misrecetas.com/pastel-chocolate">esta receta de pastel de chocolate</a>` es un `enlace entrante`, porque apunta desde `www.blogdecocina.com (un sitio externo)` hacia `www.misrecetas.com (nuestro sitio web)`
 
 Como resultado de todo esto, el `encabezado Referer` es a menudo una `superficie de ataque útil` para `explotar vulnerabilidades SSRF`
-
-## Cheatsheet
-
-Usaremos esta `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
-
-- Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
-
-## ¿Cómo detectar y explotar un SSRF?
-
-1 - `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Additional Scanner Checks`, `Collaborator Everywhere` y `Backslash Powered Scanner` de `Burpsuite`
-
-2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
-
-3 - `Crawleamos` el `dominio` con `Burpsuite` e `interactuamos manualmente con todas las funcionalidades del sitio web`
-
-4 - `Buscamos peticiones interesantes en el HTTP history y en el Site map` y `escaneamos partes específicas de estas peticiones` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos `enviar` la `petición` al `Intruder`, `marcar las posiciones que queremos que sean escaneadas` y `seleccionar` en `tipo de escaneo` la opción `Audit selected items`
-
-5 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`. El `paso anterior` es el `encargado` de `encontrar` el `SSRF` y `este paso nos sirve para ver si hay un open redirect`
-
-6 - Una vez `identificada` la `vulnerabilidad`, debemos tener en cuenta que `en el examen, el servicio se encuentra en el localhost y puerto 6566 de la máquina víctima`. Para `acceder` a este `servicio` debemos `realizar` una `petición` a `http://localhost:6566`
-
-7 - Puede ser que se nos `devuelva algún código de estado o error diferente` indicando que hay alguna `dirección IP blacklisteada`. Para estas situaciones usaremos la extensión `Encode IP` de `Burpsuite` y las herramientas `Ipfuscator` y `SSRF Payload Generator`, en ese orden. En el caso en el que esté la dirección `127.0.0.1` o el `localhost` blacklistado podemos usar la `cheatsheet de Portswigger` [https://portswigger.net/web-security/ssrf/url-validation-bypass-cheat-sheet](https://portswigger.net/web-security/ssrf/url-validation-bypass-cheat-sheet) o `SSRF PayloadMaker`
-
-8 - Si recibimos un `código de estado o error diferente` indicando que hay alguna `dirección ruta blacklisteada`, podemos usar `Recollapse` para efectuar un `bypass`. En el caso de no funcionar, deberemos echar un vistazo primeramente a esta `guía de ofuscación` [https://justice-reaper.github.io/posts/Ofuscation-Guide/](https://justice-reaper.github.io/posts/Ofuscation-Guide/)
-
-9 - Si tenemos `dudas` con los `pasos anteriores` podemos `consultar` estos `posts`:
-
-- Basic SSRF against the local server: [https://justice-reaper.github.io/posts/SSRF-Lab-1/](https://justice-reaper.github.io/posts/SSRF-Lab-1/)
-
-- Basic SSRF against another back-end system: [https://justice-reaper.github.io/posts/SSRF-Lab-2/](https://justice-reaper.github.io/posts/SSRF-Lab-2/)
-
-- Blind SSRF with out-of-band detection: [https://justice-reaper.github.io/posts/SSRF-Lab-3/](https://justice-reaper.github.io/posts/SSRF-Lab-3/)
-
-- SSRF with blacklist-based input filter: [https://justice-reaper.github.io/posts/SSRF-Lab-4/](https://justice-reaper.github.io/posts/SSRF-Lab-4/)
-
-- SSRF with filter bypass via open redirection vulnerability: [https://justice-reaper.github.io/posts/SSRF-Lab-5/](https://justice-reaper.github.io/posts/SSRF-Lab-5/)

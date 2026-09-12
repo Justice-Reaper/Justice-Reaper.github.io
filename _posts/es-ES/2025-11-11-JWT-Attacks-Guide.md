@@ -291,42 +291,6 @@ Los siguientes `parámetros` también pueden ser de `interés` para los `atacant
 
 - `x5c (X.509 Certificate Chain)` - A veces se usa para `pasar` el `certificado público X.509` o la `cadena de certificados` de la `clave usada` para `firmar digitalmente` el `JWT`. Este `parámetro` puede usarse para `inyectar certificados auto firmados`, de `forma similar` a `los ataques de inyección en el jwk`. Debido a la `complejidad` del `formato X.509` y `sus extensiones`, el `análisis/parsing` de estos `certificados` también puede `introducir vulnerabilidades`. Para más `detalles` sobre estos `ataques` debemos `consultar` el `CVE-2017-2800` y el `CVE-2018-2633`
 
-## Cheatsheet
-
-Usaremos esta `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
-
-- Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
-
-## ¿Cómo detectar y explotar vulnerabilidades de JWT?
-
-1 - `Instalar` las extensiones `JWT Scanner`, `JWT Editor` y `JWT4B` de `Burpsuite`
-
-2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
-
-3 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
-
-4 - Debemos tener la `sesión iniciada` con `algún usuario` para `capturar` su `JWT`
-
-5 - `Capturamos` con `Burpsuite` una `petición` a algún `endpoint` que `requiera autenticación con un JWT válido` y que `devuelva` un `código de estado 200 OK`. Un `ejemplo` de esto, sería `/my-account`. Sabremos que `petición` es la que `contiene` un `JWT` porque se nos `marcará` en `verde` en el `Intercept` o en `amarillo` en el `Logger`
-
-6 - Una vez `capturamos` la `petición` la `enviamos` al `Repeater` y `tenemos que pulsar sobre Send antes de ejecutar JWT Scanner` o de lo contrario `no podrá identificar la vulnerabilidad a la que nos enfretamos`
-
-7 - Una vez tenemos la `petición` en el `Repeater` y nos `devuelve` un `200 OK`, hacemos `click derecho > Extensions > JWT Scanner > Scan selected/Scan (autodetect)`. Para que funcione `Scan selected` debemos `seleccionar` con el `ratón` el `JWT`
-
-8 - Dependiendo de la `vulnerabilidad` que `identifique` deberemos `seguir los pasos de un laboratorio u otro para lograr llevar a cabo el ataque correspondiente de forma exitosa`
-
-9 - Si nos identifica `Invalid JWT Signature` o `JWT Signature not required` iremos al `primer laboratorio` [https://justice-reaper.github.io/posts/JWT-Attacks-Lab-1/](https://justice-reaper.github.io/posts/JWT-Attacks-Lab-1/)
-
-10 - Si nos identifica `JWT algorithm none attack` iremos al `segundo laboratorio` [https://justice-reaper.github.io/posts/JWT-Attacks-Lab-2/](https://justice-reaper.github.io/posts/JWT-Attacks-Lab-2/)
-
-11 - Si nos identifica `JWT is signed symmetrically` o `JWT weak HMAC secret` iremos al `tercer laboratorio` [https://justice-reaper.github.io/posts/JWT-Attacks-Lab-3/](https://justice-reaper.github.io/posts/JWT-Attacks-Lab-3/)
-
-12 - Si nos identifica `JWT jwk header injection` iremos al `cuarto laboratorio` [https://justice-reaper.github.io/posts/JWT-Attacks-Lab-4/](https://justice-reaper.github.io/posts/JWT-Attacks-Lab-4/)
-
-13 - Si nos identifica `JWT jku pingback` iremos al `quinto laboratorio` [https://justice-reaper.github.io/posts/JWT-Attacks-Lab-5/](https://justice-reaper.github.io/posts/JWT-Attacks-Lab-5/)
-
-14 - Si nos identifica `JWT kid header path traversal` iremos al `sexto laboratorio` [https://justice-reaper.github.io/posts/JWT-Attacks-Lab-6/](https://justice-reaper.github.io/posts/JWT-Attacks-Lab-6/)
-
 ## ¿Cómo prevenir vulnerabilidades de subida de archivos?
 
 Podemos `proteger` nuestros `sitios web` frente a muchas de las `vulnerabilidades` vistas `adoptando` las siguientes `medidas`:

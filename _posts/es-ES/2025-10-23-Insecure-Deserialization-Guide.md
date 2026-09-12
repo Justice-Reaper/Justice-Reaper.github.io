@@ -314,38 +314,6 @@ Incluso sin el uso de `gadget chains`, todavía es posible `explotar` un `insecu
 
 Los `métodos de deserialización`, como `unserialize()` en `PHP`, `rara vez están protegidos contra este tipo de ataques` y `exponen una enorme superficie de ataque`. Esto `no siempre se considera una vulnerabilidad en sí mismo porque estos métodos no están diseñados para manejar entrada controlable por el usuario en primer lugar`
 
-## Cheatsheet
-
-Usaremos esta `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
-
-- Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
-
-## ¿Cómo detectar y explotar un insecure deserealization?
-
-1 - `Seguir los pasos de la guía de information disclosure` [https://justice-reaper.github.io/posts/Information-Disclosure-Guide/](https://justice-reaper.github.io/posts/Information-Disclosure-Guide/) para `recopilar` la `máxima información posible` y luego intentar `explotar` el `insecure deserialization` con la `información obtenida`. Puede ser que en esta `parte` nos `encontremos` un `archivo de backup` (por ejemplo un `.php~`) que `filtre` el `código fuente` de la `aplicación`. Este `backup` nos `muestra` las `clases`, `métodos` y `propiedades` que podemos `llamar`, de manera que sabremos `qué objeto` tenemos que `construir` y `qué funciones` se `ejecutarán` al `deserializarlo`. También puede que nos `encontremos` un `phpinfo.php` que nos `filtre información` muy `útil`, como la `versión de PHP`, las `funciones deshabilitadas` o incluso una `secret key` que luego podamos usar para `firmar` la `cookie` con `nuestro objeto malicioso`
-
-2 - Debemos `inspeccionar` la `cookie` de `nuestro usuario` desde `Burpsuite`. Para `identificar` la `tecnología` que se está usando podemos `borrar parte de la cookie para provocar un error`. Este `error` nos puede `revelar` el `lenguaje` que se está usando e incluso el `framework` y su `versión` (por ejemplo `Symfony 4.3.6`), lo cual nos `interesa` para poder `elegir` la `gadget chain` correcta más adelante. En el que caso en que se use `Java` para la `serialización` del `objeto` podemos usar `ysoserial` y si se usa `PHP` usaremos `phpggc`. Si el `lenguaje` es `distinto` a `PHP` o `Java` tendremos que `buscar herramientas alternativas` o `exploits documentados`. A la hora de `generar` el `payload` con `ysoserial` debemos usar una `versión` de `Java 8` u `11` para que `funcione correctamente`. Lo que tenemos que hacer es `reemplazar` o `modificar` el `objeto serializado existente` por `el nuestro`, de forma que cuando el `servidor` lo `deserialice` se `ejecute` la `acción` que `nosotros queremos`
-
-3 - Cuando `desconozcamos` el `access_token` u otro `parámetro` de `otro usuario` podemos intentar `sustituirlo` por un `booleano b:1` o por un `integer i:0` y de esta forma `bypassear la validación`
-
-4 - Puede darse el caso de que `encontremos` una `funcionalidad` de la `aplicación` que `nos permita borrar nuestra cuenta de usuario`. Si se `transmite` un `objeto` con `nuestra información` y ahí se encuentra nuestra `foto de perfil` por ejemplo, podríamos `modificar esa ruta dentro del objeto` para que `se borre el archivo que nosotros queremos`
-
-5 - Si tenemos `dudas` con los `pasos anteriores` podemos `consultar` estos `posts`:
-
-- Modifying serialized objects: [https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-1/](https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-1/)
-
-- Modifying serialized data types: [https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-2/](https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-2/)
-
-- Using application functionality to exploit insecure deserialization: [https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-3/](https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-3/)
-
-- Arbitrary object injection in PHP: [https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-4/](https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-4/)
-
-- Exploiting Java deserialization with Apache Commons: [https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-5/](https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-5/)
-
-- Exploiting PHP deserialization with a pre-built gadget chain: [https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-6/](https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-6/)
-
-- Exploiting Ruby deserialization using a documented gadget chain: [https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-7/](https://justice-reaper.github.io/posts/Insecure-Deserialization-Lab-7/)
-
 ## ¿Cómo prevenir un insecure deserealization?
 
 En términos generales, `debemos evitar la deserialización de datos de usuario salvo que sea absolutamente necesario`. La `alta gravedad` de los `exploits` que puede habilitar y la dificultad para protegerse frente a ellos suelen superar los beneficios en muchos casos.

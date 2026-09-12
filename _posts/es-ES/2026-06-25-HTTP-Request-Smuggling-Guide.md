@@ -1263,32 +1263,6 @@ En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
 Los `sitios web que realizan HTTP/2 downgrading de las solicitudes HTTP/2 a HTTP/1` pueden ser `vulnerables a un problema equivalente denominado H2.0` si el servidor back-end ignora la cabecera `Content-Length` de la `solicitud downgradeada`
 
-## Cheatsheet
-
-Usaremos esta `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
-
-- Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
-
-## ¿Cómo detectar y explotar vulnerabilidades de HTTP request smuggling
-
-1 - `Instalar` la extensión `Turbo Intruder`
-
-2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
-
-3 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`. En esta parte si `encontramos` un `XSS`, lo que debemos hacer es `usar el HTTP request smuggling para que la víctima ejecute el payload`
-
-4 - `Para todos los ataques que vamos a ver a continuación a la hora que ejecutar las veririficaciones o los ataques es muy importante que enviemos muy rápido la segunda solicitud`. Además, `debemos de hacer esto varias veces para estar seguros`
-
-5 - Lo más recomendable para esta `vulnerabilidad` es `ver todos los posts de HTTP request smuggling` y `replicarlos a la hora del examen uno a uno`
-
-6 - Las `vulnerabilidades que se dan puramente mediante el protocolo HTTP/1.1` son `TE.CL` [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-4/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-4/) y `CL.TE` [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-3/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-3/) y `TE.TE` 
-
-7 - La `vulnerabilidad CL.0` [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-15/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-15/)  también usa el `protocolo HTTP/1.1` pero la `metodología para encontrarla es diferente` así que la `pongo a parte`
-
-8 - Las `vulnerabilidades que utilizan el protocolo HTTP/2 y que realizan downgrading` son `H2.TE` [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-12/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-12/) y `H2.CL` [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-11/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-11/)
-
-9 - Puede que necesitemos `realizar una inyección CLRF` [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-14/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-14/), un `rewriting de la solicitud para obtener la cookie de la víctima` o `una cabecera que añada el servidor frontend y necesitemos obtener para realizar una solicitud a /admin` [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-8/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-8/), `ofuscar la cabecera Transfer-Encoding para convertir un TE.TE en un TE.CL o en un CL.TE` [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-5/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-5/), `llevar a cabo un response queue poisoning`, ya sea de la forma normal [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-12/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-12/) o mediante una `inyección CRLF` [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-14/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-14/) o `usar el HTTP request smuggling para ejecutar un XSS en el navegador de la víctima` [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-10/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-10/)
-
 ## Prevenir vulnerabilidades de HTTP request smuggling
 
 Las `vulnerabilidades de HTTP request smuggling` surgen cuando el `servidor front-end` y el `servidor back-end` utilizan `mecanismos diferentes para determinar los límites entre las solicitudes`. Esto puede deberse a discrepancias en el uso de la cabecera `Content-Length` o de la codificación `chunked` por parte de los `servidores HTTP/1` para `determinar dónde termina cada solicitud`. En entornos `HTTP/2`, la `práctica habitual de realizar HTTP/2 downgrading de las solicitudes para el back-end` también `presenta numerosos problemas` y `permite o facilita diversos ataques adicionales`

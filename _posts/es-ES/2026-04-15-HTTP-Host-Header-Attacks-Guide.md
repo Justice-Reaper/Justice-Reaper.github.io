@@ -368,30 +368,6 @@ GET @private-intranet/example HTTP/1.1
 
 `La URL resultante sería http://backend-server@private-intranet/example`, que `la mayoría de librerías HTTP interpretan como una solicitud para acceder a private-intranet utilizando backend-server como nombre de usuario`
 
-## Cheatsheet
-
-Usaremos esta `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
-
-- Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
-
-## ¿Cómo detectar y explotar vulnerabilidades en la cabecera Host?
-
-1 - `Instalamos` las extensiones `Host Header Inchecktion` y `HTTP Request Smuggler` de `Burpsuite`
-
-2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
-
-3 - `Crawleamos` el `dominio` con `Burpsuite` y `mientras termina el crawleo, exploramos todas las funciones de la web de forma manual`
-
-4 - `Revisamos` el `código fuente` de la `web`, si vemos que `se refleja el dominio de la web en el código fuente podemos intentar llevar a cabo un web cache poisoning`. Para agilizar el proceso vamos a `lanzar la herramienta Web-Cache-Vulnerability-Scanner sobre los endpoints cuya respuesta se almacena en caché`. Si `existe` un `web caché poisoning` a `través` de la `cabecera Host`, `tenemos que seguir los mismos pasos que se hacen en este laboratorio` [https://justice-reaper.github.io/posts/HTTP-Host-Header-Attacks-Lab-3/](https://justice-reaper.github.io/posts/HTTP-Host-Header-Attacks-Lab-3/)
-
-5 - Si en el `Exploit server` tenemos un `cliente de correo` y en el `login` de la `web` existe la opción `Forgot password?`, vamos a `pulsar sobre Forgot password?`, posteriormente `proporcionamos el nombre de usuario o email de la víctima` y `cambiamos el valor de la cabecera Host por el de nuestro Exploit server o por un dominio de Burpsuite Collaborator`. Esto lo hacemos para `obtener` el `token de reseteo de contraseña` que `viaja` en la `URL` y `es recomendable testear si funciona con nuestro usuario antes de ejecutarlo contra el usuario víctima`. Si tenemos alguna duda, `seguimos los pasos de este post` [https://justice-reaper.github.io/posts/HTTP-Host-Header-Attacks-Lab-1/](https://justice-reaper.github.io/posts/HTTP-Host-Header-Attacks-Lab-1/)
-
-6 - `Fuzzeamos rutas con la herramienta ffuf y usamos common.txt de seclists como diccionario`. Si `encontramos` alguna `ruta interesante`, como `/admin`, vamos a `capturar` la `petición` a esa `ruta` y a `lanzar` la `extensión Host Header Inchecktion` de `Burpsuite`. Para esto último, haremos `click derecho > Extensions > Host Header Inchecktion > Collaborator payload`. Si tenemos alguna duda, `seguimos los pasos de este post` [https://justice-reaper.github.io/posts/HTTP-Host-Header-Attacks-Lab-2/](https://justice-reaper.github.io/posts/HTTP-Host-Header-Attacks-Lab-2/)
-
-7 - `Lanzamos la extensión Host Header Inchecktion de Burpsuite sobre la raíz de la web`. Para ello, `pulsamos click derecho > Extensions > Host Header Inchecktion > Collaborator payload`. Si la `extensión` nos `detecta` un `SSRF` debemos de `testear todas las variantes que descubra y posteriormente de confirmar cuales son válidas`, vamos a `usar la herramienta ip-range-generator para generar un rango de IPs` y a `fuzzear desde el Intruder hasta dar con una IP interna que nos haga un redirect a /admin`. Si tenemos alguna duda, `seguimos los pasos de este post` [https://justice-reaper.github.io/posts/HTTP-Host-Header-Attacks-Lab-4/](https://justice-reaper.github.io/posts/HTTP-Host-Header-Attacks-Lab-4/) y si no dan resultado, `seguimos los de este otro post` [https://justice-reaper.github.io/posts/HTTP-Host-Header-Attacks-Lab-5/](https://justice-reaper.github.io/posts/HTTP-Host-Header-Attacks-Lab-5/)
-
-8 - `Si en el paso anterior la extensión no ha detectado nada, vamos a lanzar la extensión HTTP Request Smuggler haciendo click derecho > Extensions > HTTP Request Smuggler > Connection-state`. Si nos `descubre` un `Connection state - input reflection`, lo que tenemos que hacer es `seguir los pasos que se ven en este post` [https://justice-reaper.github.io/posts/HTTP-Host-Header-Attacks-Lab-6/](https://justice-reaper.github.io/posts/HTTP-Host-Header-Attacks-Lab-6/). `Si no descubre nada, seleccionamosla opción Launch all scans para ver si encontramos algo`
-
 ## ¿Cómo prevenir un HTTP Host header attack?
 
 `Para prevenir HTTP Host header attacks, el enfoque más simple es evitar usar el valor completo de la cabecera Host en el código del lado del servidor`. `Se debe comprobar dos veces si cada URL realmente necesita ser absoluta`. `A menudo descubriremos que podemos usar simplemente una URL relativa en su lugar`. Este `cambio simple` puede `ayudar` a `prevenir vulnerabilidades de web cache poisoning`. `Otras formas de prevenir HTTP Host header attacks incluyen las siguientes cosas`

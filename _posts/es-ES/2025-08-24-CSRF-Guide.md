@@ -447,50 +447,6 @@ En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
 - CSRF with broken Referer validation - [https://justice-reaper.github.io/posts/CSRF-Lab-12/](https://justice-reaper.github.io/posts/CSRF-Lab-12/)
 
-## Cheatsheet
-
-Usaremos esta `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
-
-- Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
-
-## ¿Cómo detectar y explotar un CSRF?
-
-1 - `Instalar` las extensiones `Active Scan ++`, `Error Message Checks`, `Additional Scanner Checks`, `Collaborator Everywhere`, `Backslash Powered Scanner` y `CSRF Scanner` de `Burpsuite` 
-
-2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
-
-3 - `Iniciar sesión` e `interactuar manualmente con todas las funcionalidades del sitio web`
-
-4 - `Buscar` en el `HTTP history`, `WebSockets history` y en el `Site map` todas las `peticiones` para ver si `encontramos alguna interesante`. Buscamos `sibling domains`, `archivos JavaScript que puedan dar luegar a open redirects o XSS` y `peticiones` que `ejecuten` una `acción importante` como `cambiar` el `correo electrónico`. `Una vez encontradas este tipo de peticiones tenemos que escanear sus insertion points`
-
-5 - Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`. Esto nos puede `ayudar` a `detectar` un `CSRF` pero `puede fallar en ocasiones`, así que `conviene hacer también una inspección manual`
-
-6 - `Debido a que tantas variables que tiene esta vulnerabilidad, es preferible probar todas las técnicas vistas en vez de seguir una metodología concreta`
-
-- CSRF vulnerability with no defenses: [https://justice-reaper.github.io/posts/CSRF-Lab-1/](https://justice-reaper.github.io/posts/CSRF-Lab-1/)
-
-- CSRF where token validation depends on request method: [https://justice-reaper.github.io/posts/CSRF-Lab-2/](https://justice-reaper.github.io/posts/CSRF-Lab-2/)
-
-- CSRF where token validation depends on token being present: [https://justice-reaper.github.io/posts/CSRF-Lab-3/](https://justice-reaper.github.io/posts/CSRF-Lab-3/)
-
-- CSRF where token is not tied to user session: [https://justice-reaper.github.io/posts/CSRF-Lab-4/](https://justice-reaper.github.io/posts/CSRF-Lab-4/)
-
-- CSRF where token is tied to non-session cookie: [https://justice-reaper.github.io/posts/CSRF-Lab-5/](https://justice-reaper.github.io/posts/CSRF-Lab-5/)
-
-- CSRF where token is duplicated in cookie: [https://justice-reaper.github.io/posts/CSRF-Lab-6/](https://justice-reaper.github.io/posts/CSRF-Lab-6/)
-
-- SameSite Lax bypass via method override: [https://justice-reaper.github.io/posts/CSRF-Lab-7/](https://justice-reaper.github.io/posts/CSRF-Lab-7/)
-
-- SameSite Strict bypass via client-side redirect: [https://justice-reaper.github.io/posts/CSRF-Lab-8/](https://justice-reaper.github.io/posts/CSRF-Lab-8/)
-
-- SameSite Strict bypass via sibling domain: [https://justice-reaper.github.io/posts/CSRF-Lab-9/](https://justice-reaper.github.io/posts/CSRF-Lab-9/)
-
-- SameSite Lax bypass via cookie refresh: [https://justice-reaper.github.io/posts/CSRF-Lab-10/](https://justice-reaper.github.io/posts/CSRF-Lab-10/)
-
-- CSRF where Referer validation depends on header being present: [https://justice-reaper.github.io/posts/CSRF-Lab-11/](https://justice-reaper.github.io/posts/CSRF-Lab-11/)
-
-- CSRF with broken Referer validation: [https://justice-reaper.github.io/posts/CSRF-Lab-12/](https://justice-reaper.github.io/posts/CSRF-Lab-12/)
-
 ## Prevenir vulnerabilidades CSRF
 
 Es recomendable implementar las siguientes `medidas` con el fin de `mitigar` y `reducir la superficie de ataque` frente a `ataques CSRF`

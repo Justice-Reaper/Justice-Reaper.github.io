@@ -426,38 +426,6 @@ Access-Control-Allow-Origin: *
 
 El `servidor de la aplicación` está confiando en `solicitudes a recursos` desde `cualquier origen` sin `credenciales`. Si los `usuarios dentro del espacio de IP privadas` acceden a `internet`, entonces se puede realizar un `ataque CORS` desde un `sitio externo` que utilice el `navegador de la víctima` como `proxy` para acceder a los `recursos de la intranet`
 
-## Cheatsheet
-
-Usaremos esta `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
-
-- Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
-
-## ¿Cómo detectar y explotar una mala configuración de CORS?
-
-1 - `Instalar` las extensiones `CORS* - Additional CORS Checks` y `Trusted Domain CORS Scanner` de `Burpsuite` 
-
-2 - Nos `dirigimos` a la `pestaña CORS*` que `corresponde` a la extensión `CORS* - Additional CORS Checks` y `checkeamos Activate CORS*?`
-
-2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
-
-3 - `Iniciamos sesión, interactuamos con todas las funciones del sitio web` y posteriormente `crawleamos` el `dominio` con `Burpsuite`
-
-4 - `Filtramos` en el `HTTP history` y en el `Logger` por `Access-Control-Allow-Credentials`. Es `importante` esta `cabecera` porque `para poder explotar esta vulnerabilidad necesitamos encontrar un endpoint que contenga información sensible y que al hacerle una petición veamos la cabecera Access-Control-Allow-Credentials: true en la respuesta`
-
-5 - `Si en este punto la extensión CORS* - Additional CORS Check no nos ha reportado nada y no hemos encontrado ningún petición que tenga en la respuesta esta cabecera Access-Control-Allow-Credentials, no podemos explotar la mala configuración de CORS`
-
-6 - En caso de que sí hayamos `encontrado` una `petición` con la cabecera `Access-Control-Allow-Credentials` en la `respuesta` podemos hacer `tests manuales`. Lo `primero` es `enviar` la `petición` al `Repeater` y desde ahí hacemos `click derecho > Extensions > CORS*, Additional CORS Checks > Add Requests to CORSA*`. Luego nos `dirigimos` a la `pestaña CORS*`, `seleccionamos la request que acabamos de enviar` y `pulsamos sobre Send CORS request for selected entry`. Una vez `identificada` la `vulnerabilidad` vamos a `seguir los pasos de uno de estos laboratorios (dependiendo del valor de la cabecera Origin tendremos que seguir los pasos de uno u otro)`:
-
-- CORS vulnerability with basic origin reflection: [https://justice-reaper.github.io/posts/CORS-Lab-1/](https://justice-reaper.github.io/posts/CORS-Lab-1/)
-
-- CORS vulnerability with trusted null origin: [https://justice-reaper.github.io/posts/CORS-Lab-2/](https://justice-reaper.github.io/posts/CORS-Lab-2/)
-
-7 - `Si tenemos varios dominios/subdominios hacemos click derecho > Extensions > Trusted Domain CORS Scanner y cuando se nos abra una pestaña, añadimos ahí todos los dominios y subdominios conocidos`. `Si el escáner nos identifica que un dominio o subdominio que hemos encontrado es de confianza`, lo que debemos de hacer es `buscar` un `XSS` en `él`. Para `identificar` los `XSS`, debemos `revisar` la `guía de XSS` [https://justice-reaper.github.io/posts/XSS-Guide/](https://justice-reaper.github.io/posts/XSS-Guide/). En este `laboratorio` podemos ver `como llevar a cabo ese proceso`:
-
-- CORS vulnerability with trusted insecure protocols: [https://justice-reaper.github.io/posts/CORS-Lab-3/](https://justice-reaper.github.io/posts/CORS-Lab-3/)
-
-8 - `Una vez hayamos confirmado que la web es tiene CORS mal configurado`, lo que tenemos que hacer `crear` una `Poc`. Para hacer esto `podemos crear la PoC con la herramienta C0rsPwn3r` o `usar las mismas que en los laboratorios mencionados`
-
 ## Prevenir ataques CORS-based
 
 Las `vulnerabilidades CORS` surgen principalmente por `errores de configuración`. Por lo tanto, la `prevención` es un `problema de configuración`. Las siguientes secciones describen algunas `defensas efectivas contra ataques CORS`

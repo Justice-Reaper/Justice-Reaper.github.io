@@ -489,31 +489,3 @@ Para `prevenir` un `server side parameter pollution`, utilizamos una `allowlist`
 | Unsafe consumption of APIs                      | API testing                                                                                                                    |
 
 `Podemos leer más sobre esto en el sitio web de OWASP` [https://owasp.org/API-Security/editions/2023/en/0x00-header/](https://owasp.org/API-Security/editions/2023/en/0x00-header/)
-
-## Cheatsheet
-
-Usaremos esta `cheatsheet` para facilitar la `detección` y `explotación` de esta `vulnerabilidad`:
-
-- Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
-
-## ¿Cómo detectar y explotar vulnerabilidades en APIs?
-
-1 - `Instalar` las extensiones `GAP (Get All Parameters, Links, and Words)`, `Param Miner`, `Error Message Checks`, `Backslash Powered Scanner` y `Content Type Converter` de `Burpsuite`
-
-2 - `Añadir` el `dominio` y sus `subdominios` al `scope`
-
-3 - `Analizar` la `web` con el `escáner de Burpsuite`. Para ello, `marcaremos Crawl and audit` como `tipo de escaneo`  y como `configuración de escaneo` usaremos `Deep`. Mientras tanto, vamos a `loguearnos` si podemos, a `interactuar` con `todas` las `funcionalidades` de la `web` de `forma manual` y a `ver` las `peticiones` que se `realizan` desde el `Logger` para `ver` las `peticiones interesantes que hay`
-
-4 - Si encontramos un `endpoint` de la `api`, `/api/swagger/v1/users/123` por ejemplo, `vamos` a `enviar` una `petición` por `GET` y por `POST` a las `rutas base`, para ver si `encontramos` la `documentación` de la `API`. Las `rutas base` para este `endpoint` en concreto son `/api/swagger/v1`, `/api/swagger` y `/api`
-
-5 - `En el caso de que no encontremos ningún endpoint de la api o no encontremos la documentación, vamos a aplicar fuzzing con la herramienta Content discovery de Burpsuite`. `Como diccionario, vamos a usar el que nos viene por defecto`. `Antes de lanzar el ataque pulsamos en la pestaña config` y ponemos el `Numer of discovery threads` en `1` y el `Number of spider threads` a `1` también. El `objetivo` de esto es `encontrar` las `rutas base` de las `APIs` y su `documentación`
-
-6 - Es `posible` que en los `siguiente pasos` tengamos que `cambiar` el `Content-Type` y el `formato` en el que se `envían` los `datos` para que `la petición se envíe correctamente`. Para `facilitar` esto, podemos `usar` la `extensión Content Type Converter de Burpsuite`
-
-7 - Si `encontramos` la `documentación`, debemos `analizar que peticiones podemos realizar` y `ver si hay alguna que nos permita realizar alguna acción interesante`
-
-8 - Hay ocasiones en las que hay `funcionalidades` de los `endpoints` que `no están en la documentación`. `Por lo que, tanto si hemos encontrado documentación como si no`, tenemos que `identificar que endpoints de los que hemos encontrado son interesantes` y desde el `Intruder` procedemos a `efectuar` un `ataque de tipo Sniper` para `descubrir que métodos soportan estos endpoints`, como `diccionario` podemos usar `HTTP verbs`, el cual viene con `Burpsuite` por defecto u `otro diccionario que tenga más métodos HTTP`. `Tenemos que fijarnos bien si existe algún endpoint que podamos usar para realizar alguna acción interesante`
-
-9 - `En el caso de que no podamos realizar ninguna acción interesante`, vamos a `probar` a `efectuar` un `mass assignment attack`. Para esto, `nos vamos a fijar en los campos que se ven en las respuestas que devuelve el servidor al enviarle peticiones a los diferentes endpoints, ya que es posible que podamos añadir uno de esos campos a una petición y así modificar campos del objeto que no debería de ser modificables`. También podemos `usar` la `extensión Param Miner de Burpsuite` para `descubrir nuevos parámetros`. `Para ver si ha encontrado algún parámetro nuevo, lo podemos hacer desde Extensions > Param Miner > Output` o `analizar` nosotros mismos las `peticiones` desde el `Logger`. Al `usar` esta `extensión`, hay veces que `el servidor no identifica correctamente la URL porque se le añade esto ?adfer32xa`. Para `solucionar` esto, `debemos desactivar la opción include query-param in cachebusters antes de lanzar el ataque`. También es recomendable `activar` la opción `learn observed words`
-
-10 - `Si el mass assignment attack no da resultado`, vamos a `intentar llevar a cabo un parameter pollution`. `Si la extensión Backslash Powered Scanner nos ha reportado que existe algún tipo de inyección`, es `probable` que la `web` sea `vulnerable` a `parameter pollution`. Una vez descubierto esto, `seguimos los pasos que se hacen en este post` [https://justice-reaper.github.io/posts/API-Testing-Lab-2/](https://justice-reaper.github.io/posts/API-Testing-Lab-2/). `Si tenemos alguna duda sobre los pasos que se hacen en el laboratorio mencionado, podemos leer este apartado en el que se enseña como identificar un parameter pollution` [https://justice-reaper.github.io/posts/Api-Testing-Guide/#server-side-parameter-pollution](https://justice-reaper.github.io/posts/Api-Testing-Guide/#server-side-parameter-pollution). Otra cosa importante, en el `post` lo que hacemos para `ver` que `valor proporcionar` es `leer` un `archivo JS`, `esto nos lo podemos ahorrar usando la extensión GAP (Get All Parameters, Links, and Words) para obtener un diccionario o también podemos usar el diccionario Server-side variable names que viene por defecto en Burpsuite`, el `siguiente paso` sería `usar` el `Intruder` para `ejecutar` un `ataque de fuerza bruta`. `Para lo que sí que necesitamos mirar los archivos JS es para ver las rutas`
