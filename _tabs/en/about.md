@@ -8,11 +8,11 @@ order: 4
 
 Let me introduce myself. I'm Sergio, 24 years old, and I've always been passionate about computers. However, it wasn't until five years ago that I decided to pursue this field professionally. As a first step, I completed an associate's degree in Multiplatform Application Development, where I built desktop and mobile applications with Java
 
-Later, I leaned toward offensive cybersecurity because it's the area I find most fulfilling. I created a personal blog where I share write-ups and articles about PortSwigger labs, HackTheBox, and my exam prep. Currently, I have over 300 published articles and post regularly. I've also completed 90 HackTheBox machines. This year, I plan to earn my CPTS and OSCP certifications
+Later, I leaned toward offensive cybersecurity because it's the area I find most fulfilling, and I've been self-taught in the field ever since. I recently passed the BSCP certification and I am now preparing for the OSCP with Secur0
 
-Throughout my journey in this field, I've encountered tasks that I find tedious or repetitive. To address this, I've developed several tools using Bash, Python, and Java to automate them, allowing me to focus on what matters most
+To document my progress, I created a blog where I share write-ups and articles about PortSwigger labs, HackTheBox, and my exam prep. It already has more than 300 articles, including several about HackTheBox, where I have completed 90 machines. I am also very active on GitHub, where I have more than 25 projects, many of them tools written in Bash, Python, and Java that automate tedious or repetitive tasks so I can focus on what matters most
 
-Beyond that, I contribute to the [Arch User Repository (AUR)](https://aur.archlinux.org/packages?K=justice-reaper&SeB=m) by uploading my own packages, something I started doing after compiling a kernel module to fix a microphone bug on my laptop
+Beyond that, I contribute to the [Arch User Repository (AUR)](https://aur.archlinux.org/packages?K=justice-reaper&SeB=m) by uploading my own packages, and I have recently started doing bug bounty on the Secur0 platform, where I have 8 CVEs pending confirmation, found through a VDP (Vulnerability Disclosure Program)
 
 When it comes to languages, I believe they're essential in this field. That's why I earned my English B2 certificate last year, and I'll start preparing for the C1 next year
 
@@ -31,10 +31,13 @@ Certifications earned:
 - BSCP (Burp Suite Certified Practitioner)
 - FCE (B2 First Certificate in English)
 
-I'm currently preparing for the following certifications:
+I'm currently preparing for the following certification:
 
-- CPTS (Certified Penetration Testing Specialist)
 - OSCP (Offensive Security Certified Professional)
+
+## CVEs 🐛
+
+- 8 CVEs pending confirmation, found through a VDP (Vulnerability Disclosure Program)
 
 ## Education 📜
 
