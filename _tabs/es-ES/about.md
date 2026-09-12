@@ -8,11 +8,11 @@ order: 4
 
 Me presento, soy Sergio, tengo 24 años y desde siempre me ha gustado la informática, pero no fue hasta hace 5 años cuando decidí dedicarme a este campo profesionalmente. Para iniciarme en este mundillo realicé el grado superior de Desarrollo de Aplicaciones Multiplataforma (DAM), en el que construí aplicaciones para escritorio y para móviles con Java
 
-Posteriormente me decanté por la rama de ciberseguridad ofensiva, porque es la que más me llena. Me creé un blog personal donde comparto writeups y artículos sobre los laboratorios de PortSwigger, HackTheBox y mi preparación para las certificaciones. Actualmente cuento con más de 300 artículos publicados, subo contenido constantemente y llevo 90 máquinas completadas en HackTheBox. Este año espero conseguir el CPTS y el OSCP
+Posteriormente me decanté por la ciberseguridad ofensiva, porque es la rama que más me llena, y desde entonces la estudio de forma autodidacta. Recientemente obtuve la certificación BSCP y actualmente me estoy preparando para la OSCP con Secur0
 
-Durante mi camino por este campo he ido encontrándome tareas que considero tediosas o repetitivas, y por ello he creado varias herramientas empleando Bash, Python y Java que las automatizan, permitiéndome enfocarme en lo importante
+Para documentar mi progreso, he creado un blog donde comparto writeups y artículos sobre los laboratorios de PortSwigger, HackTheBox y mi preparación para las certificaciones. Ya cuenta con más de 300 artículos, entre ellos varios de HackTheBox, donde tengo completadas 90 máquinas. También soy muy activo en GitHub, donde tengo más de 25 proyectos, muchos de ellos herramientas en Bash, Python y Java que automatizan tareas tediosas o repetitivas para poder enfocarme en lo importante
 
-También contribuyo al [Arch User Repository (AUR)](https://aur.archlinux.org/packages?K=justice-reaper&SeB=m) subiendo mis propios paquetes, algo que empecé a hacer tras compilar un módulo del kernel para arreglar un fallo de micrófono en mi portátil
+Además, contribuyo al [Arch User Repository (AUR)](https://aur.archlinux.org/packages?K=justice-reaper&SeB=m) subiendo mis propios paquetes y recientemente me he iniciado en el bug bounty en la plataforma de Secur0, donde estoy a la espera de confirmación de 8 CVE encontrados en un VDP (Vulnerability Disclosure Program)
 
 Respecto a los idiomas, considero que son fundamentales en este campo, por lo que el año pasado obtuve el B2 de inglés y el año que viene empezaré a prepararme para el C1
 
@@ -31,10 +31,13 @@ Certificaciones obtenidas:
 - BSCP (Burp Suite Certified Practitioner)
 - FCE (B2 First Certificate in English)
 
-Actualmente estoy preparándome para las siguientes certificaciones:
+Actualmente estoy preparándome para la siguiente certificación:
 
-- CPTS (Certified Penetration Testing Specialist)
 - OSCP (Offensive Security Certified Professional)
+
+## CVEs 🐛
+
+- A la espera de confirmación de 8 CVE encontrados en un VDP (Vulnerability Disclosure Program)
 
 ## Titulaciones 📜
 
