@@ -128,7 +128,7 @@ Si `no hemos recibido los resultados tras 3-5 días laborables`, podemos `inicia
 
 ## Recursos
 
-Otras `cheatsheets` y `recursos` de otros autores útiles para preparar el examen:
+`Recursos necesarios para completar el examen`:
 
 - botesjuan [https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study.git](https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study.git)
 
