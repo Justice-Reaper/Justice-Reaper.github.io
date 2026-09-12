@@ -144,7 +144,7 @@ Otras `cheatsheets` y `recursos` de otros autores útiles para preparar el exame
 
 ### Oficiales
 
-Vulnerabilidades que aparecen en todas las guías acerca del examen
+`Vulnerabilidades que aparecen en todas las guías acerca del examen`
 
 | Vulnerability                  | Stage 1 | Stage 2 | Stage 3 |
 | ------------------------------ | :-----: | :-----: | :-----: |
@@ -171,7 +171,7 @@ Vulnerabilidades que aparecen en todas las guías acerca del examen
 
 ### Adicionales
 
-Vulnerabilidades que cubrimos pero que no aparecen en la tabla oficial
+`Vulnerabilidades que puede ser que aparezcan en un futuro en el examen`
 
 | Vulnerability | Stage 1 | Stage 2 | Stage 3 |
 |---|:---:|:---:|:---:|
@@ -188,39 +188,40 @@ Vulnerabilidades que cubrimos pero que no aparecen en la tabla oficial
 
 ## Vulnerabilidades por etapa en el examen
 
+En esta `imagen` podemos `ver las vulnerabilidades que hay por fase en el examen`
 
 ![](/assets/img/Portswigger-Exam-Methodology/image_1.png)
 
 ## Recomendaciones
 
-Si nos vamos a presentar al `BSCP`, tenemos que tener en cuenta lo siguiente:
+Si nos vamos a presentar al `BSCP`, tenemos que `tener en cuenta` lo `siguiente`:
 
-- Necesitamos sabernos bien la estructura de estos dos repositorios de GitHub: [Burp-Suite-Certified-Practitioner-Exam-Study](https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study.git) y [BurpSuiteCertifiedPractitioner](https://github.com/DingyShark/BurpSuiteCertifiedPractitioner.git)
+- Necesitamos `conocer` bien la `estructura` del `repositorio` de `botesjuan` [https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study.git](https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study.git) y del `repositorio` de `DingyShark` [https://github.com/DingyShark/BurpSuiteCertifiedPractitioner.git](https://github.com/DingyShark/BurpSuiteCertifiedPractitioner.git)
 
-- Nos hacemos `todos los laboratorios`, porque a veces se parecen al examen pero con `pequeñas variaciones`
+- Tenemos que `completa todos los laboratorios`, porque `pueden aparecer en el examen las mismas vulnerabilidades` o `que sea la misma vulnerabilidad pero con pequeñas variaciones`
 
-- Para saber qué hay en cada fase tenemos la `imagen` de la sección `Vulnerabilidades por etapa en el examen`. Es importantísimo que la miremos: son las `vulnerabilidades` que salen y `dónde están`. La tabla no es perfecta, pero es muy fiel a lo que aparece
+- `Para saber qué vulnerabilidades pueden aparecer en cada fase`, tenemos la `imagen` de la sección `Vulnerabilidades por etapa en el examen`. Es muy importante que la miremos, ya que son las `vulnerabilidades` que salen y `dónde están`. `La tabla no es perfecta, pero es muy fiel a lo que aparece`
 
-- Nos conviene tener `Claude de pago` para que nos ayude a `bypassear los WAF` y a `buscar información` en esos dos repositorios (clonamos los repos y le vamos preguntando a la IA)
+- Nos conviene tener `Claude de pago` o `alguna otra IA` para que nos `ayude` a `bypassear` los `WAFS` y a `buscar información en los dos repositorios mencionados anteriormente`. Para buscar información, lo mejor es clonarlos e irle preguntando a la IA
 
-- Nos puede tocar una `combinación de vulnerabilidades`. Por ejemplo, en los laboratorios hay un documento `XML` con el que podemos explotar una `SQLI`; en el examen a lo mejor no es una `SQLI`, sino otra cosa. Tenemos que tenerlo muy en cuenta
+- `Nos puede tocar una combinación de vulnerabilidades`. Por ejemplo, `en los laboratorios hay un documento XML con el que podemos explotar una SQLI` y en el `examen` a lo mejor `no es una SQLI`, sino que es un `command injection`. `Tenemos que tener esto en cuenta`
 
-- Para `HTTP Request Smuggling`, nos preparamos las peticiones, porque salen `variaciones`: en el lab en el que metemos el `XSS` en el `User-Agent`, en vez de `CL.TE` nos puede salir `TE.CL`. O sea, nos preparamos las de los labs más las variaciones
+- `Para la vulnerabilidad HTTP Request Smuggling`, es recomendable `preparamos las peticiones`, porque salen `variaciones`, por ejemplo, `en el laboratorio en el que hay un XSS en el User-Agent`, en vez de un `HTTP request smuggling CL.TE`, nos puede salir un `HTTP request smuggling TE.CL`. Es decir, `nos tenemos que preparar las peticiones de los laboratorios más las variaciones de estas`
 
-Todas las `herramientas` que usamos a lo largo de la metodología están recopiladas en `hacking tools` [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/). Tenemos que fijarnos a que vulnerabilidad nos vamos a enfrentar en cada etapa e instalar las extensiones de Burpsuite correspondientes para cada una
+`Todas las herramientas que podamos necesitar durante el examen están recopiladas en este post` [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/). `Tenemos que tener habilitadas las extensiones de Burpsuite necesarias en cada fase`
 
-Para evitar problemas con el `WAF`, probamos primero a mano:
+Antes de `utilizar` la `IA` para `encodear caracteres`, vamos a probar estas cosas:
 
-- `URL-encodeamos` los caracteres especiales como `.` y `/` dos veces: primero el `.` o `/` y luego el `%`
+- `URL-encodeamos` los `caracteres especiales` como `.` y `/` dos veces, primero el `.` o `/` y luego el `%`. Si no funciona, `probamos a URL-encodear solamente una vez`
 
 - En un `XML`, por ejemplo, el `&` tenemos que `HTML-encodearlo`
 
-- En un `LFI` puede que tengamos que `URL-encodear` una palabra o parte de ella
+- En un `LFI` puede que tengamos que `URL-encodear` una `palabra` o `parte de ella`
 
 - En un `File Upload` puede que tengamos que poner `%00.png` para que ignore la `extensión`
 
-Para más `técnicas de ofuscación` con las que `evadir el WAF`, podemos `consultar la guía de ofuscación` [https://justice-reaper.github.io/posts/Ofuscation-Guide/](https://justice-reaper.github.io/posts/Ofuscation-Guide/)
+Para más `técnicas de ofuscación` con las que `evadir el WAF`, podemos `consultar la guía de ofuscación` [https://justice-reaper.github.io/posts/Ofuscation-Guide/](https://justice-reaper.github.io/posts/Ofuscation-Guide/) o simplemente hacer que la `IA` la `lea` y `nos genere los encodings correctos`
 
-Recomendamos tener los `laboratorios` hechos y subidos a una `web`, un `blog` o lo que sea para poder repasarlos. Si no queremos (aunque es recomendable), tenemos [siunam321.github.io](https://siunam321.github.io/) (en `inglés`) y [justice-reaper.github.io](https://justice-reaper.github.io) (en `español`). Este último es mi blog: están `todos los laboratorios` y `toda la teoría de PortSwigger` en español
+`Es recomendable tener los laboratorios hechos y subidos a una web, un blog para poder repasarlos`. Si no queremos, `tenemos todos los laboratorios resueltos y explicados` en `inglés` aquí [siunam321.github.io](https://siunam321.github.io/) y en `español` aquí [justice-reaper.github.io](https://justice-reaper.github.io)
 
-Tenemos que evitar que el `tráfico de snoopervisor.net` pase por `Burp Suite`, porque si no `nos petará Burp Suite en segundos`. Una forma facil
+Tenemos que `evitar` que el `tráfico de snoopervisor.net` pase por `Burp Suite`, porque si no `nos petará Burp Suite en segundos`. `Una forma fácil de hacerlo es usar Chromium para el proceso de verificación de identidad y Google Chrome para completar el examen` 
