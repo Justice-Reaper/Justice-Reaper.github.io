@@ -50,7 +50,7 @@ Si pulsamos sobre `View post` vemos que hay una sección de comentarios
 
 ![](/assets/img/Clickjacking-Lab-2/image_4.png)
 
-Para ver si una `web` es `vulnerable` a `Clickjacking` podemos usar la herramienta `shcheck` [https://github.com/santoru/shcheck.git](https://github.com/santoru/shcheck.git()) para `identificar` las `cabeceras de seguridad`
+Para ver si una `web` es `vulnerable` a `Clickjacking` podemos usar la herramienta `shcheck` [https://github.com/santoru/shcheck.git](https://github.com/santoru/shcheck.git) para `identificar` las `cabeceras de seguridad`
 
 ```
 # shcheck.py -i -x -k https://0a1800bc042c20d98f01497400e5002b.web-security-academy.net/

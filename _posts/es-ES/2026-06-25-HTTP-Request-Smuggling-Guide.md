@@ -193,7 +193,7 @@ q=smuggling
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- HTTP request smuggling, confirming a CL.TE vulnerability via differential responses - [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-1/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-1)
+- HTTP request smuggling, confirming a CL.TE vulnerability via differential responses - [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-1/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-1/)
 
 ### Confirmar vulnerabilidades TE.CL mediante respuestas diferenciales
 
@@ -346,7 +346,7 @@ Dependiendo de si es el `servidor front-end` o el `servidor back-end` el que pue
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- HTTP request smuggling, obfuscating the TE header - [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-5/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-5)
+- HTTP request smuggling, obfuscating the TE header - [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-5/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-5/)
 
 ## Explotar vulnerabilidades de HTTP Request Smuggling
 
@@ -379,9 +379,9 @@ El `servidor front-end` interpreta que aquí hay `dos solicitudes`, ambas dirigi
 
 En estos `laboratorios` podemos ver como `aplicar` esta `técnica`:
 
-- Exploiting HTTP request smuggling to bypass front-end security controls, CL.TE vulnerability - [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-6/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-6)
+- Exploiting HTTP request smuggling to bypass front-end security controls, CL.TE vulnerability - [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-6/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-6/)
 
-- Exploiting HTTP request smuggling to bypass front-end security controls, TE.CL vulnerability - [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-7/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-7)
+- Exploiting HTTP request smuggling to bypass front-end security controls, TE.CL vulnerability - [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-7/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-7/)
 
 ### Revelando la reescritura de solicitudes del front-end
 
@@ -466,7 +466,7 @@ Una vez hayamos `descubierto cómo el servidor front-end está reescribiendo las
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Exploiting HTTP request smuggling to reveal front-end request rewriting - [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-8/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-8)
+- Exploiting HTTP request smuggling to reveal front-end request rewriting - [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-8/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-8/)
 
 ### Bypassear la autenticación del cliente
 
@@ -558,7 +558,7 @@ Una `limitación de esta técnica` es que, por lo general, solo `capturará dato
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Exploiting HTTP request smuggling to capture other users' requests - [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-9/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-9)
+- Exploiting HTTP request smuggling to capture other users' requests - [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-9/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-9/)
 
 ### Utilizar un HTTP request smuggling para explotar un reflected XSS
 
@@ -587,7 +587,7 @@ La `siguiente solicitud de un usuario será anexada a la solicitud smuggleada` y
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Exploiting HTTP request smuggling to deliver reflected XSS - [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-10/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-10)
+- Exploiting HTTP request smuggling to deliver reflected XSS - [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-10/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-10/)
 
 ### Utilizar HTTP request smuggling para convertir un on-site redirect en un open redirect
 
@@ -738,7 +738,7 @@ En el ejemplo anterior, hemos `mitigado este problema` incluyendo un `parámetro
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- H2.CL request smuggling - [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-11/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-11)
+- H2.CL request smuggling - [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-11/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-11/)
 
 ### Vulnerabilidades H2.TE
 
@@ -940,7 +940,7 @@ Es importante recalcar que este `ataque` es posible tanto mediante el `clásico 
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- Response queue poisoning via H2.TE request smuggling - [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-12/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-12)
+- Response queue poisoning via H2.TE request smuggling - [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-12/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-12/)
 
 ## Request smuggling mediante inyección CRLF
 
@@ -969,7 +969,7 @@ Transfer-Encoding: chunked
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- HTTP/2 request smuggling via CRLF injection - [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-13/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-13)
+- HTTP/2 request smuggling via CRLF injection - [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-13/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-13/)
 
 ## Vectores exclusivos de HTTP/2
 
@@ -1172,7 +1172,7 @@ También tendremos que `ajustar de la misma forma la posición de cualquier cabe
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- HTTP/2 request splitting via CRLF injection - [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-14/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-14)
+- HTTP/2 request splitting via CRLF injection - [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-14/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-14/)
 
 En el ejemplo anterior, hemos `dividido la solicitud de forma que desencadena un response queue poisoning`, pero también podemos `smugglear el inicio de una solicitud para realizar ataques clásicos de request smuggling utilizando esta misma técnica`
 
@@ -1257,7 +1257,7 @@ Puedes explotar las `vulnerabilidades CL.0` para `llevar a cabo los mismos ataqu
 
 En este `laboratorio` podemos ver como `aplicar` esta `técnica`:
 
-- CL.0 request smuggling - [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-15/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-15)
+- CL.0 request smuggling - [https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-15/](https://justice-reaper.github.io/posts/HTTP-Request-Smuggling-Lab-15/)
 
 #### Vulnerabilidades H2.0
 

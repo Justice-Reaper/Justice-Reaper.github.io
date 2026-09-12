@@ -222,6 +222,6 @@ Antes de `utilizar` la `IA` para `encodear caracteres`, vamos a probar estas cos
 
 Para más `técnicas de ofuscación` con las que `evadir el WAF`, podemos `consultar la guía de ofuscación` [https://justice-reaper.github.io/posts/Ofuscation-Guide/](https://justice-reaper.github.io/posts/Ofuscation-Guide/) o simplemente hacer que la `IA` la `lea` y `nos genere los encodings correctos`
 
-`Es recomendable tener los laboratorios hechos y subidos a una web, un blog para poder repasarlos`. Si no queremos, `tenemos todos los laboratorios resueltos y explicados` en `inglés` aquí [siunam321.github.io](https://siunam321.github.io/) y en `español` aquí [justice-reaper.github.io](https://justice-reaper.github.io)
+`Es recomendable tener los laboratorios hechos y subidos a una web, un blog para poder repasarlos`. Si no queremos, `tenemos todos los laboratorios resueltos y explicados` en `inglés` aquí [https://siunam321.github.io/](https://siunam321.github.io/) y en `español` aquí [https://justice-reaper.github.io](https://justice-reaper.github.io)
 
 Tenemos que `evitar` que el `tráfico de snoopervisor.net` pase por `Burp Suite`, porque si no `nos petará Burp Suite en segundos`. `Una forma fácil de hacerlo es usar Chromium para el proceso de verificación de identidad y Google Chrome para completar el examen` 
