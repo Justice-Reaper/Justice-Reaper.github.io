@@ -14,6 +14,10 @@ image:
 
 ## Plataformas de bug bounty
 
+Secur0 [https://app.secur0.com/programs](https://app.secur0.com/programs)
+
+Grayback [https://app.grayback.es/dashboard/programs](https://app.grayback.es/dashboard/programs)
+
 HackerOne [https://hackerone.com](https://hackerone.com)
 
 Intigriti [https://www.intigriti.com](https://www.intigriti.com)
