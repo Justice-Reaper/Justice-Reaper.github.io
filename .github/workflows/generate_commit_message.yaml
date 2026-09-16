@@ -16,12 +16,12 @@ jobs:
 
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
       with:
         fetch-depth: 2  # Fetch the last two commits to perform a diff later.
 
     - name: Set up Python
-      uses: actions/setup-python@v6
+      uses: actions/setup-python@v7
       with:
         python-version: 3.11  # Specify Python version.
 
