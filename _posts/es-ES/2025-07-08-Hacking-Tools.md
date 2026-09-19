@@ -30,6 +30,8 @@ Github Advisories [https://github.com/advisories](https://github.com/advisories)
 
 ## Blogs
 
+Chocapikk [https://chocapikk.com/](https://chocapikk.com/)
+
 Beafn28 [https://beafn28.es/](https://beafn28.es/)
 
 Deep Hacking [https://deephacking.tech](https://deephacking.tech)
@@ -403,6 +405,8 @@ GraphQL Wordlist [https://github.com/Escape-Technologies/graphql-wordlist.git](h
 Flask Unsign Wordlist [https://github.com/Paradoxis/Flask-Unsign-Wordlist.git](https://github.com/Paradoxis/Flask-Unsign-Wordlist.git)
 
 ### Generar diccionarios
+
+CeWL AI [https://github.com/Chocapikk/cewlai.git](https://github.com/Chocapikk/cewlai.git)
 
 CeWL [https://github.com/digininja/CeWL.git](https://github.com/digininja/CeWL.git)
 
