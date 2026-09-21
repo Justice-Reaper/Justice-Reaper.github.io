@@ -198,6 +198,8 @@ Si nos vamos a presentar al `BSCP`, tenemos que `tener en cuenta` lo `siguiente`
 
 - Necesitamos `conocer` bien la `estructura` del `repositorio` de `botesjuan` [https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study.git](https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study.git) y del `repositorio` de `DingyShark` [https://github.com/DingyShark/BurpSuiteCertifiedPractitioner.git](https://github.com/DingyShark/BurpSuiteCertifiedPractitioner.git)
 
+- `Hay escenarios que no están contemplados en ninguno de los repositorios anteriores`, para ello, `vamos a buscar lo que desconocemos en google`, por ejemplo: `bscp exam admin-panel/metrics/img%3Fimgname=1&dimensions="200x133!"`. Una vez hagamos esto, `nos vamos al modo IA` y `arriba a la derecha podemos ver las fuentes de donde se ha obtenido la información`. Es `recomendable` decirle que `busque más información` y que `nos diga las fuentes de donde la ha obtenido`
+
 - Tenemos que `completa todos los laboratorios`, porque `pueden aparecer en el examen las mismas vulnerabilidades` o `que sea la misma vulnerabilidad pero con pequeñas variaciones`
 
 - `Para saber qué vulnerabilidades pueden aparecer en cada fase`, tenemos la `imagen` de la sección `Vulnerabilidades por etapa en el examen`. Es muy importante que la miremos, ya que son las `vulnerabilidades` que salen y `dónde están`. `La tabla no es perfecta, pero es muy fiel a lo que aparece`
