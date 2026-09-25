@@ -199,8 +199,6 @@ En esta `imagen` podemos `ver las vulnerabilidades que hay por fase en el examen
 
 - Diccionarios de loxs [https://github.com/coffinxp/loxs/tree/main/payloads](https://github.com/coffinxp/loxs/tree/main/payloads)
 
-- Laboratorios de SQLI resueltos [https://justice-reaper.github.io/categories/sqli/](https://justice-reaper.github.io/categories/sqli/)
-
 ## Herramientas
 
 Conviene `preparar y probar las herramientas antes del examen` y `habilitar las extensiones de Burp Suite necesarias en cada fase`. Esta selección complementa el post de Hacking Tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
