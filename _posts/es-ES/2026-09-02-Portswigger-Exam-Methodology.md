@@ -18,11 +18,11 @@ image:
 
 ## Licencia de Burp Suite Professional
 
-Para realizar el examen necesitamos una `licencia válida y activa de Burp Suite Professional`, tal como indica la [FAQ oficial del BSCP](https://portswigger.net/web-security/certification/frequently-asked-questions). Podemos disponer de una `licencia de pago`; PortSwigger también ofrece una `licencia oficial de prueba`, que podemos solicitar siguiendo su [documentación de instalación](https://portswigger.net/burp/documentation/desktop/getting-started/download-and-install). Si vamos a utilizar una prueba para el examen, debemos comprobar su `vigencia y las condiciones aplicables`; la FAQ no detalla expresamente este caso
+Para realizar el examen necesitamos una `licencia válida y activa de Burp Suite Professional`, tal como indica la FAQ oficial del BSCP [https://portswigger.net/web-security/certification/frequently-asked-questions](https://portswigger.net/web-security/certification/frequently-asked-questions). Podemos disponer de una `licencia de pago`; PortSwigger también ofrece una `licencia oficial de prueba`, que podemos solicitar siguiendo su documentación de instalación [https://portswigger.net/burp/documentation/desktop/getting-started/download-and-install](https://portswigger.net/burp/documentation/desktop/getting-started/download-and-install). Si vamos a utilizar una prueba para el examen, debemos comprobar su `vigencia y las condiciones aplicables`; la FAQ no detalla expresamente este caso
 
 ### Nota sobre versiones crackeadas
 
-En el loader `BurpLoaderKeygen`, el nombre predeterminado de la licencia es `h3110w0r1d`, escrito exactamente así, según el [código de KeygenForm.java](https://github.com/Pasanlaksitha/Decompiled-Burpsuit-Cracker/blob/main/com/burpsuitcrack/burploaderkeygen/KeygenForm.java)
+En el loader `BurpLoaderKeygen`, el nombre predeterminado de la licencia es `h3110w0r1d`, escrito exactamente así, según el código de KeygenForm.java [https://github.com/Pasanlaksitha/Decompiled-Burpsuit-Cracker/blob/main/com/burpsuitcrack/burploaderkeygen/KeygenForm.java](https://github.com/Pasanlaksitha/Decompiled-Burpsuit-Cracker/blob/main/com/burpsuitcrack/burploaderkeygen/KeygenForm.java)
 
 La indicación de estos apuntes para quienes usen esa versión crackeada es `cambiar el nombre de la licencia de h3110w0r1d a trial user` en el loader. Este cambio de nombre `no convierte la copia en una licencia oficial de prueba ni acredita que sea válida para el examen`; el requisito oficial sigue siendo disponer de una `licencia válida y activa`
 
@@ -120,44 +120,67 @@ La `integridad` del examen es lo que lo hace tan `valioso`, por lo que existe un
 
 `Vulnerabilidades que aparecen en todas las guías acerca del examen`
 
-| Vulnerability                  | Stage 1 | Stage 2 | Stage 3 |
-| ------------------------------ | :-----: | :-----: | :-----: |
-| SQLI                           |         |   ✔️    |   ✔️    |
-| XSS                            |   ✔️    |   ✔️    |         |
-| CSRF                           |   ✔️    |   ✔️    |         |
-| Clickjacking                   |   ✔️    |   ✔️    |         |
-| CORS                           |   ✔️    |   ✔️    |         |
-| XXE                            |         |         |   ✔️    |
-| SSRF                           |         |         |   ✔️    |
-| HTTP Request Smuggling         |   ✔️    |   ✔️    |         |
-| Command Injection              |         |         |   ✔️    |
-| SSTI                           |         |         |   ✔️    |
-| Path Traversal                 |         |         |   ✔️    |
-| Broken Access Control          |   ✔️    |   ✔️    |         |
-| Authentication Vulnerabilities |   ✔️    |   ✔️    |         |
-| Web Cache Poisoning            |   ✔️    |   ✔️    |         |
-| Insecure Deserialization       |         |         |   ✔️    |
-| HTTP Host Header Attacks       |   ✔️    |   ✔️    |         |
-| OAuth Vulnerabilities          |   ✔️    |   ✔️    |         |
-| File Upload Vulnerabilities    |         |         |   ✔️    |
-| JWT Attacks                    |   ✔️    |   ✔️    |         |
+- SQLI: `Etapas 2 y 3`
+
+- XSS: `Etapas 1 y 2`
+
+- CSRF: `Etapas 1 y 2`
+
+- Clickjacking: `Etapas 1 y 2`
+
+- CORS: `Etapas 1 y 2`
+
+- XXE: `Etapa 3`
+
+- SSRF: `Etapa 3`
+
+- HTTP Request Smuggling: `Etapas 1 y 2`
+
+- Command Injection: `Etapa 3`
+
+- SSTI: `Etapa 3`
+
+- Path Traversal: `Etapa 3`
+
+- Broken Access Control: `Etapas 1 y 2`
+
+- Authentication Vulnerabilities: `Etapas 1 y 2`
+
+- Web Cache Poisoning: `Etapas 1 y 2`
+
+- Insecure Deserialization: `Etapa 3`
+
+- HTTP Host Header Attacks: `Etapas 1 y 2`
+
+- OAuth Vulnerabilities: `Etapas 1 y 2`
+
+- File Upload Vulnerabilities: `Etapa 3`
+
+- JWT Attacks: `Etapas 1 y 2`
 
 ### Adicionales
 
 `Vulnerabilidades que puede ser que aparezcan en un futuro en el examen`
 
-| Vulnerability | Stage 1 | Stage 2 | Stage 3 |
-|---|:---:|:---:|:---:|
-| Information Disclosure | ✔️ | ✔️ |  |
-| Business Logic Vulnerabilities | ✔️ | ✔️ |  |
-| Api Testing | ✔️ | ✔️ |  |
-| GraphQL Api Vulnerabilities | ✔️ | ✔️ |  |
-| NoSQLI | ✔️ | ✔️ |  |
-| Prototype Pollution |  | ✔️ | ✔️ |
-| Race Conditions | ✔️ | ✔️ |  |
-| Web Cache Deception | ✔️ | ✔️ |  |
-| WebSocket Attacks | ✔️ | ✔️ |  |
-| Web LLM Attacks | ✔️ | ✔️ | ✔️ |
+- Information Disclosure: `Etapas 1 y 2`
+
+- Business Logic Vulnerabilities: `Etapas 1 y 2`
+
+- Api Testing: `Etapas 1 y 2`
+
+- GraphQL Api Vulnerabilities: `Etapas 1 y 2`
+
+- NoSQLI: `Etapas 1 y 2`
+
+- Prototype Pollution: `Etapas 2 y 3`
+
+- Race Conditions: `Etapas 1 y 2`
+
+- Web Cache Deception: `Etapas 1 y 2`
+
+- WebSocket Attacks: `Etapas 1 y 2`
+
+- Web LLM Attacks: `Etapas 1, 2 y 3`
 
 ### Vulnerabilidades por etapa en el examen
 
@@ -183,89 +206,147 @@ En esta `imagen` podemos `ver las vulnerabilidades que hay por fase en el examen
 
 ### Experiencias con la certificación
 
-- [BSCP и с чем его едят?](https://habr.com/ru/articles/902466/) — Artículo en ruso sobre la experiencia con la certificación BSCP
+- BSCP и с чем его едят? [https://habr.com/ru/articles/902466/](https://habr.com/ru/articles/902466/)
 
-- [BSCP в 2025](https://habr.com/ru/articles/873672/) — Artículo en ruso sobre la preparación y la experiencia con el BSCP
+  Artículo en ruso sobre la experiencia con la certificación BSCP
+
+- BSCP в 2025 [https://habr.com/ru/articles/873672/](https://habr.com/ru/articles/873672/)
+
+  Artículo en ruso sobre la preparación y la experiencia con el BSCP
 
 ### Cheatsheets y diccionarios
 
-- [XSS Cheat Sheet de PortSwigger](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet) — Referencia para preparar pruebas de XSS y consultar etiquetas y atributos
+- XSS Cheat Sheet de PortSwigger [https://portswigger.net/web-security/cross-site-scripting/cheat-sheet](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet)
 
-- [SQL Injection Cheat Sheet de PortSwigger](https://portswigger.net/web-security/sql-injection/cheat-sheet) — Sintaxis de referencia para adaptar las pruebas al motor de base de datos
+  Referencia para preparar pruebas de XSS y consultar etiquetas y atributos
 
-- [Template Injection Table](https://cheatsheet.hackmanit.de/template-injection-table) — Tabla de consulta para pruebas de SSTI
+- SQL Injection Cheat Sheet de PortSwigger [https://portswigger.net/web-security/sql-injection/cheat-sheet](https://portswigger.net/web-security/sql-injection/cheat-sheet)
 
-- [Funciones PHP peligrosas](https://gist.github.com/mccabe615/b0907514d34b2de088c4996933ea1720) — Referencia de funciones que conviene revisar al analizar código PHP
+  Sintaxis de referencia para adaptar las pruebas al motor de base de datos
 
-- [Diccionarios de loxs](https://github.com/coffinxp/loxs/tree/main/payloads) — Payloads de referencia para XSS, LFI y otras pruebas
+- Template Injection Table [https://cheatsheet.hackmanit.de/template-injection-table](https://cheatsheet.hackmanit.de/template-injection-table)
 
-- [Laboratorios de SQLI resueltos](https://justice-reaper.github.io/categories/sqli/) — Explicaciones y scripts de Python que podemos adaptar a los laboratorios
+  Tabla de consulta para pruebas de SSTI
+
+- Funciones PHP peligrosas [https://gist.github.com/mccabe615/b0907514d34b2de088c4996933ea1720](https://gist.github.com/mccabe615/b0907514d34b2de088c4996933ea1720)
+
+  Referencia de funciones que conviene revisar al analizar código PHP
+
+- Diccionarios de loxs [https://github.com/coffinxp/loxs/tree/main/payloads](https://github.com/coffinxp/loxs/tree/main/payloads)
+
+  Payloads de referencia para XSS, LFI y otras pruebas
+
+- Laboratorios de SQLI resueltos [https://justice-reaper.github.io/categories/sqli/](https://justice-reaper.github.io/categories/sqli/)
+
+  Explicaciones y scripts de Python que podemos adaptar a los laboratorios
 
 ## Herramientas
 
-Conviene `preparar y probar las herramientas antes del examen` y `habilitar las extensiones de Burp Suite necesarias en cada fase`. Esta selección complementa el post de [Hacking Tools](https://justice-reaper.github.io/posts/Hacking-Tools/)
+Conviene `preparar y probar las herramientas antes del examen` y `habilitar las extensiones de Burp Suite necesarias en cada fase`. Esta selección complementa el post de Hacking Tools [https://justice-reaper.github.io/posts/Hacking-Tools/](https://justice-reaper.github.io/posts/Hacking-Tools/)
 
 ### Herramientas de escaneo e inyecciones
 
-| Herramienta | Utilidad |
-| --- | --- |
-| Burp Suite Professional | Escanear páginas e insertion points seleccionados y analizar las peticiones y respuestas |
-| [Collaborator Everywhere](https://github.com/PortSwigger/collaborator-everywhere-v2) | Incorporar pruebas con Collaborator para detectar interacciones fuera de banda |
-| [Backslash Powered Scanner](https://github.com/PortSwigger/backslash-powered-scanner) | Buscar posibles puntos de inyección |
-| [Error Message Checks](https://github.com/PortSwigger/error-message-checks) | Detectar de forma pasiva mensajes de error del servidor |
-| [Active Scan ++](https://github.com/PortSwigger/active-scan-plus-plus) | Ampliar las comprobaciones del escáner activo de Burp Suite |
-| [Command Injection Attacker](https://github.com/PortSwigger/command-injection-attacker) | Generar payloads para pruebas de inyección de comandos |
-| [Agartha](https://github.com/PortSwigger/agartha) | Generar payloads para RCE, LFI y SQLI y apoyar las pruebas de control de acceso |
+- Burp Suite Professional
+
+  Escanear páginas e insertion points seleccionados y analizar las peticiones y respuestas
+
+- Collaborator Everywhere [https://github.com/PortSwigger/collaborator-everywhere-v2](https://github.com/PortSwigger/collaborator-everywhere-v2)
+
+  Incorporar pruebas con Collaborator para detectar interacciones fuera de banda
+
+- Backslash Powered Scanner [https://github.com/PortSwigger/backslash-powered-scanner](https://github.com/PortSwigger/backslash-powered-scanner)
+
+  Buscar posibles puntos de inyección
+
+- Error Message Checks [https://github.com/PortSwigger/error-message-checks](https://github.com/PortSwigger/error-message-checks)
+
+  Detectar de forma pasiva mensajes de error del servidor
+
+- Active Scan ++ [https://github.com/PortSwigger/active-scan-plus-plus](https://github.com/PortSwigger/active-scan-plus-plus)
+
+  Ampliar las comprobaciones del escáner activo de Burp Suite
+
+- Command Injection Attacker [https://github.com/PortSwigger/command-injection-attacker](https://github.com/PortSwigger/command-injection-attacker)
+
+  Generar payloads para pruebas de inyección de comandos
+
+- Agartha [https://github.com/PortSwigger/agartha](https://github.com/PortSwigger/agartha)
+
+  Generar payloads para RCE, LFI y SQLI y apoyar las pruebas de control de acceso
 
 `Agartha queda pendiente de probar en nuestro entorno`. Si no funciona como esperamos, podemos recurrir al `escáner de Burp Suite`
 
 ### Herramientas de SQLI
 
-| Herramienta | Utilidad |
-| --- | --- |
-| [sqlmap](https://github.com/sqlmapproject/sqlmap) | Automatizar pruebas de SQLI y la extracción de datos |
-| Ghauri | Alternativa para las pruebas de SQLI; más abajo se incluye un ejemplo de uso |
+- sqlmap [https://github.com/sqlmapproject/sqlmap](https://github.com/sqlmapproject/sqlmap)
+
+  Automatizar pruebas de SQLI y la extracción de datos
+
+- Ghauri
+
+  Alternativa para las pruebas de SQLI; más abajo se incluye un ejemplo de uso
 
 ### Herramientas de HTTP, cabeceras y caché
 
-| Herramienta | Utilidad |
-| --- | --- |
-| [HTTP Request Smuggler](https://github.com/PortSwigger/http-request-smuggler) | Apoyar las pruebas de HTTP Request Smuggling |
-| [Host Header Inchecktion](https://github.com/PortSwigger/host-header-inchecktion) | Buscar vulnerabilidades relacionadas con la cabecera Host |
-| [CORS* - Additional CORS Checks](https://github.com/PortSwigger/additional-cors-checks) | Añadir comprobaciones de CORS |
-| [Content Type Converter](https://github.com/PortSwigger/content-type-converter) | Convertir el formato del cuerpo de las peticiones y su Content-Type |
-| [Diff Hunter](https://github.com/Justice-Reaper/Diff-Hunter) | Comparar peticiones y respuestas HTTP para identificar diferencias durante las pruebas |
+- HTTP Request Smuggler [https://github.com/PortSwigger/http-request-smuggler](https://github.com/PortSwigger/http-request-smuggler)
+
+  Apoyar las pruebas de HTTP Request Smuggling
+
+- Host Header Inchecktion [https://github.com/PortSwigger/host-header-inchecktion](https://github.com/PortSwigger/host-header-inchecktion)
+
+  Buscar vulnerabilidades relacionadas con la cabecera Host
+
+- CORS* - Additional CORS Checks [https://github.com/PortSwigger/additional-cors-checks](https://github.com/PortSwigger/additional-cors-checks)
+
+  Añadir comprobaciones de CORS
+
+- Content Type Converter [https://github.com/PortSwigger/content-type-converter](https://github.com/PortSwigger/content-type-converter)
+
+  Convertir el formato del cuerpo de las peticiones y su Content-Type
+
+- Diff Hunter [https://github.com/Justice-Reaper/Diff-Hunter](https://github.com/Justice-Reaper/Diff-Hunter)
+
+  Comparar peticiones y respuestas HTTP para identificar diferencias durante las pruebas
 
 ### Herramientas de JWT
 
-| Herramienta | Utilidad |
-| --- | --- |
-| [JWT Editor](https://github.com/PortSwigger/jwt-editor) | Crear y editar JWT, trabajar con firmas y cifrado y preparar pruebas sobre los tokens |
-| [JWT Scanner](https://github.com/PortSwigger/jwt-scanner) | Apoyar las comprobaciones de vulnerabilidades en JWT |
+- JWT Editor [https://github.com/PortSwigger/jwt-editor](https://github.com/PortSwigger/jwt-editor)
+
+  Crear y editar JWT, trabajar con firmas y cifrado y preparar pruebas sobre los tokens
+
+- JWT Scanner [https://github.com/PortSwigger/jwt-scanner](https://github.com/PortSwigger/jwt-scanner)
+
+  Apoyar las comprobaciones de vulnerabilidades en JWT
 
 ### Herramientas de deserialización insegura
 
-| Herramienta | Utilidad |
-| --- | --- |
-| [ysoserial](https://github.com/frohoff/ysoserial) | Generar payloads para deserialización insegura de objetos Java |
-| [PHPGGC](https://github.com/ambionics/phpggc) | Consultar cadenas de gadgets y generar payloads de deserialización PHP |
+- ysoserial [https://github.com/frohoff/ysoserial](https://github.com/frohoff/ysoserial)
+
+  Generar payloads para deserialización insegura de objetos Java
+
+- PHPGGC [https://github.com/ambionics/phpggc](https://github.com/ambionics/phpggc)
+
+  Consultar cadenas de gadgets y generar payloads de deserialización PHP
 
 ### Herramientas de subida de archivos
 
-| Herramienta | Utilidad |
-| --- | --- |
-| [Upload-Bypass de Justice-Reaper](https://github.com/Justice-Reaper/Upload-Bypass) | Generar diccionarios de nombres de archivo para probar restricciones de subida y disponer de webshells por lenguaje y archivos de ejemplo |
-| [Upload_Bypass de sAjibuu](https://github.com/sAjibuu/Upload_Bypass) | Probar técnicas para eludir restricciones en formularios de subida de archivos |
+- Upload-Bypass de Justice-Reaper [https://github.com/Justice-Reaper/Upload-Bypass](https://github.com/Justice-Reaper/Upload-Bypass)
+
+  Generar diccionarios de nombres de archivo para probar restricciones de subida y disponer de webshells por lenguaje y archivos de ejemplo
+
+- Upload_Bypass de sAjibuu [https://github.com/sAjibuu/Upload_Bypass](https://github.com/sAjibuu/Upload_Bypass)
+
+  Probar técnicas para eludir restricciones en formularios de subida de archivos
 
 ## Recomendaciones
 
 ### Preparación y repaso de laboratorios
 
-Si nos vamos a presentar al `BSCP`, tenemos que `conocer bien la estructura` de los repositorios de [botesjuan](https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study) y [DingyShark](https://github.com/DingyShark/BurpSuiteCertifiedPractitioner)
+Si nos vamos a presentar al `BSCP`, tenemos que `conocer bien la estructura` de los repositorios de botesjuan [https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study](https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study) y DingyShark [https://github.com/DingyShark/BurpSuiteCertifiedPractitioner](https://github.com/DingyShark/BurpSuiteCertifiedPractitioner)
 
-Tenemos que `completar todos los laboratorios`, porque `pueden aparecer en el examen las mismas vulnerabilidades` o `pequeñas variaciones`. Para orientarnos sobre las vulnerabilidades de cada fase, podemos consultar las tablas y la imagen de la sección `Vulnerabilidades`. Son una `referencia de los apuntes`, no una distribución que debamos dar por segura en cada aplicación
+Tenemos que `completar todos los laboratorios`, porque `pueden aparecer en el examen las mismas vulnerabilidades` o `pequeñas variaciones`. Para orientarnos sobre las vulnerabilidades de cada fase, podemos consultar las listas y la imagen de la sección `Vulnerabilidades`. Son una `referencia de los apuntes`, no una distribución que debamos dar por segura en cada aplicación
 
-`Es recomendable tener los laboratorios hechos y subidos a una web o un blog para poder repasarlos`. También podemos consultar los laboratorios resueltos y explicados en [inglés por siunam321](https://siunam321.github.io/) y en [español por Justice-Reaper](https://justice-reaper.github.io)
+`Es recomendable tener los laboratorios hechos y subidos a una web o un blog para poder repasarlos`. También podemos consultar los laboratorios resueltos y explicados en inglés por siunam321 [https://siunam321.github.io/](https://siunam321.github.io/) y en español por Justice-Reaper [https://justice-reaper.github.io](https://justice-reaper.github.io)
 
 ### Búsqueda de información y apoyo de IA
 
@@ -305,13 +386,13 @@ Tenemos que `evitar` que el `tráfico de snoopervisor.net` pase por `Burp Suite`
 
 ### XSS
 
-Conviene `crear un diccionario propio con los payloads utilizados en los laboratorios` y usar los [payloads de loxs](https://github.com/coffinxp/loxs/tree/main/payloads) como referencia para las `pruebas manuales`. Tenemos que `adaptar cada payload al contexto de inyección`
+Conviene `crear un diccionario propio con los payloads utilizados en los laboratorios` y usar los payloads de loxs [https://github.com/coffinxp/loxs/tree/main/payloads](https://github.com/coffinxp/loxs/tree/main/payloads) como referencia para las `pruebas manuales`. Tenemos que `adaptar cada payload al contexto de inyección`
 
 También conviene preparar, en los laboratorios, `varias variantes de payloads de exfiltración de cookies de sesión`, ya que un `WAF puede bloquear determinados caracteres`. Así podemos escoger una base que encaje con el contexto y adaptar su codificación
 
 Podemos `guardar esas variantes en una lista` y usar `Claude u otra IA durante la preparación` para ayudarnos a adaptarlas a los caracteres permitidos, comprobando después su funcionamiento en el laboratorio
 
-La [XSS Cheat Sheet de PortSwigger](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet) nos sirve para seleccionar las `etiquetas y los atributos` que queremos probar. Podemos usar estas plantillas y `sustituir FUZZ por cada candidato`
+La XSS Cheat Sheet de PortSwigger [https://portswigger.net/web-security/cross-site-scripting/cheat-sheet](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet) nos sirve para seleccionar las `etiquetas y los atributos` que queremos probar. Podemos usar estas plantillas y `sustituir FUZZ por cada candidato`
 
 Para probar `etiquetas`, sustituimos las dos apariciones de `FUZZ` por la misma etiqueta:
 
@@ -354,7 +435,7 @@ sqlmap -u 'https://LAB-ID.web-security-academy.net/filtered_search?find=test&org
     -D public -T users --columns --dump
 ```
 
-Si las herramientas no funcionan, podemos pasar a `pruebas manuales` con la [SQL Injection Cheat Sheet de PortSwigger](https://portswigger.net/web-security/sql-injection/cheat-sheet) y adaptar los [scripts de Python de los laboratorios de SQLI](https://justice-reaper.github.io/categories/sqli/). Durante la preparación, también podemos pedir ayuda a la IA para `adaptar la sintaxis del payload al motor y al contexto de la inyección`
+Si las herramientas no funcionan, podemos pasar a `pruebas manuales` con la SQL Injection Cheat Sheet de PortSwigger [https://portswigger.net/web-security/sql-injection/cheat-sheet](https://portswigger.net/web-security/sql-injection/cheat-sheet) y adaptar los scripts de Python de los laboratorios de SQLI [https://justice-reaper.github.io/categories/sqli/](https://justice-reaper.github.io/categories/sqli/). Durante la preparación, también podemos pedir ayuda a la IA para `adaptar la sintaxis del payload al motor y al contexto de la inyección`
 
 ### Deserialización insegura
 
@@ -374,17 +455,17 @@ El comando generado intenta `enviar el contenido de /home/carlos/secret a Collab
 
 ### Web Cache Poisoning
 
-Si nos atascamos en las pruebas de `Web Cache Poisoning`, podemos usar [Diff Hunter](https://github.com/Justice-Reaper/Diff-Hunter) para `comparar peticiones y respuestas` e investigar diferencias que hayan pasado desapercibidas al trabajar con `Param Miner`
+Si nos atascamos en las pruebas de `Web Cache Poisoning`, podemos usar Diff Hunter [https://github.com/Justice-Reaper/Diff-Hunter](https://github.com/Justice-Reaper/Diff-Hunter) para `comparar peticiones y respuestas` e investigar diferencias que hayan pasado desapercibidas al trabajar con `Param Miner`
 
 ### File Upload
 
-Para probar restricciones de subida, podemos usar [Upload_Bypass de sAjibuu](https://github.com/sAjibuu/Upload_Bypass). Si necesitamos `variaciones de nombres de archivo y diccionarios de bypass`, podemos prepararlos con [Upload-Bypass de Justice-Reaper](https://github.com/Justice-Reaper/Upload-Bypass)
+Para probar restricciones de subida, podemos usar Upload_Bypass de sAjibuu [https://github.com/sAjibuu/Upload_Bypass](https://github.com/sAjibuu/Upload_Bypass). Si necesitamos `variaciones de nombres de archivo y diccionarios de bypass`, podemos prepararlos con Upload-Bypass de Justice-Reaper [https://github.com/Justice-Reaper/Upload-Bypass](https://github.com/Justice-Reaper/Upload-Bypass)
 
 Tenemos que `adaptar cada prueba a la restricción observada` y comprobar cómo procesa el servidor el `nombre, la extensión, el Content-Type y el contenido del archivo`
 
 ### LFI y Path Traversal
 
-Para pruebas como `LFI`, podemos consultar los [diccionarios de loxs](https://github.com/coffinxp/loxs/tree/main/payloads), pero conviene `evitar lanzar payloads de forma indiscriminada`. Primero usamos el `escáner de Burp Suite sobre puntos seleccionados` y después probamos las `variaciones y codificaciones` que encajen con el filtro observado
+Para pruebas como `LFI`, podemos consultar los diccionarios de loxs [https://github.com/coffinxp/loxs/tree/main/payloads](https://github.com/coffinxp/loxs/tree/main/payloads), pero conviene `evitar lanzar payloads de forma indiscriminada`. Primero usamos el `escáner de Burp Suite sobre puntos seleccionados` y después probamos las `variaciones y codificaciones` que encajen con el filtro observado
 
 Si el WAF bloquea una palabra o un carácter, podemos probar `URL encoding o doble URL encoding`, aplicándolo únicamente a la parte del payload que dé problemas
 
@@ -394,11 +475,11 @@ Es recomendable `preparar las peticiones de los laboratorios y sus variaciones`.
 
 ### SSTI
 
-Para las pruebas de `SSTI`, podemos consultar la [Template Injection Table](https://cheatsheet.hackmanit.de/template-injection-table)
+Para las pruebas de `SSTI`, podemos consultar la Template Injection Table [https://cheatsheet.hackmanit.de/template-injection-table](https://cheatsheet.hackmanit.de/template-injection-table)
 
 ### Revisión de código PHP
 
-Si tenemos código `PHP` disponible, la lista de [funciones PHP peligrosas](https://gist.github.com/mccabe615/b0907514d34b2de088c4996933ea1720) nos sirve como apoyo para revisar operaciones relevantes
+Si tenemos código `PHP` disponible, la lista de funciones PHP peligrosas [https://gist.github.com/mccabe615/b0907514d34b2de088c4996933ea1720](https://gist.github.com/mccabe615/b0907514d34b2de088c4996933ea1720) nos sirve como apoyo para revisar operaciones relevantes
 
 ## Resolución de problemas
 
