@@ -216,7 +216,7 @@ Antes de `utilizar` la `IA` para `encodear caracteres`, vamos a probar estas cos
 
 - `URL-encodeamos` los `caracteres especiales` como `.` y `/` dos veces, primero el `.` o `/` y luego el `%`. Si no funciona, `probamos a URL-encodear solamente una vez`
 
-- En un `XML`, por ejemplo, el `&` tenemos que `HTML-encodearlo`
+- En un `XML`, por ejemplo, el `&` tenemos que `XML-encodearlo`
 
 - En un `LFI` puede que tengamos que `URL-encodear` una `palabra` o `parte de ella`
 
