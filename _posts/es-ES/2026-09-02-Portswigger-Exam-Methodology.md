@@ -207,61 +207,59 @@ Conviene `preparar y probar las herramientas antes del examen` y `habilitar las 
 
 ### Herramientas de escaneo e inyecciones
 
-- Burp Suite Professional
+- Collaborator Everywhere [https://github.com/PortSwigger/collaborator-everywhere-v2.git](https://github.com/PortSwigger/collaborator-everywhere-v2.git)
 
-- Collaborator Everywhere [https://github.com/PortSwigger/collaborator-everywhere-v2](https://github.com/PortSwigger/collaborator-everywhere-v2)
+- Backslash Powered Scanner [https://github.com/PortSwigger/backslash-powered-scanner.git](https://github.com/PortSwigger/backslash-powered-scanner.git)
 
-- Backslash Powered Scanner [https://github.com/PortSwigger/backslash-powered-scanner](https://github.com/PortSwigger/backslash-powered-scanner)
+- Error Message Checks [https://github.com/PortSwigger/error-message-checks.git](https://github.com/PortSwigger/error-message-checks.git)
 
-- Error Message Checks [https://github.com/PortSwigger/error-message-checks](https://github.com/PortSwigger/error-message-checks)
+- Active Scan ++ [https://github.com/PortSwigger/active-scan-plus-plus.git](https://github.com/PortSwigger/active-scan-plus-plus.git)
 
-- Active Scan ++ [https://github.com/PortSwigger/active-scan-plus-plus](https://github.com/PortSwigger/active-scan-plus-plus)
+- Command Injection Attacker [https://github.com/PortSwigger/command-injection-attacker.git](https://github.com/PortSwigger/command-injection-attacker.git)
 
-- Command Injection Attacker [https://github.com/PortSwigger/command-injection-attacker](https://github.com/PortSwigger/command-injection-attacker)
-
-- Agartha [https://github.com/PortSwigger/agartha](https://github.com/PortSwigger/agartha)
+- Agartha [https://github.com/PortSwigger/agartha.git](https://github.com/PortSwigger/agartha.git)
 
 ### Herramientas de SQLI
 
-- sqlmap [https://github.com/sqlmapproject/sqlmap](https://github.com/sqlmapproject/sqlmap)
+- sqlmap [https://github.com/sqlmapproject/sqlmap.git](https://github.com/sqlmapproject/sqlmap.git)
 
-- Ghauri
+- Ghauri [https://github.com/r0oth3x49/ghauri.git](https://github.com/r0oth3x49/ghauri.git)
 
 ### Herramientas de HTTP, cabeceras y caché
 
-- HTTP Request Smuggler [https://github.com/PortSwigger/http-request-smuggler](https://github.com/PortSwigger/http-request-smuggler)
+- HTTP Request Smuggler [https://github.com/PortSwigger/http-request-smuggler.git](https://github.com/PortSwigger/http-request-smuggler.git)
 
-- Host Header Inchecktion [https://github.com/PortSwigger/host-header-inchecktion](https://github.com/PortSwigger/host-header-inchecktion)
+- Host Header Inchecktion [https://github.com/PortSwigger/host-header-inchecktion.git](https://github.com/PortSwigger/host-header-inchecktion.git)
 
-- CORS* - Additional CORS Checks [https://github.com/PortSwigger/additional-cors-checks](https://github.com/PortSwigger/additional-cors-checks)
+- CORS* - Additional CORS Checks [https://github.com/PortSwigger/additional-cors-checks.git](https://github.com/PortSwigger/additional-cors-checks.git)
 
-- Content Type Converter [https://github.com/PortSwigger/content-type-converter](https://github.com/PortSwigger/content-type-converter)
+- Content Type Converter [https://github.com/PortSwigger/content-type-converter.git](https://github.com/PortSwigger/content-type-converter.git)
 
-- Diff Hunter [https://github.com/Justice-Reaper/Diff-Hunter](https://github.com/Justice-Reaper/Diff-Hunter)
+- Diff Hunter [https://github.com/Justice-Reaper/Diff-Hunter.git](https://github.com/Justice-Reaper/Diff-Hunter.git)
 
 ### Herramientas de JWT
 
-- JWT Editor [https://github.com/PortSwigger/jwt-editor](https://github.com/PortSwigger/jwt-editor)
+- JWT Editor [https://github.com/PortSwigger/jwt-editor.git](https://github.com/PortSwigger/jwt-editor.git)
 
-- JWT Scanner [https://github.com/PortSwigger/jwt-scanner](https://github.com/PortSwigger/jwt-scanner)
+- JWT Scanner [https://github.com/PortSwigger/jwt-scanner.git](https://github.com/PortSwigger/jwt-scanner.git)
 
 ### Herramientas de deserialización insegura
 
-- ysoserial [https://github.com/frohoff/ysoserial](https://github.com/frohoff/ysoserial)
+- ysoserial [https://github.com/frohoff/ysoserial.git](https://github.com/frohoff/ysoserial.git)
 
-- PHPGGC [https://github.com/ambionics/phpggc](https://github.com/ambionics/phpggc)
+- PHPGGC [https://github.com/ambionics/phpggc.git](https://github.com/ambionics/phpggc.git)
 
 ### Herramientas de subida de archivos
 
-- Upload-Bypass de Justice-Reaper [https://github.com/Justice-Reaper/Upload-Bypass](https://github.com/Justice-Reaper/Upload-Bypass)
+- Upload-Bypass de Justice-Reaper [https://github.com/Justice-Reaper/Upload-Bypass.git](https://github.com/Justice-Reaper/Upload-Bypass.git)
 
-- Upload_Bypass de sAjibuu [https://github.com/sAjibuu/Upload_Bypass](https://github.com/sAjibuu/Upload_Bypass)
+- Upload_Bypass de sAjibuu [https://github.com/sAjibuu/Upload_Bypass.git](https://github.com/sAjibuu/Upload_Bypass.git)
 
 ## Recomendaciones
 
 ### Preparación y repaso de laboratorios
 
-Si nos vamos a presentar al `BSCP`, tenemos que `conocer bien la estructura` de los repositorios de botesjuan [https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study](https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study) y DingyShark [https://github.com/DingyShark/BurpSuiteCertifiedPractitioner](https://github.com/DingyShark/BurpSuiteCertifiedPractitioner)
+Si nos vamos a presentar al `BSCP`, tenemos que `conocer bien la estructura` de los repositorios de botesjuan [https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study.git](https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study.git) y DingyShark [https://github.com/DingyShark/BurpSuiteCertifiedPractitioner.git](https://github.com/DingyShark/BurpSuiteCertifiedPractitioner.git)
 
 Tenemos que `completar todos los laboratorios dos veces`, porque `pueden aparecer en el examen las mismas vulnerabilidades` o `pequeñas variaciones`:
 
@@ -380,11 +378,11 @@ El comando generado intenta `enviar el contenido de /home/carlos/secret a Collab
 
 ### Web Cache Poisoning
 
-Si nos atascamos en las pruebas de `Web Cache Poisoning`, podemos usar Diff Hunter [https://github.com/Justice-Reaper/Diff-Hunter](https://github.com/Justice-Reaper/Diff-Hunter) para `comparar peticiones y respuestas` e investigar diferencias que hayan pasado desapercibidas al trabajar con `Param Miner`
+Si nos atascamos en las pruebas de `Web Cache Poisoning`, podemos usar Diff Hunter [https://github.com/Justice-Reaper/Diff-Hunter.git](https://github.com/Justice-Reaper/Diff-Hunter.git) para `comparar peticiones y respuestas` e investigar diferencias que hayan pasado desapercibidas al trabajar con `Param Miner`
 
 ### File Upload
 
-Para probar restricciones de subida, podemos usar Upload_Bypass de sAjibuu [https://github.com/sAjibuu/Upload_Bypass](https://github.com/sAjibuu/Upload_Bypass). Si necesitamos `variaciones de nombres de archivo y diccionarios de bypass`, podemos prepararlos con Upload-Bypass de Justice-Reaper [https://github.com/Justice-Reaper/Upload-Bypass](https://github.com/Justice-Reaper/Upload-Bypass)
+Para probar restricciones de subida, podemos usar Upload_Bypass de sAjibuu [https://github.com/sAjibuu/Upload_Bypass.git](https://github.com/sAjibuu/Upload_Bypass.git). Si necesitamos `variaciones de nombres de archivo y diccionarios de bypass`, podemos prepararlos con Upload-Bypass de Justice-Reaper [https://github.com/Justice-Reaper/Upload-Bypass.git](https://github.com/Justice-Reaper/Upload-Bypass.git)
 
 Tenemos que `adaptar cada prueba a la restricción observada` y comprobar cómo procesa el servidor el `nombre, la extensión, el Content-Type y el contenido del archivo`
 
