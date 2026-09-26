@@ -252,6 +252,8 @@ RansomLook [https://www.ransomlook.io/](https://www.ransomlook.io/)
 
 ## OSINT
 
+GHunt [https://github.com/mxrch/GHunt.git](https://github.com/mxrch/GHunt.git)
+
 Fingerprint [https://fingerprint.to/](https://fingerprint.to/)
 
 SpiderFoot [https://github.com/smicallef/spiderfoot.git](https://github.com/smicallef/spiderfoot.git)
