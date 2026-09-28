@@ -460,6 +460,8 @@ Wappalyzer [https://chromewebstore.google.com/detail/wappalyzer-technology-pro/g
 
 ### WAF
 
+Waftester [https://github.com/waftester/waftester.git](https://github.com/waftester/waftester.git)
+
 WhatWaf [https://github.com/Ekultek/WhatWaf.git](https://github.com/Ekultek/WhatWaf.git)
 
 Wafw00f [https://github.com/EnableSecurity/wafw00f.git](https://github.com/EnableSecurity/wafw00f.git)
