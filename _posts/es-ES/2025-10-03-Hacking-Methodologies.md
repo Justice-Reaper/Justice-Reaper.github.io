@@ -545,22 +545,28 @@ awk -v d="$d" 'index($0,d){ n++; sub(d, n"."d) } 1' payloads.txt | sponge payloa
 3. Hacer un `escaneo general` con `Burpsuite`. Como `tipo de escaneo` marcaremos `Crawl and audit` y como `configuración de escaneo` usaremos `Deep`
     
 4. `Escanearemos partes específicas de la petición` usando el `escáner de Burpsuite`. Para `escanear` los `insertion points` debemos seleccionar en `tipo de escaneo` la opción `Audit selected items`
-    
-5. Efectuamos un `ataque de fuerza bruta` utilizando los `payloads` de `Agartha` [https://github.com/PortSwigger/agartha.git](https://github.com/PortSwigger/agartha.git)
 
-6. Haremos otro `ataque de fuerza bruta` utilizando el `diccionario` que trae `Burpsuite` llamado `Fuzzing - path traversal (single file)`. En la parte de `payload processing` agregamos la regla `Match/replace`. Seguidamente, en el apartado `Match regex` debemos `escapar los caracteres especiales`, así que se quedaría tal que así `\{file\}`. Finalmente, en el apartado `Replace with` pondremos el `nombre del fichero` que queramos `fuzzear`
+5. `Con katana crawleamos la web` y `obtenemos las URL que sean de este estilo http://ejemplo.com/?image=image_1.png`
 
-7. Hacemos lo mismo con el `diccionario integrado de Burpsuite` llamado `Fuzzing - path traversal`. Deberemos hacer lo mismo que en el apartado anterior en la parte de `payload processing`, pero en este caso agregaremos `\{base\}` en el primer apartado
+```
+katana -u https://0ab7005203fcd9e4803a94dc00a200cd.web-security-academy.net -H "Cookie: session=NUESTRAS_COOKIES" -jc -jsl -fx -kf all -xhr -d 3 -silent -f qurl | sort -u > params.txt
+```
 
-8. Si aún seguimos sin encontrar nada, usaremos el `diccionario` de `Loxs` [https://github.com/coffinxp/loxs.git](https://github.com/coffinxp/loxs.git) para realizar un `ataque de fuerza bruta` con `Burpsuite`
+6. Efectuamos un `ataque de fuerza bruta` utilizando los `payloads` de `Agartha` [https://github.com/PortSwigger/agartha.git](https://github.com/PortSwigger/agartha.git)
 
-9. Si no hemos podido `explotar` el `path traversal` hasta ahora, puede ser porque `se han implementado medidas de seguridad adicionales`. Para intentar `bypassearlas` vamos a usar primeramente `LFISuite` [https://github.com/D35m0nd142/LFISuite.git](https://github.com/D35m0nd142/LFISuite.git), seguidamente `LFITester` [https://github.com/kostas-pa/LFITester.git](https://github.com/kostas-pa/LFITester.git) y por último, `Liffy` [https://github.com/mzfr/liffy.git](https://github.com/mzfr/liffy.git)
+7. Haremos otro `ataque de fuerza bruta` utilizando el `diccionario` que trae `Burpsuite` llamado `Fuzzing - path traversal (single file)`. En la parte de `payload processing` agregamos la regla `Match/replace`. Seguidamente, en el apartado `Match regex` debemos `escapar los caracteres especiales`, así que se quedaría tal que así `\{file\}`. Finalmente, en el apartado `Replace with` pondremos el `nombre del fichero` que queramos `fuzzear`
 
-10. Si no encontramos nada, `checkearemos` las `cheatsheets` de `PayloadsAllTheThings` [https://github.com/swisskyrepo/PayloadsAllTheThings.git](https://github.com/swisskyrepo/PayloadsAllTheThings.git) y `Hacktricks` [https://book.hacktricks.wiki/en/index.html](https://book.hacktricks.wiki/en/index.html) e iremos `testeando de forma manual`. Si vemos `payloads` o `diccionarios` para aplicar `fuerza bruta` debemos probarlos
+8. Hacemos lo mismo con el `diccionario integrado de Burpsuite` llamado `Fuzzing - path traversal`. Deberemos hacer lo mismo que en el apartado anterior en la parte de `payload processing`, pero en este caso agregaremos `\{base\}` en el primer apartado
 
-11. Una vez hayamos conseguido `explotar` el `path traversal`, podemos intentar `convertirlo` en un `RCE` usando `LFISuite`, `LFITester` o `Liffy`. Si no podemos, deberemos hacerlo `manualmente`
+9. Si aún seguimos sin encontrar nada, usaremos el `diccionario` de `Loxs` [https://github.com/coffinxp/loxs.git](https://github.com/coffinxp/loxs.git) para realizar un `ataque de fuerza bruta` con `Burpsuite`
 
-12. En el caso de que `no podamos convertir el path traversal en un RCE`, vamos a `listar información sensible` de la `máquina` usando `Panoptic` [https://github.com/lightos/Panoptic.git](https://github.com/lightos/Panoptic.git). En el caso en el que se nos complique usar la herramienta, podemos usar el `Intruder` de `Burpsuite` con el `diccionario` que usa `Panoptic` o con otros `diccionarios`
+10. Si no hemos podido `explotar` el `path traversal` hasta ahora, puede ser porque `se han implementado medidas de seguridad adicionales`. Para intentar `bypassearlas` vamos a usar primeramente `LFISuite` [https://github.com/D35m0nd142/LFISuite.git](https://github.com/D35m0nd142/LFISuite.git), seguidamente `LFITester` [https://github.com/kostas-pa/LFITester.git](https://github.com/kostas-pa/LFITester.git) y por último, `Liffy` [https://github.com/mzfr/liffy.git](https://github.com/mzfr/liffy.git)
+
+11. Si no encontramos nada, `checkearemos` las `cheatsheets` de `PayloadsAllTheThings` [https://github.com/swisskyrepo/PayloadsAllTheThings.git](https://github.com/swisskyrepo/PayloadsAllTheThings.git) y `Hacktricks` [https://book.hacktricks.wiki/en/index.html](https://book.hacktricks.wiki/en/index.html) e iremos `testeando de forma manual`. Si vemos `payloads` o `diccionarios` para aplicar `fuerza bruta` debemos probarlos
+
+12. Una vez hayamos conseguido `explotar` el `path traversal`, podemos intentar `convertirlo` en un `RCE` usando `LFISuite`, `LFITester` o `Liffy`. Si no podemos, deberemos hacerlo `manualmente`
+
+13. En el caso de que `no podamos convertir el path traversal en un RCE`, vamos a `listar información sensible` de la `máquina` usando `Panoptic` [https://github.com/lightos/Panoptic.git](https://github.com/lightos/Panoptic.git). En el caso en el que se nos complique usar la herramienta, podemos usar el `Intruder` de `Burpsuite` con el `diccionario` que usa `Panoptic` o con otros `diccionarios`
 
 ## Race conditions
 
