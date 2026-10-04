@@ -36,6 +36,8 @@ Para `resolver` el laboratorio, debemos encontrar la `documentación de la API` 
 
 Al `acceder` a la `web` nos sale esto
 
+![](/assets/img/API-Testing-Lab-1/file.svg)
+
 ![](/assets/img/API-Testing-Lab-1/image_1.png)
 
 Pulsamos sobre `My account` y nos `logueamos` utilizando las credenciales `wiener:peter`
