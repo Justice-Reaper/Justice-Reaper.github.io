@@ -534,6 +534,10 @@ GoNMF [https://github.com/akinerkisa/GoNMF.git](https://github.com/akinerkisa/Go
 
 ### CMS
 
+Plecost [https://github.com/Plecost/plecost.git](https://github.com/Plecost/plecost.git)
+
+WPProbe [https://github.com/Chocapikk/wpprobe.git](https://github.com/Chocapikk/wpprobe.git)
+
 WhatCMS [https://whatcms.org](https://whatcms.org)
 
 CMSmap [https://github.com/dionach/CMSmap.git](https://github.com/dionach/CMSmap.git)
